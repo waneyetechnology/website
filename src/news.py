@@ -35,7 +35,10 @@ def fetch_financial_headlines():
         "If a headline is not directly linked, do your best to infer the correct URL from the HTML. "
         "HTML content:\n" + "\n\n".join(html_blobs)
     )
-    client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+    api_key = os.environ.get("OPENAI_API_KEY")
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY environment variable is not set. Please set it in your environment or repository secrets.")
+    client = openai.OpenAI(api_key=api_key)
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}],
