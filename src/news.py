@@ -16,40 +16,35 @@ def fetch_financial_headlines():
         "https://www.cnbc.com/world/?region=world"
     ]
     all_headlines = []
-    api_key = os.environ.get("OPENAI_API_KEY")
-    if not api_key:
-        raise RuntimeError("OPENAI_API_KEY environment variable is not set. Please set it in your environment or repository secrets.")
-    client = openai.OpenAI(api_key=api_key)
-    import json
     for url in sites:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             page = browser.new_page()
             try:
                 page.goto(url, timeout=20000)
-                html = page.content()
-                # Only send a small portion of the HTML to the LLM
-                html_snippet = html[:5000]
-                prompt = (
-                    f"You are a financial news assistant. Given the following HTML content from a financial news website, "
-                    f"extract the top 2 most important financial or economics-related headlines. "
-                    f"For each, return a JSON list of objects with 'headline' and 'url' fields. "
-                    f"If a headline is not directly linked, do your best to infer the correct URL from the HTML. "
-                    f"HTML content from {url}:\n" + html_snippet
-                )
-                response = client.chat.completions.create(
-                    model="gpt-3.5-turbo",
-                    messages=[{"role": "user", "content": prompt}],
-                    max_tokens=400,
-                    temperature=0.2
-                )
-                text = response.choices[0].message.content
-                start = text.find("[")
-                end = text.rfind("]") + 1
-                headlines = json.loads(text[start:end])
-                all_headlines.extend(headlines)
+                # Extract visible headlines and their URLs from the DOM
+                headlines = []
+                # Try h1, h2, h3, and prominent a tags
+                for selector in ["h1", "h2", "h3", "a[aria-label*='headline']", "a[data-analytics*='headline']", "a.headline", "a.card-title", "a.story-title", "a.title"]:
+                    for el in page.query_selector_all(selector):
+                        text = el.inner_text().strip()
+                        href = el.get_attribute("href")
+                        # Only consider non-empty, non-navigation headlines
+                        if text and len(text) > 25 and not text.lower().startswith("sign in"):
+                            # Make href absolute
+                            if href and not href.startswith("http"):
+                                href = url.rstrip("/") + "/" + href.lstrip("/")
+                            if href and href.startswith("http"):
+                                headlines.append({"headline": text, "url": href})
+                # Fallback: try just h1/h2/h3 if nothing found
+                if not headlines:
+                    for tag in ["h1", "h2", "h3"]:
+                        for el in page.query_selector_all(tag):
+                            text = el.inner_text().strip()
+                            if text and len(text) > 25:
+                                headlines.append({"headline": text, "url": url})
+                all_headlines.extend(headlines[:2])  # Take top 2 per site
             except Exception:
-                # fallback: add the site itself as a headline
                 all_headlines.append({"headline": url, "url": url})
             finally:
                 browser.close()
@@ -60,4 +55,32 @@ def fetch_financial_headlines():
         if item['headline'] not in seen:
             unique_headlines.append(item)
             seen.add(item['headline'])
+    # Optionally, use LLM to filter or rank the headlines
+    api_key = os.environ.get("OPENAI_API_KEY")
+    use_llm = api_key is not None and len(unique_headlines) > 5
+    if use_llm:
+        import openai
+        client = openai.OpenAI(api_key=api_key)
+        import json
+        # Prepare a prompt with the extracted headlines
+        prompt = (
+            "You are a financial news assistant. "
+            "Given the following list of financial/economics-related headlines (with URLs), "
+            "select and return the top 5 most important and up-to-date headlines as a JSON list of objects with 'headline' and 'url' fields. "
+            "Headlines list:\n" + json.dumps(unique_headlines, ensure_ascii=False)
+        )
+        try:
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=600,
+                temperature=0.2
+            )
+            text = response.choices[0].message.content
+            start = text.find("[")
+            end = text.rfind("]") + 1
+            headlines = json.loads(text[start:end])
+            return headlines[:5]
+        except Exception:
+            pass  # fallback to non-LLM headlines
     return unique_headlines[:5]
