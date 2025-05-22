@@ -2,8 +2,10 @@ name: Build and Test Waneye Financial Dashboard (PR)
 
 on:
   pull_request:
-    branches-ignore:
-      - master
+    branches:
+      - "*"
+    paths:
+      - '**.py'
 
 jobs:
   build-test:
