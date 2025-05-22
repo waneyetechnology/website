@@ -19,7 +19,9 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install dependencies
-        run: pip install requests
+        run: |
+          pip install -r requirements.txt
+          playwright install --with-deps
       - name: Generate static site
         run: python generate_site.py
       - name: Deploy to GitHub Pages
