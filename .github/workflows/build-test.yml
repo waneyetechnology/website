@@ -21,6 +21,8 @@ jobs:
         run: |
           pip install -r requirements.txt
           playwright install --with-deps
+      - name: Install Tesseract OCR
+        run: sudo apt-get update && sudo apt-get install -y tesseract-ocr
       - name: Build static site (no deploy)
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
