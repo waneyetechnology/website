@@ -35,25 +35,21 @@ def fetch_financial_headlines():
         "If a headline is not directly linked, do your best to infer the correct URL from the HTML. "
         "HTML content:\n" + "\n\n".join(html_blobs)
     )
-    openai.api_key = os.environ.get("OPENAI_API_KEY")
-    response = openai.ChatCompletion.create(
+    client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+    response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}],
         max_tokens=800,
         temperature=0.2
     )
     import json
-    # Try to extract JSON from the response
     try:
-        text = response["choices"][0]["message"]["content"]
-        # Find the first JSON array in the response
+        text = response.choices[0].message.content
         start = text.find("[")
         end = text.rfind("]") + 1
         headlines = json.loads(text[start:end])
-        # Ensure only top 5
         return headlines[:5]
-    except Exception as e:
-        # Fallback: return the list of popular news sites as headlines if anything fails
+    except Exception:
         return [
             {"headline": url, "url": url} for url in sites
         ]
