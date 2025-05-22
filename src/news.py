@@ -1,6 +1,9 @@
 import os
 import openai
 from playwright.sync_api import sync_playwright
+import pytesseract
+from PIL import Image
+from io import BytesIO
 
 def fetch_financial_headlines():
     """
@@ -22,16 +25,19 @@ def fetch_financial_headlines():
             page = browser.new_page()
             try:
                 page.goto(url, timeout=20000)
-                # Extract visible headlines and their URLs from the DOM
                 headlines = []
-                # Try h1, h2, h3, and prominent a tags
+                # Screenshot headline elements and run OCR
                 for selector in ["h1", "h2", "h3", "a[aria-label*='headline']", "a[data-analytics*='headline']", "a.headline", "a.card-title", "a.story-title", "a.title"]:
                     for el in page.query_selector_all(selector):
-                        text = el.inner_text().strip()
+                        # Screenshot the element
+                        try:
+                            img_bytes = el.screenshot(type="png")
+                            img = Image.open(BytesIO(img_bytes))
+                            text = pytesseract.image_to_string(img).strip()
+                        except Exception:
+                            text = el.inner_text().strip()
                         href = el.get_attribute("href")
-                        # Only consider non-empty, non-navigation headlines
                         if text and len(text) > 25 and not text.lower().startswith("sign in"):
-                            # Make href absolute
                             if href and not href.startswith("http"):
                                 href = url.rstrip("/") + "/" + href.lstrip("/")
                             if href and href.startswith("http"):
@@ -40,7 +46,12 @@ def fetch_financial_headlines():
                 if not headlines:
                     for tag in ["h1", "h2", "h3"]:
                         for el in page.query_selector_all(tag):
-                            text = el.inner_text().strip()
+                            try:
+                                img_bytes = el.screenshot(type="png")
+                                img = Image.open(BytesIO(img_bytes))
+                                text = pytesseract.image_to_string(img).strip()
+                            except Exception:
+                                text = el.inner_text().strip()
                             if text and len(text) > 25:
                                 headlines.append({"headline": text, "url": url})
                 all_headlines.extend(headlines[:2])  # Take top 2 per site
@@ -67,32 +78,5 @@ def fetch_financial_headlines():
         if item['headline'] not in seen:
             unique_headlines.append(item)
             seen.add(item['headline'])
-    # Optionally, use LLM to filter or rank the headlines
-    api_key = os.environ.get("OPENAI_API_KEY")
-    use_llm = api_key is not None and len(unique_headlines) > 5
-    if use_llm:
-        import openai
-        client = openai.OpenAI(api_key=api_key)
-        import json
-        # Prepare a prompt with the extracted headlines
-        prompt = (
-            "You are a financial news assistant. "
-            "Given the following list of financial/economics-related headlines (with URLs), "
-            "select and return the top 5 most important and up-to-date headlines as a JSON list of objects with 'headline' and 'url' fields. "
-            "Headlines list:\n" + json.dumps(unique_headlines, ensure_ascii=False)
-        )
-        try:
-            response = client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=[{"role": "user", "content": prompt}],
-                max_tokens=600,
-                temperature=0.2
-            )
-            text = response.choices[0].message.content
-            start = text.find("[")
-            end = text.rfind("]") + 1
-            headlines = json.loads(text[start:end])
-            return headlines[:5]
-        except Exception:
-            pass  # fallback to non-LLM headlines
+    # Do NOT use LLM for filtering or ranking for now
     return unique_headlines[:5]
