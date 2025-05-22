@@ -1,9 +1,6 @@
 import os
 import openai
 from playwright.sync_api import sync_playwright
-import pytesseract
-from PIL import Image
-from io import BytesIO
 
 def fetch_financial_headlines():
     """
