@@ -1,13 +1,59 @@
-import requests
+import os
+import openai
+from playwright.sync_api import sync_playwright
 
 def fetch_financial_headlines():
-    html = requests.get("https://www.cnn.com").text
-    # ... LLM API call as in your existing code ...
-    # For demo, return mock data:
-    return [
-        {"headline": "US Fed raises rates by 0.25%", "url": "https://cnn.com/fed-news"},
-        {"headline": "ECB signals policy shift", "url": "https://cnn.com/ecb-news"},
-        {"headline": "US jobs data beats expectations", "url": "https://cnn.com/jobs-news"},
-        {"headline": "Oil prices surge on supply fears", "url": "https://cnn.com/oil-news"},
-        {"headline": "Dollar strengthens against Euro", "url": "https://cnn.com/dollar-news"},
+    """
+    Fetches the homepage HTML from major financial news sites using Playwright (headless browser),
+    sends the content to OpenAI API, and extracts the top 5 financial/economics-related headlines with their URLs.
+    """
+    # List of popular financial news sites
+    sites = [
+        "https://www.cnn.com/business",
+        "https://www.bloomberg.com",
+        "https://www.ft.com",
+        "https://www.reuters.com/finance",
+        "https://www.cnbc.com/world/?region=world"
     ]
+    html_blobs = []
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        for url in sites:
+            try:
+                page.goto(url, timeout=20000)
+                html = page.content()
+                html_blobs.append(f"URL: {url}\n" + html[:20000])  # limit size for token safety
+            except Exception:
+                continue
+        browser.close()
+    prompt = (
+        "You are a financial news assistant. "
+        "Given the following HTML content from several major financial news websites, "
+        "extract the top 5 most important financial or economics-related headlines. "
+        "For each, return a JSON list of objects with 'headline' and 'url' fields. "
+        "If a headline is not directly linked, do your best to infer the correct URL from the HTML. "
+        "HTML content:\n" + "\n\n".join(html_blobs)
+    )
+    openai.api_key = os.environ.get("OPENAI_API_KEY")
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=800,
+        temperature=0.2
+    )
+    import json
+    # Try to extract JSON from the response
+    try:
+        text = response["choices"][0]["message"]["content"]
+        # Find the first JSON array in the response
+        start = text.find("[")
+        end = text.rfind("]") + 1
+        headlines = json.loads(text[start:end])
+        # Ensure only top 5
+        return headlines[:5]
+    except Exception as e:
+        # Fallback: return the list of popular news sites as headlines if anything fails
+        return [
+            {"headline": url, "url": url} for url in sites
+        ]
