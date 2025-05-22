@@ -2,7 +2,7 @@ name: Build and Deploy Waneye Financial Dashboard
 
 on:
   schedule:
-    - cron: '0 * * * *'  # every hour
+    - cron: '0 * * * *'  # every 6 hours
   workflow_dispatch:
   push:
     branches:
