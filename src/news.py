@@ -51,7 +51,19 @@ def fetch_financial_headlines():
     # Deduplicate by headline text, keep order
     seen = set()
     unique_headlines = []
+    # Filtering: ignore navigation/privacy/marketing and prefer financial keywords
+    ignore_keywords = [
+        "privacy", "opt-out", "explore", "event", "unusual activity", "sign in", "your computer network", "choices", "cookie", "advert", "subscribe", "newsletter", "sale of personal information"
+    ]
+    financial_keywords = [
+        "market", "stock", "inflation", "fed", "ecb", "economy", "gdp", "rate", "oil", "dollar", "bond", "cpi", "jobs", "unemployment", "central bank", "policy", "forex", "currency", "trade", "recession", "growth", "earnings", "nasdaq", "s&p", "dow", "euro", "yen", "gold", "crypto", "bitcoin", "ipo", "merger", "acquisition"
+    ]
     for item in all_headlines:
+        headline_lower = item['headline'].lower()
+        if any(kw in headline_lower for kw in ignore_keywords):
+            continue
+        if not any(kw in headline_lower for kw in financial_keywords):
+            continue
         if item['headline'] not in seen:
             unique_headlines.append(item)
             seen.add(item['headline'])
