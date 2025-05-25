@@ -5,59 +5,74 @@ import requests
 def fetch_newsapi_headlines():
     api_key = os.environ.get("NEWSAPI_API_KEY")
     url = "https://newsapi.org/v2/top-headlines?category=business&language=en&pageSize=10&apiKey=" + api_key
-    resp = requests.get(url)
     headlines = []
-    if resp.ok:
-        data = resp.json()
-        for article in data.get("articles", []):
-            headlines.append({"headline": article["title"], "url": article["url"]})
+    try:
+        resp = requests.get(url, timeout=10)
+        if resp.ok:
+            data = resp.json()
+            for article in data.get("articles", []):
+                headlines.append({"headline": article["title"], "url": article["url"]})
+    except Exception:
+        return []
     return headlines
 
 def fetch_fmp_headlines():
     api_key = os.environ.get("FMP_API_KEY")
     url = f"https://financialmodelingprep.com/api/v3/stock_news?limit=10&apikey={api_key}"
-    resp = requests.get(url)
     headlines = []
-    if resp.ok:
-        data = resp.json()
-        for article in data:
-            headlines.append({"headline": article["title"], "url": article["url"]})
+    try:
+        resp = requests.get(url, timeout=10)
+        if resp.ok:
+            data = resp.json()
+            for article in data:
+                headlines.append({"headline": article["title"], "url": article["url"]})
+    except Exception:
+        return []
     return headlines
 
 def fetch_marketaux_headlines():
     api_key = os.environ.get("MARKETAUX_API_KEY")
     url = f"https://api.marketaux.com/v1/news/all?language=en&filter_entities=true&api_token={api_key}&limit=10"
-    resp = requests.get(url)
     headlines = []
-    if resp.ok:
-        data = resp.json()
-        for article in data.get("data", []):
-            headlines.append({"headline": article["title"], "url": article["url"]})
+    try:
+        resp = requests.get(url, timeout=10)
+        if resp.ok:
+            data = resp.json()
+            for article in data.get("data", []):
+                headlines.append({"headline": article["title"], "url": article["url"]})
+    except Exception:
+        return []
     return headlines
 
 def fetch_gnews_headlines():
     api_key = os.environ.get("GNEWS_API_KEY")
     url = f"https://gnews.io/api/v4/top-headlines?topic=business&lang=en&token={api_key}&max=10"
-    resp = requests.get(url)
     headlines = []
-    if resp.ok:
-        data = resp.json()
-        for article in data.get("articles", []):
-            headlines.append({"headline": article["title"], "url": article["url"]})
+    try:
+        resp = requests.get(url, timeout=10)
+        if resp.ok:
+            data = resp.json()
+            for article in data.get("articles", []):
+                headlines.append({"headline": article["title"], "url": article["url"]})
+    except Exception:
+        return []
     return headlines
 
 def fetch_yahoo_finance_headlines():
     # Yahoo Finance does not have a free official API, so we use their RSS feed
     import xml.etree.ElementTree as ET
     url = "https://finance.yahoo.com/news/rssindex"
-    resp = requests.get(url)
     headlines = []
-    if resp.ok:
-        root = ET.fromstring(resp.text)
-        for item in root.findall(".//item"):
-            title = item.find("title").text
-            link = item.find("link").text
-            headlines.append({"headline": title, "url": link})
+    try:
+        resp = requests.get(url, timeout=10)
+        if resp.ok:
+            root = ET.fromstring(resp.text)
+            for item in root.findall(".//item"):
+                title = item.find("title").text
+                link = item.find("link").text
+                headlines.append({"headline": title, "url": link})
+    except Exception:
+        return []
     return headlines
 
 def fetch_financial_headlines():
