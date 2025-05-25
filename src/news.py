@@ -4,6 +4,10 @@ import requests
 
 def fetch_newsapi_headlines():
     api_key = os.environ.get("NEWSAPI_API_KEY")
+    if not api_key:
+        # Log a warning for debugging in CI/CD
+        print("[WARN] NEWSAPI_API_KEY is not set or empty.")
+        return []
     url = "https://newsapi.org/v2/top-headlines?category=business&language=en&pageSize=10&apiKey=" + api_key
     headlines = []
     try:
