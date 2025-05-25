@@ -81,10 +81,15 @@ def fetch_yahoo_finance_headlines():
 
 def llm_filter_headlines(headlines, api_key, top_n=3):
     import json
+    # Sort by recency if possible (assume headlines have 'publishedAt' or similar, else keep order)
+    # If 'publishedAt' exists, sort descending (latest first)
+    if headlines and 'publishedAt' in headlines[0]:
+        headlines = sorted(headlines, key=lambda x: x.get('publishedAt', ''), reverse=True)
     client = openai.OpenAI(api_key=api_key)
     prompt = (
         f"You are a trading research assistant. Given the following list of financial headlines (with URLs), "
         f"deduplicate, filter, and select the top {top_n} most significant and globally relevant headlines. "
+        "If multiple headlines are equally significant, always prefer the most recent ones. "
         "Return a JSON list of objects with 'headline' and 'url' fields.\n" + json.dumps(headlines, ensure_ascii=False)
     )
     response = client.chat.completions.create(
@@ -117,11 +122,12 @@ def fetch_financial_headlines():
     all_headlines += llm_filter_headlines(fetch_marketaux_headlines(), api_key, top_n=3)
     all_headlines += llm_filter_headlines(fetch_gnews_headlines(), api_key, top_n=3)
     all_headlines += llm_filter_headlines(fetch_yahoo_finance_headlines(), api_key, top_n=3)
-    # Final deduplication and ranking with LLM
+    # Final deduplication and ranking with LLM, latest news prevails
     prompt = (
         "You are a trading research assistant. "
         "Given the following list of financial headlines (with URLs) from multiple reputable sources, "
         "deduplicate, filter, and select the top 10 most significant and globally relevant headlines that would help a trader make informed decisions. "
+        "If multiple headlines are equally significant, always prefer the most recent ones. "
         "Return a JSON list of objects with 'headline' and 'url' fields.\n" + json.dumps(all_headlines, ensure_ascii=False)
     )
     client = openai.OpenAI(api_key=api_key)
