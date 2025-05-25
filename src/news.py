@@ -79,28 +79,52 @@ def fetch_yahoo_finance_headlines():
         return []
     return headlines
 
+def llm_filter_headlines(headlines, api_key, top_n=3):
+    import json
+    client = openai.OpenAI(api_key=api_key)
+    prompt = (
+        f"You are a trading research assistant. Given the following list of financial headlines (with URLs), "
+        f"deduplicate, filter, and select the top {top_n} most significant and globally relevant headlines. "
+        "Return a JSON list of objects with 'headline' and 'url' fields.\n" + json.dumps(headlines, ensure_ascii=False)
+    )
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=400,
+        temperature=0.2
+    )
+    try:
+        text = response.choices[0].message.content
+        start = text.find("[")
+        end = text.rfind("]") + 1
+        filtered = json.loads(text[start:end])
+        return filtered[:top_n]
+    except Exception:
+        return headlines[:top_n]
+
 def fetch_financial_headlines():
     """
-    Fetches top financial headlines from 5 sources/APIs, deduplicates and ranks them using LLM, and returns the top 5 significant headlines for a global financial overview.
+    Fetches top financial headlines from 5 sources/APIs, applies LLM filter to each source to get top 3, then combines and ranks them using LLM, returning the top 10 significant headlines for a global financial overview.
     """
     import json
-    all_headlines = []
-    all_headlines += fetch_newsapi_headlines()
-    all_headlines += fetch_fmp_headlines()
-    all_headlines += fetch_marketaux_headlines()
-    all_headlines += fetch_gnews_headlines()
-    all_headlines += fetch_yahoo_finance_headlines()
-    # Deduplicate and rank with LLM
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY environment variable is not set. Please set it in your environment or repository secrets.")
-    client = openai.OpenAI(api_key=api_key)
+    all_headlines = []
+    # Apply LLM filter to each source
+    all_headlines += llm_filter_headlines(fetch_newsapi_headlines(), api_key, top_n=3)
+    all_headlines += llm_filter_headlines(fetch_fmp_headlines(), api_key, top_n=3)
+    all_headlines += llm_filter_headlines(fetch_marketaux_headlines(), api_key, top_n=3)
+    all_headlines += llm_filter_headlines(fetch_gnews_headlines(), api_key, top_n=3)
+    all_headlines += llm_filter_headlines(fetch_yahoo_finance_headlines(), api_key, top_n=3)
+    # Final deduplication and ranking with LLM
     prompt = (
-        "You are a financial news assistant. "
+        "You are a trading research assistant. "
         "Given the following list of financial headlines (with URLs) from multiple reputable sources, "
         "deduplicate, filter, and select the top 10 most significant and globally relevant headlines that would help a trader make informed decisions. "
         "Return a JSON list of objects with 'headline' and 'url' fields.\n" + json.dumps(all_headlines, ensure_ascii=False)
     )
+    client = openai.OpenAI(api_key=api_key)
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}],
