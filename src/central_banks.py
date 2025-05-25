@@ -37,3 +37,36 @@ def fetch_central_bank_policies():
         except Exception:
             policies.append({"bank": bank["name"], "policy": "Error fetching policy.", "url": bank["url"]})
     return policies
+
+def fetch_central_bank_rates():
+    """
+    Fetches the latest policy/interest rate for each of the 9 major central banks.
+    Returns a list of dicts: {"bank": ..., "rate": ..., "url": ...}
+    """
+    banks = [
+        {"name": "Federal Reserve", "code": "fed", "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm"},
+        {"name": "European Central Bank", "code": "ecb", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html"},
+        {"name": "Bank of England", "code": "boe", "url": "https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp"},
+        {"name": "Bank of Japan", "code": "boj", "url": "https://www.boj.or.jp/en/statistics/boj/other/interest/index.htm/"},
+        {"name": "Swiss National Bank", "code": "snb", "url": "https://www.snb.ch/en/iabout/stat/statpub/zirefi/id/statpub_zirefi_hist"},
+        {"name": "Bank of Canada", "code": "boc", "url": "https://www.bankofcanada.ca/rates/interest-rates/canadian-interest-rates/"},
+        {"name": "Reserve Bank of Australia", "code": "rba", "url": "https://www.rba.gov.au/statistics/cash-rate/"},
+        {"name": "People's Bank of China", "code": "pboc", "url": "http://www.pbc.gov.cn/en/3688229/index.html"},
+        {"name": "Reserve Bank of New Zealand", "code": "rbnz", "url": "https://www.rbnz.govt.nz/monetary-policy/official-cash-rate"},
+    ]
+    rates = []
+    for bank in banks:
+        try:
+            resp = requests.get(bank["url"], timeout=10)
+            if resp.ok:
+                text = resp.text
+                import re
+                # Try to extract a rate (look for numbers like 5.25%, 0.10%, etc.)
+                match = re.search(r'(\d+\.\d+|\d+)[ ]?%?', text)
+                rate = match.group(0) if match else "Rate not found"
+                rates.append({"bank": bank["name"], "rate": rate, "url": bank["url"]})
+            else:
+                rates.append({"bank": bank["name"], "rate": "Could not fetch rate", "url": bank["url"]})
+        except Exception:
+            rates.append({"bank": bank["name"], "rate": "Error fetching rate", "url": bank["url"]})
+    return rates
