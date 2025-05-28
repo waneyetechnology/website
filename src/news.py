@@ -1,6 +1,7 @@
 import os
 import openai
 import requests
+import random
 from .log import logger
 
 def fetch_newsapi_headlines():
@@ -132,63 +133,21 @@ def fetch_yahoo_finance_headlines():
     logger.info(f"Yahoo Finance headlines: {headlines}")
     return headlines
 
-def llm_filter_headlines(headlines, api_key, top_n=3):
-    import json
-    from datetime import datetime, timedelta
-    # Remove headlines older than 3 days if possible
-    now = datetime.utcnow()
-    filtered = []
-    for h in headlines:
-        dt = h.get("publishedAt")
-        try:
-            if dt:
-                dt_obj = datetime.fromisoformat(dt.replace('Z', '+00:00')) if 'T' in dt else datetime.strptime(dt, "%a, %d %b %Y %H:%M:%S %Z")
-                if now - dt_obj > timedelta(days=3):
-                    continue
-        except Exception:
-            logger.debug(f"Could not parse date for headline: {h}")
-        filtered.append(h)
-    # Sort by recency if possible
-    filtered = sorted(filtered, key=lambda x: x.get('publishedAt', ''), reverse=True)
-    logger.info(f"Filtering {len(filtered)} headlines with LLM for top {top_n}")
-    client = openai.OpenAI(api_key=api_key)
-    prompt = (
-        f"You are a trading research assistant. Given the following list of financial headlines (with URLs), "
-        f"deduplicate, filter, and select the top {top_n} most significant and globally relevant headlines. "
-        "If multiple headlines are equally significant, always prefer the most recent ones. "
-        "Return a JSON list of objects with 'headline' and 'url' fields.\n" + json.dumps(filtered, ensure_ascii=False)
-    )
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": prompt}],
-        max_tokens=400,
-        temperature=0.2
-    )
-    try:
-        text = response.choices[0].message.content
-        start = text.find("[")
-        end = text.rfind("]") + 1
-        filtered_llm = json.loads(text[start:end])
-        logger.info(f"LLM returned {len(filtered_llm)} headlines.")
-        return filtered_llm[:top_n]
-    except Exception as e:
-        logger.error(f"LLM filter error: {e}")
-        return filtered[:top_n]
-
 def fetch_financial_headlines():
     """
-    Fetches top financial headlines from 5 sources/APIs, applies LLM filter to each source to get top 3, then combines them and returns the top 10 significant headlines for a global financial overview. No final LLM deduplication is performed.
+    Fetches top financial headlines from 5 sources/APIs, applies a random weight to each source, and returns the top 20 headlines for a global financial overview.
     """
-    import json
-    api_key = os.environ.get("OPENAI_API_KEY")
-    if not api_key:
-        raise RuntimeError("OPENAI_API_KEY environment variable is not set. Please set it in your environment or repository secrets.")
+    sources = [
+        fetch_newsapi_headlines,
+        fetch_fmp_headlines,
+        fetch_marketaux_headlines,
+        fetch_gnews_headlines,
+        fetch_yahoo_finance_headlines
+    ]
+    # Assign a random weight to each source
+    weighted_sources = [(random.random(), fn) for fn in sources]
+    weighted_sources.sort(reverse=True)  # Higher weight = higher priority
     all_headlines = []
-    # Apply LLM filter to each source
-    all_headlines += llm_filter_headlines(fetch_newsapi_headlines(), api_key, top_n=3)
-    all_headlines += llm_filter_headlines(fetch_fmp_headlines(), api_key, top_n=3)
-    all_headlines += llm_filter_headlines(fetch_marketaux_headlines(), api_key, top_n=3)
-    all_headlines += llm_filter_headlines(fetch_gnews_headlines(), api_key, top_n=3)
-    all_headlines += llm_filter_headlines(fetch_yahoo_finance_headlines(), api_key, top_n=3)
-    # Return the combined headlines directly (no final LLM deduplication)
-    return all_headlines[:10]
+    for _, fn in weighted_sources:
+        all_headlines += fn()
+    return all_headlines[:20]
