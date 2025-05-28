@@ -1,3 +1,5 @@
+from .log import logger
+
 def fetch_forex_cfd_data():
     return [
         {"pair": "EUR/USD", "bid": 1.0850, "ask": 1.0852},

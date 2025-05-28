@@ -1,4 +1,5 @@
 from datetime import datetime
+from .log import logger
 
 def generate_html(news, policies, econ, forex):
     now = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')

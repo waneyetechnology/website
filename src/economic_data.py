@@ -1,3 +1,5 @@
+from .log import logger
+
 def fetch_economic_data():
     return [
         {"event": "US Nonfarm Payrolls", "value": "+250K", "date": "2025-05-20"},
