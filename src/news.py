@@ -105,8 +105,11 @@ def fetch_yahoo_finance_headlines():
     from email.utils import parsedate_to_datetime
     url = "https://finance.yahoo.com/news/rssindex"
     headlines = []
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
     try:
-        resp = requests.get(url, timeout=10)
+        resp = requests.get(url, timeout=10, headers=headers)
         if resp.ok:
             root = ET.fromstring(resp.text)
             for item in root.findall(".//item"):
@@ -174,7 +177,7 @@ def llm_filter_headlines(headlines, api_key, top_n=3):
 
 def fetch_financial_headlines():
     """
-    Fetches top financial headlines from 5 sources/APIs, applies LLM filter to each source to get top 3, then combines and ranks them using LLM, returning the top 10 significant headlines for a global financial overview.
+    Fetches top financial headlines from 5 sources/APIs, applies LLM filter to each source to get top 3, then combines them and returns the top 10 significant headlines for a global financial overview. No final LLM deduplication is performed.
     """
     import json
     api_key = os.environ.get("OPENAI_API_KEY")
@@ -187,26 +190,5 @@ def fetch_financial_headlines():
     all_headlines += llm_filter_headlines(fetch_marketaux_headlines(), api_key, top_n=3)
     all_headlines += llm_filter_headlines(fetch_gnews_headlines(), api_key, top_n=3)
     all_headlines += llm_filter_headlines(fetch_yahoo_finance_headlines(), api_key, top_n=3)
-    # Final deduplication and ranking with LLM, latest news prevails
-    prompt = (
-        "You are a trading research assistant. "
-        "Given the following list of financial headlines (with URLs) from multiple reputable sources, "
-        "deduplicate, filter, and select the top 10 most significant and globally relevant headlines that would help a trader make informed decisions. "
-        "If multiple headlines are equally significant, always prefer the most recent ones. "
-        "Return a JSON list of objects with 'headline' and 'url' fields.\n" + json.dumps(all_headlines, ensure_ascii=False)
-    )
-    client = openai.OpenAI(api_key=api_key)
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": prompt}],
-        max_tokens=800,
-        temperature=0.2
-    )
-    try:
-        text = response.choices[0].message.content
-        start = text.find("[")
-        end = text.rfind("]") + 1
-        headlines = json.loads(text[start:end])
-        return headlines[:10]
-    except Exception:
-        return all_headlines[:10]
+    # Return the combined headlines directly (no final LLM deduplication)
+    return all_headlines[:10]
