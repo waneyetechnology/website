@@ -1,4 +1,6 @@
+from .log import logger
 import requests
+import re
 
 def fetch_central_bank_policies():
     """
@@ -24,7 +26,6 @@ def fetch_central_bank_policies():
             if resp.ok:
                 # Simple extraction: get the first <title> or <h1>/<h2> tag as the latest policy headline
                 text = resp.text
-                import re
                 match = re.search(r'<title>(.*?)</title>', text, re.IGNORECASE)
                 title = match.group(1).strip() if match else "Latest policy update not found."
                 # Try to get a headline from h1/h2 if available
@@ -60,7 +61,6 @@ def fetch_central_bank_rates():
             resp = requests.get(bank["url"], timeout=10)
             if resp.ok:
                 text = resp.text
-                import re
                 # Try to extract a rate (look for numbers like 5.25%, 0.10%, etc.)
                 match = re.search(r'(\d+\.\d+|\d+)[ ]?%?', text)
                 rate = match.group(0) if match else "Rate not found"

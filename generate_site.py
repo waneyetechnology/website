@@ -1,6 +1,5 @@
 from src import fetch_financial_headlines, fetch_central_bank_policies, fetch_economic_data, fetch_forex_cfd_data, generate_html
-from datetime import datetime
-import requests
+from src.log import logger
 
 def main():
     news = fetch_financial_headlines()
