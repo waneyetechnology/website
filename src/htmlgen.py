@@ -303,37 +303,42 @@ def generate_html(news, policies, econ, forex):
         ctx.stroke();
         ctx.restore();
     }}
-    function animate() {{
-        ctx.clearRect(0,0,W(),H());
-        drawGrid();
-        drawVolume();
-        drawCandles();
-        drawMA(ma20, '#0074d9');
-        drawMA(ma50, '#b10dc9');
-        drawBollinger(boll, '#39cccc', '#ffdc00');
-        drawLine();
-        drawMACD();
-        // Animate: shift candles and line left, add new
-        if (t++ % 6 === 0) {{
-            candles.shift();
-            let last = candles[candles.length-1];
-            let open = last.close;
-            let close_ = open + (Math.random()-0.5)*H()/30;
-            let high_ = Math.max(open, close_) + Math.random()*10;
-            let low_ = Math.min(open, close_) - Math.random()*10;
-            candles.push({{open: open, close: close_, high: high_, low: low_}});
-            volumes.shift();
-            volumes.push(40 + Math.random()*60 + Math.abs(close_-open)*2);
-            let closes = candles.map(c=>c.close);
-            ma20 = calcMA(closes, 20);
-            ma50 = calcMA(closes, 50);
-            boll = calcBollinger(closes, 20, 2);
-            macdObj = calcMACD(closes);
-            macdLine = macdObj.macd;
-            signalLine = macdObj.signal;
-            macdHist = macdObj.hist;
-            lineData.shift();
-            lineData.push(lineData[lineData.length-1] + (Math.random()-0.5)*H()/60);
+    let lastFrame = 0;
+    const FRAME_INTERVAL = 1000/30; // 30 FPS
+    function animate(now) {{
+        if (!lastFrame || now - lastFrame > FRAME_INTERVAL) {{
+            ctx.clearRect(0,0,W(),H());
+            drawGrid();
+            drawVolume();
+            drawCandles();
+            drawMA(ma20, '#0074d9');
+            drawMA(ma50, '#b10dc9');
+            drawBollinger(boll, '#39cccc', '#ffdc00');
+            drawLine();
+            drawMACD();
+            // Animate: shift candles and line left, add new
+            if (t++ % 6 === 0) {{
+                candles.shift();
+                let last = candles[candles.length-1];
+                let open = last.close;
+                let close_ = open + (Math.random()-0.5)*H()/30;
+                let high_ = Math.max(open, close_) + Math.random()*10;
+                let low_ = Math.min(open, close_) - Math.random()*10;
+                candles.push({{open: open, close: close_, high: high_, low: low_}});
+                volumes.shift();
+                volumes.push(40 + Math.random()*60 + Math.abs(close_-open)*2);
+                let closes = candles.map(c=>c.close);
+                ma20 = calcMA(closes, 20);
+                ma50 = calcMA(closes, 50);
+                boll = calcBollinger(closes, 20, 2);
+                macdObj = calcMACD(closes);
+                macdLine = macdObj.macd;
+                signalLine = macdObj.signal;
+                macdHist = macdObj.hist;
+                lineData.shift();
+                lineData.push(lineData[lineData.length-1] + (Math.random()-0.5)*H()/60);
+            }}
+            lastFrame = now;
         }}
         requestAnimationFrame(animate);
     }}
