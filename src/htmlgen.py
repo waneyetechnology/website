@@ -13,9 +13,19 @@ def generate_html(news, policies, econ, forex):
     <link rel='icon' type='image/svg+xml' href='/favicon.svg'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/jellythemes/jelly-bootstrap@main/dist/jelly-bootstrap.min.css'>
-    <style>body{{background:#f8fafc;}}</style>
+    <style>
+        body{{background:#0a192f;}}
+        #bg-canvas {{
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0;
+            display: block;
+        }}
+        .container, .container * {{ position: relative; z-index: 1; }}
+    </style>
 </head>
 <body>
+    <canvas id='bg-canvas'></canvas>
     <div class='container my-5'>
         <div class='text-center mb-4'>
             <h1 class='display-4 fw-bold'>Waneye Financial World Overview</h1>
@@ -68,6 +78,103 @@ def generate_html(news, policies, econ, forex):
         </footer>
     </div>
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'></script>
+    <script>
+    // Simple WebGL animated background (moving dots and lines)
+    const canvas = document.getElementById('bg-canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    function resize() {{
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+    }}
+    window.addEventListener('resize', resize);
+    resize();
+    // Vertex shader
+    const vsSource = `
+        attribute vec2 aPosition;
+        void main() {{
+            gl_Position = vec4(aPosition, 0.0, 1.0);
+            gl_PointSize = 3.0;
+        }}
+    `;
+    // Fragment shader
+    const fsSource = `
+        precision mediump float;
+        uniform vec4 uColor;
+        void main() {{
+            float d = length(gl_PointCoord - vec2(0.5));
+            if (d > 0.5) discard;
+            gl_FragColor = uColor;
+        }}
+    `;
+    function createShader(type, source) {{
+        const shader = gl.createShader(type);
+        gl.shaderSource(shader, source);
+        gl.compileShader(shader);
+        return shader;
+    }}
+    const vs = createShader(gl.VERTEX_SHADER, vsSource);
+    const fs = createShader(gl.FRAGMENT_SHADER, fsSource);
+    const program = gl.createProgram();
+    gl.attachShader(program, vs);
+    gl.attachShader(program, fs);
+    gl.linkProgram(program);
+    gl.useProgram(program);
+    // Dots
+    const N = 60;
+    let points = [];
+    for (let i = 0; i < N; ++i) {{
+        points.push({{
+            x: Math.random() * 2 - 1,
+            y: Math.random() * 2 - 1,
+            vx: (Math.random() - 0.5) * 0.003,
+            vy: (Math.random() - 0.5) * 0.003
+        }});
+    }}
+    const aPosition = gl.getAttribLocation(program, 'aPosition');
+    const uColor = gl.getUniformLocation(program, 'uColor');
+    function draw() {{
+        gl.clearColor(0.04, 0.10, 0.18, 1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        // Animate points
+        for (let p of points) {{
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < -1 || p.x > 1) p.vx *= -1;
+            if (p.y < -1 || p.y > 1) p.vy *= -1;
+        }}
+        // Draw points
+        for (let p of points) {{
+            gl.vertexAttrib2f(aPosition, p.x, p.y);
+            gl.uniform4f(uColor, 0.24, 0.78, 0.88, 0.8);
+            gl.drawArrays(gl.POINTS, 0, 1);
+        }}
+        // Draw lines between close points
+        for (let i = 0; i < N; ++i) {{
+            for (let j = i + 1; j < N; ++j) {{
+                let dx = points[i].x - points[j].x;
+                let dy = points[i].y - points[j].y;
+                let dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < 0.18) {{
+                    let verts = new Float32Array([
+                        points[i].x, points[i].y,
+                        points[j].x, points[j].y
+                    ]);
+                    const buf = gl.createBuffer();
+                    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+                    gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STREAM_DRAW);
+                    gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
+                    gl.enableVertexAttribArray(aPosition);
+                    gl.uniform4f(uColor, 0.24, 0.78, 0.88, 0.25);
+                    gl.drawArrays(gl.LINES, 0, 2);
+                    gl.deleteBuffer(buf);
+                }}
+            }}
+        }}
+        requestAnimationFrame(draw);
+    }}
+    draw();
+    </script>
 </body>
 </html>
 """
