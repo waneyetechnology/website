@@ -1,8 +1,17 @@
 from datetime import datetime
 from .log import logger
+import random
 
 def generate_html(news, policies, econ, forex):
     now = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
+
+    # Generate random colors for headlines
+    def random_color():
+        return f"#{random.randint(0, 0xFFFFFF):06x}"
+
+    headline_colors1 = [random_color() for _ in news]
+    headline_colors2 = [random_color() for _ in news]
+
     html = f"""
 <!DOCTYPE html>
 <html lang='en'>
@@ -23,6 +32,17 @@ def generate_html(news, policies, econ, forex):
         }}
         .container, .container * {{ position: relative; z-index: 1; }}
         h1.display-4 {{ color: #0a192f; text-shadow: 0 2px 8px #fff, 0 1px 0 #b3d1e6; }}
+        .list-group-item a {{ text-decoration: none !important; }}
+        .headline-bullet {{
+            display: inline-block;
+            width: 1.1em;
+            height: 1.1em;
+            margin-right: 0.5em;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0074d9 60%, #ffdc00 100%);
+            box-shadow: 0 1px 4px #0074d955;
+            vertical-align: middle;
+        }}
     </style>
 </head>
 <body>
@@ -37,7 +57,7 @@ def generate_html(news, policies, econ, forex):
                 <div class='card shadow-sm'>
                     <div class='card-header bg-primary text-white'>Top Financial Headlines</div>
                     <ul class='list-group list-group-flush'>
-                        {''.join([f"<li class='list-group-item'><a href='{item['url']}' target='_blank'>{item['headline']}</a></li>" for item in news])}
+                        {''.join([f"<li class='list-group-item'><span class='headline-bullet' style='background:linear-gradient(135deg, {color1} 60%, {color2} 100%);box-shadow:0 1px 4px {color1}55;'></span><a href='{item['url']}' target='_blank'>{item['headline']}</a></li>" for item, color1, color2 in zip(news, headline_colors1, headline_colors2)])}
                     </ul>
                 </div>
             </div>
@@ -95,139 +115,54 @@ def generate_html(news, policies, econ, forex):
     window.addEventListener('resize', resize);
     resize();
     // Chart parameters
-    const W = () => canvas.width, H = () => canvas.height;
-    function nCandles() {{ return Math.floor(W()/32); }}
-    let candles = [];
-    let lineData = [];
-    let volumes = [];
-    let macdLine = [], signalLine = [], macdHist = [];
-    function randomWalk(start, n, step=2) {{
-        let arr = [start];
-        for (let i=1; i<n; ++i) {{
-            arr.push(arr[i-1] + (Math.random()-0.5)*step);
-        }}
-        return arr;
-    }}
-    function genCandles() {{
-        let base = H()/2;
-        let walk = randomWalk(base, nCandles()+1, H()/30);
-        candles = [];
-        volumes = [];
-        for (let i=0; i<nCandles(); ++i) {{
-            let open = walk[i];
-            let close_ = walk[i+1];
-            let high_ = Math.max(open, close_) + Math.random()*10;
-            let low_ = Math.min(open, close_) - Math.random()*10;
-            candles.push({{open: open, close: close_, high: high_, low: low_}});
-            volumes.push(40 + Math.random()*60 + Math.abs(close_-open)*2);
-        }}
-    }}
-    function genLine() {{
-        let base = H()/2;
-        lineData = randomWalk(base, Math.floor(W()/6), H()/60);
-    }}
-    function calcMA(data, period) {{
-        let ma = [];
-        for (let i=0; i<data.length; ++i) {{
-            let sum = 0, count = 0;
-            for (let j=i-period+1; j<=i; ++j) {{
-                if (j>=0) {{ sum += data[j]; count++; }}
-            }}
-            ma.push(count>0 ? sum/count : null);
-        }}
-        return ma;
-    }}
-    function calcBollinger(data, period=20, mult=2) {{
-        let ma = calcMA(data, period);
-        let upper = [], lower = [];
-        for (let i=0; i<data.length; ++i) {{
-            let sum = 0, count = 0;
-            for (let j=i-period+1; j<=i; ++j) {{
-                if (j>=0) {{ sum += Math.pow(data[j]-(ma[i]||0),2); count++; }}
-            }}
-            let std = count>1 ? Math.sqrt(sum/(count-1)) : 0;
-            upper.push(ma[i]!==null ? ma[i]+mult*std : null);
-            lower.push(ma[i]!==null ? ma[i]-mult*std : null);
-        }}
-        return {{ma, upper, lower}};
-    }}
-    function calcMACD(data, fast=12, slow=26, signal=9) {{
-        function ema(period) {{
-            let k = 2/(period+1), arr = [];
-            let prev = data[0];
-            for (let i=0; i<data.length; ++i) {{
-                prev = k*data[i] + (1-k)*(arr[i-1]||data[i]);
-                arr.push(prev);
-            }}
-            return arr;
-        }}
-        let fastEma = ema(fast), slowEma = ema(slow);
-        let macd = fastEma.map((v,i)=>v-(slowEma[i]||0));
-        let signalArr = [];
-        let prev = macd[0];
-        for (let i=0; i<macd.length; ++i) {{
-            prev = (2/(signal+1))*macd[i] + (1-2/(signal+1))*(signalArr[i-1]||macd[i]);
-            signalArr.push(prev);
-        }}
-        let hist = macd.map((v,i)=>v-(signalArr[i]||0));
-        return {{macd, signal: signalArr, hist}};
-    }}
-    genCandles();
-    genLine();
-    // Calculate indicators
-    let closes = candles.map(c=>c.close);
-    let ma20 = calcMA(closes, 20);
-    let ma50 = calcMA(closes, 50);
-    let boll = calcBollinger(closes, 20, 2);
-    let macdObj = calcMACD(closes);
-    macdLine = macdObj.macd;
-    signalLine = macdObj.signal;
-    macdHist = macdObj.hist;
-    let t = 0;
-    function drawGrid() {{
-        ctx.save();
-        ctx.strokeStyle = 'rgba(80,120,180,0.10)';
-        ctx.lineWidth = 1;
-        for (let x=0; x<W(); x+=64) {{
-            ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H()); ctx.stroke();
-        }}
-        for (let y=0; y<H(); y+=64) {{
-            ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W(),y); ctx.stroke();
-        }}
-        ctx.restore();
-    }}
+    const W = () => window.innerWidth;
+    const H = () => window.innerHeight;
+    // --- MAKE ANIMATION MORE OBVIOUS ---
+    // Thicker candles, brighter colors, more shadow, and a subtle animated glow
     function drawCandles() {{
-        let w = 18;
-        let gap = 12;
+        let w = 24; // thicker
+        let gap = 10;
         let x0 = 40;
         for (let i=0; i<candles.length; ++i) {{
             let c = candles[i];
             let x = x0 + i*(w+gap);
-            ctx.strokeStyle = '#555';
+            // Candle shadow
+            ctx.save();
+            ctx.shadowColor = c.close > c.open ? '#2ecc40' : '#ff4136';
+            ctx.shadowBlur = 16;
+            ctx.strokeStyle = '#222';
             ctx.beginPath();
             ctx.moveTo(x+w/2, c.high);
             ctx.lineTo(x+w/2, c.low);
             ctx.stroke();
-            ctx.beginPath();
-            ctx.lineWidth = 6;
+            ctx.restore();
+            // Candle body
+            ctx.save();
+            ctx.lineWidth = 10;
             ctx.strokeStyle = c.close > c.open ? '#2ecc40' : '#ff4136';
+            ctx.shadowColor = c.close > c.open ? '#2ecc40' : '#ff4136';
+            ctx.shadowBlur = 24 + 8*Math.abs(Math.sin(Date.now()/400)); // animated glow
+            ctx.beginPath();
             ctx.moveTo(x+w/2, c.open);
             ctx.lineTo(x+w/2, c.close);
             ctx.stroke();
-            ctx.lineWidth = 1;
+            ctx.restore();
         }}
     }}
+    // Make moving average and Bollinger bands more visible
     function drawMA(ma, color) {{
         ctx.save();
         ctx.beginPath();
-        let w = 18, gap = 12, x0 = 40;
+        let w = 24, gap = 10, x0 = 40;
         for (let i=0; i<ma.length; ++i) {{
             let x = x0 + i*(w+gap) + w/2;
             if (ma[i]!==null) ctx.lineTo(x, ma[i]);
         }}
         ctx.strokeStyle = color;
-        ctx.lineWidth = 2;
-        ctx.globalAlpha = 0.7;
+        ctx.lineWidth = 4;
+        ctx.globalAlpha = 0.85;
+        ctx.shadowColor = color;
+        ctx.shadowBlur = 12;
         ctx.stroke();
         ctx.globalAlpha = 1;
         ctx.restore();
@@ -235,14 +170,16 @@ def generate_html(news, policies, econ, forex):
     function drawBollinger(boll, colorU, colorL) {{
         ctx.save();
         ctx.beginPath();
-        let w = 18, gap = 12, x0 = 40;
+        let w = 24, gap = 10, x0 = 40;
         for (let i=0; i<boll.upper.length; ++i) {{
             let x = x0 + i*(w+gap) + w/2;
             if (boll.upper[i]!==null) ctx.lineTo(x, boll.upper[i]);
         }}
         ctx.strokeStyle = colorU;
-        ctx.lineWidth = 1.5;
-        ctx.setLineDash([6,4]);
+        ctx.lineWidth = 3;
+        ctx.setLineDash([8,6]);
+        ctx.shadowColor = colorU;
+        ctx.shadowBlur = 10;
         ctx.stroke();
         ctx.setLineDash([]);
         ctx.beginPath();
@@ -251,61 +188,21 @@ def generate_html(news, policies, econ, forex):
             if (boll.lower[i]!==null) ctx.lineTo(x, boll.lower[i]);
         }}
         ctx.strokeStyle = colorL;
+        ctx.shadowColor = colorL;
+        ctx.shadowBlur = 10;
         ctx.stroke();
         ctx.restore();
     }}
-    function drawVolume() {{
-        let w = 18, gap = 12, x0 = 40, base = H()-60;
-        for (let i=0; i<volumes.length; ++i) {{
-            let c = candles[i];
-            let x = x0 + i*(w+gap);
-            ctx.fillStyle = c.close > c.open ? 'rgba(46,204,64,0.4)' : 'rgba(255,65,54,0.4)';
-            ctx.fillRect(x, base-volumes[i], w, volumes[i]);
-        }}
-    }}
-    function drawMACD() {{
-        let base = H()-120;
-        let w = 8, gap = 6, x0 = 40;
-        for (let i=0; i<macdHist.length; ++i) {{
-            let x = x0 + i*(w+gap);
-            ctx.fillStyle = macdHist[i]>0 ? '#2ecc40' : '#ff4136';
-            ctx.fillRect(x, base, w, -macdHist[i]*2);
-        }}
-        ctx.save();
-        ctx.beginPath();
-        for (let i=0; i<macdLine.length; ++i) {{
-            let x = x0 + i*(w+gap) + w/2;
-            ctx.lineTo(x, base-macdLine[i]*2);
-        }}
-        ctx.strokeStyle = '#0074d9';
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-        ctx.beginPath();
-        for (let i=0; i<signalLine.length; ++i) {{
-            let x = x0 + i*(w+gap) + w/2;
-            ctx.lineTo(x, base-signalLine[i]*2);
-        }}
-        ctx.strokeStyle = '#ff851b';
-        ctx.stroke();
-        ctx.restore();
-    }}
-    function drawLine() {{
-        ctx.save();
-        ctx.beginPath();
-        ctx.moveTo(0, lineData[0]);
-        for (let i=1; i<lineData.length; ++i) {{
-            ctx.lineTo(i*6, lineData[i]);
-        }}
-        ctx.strokeStyle = '#00bfff';
-        ctx.lineWidth = 2.5;
-        ctx.shadowColor = '#00bfff';
-        ctx.shadowBlur = 8;
-        ctx.stroke();
-        ctx.restore();
-    }}
+    // --- END MORE OBVIOUS ---
+    // Only recalculate indicators when new data is added
+    // Use requestAnimationFrame only if tab is visible
     let lastFrame = 0;
-    const FRAME_INTERVAL = 1000/30; // 30 FPS
+    let pageVisible = true;
+    document.addEventListener('visibilitychange', function() {{
+        pageVisible = !document.hidden;
+    }});
     function animate(now) {{
+        if (!pageVisible) {{ requestAnimationFrame(animate); return; }}
         if (!lastFrame || now - lastFrame > FRAME_INTERVAL) {{
             ctx.clearRect(0,0,W(),H());
             drawGrid();
@@ -317,7 +214,7 @@ def generate_html(news, policies, econ, forex):
             drawLine();
             drawMACD();
             // Animate: shift candles and line left, add new
-            if (t++ % 6 === 0) {{
+            if (t++ % 10 === 0) {{ // update less frequently
                 candles.shift();
                 let last = candles[candles.length-1];
                 let open = last.close;
@@ -335,14 +232,13 @@ def generate_html(news, policies, econ, forex):
                 macdLine = macdObj.macd;
                 signalLine = macdObj.signal;
                 macdHist = macdObj.hist;
-                lineData.shift();
-                lineData.push(lineData[lineData.length-1] + (Math.random()-0.5)*H()/60);
             }}
             lastFrame = now;
         }}
         requestAnimationFrame(animate);
     }}
     animate();
+    // --- END OPTIMIZED ---
     </script>
 </body>
 </html>
