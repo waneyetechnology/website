@@ -50,7 +50,7 @@ def generate_html(news, policies, econ, forex):
     <div class='container my-5'>
         <div class='text-center mb-4'>
             <h1 class='display-4 fw-bold'>Waneye Financial World Overview</h1>
-            <p class='text-muted'><em>Last updated: {now}</em></p>
+            <p class='text-muted' id='last-updated'><em>Last updated: {now}</em></p>
         </div>
         <div class='row g-4'>
             <div class='col-md-6'>
@@ -100,6 +100,20 @@ def generate_html(news, policies, econ, forex):
     </div>
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'></script>
     <script>
+    // Replace UTC timestamp with local time for the visitor
+    (function() {{
+      var el = document.getElementById('last-updated');
+      if (el) {{
+        var utcText = el.textContent.match(/Last updated: (.*) UTC/);
+        if (utcText && utcText[1]) {{
+          var d = new Date(utcText[1] + ' UTC');
+          if (!isNaN(d)) {{
+            var opts = {{ year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' }};
+            el.innerHTML = '<em>Last updated: ' + d.toLocaleString(undefined, opts) + ' (your local time)</em>';
+          }}
+        }}
+      }}
+    }})();
     // Financial animation: candlesticks, moving average, Bollinger Bands, volume, MACD
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
