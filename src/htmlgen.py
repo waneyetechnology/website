@@ -14,7 +14,7 @@ def generate_html(news, policies, econ, forex):
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/jellythemes/jelly-bootstrap@main/dist/jelly-bootstrap.min.css'>
     <style>
-        body{{background:#0a192f;}}
+        body{{background:#eaf6ff;}}
         #bg-canvas {{
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -22,6 +22,7 @@ def generate_html(news, policies, econ, forex):
             display: block;
         }}
         .container, .container * {{ position: relative; z-index: 1; }}
+        h1.display-4 {{ color: #0a192f; text-shadow: 0 2px 8px #fff, 0 1px 0 #b3d1e6; }}
     </style>
 </head>
 <body>
@@ -79,101 +80,264 @@ def generate_html(news, policies, econ, forex):
     </div>
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'></script>
     <script>
-    // Simple WebGL animated background (moving dots and lines)
+    // Financial animation: candlesticks, moving average, Bollinger Bands, volume, MACD
     const canvas = document.getElementById('bg-canvas');
-    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    const ctx = canvas.getContext('2d');
     function resize() {{
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
+        ctx.setTransform(1, 0, 0, 1, 0, 0); // reset
+        ctx.scale(dpr, dpr);
     }}
     window.addEventListener('resize', resize);
     resize();
-    // Vertex shader
-    const vsSource = `
-        attribute vec2 aPosition;
-        void main() {{
-            gl_Position = vec4(aPosition, 0.0, 1.0);
-            gl_PointSize = 3.0;
+    // Chart parameters
+    const W = () => canvas.width, H = () => canvas.height;
+    function nCandles() {{ return Math.floor(W()/32); }}
+    let candles = [];
+    let lineData = [];
+    let volumes = [];
+    let macdLine = [], signalLine = [], macdHist = [];
+    function randomWalk(start, n, step=2) {{
+        let arr = [start];
+        for (let i=1; i<n; ++i) {{
+            arr.push(arr[i-1] + (Math.random()-0.5)*step);
         }}
-    `;
-    // Fragment shader
-    const fsSource = `
-        precision mediump float;
-        uniform vec4 uColor;
-        void main() {{
-            float d = length(gl_PointCoord - vec2(0.5));
-            if (d > 0.5) discard;
-            gl_FragColor = uColor;
-        }}
-    `;
-    function createShader(type, source) {{
-        const shader = gl.createShader(type);
-        gl.shaderSource(shader, source);
-        gl.compileShader(shader);
-        return shader;
+        return arr;
     }}
-    const vs = createShader(gl.VERTEX_SHADER, vsSource);
-    const fs = createShader(gl.FRAGMENT_SHADER, fsSource);
-    const program = gl.createProgram();
-    gl.attachShader(program, vs);
-    gl.attachShader(program, fs);
-    gl.linkProgram(program);
-    gl.useProgram(program);
-    // Dots
-    const N = 60;
-    let points = [];
-    for (let i = 0; i < N; ++i) {{
-        points.push({{
-            x: Math.random() * 2 - 1,
-            y: Math.random() * 2 - 1,
-            vx: (Math.random() - 0.5) * 0.003,
-            vy: (Math.random() - 0.5) * 0.003
-        }});
+    function genCandles() {{
+        let base = H()/2;
+        let walk = randomWalk(base, nCandles()+1, H()/30);
+        candles = [];
+        volumes = [];
+        for (let i=0; i<nCandles(); ++i) {{
+            let open = walk[i];
+            let close_ = walk[i+1];
+            let high_ = Math.max(open, close_) + Math.random()*10;
+            let low_ = Math.min(open, close_) - Math.random()*10;
+            candles.push({{open: open, close: close_, high: high_, low: low_}});
+            volumes.push(40 + Math.random()*60 + Math.abs(close_-open)*2);
+        }}
     }}
-    const aPosition = gl.getAttribLocation(program, 'aPosition');
-    const uColor = gl.getUniformLocation(program, 'uColor');
-    function draw() {{
-        gl.clearColor(0.04, 0.10, 0.18, 1.0);
-        gl.clear(gl.COLOR_BUFFER_BIT);
-        // Animate points
-        for (let p of points) {{
-            p.x += p.vx;
-            p.y += p.vy;
-            if (p.x < -1 || p.x > 1) p.vx *= -1;
-            if (p.y < -1 || p.y > 1) p.vy *= -1;
-        }}
-        // Draw points
-        for (let p of points) {{
-            gl.vertexAttrib2f(aPosition, p.x, p.y);
-            gl.uniform4f(uColor, 0.24, 0.78, 0.88, 0.8);
-            gl.drawArrays(gl.POINTS, 0, 1);
-        }}
-        // Draw lines between close points
-        for (let i = 0; i < N; ++i) {{
-            for (let j = i + 1; j < N; ++j) {{
-                let dx = points[i].x - points[j].x;
-                let dy = points[i].y - points[j].y;
-                let dist = Math.sqrt(dx*dx + dy*dy);
-                if (dist < 0.18) {{
-                    let verts = new Float32Array([
-                        points[i].x, points[i].y,
-                        points[j].x, points[j].y
-                    ]);
-                    const buf = gl.createBuffer();
-                    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-                    gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STREAM_DRAW);
-                    gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
-                    gl.enableVertexAttribArray(aPosition);
-                    gl.uniform4f(uColor, 0.24, 0.78, 0.88, 0.25);
-                    gl.drawArrays(gl.LINES, 0, 2);
-                    gl.deleteBuffer(buf);
-                }}
+    function genLine() {{
+        let base = H()/2;
+        lineData = randomWalk(base, Math.floor(W()/6), H()/60);
+    }}
+    function calcMA(data, period) {{
+        let ma = [];
+        for (let i=0; i<data.length; ++i) {{
+            let sum = 0, count = 0;
+            for (let j=i-period+1; j<=i; ++j) {{
+                if (j>=0) {{ sum += data[j]; count++; }}
             }}
+            ma.push(count>0 ? sum/count : null);
         }}
-        requestAnimationFrame(draw);
+        return ma;
     }}
-    draw();
+    function calcBollinger(data, period=20, mult=2) {{
+        let ma = calcMA(data, period);
+        let upper = [], lower = [];
+        for (let i=0; i<data.length; ++i) {{
+            let sum = 0, count = 0;
+            for (let j=i-period+1; j<=i; ++j) {{
+                if (j>=0) {{ sum += Math.pow(data[j]-(ma[i]||0),2); count++; }}
+            }}
+            let std = count>1 ? Math.sqrt(sum/(count-1)) : 0;
+            upper.push(ma[i]!==null ? ma[i]+mult*std : null);
+            lower.push(ma[i]!==null ? ma[i]-mult*std : null);
+        }}
+        return {{ma, upper, lower}};
+    }}
+    function calcMACD(data, fast=12, slow=26, signal=9) {{
+        function ema(period) {{
+            let k = 2/(period+1), arr = [];
+            let prev = data[0];
+            for (let i=0; i<data.length; ++i) {{
+                prev = k*data[i] + (1-k)*(arr[i-1]||data[i]);
+                arr.push(prev);
+            }}
+            return arr;
+        }}
+        let fastEma = ema(fast), slowEma = ema(slow);
+        let macd = fastEma.map((v,i)=>v-(slowEma[i]||0));
+        let signalArr = [];
+        let prev = macd[0];
+        for (let i=0; i<macd.length; ++i) {{
+            prev = (2/(signal+1))*macd[i] + (1-2/(signal+1))*(signalArr[i-1]||macd[i]);
+            signalArr.push(prev);
+        }}
+        let hist = macd.map((v,i)=>v-(signalArr[i]||0));
+        return {{macd, signal: signalArr, hist}};
+    }}
+    genCandles();
+    genLine();
+    // Calculate indicators
+    let closes = candles.map(c=>c.close);
+    let ma20 = calcMA(closes, 20);
+    let ma50 = calcMA(closes, 50);
+    let boll = calcBollinger(closes, 20, 2);
+    let macdObj = calcMACD(closes);
+    macdLine = macdObj.macd;
+    signalLine = macdObj.signal;
+    macdHist = macdObj.hist;
+    let t = 0;
+    function drawGrid() {{
+        ctx.save();
+        ctx.strokeStyle = 'rgba(80,120,180,0.10)';
+        ctx.lineWidth = 1;
+        for (let x=0; x<W(); x+=64) {{
+            ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H()); ctx.stroke();
+        }}
+        for (let y=0; y<H(); y+=64) {{
+            ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W(),y); ctx.stroke();
+        }}
+        ctx.restore();
+    }}
+    function drawCandles() {{
+        let w = 18;
+        let gap = 12;
+        let x0 = 40;
+        for (let i=0; i<candles.length; ++i) {{
+            let c = candles[i];
+            let x = x0 + i*(w+gap);
+            ctx.strokeStyle = '#555';
+            ctx.beginPath();
+            ctx.moveTo(x+w/2, c.high);
+            ctx.lineTo(x+w/2, c.low);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.lineWidth = 6;
+            ctx.strokeStyle = c.close > c.open ? '#2ecc40' : '#ff4136';
+            ctx.moveTo(x+w/2, c.open);
+            ctx.lineTo(x+w/2, c.close);
+            ctx.stroke();
+            ctx.lineWidth = 1;
+        }}
+    }}
+    function drawMA(ma, color) {{
+        ctx.save();
+        ctx.beginPath();
+        let w = 18, gap = 12, x0 = 40;
+        for (let i=0; i<ma.length; ++i) {{
+            let x = x0 + i*(w+gap) + w/2;
+            if (ma[i]!==null) ctx.lineTo(x, ma[i]);
+        }}
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.globalAlpha = 0.7;
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        ctx.restore();
+    }}
+    function drawBollinger(boll, colorU, colorL) {{
+        ctx.save();
+        ctx.beginPath();
+        let w = 18, gap = 12, x0 = 40;
+        for (let i=0; i<boll.upper.length; ++i) {{
+            let x = x0 + i*(w+gap) + w/2;
+            if (boll.upper[i]!==null) ctx.lineTo(x, boll.upper[i]);
+        }}
+        ctx.strokeStyle = colorU;
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([6,4]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.beginPath();
+        for (let i=0; i<boll.lower.length; ++i) {{
+            let x = x0 + i*(w+gap) + w/2;
+            if (boll.lower[i]!==null) ctx.lineTo(x, boll.lower[i]);
+        }}
+        ctx.strokeStyle = colorL;
+        ctx.stroke();
+        ctx.restore();
+    }}
+    function drawVolume() {{
+        let w = 18, gap = 12, x0 = 40, base = H()-60;
+        for (let i=0; i<volumes.length; ++i) {{
+            let c = candles[i];
+            let x = x0 + i*(w+gap);
+            ctx.fillStyle = c.close > c.open ? 'rgba(46,204,64,0.4)' : 'rgba(255,65,54,0.4)';
+            ctx.fillRect(x, base-volumes[i], w, volumes[i]);
+        }}
+    }}
+    function drawMACD() {{
+        let base = H()-120;
+        let w = 8, gap = 6, x0 = 40;
+        for (let i=0; i<macdHist.length; ++i) {{
+            let x = x0 + i*(w+gap);
+            ctx.fillStyle = macdHist[i]>0 ? '#2ecc40' : '#ff4136';
+            ctx.fillRect(x, base, w, -macdHist[i]*2);
+        }}
+        ctx.save();
+        ctx.beginPath();
+        for (let i=0; i<macdLine.length; ++i) {{
+            let x = x0 + i*(w+gap) + w/2;
+            ctx.lineTo(x, base-macdLine[i]*2);
+        }}
+        ctx.strokeStyle = '#0074d9';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.beginPath();
+        for (let i=0; i<signalLine.length; ++i) {{
+            let x = x0 + i*(w+gap) + w/2;
+            ctx.lineTo(x, base-signalLine[i]*2);
+        }}
+        ctx.strokeStyle = '#ff851b';
+        ctx.stroke();
+        ctx.restore();
+    }}
+    function drawLine() {{
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(0, lineData[0]);
+        for (let i=1; i<lineData.length; ++i) {{
+            ctx.lineTo(i*6, lineData[i]);
+        }}
+        ctx.strokeStyle = '#00bfff';
+        ctx.lineWidth = 2.5;
+        ctx.shadowColor = '#00bfff';
+        ctx.shadowBlur = 8;
+        ctx.stroke();
+        ctx.restore();
+    }}
+    function animate() {{
+        ctx.clearRect(0,0,W(),H());
+        drawGrid();
+        drawVolume();
+        drawCandles();
+        drawMA(ma20, '#0074d9');
+        drawMA(ma50, '#b10dc9');
+        drawBollinger(boll, '#39cccc', '#ffdc00');
+        drawLine();
+        drawMACD();
+        // Animate: shift candles and line left, add new
+        if (t++ % 6 === 0) {{
+            candles.shift();
+            let last = candles[candles.length-1];
+            let open = last.close;
+            let close_ = open + (Math.random()-0.5)*H()/30;
+            let high_ = Math.max(open, close_) + Math.random()*10;
+            let low_ = Math.min(open, close_) - Math.random()*10;
+            candles.push({{open: open, close: close_, high: high_, low: low_}});
+            volumes.shift();
+            volumes.push(40 + Math.random()*60 + Math.abs(close_-open)*2);
+            let closes = candles.map(c=>c.close);
+            ma20 = calcMA(closes, 20);
+            ma50 = calcMA(closes, 50);
+            boll = calcBollinger(closes, 20, 2);
+            macdObj = calcMACD(closes);
+            macdLine = macdObj.macd;
+            signalLine = macdObj.signal;
+            macdHist = macdObj.hist;
+            lineData.shift();
+            lineData.push(lineData[lineData.length-1] + (Math.random()-0.5)*H()/60);
+        }}
+        requestAnimationFrame(animate);
+    }}
+    animate();
     </script>
 </body>
 </html>
