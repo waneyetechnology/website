@@ -1,6 +1,7 @@
 from datetime import datetime
 from .log import logger
 import random
+from .minify_assets import minify_html
 
 def generate_html(news, policies, econ, forex):
     now = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
@@ -82,4 +83,4 @@ def generate_html(news, policies, econ, forex):
 </body>
 </html>
 """
-    return html
+    return minify_html(html)
