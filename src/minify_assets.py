@@ -1,10 +1,14 @@
 import os
-import htmlmin
 import csscompressor
 import jsmin
 
 def minify_html(html: str) -> str:
-    return htmlmin.minify(html, remove_comments=True, remove_empty_space=True)
+    # Regex fallback for HTML minification (no htmlmin)
+    import re
+    html = re.sub(r'>\s+<', '><', html)
+    html = re.sub(r'<!--.*?-->', '', html, flags=re.DOTALL)
+    html = re.sub(r'\s{2,}', ' ', html)
+    return html.strip()
 
 def minify_css(css: str) -> str:
     return csscompressor.compress(css)
