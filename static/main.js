@@ -25,8 +25,12 @@ function resize() {
     ctx.setTransform(1, 0, 0, 1, 0, 0); // reset
     ctx.scale(dpr, dpr);
 }
-window.addEventListener('resize', resize);
+window.addEventListener('resize', function() {
+    resize();
+    drawAll();
+});
 resize();
+drawAll();
 const W = () => window.innerWidth;
 const H = () => window.innerHeight;
 
@@ -419,5 +423,8 @@ function drawAll() {
         drawMiniChart(indicators[i][0], indicators[i][1], indicators[i][2], positions[i][0], positions[i][1]);
     }
 }
-drawAll();
+// Warn if any indicator function is missing
+if (typeof calcRSI !== 'function' || typeof calcStochastic !== 'function' || typeof calcParabolicSAR !== 'function') {
+    console.warn('Some indicator functions (calcRSI, calcStochastic, calcParabolicSAR) are missing. Mini-charts may not render.');
+}
 // --- END STATIC CHART ---
