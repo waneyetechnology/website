@@ -43,9 +43,9 @@ def generate_html(news, policies, econ, forex):
             </div>
             <div class='col-md-6'>
                 <div class='card shadow-sm'>
-                    <div class='card-header bg-info text-white'>Central Bank Policies</div>
+                    <div class='card-header bg-info text-white'>Central Bank Rates</div>
                     <ul class='list-group list-group-flush'>
-                        {''.join([f"<li class='list-group-item'><b>{item['bank']}:</b> {item['policy']}</li>" for item in policies])}
+                        {''.join([f"<li class='list-group-item'><b>{item['bank']}:</b> {item['rate']}</li>" for item in policies])}
                     </ul>
                 </div>
             </div>
