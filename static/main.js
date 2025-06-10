@@ -30,7 +30,7 @@ window.addEventListener('resize', function() {
     drawAll();
 });
 resize();
-drawAll();
+// drawAll(); // Removed redundant call, resize() already calls drawAll()
 const W = () => window.innerWidth;
 const H = () => window.innerHeight;
 
@@ -341,6 +341,7 @@ function calcROC(arr, n) {
     return roc;
 }
 function calcEMA(arr, n) {
+    if (arr.length === 0) return [];
     let k = 2/(n+1), ema = [arr[0]];
     for (let i = 1; i < arr.length; ++i) {
         ema[i] = arr[i]*k + ema[i-1]*(1-k);
@@ -353,6 +354,107 @@ function calcSMA(arr, n) {
         sma[i] = arr.slice(i-n+1,i+1).reduce((a,b)=>a+b,0)/n;
     }
     return sma;
+}
+
+function calcRSI(closes, n) {
+    if (closes.length < n + 1) return new Array(closes.length).fill(null);
+    let rsi = Array(closes.length).fill(null);
+    let gains = [];
+    let losses = [];
+
+    for (let i = 1; i < closes.length; i++) {
+        let change = closes[i] - closes[i-1];
+        if (change > 0) {
+            gains.push(change);
+            losses.push(0);
+        } else {
+            gains.push(0);
+            losses.push(Math.abs(change));
+        }
+    }
+
+    let avgGain = 0;
+    let avgLoss = 0;
+
+    for (let i = 0; i < n; i++) {
+        avgGain += gains[i] || 0;
+        avgLoss += losses[i] || 0;
+    }
+    avgGain /= n;
+    avgLoss /= n;
+
+    rsi[n] = 100 - (100 / (1 + (avgGain / (avgLoss === 0 ? 1 : avgLoss) ) ) ); // Avoid division by zero for avgLoss
+
+    for (let i = n + 1; i < closes.length; i++) {
+        avgGain = ((avgGain * (n - 1)) + (gains[i-1] || 0)) / n;
+        avgLoss = ((avgLoss * (n - 1)) + (losses[i-1] || 0)) / n;
+        rsi[i] = 100 - (100 / (1 + (avgGain / (avgLoss === 0 ? 1 : avgLoss) ) ) ); // Avoid division by zero for avgLoss
+    }
+    return rsi;
+}
+
+function calcStochastic(closes, n) {
+    let stoch = Array(closes.length).fill(null);
+    for (let i = n - 1; i < closes.length; i++) {
+        let period = closes.slice(i - n + 1, i + 1);
+        let lowestLow = Math.min(...period);
+        let highestHigh = Math.max(...period);
+        stoch[i] = 100 * (closes[i] - lowestLow) / (highestHigh - lowestLow || 1); // Avoid division by zero
+    }
+    return stoch;
+}
+
+function calcParabolicSAR(candles) {
+    if (candles.length < 2) return new Array(candles.length).fill(null);
+    let sar = Array(candles.length).fill(null);
+    // Note: Original "if (candles.length === 0) return sar;" is removed as it's covered by the new check.
+    let trend = candles[1].close > candles[0].close ? 1 : -1; // 1 for uptrend, -1 for downtrend
+    let af = 0.02;
+    let ep = trend === 1 ? candles[0].high : candles[0].low;
+    sar[0] = trend === 1 ? candles[0].low : candles[0].high;
+    if (candles.length > 1) {
+      sar[1] = sar[0]; // Initial SAR for the second period is same as first
+    }
+
+
+    for (let i = 2; i < candles.length; i++) {
+        let prevSAR = sar[i-1];
+        let prevEP = ep;
+
+        if (trend === 1) { // Uptrend
+            sar[i] = prevSAR + af * (prevEP - prevSAR);
+            if (candles[i].high > ep) {
+                ep = candles[i].high;
+                af = Math.min(0.2, af + 0.02);
+            }
+            // Ensure SAR is not above current or previous low
+            sar[i] = Math.min(sar[i], candles[i-1].low, candles[i-2].low);
+
+
+            if (sar[i] > candles[i].low) { // Trend reversal
+                trend = -1;
+                sar[i] = ep; // SAR is the EP at reversal
+                ep = candles[i].low;
+                af = 0.02;
+            }
+        } else { // Downtrend
+            sar[i] = prevSAR - af * (prevSAR - prevEP);
+            if (candles[i].low < ep) {
+                ep = candles[i].low;
+                af = Math.min(0.2, af + 0.02);
+            }
+            // Ensure SAR is not below current or previous high
+            sar[i] = Math.max(sar[i], candles[i-1].high, candles[i-2].high);
+
+            if (sar[i] < candles[i].high) { // Trend reversal
+                trend = 1;
+                sar[i] = ep; // SAR is the EP at reversal
+                ep = candles[i].high;
+                af = 0.02;
+            }
+        }
+    }
+    return sar;
 }
 
 // Calculate all indicators
@@ -374,14 +476,32 @@ function drawMiniChart(data, color, label, x, y, w=80, h=32) {
     ctx.translate(x, y);
     ctx.beginPath();
     let n = data.length;
+    const validData = data.filter(v => v !== null && !isNaN(v));
+    if (validData.length === 0) {
+        ctx.restore(); // Ensure restore is called even if we return early
+        return;
+    }
+    let min = Math.min(...validData);
+    let max = Math.max(...validData);
+
+    let firstValidPoint = true;
     for (let i = 0; i < n; ++i) {
-        let px = (i/(n-1))*w;
         let val = data[i];
         if (val === null || isNaN(val)) continue;
-        let min = Math.min(...data.filter(v=>v!==null)), max = Math.max(...data.filter(v=>v!==null));
-        let py = h - ((val-min)/(max-min||1))*h;
-        if (i === 0) ctx.moveTo(px, py);
-        else ctx.lineTo(px, py);
+
+        // Calculate px based on original index 'i' to maintain horizontal spacing
+        // If n-1 is 0 (only one data point), px can be 0 or w/2 depending on desired rendering
+        let px = (n === 1) ? w / 2 : (i / (n - 1)) * w;
+
+        let py = h - ((val - min) / (max - min || 1)) * h;
+        if (isNaN(py)) continue; // Added safety for py
+
+        if (firstValidPoint) {
+            ctx.moveTo(px, py);
+            firstValidPoint = false;
+        } else {
+            ctx.lineTo(px, py);
+        }
     }
     ctx.strokeStyle = color;
     ctx.lineWidth = 2;
@@ -395,7 +515,34 @@ function drawMiniChart(data, color, label, x, y, w=80, h=32) {
 }
 
 function drawAll() {
-    ctx.clearRect(0,0,W(),H());
+    // ctx.clearRect(0,0,W(),H());
+    // drawGrid();
+    // drawVolume();
+    // drawCandles();
+    // drawMA(ma20, '#0074d9');
+    // drawMA(ma50, '#b10dc9');
+    // drawBollinger(boll, '#39cccc', '#ffdc00');
+    // drawLine();
+    // drawMACD();
+    // // Scatter mini-indicator charts all over the screen
+    // let indicators = [
+    //     [rsi, '#ff851b', 'RSI'],
+    //     [stoch, '#b10dc9', 'Stoch'],
+    //     [sar, '#01ff70', 'SAR'],
+    //     [atr, '#39cccc', 'ATR'],
+    //     [cci, '#ff4136', 'CCI'],
+    //     [adx, '#0074d9', 'ADX'],
+    //     [willr, '#ffdc00', 'Williams %R'],
+    //     [obv, '#0a192f', 'OBV'],
+    //     [roc, '#2ecc40', 'ROC'],
+    //     [ema, '#b3b3b3', 'EMA'],
+    //     [sma, '#ff851b', 'SMA']
+    // ];
+    // let positions = randomPositions(indicators.length, 100);
+    // for (let i = 0; i < indicators.length; ++i) {
+    //     drawMiniChart(indicators[i][0], indicators[i][1], indicators[i][2], positions[i][0], positions[i][1]);
+    // }
+    ctx.clearRect(0,0,W(),H()); // Clear canvas
     drawGrid();
     drawVolume();
     drawCandles();
