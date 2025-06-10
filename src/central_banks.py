@@ -190,18 +190,149 @@ def fetch_central_bank_rates():
         {"name": "People's Bank of China", "code": "pboc", "url": "http://www.pbc.gov.cn/en/3688229/index.html"},
         {"name": "Reserve Bank of New Zealand", "code": "rbnz", "url": "https://www.rbnz.govt.nz/monetary-policy/official-cash-rate"},
     ]
-    rates = []
+    rates_data = []
+
+    # Define bank-specific extraction rules
+    # Rule: (keyword_to_find, regex_for_rate_after_keyword, search_window_chars)
+    # The regex_for_rate_after_keyword should have one capturing group for the rate value itself.
+    # Define a more robust general regex for rate values
+    robust_rate_regex = r"(-?\d+(?:\.\d+)?)\s*(?:%|percent|per\s*cent)\b" # \b for word boundary
+
+    bank_specific_rules = {
+        "fed": [
+            ("federal funds rate target range", r"(\d+\.\d+\s*(?:to|-)\s*\d+\.\d+\s*percent|\d+(?:\.\d+)?\s*percent|\d+(?:\.\d+)?%)", 250),
+            ("federal funds rate", r"(\d+(?:\.\d+)?\s*(?:to|-)\s*\d+(?:\.\d+)?\s*percent|\d+(?:\.\d+)?\s*percent|\d+(?:\.\d+)?%)", 250)
+        ],
+        "ecb": [ # Keywords are already lowercase
+            ("main refinancing operations", robust_rate_regex, 150),
+            ("deposit facility", robust_rate_regex, 150),
+            ("marginal lending facility", robust_rate_regex, 150)
+        ],
+        "boe": [
+            ("bank rate", robust_rate_regex, 150)
+        ],
+        "boj": [
+            ("uncollateralized overnight call rate", r"(around\s*-?\d+\.\d+|-?\d+\.\d+)\s*(?:%|percent|per\s*cent)\b", 250),
+            ("short-term policy interest rate", r"(-?\d+\.\d+)\s*(?:%|percent|per\s*cent)\b", 200)
+        ],
+        "snb": [
+            ("snb policy rate", robust_rate_regex, 150)
+        ],
+        "boc": [
+            ("policy interest rate", robust_rate_regex, 150),
+            ("target for the overnight rate", robust_rate_regex, 150)
+        ],
+        "rba": [
+            ("cash rate target", robust_rate_regex, 150), # Will handle "per cent"
+            ("cash rate", robust_rate_regex, 150)
+        ],
+        "pboc": [
+            ("loan prime rate \(lpr\)", robust_rate_regex, 200),
+            ("lpr", robust_rate_regex, 150)
+        ],
+        "rbnz": [
+            ("official cash rate \(ocr\)", robust_rate_regex, 200),
+            ("official cash rate", robust_rate_regex, 150)
+        ]
+    }
+
+    generic_fallbacks = [
+        (r"policy interest rate", robust_rate_regex, 150),
+        (r"interest rate", robust_rate_regex, 150),
+        (r"cash rate", robust_rate_regex, 150),
+        (r"benchmark rate", robust_rate_regex, 150),
+    ]
+
+    # More restrictive: numbers < 50%, up to 2 decimal places. \b for word boundary.
+    last_resort_percentage_regex = r"\b((?:[0-9]|[1-4][0-9])(?:\.\d{1,2})?|0\.\d{1,2})\s*%"
+
+    # Banks to provide detailed search_area logging for this run
+    debug_search_area_banks = ["Federal Reserve", "European Central Bank", "Bank of Canada", "Reserve Bank of Australia", "People's Bank of China"]
+
     for bank in banks:
+        rate_str = "Rate not found"
+        keyword_found_for_bank = False # Flag to control last resort regex application
         try:
-            resp = requests.get(bank["url"], timeout=10)
-            if resp.ok:
-                text = resp.text
-                # Try to extract a rate (look for numbers like 5.25%, 0.10%, etc.)
-                match = re.search(r'(\d+\.\d+|\d+)[ ]?%?', text)
-                rate = match.group(0) if match else "Rate not found"
-                rates.append({"bank": bank["name"], "rate": rate, "url": bank["url"]})
-            else:
-                rates.append({"bank": bank["name"], "rate": "Could not fetch rate", "url": bank["url"]})
-        except Exception:
-            rates.append({"bank": bank["name"], "rate": "Error fetching rate", "url": bank["url"]})
-    return rates
+            resp = requests.get(bank["url"], timeout=15)
+            resp.raise_for_status()
+
+            text = resp.text
+            clean_text = re.sub(r'<script[^>]*>.*?</script>', '', text, flags=re.DOTALL | re.IGNORECASE)
+            clean_text = re.sub(r'<style[^>]*>.*?</style>', '', clean_text, flags=re.DOTALL | re.IGNORECASE)
+            clean_text = re.sub(r'<[^>]+>', '', clean_text)
+            clean_text = re.sub(r'\s+', ' ', clean_text).strip()
+            clean_text_lower = clean_text.lower()
+
+            if bank["name"] == "Federal Reserve":
+                 logger.debug(f"Cleaned text for {bank['name']} (first 500 chars): {clean_text_lower[:500]}")
+
+            bank_code = bank.get("code")
+            if bank_code in bank_specific_rules:
+                logger.info(f"Attempting specific rules for {bank['name']}...")
+                for keyword, rate_regex_str, window in bank_specific_rules[bank_code]:
+                    keyword_match = re.search(keyword, clean_text_lower)
+                    if keyword_match:
+                        keyword_found_for_bank = True
+                        logger.info(f"Keyword '{keyword}' found for {bank['name']}.")
+                        start_index = keyword_match.end()
+                        search_area = clean_text[start_index : start_index + window]
+                        if bank["name"] in debug_search_area_banks:
+                            logger.debug(f"Search area for {bank['name']} (rule '{keyword}'): '{search_area}'")
+
+                        rate_match = re.search(rate_regex_str, search_area, re.IGNORECASE)
+                        if rate_match and rate_match.group(1):
+                            rate_str = rate_match.group(1).strip()
+                            rate_str = re.sub(r"\s*(?:percent|per\s*cent)\s*", "%", rate_str, flags=re.IGNORECASE) # Normalize
+                            if "%" not in rate_str and ("rate" in keyword or "target" in keyword or "facility" in keyword):
+                                rate_str += "%"
+                            logger.info(f"Rate regex matched for {bank['name']} ('{keyword}'). Extracted: {rate_str}")
+                            break
+                    # else: logger.info(f"Keyword '{keyword}' NOT found for {bank['name']}.") # Too verbose
+                if rate_str != "Rate not found":
+                    rates_data.append({"bank": bank["name"], "rate": rate_str, "url": bank["url"]})
+                    continue
+
+            if rate_str == "Rate not found":
+                logger.info(f"Specific rules failed for {bank['name']}. Trying generic fallbacks...")
+                for keyword_regex_str_generic, rate_regex_str_generic, window_generic in generic_fallbacks:
+                    keyword_match_generic = re.search(keyword_regex_str_generic, clean_text_lower) # Search in lower text
+                    if keyword_match_generic:
+                        keyword_found_for_bank = True
+                        logger.info(f"Generic keyword regex '{keyword_regex_str_generic}' found for {bank['name']}.")
+                        start_index_generic = keyword_match_generic.end()
+                        search_area_generic = clean_text[start_index_generic : start_index_generic + window_generic]
+                        if bank["name"] in debug_search_area_banks:
+                             logger.debug(f"Search area for {bank['name']} (generic rule '{keyword_regex_str_generic}'): '{search_area_generic}'")
+
+                        rate_match_generic = re.search(rate_regex_str_generic, search_area_generic, re.IGNORECASE)
+                        if rate_match_generic and rate_match_generic.group(1):
+                            rate_str = rate_match_generic.group(1).strip()
+                            rate_str = re.sub(r"\s*(?:percent|per\s*cent)\s*", "%", rate_str, flags=re.IGNORECASE) # Normalize
+                            logger.info(f"Generic rate regex matched for {bank['name']}. Extracted: {rate_str}")
+                            break
+                if rate_str != "Rate not found":
+                    rates_data.append({"bank": bank["name"], "rate": rate_str, "url": bank["url"]})
+                    continue
+
+            if rate_str == "Rate not found" and not keyword_found_for_bank: # Only use last resort if NO keywords were found
+                logger.info(f"Generic fallbacks failed for {bank['name']} AND no keywords previously found. Trying last resort percentage regex...")
+                match = re.search(last_resort_percentage_regex, clean_text) # Search on original case text for this specific regex
+                if match:
+                    # This regex already includes % in its capture group or implies it by structure
+                    rate_str = match.group(1).strip()
+                    # No need to re-add %, already part of regex logic or implied by it for <50 values
+                    logger.info(f"Last resort percentage regex matched for {bank['name']}. Extracted: {rate_str}")
+            elif rate_str == "Rate not found" and keyword_found_for_bank:
+                 logger.info(f"Keywords were found for {bank['name']}, but rate value regexes failed. NOT using last resort regex.")
+
+
+            rates_data.append({"bank": bank["name"], "rate": rate_str, "url": bank["url"]})
+
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Error fetching rate for {bank['name']} from {bank['url']}: {e}")
+            rates_data.append({"bank": bank["name"], "rate": "Could not fetch rate (Request Error)", "url": bank["url"]})
+        except Exception as e:
+            logger.error(f"Generic error processing rate for {bank['name']}: {e}", exc_info=True)
+            rates_data.append({"bank": bank["name"], "rate": "Error processing rate data", "url": bank["url"]})
+
+    return rates_data
