@@ -20,10 +20,10 @@ def generate_html(news, policies, econ, forex):
     <meta charset='UTF-8'>
     <title>Waneye Financial Dashboard</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg'>
+    <link rel='icon' type='image/svg+xml' href='favicon.svg'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/jellythemes/jelly-bootstrap@main/dist/jelly-bootstrap.min.css'>
-    <link rel='stylesheet' href='/static/style.css'>
+    <link rel='stylesheet' href='static/style.css'>
 </head>
 <body>
     <canvas id='bg-canvas'></canvas>
@@ -79,7 +79,7 @@ def generate_html(news, policies, econ, forex):
         </footer>
     </div>
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'></script>
-    <script src='/static/main.js'></script>
+    <script src='static/main.js'></script>
 </body>
 </html>
 """

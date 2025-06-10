@@ -355,6 +355,106 @@ function calcSMA(arr, n) {
     return sma;
 }
 
+function calcRSI(closes, n) {
+    let rsi = Array(closes.length).fill(null);
+    let gains = [];
+    let losses = [];
+
+    for (let i = 1; i < closes.length; i++) {
+        let change = closes[i] - closes[i-1];
+        if (change > 0) {
+            gains.push(change);
+            losses.push(0);
+        } else {
+            gains.push(0);
+            losses.push(Math.abs(change));
+        }
+    }
+
+    let avgGain = 0;
+    let avgLoss = 0;
+
+    for (let i = 0; i < n; i++) {
+        avgGain += gains[i] || 0;
+        avgLoss += losses[i] || 0;
+    }
+    avgGain /= n;
+    avgLoss /= n;
+
+    rsi[n] = 100 - (100 / (1 + (avgGain / (avgLoss === 0 ? 1 : avgLoss) ) ) ); // Avoid division by zero for avgLoss
+
+    for (let i = n + 1; i < closes.length; i++) {
+        avgGain = ((avgGain * (n - 1)) + (gains[i-1] || 0)) / n;
+        avgLoss = ((avgLoss * (n - 1)) + (losses[i-1] || 0)) / n;
+        rsi[i] = 100 - (100 / (1 + (avgGain / (avgLoss === 0 ? 1 : avgLoss) ) ) ); // Avoid division by zero for avgLoss
+    }
+    return rsi;
+}
+
+function calcStochastic(closes, n) {
+    let stoch = Array(closes.length).fill(null);
+    for (let i = n - 1; i < closes.length; i++) {
+        let period = closes.slice(i - n + 1, i + 1);
+        let lowestLow = Math.min(...period);
+        let highestHigh = Math.max(...period);
+        stoch[i] = 100 * (closes[i] - lowestLow) / (highestHigh - lowestLow || 1); // Avoid division by zero
+    }
+    return stoch;
+}
+
+function calcParabolicSAR(candles) {
+    let sar = Array(candles.length).fill(null);
+    if (candles.length === 0) return sar;
+
+    let trend = candles[1].close > candles[0].close ? 1 : -1; // 1 for uptrend, -1 for downtrend
+    let af = 0.02;
+    let ep = trend === 1 ? candles[0].high : candles[0].low;
+    sar[0] = trend === 1 ? candles[0].low : candles[0].high;
+    if (candles.length > 1) {
+      sar[1] = sar[0]; // Initial SAR for the second period is same as first
+    }
+
+
+    for (let i = 2; i < candles.length; i++) {
+        let prevSAR = sar[i-1];
+        let prevEP = ep;
+
+        if (trend === 1) { // Uptrend
+            sar[i] = prevSAR + af * (prevEP - prevSAR);
+            if (candles[i].high > ep) {
+                ep = candles[i].high;
+                af = Math.min(0.2, af + 0.02);
+            }
+            // Ensure SAR is not above current or previous low
+            sar[i] = Math.min(sar[i], candles[i-1].low, candles[i-2].low);
+
+
+            if (sar[i] > candles[i].low) { // Trend reversal
+                trend = -1;
+                sar[i] = ep; // SAR is the EP at reversal
+                ep = candles[i].low;
+                af = 0.02;
+            }
+        } else { // Downtrend
+            sar[i] = prevSAR - af * (prevSAR - prevEP);
+            if (candles[i].low < ep) {
+                ep = candles[i].low;
+                af = Math.min(0.2, af + 0.02);
+            }
+            // Ensure SAR is not below current or previous high
+            sar[i] = Math.max(sar[i], candles[i-1].high, candles[i-2].high);
+
+            if (sar[i] < candles[i].high) { // Trend reversal
+                trend = 1;
+                sar[i] = ep; // SAR is the EP at reversal
+                ep = candles[i].high;
+                af = 0.02;
+            }
+        }
+    }
+    return sar;
+}
+
 // Calculate all indicators
 let rsi = calcRSI(closes, 14);
 let stoch = calcStochastic(closes, 14);
