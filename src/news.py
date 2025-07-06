@@ -416,17 +416,18 @@ def generate_ai_image(headline_id):
             # Try to use the headline_id as a fallback for the prompt
             headline_text = f"Financial news with ID {headline_id}"
         
-        # Generate prompt for DALL-E - simpler prompt for smaller image size
-        prompt = f"Simple financial news icon for: {headline_text}. Minimalist business style."
+        # Generate prompt for DALL-E - optimized for financial imagery
+        prompt = f"A high quality financial news image for: {headline_text}. Professional business style with clear details, suitable for financial news."
         
-        # Generate the image with DALL-E 2 at smaller size for cost efficiency
+        # Generate the image with DALL-E 2 at the optimal size for cost vs. quality
         try:
             logger.info(f"Generating AI image for headline: '{headline_text[:50]}...'")
             response = client.images.generate(
-                model="dall-e-2",  # Using DALL-E 2 which is more cost-effective
+                model="dall-e-2",  # DALL-E 2 is more cost-effective than DALL-E 3
                 prompt=prompt,
-                size="256x256",  # Smallest size for lowest cost
+                size="512x512",  # Best balance between cost and quality (512x512 is mid-tier for DALL-E 2)
                 n=1,
+                quality="standard",  # Standard quality is the most cost-effective
             )
             
             # Get image URL from response
