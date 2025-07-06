@@ -18,7 +18,7 @@ def generate_html(news, policies, econ, forex):
 <html lang='en'>
 <head>
     <meta charset='UTF-8'>
-    <title>Waneye Financial Dashboard</title>
+    <title>Waneye Financial Overview</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!-- Performance optimizations for resource loading -->
     <link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin>
@@ -44,7 +44,7 @@ def generate_html(news, policies, econ, forex):
     <canvas id='bg-canvas'></canvas>
     <div class='container my-5'>
         <div class='text-center mb-4'>
-            <h1 class='display-4 fw-bold'>Financial World Overview</h1>
+            <h1 class='display-4 fw-bold'>Waneye Financial Overview</h1>
             <p class='text-muted' id='last-updated'><em>Last updated: {now}</em></p>
         </div>
         <div class='row g-4'>
