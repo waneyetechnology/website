@@ -51,7 +51,7 @@ def generate_html(news, policies, econ, forex):
             <div class='col-12'>
                 <div class='card shadow-sm'>
                     <div class='card-header bg-primary text-white'>Top Financial Headlines</div>
-                    <div class='card-body'>
+                    <div class='card-body px-3 py-4'>
                         <div class='headline-grid'>
 """
 
@@ -87,7 +87,7 @@ def generate_html(news, policies, econ, forex):
         card = f"""<div class='headline-card'>
                 {image_html}
                 <div class='headline-caption'>
-                    <a href='{item["url"]}' target='_blank'>{item["headline"]}</a>
+                    <a href='{item["url"]}' target='_blank' title="{item["headline"]}">{item["headline"]}</a>
                 </div>
             </div>"""
         headline_cards.append(card)
