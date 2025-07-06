@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var d = new Date(utcText[1]+' UTC');
       if(!isNaN(d)){
         var opts = {year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'};
-        el.innerHTML = '<em>Last updated: '+d.toLocaleString(undefined,opts)+' (your local time)</em>';
+        el.innerHTML = '<em>Last updated: '+d.toLocaleString(undefined,opts)+'</em>';
       }
     }
   }
