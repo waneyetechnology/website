@@ -55,8 +55,9 @@ def generate_html(news, policies, econ, forex):
         if item.get("image"):
             # Check for different image types/sources
             if "default.jpg" in item["image"]:
-                # Use the actual default image instead of a placeholder div
-                image_html = f"""<img src='static/images/headlines/default.jpg' alt="Default financial image" class='headline-image'>"""
+                # Use the actual default image but with the headline as alt text and a special class
+                image_html = f"""<img src='static/images/headlines/default.jpg' alt="{item["headline"]}" class='headline-image default-image'>
+                <div class='default-badge'>Default</div>"""
             elif "#ai-generated" in item["image"]:
                 # AI-generated image with special class
                 actual_path = item["image"].split("#")[0]  # Remove the flag

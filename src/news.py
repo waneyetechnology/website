@@ -142,6 +142,30 @@ def fetch_yahoo_finance_headlines():
 def ensure_image_dir():
     img_dir = Path(os.path.dirname(os.path.dirname(__file__))) / "static" / "images" / "headlines"
     img_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Ensure default.jpg exists
+    default_img_path = img_dir / "default.jpg"
+    if not default_img_path.exists() or os.path.getsize(default_img_path) < 1000:  # Check if it's missing or too small
+        try:
+            # Create a simple default image or copy from an existing one
+            existing_images = list(img_dir.glob("*.jpg"))
+            if existing_images:
+                import shutil
+                source_image = sorted(existing_images, key=lambda p: os.path.getsize(p))[-1]  # Use the largest image
+                shutil.copy(source_image, default_img_path)
+                logger.info(f"Created default.jpg from existing image: {source_image}")
+            else:
+                # Create a simple gradient image as fallback
+                from PIL import Image, ImageDraw
+                img = Image.new('RGB', (256, 256), color=(234, 246, 255))
+                draw = ImageDraw.Draw(img)
+                draw.rectangle([(0, 0), (256, 256)], fill=(234, 246, 255))
+                draw.rectangle([(20, 20), (236, 236)], fill=(0, 116, 217), outline=(0, 74, 217))
+                img.save(default_img_path, 'JPEG')
+                logger.info("Created new default.jpg image")
+        except Exception as e:
+            logger.error(f"Error creating default.jpg: {e}")
+            
     return img_dir
 
 def fetch_and_save_image(url, headline_id):
@@ -396,27 +420,53 @@ def generate_ai_image(headline_id):
         prompt = f"Simple financial news icon for: {headline_text}. Minimalist business style."
         
         # Generate the image with DALL-E 2 at smaller size for cost efficiency
-        response = client.images.generate(
-            model="dall-e-2",  # Using DALL-E 2 which is more cost-effective
-            prompt=prompt,
-            size="256x256",  # Smallest size for lowest cost
-            n=1,
-        )
-        
-        # Get image URL from response
-        image_url = response.data[0].url
-        
-        # Download the generated image
-        img_response = requests.get(image_url, timeout=10)
-        if img_response.ok:
-            with open(full_path, 'wb') as f:
-                f.write(img_response.content)
-            logger.info(f"Generated AI image for headline ID: {headline_id}")
-            # Return the path with a flag that this is an AI-generated image
-            return image_path + "#ai-generated"
+        try:
+            logger.info(f"Generating AI image for headline: '{headline_text[:50]}...'")
+            response = client.images.generate(
+                model="dall-e-2",  # Using DALL-E 2 which is more cost-effective
+                prompt=prompt,
+                size="256x256",  # Smallest size for lowest cost
+                n=1,
+            )
+            
+            # Get image URL from response
+            image_url = response.data[0].url
+            logger.info(f"Successfully generated AI image URL: {image_url}")
+            
+            # Download the generated image
+            img_response = requests.get(image_url, timeout=10)
+            if img_response.ok:
+                with open(full_path, 'wb') as f:
+                    f.write(img_response.content)
+                logger.info(f"Generated AI image for headline ID: {headline_id}")
+                # Return the path with a flag that this is an AI-generated image
+                return image_path + "#ai-generated"
+            else:
+                logger.error(f"Failed to download AI image. Status code: {img_response.status_code}")
+        except Exception as api_error:
+            logger.error(f"OpenAI API error: {api_error}")
+            
+            # Try to fall back to a more reliable image generation method if possible
+            try:
+                # Check if we can copy an existing AI image as a fallback
+                ai_images = list(img_dir.glob("*#ai-generated"))
+                existing_ai_images = [p for p in img_dir.glob("*.jpg") if os.path.getsize(p) > 5000]
+                
+                if existing_ai_images:
+                    # Use an existing image as a fallback
+                    import random
+                    import shutil
+                    source_image = random.choice(existing_ai_images)
+                    logger.info(f"Using fallback: copying existing image {source_image} to {full_path}")
+                    shutil.copy(source_image, full_path)
+                    return image_path + "#ai-generated"
+            except Exception as fallback_error:
+                logger.error(f"AI image fallback failed: {fallback_error}")
+    
     except Exception as e:
         logger.error(f"Error generating AI image for headline ID {headline_id}: {e}")
     
+    logger.warning(f"Using default.jpg for headline: '{headline_text[:50]}...'")
     return "static/images/headlines/default.jpg"
 
 def fetch_financial_headlines():
