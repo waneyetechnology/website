@@ -135,7 +135,7 @@ def fetch_yahoo_finance_headlines():
 
 def fetch_financial_headlines():
     """
-    Fetches top financial headlines from 5 sources/APIs, applies a random weight to each source, and returns the top 20 headlines for a global financial overview.
+    Fetches financial headlines from 5 sources/APIs, applies a random weight to each source, and returns all headlines for a comprehensive global financial overview.
     """
     sources = [
         fetch_newsapi_headlines,
@@ -150,4 +150,4 @@ def fetch_financial_headlines():
     all_headlines = []
     for _, fn in weighted_sources:
         all_headlines += fn()
-    return all_headlines[:20]
+    return all_headlines  # Return all headlines without limiting to 20
