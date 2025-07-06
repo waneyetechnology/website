@@ -528,3 +528,91 @@ if (typeof calcRSI !== 'function' || typeof calcStochastic !== 'function' || typ
     console.warn('Some indicator functions (calcRSI, calcStochastic, calcParabolicSAR) are missing. Mini-charts may not render.');
 }
 // --- END STATIC CHART ---
+
+// --- Headline image lazy loading ---
+document.addEventListener('DOMContentLoaded', () => {
+  // Setup Intersection Observer for lazy loading
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const card = entry.target;
+        const url = card.dataset.url;
+
+        if (url) {
+          fetchFirstImage(url, card);
+          observer.unobserve(card); // Stop observing once loaded
+        }
+      }
+    });
+  }, { rootMargin: "50px" });
+
+  // Observe all headline cards
+  document.querySelectorAll('.headline-card').forEach(card => {
+    imageObserver.observe(card);
+  });
+
+  // Function to fetch the first image from a headline URL
+  async function fetchFirstImage(url, card) {
+    try {
+      // Create a proxy URL to avoid CORS issues
+      const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
+
+      // Show loading state
+      card.classList.add('loading');
+
+      // Fetch the page content
+      const response = await fetch(proxyUrl);
+      if (!response.ok) throw new Error('Network response was not ok');
+
+      const text = await response.text();
+
+      // Create a DOM parser and parse the HTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, 'text/html');
+
+      // Try to find images in the page
+      const images = doc.querySelectorAll('img');
+      let imageUrl = null;
+
+      // Find the first suitable image
+      for (const img of images) {
+        const src = img.src || img.getAttribute('data-src') || img.getAttribute('data-lazy-src');
+        if (src &&
+            src.match(/\.(jpg|jpeg|png|webp|avif)/i) &&
+            !src.includes('logo') &&
+            !src.includes('icon') &&
+            img.width > 200) {
+          imageUrl = src;
+          break;
+        }
+      }
+
+      // If no suitable image was found in img tags, try meta tags
+      if (!imageUrl) {
+        const ogImage = doc.querySelector('meta[property="og:image"]');
+        if (ogImage) {
+          imageUrl = ogImage.getAttribute('content');
+        }
+      }
+
+      // If an image was found, create an img element
+      if (imageUrl) {
+        const img = document.createElement('img');
+        img.src = imageUrl;
+        img.alt = card.querySelector('.headline-caption a').textContent;
+        img.className = 'headline-image';
+
+        // Remove placeholder
+        const placeholder = card.querySelector('.placeholder-content');
+        if (placeholder) placeholder.remove();
+
+        // Insert the image
+        card.insertBefore(img, card.querySelector('.headline-caption'));
+      }
+    } catch (error) {
+      console.error('Error fetching image:', error);
+    } finally {
+      card.classList.remove('loading');
+    }
+  }
+});

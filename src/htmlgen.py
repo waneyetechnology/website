@@ -41,40 +41,85 @@ def generate_html(news, policies, econ, forex):
             <p class='text-muted' id='last-updated'><em>Last updated: {now}</em></p>
         </div>
         <div class='row g-4'>
-            <div class='col-md-6'>
+            <div class='col-12'>
                 <div class='card shadow-sm'>
                     <div class='card-header bg-primary text-white'>Top Financial Headlines</div>
-                    <ul class='list-group list-group-flush'>
-                        {''.join([f"<li class='list-group-item'><span class='headline-bullet' style='background:linear-gradient(135deg, {color1} 60%, {color2} 100%);box-shadow:0 1px 4px {color1}55;'></span><a href='{item['url']}' target='_blank'>{item['headline']}</a></li>" for item, color1, color2 in zip(news, headline_colors1, headline_colors2)])}
-                    </ul>
+                    <div class='card-body'>
+                        <div class='headline-grid'>
+"""
+    
+    # Generate headline cards
+    headline_cards = []
+    for item in news:
+        card = f"""<div class='headline-card' data-url='{item["url"]}'>
+                <div class='placeholder-content d-flex align-items-center justify-content-center bg-light' style='height:100%'>
+                    <div class='spinner-border text-primary' role='status'>
+                        <span class='visually-hidden'>Loading...</span>
+                    </div>
                 </div>
-            </div>
-            <div class='col-md-6'>
-                <div class='card shadow-sm'>
-                    <div class='card-header bg-info text-white'>Central Bank Rates</div>
-                    <ul class='list-group list-group-flush'>
-                        {''.join([f"<li class='list-group-item'><b>{item['bank']}:</b> {item['rate']}</li>" for item in policies])}
-                    </ul>
+                <div class='headline-caption'>
+                    <a href='{item["url"]}' target='_blank'>{item["headline"]}</a>
+                </div>
+            </div>"""
+        headline_cards.append(card)
+    
+    html += "".join(headline_cards)
+    
+    html += f"""
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class='row g-4 mt-2'>
-            <div class='col-md-6'>
+            <div class='col-md-4'>
                 <div class='card shadow-sm'>
-                    <div class='card-header bg-success text-white'>Key Economic Data</div>
+                    <div class='card-header bg-info text-white'>Central Bank Rates</div>
                     <ul class='list-group list-group-flush'>
-                        {''.join([f"<li class='list-group-item'>{item['event']}: {item['value']} ({item['date']})</li>" for item in econ])}
+"""
+
+    # Generate policy items
+    policy_items = []
+    for item in policies:
+        policy_items.append(f"<li class='list-group-item'><b>{item['bank']}:</b> {item['rate']}</li>")
+    html += "".join(policy_items)
+
+    html += f"""
                     </ul>
                 </div>
             </div>
-            <div class='col-md-6'>
+            <div class='col-md-4'>
+                <div class='card shadow-sm'>
+                    <div class='card-header bg-success text-white'>Key Economic Data</div>
+                    <ul class='list-group list-group-flush'>
+"""
+
+    # Generate economic data items
+    econ_items = []
+    for item in econ:
+        econ_items.append(f"<li class='list-group-item'>{item['event']}: {item['value']} ({item['date']})</li>")
+    html += "".join(econ_items)
+
+    html += f"""
+                    </ul>
+                </div>
+            </div>
+            <div class='col-md-4'>
                 <div class='card shadow-sm'>
                     <div class='card-header bg-warning text-dark'>Forex CFD Quotes</div>
                     <div class='table-responsive'>
                         <table class='table table-bordered mb-0'>
                             <thead class='table-light'><tr><th>Pair</th><th>Bid</th><th>Ask</th></tr></thead>
                             <tbody>
-                                {''.join([f"<tr><td>{item['pair']}</td><td>{item['bid']}</td><td>{item['ask']}</td></tr>" for item in forex])}
+"""
+
+    # Generate forex items
+    forex_items = []
+    for item in forex:
+        forex_items.append(f"<tr><td>{item['pair']}</td><td>{item['bid']}</td><td>{item['ask']}</td></tr>")
+    html += "".join(forex_items)
+
+    html += f"""
                             </tbody>
                         </table>
                     </div>
