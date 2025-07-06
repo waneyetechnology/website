@@ -148,13 +148,6 @@ def fetch_and_save_image(url, headline_id):
     img_dir = ensure_image_dir()
     image_path = f"static/images/headlines/{headline_id}.jpg"
     full_path = img_dir / f"{headline_id}.jpg"
-
-    # For testing only: Force at least one AI generation by picking a specific headline ID
-    if headline_id == "6219af0b4fb4bc727a156631fb23954d":
-        # Remove existing image if it exists
-        if os.path.exists(full_path):
-            os.remove(full_path)
-        return generate_ai_image(headline_id)
     
     # Don't refetch if we already have the image
     if os.path.exists(full_path):
@@ -169,33 +162,151 @@ def fetch_and_save_image(url, headline_id):
         response = requests.get(url, headers=headers, timeout=10)
         if not response.ok:
             logger.warning(f"Failed to fetch URL {url}: {response.status_code}")
-            return None
+            # Try to generate an AI image instead of returning None
+            return generate_ai_image(headline_id)
 
         # Parse the HTML
         soup = BeautifulSoup(response.text, 'html.parser')
-
-        # First try Open Graph image
-        og_image = soup.find('meta', property='og:image')
-        if og_image and og_image.get('content'):
-            image_url = og_image.get('content')
-        else:
-            # Then try Twitter image
-            twitter_image = soup.find('meta', attrs={'name': 'twitter:image'})
-            if twitter_image and twitter_image.get('content'):
-                image_url = twitter_image.get('content')
-            else:
-                # Finally try the first large image
-                images = soup.find_all('img')
-                image_url = None
-                for img in images:
-                    src = img.get('src') or img.get('data-src')
-                    if src and not re.search(r'(logo|icon|avatar|banner)', src, re.I) and (
-                        re.search(r'\.(jpg|jpeg|png|webp)(\?.*)?$', src, re.I) or
-                        'width' in img.attrs and 'height' in img.attrs and
-                        int(img.get('width', '0')) > 200 and int(img.get('height', '0')) > 100
-                    ):
-                        image_url = src
+        
+        # More comprehensive approach to find images in meta tags for any site
+        image_url = None
+        
+        # Step 1: Try all common image meta tags using a systematic approach
+        meta_image_properties = [
+            # Open Graph tags (used by Facebook and many sites)
+            'og:image', 'og:image:url', 'og:image:secure_url',
+            # Twitter card tags
+            'twitter:image', 'twitter:image:src',
+            # Other common meta image tags
+            'image', 'thumbnail', 'msapplication-TileImage'
+        ]
+        
+        # Check meta tags with 'property' attribute
+        for prop in meta_image_properties:
+            if image_url:
+                break
+            meta_tags = soup.find_all('meta', property=prop)
+            for meta in meta_tags:
+                if meta.get('content'):
+                    content = meta.get('content')
+                    if re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', content, re.I):
+                        image_url = content
+                        logger.info(f"Found image in meta property '{prop}': {image_url}")
                         break
+        
+        # Check meta tags with 'name' attribute if still no image found
+        if not image_url:
+            for prop in meta_image_properties:
+                if image_url:
+                    break
+                meta_tags = soup.find_all('meta', attrs={'name': prop})
+                for meta in meta_tags:
+                    if meta.get('content'):
+                        content = meta.get('content')
+                        if re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', content, re.I):
+                            image_url = content
+                            logger.info(f"Found image in meta name '{prop}': {image_url}")
+                            break
+        
+        # Check meta tags with 'itemprop' attribute (used in schema.org markup)
+        if not image_url:
+            for prop in ['image', 'thumbnailUrl', 'contentUrl']:
+                if image_url:
+                    break
+                meta_tags = soup.find_all('meta', attrs={'itemprop': prop})
+                for meta in meta_tags:
+                    if meta.get('content'):
+                        content = meta.get('content')
+                        if re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', content, re.I):
+                            image_url = content
+                            logger.info(f"Found image in meta itemprop '{prop}': {image_url}")
+                            break
+
+        # Step 2: If meta tags didn't work, look for structured JSON-LD data
+        if not image_url:
+            json_ld_scripts = soup.find_all('script', type='application/ld+json')
+            for script in json_ld_scripts:
+                if script.string:
+                    try:
+                        import json
+                        data = json.loads(script.string)
+                        # Look for image in JSON-LD data
+                        if isinstance(data, dict):
+                            # Check for image property in various structures
+                            for img_prop in ['image', 'thumbnailUrl', 'contentUrl']:
+                                if img_prop in data and data[img_prop]:
+                                    if isinstance(data[img_prop], str):
+                                        image_url = data[img_prop]
+                                    elif isinstance(data[img_prop], list) and data[img_prop]:
+                                        image_url = data[img_prop][0]
+                                    if image_url:
+                                        logger.info(f"Found image in JSON-LD data: {image_url}")
+                                        break
+                    except Exception as json_err:
+                        logger.debug(f"Error parsing JSON-LD: {json_err}")
+        
+        # Step 3: If still no image, try image elements with specific attributes
+        if not image_url:
+            # Look for article-related image elements with multiple source attributes
+            image_attrs = ['src', 'data-src', 'data-lazy-src', 'data-original', 'data-url', 'data-hi-res-src']
+            promising_classes = ['article-image', 'story-img', 'article-img', 'post-image', 'featured-image', 'entry-image', 'hero-image']
+            
+            # First try to find images with promising class names
+            for class_name in promising_classes:
+                if image_url:
+                    break
+                images = soup.find_all('img', class_=re.compile(class_name))
+                for img in images:
+                    for attr in image_attrs:
+                        if img.get(attr):
+                            src = img.get(attr)
+                            if src and not re.search(r'(logo|icon|avatar|banner|small)', src, re.I):
+                                image_url = src
+                                logger.info(f"Found image with class {class_name}: {image_url}")
+                                break
+                    if image_url:
+                        break
+            
+            # If still no image, look for large images
+            if not image_url:
+                images = soup.find_all('img')
+                for img in images:
+                    # Try multiple source attributes
+                    for attr in image_attrs:
+                        if image_url:
+                            break
+                        src = img.get(attr)
+                        if src and not re.search(r'(logo|icon|avatar|banner|small|button)', src, re.I) and (
+                            re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', src, re.I) or
+                            ('width' in img.attrs and 'height' in img.attrs and 
+                             int(img.get('width', '0')) > 200 and int(img.get('height', '0')) > 100)
+                        ):
+                            image_url = src
+                            logger.info(f"Found image via {attr} attribute: {image_url}")
+                            break
+                
+                # If still no image, look for the largest image by dimensions
+                if not image_url:
+                    largest_area = 0
+                    largest_img_src = None
+                    
+                    for img in images:
+                        try:
+                            width = int(img.get('width', 0))
+                            height = int(img.get('height', 0))
+                            src = img.get('src')
+                            
+                            if src and width > 0 and height > 0:
+                                area = width * height
+                                if area > largest_area and not re.search(r'(logo|icon|avatar|banner)', src, re.I):
+                                    largest_area = area
+                                    largest_img_src = src
+                        except (ValueError, TypeError):
+                            pass
+                    
+                    if largest_area > 10000:  # Minimum area threshold
+                        image_url = largest_img_src
+                        logger.info(f"Found largest image by dimensions: {image_url}")
 
         # If we found an image URL, download it
         if image_url:
@@ -215,8 +326,39 @@ def fetch_and_save_image(url, headline_id):
                 return image_path
     except Exception as e:
         logger.error(f"Error fetching image for {url}: {e}")
-
-    # No image found, generate one with OpenAI
+        
+        # Detect if this might be a paywalled or restricted site
+        domain = urlparse(url).netloc
+        is_likely_paywalled = any(site in domain for site in [
+            'wsj.com', 'nytimes.com', 'ft.com', 'bloomberg.com', 
+            'economist.com', 'barrons.com', 'seekingalpha.com',
+            'businessinsider.com', 'morningstar.com'
+        ])
+        
+        if is_likely_paywalled:
+            logger.info(f"Likely paywalled content detected for domain: {domain}")
+            
+        # Try to use headline text for an alternative image source
+        try:
+            # Extract article title
+            title = ""
+            for headline in fetch_financial_headlines.current_headlines:
+                if hashlib.md5(headline['url'].encode()).hexdigest() == headline_id:
+                    title = headline['headline']
+                    break
+            
+            if title:
+                # Log information about the headline for debugging
+                logger.info(f"Using headline text for alternative image search: {title}")
+                
+                # We could implement image search here if approved
+                # For now, just prepare for AI image generation
+                pass
+                
+        except Exception as search_ex:
+            logger.error(f"Error with alternative image approach: {search_ex}")
+    
+    # No image found or all methods failed, generate one with OpenAI
     return generate_ai_image(headline_id)
 
 def generate_ai_image(headline_id):
@@ -234,8 +376,9 @@ def generate_ai_image(headline_id):
             logger.warning("OPENAI_API_KEY is not set or empty.")
             return "static/images/headlines/default.jpg"
         
-        # Configure the OpenAI client
-        client = openai.OpenAI(api_key=api_key)
+        # Configure the OpenAI client - using the updated method we fixed earlier
+        openai.api_key = api_key
+        client = openai.OpenAI()
         
         # Get the headline text from all_headlines global
         headline_text = ""
@@ -246,7 +389,8 @@ def generate_ai_image(headline_id):
         
         if not headline_text:
             logger.warning(f"Could not find headline text for ID {headline_id}")
-            return "static/images/headlines/default.jpg"
+            # Try to use the headline_id as a fallback for the prompt
+            headline_text = f"Financial news with ID {headline_id}"
         
         # Generate prompt for DALL-E - simpler prompt for smaller image size
         prompt = f"Simple financial news icon for: {headline_text}. Minimalist business style."
