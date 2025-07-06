@@ -578,8 +578,19 @@ def generate_ai_image(headline_id):
             # Try to use the headline_id as a fallback for the prompt
             headline_text = f"Financial news with ID {headline_id}"
 
-        # Generate prompt for DALL-E - optimized for financial imagery
-        prompt = f"A high quality financial news image for: {headline_text}. Professional business style with clear details, suitable for financial news."
+        # Generate prompt for DALL-E - optimized for financial imagery with content safety
+        # Focus on the financial aspects rather than specific people or entities
+        # Extract key financial terms from the headline
+        financial_terms = ["market", "stock", "economy", "finance", "business", 
+                          "investment", "trade", "growth", "recession", "inflation",
+                          "dollar", "euro", "currency", "bank", "interest rate"]
+        
+        # Extract any financial terms that appear in the headline
+        found_terms = [term for term in financial_terms if term.lower() in headline_text.lower()]
+        terms_str = ", ".join(found_terms) if found_terms else "financial news"
+        
+        # Create a generic prompt focused on financial concepts
+        prompt = f"Abstract financial illustration representing {terms_str}. Professional business style with charts, graphs, or symbolic imagery. No text or specific people."
 
         # Generate the image with DALL-E 2 at the optimal size for cost vs. quality
         try:
@@ -588,8 +599,7 @@ def generate_ai_image(headline_id):
                 model="dall-e-2",  # DALL-E 2 is more cost-effective than DALL-E 3
                 prompt=prompt,
                 size="512x512",  # Best balance between cost and quality (512x512 is mid-tier for DALL-E 2)
-                n=1,
-                quality="standard",  # Standard quality is the most cost-effective
+                n=1
             )
 
             # Get image URL from response
@@ -608,7 +618,44 @@ def generate_ai_image(headline_id):
                 logger.error(f"Failed to download AI image. Status code: {img_response.status_code}")
         except Exception as api_error:
             logger.error(f"OpenAI API error: {api_error}")
-            # When AI generation fails, immediately use default.jpg instead of trying other fallbacks
+            
+            # Try a more simplified prompt as a fallback
+            try:
+                logger.info("Attempting with simplified fallback prompt...")
+                # Use an extremely simplified, generic prompt that's unlikely to trigger filters
+                # Choose one of several generic financial concepts
+                fallback_concepts = [
+                    "Stock market chart with rising trend",
+                    "Financial data visualization with blue background",
+                    "Business graph showing economic growth",
+                    "Abstract financial data dashboard",
+                    "Currency exchange concept with minimal design"
+                ]
+                fallback_prompt = random.choice(fallback_concepts)
+                
+                fallback_response = client.images.generate(
+                    model="dall-e-2",
+                    prompt=fallback_prompt,
+                    size="512x512",
+                    n=1
+                )
+                
+                # Get image URL from fallback response
+                fallback_image_url = fallback_response.data[0].url
+                logger.info(f"Successfully generated AI image with fallback prompt")
+                
+                # Download the generated image
+                img_response = requests.get(fallback_image_url, timeout=10)
+                if img_response.ok:
+                    with open(full_path, 'wb') as f:
+                        f.write(img_response.content)
+                    logger.info(f"Generated AI image for headline ID: {headline_id} with fallback prompt")
+                    # Return the path with a flag that this is an AI-generated image
+                    return image_path + "#ai-generated"
+            except Exception as fallback_error:
+                logger.error(f"Fallback OpenAI API attempt also failed: {fallback_error}")
+            
+            # When all AI generation attempts fail, use default.jpg
             logger.warning(f"AI image generation failed, using default.jpg for headline: '{headline_text[:50]}...'")
             return "static/images/headlines/default.jpg"
 
