@@ -46,16 +46,26 @@ def generate_html(news, policies, econ, forex):
                     <div class='card-header bg-primary text-white'>Top Financial Headlines</div>
                     <div class='card-body'>
                         <div class='headline-grid'>
-                            {''.join([f"""<div class='headline-card' data-url='{item["url"]}'>
-                                <div class='placeholder-content d-flex align-items-center justify-content-center bg-light' style='height:100%'>
-                                    <div class='spinner-border text-primary' role='status'>
-                                        <span class='visually-hidden'>Loading...</span>
-                                    </div>
-                                </div>
-                                <div class='headline-caption'>
-                                    <a href='{item["url"]}' target='_blank'>{item["headline"]}</a>
-                                </div>
-                            </div>""" for item in news])}
+"""
+    
+    # Generate headline cards
+    headline_cards = []
+    for item in news:
+        card = f"""<div class='headline-card' data-url='{item["url"]}'>
+                <div class='placeholder-content d-flex align-items-center justify-content-center bg-light' style='height:100%'>
+                    <div class='spinner-border text-primary' role='status'>
+                        <span class='visually-hidden'>Loading...</span>
+                    </div>
+                </div>
+                <div class='headline-caption'>
+                    <a href='{item["url"]}' target='_blank'>{item["headline"]}</a>
+                </div>
+            </div>"""
+        headline_cards.append(card)
+    
+    html += "".join(headline_cards)
+    
+    html += f"""
                         </div>
                     </div>
                 </div>
@@ -66,7 +76,15 @@ def generate_html(news, policies, econ, forex):
                 <div class='card shadow-sm'>
                     <div class='card-header bg-info text-white'>Central Bank Rates</div>
                     <ul class='list-group list-group-flush'>
-                        {''.join([f"<li class='list-group-item'><b>{item['bank']}:</b> {item['rate']}</li>" for item in policies])}
+"""
+
+    # Generate policy items
+    policy_items = []
+    for item in policies:
+        policy_items.append(f"<li class='list-group-item'><b>{item['bank']}:</b> {item['rate']}</li>")
+    html += "".join(policy_items)
+
+    html += f"""
                     </ul>
                 </div>
             </div>
@@ -74,7 +92,15 @@ def generate_html(news, policies, econ, forex):
                 <div class='card shadow-sm'>
                     <div class='card-header bg-success text-white'>Key Economic Data</div>
                     <ul class='list-group list-group-flush'>
-                        {''.join([f"<li class='list-group-item'>{item['event']}: {item['value']} ({item['date']})</li>" for item in econ])}
+"""
+
+    # Generate economic data items
+    econ_items = []
+    for item in econ:
+        econ_items.append(f"<li class='list-group-item'>{item['event']}: {item['value']} ({item['date']})</li>")
+    html += "".join(econ_items)
+
+    html += f"""
                     </ul>
                 </div>
             </div>
@@ -85,7 +111,15 @@ def generate_html(news, policies, econ, forex):
                         <table class='table table-bordered mb-0'>
                             <thead class='table-light'><tr><th>Pair</th><th>Bid</th><th>Ask</th></tr></thead>
                             <tbody>
-                                {''.join([f"<tr><td>{item['pair']}</td><td>{item['bid']}</td><td>{item['ask']}</td></tr>" for item in forex])}
+"""
+
+    # Generate forex items
+    forex_items = []
+    for item in forex:
+        forex_items.append(f"<tr><td>{item['pair']}</td><td>{item['bid']}</td><td>{item['ask']}</td></tr>")
+    html += "".join(forex_items)
+
+    html += f"""
                             </tbody>
                         </table>
                     </div>
