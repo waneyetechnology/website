@@ -47,24 +47,42 @@ def generate_html(news, policies, econ, forex):
                     <div class='card-body'>
                         <div class='headline-grid'>
 """
-    
+
     # Generate headline cards
     headline_cards = []
     for item in news:
-        card = f"""<div class='headline-card' data-url='{item["url"]}'>
-                <div class='placeholder-content d-flex align-items-center justify-content-center bg-light' style='height:100%'>
-                    <div class='spinner-border text-primary' role='status'>
-                        <span class='visually-hidden'>Loading...</span>
-                    </div>
-                </div>
+        # Check if the item has a local image path
+        if item.get("image"):
+            # Check for different image types/sources
+            if "default.jpg" in item["image"]:
+                # Default fallback image
+                image_html = """<div class='placeholder-content d-flex align-items-center justify-content-center bg-light' style='height:100%'>
+                    <div class='text-primary'>No image available</div>
+                </div>"""
+            elif "#ai-generated" in item["image"]:
+                # AI-generated image with special class
+                actual_path = item["image"].split("#")[0]  # Remove the flag
+                image_html = f"""<img src='{actual_path}' alt="{item["headline"]}" class='headline-image ai-generated-image'>
+                <div class='ai-badge'>AI</div>"""
+            else:
+                # Regular web-scraped image
+                image_html = f"""<img src='{item["image"]}' alt="{item["headline"]}" class='headline-image'>"""
+        else:
+            # Fallback for headlines without images (this should not happen)
+            image_html = """<div class='placeholder-content d-flex align-items-center justify-content-center bg-light' style='height:100%'>
+                    <div class='text-primary'>No image available</div>
+                </div>"""
+
+        card = f"""<div class='headline-card'>
+                {image_html}
                 <div class='headline-caption'>
                     <a href='{item["url"]}' target='_blank'>{item["headline"]}</a>
                 </div>
             </div>"""
         headline_cards.append(card)
-    
+
     html += "".join(headline_cards)
-    
+
     html += f"""
                         </div>
                     </div>
