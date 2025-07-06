@@ -142,37 +142,199 @@ def fetch_yahoo_finance_headlines():
 def ensure_image_dir():
     img_dir = Path(os.path.dirname(os.path.dirname(__file__))) / "static" / "images" / "headlines"
     img_dir.mkdir(parents=True, exist_ok=True)
-    
+
     # Ensure default.jpg exists
     default_img_path = img_dir / "default.jpg"
     if not default_img_path.exists() or os.path.getsize(default_img_path) < 1000:  # Check if it's missing or too small
         try:
-            # Create a simple default image or copy from an existing one
-            existing_images = list(img_dir.glob("*.jpg"))
-            if existing_images:
-                import shutil
-                source_image = sorted(existing_images, key=lambda p: os.path.getsize(p))[-1]  # Use the largest image
-                shutil.copy(source_image, default_img_path)
-                logger.info(f"Created default.jpg from existing image: {source_image}")
-            else:
-                # Create a simple gradient image as fallback
+            # Always create a colorful new default image instead of copying an existing one
+            # This ensures we get our vibrant, randomized design
+                # Create a colorful, visually appealing image with random vivid colors
                 from PIL import Image, ImageDraw
-                img = Image.new('RGB', (256, 256), color=(234, 246, 255))
+                import colorsys
+                import math
+
+                # Generate vibrant background color
+                def random_vibrant_color():
+                    # Generate colors with high saturation and brightness
+                    h = random.random()  # Random hue
+                    s = 0.7 + random.random() * 0.3  # High saturation (0.7-1.0)
+                    v = 0.8 + random.random() * 0.2  # High brightness (0.8-1.0)
+                    # Convert to RGB
+                    r, g, b = [int(c * 255) for c in colorsys.hsv_to_rgb(h, s, v)]
+                    return (r, g, b)
+
+                # Create complementary or contrasting colors
+                bg_color = random_vibrant_color()
+
+                # Create a different color for the foreground
+                fg_hue = (random.random() + 0.5) % 1.0  # Shift hue by 0.5 (180 degrees) for contrast
+                fg_s = 0.8 + random.random() * 0.2  # High saturation
+                fg_v = 0.7 + random.random() * 0.3  # High brightness
+                r, g, b = [int(c * 255) for c in colorsys.hsv_to_rgb(fg_hue, fg_s, fg_v)]
+                fg_color = (r, g, b)
+
+                # Create a border color that complements the foreground
+                border_hue = (fg_hue + 0.1) % 1.0  # Slight hue shift
+                r, g, b = [int(c * 255) for c in colorsys.hsv_to_rgb(border_hue, fg_s, fg_v * 0.8)]
+                border_color = (r, g, b)
+
+                # Create the image
+                img = Image.new('RGB', (512, 512), color=bg_color)
                 draw = ImageDraw.Draw(img)
-                draw.rectangle([(0, 0), (256, 256)], fill=(234, 246, 255))
-                draw.rectangle([(20, 20), (236, 236)], fill=(0, 116, 217), outline=(0, 74, 217))
-                img.save(default_img_path, 'JPEG')
-                logger.info("Created new default.jpg image")
+
+                # Choose a random pattern style for variety
+                pattern_style = random.randint(1, 4)
+
+                if pattern_style == 1:
+                    # Concentric rectangles pattern
+                    for i in range(12):
+                        # Create gradient effect with multiple rectangles
+                        inset = i * 20
+                        draw.rectangle([inset, inset, 512-inset, 512-inset],
+                                      fill=None,
+                                      outline=tuple([max(0, c - i*10) for c in fg_color]),
+                                      width=3)
+
+                    # Draw central element
+                    draw.rectangle([128, 128, 384, 384], fill=fg_color, outline=border_color, width=5)
+                    draw.rectangle([192, 192, 320, 320], fill=bg_color, outline=border_color, width=3)
+
+                elif pattern_style == 2:
+                    # Diagonal stripes pattern
+                    stripe_width = 30
+                    stripe_color1 = fg_color
+                    stripe_color2 = tuple([int((c + 255) / 2) for c in fg_color])  # Lighter version
+
+                    for i in range(-512, 512, stripe_width * 2):
+                        draw.polygon([(i, 0), (i + stripe_width, 0), (i + 512 + stripe_width, 512), (i + 512, 512)],
+                                    fill=stripe_color1)
+
+                    # Add an overlaid shape
+                    center_size = 220
+                    draw.ellipse([256-center_size, 256-center_size, 256+center_size, 256+center_size],
+                                fill=bg_color, outline=border_color, width=5)
+                    draw.ellipse([256-center_size//2, 256-center_size//2, 256+center_size//2, 256+center_size//2],
+                                fill=stripe_color2, outline=border_color, width=3)
+
+                elif pattern_style == 3:
+                    # Gradient circles
+                    for i in range(8):
+                        size = 512 - i * 60
+                        color = tuple([int(c * (1 - i/10)) for c in fg_color])
+                        draw.ellipse([256-size//2, 256-size//2, 256+size//2, 256+size//2], fill=color)
+
+                    # Add geometric elements
+                    square_size = 150
+                    draw.rectangle([256-square_size, 256-square_size, 256+square_size, 256+square_size],
+                                  fill=None, outline=border_color, width=6)
+
+                    for angle in range(0, 360, 45):
+                        rad = angle * 3.14159 / 180
+                        x = 256 + int(200 * math.cos(rad))
+                        y = 256 + int(200 * math.sin(rad))
+                        draw.ellipse([x-20, y-20, x+20, y+20], fill=bg_color, outline=border_color, width=2)
+
+                else:
+                    # Abstract financial pattern
+                    # Draw grid background
+                    for x in range(0, 512, 32):
+                        draw.line([(x, 0), (x, 512)], fill=tuple([max(0, c - 40) for c in bg_color]), width=1)
+                    for y in range(0, 512, 32):
+                        draw.line([(0, y), (512, y)], fill=tuple([max(0, c - 40) for c in bg_color]), width=1)
+
+                    # Draw "chart" lines
+                    points = []
+                    for i in range(6):
+                        x = i * 100
+                        y = random.randint(150, 350)
+                        points.append((x, y))
+
+                    # Connect points with lines
+                    for i in range(len(points)-1):
+                        draw.line([points[i], points[i+1]], fill=fg_color, width=6)
+
+                    # Add some indicator dots
+                    for x, y in points:
+                        draw.ellipse([x-10, y-10, x+10, y+10], fill=border_color)
+
+                    # Add a central logo-like element
+                    draw.rectangle([206, 206, 306, 306], fill=fg_color)
+                    draw.ellipse([156, 156, 356, 356], fill=None, outline=border_color, width=4)
+
+                # Add some text to indicate this is a default image
+                try:
+                    # Try to load a font, falling back to default if necessary
+                    from PIL import ImageFont
+                    try:
+                        # Try to find a system font
+                        font_paths = [
+                            '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',  # Linux
+                            '/Library/Fonts/Arial Bold.ttf',  # macOS
+                            'C:\\Windows\\Fonts\\Arial.ttf'  # Windows
+                        ]
+                        font = None
+                        for path in font_paths:
+                            if os.path.exists(path):
+                                font = ImageFont.truetype(path, 30)
+                                break
+
+                        if font:
+                            # Add a semi-transparent text overlay
+                            text = "FINANCIAL NEWS"
+
+                            # Handle different versions of PIL for text size measurement
+                            try:
+                                if hasattr(draw, 'textsize'):
+                                    text_width, text_height = draw.textsize(text, font=font)
+                                elif hasattr(font, 'getsize'):
+                                    text_width, text_height = font.getsize(text)
+                                else:
+                                    # Newer PIL versions
+                                    text_width, text_height = font.getbbox(text)[2:]
+                            except Exception:
+                                # Fallback with estimated size
+                                text_width, text_height = 300, 40
+
+                            text_position = ((512 - text_width) // 2, 430)
+
+                            # Create a semi-transparent overlay by creating a new image with alpha
+                            from PIL import Image
+                            overlay = Image.new('RGBA', img.size, (0, 0, 0, 0))
+                            overlay_draw = ImageDraw.Draw(overlay)
+
+                            # Add a text background for better readability
+                            text_bg_padding = 10
+                            overlay_draw.rectangle([
+                                text_position[0] - text_bg_padding,
+                                text_position[1] - text_bg_padding,
+                                text_position[0] + text_width + text_bg_padding,
+                                text_position[1] + text_height + text_bg_padding
+                            ], fill=(0, 0, 0, 128))
+
+                            # Draw the text on the overlay
+                            overlay_draw.text(text_position, text, font=font, fill=(255, 255, 255, 255))
+
+                            # Composite the overlay onto the main image
+                            img = Image.alpha_composite(img.convert('RGBA'), overlay).convert('RGB')
+                    except Exception as font_err:
+                        logger.debug(f"Could not load font for default image: {font_err}")
+                except ImportError:
+                    logger.debug("ImageFont not available, skipping text overlay")
+
+                # Save the image at high quality
+                img.save(default_img_path, 'JPEG', quality=95)
+                logger.info("Created new vibrant default.jpg image")
         except Exception as e:
             logger.error(f"Error creating default.jpg: {e}")
-            
+
     return img_dir
 
 def fetch_and_save_image(url, headline_id):
     img_dir = ensure_image_dir()
     image_path = f"static/images/headlines/{headline_id}.jpg"
     full_path = img_dir / f"{headline_id}.jpg"
-    
+
     # Don't refetch if we already have the image
     if os.path.exists(full_path):
         logger.info(f"Image already exists for {headline_id}")
@@ -191,10 +353,10 @@ def fetch_and_save_image(url, headline_id):
 
         # Parse the HTML
         soup = BeautifulSoup(response.text, 'html.parser')
-        
+
         # More comprehensive approach to find images in meta tags for any site
         image_url = None
-        
+
         # Step 1: Try all common image meta tags using a systematic approach
         meta_image_properties = [
             # Open Graph tags (used by Facebook and many sites)
@@ -204,7 +366,7 @@ def fetch_and_save_image(url, headline_id):
             # Other common meta image tags
             'image', 'thumbnail', 'msapplication-TileImage'
         ]
-        
+
         # Check meta tags with 'property' attribute
         for prop in meta_image_properties:
             if image_url:
@@ -217,7 +379,7 @@ def fetch_and_save_image(url, headline_id):
                         image_url = content
                         logger.info(f"Found image in meta property '{prop}': {image_url}")
                         break
-        
+
         # Check meta tags with 'name' attribute if still no image found
         if not image_url:
             for prop in meta_image_properties:
@@ -231,7 +393,7 @@ def fetch_and_save_image(url, headline_id):
                             image_url = content
                             logger.info(f"Found image in meta name '{prop}': {image_url}")
                             break
-        
+
         # Check meta tags with 'itemprop' attribute (used in schema.org markup)
         if not image_url:
             for prop in ['image', 'thumbnailUrl', 'contentUrl']:
@@ -268,13 +430,13 @@ def fetch_and_save_image(url, headline_id):
                                         break
                     except Exception as json_err:
                         logger.debug(f"Error parsing JSON-LD: {json_err}")
-        
+
         # Step 3: If still no image, try image elements with specific attributes
         if not image_url:
             # Look for article-related image elements with multiple source attributes
             image_attrs = ['src', 'data-src', 'data-lazy-src', 'data-original', 'data-url', 'data-hi-res-src']
             promising_classes = ['article-image', 'story-img', 'article-img', 'post-image', 'featured-image', 'entry-image', 'hero-image']
-            
+
             # First try to find images with promising class names
             for class_name in promising_classes:
                 if image_url:
@@ -290,7 +452,7 @@ def fetch_and_save_image(url, headline_id):
                                 break
                     if image_url:
                         break
-            
+
             # If still no image, look for large images
             if not image_url:
                 images = soup.find_all('img')
@@ -302,24 +464,24 @@ def fetch_and_save_image(url, headline_id):
                         src = img.get(attr)
                         if src and not re.search(r'(logo|icon|avatar|banner|small|button)', src, re.I) and (
                             re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', src, re.I) or
-                            ('width' in img.attrs and 'height' in img.attrs and 
+                            ('width' in img.attrs and 'height' in img.attrs and
                              int(img.get('width', '0')) > 200 and int(img.get('height', '0')) > 100)
                         ):
                             image_url = src
                             logger.info(f"Found image via {attr} attribute: {image_url}")
                             break
-                
+
                 # If still no image, look for the largest image by dimensions
                 if not image_url:
                     largest_area = 0
                     largest_img_src = None
-                    
+
                     for img in images:
                         try:
                             width = int(img.get('width', 0))
                             height = int(img.get('height', 0))
                             src = img.get('src')
-                            
+
                             if src and width > 0 and height > 0:
                                 area = width * height
                                 if area > largest_area and not re.search(r'(logo|icon|avatar|banner)', src, re.I):
@@ -327,7 +489,7 @@ def fetch_and_save_image(url, headline_id):
                                     largest_img_src = src
                         except (ValueError, TypeError):
                             pass
-                    
+
                     if largest_area > 10000:  # Minimum area threshold
                         image_url = largest_img_src
                         logger.info(f"Found largest image by dimensions: {image_url}")
@@ -350,18 +512,18 @@ def fetch_and_save_image(url, headline_id):
                 return image_path
     except Exception as e:
         logger.error(f"Error fetching image for {url}: {e}")
-        
+
         # Detect if this might be a paywalled or restricted site
         domain = urlparse(url).netloc
         is_likely_paywalled = any(site in domain for site in [
-            'wsj.com', 'nytimes.com', 'ft.com', 'bloomberg.com', 
+            'wsj.com', 'nytimes.com', 'ft.com', 'bloomberg.com',
             'economist.com', 'barrons.com', 'seekingalpha.com',
             'businessinsider.com', 'morningstar.com'
         ])
-        
+
         if is_likely_paywalled:
             logger.info(f"Likely paywalled content detected for domain: {domain}")
-            
+
         # Try to use headline text for an alternative image source
         try:
             # Extract article title
@@ -370,18 +532,18 @@ def fetch_and_save_image(url, headline_id):
                 if hashlib.md5(headline['url'].encode()).hexdigest() == headline_id:
                     title = headline['headline']
                     break
-            
+
             if title:
                 # Log information about the headline for debugging
                 logger.info(f"Using headline text for alternative image search: {title}")
-                
+
                 # We could implement image search here if approved
                 # For now, just prepare for AI image generation
                 pass
-                
+
         except Exception as search_ex:
             logger.error(f"Error with alternative image approach: {search_ex}")
-    
+
     # No image found or all methods failed, generate one with OpenAI
     return generate_ai_image(headline_id)
 
@@ -392,33 +554,33 @@ def generate_ai_image(headline_id):
     img_dir = ensure_image_dir()
     image_path = f"static/images/headlines/{headline_id}.jpg"
     full_path = img_dir / f"{headline_id}.jpg"
-    
+
     try:
         # Get the OpenAI API key
         api_key = os.environ.get("OPENAI_API_KEY")
         if not api_key:
             logger.warning("OPENAI_API_KEY is not set or empty.")
             return "static/images/headlines/default.jpg"
-        
+
         # Configure the OpenAI client - using the updated method we fixed earlier
         openai.api_key = api_key
         client = openai.OpenAI()
-        
+
         # Get the headline text from all_headlines global
         headline_text = ""
         for headline in fetch_financial_headlines.current_headlines:
             if hashlib.md5(headline['url'].encode()).hexdigest() == headline_id:
                 headline_text = headline['headline']
                 break
-        
+
         if not headline_text:
             logger.warning(f"Could not find headline text for ID {headline_id}")
             # Try to use the headline_id as a fallback for the prompt
             headline_text = f"Financial news with ID {headline_id}"
-        
+
         # Generate prompt for DALL-E - optimized for financial imagery
         prompt = f"A high quality financial news image for: {headline_text}. Professional business style with clear details, suitable for financial news."
-        
+
         # Generate the image with DALL-E 2 at the optimal size for cost vs. quality
         try:
             logger.info(f"Generating AI image for headline: '{headline_text[:50]}...'")
@@ -429,11 +591,11 @@ def generate_ai_image(headline_id):
                 n=1,
                 quality="standard",  # Standard quality is the most cost-effective
             )
-            
+
             # Get image URL from response
             image_url = response.data[0].url
             logger.info(f"Successfully generated AI image URL: {image_url}")
-            
+
             # Download the generated image
             img_response = requests.get(image_url, timeout=10)
             if img_response.ok:
@@ -446,27 +608,13 @@ def generate_ai_image(headline_id):
                 logger.error(f"Failed to download AI image. Status code: {img_response.status_code}")
         except Exception as api_error:
             logger.error(f"OpenAI API error: {api_error}")
-            
-            # Try to fall back to a more reliable image generation method if possible
-            try:
-                # Check if we can copy an existing AI image as a fallback
-                ai_images = list(img_dir.glob("*#ai-generated"))
-                existing_ai_images = [p for p in img_dir.glob("*.jpg") if os.path.getsize(p) > 5000]
-                
-                if existing_ai_images:
-                    # Use an existing image as a fallback
-                    import random
-                    import shutil
-                    source_image = random.choice(existing_ai_images)
-                    logger.info(f"Using fallback: copying existing image {source_image} to {full_path}")
-                    shutil.copy(source_image, full_path)
-                    return image_path + "#ai-generated"
-            except Exception as fallback_error:
-                logger.error(f"AI image fallback failed: {fallback_error}")
-    
+            # When AI generation fails, immediately use default.jpg instead of trying other fallbacks
+            logger.warning(f"AI image generation failed, using default.jpg for headline: '{headline_text[:50]}...'")
+            return "static/images/headlines/default.jpg"
+
     except Exception as e:
         logger.error(f"Error generating AI image for headline ID {headline_id}: {e}")
-    
+
     logger.warning(f"Using default.jpg for headline: '{headline_text[:50]}...'")
     return "static/images/headlines/default.jpg"
 
@@ -491,7 +639,7 @@ def fetch_financial_headlines():
     all_headlines = []
     for _, fn in weighted_sources:
         all_headlines += fn()
-    
+
     # Store the current headlines to access from generate_ai_image
     fetch_financial_headlines.current_headlines = all_headlines.copy()
 
