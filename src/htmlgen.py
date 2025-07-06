@@ -20,6 +20,13 @@ def generate_html(news, policies, econ, forex):
     <meta charset='UTF-8'>
     <title>Waneye Financial Dashboard</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- Performance optimizations for resource loading -->
+    <link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin>
+    <link rel='preconnect' href='https://cdn.jsdelivr.net/gh' crossorigin>
+    <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+    <link rel='dns-prefetch' href='https://cdn.jsdelivr.net/gh'>
+    <!-- Indicate to browsers that we'll be lazy-loading images -->
+    <meta name='theme-color' content='#eaf6ff'>
     <link rel='icon' type='image/svg+xml' href='favicon.svg'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/jellythemes/jelly-bootstrap@main/dist/jelly-bootstrap.min.css'>
@@ -37,7 +44,7 @@ def generate_html(news, policies, econ, forex):
     <canvas id='bg-canvas'></canvas>
     <div class='container my-5'>
         <div class='text-center mb-4'>
-            <h1 class='display-4 fw-bold'>Waneye Financial World Overview</h1>
+            <h1 class='display-4 fw-bold'>Financial World Overview</h1>
             <p class='text-muted' id='last-updated'><em>Last updated: {now}</em></p>
         </div>
         <div class='row g-4'>
@@ -50,22 +57,27 @@ def generate_html(news, policies, econ, forex):
 
     # Generate headline cards
     headline_cards = []
-    for item in news:
+    for index, item in enumerate(news):
         # Check if the item has a local image path
         if item.get("image"):
+            # Set loading and fetchpriority based on position
+            # First 2-3 images get eager loading and high priority (visible above the fold)
+            loading_attr = "eager" if index < 2 else "lazy"
+            priority_attr = "high" if index < 2 else "auto"
+            
             # Check for different image types/sources
             if "default.jpg" in item["image"]:
                 # Use the actual default image but with the headline as alt text and a special class
-                image_html = f"""<img src='static/images/headlines/default.jpg' alt="{item["headline"]}" class='headline-image default-image'>
+                image_html = f"""<img src='static/images/headlines/default.jpg' alt="{item["headline"]}" class='headline-image default-image' loading="{loading_attr}" fetchpriority="{priority_attr}">
                 <div class='default-badge'>Default</div>"""
             elif "#ai-generated" in item["image"]:
                 # AI-generated image with special class
                 actual_path = item["image"].split("#")[0]  # Remove the flag
-                image_html = f"""<img src='{actual_path}' alt="{item["headline"]}" class='headline-image ai-generated-image'>
+                image_html = f"""<img src='{actual_path}' alt="{item["headline"]}" class='headline-image ai-generated-image' loading="{loading_attr}" fetchpriority="{priority_attr}">
                 <div class='ai-badge'>AI</div>"""
             else:
                 # Regular web-scraped image
-                image_html = f"""<img src='{item["image"]}' alt="{item["headline"]}" class='headline-image'>"""
+                image_html = f"""<img src='{item["image"]}' alt="{item["headline"]}" class='headline-image' loading="{loading_attr}" fetchpriority="{priority_attr}">"""
         else:
             # Fallback for headlines without images (this should not happen)
             image_html = """<div class='placeholder-content d-flex align-items-center justify-content-center bg-light' style='height:100%'>

@@ -1,3 +1,64 @@
+// Image lazy loading handler with optimizations
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all headline images
+  const lazyImages = document.querySelectorAll('.headline-image');
+  
+  // Function to handle image load
+  function handleImageLoad(img) {
+    img.classList.add('loaded');
+  }
+  
+  // Process all images initially
+  lazyImages.forEach(function(img) {
+    // For already loaded or eager loaded images
+    if (img.complete || img.getAttribute('loading') === 'eager') {
+      handleImageLoad(img);
+    } else {
+      // For images still loading
+      img.addEventListener('load', function() {
+        handleImageLoad(img);
+      });
+      
+      // Add error handling
+      img.addEventListener('error', function() {
+        // Still add the loaded class to remove loading animation
+        handleImageLoad(img);
+      });
+    }
+  });
+
+  // Additional optimization for lazy-loaded images with IntersectionObserver
+  // This helps browsers that support loading="lazy" but might not trigger it optimally
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        // When image is visible in the viewport
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          
+          // If image is already loaded but doesn't have the loaded class
+          if (img.complete && !img.classList.contains('loaded')) {
+            handleImageLoad(img);
+          }
+          
+          // Stop observing once loaded
+          imageObserver.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '200px', // Load images 200px before they appear in viewport
+      threshold: 0.01
+    });
+    
+    // Only observe images with loading="lazy"
+    lazyImages.forEach(function(img) {
+      if (img.getAttribute('loading') === 'lazy') {
+        imageObserver.observe(img);
+      }
+    });
+  }
+});
+
 // Replace UTC timestamp with local time for the visitor
 (function(){
   var el = document.getElementById('last-updated');
