@@ -20,6 +20,7 @@ h1.display-4{color:#0a192f;text-shadow:0 2px 8px #fff,0 1px 0 #b3d1e6;}
   height: 220px;
   background-color: #f8f9fa;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  aspect-ratio: 16/9; /* Set consistent aspect ratio to prevent layout shifts */
 }
 .headline-card:hover {
   transform: translateY(-5px);
@@ -41,12 +42,31 @@ h1.display-4{color:#0a192f;text-shadow:0 2px 8px #fff,0 1px 0 #b3d1e6;}
   height: 100%;
   object-fit: cover;
   background-color: #e9ecef;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  /* Add a nice blur-up effect during loading */
+  opacity: 0;
+  filter: blur(10px);
+  
+  /* Add loading background animation */
+  background-image: linear-gradient(90deg, #eaf6ff 0%, #f4f9fe 50%, #eaf6ff 100%);
+  background-size: 200% 100%;
+  animation: loading-bg 1.5s ease infinite;
 }
-/* Special styling for AI-generated images that are smaller (256x256) */
+
+.headline-image.loaded {
+  opacity: 1;
+  filter: blur(0);
+}
+
+@keyframes loading-bg {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+/* Special styling for AI-generated images (now 512x512) */
 .headline-card .ai-generated-image {
-  object-fit: contain;
+  object-fit: cover; /* Changed from contain to cover for better filling */
   background-color: #f0f5ff;
-  padding: 10px;
+  padding: 0; /* Removed padding since images are now higher resolution */
 }
 /* Badge for AI-generated images */
 .ai-badge {
