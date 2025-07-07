@@ -71,7 +71,7 @@ def generate_html(news, policies, econ, forex):
                 image_html = f"""<img src='static/images/headlines/default.jpg' alt="{item["headline"]}" class='headline-image default-image' loading="{loading_attr}" fetchpriority="{priority_attr}">
                 <div class='default-badge'>Default</div>"""
             elif "#ai-generated" in item["image"]:
-                # AI-generated image with special class
+                # AI-generated image with special class - handle both folders
                 actual_path = item["image"].split("#")[0]  # Remove the flag
                 image_html = f"""<img src='{actual_path}' alt="{item["headline"]}" class='headline-image ai-generated-image' loading="{loading_attr}" fetchpriority="{priority_attr}">
                 <div class='ai-badge'>AI</div>"""

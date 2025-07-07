@@ -142,9 +142,19 @@ def fetch_yahoo_finance_headlines():
 def ensure_image_dir():
     img_dir = Path(os.path.dirname(os.path.dirname(__file__))) / "static" / "images" / "headlines"
     img_dir.mkdir(parents=True, exist_ok=True)
+    return img_dir
 
-    # Ensure default.jpg exists
+def ensure_ai_image_dir():
+    """Create and return the AI-generated images directory"""
+    ai_img_dir = Path(os.path.dirname(os.path.dirname(__file__))) / "static" / "images" / "ai-generated"
+    ai_img_dir.mkdir(parents=True, exist_ok=True)
+    return ai_img_dir
+
+def create_default_image():
+    """Create the default.jpg image"""
+    img_dir = ensure_image_dir()
     default_img_path = img_dir / "default.jpg"
+    
     if not default_img_path.exists() or os.path.getsize(default_img_path) < 1000:  # Check if it's missing or too small
         try:
             # Always create a colorful new default image instead of copying an existing one
@@ -328,10 +338,32 @@ def ensure_image_dir():
         except Exception as e:
             logger.error(f"Error creating default.jpg: {e}")
 
+def get_random_ai_image():
+    """Get a random AI-generated image from the ai-generated folder as fallback"""
+    ai_img_dir = ensure_ai_image_dir()
+    
+    # Get all .jpg files in the AI-generated directory
+    ai_images = list(ai_img_dir.glob("*.jpg"))
+    
+    if ai_images:
+        # Select a random AI-generated image
+        random_image = random.choice(ai_images)
+        relative_path = f"static/images/ai-generated/{random_image.name}"
+        logger.info(f"Using random AI-generated image: {relative_path}")
+        return relative_path + "#ai-generated"
+    else:
+        logger.warning("No AI-generated images available for fallback")
+        # Ensure default image exists and return it
+        create_default_image()
+        return "static/images/headlines/default.jpg"
+
     return img_dir
 
 def fetch_and_save_image(url, headline_id):
+    # Ensure directories exist
     img_dir = ensure_image_dir()
+    create_default_image()  # Ensure default image exists
+    
     image_path = f"static/images/headlines/{headline_id}.jpg"
     full_path = img_dir / f"{headline_id}.jpg"
 
@@ -551,32 +583,32 @@ def generate_ai_image(headline_id):
     """
     Generate an image using OpenAI's DALL-E API for headlines that don't have images
     """
-    img_dir = ensure_image_dir()
-    image_path = f"static/images/headlines/{headline_id}.jpg"
-    full_path = img_dir / f"{headline_id}.jpg"
+    ai_img_dir = ensure_ai_image_dir()
+    image_path = f"static/images/ai-generated/{headline_id}.jpg"
+    full_path = ai_img_dir / f"{headline_id}.jpg"
+
+    # Get the headline text from all_headlines global
+    headline_text = ""
+    for headline in fetch_financial_headlines.current_headlines:
+        if hashlib.md5(headline['url'].encode()).hexdigest() == headline_id:
+            headline_text = headline['headline']
+            break
+
+    if not headline_text:
+        logger.warning(f"Could not find headline text for ID {headline_id}")
+        # Try to use the headline_id as a fallback for the prompt
+        headline_text = f"Financial news with ID {headline_id}"
 
     try:
         # Get the OpenAI API key
         api_key = os.environ.get("OPENAI_API_KEY")
         if not api_key:
             logger.warning("OPENAI_API_KEY is not set or empty.")
-            return "static/images/headlines/default.jpg"
+            return get_random_ai_image()
 
         # Configure the OpenAI client - using the updated method we fixed earlier
         openai.api_key = api_key
         client = openai.OpenAI()
-
-        # Get the headline text from all_headlines global
-        headline_text = ""
-        for headline in fetch_financial_headlines.current_headlines:
-            if hashlib.md5(headline['url'].encode()).hexdigest() == headline_id:
-                headline_text = headline['headline']
-                break
-
-        if not headline_text:
-            logger.warning(f"Could not find headline text for ID {headline_id}")
-            # Try to use the headline_id as a fallback for the prompt
-            headline_text = f"Financial news with ID {headline_id}"
 
         # Generate prompt for DALL-E - optimized for financial imagery with content safety
         # Focus on the financial aspects rather than specific people or entities
@@ -655,15 +687,15 @@ def generate_ai_image(headline_id):
             except Exception as fallback_error:
                 logger.error(f"Fallback OpenAI API attempt also failed: {fallback_error}")
             
-            # When all AI generation attempts fail, use default.jpg
-            logger.warning(f"AI image generation failed, using default.jpg for headline: '{headline_text[:50]}...'")
-            return "static/images/headlines/default.jpg"
+            # When all AI generation attempts fail, use random AI image or default
+            logger.warning(f"AI image generation failed, using fallback for headline: '{headline_text[:50]}...'")
+            return get_random_ai_image()
 
     except Exception as e:
         logger.error(f"Error generating AI image for headline ID {headline_id}: {e}")
 
-    logger.warning(f"Using default.jpg for headline: '{headline_text[:50]}...'")
-    return "static/images/headlines/default.jpg"
+    logger.warning(f"Using fallback image for headline: '{headline_text[:50]}...'")
+    return get_random_ai_image()
 
 def fetch_financial_headlines():
     """
