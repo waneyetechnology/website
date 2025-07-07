@@ -1,11 +1,15 @@
 from datetime import datetime
 from .log import logger
 import random
+import time
 from .minify_assets import minify_html
 
 def generate_html(news, policies, econ, forex):
     now = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
-
+    
+    # Generate cache-busting timestamp
+    cache_buster = int(time.time())
+    
     # Generate random colors for headlines
     def random_color():
         return f"#{random.randint(0, 0xFFFFFF):06x}"
@@ -20,6 +24,13 @@ def generate_html(news, policies, econ, forex):
     <meta charset='UTF-8'>
     <title>Waneye Financial Overview</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <!-- Cache control meta tags to prevent browser caching -->
+    <meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate'>
+    <meta http-equiv='Pragma' content='no-cache'>
+    <meta http-equiv='Expires' content='0'>
+    <meta name='last-modified' content='{now}'>
+    
     <!-- Performance optimizations for resource loading -->
     <link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin>
     <link rel='preconnect' href='https://cdn.jsdelivr.net/gh' crossorigin>
@@ -27,10 +38,10 @@ def generate_html(news, policies, econ, forex):
     <link rel='dns-prefetch' href='https://cdn.jsdelivr.net/gh'>
     <!-- Indicate to browsers that we'll be lazy-loading images -->
     <meta name='theme-color' content='#eaf6ff'>
-    <link rel='icon' type='image/svg+xml' href='favicon.svg'>
+    <link rel='icon' type='image/svg+xml' href='favicon.svg?v={cache_buster}'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/jellythemes/jelly-bootstrap@main/dist/jelly-bootstrap.min.css'>
-    <link rel='stylesheet' href='static/style.css'>
+    <link rel='stylesheet' href='static/style.css?v={cache_buster}'>
     <!-- Google Analytics 4 (GA4) tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSJVVBKXLG"></script>
     <script>
@@ -71,7 +82,7 @@ def generate_html(news, policies, econ, forex):
                 image_html = f"""<img src='static/images/headlines/default.jpg' alt="{item["headline"]}" class='headline-image default-image' loading="{loading_attr}" fetchpriority="{priority_attr}">
                 <div class='default-badge'>Default</div>"""
             elif "#ai-generated" in item["image"]:
-                # AI-generated image with special class
+                # AI-generated image with special class - handle both folders
                 actual_path = item["image"].split("#")[0]  # Remove the flag
                 image_html = f"""<img src='{actual_path}' alt="{item["headline"]}" class='headline-image ai-generated-image' loading="{loading_attr}" fetchpriority="{priority_attr}">
                 <div class='ai-badge'>AI</div>"""
@@ -161,7 +172,7 @@ def generate_html(news, policies, econ, forex):
         </footer>
     </div>
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'></script>
-    <script src='static/main.js'></script>
+    <script src='static/main.js?v={cache_buster}'></script>
 </body>
 </html>
 """
