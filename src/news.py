@@ -342,13 +342,13 @@ def get_random_ai_image():
     """Get a random AI-generated image from the ai-generated folder as fallback"""
     ai_img_dir = ensure_ai_image_dir()
     
-    # Get all .jpg files in the AI-generated directory
-    ai_images = list(ai_img_dir.glob("*.jpg"))
+    # Get all image files in the AI-generated directory
+    ai_images = [f for f in os.listdir(ai_img_dir) if f.endswith(('.jpg', '.jpeg', '.png'))]
     
     if ai_images:
         # Select a random AI-generated image
         random_image = random.choice(ai_images)
-        relative_path = f"static/images/ai-generated/{random_image.name}"
+        relative_path = f"static/images/ai-generated/{random_image}"
         logger.info(f"Using random AI-generated image: {relative_path}")
         return relative_path + "#ai-generated"
     else:
@@ -357,19 +357,24 @@ def get_random_ai_image():
         create_default_image()
         return "static/images/headlines/default.jpg"
 
-    return img_dir
-
 def fetch_and_save_image(url, headline_id):
     # Ensure directories exist
     img_dir = ensure_image_dir()
-    create_default_image()  # Ensure default image exists
+    ai_img_dir = ensure_ai_image_dir()
     
     image_path = f"static/images/headlines/{headline_id}.jpg"
     full_path = img_dir / f"{headline_id}.jpg"
+    ai_image_path = f"static/images/ai-generated/{headline_id}.jpg"
+    ai_full_path = ai_img_dir / f"{headline_id}.jpg"
 
-    # Don't refetch if we already have the image
+    # Check if we already have an AI-generated image first (preferred)
+    if os.path.exists(ai_full_path):
+        logger.info(f"Using existing AI-generated image for {headline_id}")
+        return ai_image_path + "#ai-generated"
+
+    # Don't refetch if we already have a regular web image
     if os.path.exists(full_path):
-        logger.info(f"Image already exists for {headline_id}")
+        logger.info(f"Using existing web image for {headline_id}")
         return image_path
 
     # Try to fetch the page and extract an image
@@ -576,7 +581,8 @@ def fetch_and_save_image(url, headline_id):
         except Exception as search_ex:
             logger.error(f"Error with alternative image approach: {search_ex}")
 
-    # No image found or all methods failed, generate one with OpenAI
+    # No image found or all methods failed, generate AI image instead of using default
+    logger.info(f"No web image found for {headline_id}, generating AI image")
     return generate_ai_image(headline_id)
 
 def generate_ai_image(headline_id):
@@ -586,6 +592,11 @@ def generate_ai_image(headline_id):
     ai_img_dir = ensure_ai_image_dir()
     image_path = f"static/images/ai-generated/{headline_id}.jpg"
     full_path = ai_img_dir / f"{headline_id}.jpg"
+
+    # Check if we already have an AI image for this headline
+    if os.path.exists(full_path):
+        logger.info(f"Using existing AI-generated image for {headline_id}")
+        return image_path + "#ai-generated"
 
     # Get the headline text from all_headlines global
     headline_text = ""
@@ -687,15 +698,26 @@ def generate_ai_image(headline_id):
             except Exception as fallback_error:
                 logger.error(f"Fallback OpenAI API attempt also failed: {fallback_error}")
             
-            # When all AI generation attempts fail, use random AI image or default
-            logger.warning(f"AI image generation failed, using fallback for headline: '{headline_text[:50]}...'")
-            return get_random_ai_image()
+            # When all AI generation attempts fail, try existing AI images first
+            logger.warning(f"AI image generation failed, trying existing AI images for headline: '{headline_text[:50]}...'")
+            fallback_result = get_random_ai_image()
+            if fallback_result and "#ai-generated" in fallback_result:
+                return fallback_result
+            # If no AI images available, fall back to default
+            create_default_image()
+            return "static/images/headlines/default.jpg"
 
     except Exception as e:
         logger.error(f"Error generating AI image for headline ID {headline_id}: {e}")
 
+    # Final fallback - try existing AI images first, then default
     logger.warning(f"Using fallback image for headline: '{headline_text[:50]}...'")
-    return get_random_ai_image()
+    fallback_result = get_random_ai_image()
+    if fallback_result and "#ai-generated" in fallback_result:
+        return fallback_result
+    # If no AI images available, fall back to default
+    create_default_image()
+    return "static/images/headlines/default.jpg"
 
 def fetch_financial_headlines():
     """
