@@ -77,10 +77,11 @@ def generate_html(news, policies, econ, forex):
             priority_attr = "high" if index < 2 else "auto"
             
             # Check for different image types/sources
-            if "default.jpg" in item["image"]:
-                # Use the actual default image but with the headline as alt text and a special class
-                image_html = f"""<img src='static/images/headlines/default.jpg' alt="{item["headline"]}" class='headline-image default-image' loading="{loading_attr}" fetchpriority="{priority_attr}">
-                <div class='default-badge'>Default</div>"""
+            if "#dynamic" in item["image"]:
+                # Use the dynamic image but with the headline as alt text and a special class
+                actual_path = item["image"].split("#")[0]  # Remove the flag
+                image_html = f"""<img src='{actual_path}' alt="{item["headline"]}" class='headline-image dynamic-image' loading="{loading_attr}" fetchpriority="{priority_attr}">
+                <div class='dynamic-badge'>Dynamic</div>"""
             elif "#ai-generated" in item["image"]:
                 # AI-generated image with special class - handle both folders
                 actual_path = item["image"].split("#")[0]  # Remove the flag
