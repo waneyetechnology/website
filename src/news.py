@@ -150,193 +150,210 @@ def ensure_ai_image_dir():
     ai_img_dir.mkdir(parents=True, exist_ok=True)
     return ai_img_dir
 
-def create_default_image():
-    """Create the default.jpg image"""
-    img_dir = ensure_image_dir()
-    default_img_path = img_dir / "default.jpg"
+def ensure_dynamic_image_dir():
+    """Create and return the dynamic images directory"""
+    dynamic_img_dir = Path(os.path.dirname(os.path.dirname(__file__))) / "static" / "images" / "dynamic"
+    dynamic_img_dir.mkdir(parents=True, exist_ok=True)
+    return dynamic_img_dir
+
+def create_dynamic_image():
+    """Create a unique dynamic image with timestamp - regenerated every time for fresh appearance"""
+    import time
+    import uuid
     
-    if not default_img_path.exists() or os.path.getsize(default_img_path) < 1000:  # Check if it's missing or too small
+    dynamic_img_dir = ensure_dynamic_image_dir()
+    
+    # Generate unique filename with timestamp and UUID
+    timestamp = int(time.time())
+    unique_id = str(uuid.uuid4())[:8]  # Use first 8 characters of UUID
+    filename = f"dynamic_{timestamp}_{unique_id}.jpg"
+    dynamic_img_path = dynamic_img_dir / filename
+    
+    # Always regenerate the dynamic image for fresh, randomized appearance
+    try:
+        # Create a colorful, visually appealing image with random vivid colors
+        from PIL import Image, ImageDraw
+        import colorsys
+        import math
+
+        # Generate vibrant background color
+        def random_vibrant_color():
+            # Generate colors with high saturation and brightness
+            h = random.random()  # Random hue
+            s = 0.7 + random.random() * 0.3  # High saturation (0.7-1.0)
+            v = 0.8 + random.random() * 0.2  # High brightness (0.8-1.0)
+            # Convert to RGB
+            r, g, b = [int(c * 255) for c in colorsys.hsv_to_rgb(h, s, v)]
+            return (r, g, b)
+
+        # Create complementary or contrasting colors
+        bg_color = random_vibrant_color()
+
+        # Create a different color for the foreground
+        fg_hue = (random.random() + 0.5) % 1.0  # Shift hue by 0.5 (180 degrees) for contrast
+        fg_s = 0.8 + random.random() * 0.2  # High saturation
+        fg_v = 0.7 + random.random() * 0.3  # High brightness
+        r, g, b = [int(c * 255) for c in colorsys.hsv_to_rgb(fg_hue, fg_s, fg_v)]
+        fg_color = (r, g, b)
+
+        # Create a border color that complements the foreground
+        border_hue = (fg_hue + 0.1) % 1.0  # Slight hue shift
+        r, g, b = [int(c * 255) for c in colorsys.hsv_to_rgb(border_hue, fg_s, fg_v * 0.8)]
+        border_color = (r, g, b)
+
+        # Create the image
+        img = Image.new('RGB', (512, 512), color=bg_color)
+        draw = ImageDraw.Draw(img)
+
+        # Choose a random pattern style for variety
+        pattern_style = random.randint(1, 4)
+
+        if pattern_style == 1:
+            # Concentric rectangles pattern
+            for i in range(12):
+                # Create gradient effect with multiple rectangles
+                inset = i * 20
+                draw.rectangle([inset, inset, 512-inset, 512-inset],
+                              fill=None,
+                              outline=tuple([max(0, c - i*10) for c in fg_color]),
+                              width=3)
+
+            # Draw central element
+            draw.rectangle([128, 128, 384, 384], fill=fg_color, outline=border_color, width=5)
+            draw.rectangle([192, 192, 320, 320], fill=bg_color, outline=border_color, width=3)
+
+        elif pattern_style == 2:
+            # Diagonal stripes pattern
+            stripe_width = 30
+            stripe_color1 = fg_color
+            stripe_color2 = tuple([int((c + 255) / 2) for c in fg_color])  # Lighter version
+
+            for i in range(-512, 512, stripe_width * 2):
+                draw.polygon([(i, 0), (i + stripe_width, 0), (i + 512 + stripe_width, 512), (i + 512, 512)],
+                            fill=stripe_color1)
+
+            # Add an overlaid shape
+            center_size = 220
+            draw.ellipse([256-center_size, 256-center_size, 256+center_size, 256+center_size],
+                        fill=bg_color, outline=border_color, width=5)
+            draw.ellipse([256-center_size//2, 256-center_size//2, 256+center_size//2, 256+center_size//2],
+                        fill=stripe_color2, outline=border_color, width=3)
+
+        elif pattern_style == 3:
+            # Gradient circles
+            for i in range(8):
+                size = 512 - i * 60
+                color = tuple([int(c * (1 - i/10)) for c in fg_color])
+                draw.ellipse([256-size//2, 256-size//2, 256+size//2, 256+size//2], fill=color)
+
+            # Add geometric elements
+            square_size = 150
+            draw.rectangle([256-square_size, 256-square_size, 256+square_size, 256+square_size],
+                          fill=None, outline=border_color, width=6)
+
+            for angle in range(0, 360, 45):
+                rad = angle * 3.14159 / 180
+                x = 256 + int(200 * math.cos(rad))
+                y = 256 + int(200 * math.sin(rad))
+                draw.ellipse([x-20, y-20, x+20, y+20], fill=bg_color, outline=border_color, width=2)
+
+        else:
+            # Abstract financial pattern
+            # Draw grid background
+            for x in range(0, 512, 32):
+                draw.line([(x, 0), (x, 512)], fill=tuple([max(0, c - 40) for c in bg_color]), width=1)
+            for y in range(0, 512, 32):
+                draw.line([(0, y), (512, y)], fill=tuple([max(0, c - 40) for c in bg_color]), width=1)
+
+            # Draw "chart" lines
+            points = []
+            for i in range(6):
+                x = i * 100
+                y = random.randint(150, 350)
+                points.append((x, y))
+
+            # Connect points with lines
+            for i in range(len(points)-1):
+                draw.line([points[i], points[i+1]], fill=fg_color, width=6)
+
+            # Add some indicator dots
+            for x, y in points:
+                draw.ellipse([x-10, y-10, x+10, y+10], fill=border_color)
+
+            # Add a central logo-like element
+            draw.rectangle([206, 206, 306, 306], fill=fg_color)
+            draw.ellipse([156, 156, 356, 356], fill=None, outline=border_color, width=4)
+
+        # Add some text to indicate this is a dynamic image
         try:
-            # Always create a colorful new default image instead of copying an existing one
-            # This ensures we get our vibrant, randomized design
-                # Create a colorful, visually appealing image with random vivid colors
-                from PIL import Image, ImageDraw
-                import colorsys
-                import math
+            # Try to load a font, falling back to default if necessary
+            from PIL import ImageFont
+            try:
+                # Try to find a system font
+                font_paths = [
+                    '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',  # Linux
+                    '/Library/Fonts/Arial Bold.ttf',  # macOS
+                    'C:\\Windows\\Fonts\\Arial.ttf'  # Windows
+                ]
+                font = None
+                for path in font_paths:
+                    if os.path.exists(path):
+                        font = ImageFont.truetype(path, 30)
+                        break
 
-                # Generate vibrant background color
-                def random_vibrant_color():
-                    # Generate colors with high saturation and brightness
-                    h = random.random()  # Random hue
-                    s = 0.7 + random.random() * 0.3  # High saturation (0.7-1.0)
-                    v = 0.8 + random.random() * 0.2  # High brightness (0.8-1.0)
-                    # Convert to RGB
-                    r, g, b = [int(c * 255) for c in colorsys.hsv_to_rgb(h, s, v)]
-                    return (r, g, b)
+                if font:
+                    # Add a semi-transparent text overlay
+                    text = "FINANCIAL NEWS"
 
-                # Create complementary or contrasting colors
-                bg_color = random_vibrant_color()
-
-                # Create a different color for the foreground
-                fg_hue = (random.random() + 0.5) % 1.0  # Shift hue by 0.5 (180 degrees) for contrast
-                fg_s = 0.8 + random.random() * 0.2  # High saturation
-                fg_v = 0.7 + random.random() * 0.3  # High brightness
-                r, g, b = [int(c * 255) for c in colorsys.hsv_to_rgb(fg_hue, fg_s, fg_v)]
-                fg_color = (r, g, b)
-
-                # Create a border color that complements the foreground
-                border_hue = (fg_hue + 0.1) % 1.0  # Slight hue shift
-                r, g, b = [int(c * 255) for c in colorsys.hsv_to_rgb(border_hue, fg_s, fg_v * 0.8)]
-                border_color = (r, g, b)
-
-                # Create the image
-                img = Image.new('RGB', (512, 512), color=bg_color)
-                draw = ImageDraw.Draw(img)
-
-                # Choose a random pattern style for variety
-                pattern_style = random.randint(1, 4)
-
-                if pattern_style == 1:
-                    # Concentric rectangles pattern
-                    for i in range(12):
-                        # Create gradient effect with multiple rectangles
-                        inset = i * 20
-                        draw.rectangle([inset, inset, 512-inset, 512-inset],
-                                      fill=None,
-                                      outline=tuple([max(0, c - i*10) for c in fg_color]),
-                                      width=3)
-
-                    # Draw central element
-                    draw.rectangle([128, 128, 384, 384], fill=fg_color, outline=border_color, width=5)
-                    draw.rectangle([192, 192, 320, 320], fill=bg_color, outline=border_color, width=3)
-
-                elif pattern_style == 2:
-                    # Diagonal stripes pattern
-                    stripe_width = 30
-                    stripe_color1 = fg_color
-                    stripe_color2 = tuple([int((c + 255) / 2) for c in fg_color])  # Lighter version
-
-                    for i in range(-512, 512, stripe_width * 2):
-                        draw.polygon([(i, 0), (i + stripe_width, 0), (i + 512 + stripe_width, 512), (i + 512, 512)],
-                                    fill=stripe_color1)
-
-                    # Add an overlaid shape
-                    center_size = 220
-                    draw.ellipse([256-center_size, 256-center_size, 256+center_size, 256+center_size],
-                                fill=bg_color, outline=border_color, width=5)
-                    draw.ellipse([256-center_size//2, 256-center_size//2, 256+center_size//2, 256+center_size//2],
-                                fill=stripe_color2, outline=border_color, width=3)
-
-                elif pattern_style == 3:
-                    # Gradient circles
-                    for i in range(8):
-                        size = 512 - i * 60
-                        color = tuple([int(c * (1 - i/10)) for c in fg_color])
-                        draw.ellipse([256-size//2, 256-size//2, 256+size//2, 256+size//2], fill=color)
-
-                    # Add geometric elements
-                    square_size = 150
-                    draw.rectangle([256-square_size, 256-square_size, 256+square_size, 256+square_size],
-                                  fill=None, outline=border_color, width=6)
-
-                    for angle in range(0, 360, 45):
-                        rad = angle * 3.14159 / 180
-                        x = 256 + int(200 * math.cos(rad))
-                        y = 256 + int(200 * math.sin(rad))
-                        draw.ellipse([x-20, y-20, x+20, y+20], fill=bg_color, outline=border_color, width=2)
-
-                else:
-                    # Abstract financial pattern
-                    # Draw grid background
-                    for x in range(0, 512, 32):
-                        draw.line([(x, 0), (x, 512)], fill=tuple([max(0, c - 40) for c in bg_color]), width=1)
-                    for y in range(0, 512, 32):
-                        draw.line([(0, y), (512, y)], fill=tuple([max(0, c - 40) for c in bg_color]), width=1)
-
-                    # Draw "chart" lines
-                    points = []
-                    for i in range(6):
-                        x = i * 100
-                        y = random.randint(150, 350)
-                        points.append((x, y))
-
-                    # Connect points with lines
-                    for i in range(len(points)-1):
-                        draw.line([points[i], points[i+1]], fill=fg_color, width=6)
-
-                    # Add some indicator dots
-                    for x, y in points:
-                        draw.ellipse([x-10, y-10, x+10, y+10], fill=border_color)
-
-                    # Add a central logo-like element
-                    draw.rectangle([206, 206, 306, 306], fill=fg_color)
-                    draw.ellipse([156, 156, 356, 356], fill=None, outline=border_color, width=4)
-
-                # Add some text to indicate this is a default image
-                try:
-                    # Try to load a font, falling back to default if necessary
-                    from PIL import ImageFont
+                    # Handle different versions of PIL for text size measurement
                     try:
-                        # Try to find a system font
-                        font_paths = [
-                            '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',  # Linux
-                            '/Library/Fonts/Arial Bold.ttf',  # macOS
-                            'C:\\Windows\\Fonts\\Arial.ttf'  # Windows
-                        ]
-                        font = None
-                        for path in font_paths:
-                            if os.path.exists(path):
-                                font = ImageFont.truetype(path, 30)
-                                break
+                        if hasattr(draw, 'textsize'):
+                            text_width, text_height = draw.textsize(text, font=font)
+                        elif hasattr(font, 'getsize'):
+                            text_width, text_height = font.getsize(text)
+                        else:
+                            # Newer PIL versions
+                            text_width, text_height = font.getbbox(text)[2:]
+                    except Exception:
+                        # Fallback with estimated size
+                        text_width, text_height = 300, 40
 
-                        if font:
-                            # Add a semi-transparent text overlay
-                            text = "FINANCIAL NEWS"
+                    text_position = ((512 - text_width) // 2, 430)
 
-                            # Handle different versions of PIL for text size measurement
-                            try:
-                                if hasattr(draw, 'textsize'):
-                                    text_width, text_height = draw.textsize(text, font=font)
-                                elif hasattr(font, 'getsize'):
-                                    text_width, text_height = font.getsize(text)
-                                else:
-                                    # Newer PIL versions
-                                    text_width, text_height = font.getbbox(text)[2:]
-                            except Exception:
-                                # Fallback with estimated size
-                                text_width, text_height = 300, 40
+                    # Create a semi-transparent overlay by creating a new image with alpha
+                    from PIL import Image
+                    overlay = Image.new('RGBA', img.size, (0, 0, 0, 0))
+                    overlay_draw = ImageDraw.Draw(overlay)
 
-                            text_position = ((512 - text_width) // 2, 430)
+                    # Add a text background for better readability
+                    text_bg_padding = 10
+                    overlay_draw.rectangle([
+                        text_position[0] - text_bg_padding,
+                        text_position[1] - text_bg_padding,
+                        text_position[0] + text_width + text_bg_padding,
+                        text_position[1] + text_height + text_bg_padding
+                    ], fill=(0, 0, 0, 128))
 
-                            # Create a semi-transparent overlay by creating a new image with alpha
-                            from PIL import Image
-                            overlay = Image.new('RGBA', img.size, (0, 0, 0, 0))
-                            overlay_draw = ImageDraw.Draw(overlay)
+                    # Draw the text on the overlay
+                    overlay_draw.text(text_position, text, font=font, fill=(255, 255, 255, 255))
 
-                            # Add a text background for better readability
-                            text_bg_padding = 10
-                            overlay_draw.rectangle([
-                                text_position[0] - text_bg_padding,
-                                text_position[1] - text_bg_padding,
-                                text_position[0] + text_width + text_bg_padding,
-                                text_position[1] + text_height + text_bg_padding
-                            ], fill=(0, 0, 0, 128))
+                    # Composite the overlay onto the main image
+                    img = Image.alpha_composite(img.convert('RGBA'), overlay).convert('RGB')
+            except Exception as font_err:
+                logger.debug(f"Could not load font for dynamic image: {font_err}")
+        except ImportError:
+            logger.debug("ImageFont not available, skipping text overlay")
 
-                            # Draw the text on the overlay
-                            overlay_draw.text(text_position, text, font=font, fill=(255, 255, 255, 255))
-
-                            # Composite the overlay onto the main image
-                            img = Image.alpha_composite(img.convert('RGBA'), overlay).convert('RGB')
-                    except Exception as font_err:
-                        logger.debug(f"Could not load font for default image: {font_err}")
-                except ImportError:
-                    logger.debug("ImageFont not available, skipping text overlay")
-
-                # Save the image at high quality
-                img.save(default_img_path, 'JPEG', quality=95)
-                logger.info("Created new vibrant default.jpg image")
-        except Exception as e:
-            logger.error(f"Error creating default.jpg: {e}")
+        # Save the image at high quality
+        img.save(dynamic_img_path, 'JPEG', quality=95)
+        logger.info(f"Created new vibrant dynamic image: {filename}")
+        
+        # Return the relative path to the image
+        return f"static/images/dynamic/{filename}"
+        
+    except Exception as e:
+        logger.error(f"Error creating dynamic image: {e}")
+        return None
 
 def get_random_ai_image():
     """Get a random AI-generated image from the ai-generated folder as fallback"""
@@ -353,9 +370,13 @@ def get_random_ai_image():
         return relative_path + "#ai-generated"
     else:
         logger.warning("No AI-generated images available for fallback")
-        # Ensure default image exists and return it
-        create_default_image()
-        return "static/images/headlines/default.jpg"
+        # Generate a unique dynamic image
+        dynamic_image_path = create_dynamic_image()
+        if dynamic_image_path:
+            return dynamic_image_path + "#dynamic"
+        else:
+            # Ultimate fallback - this shouldn't happen but just in case
+            return "static/images/dynamic/fallback_error.jpg"
 
 def fetch_and_save_image(url, headline_id):
     # Ensure directories exist
@@ -367,15 +388,15 @@ def fetch_and_save_image(url, headline_id):
     ai_image_path = f"static/images/ai-generated/{headline_id}.jpg"
     ai_full_path = ai_img_dir / f"{headline_id}.jpg"
 
-    # Check if we already have an AI-generated image first (preferred)
-    if os.path.exists(ai_full_path):
-        logger.info(f"Using existing AI-generated image for {headline_id}")
-        return ai_image_path + "#ai-generated"
-
     # Don't refetch if we already have a regular web image
     if os.path.exists(full_path):
         logger.info(f"Using existing web image for {headline_id}")
         return image_path
+
+    # Check if we already have an AI-generated image first (preferred)
+    if os.path.exists(ai_full_path):
+        logger.info(f"Using existing AI-generated image for {headline_id}")
+        return ai_image_path + "#ai-generated"
 
     # Try to fetch the page and extract an image
     try:
@@ -615,7 +636,9 @@ def generate_ai_image(headline_id):
         api_key = os.environ.get("OPENAI_API_KEY")
         if not api_key:
             logger.warning("OPENAI_API_KEY is not set or empty.")
-            return get_random_ai_image()
+            # Try to get a random AI image first, if none available, regenerate default
+            fallback_result = get_random_ai_image()
+            return fallback_result
 
         # Configure the OpenAI client - using the updated method we fixed earlier
         openai.api_key = api_key
@@ -703,21 +726,27 @@ def generate_ai_image(headline_id):
             fallback_result = get_random_ai_image()
             if fallback_result and "#ai-generated" in fallback_result:
                 return fallback_result
-            # If no AI images available, fall back to default
-            create_default_image()
-            return "static/images/headlines/default.jpg"
+            # If no AI images available, generate a new dynamic image
+            dynamic_image_path = create_dynamic_image()
+            if dynamic_image_path:
+                return dynamic_image_path + "#dynamic"
+            else:
+                return "static/images/dynamic/fallback_error.jpg"
 
     except Exception as e:
         logger.error(f"Error generating AI image for headline ID {headline_id}: {e}")
 
-    # Final fallback - try existing AI images first, then default
+    # Final fallback - try existing AI images first, then regenerate default
     logger.warning(f"Using fallback image for headline: '{headline_text[:50]}...'")
     fallback_result = get_random_ai_image()
     if fallback_result and "#ai-generated" in fallback_result:
         return fallback_result
-    # If no AI images available, fall back to default
-    create_default_image()
-    return "static/images/headlines/default.jpg"
+    # If no AI images available, generate a new dynamic image
+    dynamic_image_path = create_dynamic_image()
+    if dynamic_image_path:
+        return dynamic_image_path + "#dynamic"
+    else:
+        return "static/images/dynamic/fallback_error.jpg"
 
 def fetch_financial_headlines():
     """
