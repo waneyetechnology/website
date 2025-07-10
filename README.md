@@ -1,6 +1,20 @@
 # Waneye Financial World Dashboard
 
+[![Unit Tests](https://github.com/YOUR_USERNAME/YOUR_REPO/actions/workflows/test.yml/badge.svg)](https://github.com/YOUR_USERNAME/YOUR_REPO/actions/workflows/test.yml)
+[![Code Quality](https://github.com/YOUR_USERNAME/YOUR_REPO/actions/workflows/quality.yml/badge.svg)](https://github.com/YOUR_USERNAME/YOUR_REPO/actions/workflows/quality.yml)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 This project fetches financial headlines from multiple sources, generates a modern HTML dashboard (index.html) with cards for each headline (including images), and displays additional financial data like central bank rates, economic indicators, and forex information.
+
+## Features
+
+- 🏦 **Financial News Aggregation** - Collects headlines from multiple sources
+- 🎨 **Template-Based HTML Generation** - Uses Jinja2 templates for clean, maintainable code
+- 🖼️ **Dynamic Image Generation** - AI-generated images for headlines without pictures
+- 📱 **Responsive Design** - Modern, mobile-friendly interface
+- ⚡ **Performance Optimized** - Image lazy loading and resource optimization
+- 🧪 **Comprehensive Testing** - Full unit test coverage with pytest
 
 ## How to Use
 1. Ensure you have Python 3.8+ installed.
@@ -21,6 +35,42 @@ This project fetches financial headlines from multiple sources, generates a mode
    python generate_site.py
    ```
 5. Open `index.html` in your browser to view the dashboard.
+
+## Testing
+
+This project includes comprehensive unit tests to ensure reliability and maintainability.
+
+### Running Tests
+
+```bash
+# Run all tests
+python -m pytest
+
+# Run with verbose output
+python -m pytest -v
+
+# Run specific test file
+python -m pytest tests/test_template_generation.py
+
+# Run with coverage
+python -m pytest --cov=src tests/
+```
+
+### Test Coverage
+
+- **Template Generation**: Tests for Jinja2-based HTML generation
+- **Image Processing**: Tests for dynamic and AI-generated images
+- **Data Processing**: Tests for news, economic data, and forex handling
+- **Error Handling**: Tests for graceful error handling and logging
+
+### Continuous Integration
+
+All pull requests automatically run:
+- Unit tests across Python 3.9-3.13
+- Code quality checks (formatting, linting, security)
+- Build validation tests
+
+See [TEST_SUITE.md](TEST_SUITE.md) for detailed testing documentation.
 
 ## Project Files
 - `generate_site.py`: Main script to fetch data and generate the dashboard.
