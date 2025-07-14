@@ -1,0 +1,26 @@
+<div class='headline-card'>
+    {% if item.image %}
+        {% set loading_attr = "eager" if item_index < 2 else "lazy" %}
+        {% set priority_attr = "high" if item_index < 2 else "auto" %}
+        
+        {% if "#dynamic" in item.image %}
+            {% set actual_path = item.image.split("#")[0] %}
+            <img src='{{ actual_path }}' alt="{{ item.headline }}" class='headline-image dynamic-image' loading="{{ loading_attr }}" fetchpriority="{{ priority_attr }}">
+            <div class='dynamic-badge'>Dynamic</div>
+        {% elif "#ai-generated" in item.image %}
+            {% set actual_path = item.image.split("#")[0] %}
+            <img src='{{ actual_path }}' alt="{{ item.headline }}" class='headline-image ai-generated-image' loading="{{ loading_attr }}" fetchpriority="{{ priority_attr }}">
+            <div class='ai-badge'>AI</div>
+        {% else %}
+            <img src='{{ item.image }}' alt="{{ item.headline }}" class='headline-image' loading="{{ loading_attr }}" fetchpriority="{{ priority_attr }}">
+        {% endif %}
+    {% else %}
+        <div class='placeholder-content d-flex align-items-center justify-content-center bg-light' style='height:100%'>
+            <div class='text-primary'>No image available</div>
+        </div>
+    {% endif %}
+    
+    <div class='headline-caption'>
+        <a href='{{ item.url }}' target='_blank' title="{{ item.headline }}">{{ item.headline }}</a>
+    </div>
+</div>
