@@ -139,6 +139,201 @@ def fetch_yahoo_finance_headlines():
     logger.info(f"Yahoo Finance headlines: {headlines}")
     return headlines
 
+def fetch_reuters_headlines():
+    """Fetch Reuters business headlines from RSS feed"""
+    import xml.etree.ElementTree as ET
+    from email.utils import parsedate_to_datetime
+    url = "https://www.reuters.com/arc/outboundfeeds/rss/category/business/?outputType=xml"
+    headlines = []
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
+    try:
+        resp = requests.get(url, timeout=10, headers=headers)
+        if resp.ok:
+            root = ET.fromstring(resp.text)
+            for item in root.findall(".//item"):
+                title_elem = item.find("title")
+                link_elem = item.find("link")
+                pubdate_elem = item.find("pubDate")
+                
+                if title_elem is not None and link_elem is not None:
+                    title = title_elem.text
+                    link = link_elem.text
+                    publishedAt = None
+                    
+                    if pubdate_elem is not None:
+                        try:
+                            publishedAt = parsedate_to_datetime(pubdate_elem.text).isoformat()
+                        except Exception:
+                            publishedAt = pubdate_elem.text
+                    
+                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
+        else:
+            logger.warning(f"Reuters RSS request failed: {resp.status_code}")
+    except Exception as e:
+        logger.error(f"Reuters fetch error: {e}")
+        return []
+    logger.info(f"Fetched {len(headlines)} headlines from Reuters RSS")
+    logger.info(f"Reuters headlines: {headlines}")
+    return headlines
+
+def fetch_bloomberg_headlines():
+    """Fetch Bloomberg markets headlines from RSS feed"""
+    import xml.etree.ElementTree as ET
+    from email.utils import parsedate_to_datetime
+    url = "https://feeds.bloomberg.com/markets/news.rss"
+    headlines = []
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
+    try:
+        resp = requests.get(url, timeout=10, headers=headers)
+        if resp.ok:
+            root = ET.fromstring(resp.text)
+            for item in root.findall(".//item"):
+                title_elem = item.find("title")
+                link_elem = item.find("link")
+                pubdate_elem = item.find("pubDate")
+                
+                if title_elem is not None and link_elem is not None:
+                    title = title_elem.text
+                    link = link_elem.text
+                    publishedAt = None
+                    
+                    if pubdate_elem is not None:
+                        try:
+                            publishedAt = parsedate_to_datetime(pubdate_elem.text).isoformat()
+                        except Exception:
+                            publishedAt = pubdate_elem.text
+                    
+                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
+        else:
+            logger.warning(f"Bloomberg RSS request failed: {resp.status_code}")
+    except Exception as e:
+        logger.error(f"Bloomberg fetch error: {e}")
+        return []
+    logger.info(f"Fetched {len(headlines)} headlines from Bloomberg RSS")
+    logger.info(f"Bloomberg headlines: {headlines}")
+    return headlines
+
+def fetch_cnbc_headlines():
+    """Fetch CNBC business headlines from RSS feed"""
+    import xml.etree.ElementTree as ET
+    from email.utils import parsedate_to_datetime
+    url = "https://feeds.nbcnews.com/nbcnews/public/business"
+    headlines = []
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
+    try:
+        resp = requests.get(url, timeout=10, headers=headers)
+        if resp.ok:
+            root = ET.fromstring(resp.text)
+            for item in root.findall(".//item"):
+                title_elem = item.find("title")
+                link_elem = item.find("link")
+                pubdate_elem = item.find("pubDate")
+                
+                if title_elem is not None and link_elem is not None:
+                    title = title_elem.text
+                    link = link_elem.text
+                    publishedAt = None
+                    
+                    if pubdate_elem is not None:
+                        try:
+                            publishedAt = parsedate_to_datetime(pubdate_elem.text).isoformat()
+                        except Exception:
+                            publishedAt = pubdate_elem.text
+                    
+                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
+        else:
+            logger.warning(f"CNBC RSS request failed: {resp.status_code}")
+    except Exception as e:
+        logger.error(f"CNBC fetch error: {e}")
+        return []
+    logger.info(f"Fetched {len(headlines)} headlines from CNBC RSS")
+    logger.info(f"CNBC headlines: {headlines}")
+    return headlines
+
+def fetch_marketwatch_headlines():
+    """Fetch MarketWatch headlines from RSS feed"""
+    import xml.etree.ElementTree as ET
+    from email.utils import parsedate_to_datetime
+    url = "https://feeds.marketwatch.com/marketwatch/marketpulse/"
+    headlines = []
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
+    try:
+        resp = requests.get(url, timeout=10, headers=headers)
+        if resp.ok:
+            root = ET.fromstring(resp.text)
+            for item in root.findall(".//item"):
+                title_elem = item.find("title")
+                link_elem = item.find("link")
+                pubdate_elem = item.find("pubDate")
+                
+                if title_elem is not None and link_elem is not None:
+                    title = title_elem.text
+                    link = link_elem.text
+                    publishedAt = None
+                    
+                    if pubdate_elem is not None:
+                        try:
+                            publishedAt = parsedate_to_datetime(pubdate_elem.text).isoformat()
+                        except Exception:
+                            publishedAt = pubdate_elem.text
+                    
+                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
+        else:
+            logger.warning(f"MarketWatch RSS request failed: {resp.status_code}")
+    except Exception as e:
+        logger.error(f"MarketWatch fetch error: {e}")
+        return []
+    logger.info(f"Fetched {len(headlines)} headlines from MarketWatch RSS")
+    logger.info(f"MarketWatch headlines: {headlines}")
+    return headlines
+
+def fetch_ft_headlines():
+    """Fetch Financial Times FastFT headlines from RSS feed"""
+    import xml.etree.ElementTree as ET
+    from email.utils import parsedate_to_datetime
+    url = "https://www.ft.com/rss/feed/fastft"
+    headlines = []
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
+    try:
+        resp = requests.get(url, timeout=10, headers=headers)
+        if resp.ok:
+            root = ET.fromstring(resp.text)
+            for item in root.findall(".//item"):
+                title_elem = item.find("title")
+                link_elem = item.find("link")
+                pubdate_elem = item.find("pubDate")
+                
+                if title_elem is not None and link_elem is not None:
+                    title = title_elem.text
+                    link = link_elem.text
+                    publishedAt = None
+                    
+                    if pubdate_elem is not None:
+                        try:
+                            publishedAt = parsedate_to_datetime(pubdate_elem.text).isoformat()
+                        except Exception:
+                            publishedAt = pubdate_elem.text
+                    
+                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
+        else:
+            logger.warning(f"Financial Times RSS request failed: {resp.status_code}")
+    except Exception as e:
+        logger.error(f"Financial Times fetch error: {e}")
+        return []
+    logger.info(f"Fetched {len(headlines)} headlines from Financial Times RSS")
+    logger.info(f"Financial Times headlines: {headlines}")
+    return headlines
+
 def ensure_image_dir():
     img_dir = Path(os.path.dirname(os.path.dirname(__file__))) / "static" / "images" / "headlines"
     img_dir.mkdir(parents=True, exist_ok=True)
@@ -750,7 +945,7 @@ def generate_ai_image(headline_id):
 
 def fetch_financial_headlines():
     """
-    Fetches financial headlines from 5 sources/APIs, applies a random weight to each source,
+    Fetches financial headlines from multiple sources/APIs, applies a random weight to each source,
     fetches images for each headline, and returns all headlines with local image paths.
     """
     # Initialize the class attribute if it doesn't exist
@@ -761,7 +956,12 @@ def fetch_financial_headlines():
         fetch_fmp_headlines,
         fetch_marketaux_headlines,
         fetch_gnews_headlines,
-        fetch_yahoo_finance_headlines
+        fetch_yahoo_finance_headlines,
+        fetch_reuters_headlines,
+        fetch_bloomberg_headlines,
+        fetch_cnbc_headlines,
+        fetch_marketwatch_headlines,
+        fetch_ft_headlines
     ]
     # Assign a random weight to each source
     weighted_sources = [(random.random(), fn) for fn in sources]
