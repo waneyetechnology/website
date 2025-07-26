@@ -1160,8 +1160,8 @@ def fetch_financial_headlines():
         fetch_reuters_headlines,
         fetch_bloomberg_headlines,
         fetch_cnbc_headlines,
+        fetch_ft_headlines,
         fetch_marketwatch_headlines,
-        fetch_ft_headlines
     ]
     # Assign a random weight to each source
     weighted_sources = [(random.random(), fn) for fn in sources]
