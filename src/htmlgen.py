@@ -26,7 +26,7 @@ def get_template_env():
     
     return env
 
-def generate_html(news, policies, econ, forex):
+def generate_html(news, policies, econ, forex, fed_econ_data=None):
     """Generate HTML using Jinja2 templates"""
     try:
         # Get Jinja2 environment
@@ -44,7 +44,8 @@ def generate_html(news, policies, econ, forex):
             'news': news,
             'policies': policies,
             'econ': econ,
-            'forex': forex
+            'forex': forex,
+            'fed_econ_data': fed_econ_data or []
         }
         
         # Render the template

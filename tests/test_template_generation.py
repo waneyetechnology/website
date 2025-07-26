@@ -55,6 +55,13 @@ class TestTemplateGeneration(unittest.TestCase):
             {"pair": "GBP/USD", "bid": "1.2650", "ask": "1.2652"}
         ]
         
+        self.test_fed_econ_data = [
+            {"indicator": "Federal Funds Rate", "value": "5.25-5.50%"},
+            {"indicator": "Industrial Production", "value": "0.8%"},
+            {"indicator": "Capacity Utilization", "value": "78.2%"},
+            {"indicator": "GDP Growth Projection", "value": "2.1%"}
+        ]
+        
         # Create temporary templates directory for testing
         self.temp_dir = tempfile.mkdtemp()
         self.templates_dir = Path(self.temp_dir) / 'templates'
@@ -114,12 +121,30 @@ class TestTemplateGeneration(unittest.TestCase):
 <div class='row g-4 mt-2'>
     <div class='col-md-4'>
         <div class='card shadow-sm'>
-            <div class='card-header bg-info text-white'>Central Bank Rates</div>
-            <ul class='list-group list-group-flush'>
-                {% for policy in policies %}
-                <li class='list-group-item'><b>{{ policy.bank }}:</b> {{ policy.rate }}</li>
-                {% endfor %}
-            </ul>
+            <div class='card-header bg-info text-white'>Central Banks</div>
+            
+            <!-- US Federal Reserve subsection -->
+            {% if fed_econ_data %}
+            <div class='card-body p-3'>
+                <h6 class='card-subtitle mb-2 text-muted'>US Federal Reserve - Economy at a Glance</h6>
+                <div class='small'>
+                    {% for item in fed_econ_data %}
+                    <div class='mb-1'><strong>{{ item.indicator }}:</strong> {{ item.value }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+            <hr class='my-0'>
+            {% endif %}
+            
+            <!-- Central Bank Rates -->
+            <div class='card-body p-3'>
+                <h6 class='card-subtitle mb-2 text-muted'>Policy Rates</h6>
+                <ul class='list-group list-group-flush'>
+                    {% for policy in policies %}
+                    <li class='list-group-item px-0'><b>{{ policy.bank }}:</b> {{ policy.rate }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
     
@@ -229,7 +254,7 @@ class TestTemplateGeneration(unittest.TestCase):
         mock_get_env.return_value = mock_env
         
         # Generate HTML
-        html = generate_html(self.test_news, self.test_policies, self.test_econ, self.test_forex)
+        html = generate_html(self.test_news, self.test_policies, self.test_econ, self.test_forex, self.test_fed_econ_data)
         
         # Verify HTML contains expected content
         self.assertIn('Waneye Financial Overview', html)
@@ -241,6 +266,14 @@ class TestTemplateGeneration(unittest.TestCase):
         self.assertIn('2.1%', html)
         self.assertIn('EUR/USD', html)
         self.assertIn('1.0850', html)
+        
+        # Verify new Central Banks structure
+        self.assertIn('Central Banks', html)  # New header
+        self.assertIn('US Federal Reserve - Economy at a Glance', html)
+        self.assertIn('Federal Funds Rate', html)
+        self.assertIn('5.25-5.50%', html)
+        self.assertIn('Industrial Production', html)
+        self.assertIn('Policy Rates', html)  # Subsection header
         
         # Verify template-specific features
         self.assertIn('dynamic-image', html)  # Dynamic image class
@@ -262,7 +295,7 @@ class TestTemplateGeneration(unittest.TestCase):
         
         # Generate HTML should now raise an exception instead of falling back
         with self.assertRaises(Exception) as context:
-            generate_html(self.test_news, self.test_policies, self.test_econ, self.test_forex)
+            generate_html(self.test_news, self.test_policies, self.test_econ, self.test_forex, self.test_fed_econ_data)
         
         self.assertIn("Template error", str(context.exception))
     
@@ -285,7 +318,7 @@ class TestTemplateGeneration(unittest.TestCase):
         mock_get_env.return_value = mock_env
         
         # Generate HTML
-        generate_html(self.test_news, self.test_policies, self.test_econ, self.test_forex)
+        generate_html(self.test_news, self.test_policies, self.test_econ, self.test_forex, self.test_fed_econ_data)
         
         # Verify template data structure
         self.assertIn('title', template_data_captured)
@@ -296,6 +329,7 @@ class TestTemplateGeneration(unittest.TestCase):
         self.assertIn('policies', template_data_captured)
         self.assertIn('econ', template_data_captured)
         self.assertIn('forex', template_data_captured)
+        self.assertIn('fed_econ_data', template_data_captured)
         
         # Verify data content
         self.assertEqual(template_data_captured['title'], 'Waneye Financial Overview')
@@ -303,6 +337,7 @@ class TestTemplateGeneration(unittest.TestCase):
         self.assertEqual(template_data_captured['policies'], self.test_policies)
         self.assertEqual(template_data_captured['econ'], self.test_econ)
         self.assertEqual(template_data_captured['forex'], self.test_forex)
+        self.assertEqual(template_data_captured['fed_econ_data'], self.test_fed_econ_data)
         self.assertIsInstance(template_data_captured['cache_buster'], int)
     
     @patch('src.htmlgen.get_template_env')
@@ -322,7 +357,7 @@ class TestTemplateGeneration(unittest.TestCase):
         mock_get_env.return_value = mock_env
         
         # Generate HTML with empty data
-        html = generate_html([], [], [], [])
+        html = generate_html([], [], [], [], [])
         
         # Should still generate valid HTML
         self.assertIn('<html', html)
@@ -347,7 +382,7 @@ class TestTemplateGeneration(unittest.TestCase):
         mock_get_env.return_value = mock_env
         
         # Generate HTML using templates
-        html = generate_html(self.test_news, self.test_policies, self.test_econ, self.test_forex)
+        html = generate_html(self.test_news, self.test_policies, self.test_econ, self.test_forex, self.test_fed_econ_data)
         
         # Check that the first two images have eager loading and high priority
         # and subsequent images have lazy loading and auto priority
@@ -390,7 +425,8 @@ class TestTemplateIntegration(unittest.TestCase):
             'news': [],
             'policies': [],
             'econ': [],
-            'forex': []
+            'forex': [],
+            'fed_econ_data': []
         }
         
         html = generate_html(**test_data)
@@ -407,7 +443,8 @@ class TestTemplateIntegration(unittest.TestCase):
                 'news': [],
                 'policies': [],
                 'econ': [],
-                'forex': []
+                'forex': [],
+                'fed_econ_data': []
             }
             
             # Should raise an exception when templates fail
