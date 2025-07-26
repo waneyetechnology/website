@@ -14,6 +14,26 @@ from pathlib import Path
 # Add src directory to path (parent directory contains src)
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
+# Mock modules that might not be available in test environment
+sys.modules['csscompressor'] = MagicMock()
+sys.modules['openai'] = MagicMock()
+
+# Mock the seo module before importing htmlgen
+mock_seo = MagicMock()
+mock_seo.generate_meta_tags = MagicMock(return_value={
+    'description': 'Test description',
+    'keywords': 'test, keywords',
+    'author': 'Waneye Technology'
+})
+mock_seo.generate_structured_data = MagicMock(return_value={
+    'organization': {'@type': 'Organization'},
+    'website': {'@type': 'WebSite'},
+    'dashboard': {'@type': 'WebApplication'},
+    'news_articles': []
+})
+mock_seo.save_seo_files = MagicMock()
+sys.modules['src.seo'] = mock_seo
+
 from src.htmlgen import generate_html, get_template_env
 
 
@@ -330,15 +350,21 @@ class TestTemplateGeneration(unittest.TestCase):
         self.assertIn('econ', template_data_captured)
         self.assertIn('forex', template_data_captured)
         self.assertIn('fed_econ_data', template_data_captured)
+        self.assertIn('meta_tags', template_data_captured)  # New SEO field
+        self.assertIn('structured_data', template_data_captured)  # New SEO field
         
         # Verify data content
-        self.assertEqual(template_data_captured['title'], 'Waneye Financial Overview')
+        self.assertIn('Waneye', template_data_captured['title'])  # Updated title contains "Waneye"
         self.assertEqual(template_data_captured['news'], self.test_news)
         self.assertEqual(template_data_captured['policies'], self.test_policies)
         self.assertEqual(template_data_captured['econ'], self.test_econ)
         self.assertEqual(template_data_captured['forex'], self.test_forex)
         self.assertEqual(template_data_captured['fed_econ_data'], self.test_fed_econ_data)
         self.assertIsInstance(template_data_captured['cache_buster'], int)
+        
+        # Verify SEO data structure
+        self.assertIsInstance(template_data_captured['meta_tags'], dict)
+        self.assertIsInstance(template_data_captured['structured_data'], dict)
     
     @patch('src.htmlgen.get_template_env')
     def test_empty_data_handling(self, mock_get_env):

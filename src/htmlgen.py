@@ -37,7 +37,8 @@ def generate_html(news, policies, econ, forex, fed_econ_data=None):
         template = env.get_template('index.html')
         
         # Generate SEO data
-        last_updated = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
+        from datetime import timezone
+        last_updated = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
         meta_tags = generate_meta_tags(news, econ)
         structured_data = generate_structured_data(news, last_updated)
         
