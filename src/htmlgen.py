@@ -1,5 +1,6 @@
 from datetime import datetime
 from .log import logger
+from .seo import generate_meta_tags, generate_structured_data, save_seo_files
 import random
 import time
 import os
@@ -27,7 +28,7 @@ def get_template_env():
     return env
 
 def generate_html(news, policies, econ, forex, fed_econ_data=None):
-    """Generate HTML using Jinja2 templates"""
+    """Generate HTML using Jinja2 templates with SEO enhancements"""
     try:
         # Get Jinja2 environment
         env = get_template_env()
@@ -35,17 +36,27 @@ def generate_html(news, policies, econ, forex, fed_econ_data=None):
         # Load the main template
         template = env.get_template('index.html')
         
+        # Generate SEO data
+        last_updated = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
+        meta_tags = generate_meta_tags(news, econ)
+        structured_data = generate_structured_data(news, last_updated)
+        
+        # Save SEO files (sitemap, robots.txt, etc.)
+        save_seo_files(structured_data)
+        
         # Prepare template data
         template_data = {
-            'title': 'Waneye Financial Overview',
+            'title': 'Waneye - Real-Time Financial News & Market Analysis',
             'page_title': 'Waneye Financial Overview',
-            'last_updated': datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC'),
+            'last_updated': last_updated,
             'cache_buster': int(time.time()),
             'news': news,
             'policies': policies,
             'econ': econ,
             'forex': forex,
-            'fed_econ_data': fed_econ_data or []
+            'fed_econ_data': fed_econ_data or [],
+            'meta_tags': meta_tags,
+            'structured_data': structured_data
         }
         
         # Render the template
