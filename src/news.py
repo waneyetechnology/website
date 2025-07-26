@@ -595,10 +595,31 @@ def fetch_and_save_image(url, headline_id):
 
     # Try to fetch the page and extract an image
     try:
+        # Enhanced headers to better simulate a real browser
         headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Accept-Encoding": "gzip, deflate, br",
+            "DNT": "1",
+            "Connection": "keep-alive",
+            "Upgrade-Insecure-Requests": "1",
+            "Sec-Fetch-Dest": "document",
+            "Sec-Fetch-Mode": "navigate",
+            "Sec-Fetch-Site": "none",
+            "Sec-Fetch-User": "?1",
+            "Cache-Control": "max-age=0"
         }
-        response = requests.get(url, headers=headers, timeout=10)
+        
+        # Create a session to maintain cookies and connection state
+        session = requests.Session()
+        session.headers.update(headers)
+        
+        # Add a small delay to avoid being flagged as a bot
+        import time
+        time.sleep(0.5)
+        
+        response = session.get(url, timeout=15, allow_redirects=True)
         if not response.ok:
             logger.warning(f"Failed to fetch URL {url}: {response.status_code}")
             # Try to generate an AI image instead of returning None
@@ -607,7 +628,7 @@ def fetch_and_save_image(url, headline_id):
         # Parse the HTML
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # More comprehensive approach to find images in meta tags for any site
+        # Enhanced approach to find images with better news site support
         image_url = None
 
         # Step 1: Try all common image meta tags using a systematic approach
@@ -615,9 +636,11 @@ def fetch_and_save_image(url, headline_id):
             # Open Graph tags (used by Facebook and many sites)
             'og:image', 'og:image:url', 'og:image:secure_url',
             # Twitter card tags
-            'twitter:image', 'twitter:image:src',
+            'twitter:image', 'twitter:image:src', 'twitter:image:alt',
             # Other common meta image tags
-            'image', 'thumbnail', 'msapplication-TileImage'
+            'image', 'thumbnail', 'msapplication-TileImage',
+            # News-specific meta tags
+            'article:image', 'sailthru.image.full', 'sailthru.image.thumb'
         ]
 
         # Check meta tags with 'property' attribute
@@ -627,8 +650,9 @@ def fetch_and_save_image(url, headline_id):
             meta_tags = soup.find_all('meta', property=prop)
             for meta in meta_tags:
                 if meta.get('content'):
-                    content = meta.get('content')
-                    if re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', content, re.I):
+                    content = meta.get('content').strip()
+                    if content and (re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', content, re.I) or 
+                                  'image' in content):
                         image_url = content
                         logger.info(f"Found image in meta property '{prop}': {image_url}")
                         break
@@ -641,8 +665,9 @@ def fetch_and_save_image(url, headline_id):
                 meta_tags = soup.find_all('meta', attrs={'name': prop})
                 for meta in meta_tags:
                     if meta.get('content'):
-                        content = meta.get('content')
-                        if re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', content, re.I):
+                        content = meta.get('content').strip()
+                        if content and (re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', content, re.I) or
+                                      'image' in content):
                             image_url = content
                             logger.info(f"Found image in meta name '{prop}': {image_url}")
                             break
@@ -655,8 +680,9 @@ def fetch_and_save_image(url, headline_id):
                 meta_tags = soup.find_all('meta', attrs={'itemprop': prop})
                 for meta in meta_tags:
                     if meta.get('content'):
-                        content = meta.get('content')
-                        if re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', content, re.I):
+                        content = meta.get('content').strip()
+                        if content and (re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', content, re.I) or
+                                      'image' in content):
                             image_url = content
                             logger.info(f"Found image in meta itemprop '{prop}': {image_url}")
                             break
@@ -677,75 +703,203 @@ def fetch_and_save_image(url, headline_id):
                                     if isinstance(data[img_prop], str):
                                         image_url = data[img_prop]
                                     elif isinstance(data[img_prop], list) and data[img_prop]:
-                                        image_url = data[img_prop][0]
+                                        image_url = data[img_prop][0] if isinstance(data[img_prop][0], str) else data[img_prop][0].get('url', '')
+                                    elif isinstance(data[img_prop], dict):
+                                        image_url = data[img_prop].get('url', '')
                                     if image_url:
                                         logger.info(f"Found image in JSON-LD data: {image_url}")
                                         break
+                        elif isinstance(data, list):
+                            # Handle arrays of JSON-LD objects
+                            for item in data:
+                                if isinstance(item, dict):
+                                    for img_prop in ['image', 'thumbnailUrl', 'contentUrl']:
+                                        if img_prop in item and item[img_prop]:
+                                            if isinstance(item[img_prop], str):
+                                                image_url = item[img_prop]
+                                            elif isinstance(item[img_prop], list) and item[img_prop]:
+                                                image_url = item[img_prop][0] if isinstance(item[img_prop][0], str) else item[img_prop][0].get('url', '')
+                                            elif isinstance(item[img_prop], dict):
+                                                image_url = item[img_prop].get('url', '')
+                                            if image_url:
+                                                logger.info(f"Found image in JSON-LD array data: {image_url}")
+                                                break
+                                if image_url:
+                                    break
                     except Exception as json_err:
                         logger.debug(f"Error parsing JSON-LD: {json_err}")
 
-        # Step 3: If still no image, try image elements with specific attributes
+        # Step 3: Enhanced image element search with news-specific classes and attributes
         if not image_url:
             # Look for article-related image elements with multiple source attributes
-            image_attrs = ['src', 'data-src', 'data-lazy-src', 'data-original', 'data-url', 'data-hi-res-src']
-            promising_classes = ['article-image', 'story-img', 'article-img', 'post-image', 'featured-image', 'entry-image', 'hero-image']
+            image_attrs = ['src', 'data-src', 'data-lazy-src', 'data-original', 'data-url', 'data-hi-res-src', 
+                          'data-srcset', 'data-original-src', 'data-lazy', 'data-image-src']
+            
+            # Enhanced news-specific class patterns - only headline/article related
+            promising_classes = [
+                'article-image', 'story-img', 'article-img', 'post-image', 'featured-image', 
+                'entry-image', 'hero-image', 'lead-image', 'main-image', 'story-image',
+                'content-image', 'headline-image', 'news-image', 'media-image',
+                'story-photo', 'article-photo', 'news-photo', 'content-photo',
+                # Reuters specific
+                'media__image', 'image__picture', 'story-image',
+                # Bloomberg specific  
+                'media-object', 'hero-media', 'lede-media', 'story-image',
+                # CNN specific
+                'media__image', 'el__image', 'media-image',
+                # Generic news patterns
+                'wp-post-image', 'attachment-large', 'size-large'
+            ]
 
-            # First try to find images with promising class names
+            # First try to find images with promising class names (strict content-related only)
             for class_name in promising_classes:
                 if image_url:
                     break
-                images = soup.find_all('img', class_=re.compile(class_name))
+                # Use partial matching for class names
+                images = soup.find_all('img', class_=lambda x: x and class_name in ' '.join(x) if isinstance(x, list) else class_name in (x or ''))
                 for img in images:
                     for attr in image_attrs:
                         if img.get(attr):
-                            src = img.get(attr)
-                            if src and not re.search(r'(logo|icon|avatar|banner|small)', src, re.I):
-                                image_url = src
-                                logger.info(f"Found image with class {class_name}: {image_url}")
-                                break
+                            src = img.get(attr).strip()
+                            # Strict filtering to avoid irrelevant images
+                            if (src and 
+                                not re.search(r'(logo|icon|avatar|banner|small|button|placeholder|ad|advertisement|sponsor|widget|sidebar|footer|header|nav|menu|social|share)', src, re.I)):
+                                
+                                # Additional check for image context within article
+                                img_parent = img.parent
+                                parent_classes = ' '.join(img_parent.get('class', [])) if img_parent else ''
+                                parent_id = img_parent.get('id', '') if img_parent else ''
+                                
+                                # Ensure the image is within article content, not in ads or sidebars
+                                if not re.search(r'(ad|advertisement|sponsor|sidebar|widget|related|footer|header|nav|menu|comment)', 
+                                                parent_classes + ' ' + parent_id, re.I):
+                                    
+                                    # Handle srcset attributes (take the first/largest image)
+                                    if attr == 'data-srcset' or 'srcset' in attr:
+                                        srcset_parts = src.split(',')
+                                        if srcset_parts:
+                                            src = srcset_parts[0].strip().split(' ')[0]
+                                    
+                                    # Validate minimum dimensions if available
+                                    width = img.get('width', '0')
+                                    height = img.get('height', '0')
+                                    try:
+                                        if (int(width) >= 300 and int(height) >= 200) or (width == '0' and height == '0'):
+                                            image_url = src
+                                            logger.info(f"Found relevant article image with class containing '{class_name}' via {attr}: {image_url}")
+                                            break
+                                    except (ValueError, TypeError):
+                                        # If no dimensions specified, accept if other criteria pass
+                                        if re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', src, re.I):
+                                            image_url = src
+                                            logger.info(f"Found relevant article image with class containing '{class_name}' via {attr}: {image_url}")
+                                            break
                     if image_url:
                         break
 
-            # If still no image, look for large images
+            # Step 4: Look for images in specific article content containers (not sidebar/ads)
+            if not image_url:
+                # News-specific container selectors - focus on main content areas only
+                news_containers = [
+                    'article', '.article-content', '.story-content', '.post-content',
+                    '.entry-content', '.main-content', '.article-body', '.story-body',
+                    '.article-text', '.post-body', '.content-body', '.news-content',
+                    '[data-module="ArticleBody"]', '[data-module="MediaObject"]',
+                    '.article-wrapper', '.story-wrapper', '.content-wrapper'
+                ]
+                
+                for container_selector in news_containers:
+                    if image_url:
+                        break
+                    try:
+                        containers = soup.select(container_selector)
+                        for container in containers:
+                            if image_url:
+                                break
+                            
+                            # Skip containers that are clearly not main content
+                            container_classes = ' '.join(container.get('class', []))
+                            container_id = container.get('id', '')
+                            if re.search(r'(sidebar|ad|advertisement|sponsor|widget|related|footer|header|nav|comment)', 
+                                       container_classes + ' ' + container_id, re.I):
+                                continue
+                                
+                            images = container.find_all('img')
+                            # Get the first meaningful image in the article content
+                            for img in images[:2]:  # Check only first 2 images to avoid unrelated content
+                                for attr in image_attrs:
+                                    src = img.get(attr)
+                                    if (src and 
+                                        not re.search(r'(logo|icon|avatar|banner|small|button|placeholder|ad|advertisement|sponsor|widget|social|share|comment)', src, re.I)):
+                                        
+                                        # Prefer larger images that are likely to be article images
+                                        width = img.get('width', '0')
+                                        height = img.get('height', '0')
+                                        alt_text = img.get('alt', '').lower()
+                                        
+                                        # Check if alt text suggests it's a content image
+                                        is_content_image = not re.search(r'(logo|icon|avatar|ad|advertisement|sponsor)', alt_text)
+                                        
+                                        try:
+                                            if ((int(width) >= 300 and int(height) >= 200) or (width == '0' and height == '0')) and is_content_image:
+                                                image_url = src.strip()
+                                                logger.info(f"Found relevant large image in {container_selector} via {attr}: {image_url}")
+                                                break
+                                        except (ValueError, TypeError):
+                                            # If no dimensions, check file extension and context
+                                            if (re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', src, re.I) and 
+                                                is_content_image and 
+                                                len(src) > 20):  # Avoid tiny tracking pixels
+                                                image_url = src.strip()
+                                                logger.info(f"Found relevant image in {container_selector} via {attr}: {image_url}")
+                                                break
+                                if image_url:
+                                    break
+                    except Exception as e:
+                        logger.debug(f"Error searching in container {container_selector}: {e}")
+
+            # Step 5: Final fallback - only large, content-relevant images
             if not image_url:
                 images = soup.find_all('img')
                 for img in images:
+                    # Only consider images that are clearly content images
+                    img_parent = img.parent
+                    parent_classes = ' '.join(img_parent.get('class', [])) if img_parent else ''
+                    parent_id = img_parent.get('id', '') if img_parent else ''
+                    alt_text = img.get('alt', '').lower()
+                    
+                    # Skip images in clearly non-content areas
+                    if re.search(r'(sidebar|ad|advertisement|sponsor|widget|related|footer|header|nav|comment|social|share)', 
+                               parent_classes + ' ' + parent_id + ' ' + alt_text, re.I):
+                        continue
+                    
                     # Try multiple source attributes
                     for attr in image_attrs:
                         if image_url:
                             break
                         src = img.get(attr)
-                        if src and not re.search(r'(logo|icon|avatar|banner|small|button)', src, re.I) and (
-                            re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', src, re.I) or
-                            ('width' in img.attrs and 'height' in img.attrs and
-                             int(img.get('width', '0')) > 200 and int(img.get('height', '0')) > 100)
-                        ):
-                            image_url = src
-                            logger.info(f"Found image via {attr} attribute: {image_url}")
-                            break
-
-                # If still no image, look for the largest image by dimensions
-                if not image_url:
-                    largest_area = 0
-                    largest_img_src = None
-
-                    for img in images:
-                        try:
-                            width = int(img.get('width', 0))
-                            height = int(img.get('height', 0))
-                            src = img.get('src')
-
-                            if src and width > 0 and height > 0:
-                                area = width * height
-                                if area > largest_area and not re.search(r'(logo|icon|avatar|banner)', src, re.I):
-                                    largest_area = area
-                                    largest_img_src = src
-                        except (ValueError, TypeError):
-                            pass
-
-                    if largest_area > 10000:  # Minimum area threshold
-                        image_url = largest_img_src
-                        logger.info(f"Found largest image by dimensions: {image_url}")
+                        if (src and 
+                            not re.search(r'(logo|icon|avatar|banner|small|button|placeholder|sprite|ad|advertisement|sponsor|widget|social|share|comment)', src, re.I)):
+                            
+                            src = src.strip()
+                            width = img.get('width', '0')
+                            height = img.get('height', '0')
+                            
+                            # Only accept images that are likely to be article content
+                            try:
+                                area = int(width) * int(height)
+                                if area >= 60000:  # Minimum 300x200 or equivalent
+                                    image_url = src
+                                    logger.info(f"Found large content image via {attr} attribute: {image_url}")
+                                    break
+                            except (ValueError, TypeError):
+                                # If no dimensions, be very strict about file quality indicators
+                                if (re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', src, re.I) and
+                                    len(src) > 30 and  # Longer URLs usually indicate real content images
+                                    not re.search(r'(thumb|small|mini|tiny|1x1|pixel)', src, re.I)):
+                                    image_url = src
+                                    logger.info(f"Found content image via {attr} attribute: {image_url}")
+                                    break
 
         # If we found an image URL, download it
         if image_url:
@@ -754,15 +908,61 @@ def fetch_and_save_image(url, headline_id):
                 # Extract base URL
                 parsed_url = urlparse(url)
                 base_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
-                image_url = f"{base_url}{image_url if image_url.startswith('/') else f'/{image_url}'}"
+                if image_url.startswith('//'):
+                    image_url = f"{parsed_url.scheme}:{image_url}"
+                elif image_url.startswith('/'):
+                    image_url = f"{base_url}{image_url}"
+                else:
+                    image_url = f"{base_url}/{image_url}"
 
-            # Download the image
-            img_response = requests.get(image_url, headers=headers, timeout=10)
-            if img_response.ok:
-                with open(full_path, 'wb') as f:
-                    f.write(img_response.content)
-                logger.info(f"Saved image for {headline_id} from {image_url}")
-                return image_path
+            # Download the image using the same session
+            try:
+                # Add additional headers for image requests
+                img_headers = headers.copy()
+                img_headers.update({
+                    "Accept": "image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+                    "Referer": url  # Important for some sites that check referrer
+                })
+                
+                img_response = session.get(image_url, headers=img_headers, timeout=15, stream=True)
+                if img_response.ok:
+                    # Verify it's actually an image by checking content type and first few bytes
+                    content_type = img_response.headers.get('content-type', '').lower()
+                    if ('image' in content_type or 
+                        any(ext in image_url.lower() for ext in ['.jpg', '.jpeg', '.png', '.webp', '.gif'])):
+                        
+                        # Read the content
+                        img_content = img_response.content
+                        
+                        # Basic validation - check if it looks like an image
+                        if len(img_content) > 1000:  # Minimum size for a meaningful image
+                            # Check magic bytes for common image formats
+                            is_valid_image = (
+                                img_content[:2] == b'\xff\xd8' or  # JPEG
+                                img_content[:8] == b'\x89PNG\r\n\x1a\n' or  # PNG
+                                img_content[:6] in [b'GIF87a', b'GIF89a'] or  # GIF
+                                img_content[:4] == b'RIFF' and img_content[8:12] == b'WEBP'  # WebP
+                            )
+                            
+                            if is_valid_image or len(img_content) > 5000:  # Accept if likely image
+                                with open(full_path, 'wb') as f:
+                                    f.write(img_content)
+                                logger.info(f"Saved image for {headline_id} from {image_url}")
+                                return image_path
+                            else:
+                                logger.warning(f"Downloaded content doesn't appear to be a valid image: {image_url}")
+                        else:
+                            logger.warning(f"Downloaded image too small ({len(img_content)} bytes): {image_url}")
+                    else:
+                        logger.warning(f"Content type not an image ({content_type}): {image_url}")
+                else:
+                    logger.warning(f"Failed to download image: {img_response.status_code} from {image_url}")
+            except Exception as img_err:
+                logger.warning(f"Error downloading image from {image_url}: {img_err}")
+        
+        # Close the session
+        session.close()
+        
     except Exception as e:
         logger.error(f"Error fetching image for {url}: {e}")
 
@@ -837,7 +1037,7 @@ def generate_ai_image(headline_id):
 
         # Configure the OpenAI client - using the updated method we fixed earlier
         openai.api_key = api_key
-        client = openai.OpenAI()
+        client = openai.OpenAI(max_retries=0)  # Disable retries to avoid time-consuming retry attempts
 
         # Generate prompt for DALL-E - optimized for financial imagery with content safety
         # Focus on the financial aspects rather than specific people or entities
