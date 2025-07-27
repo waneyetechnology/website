@@ -11,7 +11,7 @@ from pathlib import Path
 # Add src directory to path (parent directory contains src)
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from src.news import create_dynamic_image
+from src.news.news_fetcher import create_dynamic_image
 
 def test_dynamic_regeneration():
     """Test that dynamic images are regenerated with different content"""

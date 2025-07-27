@@ -12,12 +12,16 @@ def main():
     if args.test_mode:
         logger.info("Running in test mode - limiting headlines per source for faster builds")
     
-    news = fetch_financial_headlines(test_mode=args.test_mode)
+    news_data = fetch_financial_headlines(test_mode=args.test_mode)
+    # Extract headlines and analysis from the new return format
+    news = news_data['headlines'] if isinstance(news_data, dict) else news_data
+    financial_analysis = news_data.get('analysis') if isinstance(news_data, dict) else None
+    
     rates_data = fetch_central_bank_rates()
     fed_econ_data = fetch_fed_economy_at_glance()
     econ = fetch_economic_data()
     forex = fetch_forex_cfd_data()
-    html = generate_html(news, rates_data, econ, forex, fed_econ_data)
+    html = generate_html(news, rates_data, econ, forex, fed_econ_data, financial_analysis)
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html)
     

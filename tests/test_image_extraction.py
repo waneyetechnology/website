@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
 def test_image_extraction():
     """Test image extraction with browser automation on a known news site"""
-    from src.news import fetch_image_with_browser_automation, fetch_and_save_image_traditional, fetch_and_save_image
+    from src.news.news_fetcher import fetch_image_with_browser_automation, fetch_and_save_image_traditional, fetch_and_save_image
     
     # Test URLs that should have images
     test_urls = [

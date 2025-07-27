@@ -11,7 +11,7 @@ from pathlib import Path
 # Add src directory to path (parent directory contains src)
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from src.news import create_dynamic_image, get_random_ai_image
+from src.news.news_fetcher import create_dynamic_image, get_random_ai_image
 
 def test_unique_dynamic_images():
     """Test that dynamic images are saved with unique filenames"""

@@ -27,7 +27,7 @@ def get_template_env():
     
     return env
 
-def generate_html(news, policies, econ, forex, fed_econ_data=None):
+def generate_html(news, policies, econ, forex, fed_econ_data=None, financial_analysis=None):
     """Generate HTML using Jinja2 templates with SEO enhancements"""
     try:
         # Get Jinja2 environment
@@ -56,6 +56,7 @@ def generate_html(news, policies, econ, forex, fed_econ_data=None):
             'econ': econ,
             'forex': forex,
             'fed_econ_data': fed_econ_data or [],
+            'financial_analysis': financial_analysis,
             'meta_tags': meta_tags,
             'structured_data': structured_data
         }
