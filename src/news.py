@@ -4,6 +4,11 @@ import requests
 import random
 import hashlib
 import re
+import json
+import math
+import colorsys
+import uuid
+import xml.etree.ElementTree as ET
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 import time
@@ -573,7 +578,11 @@ def get_random_ai_image():
             # Ultimate fallback - this shouldn't happen but just in case
             return "static/images/dynamic/fallback_error.jpg"
 
-def fetch_and_save_image(url, headline_id):
+def fetch_image_with_browser_automation(url, headline_id):
+    """
+    Extract image from news URL using browser automation (Playwright via MCP).
+    This method is more reliable for dynamic content and JavaScript-rendered pages.
+    """
     # Ensure directories exist
     img_dir = ensure_image_dir()
     ai_img_dir = ensure_ai_image_dir()
@@ -592,6 +601,271 @@ def fetch_and_save_image(url, headline_id):
     if os.path.exists(ai_full_path):
         logger.info(f"Using existing AI-generated image for {headline_id}")
         return ai_image_path + "#ai-generated"
+
+    try:
+        # Try to use Playwright for browser automation
+        try:
+            from playwright.sync_api import sync_playwright
+            logger.info(f"Attempting to extract image using Playwright browser automation for URL: {url}")
+        except ImportError:
+            logger.warning("Playwright not available, falling back to traditional method")
+            return fetch_and_save_image_traditional(url, headline_id)
+        
+        # Use Playwright to navigate and extract images
+        with sync_playwright() as p:
+            try:
+                # Launch browser (headless mode for server environment)
+                browser = p.chromium.launch(headless=True)
+                page = browser.new_page()
+                
+                # Set user agent to avoid bot detection
+                page.set_extra_http_headers({
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                })
+                
+                # Navigate to the URL
+                logger.debug(f"Navigating to URL: {url}")
+                page.goto(url, timeout=30000, wait_until='domcontentloaded')
+                
+                # Wait a moment for any lazy loading
+                page.wait_for_timeout(2000)
+                
+                # Use JavaScript to find the best image on the page
+                image_extraction_script = """
+                () => {
+                    // Enhanced image extraction logic for news sites
+                    function isValidImageUrl(src) {
+                        if (!src) return false;
+                        // Check for valid image extensions or image-like URLs
+                        return /\\.(jpg|jpeg|png|webp|gif)(\\?.*)?$/i.test(src) || 
+                               src.includes('image') || 
+                               src.includes('img') ||
+                               src.includes('photo');
+                    }
+                    
+                    function getImageScore(img) {
+                        let score = 0;
+                        const src = img.src || img.getAttribute('data-src') || img.getAttribute('data-lazy-src') || '';
+                        const alt = (img.alt || '').toLowerCase();
+                        const className = (img.className || '').toLowerCase();
+                        const parent = img.parentElement;
+                        const parentClass = parent ? (parent.className || '').toLowerCase() : '';
+                        const parentId = parent ? (parent.id || '').toLowerCase() : '';
+                        
+                        // Skip clearly irrelevant images
+                        if (src.match(/(logo|icon|avatar|banner|button|placeholder|ad|advertisement|sponsor|widget|sidebar|footer|header|nav|menu|social|share|comment)/i)) {
+                            return -1000;
+                        }
+                        
+                        // Skip images in non-content areas
+                        if ((parentClass + ' ' + parentId).match(/(sidebar|ad|advertisement|sponsor|widget|related|footer|header|nav|comment|social|share)/i)) {
+                            return -500;
+                        }
+                        
+                        // Boost score for content-related classes
+                        if (className.match(/(article|story|content|news|main|hero|featured|lead|headline)/i)) {
+                            score += 300;
+                        }
+                        
+                        // Boost score for content-related parent classes
+                        if (parentClass.match(/(article|story|content|news|main|hero|featured|lead|headline)/i)) {
+                            score += 200;
+                        }
+                        
+                        // Boost score for meta images
+                        if (className.match(/(og-image|twitter-image|meta-image)/i)) {
+                            score += 400;
+                        }
+                        
+                        // Boost score based on size
+                        const width = parseInt(img.width) || parseInt(img.getAttribute('width')) || 0;
+                        const height = parseInt(img.height) || parseInt(img.getAttribute('height')) || 0;
+                        
+                        if (width >= 400 && height >= 300) {
+                            score += 250;
+                        } else if (width >= 300 && height >= 200) {
+                            score += 150;
+                        } else if (width > 0 && height > 0 && width * height < 10000) {
+                            // Small images get negative score
+                            score -= 100;
+                        }
+                        
+                        // Boost for images with descriptive alt text
+                        if (alt && alt.length > 10 && !alt.match(/(logo|icon|avatar)/i)) {
+                            score += 100;
+                        }
+                        
+                        // Check if image is visible
+                        const rect = img.getBoundingClientRect();
+                        if (rect.width > 0 && rect.height > 0) {
+                            score += 50;
+                        }
+                        
+                        return score;
+                    }
+                    
+                    // First try meta tags for images
+                    const metaImages = [];
+                    const metaSelectors = [
+                        'meta[property="og:image"]',
+                        'meta[property="og:image:url"]',
+                        'meta[name="twitter:image"]',
+                        'meta[property="twitter:image"]',
+                        'meta[name="thumbnail"]',
+                        'meta[itemprop="image"]'
+                    ];
+                    
+                    for (const selector of metaSelectors) {
+                        const metaTag = document.querySelector(selector);
+                        if (metaTag && metaTag.content) {
+                            const content = metaTag.content.trim();
+                            if (isValidImageUrl(content)) {
+                                metaImages.push({ url: content, score: 500, source: 'meta' });
+                            }
+                        }
+                    }
+                    
+                    // If we have meta images, return the first one
+                    if (metaImages.length > 0) {
+                        return metaImages[0];
+                    }
+                    
+                    // Get all images on the page
+                    const images = Array.from(document.querySelectorAll('img'));
+                    const scoredImages = [];
+                    
+                    for (const img of images) {
+                        // Try multiple src attributes
+                        const srcAttributes = ['src', 'data-src', 'data-lazy-src', 'data-original', 'data-url', 'data-hi-res-src'];
+                        let bestSrc = '';
+                        
+                        for (const attr of srcAttributes) {
+                            const src = img.getAttribute(attr);
+                            if (src && isValidImageUrl(src)) {
+                                bestSrc = src;
+                                break;
+                            }
+                        }
+                        
+                        if (bestSrc) {
+                            const score = getImageScore(img);
+                            if (score > 0) {
+                                scoredImages.push({
+                                    url: bestSrc,
+                                    score: score,
+                                    source: 'img_element',
+                                    element: img
+                                });
+                            }
+                        }
+                    }
+                    
+                    // Sort by score and return the best image
+                    scoredImages.sort((a, b) => b.score - a.score);
+                    
+                    if (scoredImages.length > 0) {
+                        return scoredImages[0];
+                    }
+                    
+                    return null;
+                }
+                """
+                
+                # Execute the image extraction script
+                result = page.evaluate(image_extraction_script)
+                
+                if result and isinstance(result, dict) and result.get('url'):
+                    image_url = result['url']
+                    logger.info(f"Found image via Playwright: {image_url} (score: {result.get('score', 'unknown')}, source: {result.get('source', 'unknown')})")
+                    
+                    # Handle relative URLs
+                    if not image_url.startswith(('http://', 'https://')):
+                        from urllib.parse import urljoin
+                        image_url = urljoin(url, image_url)
+                    
+                    # Close browser before downloading
+                    browser.close()
+                    
+                    # Download the image
+                    try:
+                        headers = {
+                            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                            "Accept": "image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+                            "Referer": url
+                        }
+                        
+                        import requests
+                        img_response = requests.get(image_url, headers=headers, timeout=15, stream=True)
+                        
+                        if img_response.ok:
+                            img_content = img_response.content
+                            
+                            # Validate image content
+                            if len(img_content) > 1000:  # Minimum size
+                                # Check magic bytes for common image formats
+                                is_valid_image = (
+                                    img_content[:2] == b'\\xff\\xd8' or  # JPEG
+                                    img_content[:8] == b'\\x89PNG\\r\\n\\x1a\\n' or  # PNG
+                                    img_content[:6] in [b'GIF87a', b'GIF89a'] or  # GIF
+                                    img_content[:4] == b'RIFF' and img_content[8:12] == b'WEBP'  # WebP
+                                )
+                                
+                                if is_valid_image or len(img_content) > 5000:
+                                    with open(full_path, 'wb') as f:
+                                        f.write(img_content)
+                                    logger.info(f"Successfully saved image via Playwright for {headline_id}")
+                                    return image_path
+                                else:
+                                    logger.warning(f"Invalid image content from Playwright: {image_url}")
+                            else:
+                                logger.warning(f"Image too small from Playwright: {len(img_content)} bytes")
+                        else:
+                            logger.warning(f"Failed to download image from Playwright: {img_response.status_code}")
+                            
+                    except Exception as download_error:
+                        logger.warning(f"Error downloading image from Playwright: {download_error}")
+                else:
+                    logger.info(f"No suitable image found via Playwright for: {url}")
+                
+                # Close browser
+                browser.close()
+                    
+            except Exception as playwright_error:
+                logger.warning(f"Playwright execution error: {playwright_error}")
+                # Make sure browser is closed
+                try:
+                    browser.close()
+                except:
+                    pass
+                    
+    except ImportError:
+        logger.warning("Playwright not available, falling back to traditional method")
+        return fetch_and_save_image_traditional(url, headline_id)
+    except Exception as browser_error:
+        logger.warning(f"Browser automation failed: {browser_error}")
+        
+    # If browser automation didn't work, fall back to traditional method
+    logger.info(f"Playwright automation failed for {headline_id}, falling back to traditional extraction")
+    return fetch_and_save_image_traditional(url, headline_id)
+        
+    # If browser automation didn't work, fall back to traditional method
+    logger.info(f"Browser automation failed for {headline_id}, falling back to traditional extraction")
+    return fetch_and_save_image_traditional(url, headline_id)
+
+
+def fetch_and_save_image_traditional(url, headline_id):
+    """
+    Traditional image extraction method using requests and BeautifulSoup.
+    This is used as a backup when browser automation fails.
+    """
+    # Ensure directories exist
+    img_dir = ensure_image_dir()
+    ai_img_dir = ensure_ai_image_dir()
+    
+    image_path = f"static/images/headlines/{headline_id}.jpg"
+    full_path = img_dir / f"{headline_id}.jpg"
+    ai_image_path = f"static/images/ai-generated/{headline_id}.jpg"
+    ai_full_path = ai_img_dir / f"{headline_id}.jpg"
 
     # Try to fetch the page and extract an image
     try:
@@ -1001,6 +1275,38 @@ def fetch_and_save_image(url, headline_id):
     logger.info(f"No web image found for {headline_id}, generating AI image")
     return generate_ai_image(headline_id)
 
+
+def fetch_and_save_image(url, headline_id):
+    """
+    Main image extraction function that tries browser automation first, 
+    then falls back to traditional scraping methods.
+    """
+    try:
+        # Try browser automation first (more reliable for modern news sites)
+        result = fetch_image_with_browser_automation(url, headline_id)
+        if result and not result.endswith("#dynamic") and not result.endswith("#ai-generated"):
+            # Successfully got a real web image via browser automation
+            return result
+        elif result and (result.endswith("#dynamic") or result.endswith("#ai-generated")):
+            # Browser automation didn't find a web image but returned AI/dynamic fallback
+            # Let's try traditional method before accepting the fallback
+            logger.info(f"Browser automation returned fallback for {headline_id}, trying traditional method")
+            traditional_result = fetch_and_save_image_traditional(url, headline_id)
+            if traditional_result and not traditional_result.endswith("#dynamic") and not traditional_result.endswith("#ai-generated"):
+                return traditional_result
+            else:
+                # Traditional method also failed, use browser automation fallback
+                return result
+        else:
+            # Browser automation completely failed, try traditional method
+            logger.info(f"Browser automation failed for {headline_id}, trying traditional method")
+            return fetch_and_save_image_traditional(url, headline_id)
+    except Exception as e:
+        logger.warning(f"Error in browser automation for {headline_id}: {e}")
+        # Fall back to traditional method
+        return fetch_and_save_image_traditional(url, headline_id)
+
+
 def generate_ai_image(headline_id):
     """
     Generate an image using OpenAI's DALL-E API for headlines that don't have images
@@ -1016,15 +1322,17 @@ def generate_ai_image(headline_id):
 
     # Get the headline text from all_headlines global
     headline_text = ""
-    for headline in fetch_financial_headlines.current_headlines:
-        if hashlib.md5(headline['url'].encode()).hexdigest() == headline_id:
-            headline_text = headline['headline']
-            break
-
+    # Check if current_headlines exists and has data
+    if hasattr(fetch_financial_headlines, 'current_headlines') and fetch_financial_headlines.current_headlines:
+        for headline in fetch_financial_headlines.current_headlines:
+            if hashlib.md5(headline['url'].encode()).hexdigest() == headline_id:
+                headline_text = headline['headline']
+                break
+    
     if not headline_text:
         logger.warning(f"Could not find headline text for ID {headline_id}")
-        # Try to use the headline_id as a fallback for the prompt
-        headline_text = f"Financial news with ID {headline_id}"
+        # Use a generic financial prompt instead
+        headline_text = "Financial news and market updates"
 
     try:
         # Get the OpenAI API key

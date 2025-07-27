@@ -1,8 +1,7 @@
 requests==2.31.0
 openai==1.93.0
-# playwright is only needed for browser automation/testing, not for static site generation
-# If you do not use Playwright in your Python code, you can comment it out or remove it
-# playwright==1.44.0
+# playwright is needed for browser automation to extract images from news sites
+playwright==1.44.0
 csscompressor==0.9.5
 jsmin==3.0.0
 beautifulsoup4==4.12.3
