@@ -885,10 +885,6 @@ def fetch_and_save_image_traditional(url, headline_id):
         session = requests.Session()
         session.headers.update(headers)
 
-        # Add a small delay to avoid being flagged as a bot
-        import time
-        time.sleep(0.5)
-
         response = session.get(url, timeout=15, allow_redirects=True)
         if not response.ok:
             logger.warning(f"Failed to fetch URL {url}: {response.status_code}")
@@ -1492,6 +1488,10 @@ def fetch_financial_headlines(test_mode=False):
 
     if test_mode:
         logger.info(f"Test mode: Total headlines collected: {len(all_headlines)}")
+
+    # Randomly shuffle headlines to distribute image fetching workload evenly across sources
+    random.shuffle(all_headlines)
+    logger.info(f"Shuffled {len(all_headlines)} headlines for balanced image processing")
 
     # Add image paths to headlines
     for headline in all_headlines:
