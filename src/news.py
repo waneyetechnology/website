@@ -1451,10 +1451,13 @@ def generate_ai_image(headline_id):
     else:
         return "static/images/dynamic/fallback_error.jpg"
 
-def fetch_financial_headlines():
+def fetch_financial_headlines(test_mode=False):
     """
     Fetches financial headlines from multiple sources/APIs, applies a random weight to each source,
     fetches images for each headline, and returns all headlines with local image paths.
+    
+    Args:
+        test_mode (bool): If True, limits headlines per source to 1-2 for faster CI/CD builds
     """
     # Initialize the class attribute if it doesn't exist
     if not hasattr(fetch_financial_headlines, 'current_headlines'):
@@ -1475,11 +1478,24 @@ def fetch_financial_headlines():
     weighted_sources = [(random.random(), fn) for fn in sources]
     weighted_sources.sort(reverse=True)  # Higher weight = higher priority
     all_headlines = []
+    
     for _, fn in weighted_sources:
-        all_headlines += fn()
+        source_headlines = fn()
+        
+        # In test mode, limit to 1-2 headlines per source for faster builds
+        if test_mode and source_headlines:
+            # Take only the first 1-2 headlines from each source
+            limit = min(2, len(source_headlines))
+            source_headlines = source_headlines[:limit]
+            logger.info(f"Test mode: Limited {fn.__name__} to {len(source_headlines)} headlines")
+        
+        all_headlines += source_headlines
 
     # Store the current headlines to access from generate_ai_image
     fetch_financial_headlines.current_headlines = all_headlines.copy()
+
+    if test_mode:
+        logger.info(f"Test mode: Total headlines collected: {len(all_headlines)}")
 
     # Add image paths to headlines
     for headline in all_headlines:
