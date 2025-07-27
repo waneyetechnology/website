@@ -20,9 +20,9 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-      - name: Build static site (no deploy)
+      - name: Build static site (no deploy) - Test Mode for Fast CI/CD
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python generate_site.py
+        run: python generate_site.py --test-mode
       - name: Check index.html generated
         run: test -f index.html

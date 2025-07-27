@@ -4,6 +4,11 @@ import requests
 import random
 import hashlib
 import re
+import json
+import math
+import colorsys
+import uuid
+import xml.etree.ElementTree as ET
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 import time
@@ -156,18 +161,18 @@ def fetch_reuters_headlines():
                 title_elem = item.find("title")
                 link_elem = item.find("link")
                 pubdate_elem = item.find("pubDate")
-                
+
                 if title_elem is not None and link_elem is not None:
                     title = title_elem.text
                     link = link_elem.text
                     publishedAt = None
-                    
+
                     if pubdate_elem is not None:
                         try:
                             publishedAt = parsedate_to_datetime(pubdate_elem.text).isoformat()
                         except Exception:
                             publishedAt = pubdate_elem.text
-                    
+
                     headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
         else:
             logger.warning(f"Reuters RSS request failed: {resp.status_code}")
@@ -195,18 +200,18 @@ def fetch_bloomberg_headlines():
                 title_elem = item.find("title")
                 link_elem = item.find("link")
                 pubdate_elem = item.find("pubDate")
-                
+
                 if title_elem is not None and link_elem is not None:
                     title = title_elem.text
                     link = link_elem.text
                     publishedAt = None
-                    
+
                     if pubdate_elem is not None:
                         try:
                             publishedAt = parsedate_to_datetime(pubdate_elem.text).isoformat()
                         except Exception:
                             publishedAt = pubdate_elem.text
-                    
+
                     headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
         else:
             logger.warning(f"Bloomberg RSS request failed: {resp.status_code}")
@@ -234,18 +239,18 @@ def fetch_cnbc_headlines():
                 title_elem = item.find("title")
                 link_elem = item.find("link")
                 pubdate_elem = item.find("pubDate")
-                
+
                 if title_elem is not None and link_elem is not None:
                     title = title_elem.text
                     link = link_elem.text
                     publishedAt = None
-                    
+
                     if pubdate_elem is not None:
                         try:
                             publishedAt = parsedate_to_datetime(pubdate_elem.text).isoformat()
                         except Exception:
                             publishedAt = pubdate_elem.text
-                    
+
                     headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
         else:
             logger.warning(f"CNBC RSS request failed: {resp.status_code}")
@@ -273,18 +278,18 @@ def fetch_marketwatch_headlines():
                 title_elem = item.find("title")
                 link_elem = item.find("link")
                 pubdate_elem = item.find("pubDate")
-                
+
                 if title_elem is not None and link_elem is not None:
                     title = title_elem.text
                     link = link_elem.text
                     publishedAt = None
-                    
+
                     if pubdate_elem is not None:
                         try:
                             publishedAt = parsedate_to_datetime(pubdate_elem.text).isoformat()
                         except Exception:
                             publishedAt = pubdate_elem.text
-                    
+
                     headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
         else:
             logger.warning(f"MarketWatch RSS request failed: {resp.status_code}")
@@ -312,18 +317,18 @@ def fetch_ft_headlines():
                 title_elem = item.find("title")
                 link_elem = item.find("link")
                 pubdate_elem = item.find("pubDate")
-                
+
                 if title_elem is not None and link_elem is not None:
                     title = title_elem.text
                     link = link_elem.text
                     publishedAt = None
-                    
+
                     if pubdate_elem is not None:
                         try:
                             publishedAt = parsedate_to_datetime(pubdate_elem.text).isoformat()
                         except Exception:
                             publishedAt = pubdate_elem.text
-                    
+
                     headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
         else:
             logger.warning(f"Financial Times RSS request failed: {resp.status_code}")
@@ -355,15 +360,15 @@ def create_dynamic_image():
     """Create a unique dynamic image with timestamp - regenerated every time for fresh appearance"""
     import time
     import uuid
-    
+
     dynamic_img_dir = ensure_dynamic_image_dir()
-    
+
     # Generate unique filename with timestamp and UUID
     timestamp = int(time.time())
     unique_id = str(uuid.uuid4())[:8]  # Use first 8 characters of UUID
     filename = f"dynamic_{timestamp}_{unique_id}.jpg"
     dynamic_img_path = dynamic_img_dir / filename
-    
+
     # Always regenerate the dynamic image for fresh, randomized appearance
     try:
         # Create a colorful, visually appealing image with random vivid colors
@@ -542,10 +547,10 @@ def create_dynamic_image():
         # Save the image at high quality
         img.save(dynamic_img_path, 'JPEG', quality=95)
         logger.info(f"Created new vibrant dynamic image: {filename}")
-        
+
         # Return the relative path to the image
         return f"static/images/dynamic/{filename}"
-        
+
     except Exception as e:
         logger.error(f"Error creating dynamic image: {e}")
         return None
@@ -553,10 +558,10 @@ def create_dynamic_image():
 def get_random_ai_image():
     """Get a random AI-generated image from the ai-generated folder as fallback"""
     ai_img_dir = ensure_ai_image_dir()
-    
+
     # Get all image files in the AI-generated directory
     ai_images = [f for f in os.listdir(ai_img_dir) if f.endswith(('.jpg', '.jpeg', '.png'))]
-    
+
     if ai_images:
         # Select a random AI-generated image
         random_image = random.choice(ai_images)
@@ -573,11 +578,15 @@ def get_random_ai_image():
             # Ultimate fallback - this shouldn't happen but just in case
             return "static/images/dynamic/fallback_error.jpg"
 
-def fetch_and_save_image(url, headline_id):
+def fetch_image_with_browser_automation(url, headline_id):
+    """
+    Extract image from news URL using browser automation (Playwright via MCP).
+    This method is more reliable for dynamic content and JavaScript-rendered pages.
+    """
     # Ensure directories exist
     img_dir = ensure_image_dir()
     ai_img_dir = ensure_ai_image_dir()
-    
+
     image_path = f"static/images/headlines/{headline_id}.jpg"
     full_path = img_dir / f"{headline_id}.jpg"
     ai_image_path = f"static/images/ai-generated/{headline_id}.jpg"
@@ -592,6 +601,267 @@ def fetch_and_save_image(url, headline_id):
     if os.path.exists(ai_full_path):
         logger.info(f"Using existing AI-generated image for {headline_id}")
         return ai_image_path + "#ai-generated"
+
+    try:
+        # Try to use Playwright for browser automation
+        try:
+            from playwright.sync_api import sync_playwright
+            logger.info(f"Attempting to extract image using Playwright browser automation for URL: {url}")
+        except ImportError:
+            logger.warning("Playwright not available, falling back to traditional method")
+            return fetch_and_save_image_traditional(url, headline_id)
+
+        # Use Playwright to navigate and extract images
+        with sync_playwright() as p:
+            try:
+                # Launch browser (headless mode for server environment)
+                browser = p.chromium.launch(headless=True)
+                page = browser.new_page()
+
+                # Set user agent to avoid bot detection
+                page.set_extra_http_headers({
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                })
+
+                # Navigate to the URL
+                logger.debug(f"Navigating to URL: {url}")
+                page.goto(url, timeout=30000, wait_until='domcontentloaded')
+
+                # Wait a moment for any lazy loading
+                page.wait_for_timeout(2000)
+
+                # Use JavaScript to find the best image on the page
+                image_extraction_script = """
+                () => {
+                    // Enhanced image extraction logic for news sites
+                    function isValidImageUrl(src) {
+                        if (!src) return false;
+                        // Check for valid image extensions or image-like URLs
+                        return /\\.(jpg|jpeg|png|webp|gif)(\\?.*)?$/i.test(src) ||
+                               src.includes('image') ||
+                               src.includes('img') ||
+                               src.includes('photo');
+                    }
+
+                    function getImageScore(img) {
+                        let score = 0;
+                        const src = img.src || img.getAttribute('data-src') || img.getAttribute('data-lazy-src') || '';
+                        const alt = (img.alt || '').toLowerCase();
+                        const className = (img.className || '').toLowerCase();
+                        const parent = img.parentElement;
+                        const parentClass = parent ? (parent.className || '').toLowerCase() : '';
+                        const parentId = parent ? (parent.id || '').toLowerCase() : '';
+
+                        // Skip clearly irrelevant images
+                        if (src.match(/(logo|icon|avatar|banner|button|placeholder|ad|advertisement|sponsor|widget|sidebar|footer|header|nav|menu|social|share|comment)/i)) {
+                            return -1000;
+                        }
+
+                        // Skip images in non-content areas
+                        if ((parentClass + ' ' + parentId).match(/(sidebar|ad|advertisement|sponsor|widget|related|footer|header|nav|comment|social|share)/i)) {
+                            return -500;
+                        }
+
+                        // Boost score for content-related classes
+                        if (className.match(/(article|story|content|news|main|hero|featured|lead|headline)/i)) {
+                            score += 300;
+                        }
+
+                        // Boost score for content-related parent classes
+                        if (parentClass.match(/(article|story|content|news|main|hero|featured|lead|headline)/i)) {
+                            score += 200;
+                        }
+
+                        // Boost score for meta images
+                        if (className.match(/(og-image|twitter-image|meta-image)/i)) {
+                            score += 400;
+                        }
+
+                        // Boost score based on size
+                        const width = parseInt(img.width) || parseInt(img.getAttribute('width')) || 0;
+                        const height = parseInt(img.height) || parseInt(img.getAttribute('height')) || 0;
+
+                        if (width >= 400 && height >= 300) {
+                            score += 250;
+                        } else if (width >= 300 && height >= 200) {
+                            score += 150;
+                        } else if (width > 0 && height > 0 && width * height < 10000) {
+                            // Small images get negative score
+                            score -= 100;
+                        }
+
+                        // Boost for images with descriptive alt text
+                        if (alt && alt.length > 10 && !alt.match(/(logo|icon|avatar)/i)) {
+                            score += 100;
+                        }
+
+                        // Check if image is visible
+                        const rect = img.getBoundingClientRect();
+                        if (rect.width > 0 && rect.height > 0) {
+                            score += 50;
+                        }
+
+                        return score;
+                    }
+
+                    // First try meta tags for images
+                    const metaImages = [];
+                    const metaSelectors = [
+                        'meta[property="og:image"]',
+                        'meta[property="og:image:url"]',
+                        'meta[name="twitter:image"]',
+                        'meta[property="twitter:image"]',
+                        'meta[name="thumbnail"]',
+                        'meta[itemprop="image"]'
+                    ];
+
+                    for (const selector of metaSelectors) {
+                        const metaTag = document.querySelector(selector);
+                        if (metaTag && metaTag.content) {
+                            const content = metaTag.content.trim();
+                            if (isValidImageUrl(content)) {
+                                metaImages.push({ url: content, score: 500, source: 'meta' });
+                            }
+                        }
+                    }
+
+                    // If we have meta images, return the first one
+                    if (metaImages.length > 0) {
+                        return metaImages[0];
+                    }
+
+                    // Get all images on the page
+                    const images = Array.from(document.querySelectorAll('img'));
+                    const scoredImages = [];
+
+                    for (const img of images) {
+                        // Try multiple src attributes
+                        const srcAttributes = ['src', 'data-src', 'data-lazy-src', 'data-original', 'data-url', 'data-hi-res-src'];
+                        let bestSrc = '';
+
+                        for (const attr of srcAttributes) {
+                            const src = img.getAttribute(attr);
+                            if (src && isValidImageUrl(src)) {
+                                bestSrc = src;
+                                break;
+                            }
+                        }
+
+                        if (bestSrc) {
+                            const score = getImageScore(img);
+                            if (score > 0) {
+                                scoredImages.push({
+                                    url: bestSrc,
+                                    score: score,
+                                    source: 'img_element',
+                                    element: img
+                                });
+                            }
+                        }
+                    }
+
+                    // Sort by score and return the best image
+                    scoredImages.sort((a, b) => b.score - a.score);
+
+                    if (scoredImages.length > 0) {
+                        return scoredImages[0];
+                    }
+
+                    return null;
+                }
+                """
+
+                # Execute the image extraction script
+                result = page.evaluate(image_extraction_script)
+
+                if result and isinstance(result, dict) and result.get('url'):
+                    image_url = result['url']
+                    logger.info(f"Found image via Playwright: {image_url} (score: {result.get('score', 'unknown')}, source: {result.get('source', 'unknown')})")
+
+                    # Handle relative URLs
+                    if not image_url.startswith(('http://', 'https://')):
+                        from urllib.parse import urljoin
+                        image_url = urljoin(url, image_url)
+
+                    # Close browser before downloading
+                    browser.close()
+
+                    # Download the image
+                    try:
+                        headers = {
+                            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                            "Accept": "image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+                            "Referer": url
+                        }
+
+                        import requests
+                        img_response = requests.get(image_url, headers=headers, timeout=15, stream=True)
+
+                        if img_response.ok:
+                            img_content = img_response.content
+
+                            # Validate image content
+                            if len(img_content) > 1000:  # Minimum size
+                                # Check magic bytes for common image formats
+                                is_valid_image = (
+                                    img_content[:2] == b'\\xff\\xd8' or  # JPEG
+                                    img_content[:8] == b'\\x89PNG\\r\\n\\x1a\\n' or  # PNG
+                                    img_content[:6] in [b'GIF87a', b'GIF89a'] or  # GIF
+                                    img_content[:4] == b'RIFF' and img_content[8:12] == b'WEBP'  # WebP
+                                )
+
+                                if is_valid_image or len(img_content) > 5000:
+                                    with open(full_path, 'wb') as f:
+                                        f.write(img_content)
+                                    logger.info(f"Successfully saved image via Playwright for {headline_id}")
+                                    return image_path
+                                else:
+                                    logger.warning(f"Invalid image content from Playwright: {image_url}")
+                            else:
+                                logger.warning(f"Image too small from Playwright: {len(img_content)} bytes")
+                        else:
+                            logger.warning(f"Failed to download image from Playwright: {img_response.status_code}")
+
+                    except Exception as download_error:
+                        logger.warning(f"Error downloading image from Playwright: {download_error}")
+                else:
+                    logger.info(f"No suitable image found via Playwright for: {url}")
+
+                # Close browser
+                browser.close()
+
+            except Exception as playwright_error:
+                logger.warning(f"Playwright execution error: {playwright_error}")
+                # Make sure browser is closed
+                try:
+                    browser.close()
+                except:
+                    pass
+
+    except ImportError:
+        logger.warning("Playwright not available, falling back to traditional method")
+        return fetch_and_save_image_traditional(url, headline_id)
+    except Exception as browser_error:
+        logger.warning(f"Browser automation failed: {browser_error}")
+
+    # If browser automation didn't work, fall back to traditional method
+    logger.info(f"Playwright automation failed for {headline_id}, falling back to traditional extraction")
+    return fetch_and_save_image_traditional(url, headline_id)
+
+
+def fetch_and_save_image_traditional(url, headline_id):
+    """
+    Traditional image extraction method using requests and BeautifulSoup.
+    This is used as a backup when browser automation fails.
+    """
+    # Ensure directories exist
+    img_dir = ensure_image_dir()
+    ai_img_dir = ensure_ai_image_dir()
+
+    image_path = f"static/images/headlines/{headline_id}.jpg"
+    full_path = img_dir / f"{headline_id}.jpg"
+    ai_image_path = f"static/images/ai-generated/{headline_id}.jpg"
+    ai_full_path = ai_img_dir / f"{headline_id}.jpg"
 
     # Try to fetch the page and extract an image
     try:
@@ -610,15 +880,15 @@ def fetch_and_save_image(url, headline_id):
             "Sec-Fetch-User": "?1",
             "Cache-Control": "max-age=0"
         }
-        
+
         # Create a session to maintain cookies and connection state
         session = requests.Session()
         session.headers.update(headers)
-        
+
         # Add a small delay to avoid being flagged as a bot
         import time
         time.sleep(0.5)
-        
+
         response = session.get(url, timeout=15, allow_redirects=True)
         if not response.ok:
             logger.warning(f"Failed to fetch URL {url}: {response.status_code}")
@@ -651,7 +921,7 @@ def fetch_and_save_image(url, headline_id):
             for meta in meta_tags:
                 if meta.get('content'):
                     content = meta.get('content').strip()
-                    if content and (re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', content, re.I) or 
+                    if content and (re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', content, re.I) or
                                   'image' in content):
                         image_url = content
                         logger.info(f"Found image in meta property '{prop}': {image_url}")
@@ -732,18 +1002,18 @@ def fetch_and_save_image(url, headline_id):
         # Step 3: Enhanced image element search with news-specific classes and attributes
         if not image_url:
             # Look for article-related image elements with multiple source attributes
-            image_attrs = ['src', 'data-src', 'data-lazy-src', 'data-original', 'data-url', 'data-hi-res-src', 
+            image_attrs = ['src', 'data-src', 'data-lazy-src', 'data-original', 'data-url', 'data-hi-res-src',
                           'data-srcset', 'data-original-src', 'data-lazy', 'data-image-src']
-            
+
             # Enhanced news-specific class patterns - only headline/article related
             promising_classes = [
-                'article-image', 'story-img', 'article-img', 'post-image', 'featured-image', 
+                'article-image', 'story-img', 'article-img', 'post-image', 'featured-image',
                 'entry-image', 'hero-image', 'lead-image', 'main-image', 'story-image',
                 'content-image', 'headline-image', 'news-image', 'media-image',
                 'story-photo', 'article-photo', 'news-photo', 'content-photo',
                 # Reuters specific
                 'media__image', 'image__picture', 'story-image',
-                # Bloomberg specific  
+                # Bloomberg specific
                 'media-object', 'hero-media', 'lede-media', 'story-image',
                 # CNN specific
                 'media__image', 'el__image', 'media-image',
@@ -762,24 +1032,24 @@ def fetch_and_save_image(url, headline_id):
                         if img.get(attr):
                             src = img.get(attr).strip()
                             # Strict filtering to avoid irrelevant images
-                            if (src and 
+                            if (src and
                                 not re.search(r'(logo|icon|avatar|banner|small|button|placeholder|ad|advertisement|sponsor|widget|sidebar|footer|header|nav|menu|social|share)', src, re.I)):
-                                
+
                                 # Additional check for image context within article
                                 img_parent = img.parent
                                 parent_classes = ' '.join(img_parent.get('class', [])) if img_parent else ''
                                 parent_id = img_parent.get('id', '') if img_parent else ''
-                                
+
                                 # Ensure the image is within article content, not in ads or sidebars
-                                if not re.search(r'(ad|advertisement|sponsor|sidebar|widget|related|footer|header|nav|menu|comment)', 
+                                if not re.search(r'(ad|advertisement|sponsor|sidebar|widget|related|footer|header|nav|menu|comment)',
                                                 parent_classes + ' ' + parent_id, re.I):
-                                    
+
                                     # Handle srcset attributes (take the first/largest image)
                                     if attr == 'data-srcset' or 'srcset' in attr:
                                         srcset_parts = src.split(',')
                                         if srcset_parts:
                                             src = srcset_parts[0].strip().split(' ')[0]
-                                    
+
                                     # Validate minimum dimensions if available
                                     width = img.get('width', '0')
                                     height = img.get('height', '0')
@@ -807,7 +1077,7 @@ def fetch_and_save_image(url, headline_id):
                     '[data-module="ArticleBody"]', '[data-module="MediaObject"]',
                     '.article-wrapper', '.story-wrapper', '.content-wrapper'
                 ]
-                
+
                 for container_selector in news_containers:
                     if image_url:
                         break
@@ -816,30 +1086,30 @@ def fetch_and_save_image(url, headline_id):
                         for container in containers:
                             if image_url:
                                 break
-                            
+
                             # Skip containers that are clearly not main content
                             container_classes = ' '.join(container.get('class', []))
                             container_id = container.get('id', '')
-                            if re.search(r'(sidebar|ad|advertisement|sponsor|widget|related|footer|header|nav|comment)', 
+                            if re.search(r'(sidebar|ad|advertisement|sponsor|widget|related|footer|header|nav|comment)',
                                        container_classes + ' ' + container_id, re.I):
                                 continue
-                                
+
                             images = container.find_all('img')
                             # Get the first meaningful image in the article content
                             for img in images[:2]:  # Check only first 2 images to avoid unrelated content
                                 for attr in image_attrs:
                                     src = img.get(attr)
-                                    if (src and 
+                                    if (src and
                                         not re.search(r'(logo|icon|avatar|banner|small|button|placeholder|ad|advertisement|sponsor|widget|social|share|comment)', src, re.I)):
-                                        
+
                                         # Prefer larger images that are likely to be article images
                                         width = img.get('width', '0')
                                         height = img.get('height', '0')
                                         alt_text = img.get('alt', '').lower()
-                                        
+
                                         # Check if alt text suggests it's a content image
                                         is_content_image = not re.search(r'(logo|icon|avatar|ad|advertisement|sponsor)', alt_text)
-                                        
+
                                         try:
                                             if ((int(width) >= 300 and int(height) >= 200) or (width == '0' and height == '0')) and is_content_image:
                                                 image_url = src.strip()
@@ -847,8 +1117,8 @@ def fetch_and_save_image(url, headline_id):
                                                 break
                                         except (ValueError, TypeError):
                                             # If no dimensions, check file extension and context
-                                            if (re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', src, re.I) and 
-                                                is_content_image and 
+                                            if (re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', src, re.I) and
+                                                is_content_image and
                                                 len(src) > 20):  # Avoid tiny tracking pixels
                                                 image_url = src.strip()
                                                 logger.info(f"Found relevant image in {container_selector} via {attr}: {image_url}")
@@ -867,24 +1137,24 @@ def fetch_and_save_image(url, headline_id):
                     parent_classes = ' '.join(img_parent.get('class', [])) if img_parent else ''
                     parent_id = img_parent.get('id', '') if img_parent else ''
                     alt_text = img.get('alt', '').lower()
-                    
+
                     # Skip images in clearly non-content areas
-                    if re.search(r'(sidebar|ad|advertisement|sponsor|widget|related|footer|header|nav|comment|social|share)', 
+                    if re.search(r'(sidebar|ad|advertisement|sponsor|widget|related|footer|header|nav|comment|social|share)',
                                parent_classes + ' ' + parent_id + ' ' + alt_text, re.I):
                         continue
-                    
+
                     # Try multiple source attributes
                     for attr in image_attrs:
                         if image_url:
                             break
                         src = img.get(attr)
-                        if (src and 
+                        if (src and
                             not re.search(r'(logo|icon|avatar|banner|small|button|placeholder|sprite|ad|advertisement|sponsor|widget|social|share|comment)', src, re.I)):
-                            
+
                             src = src.strip()
                             width = img.get('width', '0')
                             height = img.get('height', '0')
-                            
+
                             # Only accept images that are likely to be article content
                             try:
                                 area = int(width) * int(height)
@@ -923,17 +1193,17 @@ def fetch_and_save_image(url, headline_id):
                     "Accept": "image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
                     "Referer": url  # Important for some sites that check referrer
                 })
-                
+
                 img_response = session.get(image_url, headers=img_headers, timeout=15, stream=True)
                 if img_response.ok:
                     # Verify it's actually an image by checking content type and first few bytes
                     content_type = img_response.headers.get('content-type', '').lower()
-                    if ('image' in content_type or 
+                    if ('image' in content_type or
                         any(ext in image_url.lower() for ext in ['.jpg', '.jpeg', '.png', '.webp', '.gif'])):
-                        
+
                         # Read the content
                         img_content = img_response.content
-                        
+
                         # Basic validation - check if it looks like an image
                         if len(img_content) > 1000:  # Minimum size for a meaningful image
                             # Check magic bytes for common image formats
@@ -943,7 +1213,7 @@ def fetch_and_save_image(url, headline_id):
                                 img_content[:6] in [b'GIF87a', b'GIF89a'] or  # GIF
                                 img_content[:4] == b'RIFF' and img_content[8:12] == b'WEBP'  # WebP
                             )
-                            
+
                             if is_valid_image or len(img_content) > 5000:  # Accept if likely image
                                 with open(full_path, 'wb') as f:
                                     f.write(img_content)
@@ -959,10 +1229,10 @@ def fetch_and_save_image(url, headline_id):
                     logger.warning(f"Failed to download image: {img_response.status_code} from {image_url}")
             except Exception as img_err:
                 logger.warning(f"Error downloading image from {image_url}: {img_err}")
-        
+
         # Close the session
         session.close()
-        
+
     except Exception as e:
         logger.error(f"Error fetching image for {url}: {e}")
 
@@ -1001,6 +1271,38 @@ def fetch_and_save_image(url, headline_id):
     logger.info(f"No web image found for {headline_id}, generating AI image")
     return generate_ai_image(headline_id)
 
+
+def fetch_and_save_image(url, headline_id):
+    """
+    Main image extraction function that tries browser automation first,
+    then falls back to traditional scraping methods.
+    """
+    try:
+        # Try browser automation first (more reliable for modern news sites)
+        result = fetch_image_with_browser_automation(url, headline_id)
+        if result and not result.endswith("#dynamic") and not result.endswith("#ai-generated"):
+            # Successfully got a real web image via browser automation
+            return result
+        elif result and (result.endswith("#dynamic") or result.endswith("#ai-generated")):
+            # Browser automation didn't find a web image but returned AI/dynamic fallback
+            # Let's try traditional method before accepting the fallback
+            logger.info(f"Browser automation returned fallback for {headline_id}, trying traditional method")
+            traditional_result = fetch_and_save_image_traditional(url, headline_id)
+            if traditional_result and not traditional_result.endswith("#dynamic") and not traditional_result.endswith("#ai-generated"):
+                return traditional_result
+            else:
+                # Traditional method also failed, use browser automation fallback
+                return result
+        else:
+            # Browser automation completely failed, try traditional method
+            logger.info(f"Browser automation failed for {headline_id}, trying traditional method")
+            return fetch_and_save_image_traditional(url, headline_id)
+    except Exception as e:
+        logger.warning(f"Error in browser automation for {headline_id}: {e}")
+        # Fall back to traditional method
+        return fetch_and_save_image_traditional(url, headline_id)
+
+
 def generate_ai_image(headline_id):
     """
     Generate an image using OpenAI's DALL-E API for headlines that don't have images
@@ -1016,15 +1318,17 @@ def generate_ai_image(headline_id):
 
     # Get the headline text from all_headlines global
     headline_text = ""
-    for headline in fetch_financial_headlines.current_headlines:
-        if hashlib.md5(headline['url'].encode()).hexdigest() == headline_id:
-            headline_text = headline['headline']
-            break
+    # Check if current_headlines exists and has data
+    if hasattr(fetch_financial_headlines, 'current_headlines') and fetch_financial_headlines.current_headlines:
+        for headline in fetch_financial_headlines.current_headlines:
+            if hashlib.md5(headline['url'].encode()).hexdigest() == headline_id:
+                headline_text = headline['headline']
+                break
 
     if not headline_text:
         logger.warning(f"Could not find headline text for ID {headline_id}")
-        # Try to use the headline_id as a fallback for the prompt
-        headline_text = f"Financial news with ID {headline_id}"
+        # Use a generic financial prompt instead
+        headline_text = "Financial news and market updates"
 
     try:
         # Get the OpenAI API key
@@ -1042,14 +1346,14 @@ def generate_ai_image(headline_id):
         # Generate prompt for DALL-E - optimized for financial imagery with content safety
         # Focus on the financial aspects rather than specific people or entities
         # Extract key financial terms from the headline
-        financial_terms = ["market", "stock", "economy", "finance", "business", 
+        financial_terms = ["market", "stock", "economy", "finance", "business",
                           "investment", "trade", "growth", "recession", "inflation",
                           "dollar", "euro", "currency", "bank", "interest rate"]
-        
+
         # Extract any financial terms that appear in the headline
         found_terms = [term for term in financial_terms if term.lower() in headline_text.lower()]
         terms_str = ", ".join(found_terms) if found_terms else "financial news"
-        
+
         # Create a generic prompt focused on financial concepts
         prompt = f"Abstract financial illustration representing {terms_str}. Professional business style with charts, graphs, or symbolic imagery. No text or specific people."
 
@@ -1079,7 +1383,7 @@ def generate_ai_image(headline_id):
                 logger.error(f"Failed to download AI image. Status code: {img_response.status_code}")
         except Exception as api_error:
             logger.error(f"OpenAI API error: {api_error}")
-            
+
             # Try a more simplified prompt as a fallback
             try:
                 logger.info("Attempting with simplified fallback prompt...")
@@ -1093,18 +1397,18 @@ def generate_ai_image(headline_id):
                     "Currency exchange concept with minimal design"
                 ]
                 fallback_prompt = random.choice(fallback_concepts)
-                
+
                 fallback_response = client.images.generate(
                     model="dall-e-2",
                     prompt=fallback_prompt,
                     size="512x512",
                     n=1
                 )
-                
+
                 # Get image URL from fallback response
                 fallback_image_url = fallback_response.data[0].url
                 logger.info(f"Successfully generated AI image with fallback prompt")
-                
+
                 # Download the generated image
                 img_response = requests.get(fallback_image_url, timeout=10)
                 if img_response.ok:
@@ -1115,7 +1419,7 @@ def generate_ai_image(headline_id):
                     return image_path + "#ai-generated"
             except Exception as fallback_error:
                 logger.error(f"Fallback OpenAI API attempt also failed: {fallback_error}")
-            
+
             # When all AI generation attempts fail, try existing AI images first
             logger.warning(f"AI image generation failed, trying existing AI images for headline: '{headline_text[:50]}...'")
             fallback_result = get_random_ai_image()
@@ -1143,10 +1447,13 @@ def generate_ai_image(headline_id):
     else:
         return "static/images/dynamic/fallback_error.jpg"
 
-def fetch_financial_headlines():
+def fetch_financial_headlines(test_mode=False):
     """
     Fetches financial headlines from multiple sources/APIs, applies a random weight to each source,
     fetches images for each headline, and returns all headlines with local image paths.
+
+    Args:
+        test_mode (bool): If True, limits headlines per source to 1-2 for faster CI/CD builds
     """
     # Initialize the class attribute if it doesn't exist
     if not hasattr(fetch_financial_headlines, 'current_headlines'):
@@ -1167,11 +1474,24 @@ def fetch_financial_headlines():
     weighted_sources = [(random.random(), fn) for fn in sources]
     weighted_sources.sort(reverse=True)  # Higher weight = higher priority
     all_headlines = []
+
     for _, fn in weighted_sources:
-        all_headlines += fn()
+        source_headlines = fn()
+
+        # In test mode, limit to 1-2 headlines per source for faster builds
+        if test_mode and source_headlines:
+            # Take only the first 1-2 headlines from each source
+            limit = min(2, len(source_headlines))
+            source_headlines = source_headlines[:limit]
+            logger.info(f"Test mode: Limited {fn.__name__} to {len(source_headlines)} headlines")
+
+        all_headlines += source_headlines
 
     # Store the current headlines to access from generate_ai_image
     fetch_financial_headlines.current_headlines = all_headlines.copy()
+
+    if test_mode:
+        logger.info(f"Test mode: Total headlines collected: {len(all_headlines)}")
 
     # Add image paths to headlines
     for headline in all_headlines:

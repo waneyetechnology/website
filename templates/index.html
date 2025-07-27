@@ -1,120 +1,87 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Financial News Section -->
-<section aria-labelledby="financial-news-heading">
-    <div class='row g-4'>
-        <div class='col-12'>
-            <div class='card shadow-sm'>
-                <div class='card-header bg-primary text-white'>
-                    <h2 id="financial-news-heading" class='h5 mb-0'>Top Financial Headlines</h2>
-                </div>
-                <div class='card-body px-3 py-4'>
-                    <div class='headline-grid'>
-                        {% for item in news %}
-                            {% set item_index = loop.index0 %}
-                            {% include 'headline_card.html' %}
-                        {% endfor %}
-                    </div>
+<div class='row g-4'>
+    <div class='col-12'>
+        <div class='card shadow-sm'>
+            <div class='card-header bg-primary text-white'>Top Financial Headlines</div>
+            <div class='card-body px-3 py-4'>
+                <div class='headline-grid'>
+                    {% for item in news %}
+                        {% set item_index = loop.index0 %}
+                        {% include 'headline_card.html' %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<!-- Market Data Section -->
-<section aria-labelledby="market-data-heading" class='mt-4'>
-    <div class='row g-4 mt-2'>
-        <div class='col-md-4'>
-            <div class='card shadow-sm'>
-                <div class='card-header bg-info text-white'>
-                    <h2 id="central-banks-heading" class='h5 mb-0'>Central Banks</h2>
-                </div>
-                
-                <!-- US Federal Reserve subsection -->
-                {% if fed_econ_data %}
-                <div class='card-body p-3'>
-                    <h3 class='card-subtitle mb-2 text-muted h6'>US Federal Reserve - Economy at a Glance</h3>
-                    <div class='small'>
-                        {% for item in fed_econ_data %}
-                        <div class='mb-1'><strong>{{ item.indicator }}:</strong> {{ item.value }}</div>
-                        {% endfor %}
-                    </div>
-                </div>
-                <hr class='my-0'>
-                {% endif %}
-                
-                <!-- Central Bank Rates -->
-                <div class='card-body p-3'>
-                    <h3 class='card-subtitle mb-2 text-muted h6'>Policy Rates</h3>
-                    <ul class='list-group list-group-flush'>
-                        {% for policy in policies %}
-                        <li class='list-group-item px-0'><b>{{ policy.bank }}:</b> {{ policy.rate }}</li>
-                        {% endfor %}
-                    </ul>
+<div class='row g-4 mt-2'>
+    <div class='col-md-4'>
+        <div class='card shadow-sm'>
+            <div class='card-header bg-info text-white'>Central Banks</div>
+            
+            <!-- US Federal Reserve subsection -->
+            {% if fed_econ_data %}
+            <div class='card-body p-3'>
+                <h6 class='card-subtitle mb-2 text-muted'>US Federal Reserve - Economy at a Glance</h6>
+                <div class='small'>
+                    {% for item in fed_econ_data %}
+                    <div class='mb-1'><strong>{{ item.indicator }}:</strong> {{ item.value }}</div>
+                    {% endfor %}
                 </div>
             </div>
-        </div>
-        
-        <div class='col-md-4'>
-            <div class='card shadow-sm'>
-                <div class='card-header bg-success text-white'>
-                    <h2 id="economic-data-heading" class='h5 mb-0'>Key Economic Data</h2>
-                </div>
+            <hr class='my-0'>
+            {% endif %}
+            
+            <!-- Central Bank Rates -->
+            <div class='card-body p-3'>
+                <h6 class='card-subtitle mb-2 text-muted'>Policy Rates</h6>
                 <ul class='list-group list-group-flush'>
-                    {% for econ_item in econ %}
-                    <li class='list-group-item'>{{ econ_item.event }}: {{ econ_item.value }} ({{ econ_item.date }})</li>
+                    {% for policy in policies %}
+                    <li class='list-group-item px-0'><b>{{ policy.bank }}:</b> {{ policy.rate }}</li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
-        
-        <div class='col-md-4'>
-            <div class='card shadow-sm'>
-                <div class='card-header bg-warning text-dark'>
-                    <h2 id="forex-cfd-heading" class='h5 mb-0'>Forex CFD Quotes</h2>
-                </div>
-                <div class='table-responsive'>
-                    <table class='table table-bordered mb-0' aria-labelledby="forex-cfd-heading">
-                        <thead class='table-light'>
-                            <tr>
-                                <th scope="col">Pair</th>
-                                <th scope="col">Bid</th>
-                                <th scope="col">Ask</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for forex_item in forex %}
-                            <tr>
-                                <th scope="row">{{ forex_item.pair }}</th>
-                                <td>{{ forex_item.bid }}</td>
-                                <td>{{ forex_item.ask }}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+    </div>
+    
+    <div class='col-md-4'>
+        <div class='card shadow-sm'>
+            <div class='card-header bg-success text-white'>Key Economic Data</div>
+            <ul class='list-group list-group-flush'>
+                {% for econ_item in econ %}
+                <li class='list-group-item'>{{ econ_item.event }}: {{ econ_item.value }} ({{ econ_item.date }})</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    
+    <div class='col-md-4'>
+        <div class='card shadow-sm'>
+            <div class='card-header bg-warning text-dark'>Forex CFD Quotes</div>
+            <div class='table-responsive'>
+                <table class='table table-bordered mb-0'>
+                    <thead class='table-light'>
+                        <tr>
+                            <th>Pair</th>
+                            <th>Bid</th>
+                            <th>Ask</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for forex_item in forex %}
+                        <tr>
+                            <td>{{ forex_item.pair }}</td>
+                            <td>{{ forex_item.bid }}</td>
+                            <td>{{ forex_item.ask }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-</section>
-
-<!-- SEO-friendly content section -->
-<section aria-label="Financial information summary" class='mt-4'>
-    <div class='row'>
-        <div class='col-12'>
-            <div class='card bg-light'>
-                <div class='card-body p-3'>
-                    <h2 class='h6 text-muted mb-2'>About Waneye Financial Dashboard</h2>
-                    <p class='small mb-0'>
-                        Stay informed with real-time financial news, market data, and economic indicators. 
-                        Our comprehensive dashboard provides the latest headlines from major financial news sources, 
-                        current central bank rates, economic data, and forex rates to help you make informed investment decisions.
-                        Updated regularly throughout the trading day for the most current market information.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+</div>
 {% endblock %}
