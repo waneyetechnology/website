@@ -198,3 +198,94 @@ h1.display-4{color:#0a192f;text-shadow:0 2px 8px #fff,0 1px 0 #b3d1e6;}
 .headline-card:hover .headline-caption {
   background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.75) 70%, rgba(0,0,0,0) 100%);
 }
+
+/* Financial Analysis Styles */
+.financial-analysis-content {
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.financial-analysis-content h3 {
+  color: #198754;
+  border-bottom: 2px solid #198754;
+  padding-bottom: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.financial-analysis-content h3:first-child {
+  margin-top: 0;
+}
+
+.financial-analysis-content h4 {
+  color: #0d6efd;
+  margin-top: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.financial-analysis-content table {
+  font-size: 0.85rem;
+  margin: 1rem 0;
+}
+
+.financial-analysis-content table th {
+  background-color: #f8f9fa;
+  color: #495057;
+  border: 1px solid #dee2e6;
+  padding: 0.5rem;
+  font-weight: 600;
+}
+
+.financial-analysis-content table td {
+  border: 1px solid #dee2e6;
+  padding: 0.5rem;
+  vertical-align: top;
+}
+
+.financial-analysis-content ul {
+  padding-left: 1.5rem;
+}
+
+.financial-analysis-content li {
+  margin-bottom: 0.5rem;
+}
+
+.financial-analysis-content p {
+  margin-bottom: 1rem;
+}
+
+.financial-analysis-content strong {
+  color: #212529;
+  font-weight: 600;
+}
+
+.financial-analysis-content em {
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Collapse button animation */
+[data-bs-toggle="collapse"] i {
+  transition: transform 0.3s ease;
+}
+
+[data-bs-toggle="collapse"][aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+
+/* Analysis section highlight colors */
+.financial-analysis-content .table-success {
+  background-color: #d1e7dd;
+}
+
+.financial-analysis-content .table-warning {
+  background-color: #fff3cd;
+}
+
+.financial-analysis-content .table-danger {
+  background-color: #f8d7da;
+}

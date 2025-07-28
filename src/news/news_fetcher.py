@@ -13,7 +13,8 @@ from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 import time
 from pathlib import Path
-from .log import logger
+from ..log import logger
+from .deepseek_financial_expert import create_financial_expert
 
 def fetch_newsapi_headlines():
     api_key = os.environ.get("NEWSAPI_API_KEY")
@@ -340,19 +341,19 @@ def fetch_ft_headlines():
     return headlines
 
 def ensure_image_dir():
-    img_dir = Path(os.path.dirname(os.path.dirname(__file__))) / "static" / "images" / "headlines"
+    img_dir = Path(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))) / "static" / "images" / "headlines"
     img_dir.mkdir(parents=True, exist_ok=True)
     return img_dir
 
 def ensure_ai_image_dir():
     """Create and return the AI-generated images directory"""
-    ai_img_dir = Path(os.path.dirname(os.path.dirname(__file__))) / "static" / "images" / "ai-generated"
+    ai_img_dir = Path(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))) / "static" / "images" / "ai-generated"
     ai_img_dir.mkdir(parents=True, exist_ok=True)
     return ai_img_dir
 
 def ensure_dynamic_image_dir():
     """Create and return the dynamic images directory"""
-    dynamic_img_dir = Path(os.path.dirname(os.path.dirname(__file__))) / "static" / "images" / "dynamic"
+    dynamic_img_dir = Path(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))) / "static" / "images" / "dynamic"
     dynamic_img_dir.mkdir(parents=True, exist_ok=True)
     return dynamic_img_dir
 
@@ -602,6 +603,26 @@ def fetch_image_with_browser_automation(url, headline_id):
         logger.info(f"Using existing AI-generated image for {headline_id}")
         return ai_image_path + "#ai-generated"
 
+    # Check for domains known to have HTTP/2 or other protocol issues
+    from urllib.parse import urlparse
+    try:
+        parsed_domain = urlparse(url).netloc.lower()
+        problematic_domains = [
+            'investorrelations.sarepta.com',
+            'ir.sarepta.com',
+            # Add other domains that frequently cause HTTP/2 issues
+            'investors.alexion.com',
+            'ir.alexion.com',
+            'investors.biogen.com',
+            'ir.biogen.com'
+        ]
+        
+        if any(domain in parsed_domain for domain in problematic_domains):
+            logger.info(f"Skipping Playwright for known problematic domain: {parsed_domain}. Using traditional extraction.")
+            return fetch_and_save_image_traditional(url, headline_id)
+    except Exception as domain_check_error:
+        logger.debug(f"Error checking domain for {url}: {domain_check_error}")
+
     try:
         # Try to use Playwright for browser automation
         try:
@@ -614,21 +635,75 @@ def fetch_image_with_browser_automation(url, headline_id):
         # Use Playwright to navigate and extract images
         with sync_playwright() as p:
             try:
-                # Launch browser (headless mode for server environment)
-                browser = p.chromium.launch(headless=True)
+                # Launch browser with more robust settings for network issues
+                browser = p.chromium.launch(
+                    headless=True,
+                    args=[
+                        "--disable-http2",  # Disable HTTP/2 to avoid protocol errors
+                        "--disable-web-security",
+                        "--disable-features=VizDisplayCompositor",
+                        "--no-sandbox",
+                        "--disable-dev-shm-usage",
+                        "--disable-gpu",
+                        "--disable-background-timer-throttling",
+                        "--disable-backgrounding-occluded-windows",
+                        "--disable-renderer-backgrounding"
+                    ]
+                )
                 page = browser.new_page()
 
-                # Set user agent to avoid bot detection
+                # Set enhanced headers to avoid bot detection and protocol issues
                 page.set_extra_http_headers({
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+                    "Accept-Language": "en-US,en;q=0.9",
+                    "Accept-Encoding": "gzip, deflate, br",
+                    "Cache-Control": "no-cache",
+                    "Pragma": "no-cache",
+                    "Sec-Fetch-Dest": "document",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-Site": "none",
+                    "Sec-Fetch-User": "?1"
                 })
 
-                # Navigate to the URL
-                logger.debug(f"Navigating to URL: {url}")
-                page.goto(url, timeout=30000, wait_until='domcontentloaded')
+                # Try navigation with multiple fallback strategies
+                navigation_successful = False
+                
+                # Strategy 1: Normal navigation with longer timeout
+                try:
+                    logger.debug(f"Attempting navigation to URL: {url}")
+                    page.goto(url, timeout=45000, wait_until='domcontentloaded')
+                    navigation_successful = True
+                    logger.debug(f"Successfully navigated to: {url}")
+                except Exception as nav_error:
+                    logger.debug(f"First navigation attempt failed: {nav_error}")
+                    
+                    # Strategy 2: Try with networkidle wait condition
+                    try:
+                        logger.debug(f"Retrying navigation with networkidle: {url}")
+                        page.goto(url, timeout=30000, wait_until='networkidle')
+                        navigation_successful = True
+                        logger.debug(f"Successfully navigated with networkidle: {url}")
+                    except Exception as nav_error2:
+                        logger.debug(f"Second navigation attempt failed: {nav_error2}")
+                        
+                        # Strategy 3: Try with load wait condition
+                        try:
+                            logger.debug(f"Retrying navigation with load: {url}")
+                            page.goto(url, timeout=20000, wait_until='load')
+                            navigation_successful = True
+                            logger.debug(f"Successfully navigated with load: {url}")
+                        except Exception as nav_error3:
+                            logger.warning(f"All navigation attempts failed for {url}: {nav_error3}")
+                            # Continue anyway to try extracting from partially loaded page
+                            navigation_successful = False
 
-                # Wait a moment for any lazy loading
-                page.wait_for_timeout(2000)
+                if not navigation_successful:
+                    logger.info(f"Navigation partially failed but continuing with image extraction for: {url}")
+
+                # Wait a moment for any lazy loading (shorter if navigation failed)
+                wait_time = 2000 if navigation_successful else 1000
+                page.wait_for_timeout(wait_time)
 
                 # Use JavaScript to find the best image on the page
                 image_extraction_script = """
@@ -831,7 +906,23 @@ def fetch_image_with_browser_automation(url, headline_id):
                 browser.close()
 
             except Exception as playwright_error:
-                logger.warning(f"Playwright execution error: {playwright_error}")
+                error_type = type(playwright_error).__name__
+                error_msg = str(playwright_error)
+                
+                # Categorize the error for better logging
+                if "net::ERR_HTTP2_PROTOCOL_ERROR" in error_msg:
+                    logger.warning(f"HTTP/2 protocol error for {url}. This is a known issue with some websites.")
+                elif "net::ERR_CONNECTION_REFUSED" in error_msg:
+                    logger.warning(f"Connection refused for {url}. Website may be blocking automated requests.")
+                elif "net::ERR_NAME_NOT_RESOLVED" in error_msg:
+                    logger.warning(f"DNS resolution failed for {url}. Domain may not exist or be unreachable.")
+                elif "TimeoutError" in error_type:
+                    logger.warning(f"Timeout error for {url}. Website took too long to respond.")
+                elif "ssl" in error_msg.lower() or "certificate" in error_msg.lower():
+                    logger.warning(f"SSL/Certificate error for {url}. Website has certificate issues.")
+                else:
+                    logger.warning(f"Playwright execution error ({error_type}): {error_msg}")
+                
                 # Make sure browser is closed
                 try:
                     browser.close()
@@ -884,10 +975,6 @@ def fetch_and_save_image_traditional(url, headline_id):
         # Create a session to maintain cookies and connection state
         session = requests.Session()
         session.headers.update(headers)
-
-        # Add a small delay to avoid being flagged as a bot
-        import time
-        time.sleep(0.5)
 
         response = session.get(url, timeout=15, allow_redirects=True)
         if not response.ok:
@@ -1493,6 +1580,10 @@ def fetch_financial_headlines(test_mode=False):
     if test_mode:
         logger.info(f"Test mode: Total headlines collected: {len(all_headlines)}")
 
+    # Randomly shuffle headlines to distribute image fetching workload evenly across sources
+    random.shuffle(all_headlines)
+    logger.info(f"Shuffled {len(all_headlines)} headlines for balanced image processing")
+
     # Add image paths to headlines
     for headline in all_headlines:
         # Create a unique ID for the headline based on URL
@@ -1502,4 +1593,15 @@ def fetch_financial_headlines(test_mode=False):
         # Add the image path to the headline
         headline['image'] = image_path
 
-    return all_headlines
+    # Generate financial analysis using DeepSeek Financial Expert
+    logger.info("Generating comprehensive financial analysis...")
+    financial_expert = create_financial_expert()
+    financial_analysis = financial_expert.analyze_headlines(all_headlines)
+    
+    # Add the analysis to the result (we'll access this in the HTML generation)
+    result = {
+        'headlines': all_headlines,
+        'analysis': financial_analysis
+    }
+    
+    return result
