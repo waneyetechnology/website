@@ -33,8 +33,7 @@ jobs:
             libgbm1 \
             libasound2t64 \
             libxrandr2 \
-            libxss1 \
-            libgconf-2-4
+            libxss1
       - name: Build static site (no deploy) - Test Mode for Fast CI/CD
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
