@@ -597,31 +597,19 @@ def search_related_image_with_browser(page, headline_id, original_url):
             logger.warning(f"Could not find headline text for ID {headline_id}")
             return None
 
-        # Clean up headline text for search and extract key terms
+        # Use the full headline text for search (just clean it up)
         import re
 
-        # Extract key financial/business terms from the headline
-        financial_keywords = [
-            'stock', 'market', 'trading', 'finance', 'economy', 'business', 'company',
-            'investment', 'revenue', 'profit', 'earnings', 'dividend', 'merger',
-            'acquisition', 'ipo', 'cryptocurrency', 'bitcoin', 'forex', 'currency',
-            'inflation', 'interest', 'federal', 'reserve', 'bank', 'economic'
-        ]
-
-        headline_lower = headline_text.lower()
-        found_keywords = [kw for kw in financial_keywords if kw in headline_lower]
-
-        # Clean and prepare search query
+        # Clean headline text: remove special characters but keep the full meaning
         search_query = re.sub(r'[^\w\s-]', '', headline_text)
-        search_words = search_query.split()[:8]  # Limit to 8 words
+        # Remove extra spaces and limit to reasonable length for search engines
+        search_query = ' '.join(search_query.split())
 
-        # Add relevant financial context
-        if found_keywords:
-            search_query = ' '.join(search_words + found_keywords[:2])
-        else:
-            search_query = ' '.join(search_words) + " business financial"
+        # Truncate if too long (search engines have query limits)
+        if len(search_query) > 100:
+            search_query = search_query[:100].rsplit(' ', 1)[0]  # Cut at word boundary
 
-        logger.info(f"Searching for images related to: '{search_query}'")
+        logger.info(f"Searching for images using headline: '{search_query}'")
 
         # Use DuckDuckGo Images search (more privacy-friendly and less likely to block)
         search_url = f"https://duckduckgo.com/?q={search_query.replace(' ', '+')}&iax=images&ia=images"
