@@ -579,6 +579,163 @@ def get_random_ai_image():
             # Ultimate fallback - this shouldn't happen but just in case
             return "static/images/dynamic/fallback_error.jpg"
 
+def search_related_image_with_browser(page, headline_id, original_url):
+    """
+    Search for related images using the headline text when the original article doesn't have good images.
+    Uses the existing browser page to search for relevant images.
+    """
+    try:
+        # Get the headline text from the stored headlines
+        headline_text = ""
+        if hasattr(fetch_financial_headlines, 'current_headlines') and fetch_financial_headlines.current_headlines:
+            for headline in fetch_financial_headlines.current_headlines:
+                if hashlib.md5(headline['url'].encode()).hexdigest() == headline_id:
+                    headline_text = headline['headline']
+                    break
+
+        if not headline_text:
+            logger.warning(f"Could not find headline text for ID {headline_id}")
+            return None
+
+        # Clean up headline text for search and extract key terms
+        import re
+
+        # Extract key financial/business terms from the headline
+        financial_keywords = [
+            'stock', 'market', 'trading', 'finance', 'economy', 'business', 'company',
+            'investment', 'revenue', 'profit', 'earnings', 'dividend', 'merger',
+            'acquisition', 'ipo', 'cryptocurrency', 'bitcoin', 'forex', 'currency',
+            'inflation', 'interest', 'federal', 'reserve', 'bank', 'economic'
+        ]
+
+        headline_lower = headline_text.lower()
+        found_keywords = [kw for kw in financial_keywords if kw in headline_lower]
+
+        # Clean and prepare search query
+        search_query = re.sub(r'[^\w\s-]', '', headline_text)
+        search_words = search_query.split()[:8]  # Limit to 8 words
+
+        # Add relevant financial context
+        if found_keywords:
+            search_query = ' '.join(search_words + found_keywords[:2])
+        else:
+            search_query = ' '.join(search_words) + " business financial"
+
+        logger.info(f"Searching for images related to: '{search_query}'")
+
+        # Use DuckDuckGo Images search (more privacy-friendly and less likely to block)
+        search_url = f"https://duckduckgo.com/?q={search_query.replace(' ', '+')}&iax=images&ia=images"
+
+        try:
+            page.goto(search_url, wait_until='domcontentloaded', timeout=15000)
+            page.wait_for_timeout(2000)  # Wait for images to load
+
+            # Look for image results in DuckDuckGo
+            image_elements = page.query_selector_all('.tile--img__img, .tile__img img, [data-testid="image-result"] img')
+
+            if not image_elements:
+                # Try alternative selectors
+                image_elements = page.query_selector_all('img[src*="external-content"]')
+
+            logger.info(f"Found {len(image_elements)} potential images from search")
+
+            # Filter and score images
+            valid_images = []
+            for img_elem in image_elements[:10]:  # Check first 10 images
+                try:
+                    src = img_elem.get_attribute('src')
+                    data_src = img_elem.get_attribute('data-src')
+                    actual_src = src or data_src
+
+                    if actual_src and actual_src.startswith('http'):
+                        # Skip tiny images, icons, and irrelevant content
+                        if not re.search(r'(icon|favicon|logo|1x1|tiny|thumb)', actual_src, re.I):
+                            # Get image dimensions if available
+                            width = img_elem.get_attribute('width') or '0'
+                            height = img_elem.get_attribute('height') or '0'
+
+                            try:
+                                w, h = int(width), int(height)
+                                if w >= 200 and h >= 150:  # Reasonable size
+                                    valid_images.append({
+                                        'url': actual_src,
+                                        'width': w,
+                                        'height': h,
+                                        'area': w * h
+                                    })
+                            except (ValueError, TypeError):
+                                # If no dimensions, include anyway but with lower priority
+                                if len(actual_src) > 50:  # URL suggests it's a real image
+                                    valid_images.append({
+                                        'url': actual_src,
+                                        'width': 0,
+                                        'height': 0,
+                                        'area': 0
+                                    })
+                except Exception as img_error:
+                    logger.debug(f"Error processing search result image: {img_error}")
+
+            # Sort by area (larger images first)
+            valid_images.sort(key=lambda x: x['area'], reverse=True)
+
+            if valid_images:
+                best_image = valid_images[0]
+                image_url = best_image['url']
+                logger.info(f"Selected search result image: {image_url} ({best_image['width']}x{best_image['height']})")
+
+                # Download the image
+                img_dir = ensure_image_dir()
+                image_path = f"static/images/headlines/{headline_id}.jpg"
+                full_path = img_dir / f"{headline_id}.jpg"
+
+                try:
+                    import requests
+                    headers = {
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                        "Accept": "image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+                        "Referer": "https://duckduckgo.com/"
+                    }
+
+                    img_response = requests.get(image_url, headers=headers, timeout=15, stream=True)
+
+                    if img_response.ok:
+                        img_content = img_response.content
+
+                        # Validate image content
+                        if len(img_content) > 2000:  # Minimum size for search results
+                            # Check magic bytes
+                            is_valid_image = (
+                                img_content[:2] == b'\xff\xd8' or  # JPEG
+                                img_content[:8] == b'\x89PNG\r\n\x1a\n' or  # PNG
+                                img_content[:6] in [b'GIF87a', b'GIF89a'] or  # GIF
+                                img_content[:4] == b'RIFF' and img_content[8:12] == b'WEBP'  # WebP
+                            )
+
+                            if is_valid_image:
+                                with open(full_path, 'wb') as f:
+                                    f.write(img_content)
+                                logger.info(f"Successfully downloaded search result image for {headline_id}")
+                                return image_path + "#search-result"
+                            else:
+                                logger.warning(f"Invalid image format from search result: {image_url}")
+                        else:
+                            logger.warning(f"Search result image too small: {len(img_content)} bytes")
+                    else:
+                        logger.warning(f"Failed to download search result image: {img_response.status_code}")
+
+                except Exception as download_error:
+                    logger.warning(f"Error downloading search result image: {download_error}")
+            else:
+                logger.info("No suitable images found in search results")
+
+        except Exception as search_error:
+            logger.warning(f"Error during image search: {search_error}")
+
+    except Exception as e:
+        logger.error(f"Error in search_related_image_with_browser: {e}")
+
+    return None
+
 def fetch_image_with_browser_automation(url, headline_id):
     """
     Extract image from news URL using browser automation (Playwright via MCP).
@@ -940,6 +1097,13 @@ def fetch_image_with_browser_automation(url, headline_id):
                         logger.warning(f"Error downloading image from Playwright: {download_error}")
                 else:
                     logger.info(f"No suitable image found via Playwright for: {url}")
+
+                    # Try to search for related images using the headline text before closing browser
+                    logger.info("Attempting to find related images using headline search...")
+                    search_result = search_related_image_with_browser(page, headline_id, url)
+                    if search_result:
+                        browser.close()
+                        return search_result
 
                 # Close browser
                 browser.close()
@@ -1549,15 +1713,19 @@ def fetch_and_save_image(url, headline_id):
     try:
         # Try browser automation first (more reliable for modern news sites)
         result = fetch_image_with_browser_automation(url, headline_id)
-        if result and not result.endswith("#dynamic") and not result.endswith("#ai-generated"):
-            # Successfully got a real web image via browser automation
+        if result and not result.endswith(("#dynamic", "#ai-generated")):
+            # Successfully got a real web image or search result via browser automation
             return result
-        elif result and (result.endswith("#dynamic") or result.endswith("#ai-generated")):
-            # Browser automation didn't find a web image but returned AI/dynamic fallback
-            # Let's try traditional method before accepting the fallback
+        elif result and (result.endswith("#dynamic") or result.endswith("#ai-generated") or result.endswith("#search-result")):
+            # Browser automation didn't find a web image but returned AI/dynamic/search fallback
+            # Let's try traditional method before accepting the fallback (unless it's a search result)
+            if result.endswith("#search-result"):
+                # Search results are good, don't try traditional method
+                return result
+
             logger.info(f"Browser automation returned fallback for {headline_id}, trying traditional method")
             traditional_result = fetch_and_save_image_traditional(url, headline_id)
-            if traditional_result and not traditional_result.endswith("#dynamic") and not traditional_result.endswith("#ai-generated"):
+            if traditional_result and not traditional_result.endswith(("#dynamic", "#ai-generated")):
                 return traditional_result
             else:
                 # Traditional method also failed, use browser automation fallback
@@ -1692,14 +1860,7 @@ def generate_ai_image(headline_id):
             # When all AI generation attempts fail, try existing AI images first
             logger.warning(f"AI image generation failed, trying existing AI images for headline: '{headline_text[:50]}...'")
             fallback_result = get_random_ai_image()
-            if fallback_result and "#ai-generated" in fallback_result:
-                return fallback_result
-            # If no AI images available, generate a new dynamic image
-            dynamic_image_path = create_dynamic_image()
-            if dynamic_image_path:
-                return dynamic_image_path + "#dynamic"
-            else:
-                return "static/images/dynamic/fallback_error.jpg"
+            return fallback_result
 
     except Exception as e:
         logger.error(f"Error generating AI image for headline ID {headline_id}: {e}")
