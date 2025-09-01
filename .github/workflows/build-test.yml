@@ -20,6 +20,10 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+      - name: Install Playwright browsers
+        run: |
+          playwright install chromium
+          playwright install-deps
       - name: Build static site (no deploy) - Test Mode for Fast CI/CD
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
