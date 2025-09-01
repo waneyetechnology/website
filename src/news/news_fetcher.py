@@ -616,50 +616,121 @@ def search_related_image_with_browser(page, headline_id, original_url):
 
         try:
             page.goto(search_url, wait_until='domcontentloaded', timeout=15000)
-            page.wait_for_timeout(2000)  # Wait for images to load
 
-            # Look for image results in DuckDuckGo
-            image_elements = page.query_selector_all('.tile--img__img, .tile__img img, [data-testid="image-result"] img')
+            # Wait longer for DuckDuckGo to load images and try to wait for specific content
+            logger.info("Waiting for DuckDuckGo image search results to load...")
+            try:
+                # Try to wait for image results to appear
+                page.wait_for_selector('img, .tile, .results', timeout=5000)
+                page.wait_for_timeout(3000)  # Additional wait for lazy-loaded images
+            except:
+                logger.debug("Timeout waiting for specific selectors, proceeding with general wait")
+                page.wait_for_timeout(4000)  # Fallback wait time
 
+            # Look for image results in DuckDuckGo with updated selectors
+            # Try multiple selectors for different DuckDuckGo layouts
+            possible_selectors = [
+                # Modern DuckDuckGo image selectors
+                'img[data-src]',
+                '.tile img',
+                '.tile--img img',
+                '.tile--img__img',
+                '.image-result img',
+                '[data-testid="image-result"] img',
+                '.results img',
+                'img[src*="bing.net"]',
+                'img[src*="external-content"]',
+                'img[src*="duckduckgo.com"]',
+                # Generic fallbacks
+                'img[src*="http"]'
+            ]
+
+            image_elements = []
+            for selector in possible_selectors:
+                elements = page.query_selector_all(selector)
+                if elements:
+                    logger.info(f"Found {len(elements)} images with selector: {selector}")
+                    image_elements.extend(elements)
+                    break  # Use the first working selector
+
+            # If still no images, debug what's on the page
             if not image_elements:
-                # Try alternative selectors
-                image_elements = page.query_selector_all('img[src*="external-content"]')
+                logger.warning("No images found with any selector. Debugging page content...")
+                debug_info = page.evaluate("""
+                () => {
+                    const allImages = document.querySelectorAll('img');
+                    const imageInfo = Array.from(allImages).slice(0, 5).map(img => ({
+                        src: img.src,
+                        dataSrc: img.getAttribute('data-src'),
+                        className: img.className,
+                        parentClass: img.parentElement ? img.parentElement.className : 'none'
+                    }));
+
+                    return {
+                        totalImages: allImages.length,
+                        pageTitle: document.title,
+                        url: window.location.href,
+                        imageDetails: imageInfo
+                    };
+                }
+                """)
+                logger.info(f"Page debug info: {debug_info}")
+
+                # Try to get all images as fallback
+                image_elements = page.query_selector_all('img')
+                logger.info(f"Fallback: Found {len(image_elements)} total img elements")
 
             logger.info(f"Found {len(image_elements)} potential images from search")
 
             # Filter and score images
             valid_images = []
-            for img_elem in image_elements[:10]:  # Check first 10 images
+            for img_elem in image_elements[:20]:  # Check first 20 images (increased from 10)
                 try:
                     src = img_elem.get_attribute('src')
                     data_src = img_elem.get_attribute('data-src')
                     actual_src = src or data_src
 
-                    if actual_src and actual_src.startswith('http'):
-                        # Skip tiny images, icons, and irrelevant content
-                        if not re.search(r'(icon|favicon|logo|1x1|tiny|thumb)', actual_src, re.I):
-                            # Get image dimensions if available
-                            width = img_elem.get_attribute('width') or '0'
-                            height = img_elem.get_attribute('height') or '0'
+                    if actual_src:
+                        # Be more permissive - accept both http and data URLs for search results
+                        if actual_src.startswith(('http', 'data:')):
+                            # Skip clearly irrelevant content but be more lenient
+                            skip_patterns = r'(icon|favicon|logo|1x1|pixel\.gif|tiny\.png|avatar|profile)'
+                            if not re.search(skip_patterns, actual_src, re.I):
+                                # Get image dimensions if available
+                                width = img_elem.get_attribute('width') or '0'
+                                height = img_elem.get_attribute('height') or '0'
 
-                            try:
-                                w, h = int(width), int(height)
-                                if w >= 200 and h >= 150:  # Reasonable size
-                                    valid_images.append({
-                                        'url': actual_src,
-                                        'width': w,
-                                        'height': h,
-                                        'area': w * h
-                                    })
-                            except (ValueError, TypeError):
-                                # If no dimensions, include anyway but with lower priority
-                                if len(actual_src) > 50:  # URL suggests it's a real image
-                                    valid_images.append({
-                                        'url': actual_src,
-                                        'width': 0,
-                                        'height': 0,
-                                        'area': 0
-                                    })
+                                try:
+                                    w, h = int(width), int(height)
+                                    if w >= 150 and h >= 100:  # More lenient size requirements
+                                        valid_images.append({
+                                            'url': actual_src,
+                                            'width': w,
+                                            'height': h,
+                                            'area': w * h
+                                        })
+                                    elif w == 0 and h == 0:
+                                        # No dimensions available, check URL length and patterns
+                                        if len(actual_src) > 30 and not re.search(r'(thumb|small|mini)', actual_src, re.I):
+                                            valid_images.append({
+                                                'url': actual_src,
+                                                'width': 0,
+                                                'height': 0,
+                                                'area': 1000  # Default score for unknown dimensions
+                                            })
+                                except (ValueError, TypeError):
+                                    # If no dimensions, be more lenient with URL-based filtering
+                                    if len(actual_src) > 30 and not re.search(r'(thumb|small|mini)', actual_src, re.I):
+                                        valid_images.append({
+                                            'url': actual_src,
+                                            'width': 0,
+                                            'height': 0,
+                                            'area': 500  # Lower score for unknown dimensions
+                                        })
+
+                        # Log what we're finding for debugging
+                        if len(valid_images) < 3:  # Only log first few to avoid spam
+                            logger.debug(f"Potential image {len(valid_images)}: {actual_src[:100]}...")
                 except Exception as img_error:
                     logger.debug(f"Error processing search result image: {img_error}")
 
