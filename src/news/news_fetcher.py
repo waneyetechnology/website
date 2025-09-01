@@ -616,7 +616,7 @@ def fetch_image_with_browser_automation(url, headline_id):
             'investors.biogen.com',
             'ir.biogen.com'
         ]
-        
+
         if any(domain in parsed_domain for domain in problematic_domains):
             logger.info(f"Skipping Playwright for known problematic domain: {parsed_domain}. Using traditional extraction.")
             return fetch_and_save_image_traditional(url, headline_id)
@@ -668,7 +668,7 @@ def fetch_image_with_browser_automation(url, headline_id):
 
                 # Try navigation with multiple fallback strategies
                 navigation_successful = False
-                
+
                 # Strategy 1: Normal navigation with longer timeout
                 try:
                     logger.debug(f"Attempting navigation to URL: {url}")
@@ -677,7 +677,7 @@ def fetch_image_with_browser_automation(url, headline_id):
                     logger.debug(f"Successfully navigated to: {url}")
                 except Exception as nav_error:
                     logger.debug(f"First navigation attempt failed: {nav_error}")
-                    
+
                     # Strategy 2: Try with networkidle wait condition
                     try:
                         logger.debug(f"Retrying navigation with networkidle: {url}")
@@ -686,7 +686,7 @@ def fetch_image_with_browser_automation(url, headline_id):
                         logger.debug(f"Successfully navigated with networkidle: {url}")
                     except Exception as nav_error2:
                         logger.debug(f"Second navigation attempt failed: {nav_error2}")
-                        
+
                         # Strategy 3: Try with load wait condition
                         try:
                             logger.debug(f"Retrying navigation with load: {url}")
@@ -908,7 +908,7 @@ def fetch_image_with_browser_automation(url, headline_id):
             except Exception as playwright_error:
                 error_type = type(playwright_error).__name__
                 error_msg = str(playwright_error)
-                
+
                 # Categorize the error for better logging
                 if "net::ERR_HTTP2_PROTOCOL_ERROR" in error_msg:
                     logger.warning(f"HTTP/2 protocol error for {url}. This is a known issue with some websites.")
@@ -922,7 +922,7 @@ def fetch_image_with_browser_automation(url, headline_id):
                     logger.warning(f"SSL/Certificate error for {url}. Website has certificate issues.")
                 else:
                     logger.warning(f"Playwright execution error ({error_type}): {error_msg}")
-                
+
                 # Make sure browser is closed
                 try:
                     browser.close()
@@ -939,6 +939,54 @@ def fetch_image_with_browser_automation(url, headline_id):
     logger.info(f"Playwright automation failed for {headline_id}, falling back to traditional extraction")
     return fetch_and_save_image_traditional(url, headline_id)
 
+
+def is_valid_image_url(url):
+    """Check if a URL appears to be a valid image URL"""
+    if not url or len(url) < 10:
+        return False
+
+    # Remove query parameters for extension check
+    url_without_params = url.split('?')[0].lower()
+
+    # Check for image extensions
+    image_extensions = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.bmp']
+    has_image_extension = any(url_without_params.endswith(ext) for ext in image_extensions)
+
+    # Check for common image URL patterns
+    image_patterns = ['image', 'img', 'photo', 'picture', 'pic', 'thumbnail', 'thumb']
+    has_image_pattern = any(pattern in url.lower() for pattern in image_patterns)
+
+    # Accept if it has image extension or image-related patterns
+    return has_image_extension or has_image_pattern
+
+def get_image_src_from_element(img_element):
+    """Extract the best image source from an img element, checking multiple attributes"""
+    if not img_element:
+        return None
+
+    # Priority order for image source attributes
+    src_attributes = [
+        'src', 'data-src', 'data-lazy-src', 'data-original', 'data-url',
+        'data-hi-res-src', 'data-original-src', 'data-lazy', 'data-image-src'
+    ]
+
+    for attr in src_attributes:
+        src = img_element.get(attr)
+        if src:
+            src = src.strip()
+            if src and is_valid_image_url(src):
+                return src
+
+    # Check srcset attribute (contains multiple sources)
+    srcset = img_element.get('srcset')
+    if srcset:
+        # Parse srcset and get the highest resolution image
+        sources = [s.strip().split(' ')[0] for s in srcset.split(',')]
+        for src in sources:
+            if src and is_valid_image_url(src):
+                return src
+
+    return None
 
 def fetch_and_save_image_traditional(url, headline_id):
     """
@@ -988,31 +1036,66 @@ def fetch_and_save_image_traditional(url, headline_id):
         # Enhanced approach to find images with better news site support
         image_url = None
 
-        # Step 1: Try all common image meta tags using a systematic approach
-        meta_image_properties = [
-            # Open Graph tags (used by Facebook and many sites)
-            'og:image', 'og:image:url', 'og:image:secure_url',
-            # Twitter card tags
-            'twitter:image', 'twitter:image:src', 'twitter:image:alt',
-            # Other common meta image tags
-            'image', 'thumbnail', 'msapplication-TileImage',
-            # News-specific meta tags
-            'article:image', 'sailthru.image.full', 'sailthru.image.thumb'
-        ]
+        # Get domain for site-specific handling
+        from urllib.parse import urlparse
+        domain = urlparse(url).netloc.lower()
+        logger.info(f"Extracting image from domain: {domain}")
 
-        # Check meta tags with 'property' attribute
-        for prop in meta_image_properties:
+        # Step 1: Site-specific meta tag priorities
+        site_specific_tags = []
+        if 'nbcnews.com' in domain or 'cnbc.com' in domain:
+            site_specific_tags = ['og:image', 'twitter:image', 'article:image']
+        elif 'reuters.com' in domain:
+            site_specific_tags = ['og:image', 'twitter:image', 'sailthru.image.full']
+        elif 'bloomberg.com' in domain:
+            site_specific_tags = ['og:image', 'twitter:image']
+        elif 'marketwatch.com' in domain:
+            site_specific_tags = ['og:image', 'twitter:image']
+
+        # Try site-specific tags first
+        for prop in site_specific_tags:
             if image_url:
                 break
-            meta_tags = soup.find_all('meta', property=prop)
-            for meta in meta_tags:
-                if meta.get('content'):
-                    content = meta.get('content').strip()
-                    if content and (re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', content, re.I) or
-                                  'image' in content):
-                        image_url = content
-                        logger.info(f"Found image in meta property '{prop}': {image_url}")
-                        break
+            # Try property attribute first
+            meta_tag = soup.find('meta', property=prop)
+            if not meta_tag:
+                # Try name attribute
+                meta_tag = soup.find('meta', attrs={'name': prop})
+
+            if meta_tag and meta_tag.get('content'):
+                content = meta_tag.get('content').strip()
+                if content and (re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', content, re.I) or
+                              'image' in content):
+                    image_url = content
+                    logger.info(f"Found site-specific image via {prop}: {image_url}")
+                    break
+
+        # Step 2: Try all common image meta tags using a systematic approach
+        if not image_url:
+            meta_image_properties = [
+                # Open Graph tags (used by Facebook and many sites)
+                'og:image', 'og:image:url', 'og:image:secure_url',
+                # Twitter card tags
+                'twitter:image', 'twitter:image:src', 'twitter:image:alt',
+                # Other common meta image tags
+                'image', 'thumbnail', 'msapplication-TileImage',
+                # News-specific meta tags
+                'article:image', 'sailthru.image.full', 'sailthru.image.thumb'
+            ]
+
+            # Check meta tags with 'property' attribute
+            for prop in meta_image_properties:
+                if image_url:
+                    break
+                meta_tags = soup.find_all('meta', property=prop)
+                for meta in meta_tags:
+                    if meta.get('content'):
+                        content = meta.get('content').strip()
+                        if content and (re.search(r'\.(jpg|jpeg|png|webp|gif)(\?.*)?$', content, re.I) or
+                                      'image' in content):
+                            image_url = content
+                            logger.info(f"Found image in meta property '{prop}': {image_url}")
+                            break
 
         # Check meta tags with 'name' attribute if still no image found
         if not image_url:
@@ -1086,33 +1169,81 @@ def fetch_and_save_image_traditional(url, headline_id):
                     except Exception as json_err:
                         logger.debug(f"Error parsing JSON-LD: {json_err}")
 
-        # Step 3: Enhanced image element search with news-specific classes and attributes
+        # Step 3: Enhanced image element search with news-specific patterns
         if not image_url:
-            # Look for article-related image elements with multiple source attributes
-            image_attrs = ['src', 'data-src', 'data-lazy-src', 'data-original', 'data-url', 'data-hi-res-src',
-                          'data-srcset', 'data-original-src', 'data-lazy', 'data-image-src']
+            # Site-specific CSS selectors for better image extraction
+            site_selectors = []
+            if 'nbcnews.com' in domain or 'cnbc.com' in domain:
+                site_selectors = [
+                    '.ArticleBody-lead-asset img',
+                    '.InlineArticleBody-lead-asset img',
+                    '.ArticleLede img',
+                    '.story-body img',
+                    '[data-module="ArticleBody"] img'
+                ]
+            elif 'reuters.com' in domain:
+                site_selectors = [
+                    '.media__image img',
+                    '.story-image img',
+                    '.image__picture img',
+                    '[data-testid="image"] img'
+                ]
+            elif 'bloomberg.com' in domain:
+                site_selectors = [
+                    '.lede-media img',
+                    '.hero-media img',
+                    '.media-object img',
+                    '.story-figure img'
+                ]
+            elif 'marketwatch.com' in domain:
+                site_selectors = [
+                    '.article__figure img',
+                    '.InlineVideo img',
+                    '.figure__image img'
+                ]
 
-            # Enhanced news-specific class patterns - only headline/article related
-            promising_classes = [
-                'article-image', 'story-img', 'article-img', 'post-image', 'featured-image',
-                'entry-image', 'hero-image', 'lead-image', 'main-image', 'story-image',
-                'content-image', 'headline-image', 'news-image', 'media-image',
-                'story-photo', 'article-photo', 'news-photo', 'content-photo',
-                # Reuters specific
-                'media__image', 'image__picture', 'story-image',
-                # Bloomberg specific
-                'media-object', 'hero-media', 'lede-media', 'story-image',
-                # CNN specific
-                'media__image', 'el__image', 'media-image',
-                # Generic news patterns
-                'wp-post-image', 'attachment-large', 'size-large'
-            ]
-
-            # First try to find images with promising class names (strict content-related only)
-            for class_name in promising_classes:
+            # Try site-specific selectors first
+            for selector in site_selectors:
                 if image_url:
                     break
-                # Use partial matching for class names
+                try:
+                    elements = soup.select(selector)
+                    for element in elements[:3]:  # Check first 3 matches
+                        src = get_image_src_from_element(element)
+                        if src and is_valid_image_url(src):
+                            image_url = src
+                            logger.info(f"Found site-specific image via {selector}: {image_url}")
+                            break
+                except Exception as e:
+                    logger.debug(f"Error with selector {selector}: {e}")
+
+            # Fallback to general image search if site-specific didn't work
+            if not image_url:
+                # Look for article-related image elements with multiple source attributes
+                image_attrs = ['src', 'data-src', 'data-lazy-src', 'data-original', 'data-url', 'data-hi-res-src',
+                              'data-srcset', 'data-original-src', 'data-lazy', 'data-image-src']
+
+                # Enhanced news-specific class patterns - only headline/article related
+                promising_classes = [
+                    'article-image', 'story-img', 'article-img', 'post-image', 'featured-image',
+                    'entry-image', 'hero-image', 'lead-image', 'main-image', 'story-image',
+                    'content-image', 'headline-image', 'news-image', 'media-image',
+                    'story-photo', 'article-photo', 'news-photo', 'content-photo',
+                    # Reuters specific
+                    'media__image', 'image__picture', 'story-image',
+                    # Bloomberg specific
+                    'media-object', 'hero-media', 'lede-media', 'story-image',
+                    # CNN specific
+                    'media__image', 'el__image', 'media-image',
+                    # Generic news patterns
+                    'wp-post-image', 'attachment-large', 'size-large'
+                ]
+
+                # First try to find images with promising class names (strict content-related only)
+                for class_name in promising_classes:
+                    if image_url:
+                        break
+                    # Use partial matching for class names
                 images = soup.find_all('img', class_=lambda x: x and class_name in ' '.join(x) if isinstance(x, list) else class_name in (x or ''))
                 for img in images:
                     for attr in image_attrs:
@@ -1597,11 +1728,11 @@ def fetch_financial_headlines(test_mode=False):
     logger.info("Generating comprehensive financial analysis...")
     financial_expert = create_financial_expert()
     financial_analysis = financial_expert.analyze_headlines(all_headlines)
-    
+
     # Add the analysis to the result (we'll access this in the HTML generation)
     result = {
         'headlines': all_headlines,
         'analysis': financial_analysis
     }
-    
+
     return result
