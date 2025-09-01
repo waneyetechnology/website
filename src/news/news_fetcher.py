@@ -579,222 +579,6 @@ def get_random_ai_image():
             # Ultimate fallback - this shouldn't happen but just in case
             return "static/images/dynamic/fallback_error.jpg"
 
-def search_related_image_with_browser(page, headline_id, original_url):
-    """
-    Search for related images using the headline text when the original article doesn't have good images.
-    Uses the existing browser page to search for relevant images.
-    """
-    try:
-        # Get the headline text from the stored headlines
-        headline_text = ""
-        if hasattr(fetch_financial_headlines, 'current_headlines') and fetch_financial_headlines.current_headlines:
-            for headline in fetch_financial_headlines.current_headlines:
-                if hashlib.md5(headline['url'].encode()).hexdigest() == headline_id:
-                    headline_text = headline['headline']
-                    break
-
-        if not headline_text:
-            logger.warning(f"Could not find headline text for ID {headline_id}")
-            return None
-
-        # Use the full headline text for search (just clean it up)
-        import re
-
-        # Clean headline text: remove special characters but keep the full meaning
-        search_query = re.sub(r'[^\w\s-]', '', headline_text)
-        # Remove extra spaces and limit to reasonable length for search engines
-        search_query = ' '.join(search_query.split())
-
-        # Truncate if too long (search engines have query limits)
-        if len(search_query) > 100:
-            search_query = search_query[:100].rsplit(' ', 1)[0]  # Cut at word boundary
-
-        logger.info(f"Searching for images using headline: '{search_query}'")
-
-        # Use DuckDuckGo Images search (more privacy-friendly and less likely to block)
-        search_url = f"https://duckduckgo.com/?q={search_query.replace(' ', '+')}&iax=images&ia=images"
-
-        try:
-            page.goto(search_url, wait_until='domcontentloaded', timeout=15000)
-
-            # Wait longer for DuckDuckGo to load images and try to wait for specific content
-            logger.info("Waiting for DuckDuckGo image search results to load...")
-            try:
-                # Try to wait for image results to appear
-                page.wait_for_selector('img, .tile, .results', timeout=5000)
-                page.wait_for_timeout(3000)  # Additional wait for lazy-loaded images
-            except:
-                logger.debug("Timeout waiting for specific selectors, proceeding with general wait")
-                page.wait_for_timeout(4000)  # Fallback wait time
-
-            # Look for image results in DuckDuckGo with updated selectors
-            # Try multiple selectors for different DuckDuckGo layouts
-            possible_selectors = [
-                # Modern DuckDuckGo image selectors
-                'img[data-src]',
-                '.tile img',
-                '.tile--img img',
-                '.tile--img__img',
-                '.image-result img',
-                '[data-testid="image-result"] img',
-                '.results img',
-                'img[src*="bing.net"]',
-                'img[src*="external-content"]',
-                'img[src*="duckduckgo.com"]',
-                # Generic fallbacks
-                'img[src*="http"]'
-            ]
-
-            image_elements = []
-            for selector in possible_selectors:
-                elements = page.query_selector_all(selector)
-                if elements:
-                    logger.info(f"Found {len(elements)} images with selector: {selector}")
-                    image_elements.extend(elements)
-                    break  # Use the first working selector
-
-            # If still no images, debug what's on the page
-            if not image_elements:
-                logger.warning("No images found with any selector. Debugging page content...")
-                debug_info = page.evaluate("""
-                () => {
-                    const allImages = document.querySelectorAll('img');
-                    const imageInfo = Array.from(allImages).slice(0, 5).map(img => ({
-                        src: img.src,
-                        dataSrc: img.getAttribute('data-src'),
-                        className: img.className,
-                        parentClass: img.parentElement ? img.parentElement.className : 'none'
-                    }));
-
-                    return {
-                        totalImages: allImages.length,
-                        pageTitle: document.title,
-                        url: window.location.href,
-                        imageDetails: imageInfo
-                    };
-                }
-                """)
-                logger.info(f"Page debug info: {debug_info}")
-
-                # Try to get all images as fallback
-                image_elements = page.query_selector_all('img')
-                logger.info(f"Fallback: Found {len(image_elements)} total img elements")
-
-            logger.info(f"Found {len(image_elements)} potential images from search")
-
-            # Filter and score images
-            valid_images = []
-            for img_elem in image_elements[:20]:  # Check first 20 images (increased from 10)
-                try:
-                    src = img_elem.get_attribute('src')
-                    data_src = img_elem.get_attribute('data-src')
-                    actual_src = src or data_src
-
-                    if actual_src:
-                        # Be more permissive - accept both http and data URLs for search results
-                        if actual_src.startswith(('http', 'data:')):
-                            # Skip clearly irrelevant content but be more lenient
-                            skip_patterns = r'(icon|favicon|logo|1x1|pixel\.gif|tiny\.png|avatar|profile)'
-                            if not re.search(skip_patterns, actual_src, re.I):
-                                # Get image dimensions if available
-                                width = img_elem.get_attribute('width') or '0'
-                                height = img_elem.get_attribute('height') or '0'
-
-                                try:
-                                    w, h = int(width), int(height)
-                                    if w >= 150 and h >= 100:  # More lenient size requirements
-                                        valid_images.append({
-                                            'url': actual_src,
-                                            'width': w,
-                                            'height': h,
-                                            'area': w * h
-                                        })
-                                    elif w == 0 and h == 0:
-                                        # No dimensions available, check URL length and patterns
-                                        if len(actual_src) > 30 and not re.search(r'(thumb|small|mini)', actual_src, re.I):
-                                            valid_images.append({
-                                                'url': actual_src,
-                                                'width': 0,
-                                                'height': 0,
-                                                'area': 1000  # Default score for unknown dimensions
-                                            })
-                                except (ValueError, TypeError):
-                                    # If no dimensions, be more lenient with URL-based filtering
-                                    if len(actual_src) > 30 and not re.search(r'(thumb|small|mini)', actual_src, re.I):
-                                        valid_images.append({
-                                            'url': actual_src,
-                                            'width': 0,
-                                            'height': 0,
-                                            'area': 500  # Lower score for unknown dimensions
-                                        })
-
-                        # Log what we're finding for debugging
-                        if len(valid_images) < 3:  # Only log first few to avoid spam
-                            logger.debug(f"Potential image {len(valid_images)}: {actual_src[:100]}...")
-                except Exception as img_error:
-                    logger.debug(f"Error processing search result image: {img_error}")
-
-            # Sort by area (larger images first)
-            valid_images.sort(key=lambda x: x['area'], reverse=True)
-
-            if valid_images:
-                best_image = valid_images[0]
-                image_url = best_image['url']
-                logger.info(f"Selected search result image: {image_url} ({best_image['width']}x{best_image['height']})")
-
-                # Download the image
-                img_dir = ensure_image_dir()
-                image_path = f"static/images/headlines/{headline_id}.jpg"
-                full_path = img_dir / f"{headline_id}.jpg"
-
-                try:
-                    import requests
-                    headers = {
-                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-                        "Accept": "image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
-                        "Referer": "https://duckduckgo.com/"
-                    }
-
-                    img_response = requests.get(image_url, headers=headers, timeout=15, stream=True)
-
-                    if img_response.ok:
-                        img_content = img_response.content
-
-                        # Validate image content
-                        if len(img_content) > 2000:  # Minimum size for search results
-                            # Check magic bytes
-                            is_valid_image = (
-                                img_content[:2] == b'\xff\xd8' or  # JPEG
-                                img_content[:8] == b'\x89PNG\r\n\x1a\n' or  # PNG
-                                img_content[:6] in [b'GIF87a', b'GIF89a'] or  # GIF
-                                img_content[:4] == b'RIFF' and img_content[8:12] == b'WEBP'  # WebP
-                            )
-
-                            if is_valid_image:
-                                with open(full_path, 'wb') as f:
-                                    f.write(img_content)
-                                logger.info(f"Successfully downloaded search result image for {headline_id}")
-                                return image_path + "#search-result"
-                            else:
-                                logger.warning(f"Invalid image format from search result: {image_url}")
-                        else:
-                            logger.warning(f"Search result image too small: {len(img_content)} bytes")
-                    else:
-                        logger.warning(f"Failed to download search result image: {img_response.status_code}")
-
-                except Exception as download_error:
-                    logger.warning(f"Error downloading search result image: {download_error}")
-            else:
-                logger.info("No suitable images found in search results")
-
-        except Exception as search_error:
-            logger.warning(f"Error during image search: {search_error}")
-
-    except Exception as e:
-        logger.error(f"Error in search_related_image_with_browser: {e}")
-
-    return None
-
 def fetch_image_with_browser_automation(url, headline_id):
     """
     Extract image from news URL using browser automation (Playwright via MCP).
@@ -1156,13 +940,6 @@ def fetch_image_with_browser_automation(url, headline_id):
                         logger.warning(f"Error downloading image from Playwright: {download_error}")
                 else:
                     logger.info(f"No suitable image found via Playwright for: {url}")
-
-                    # Try to search for related images using the headline text before closing browser
-                    logger.info("Attempting to find related images using headline search...")
-                    search_result = search_related_image_with_browser(page, headline_id, url)
-                    if search_result:
-                        browser.close()
-                        return search_result
 
                 # Close browser
                 browser.close()
@@ -1772,19 +1549,15 @@ def fetch_and_save_image(url, headline_id):
     try:
         # Try browser automation first (more reliable for modern news sites)
         result = fetch_image_with_browser_automation(url, headline_id)
-        if result and not result.endswith(("#dynamic", "#ai-generated")):
-            # Successfully got a real web image or search result via browser automation
+        if result and not result.endswith("#dynamic") and not result.endswith("#ai-generated"):
+            # Successfully got a real web image via browser automation
             return result
-        elif result and (result.endswith("#dynamic") or result.endswith("#ai-generated") or result.endswith("#search-result")):
-            # Browser automation didn't find a web image but returned AI/dynamic/search fallback
-            # Let's try traditional method before accepting the fallback (unless it's a search result)
-            if result.endswith("#search-result"):
-                # Search results are good, don't try traditional method
-                return result
-
+        elif result and (result.endswith("#dynamic") or result.endswith("#ai-generated")):
+            # Browser automation didn't find a web image but returned AI/dynamic fallback
+            # Let's try traditional method before accepting the fallback
             logger.info(f"Browser automation returned fallback for {headline_id}, trying traditional method")
             traditional_result = fetch_and_save_image_traditional(url, headline_id)
-            if traditional_result and not traditional_result.endswith(("#dynamic", "#ai-generated")):
+            if traditional_result and not traditional_result.endswith("#dynamic") and not traditional_result.endswith("#ai-generated"):
                 return traditional_result
             else:
                 # Traditional method also failed, use browser automation fallback
@@ -1919,7 +1692,14 @@ def generate_ai_image(headline_id):
             # When all AI generation attempts fail, try existing AI images first
             logger.warning(f"AI image generation failed, trying existing AI images for headline: '{headline_text[:50]}...'")
             fallback_result = get_random_ai_image()
-            return fallback_result
+            if fallback_result and "#ai-generated" in fallback_result:
+                return fallback_result
+            # If no AI images available, generate a new dynamic image
+            dynamic_image_path = create_dynamic_image()
+            if dynamic_image_path:
+                return dynamic_image_path + "#dynamic"
+            else:
+                return "static/images/dynamic/fallback_error.jpg"
 
     except Exception as e:
         logger.error(f"Error generating AI image for headline ID {headline_id}: {e}")
