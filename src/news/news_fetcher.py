@@ -701,8 +701,20 @@ def fetch_image_with_browser_automation(url, headline_id):
                 if not navigation_successful:
                     logger.info(f"Navigation partially failed but continuing with image extraction for: {url}")
 
-                # Wait a moment for any lazy loading (shorter if navigation failed)
-                wait_time = 2000 if navigation_successful else 1000
+                # Wait for page content, with extra time for JavaScript-heavy sites like Bloomberg
+                domain = urlparse(url).netloc.lower()
+                if 'bloomberg.com' in domain:
+                    # Bloomberg uses Next.js and loads content dynamically
+                    wait_time = 3000 if navigation_successful else 2000
+                    logger.info("Waiting extra time for Bloomberg's dynamic content to load...")
+                    try:
+                        # Wait for specific Bloomberg content to appear
+                        page.wait_for_selector('article, [data-module="ArticleLede"], [data-module="MediaObject"]', timeout=5000)
+                    except:
+                        logger.debug("Bloomberg content selector timeout, proceeding anyway")
+                else:
+                    wait_time = 2000 if navigation_successful else 1000
+
                 page.wait_for_timeout(wait_time)
 
                 # Use JavaScript to find the best image on the page
@@ -848,6 +860,33 @@ def fetch_image_with_browser_automation(url, headline_id):
 
                 # Execute the image extraction script
                 result = page.evaluate(image_extraction_script)
+
+                # Special debugging for Bloomberg
+                domain = urlparse(url).netloc.lower()
+                if 'bloomberg.com' in domain:
+                    logger.info(f"Bloomberg debug - Page title: {page.title()}")
+                    logger.info(f"Bloomberg debug - URL after navigation: {page.url}")
+                    if not result or not result.get('url'):
+                        # Debug what's on the page
+                        page_content_info = page.evaluate("""
+                        () => {
+                            const imgs = document.querySelectorAll('img');
+                            const metas = document.querySelectorAll('meta[property*="image"], meta[name*="image"]');
+                            return {
+                                total_images: imgs.length,
+                                meta_tags: Array.from(metas).map(m => ({
+                                    property: m.getAttribute('property') || m.getAttribute('name'),
+                                    content: m.getAttribute('content')
+                                })),
+                                first_few_images: Array.from(imgs).slice(0, 3).map(img => ({
+                                    src: img.src,
+                                    class: img.className,
+                                    alt: img.alt
+                                }))
+                            };
+                        }
+                        """)
+                        logger.info(f"Bloomberg debug - Page analysis: {page_content_info}")
 
                 if result and isinstance(result, dict) and result.get('url'):
                     image_url = result['url']
@@ -1048,7 +1087,8 @@ def fetch_and_save_image_traditional(url, headline_id):
         elif 'reuters.com' in domain:
             site_specific_tags = ['og:image', 'twitter:image', 'sailthru.image.full']
         elif 'bloomberg.com' in domain:
-            site_specific_tags = ['og:image', 'twitter:image']
+            # Bloomberg has more comprehensive meta tags
+            site_specific_tags = ['og:image', 'og:image:url', 'twitter:image', 'twitter:image:src', 'article:image', 'msapplication-TileImage']
         elif 'marketwatch.com' in domain:
             site_specific_tags = ['og:image', 'twitter:image']
 
@@ -1189,11 +1229,22 @@ def fetch_and_save_image_traditional(url, headline_id):
                     '[data-testid="image"] img'
                 ]
             elif 'bloomberg.com' in domain:
+                # Updated Bloomberg selectors for their modern Next.js site
                 site_selectors = [
+                    # Modern Bloomberg article image containers
+                    '[data-module="ArticleLede"] img',
+                    '[data-module="MediaObject"] img',
+                    '[data-module="ArticleBody"] img',
+                    # Legacy selectors (still used in some pages)
                     '.lede-media img',
                     '.hero-media img',
                     '.media-object img',
-                    '.story-figure img'
+                    '.story-figure img',
+                    # Additional modern selectors based on their current structure
+                    '.article-media img',
+                    '.story-body img',
+                    '[data-testid="media-object"] img',
+                    '.featured-media img'
                 ]
             elif 'marketwatch.com' in domain:
                 site_selectors = [
@@ -1653,17 +1704,10 @@ def generate_ai_image(headline_id):
     except Exception as e:
         logger.error(f"Error generating AI image for headline ID {headline_id}: {e}")
 
-    # Final fallback - try existing AI images first, then regenerate default
+    # Final fallback - try existing AI images first, then use what get_random_ai_image provides
     logger.warning(f"Using fallback image for headline: '{headline_text[:50]}...'")
     fallback_result = get_random_ai_image()
-    if fallback_result and "#ai-generated" in fallback_result:
-        return fallback_result
-    # If no AI images available, generate a new dynamic image
-    dynamic_image_path = create_dynamic_image()
-    if dynamic_image_path:
-        return dynamic_image_path + "#dynamic"
-    else:
-        return "static/images/dynamic/fallback_error.jpg"
+    return fallback_result
 
 def fetch_financial_headlines(test_mode=False):
     """
