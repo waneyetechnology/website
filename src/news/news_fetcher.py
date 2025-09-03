@@ -1,15 +1,10 @@
 import os
-import openai
 import requests
+from urllib.parse import urlparse
 import random
 import hashlib
 import re
-import json
-import math
-import colorsys
-import uuid
 import xml.etree.ElementTree as ET
-from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 import time
 from pathlib import Path
@@ -604,7 +599,6 @@ def fetch_image_with_browser_automation(url, headline_id):
         return ai_image_path + "#ai-generated"
 
     # Check for domains known to have HTTP/2 or other protocol issues
-    from urllib.parse import urlparse
     try:
         parsed_domain = urlparse(url).netloc.lower()
         problematic_domains = [
@@ -1076,7 +1070,6 @@ def fetch_and_save_image_traditional(url, headline_id):
         image_url = None
 
         # Get domain for site-specific handling
-        from urllib.parse import urlparse
         domain = urlparse(url).netloc.lower()
         logger.info(f"Extracting image from domain: {domain}")
 
@@ -1574,7 +1567,7 @@ def fetch_and_save_image(url, headline_id):
 
 def generate_ai_image(headline_id):
     """
-    Generate an image using OpenAI's DALL-E API for headlines that don't have images
+    Generate a fallback image for headlines that don't have images
     """
     ai_img_dir = ensure_ai_image_dir()
     image_path = f"static/images/ai-generated/{headline_id}.jpg"
@@ -1585,127 +1578,7 @@ def generate_ai_image(headline_id):
         logger.info(f"Using existing AI-generated image for {headline_id}")
         return image_path + "#ai-generated"
 
-    # Get the headline text from all_headlines global
-    headline_text = ""
-    # Check if current_headlines exists and has data
-    if hasattr(fetch_financial_headlines, 'current_headlines') and fetch_financial_headlines.current_headlines:
-        for headline in fetch_financial_headlines.current_headlines:
-            if hashlib.md5(headline['url'].encode()).hexdigest() == headline_id:
-                headline_text = headline['headline']
-                break
-
-    if not headline_text:
-        logger.warning(f"Could not find headline text for ID {headline_id}")
-        # Use a generic financial prompt instead
-        headline_text = "Financial news and market updates"
-
-    try:
-        # Get the OpenAI API key
-        api_key = os.environ.get("OPENAI_API_KEY")
-        if not api_key:
-            logger.warning("OPENAI_API_KEY is not set or empty.")
-            # Try to get a random AI image first, if none available, regenerate default
-            fallback_result = get_random_ai_image()
-            return fallback_result
-
-        # Configure the OpenAI client - using the updated method we fixed earlier
-        openai.api_key = api_key
-        client = openai.OpenAI(max_retries=0)  # Disable retries to avoid time-consuming retry attempts
-
-        # Generate prompt for DALL-E - optimized for financial imagery with content safety
-        # Focus on the financial aspects rather than specific people or entities
-        # Extract key financial terms from the headline
-        financial_terms = ["market", "stock", "economy", "finance", "business",
-                          "investment", "trade", "growth", "recession", "inflation",
-                          "dollar", "euro", "currency", "bank", "interest rate"]
-
-        # Extract any financial terms that appear in the headline
-        found_terms = [term for term in financial_terms if term.lower() in headline_text.lower()]
-        terms_str = ", ".join(found_terms) if found_terms else "financial news"
-
-        # Create a generic prompt focused on financial concepts
-        prompt = f"Abstract financial illustration representing {terms_str}. Professional business style with charts, graphs, or symbolic imagery. No text or specific people."
-
-        # Generate the image with DALL-E 2 at the optimal size for cost vs. quality
-        try:
-            logger.info(f"Generating AI image for headline: '{headline_text[:50]}...'")
-            response = client.images.generate(
-                model="dall-e-2",  # DALL-E 2 is more cost-effective than DALL-E 3
-                prompt=prompt,
-                size="512x512",  # Best balance between cost and quality (512x512 is mid-tier for DALL-E 2)
-                n=1
-            )
-
-            # Get image URL from response
-            image_url = response.data[0].url
-            logger.info(f"Successfully generated AI image URL: {image_url}")
-
-            # Download the generated image
-            img_response = requests.get(image_url, timeout=10)
-            if img_response.ok:
-                with open(full_path, 'wb') as f:
-                    f.write(img_response.content)
-                logger.info(f"Generated AI image for headline ID: {headline_id}")
-                # Return the path with a flag that this is an AI-generated image
-                return image_path + "#ai-generated"
-            else:
-                logger.error(f"Failed to download AI image. Status code: {img_response.status_code}")
-        except Exception as api_error:
-            logger.error(f"OpenAI API error: {api_error}")
-
-            # Try a more simplified prompt as a fallback
-            try:
-                logger.info("Attempting with simplified fallback prompt...")
-                # Use an extremely simplified, generic prompt that's unlikely to trigger filters
-                # Choose one of several generic financial concepts
-                fallback_concepts = [
-                    "Stock market chart with rising trend",
-                    "Financial data visualization with blue background",
-                    "Business graph showing economic growth",
-                    "Abstract financial data dashboard",
-                    "Currency exchange concept with minimal design"
-                ]
-                fallback_prompt = random.choice(fallback_concepts)
-
-                fallback_response = client.images.generate(
-                    model="dall-e-2",
-                    prompt=fallback_prompt,
-                    size="512x512",
-                    n=1
-                )
-
-                # Get image URL from fallback response
-                fallback_image_url = fallback_response.data[0].url
-                logger.info(f"Successfully generated AI image with fallback prompt")
-
-                # Download the generated image
-                img_response = requests.get(fallback_image_url, timeout=10)
-                if img_response.ok:
-                    with open(full_path, 'wb') as f:
-                        f.write(img_response.content)
-                    logger.info(f"Generated AI image for headline ID: {headline_id} with fallback prompt")
-                    # Return the path with a flag that this is an AI-generated image
-                    return image_path + "#ai-generated"
-            except Exception as fallback_error:
-                logger.error(f"Fallback OpenAI API attempt also failed: {fallback_error}")
-
-            # When all AI generation attempts fail, try existing AI images first
-            logger.warning(f"AI image generation failed, trying existing AI images for headline: '{headline_text[:50]}...'")
-            fallback_result = get_random_ai_image()
-            if fallback_result and "#ai-generated" in fallback_result:
-                return fallback_result
-            # If no AI images available, generate a new dynamic image
-            dynamic_image_path = create_dynamic_image()
-            if dynamic_image_path:
-                return dynamic_image_path + "#dynamic"
-            else:
-                return "static/images/dynamic/fallback_error.jpg"
-
-    except Exception as e:
-        logger.error(f"Error generating AI image for headline ID {headline_id}: {e}")
-
-    # Final fallback - try existing AI images first, then use what get_random_ai_image provides
-    logger.warning(f"Using fallback image for headline: '{headline_text[:50]}...'")
+    # If no AI image exists, use a random AI image or generate a dynamic fallback
     fallback_result = get_random_ai_image()
     return fallback_result
 
