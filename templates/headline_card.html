@@ -21,11 +21,12 @@
     {% endif %}
     
     <div class='headline-caption'>
-        {% if item.source %}
-            <small class='text-muted d-block mb-1'>
-                <i class='fas fa-newspaper me-1'></i>{{ item.source }}
-            </small>
-        {% endif %}
         <a href='{{ item.url }}' target='_blank' title="{{ item.headline }}">{{ item.headline }}</a>
     </div>
+    {% if item.source %}
+    <div class='source-attribution'>
+        <img src='{{ item.favicon }}' alt='{{ item.source }} favicon' class='source-favicon'>
+        <span>{{ item.source }}</span>
+    </div>
+    {% endif %}
 </div>

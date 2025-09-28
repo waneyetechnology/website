@@ -67,6 +67,34 @@
     <script type="application/ld+json">
     {{ structured_data.dashboard | tojson }}
     </script>
+    <style>
+        .headline-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .source-attribution {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 5px 8px;
+            border-top-right-radius: 5px;
+            display: flex;
+            align-items: center;
+            font-size: 0.75rem;
+            max-width: 90%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .source-favicon {
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+            border-radius: 2px;
+        }
+    </style>
     {% if structured_data.news_articles %}
     {% for article in structured_data.news_articles[:5] %}
     <script type="application/ld+json">
