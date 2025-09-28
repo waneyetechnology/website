@@ -207,7 +207,7 @@
                                                                     <div class='ticker-list'>
                                                                         <small class='text-muted me-2'>Tickers:</small>
                                                                         {% for ticker in opp.tickers %}
-                                                                            <span class='badge bg-success me-1'>{{ ticker }}</span>
+                                                                            <a href='https://finance.yahoo.com/quote/{{ ticker }}' target='_blank' class='badge bg-success me-1 text-decoration-none'>{{ ticker }}</a>
                                                                         {% endfor %}
                                                                     </div>
                                                                 {% endif %}
@@ -234,7 +234,7 @@
                                                                     <div class='ticker-list'>
                                                                         <small class='text-muted me-2'>Tickers:</small>
                                                                         {% for ticker in def.tickers %}
-                                                                            <span class='badge bg-warning text-dark me-1'>{{ ticker }}</span>
+                                                                            <a href='https://finance.yahoo.com/quote/{{ ticker }}' target='_blank' class='badge bg-warning text-dark me-1 text-decoration-none'>{{ ticker }}</a>
                                                                         {% endfor %}
                                                                     </div>
                                                                 {% endif %}
