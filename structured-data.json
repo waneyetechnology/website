@@ -1,0 +1,53 @@
+{
+  "organization": {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Waneye Technology",
+    "alternateName": "Waneye",
+    "url": "https://waneye.com",
+    "logo": "https://waneye.com/favicon.svg",
+    "description": "Real-time financial news aggregation and market analysis platform",
+    "foundingDate": "2024",
+    "sameAs": [
+      "https://twitter.com/WaneyeTech",
+      "https://github.com/waneyetechnology"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "availableLanguage": "English"
+    }
+  },
+  "website": {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Waneye Financial Overview",
+    "alternateName": "Waneye",
+    "url": "https://waneye.com",
+    "description": "Real-time financial news, market data, and economic indicators",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Waneye Technology"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://waneye.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  },
+  "news_articles": [],
+  "dashboard": {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Waneye Financial Overview",
+    "url": "https://waneye.com",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "description": "Real-time financial dashboard with news, market data, and economic indicators",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+}
