@@ -28,7 +28,8 @@ def fetch_newsapi_headlines():
                 headlines.append({
                     "headline": article["title"],
                     "url": article["url"],
-                    "publishedAt": article.get("publishedAt")
+                    "publishedAt": article.get("publishedAt"),
+                    "source": "NewsAPI"
                 })
         else:
             logger.warning(f"NewsAPI request failed: {resp.status_code}")
@@ -51,7 +52,8 @@ def fetch_fmp_headlines():
                 headlines.append({
                     "headline": article["title"],
                     "url": article["url"],
-                    "publishedAt": article.get("publishedDate")
+                    "publishedAt": article.get("publishedDate"),
+                    "source": "Financial Modeling Prep"
                 })
         else:
             logger.warning(f"FMP request failed: {resp.status_code}")
@@ -74,7 +76,8 @@ def fetch_marketaux_headlines():
                 headlines.append({
                     "headline": article["title"],
                     "url": article["url"],
-                    "publishedAt": article.get("published_at")
+                    "publishedAt": article.get("published_at"),
+                    "source": "MarketAux"
                 })
         else:
             logger.warning(f"Marketaux request failed: {resp.status_code}")
@@ -97,7 +100,8 @@ def fetch_gnews_headlines():
                 headlines.append({
                     "headline": article["title"],
                     "url": article["url"],
-                    "publishedAt": article.get("publishedAt")
+                    "publishedAt": article.get("publishedAt"),
+                    "source": "GNews"
                 })
         else:
             logger.warning(f"GNews request failed: {resp.status_code}")
@@ -130,7 +134,7 @@ def fetch_yahoo_finance_headlines():
                         publishedAt = parsedate_to_datetime(pubdate.text).isoformat()
                     except Exception:
                         publishedAt = pubdate.text
-                headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
+                headlines.append({"headline": title, "url": link, "publishedAt": publishedAt, "source": "Yahoo Finance"})
         else:
             logger.warning(f"Yahoo Finance RSS request failed: {resp.status_code}")
     except Exception as e:
@@ -169,7 +173,7 @@ def fetch_reuters_headlines():
                         except Exception:
                             publishedAt = pubdate_elem.text
 
-                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
+                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt, "source": "Reuters"})
         else:
             logger.warning(f"Reuters RSS request failed: {resp.status_code}")
     except Exception as e:
@@ -208,7 +212,7 @@ def fetch_bloomberg_headlines():
                         except Exception:
                             publishedAt = pubdate_elem.text
 
-                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
+                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt, "source": "Bloomberg"})
         else:
             logger.warning(f"Bloomberg RSS request failed: {resp.status_code}")
     except Exception as e:
@@ -247,7 +251,7 @@ def fetch_cnbc_headlines():
                         except Exception:
                             publishedAt = pubdate_elem.text
 
-                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
+                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt, "source": "CNBC"})
         else:
             logger.warning(f"CNBC RSS request failed: {resp.status_code}")
     except Exception as e:
@@ -286,7 +290,7 @@ def fetch_marketwatch_headlines():
                         except Exception:
                             publishedAt = pubdate_elem.text
 
-                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
+                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt, "source": "MarketWatch"})
         else:
             logger.warning(f"MarketWatch RSS request failed: {resp.status_code}")
     except Exception as e:
@@ -325,7 +329,7 @@ def fetch_ft_headlines():
                         except Exception:
                             publishedAt = pubdate_elem.text
 
-                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt})
+                    headlines.append({"headline": title, "url": link, "publishedAt": publishedAt, "source": "Financial Times"})
         else:
             logger.warning(f"Financial Times RSS request failed: {resp.status_code}")
     except Exception as e:
@@ -1609,6 +1613,7 @@ def fetch_financial_headlines(test_mode=False):
     weighted_sources = [(random.random(), fn) for fn in sources]
     weighted_sources.sort(reverse=True)  # Higher weight = higher priority
     all_headlines = []
+    seen_urls = set()
 
     for _, fn in weighted_sources:
         source_headlines = fn()
@@ -1620,7 +1625,19 @@ def fetch_financial_headlines(test_mode=False):
             source_headlines = source_headlines[:limit]
             logger.info(f"Test mode: Limited {fn.__name__} to {len(source_headlines)} headlines")
 
-        all_headlines += source_headlines
+        if not source_headlines:
+            continue
+
+        for headline in source_headlines:
+            url = headline.get('url')
+            if url:
+                # Normalize URL to improve deduplication
+                # Remove common tracking parameters and trailing slash
+                normalized_url = re.sub(r'(?i)(\?|&)(utm_source|utm_medium|utm_campaign|utm_term|utm_content|gclid|fbclid|mc_cid|mc_eid)=[^&]*', '', url).rstrip('/')
+
+                if normalized_url not in seen_urls:
+                    all_headlines.append(headline)
+                    seen_urls.add(normalized_url)
 
     # Store the current headlines to access from generate_ai_image
     fetch_financial_headlines.current_headlines = all_headlines.copy()
