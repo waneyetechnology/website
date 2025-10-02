@@ -61,6 +61,30 @@ h1.display-4{color:#0a192f;text-shadow:0 2px 8px #fff,0 1px 0 #b3d1e6;}
   opacity: 1;
   filter: blur(0);
 }
+/* Moved from base.html */
+.source-attribution {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5px 8px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  max-width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+.source-favicon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  border-radius: 2px;
+}
 
 @keyframes loading-bg {
   0% { background-position: 0% 0; }
@@ -184,10 +208,6 @@ h1.display-4{color:#0a192f;text-shadow:0 2px 8px #fff,0 1px 0 #b3d1e6;}
 }
 
 /* Fix for image container to maintain aspect ratio */
-.headline-card {
-  display: flex;
-  flex-direction: column;
-}
 
 /* Card hover effect improvements */
 .headline-card:hover .headline-image.loaded {
