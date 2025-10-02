@@ -207,7 +207,7 @@
                                                                     <div class='ticker-list'>
                                                                         <small class='text-muted me-2'>Tickers:</small>
                                                                         {% for ticker in opp.tickers %}
-                                                                            <span class='badge bg-success me-1'>{{ ticker }}</span>
+                                                                            <a href='https://finance.yahoo.com/quote/{{ ticker }}' target='_blank' class='badge bg-success me-1 text-decoration-none'>{{ ticker }}</a>
                                                                         {% endfor %}
                                                                     </div>
                                                                 {% endif %}
@@ -234,7 +234,7 @@
                                                                     <div class='ticker-list'>
                                                                         <small class='text-muted me-2'>Tickers:</small>
                                                                         {% for ticker in def.tickers %}
-                                                                            <span class='badge bg-warning text-dark me-1'>{{ ticker }}</span>
+                                                                            <a href='https://finance.yahoo.com/quote/{{ ticker }}' target='_blank' class='badge bg-warning text-dark me-1 text-decoration-none'>{{ ticker }}</a>
                                                                         {% endfor %}
                                                                     </div>
                                                                 {% endif %}
@@ -369,11 +369,21 @@
     <div class='col-md-4'>
         <div class='card shadow-sm'>
             <div class='card-header bg-success text-white'>Key Economic Data</div>
-            <ul class='list-group list-group-flush'>
-                {% for econ_item in econ %}
-                <li class='list-group-item'>{{ econ_item.event }}: {{ econ_item.value }} ({{ econ_item.date }})</li>
+            <div class='card-body'>
+                {% for item in econ %}
+                <div class='mb-3'>
+                    <div class='d-flex justify-content-between align-items-center mb-1'>
+                        <span class='fw-bold small'>{{ item.event }}</span>
+                        <span class='badge bg-{% if item.sentiment == "positive" %}success{% elif item.sentiment == "negative" %}danger{% else %}secondary{% endif %}'>{{ item.value }}</span>
+                    </div>
+                    <div class='progress' style='height: 10px;'>
+                        {% set percentage = (item.numeric_value / item.max_value) * 100 %}
+                        <div class='progress-bar bg-{% if item.sentiment == "positive" %}success{% elif item.sentiment == "negative" %}danger{% else %}secondary{% endif %}' role='progressbar' style='width: {{ percentage }}%;' aria-valuenow='{{ item.numeric_value }}' aria-valuemin='0' aria-valuemax='{{ item.max_value }}'></div>
+                    </div>
+                    <small class='text-muted'>{{ item.date }}</small>
+                </div>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
     </div>
     
@@ -387,14 +397,19 @@
                             <th>Pair</th>
                             <th>Bid</th>
                             <th>Ask</th>
+                            <th>Change</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for forex_item in forex %}
+                        {% for item in forex %}
                         <tr>
-                            <td>{{ forex_item.pair }}</td>
-                            <td>{{ forex_item.bid }}</td>
-                            <td>{{ forex_item.ask }}</td>
+                            <td>{{ item.pair }}</td>
+                            <td>{{ item.bid }}</td>
+                            <td>{{ item.ask }}</td>
+                            <td class='{% if item.change > 0 %}text-success{% elif item.change < 0 %}text-danger{% endif %}'>
+                                {% if item.change > 0 %}<i class='fas fa-arrow-up'></i>{% elif item.change < 0 %}<i class='fas fa-arrow-down'></i>{% endif %}
+                                {{ item.change }}
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>

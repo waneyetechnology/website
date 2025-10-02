@@ -23,4 +23,9 @@
     <div class='headline-caption'>
         <a href='{{ item.url }}' target='_blank' title="{{ item.headline }}">{{ item.headline }}</a>
     </div>
+    {% if item.source %}
+    <div class='source-attribution'>
+        <img src='{{ item.favicon }}' alt='{{ item.source }} favicon' class='source-favicon'>
+    </div>
+    {% endif %}
 </div>
