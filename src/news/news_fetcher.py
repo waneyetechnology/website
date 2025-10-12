@@ -1616,6 +1616,38 @@ def generate_ai_image(headline_id):
     fallback_result = get_random_ai_image()
     return fallback_result
 
+def get_publish_timestamp(headline):
+    """Extract and parse publishedAt timestamp for sorting"""
+    published_at = headline.get('publishedAt')
+    if not published_at:
+        return 0  # No timestamp = lowest priority
+
+    try:
+        from dateutil import parser
+        return parser.parse(published_at).timestamp()
+    except:
+        try:
+            from datetime import datetime
+            # Try ISO format first
+            return datetime.fromisoformat(published_at.replace('Z', '+00:00')).timestamp()
+        except:
+            return 0  # Invalid timestamp = lowest priority
+
+def is_headline_too_old(headline, max_days=3):
+    """Check if headline is older than max_days"""
+    import time
+    from datetime import datetime, timedelta
+
+    timestamp = get_publish_timestamp(headline)
+    if timestamp == 0:
+        # No valid timestamp, consider it old
+        return True
+
+    # Calculate the cutoff time (max_days ago)
+    cutoff_time = time.time() - (max_days * 24 * 60 * 60)
+
+    return timestamp < cutoff_time
+
 def fetch_financial_headlines(test_mode=False):
     """
     Fetches financial headlines from multiple sources/APIs, applies a random weight to each source,
@@ -1648,9 +1680,22 @@ def fetch_financial_headlines(test_mode=False):
     for _, fn in weighted_sources:
         source_headlines = fn()
 
+        # Filter out headlines older than 3 days
+        if source_headlines:
+            original_count = len(source_headlines)
+            source_headlines = [h for h in source_headlines if not is_headline_too_old(h, max_days=3)]
+            filtered_count = len(source_headlines)
+            if original_count > filtered_count:
+                logger.info(f"Filtered out {original_count - filtered_count} old headlines from {fn.__name__} (kept {filtered_count})")
+
+        # Sort headlines by publishedAt (most recent first) within each source
+        if source_headlines:
+            source_headlines.sort(key=get_publish_timestamp, reverse=True)
+            logger.info(f"Sorted {len(source_headlines)} headlines from {fn.__name__} by publication date")
+
         # In test mode, limit to 1-2 headlines per source for faster builds
         if test_mode and source_headlines:
-            # Take only the first 1-2 headlines from each source
+            # Take only the first 1-2 headlines from each source (now sorted by recency)
             limit = min(2, len(source_headlines))
             source_headlines = source_headlines[:limit]
             logger.info(f"Test mode: Limited {fn.__name__} to {len(source_headlines)} headlines")
