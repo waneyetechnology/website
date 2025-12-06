@@ -360,30 +360,13 @@ h1.display-4{color:#0a192f;text-shadow:0 2px 8px #fff,0 1px 0 #b3d1e6;}
   font-style: italic;
 }
 
-/* Animation for collapsible section icons */
-.rotate-icon-180, .rotate-icon-360 {
-  transition: transform 0.35s ease;
+/* Collapse button animation */
+[data-bs-toggle="collapse"] i {
+  transition: transform 0.3s ease;
 }
 
-/* State when section is collapsed */
-[data-bs-toggle="collapse"][aria-expanded="false"] .rotate-icon-180 {
-  transform: rotate(-180deg);
-}
-
-[data-bs-toggle="collapse"][aria-expanded="false"] .rotate-icon-360 {
-  transform: rotate(-360deg);
-}
-
-/* State when section is expanded (return to original position) */
-[data-bs-toggle="collapse"][aria-expanded="true"] .rotate-icon-180,
-[data-bs-toggle="collapse"][aria-expanded="true"] .rotate-icon-360 {
-  transform: rotate(0deg);
-}
-
-@media (min-width: 992px) {
-  [data-bs-toggle="collapse"] i {
-    display: none;
-  }
+[data-bs-toggle="collapse"][aria-expanded="true"] i {
+  transform: rotate(180deg);
 }
 
 /* Analysis section highlight colors */
@@ -399,6 +382,43 @@ h1.display-4{color:#0a192f;text-shadow:0 2px 8px #fff,0 1px 0 #b3d1e6;}
   background-color: #f8d7da;
 }
 
+/* Financial Analysis Section - Responsive Behavior */
+#financialAnalysisColumn {
+  display: block;
+}
+
+#financialAnalysisColumn.d-none {
+  display: none !important;
+}
+
+#financialAnalysisColumn.d-block {
+  display: block !important;
+}
+
+/* Responsive breakpoints for Financial Analysis visibility */
+@media (max-width: 991px) {
+  /* On medium screens and below, hide the Financial Analysis column by default */
+  #financialAnalysisColumn {
+    display: none;
+  }
+
+  #financialAnalysisColumn.show {
+    display: block;
+  }
+
+  /* Ensure headlines section takes full width on smaller screens */
+  .col-lg-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  /* On large screens, always show Financial Analysis */
+  #financialAnalysisColumn {
+    display: block !important;
+  }
+}
 
 /* Improve Financial Analysis card scrolling on smaller screens */
 @media (max-width: 576px) {
@@ -418,3 +438,16 @@ h1.display-4{color:#0a192f;text-shadow:0 2px 8px #fff,0 1px 0 #b3d1e6;}
   }
 }
 
+/* Added for icon rotation animation */
+@keyframes rotate-360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-360 {
+  animation: rotate-360 0.5s ease-in-out;
+}
