@@ -371,3 +371,49 @@ h1.display-4{color:#0a192f;text-shadow:0 2px 8px #fff,0 1px 0 #b3d1e6;}
 .financial-analysis-content .table-danger {
   background-color: #f8d7da;
 }
+
+/* Financial Analysis Section - Responsive Behavior */
+#financialAnalysisColumn {
+  display: block;
+}
+
+#financialAnalysisColumn.d-none {
+  display: none !important;
+}
+
+#financialAnalysisColumn.d-block {
+  display: block !important;
+}
+
+/* Responsive breakpoints for Financial Analysis visibility */
+@media (max-width: 991px) {
+  /* On medium screens and below, hide the Financial Analysis column by default */
+  #financialAnalysisColumn {
+    display: none;
+  }
+  
+  #financialAnalysisColumn.show {
+    display: block;
+  }
+  
+  /* Ensure headlines section takes full width on smaller screens */
+  .col-lg-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  /* On large screens, always show Financial Analysis */
+  #financialAnalysisColumn {
+    display: block !important;
+  }
+}
+
+/* Improve Financial Analysis card scrolling on smaller screens */
+@media (max-width: 576px) {
+  #financialAnalysisColumn .card-body {
+    max-height: 600px;
+  }
+}
+
