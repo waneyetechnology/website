@@ -1,30 +1,43 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class='row g-4'>
-    <div class='col-12'>
+<div class='row g-4 headlines-analysis-row'>
+    <!-- Headlines Section -->
+    <div class='col-lg-8'>
         <div class='card shadow-sm'>
-            <div class='card-header bg-primary text-white d-flex justify-content-between align-items-center'>
+            <div class='card-header bg-primary text-white'>
                 <span class='fw-bold'>Top Financial Headlines</span>
-                            <div class='d-flex justify-content-end'>
-                <button class='btn btn-sm btn-outline-light' type='button' data-bs-toggle='collapse' data-bs-target='#financialAnalysis' aria-expanded='false' aria-controls='financialAnalysis' title='Toggle Financial Analysis'>
-                    <i class='fas fa-robot me-1'></i>Financial Analysis
-                </button>
-            </div>
             </div>
             
-            <!-- AI Financial Analysis Subsection -->
-            <div class='collapse' id='financialAnalysis'>
-                <div class='card-body px-4 py-4 bg-light border-bottom'>
-                    {% if financial_analysis %}
-                        <div class='financial-analysis-content'>
-                            {% if financial_analysis is string %}
-                                <div class='alert alert-info'>
-                                    <pre class='mb-0' style='white-space: pre-wrap; font-family: inherit;'>{{ financial_analysis }}</pre>
-                                </div>
-                            {% else %}
-                                <!-- Professional Financial Analysis Report -->
-                                <div class='analysis-report'>
+            <!-- News Headlines Section -->
+            <div class='card-body px-3 py-4'>
+                <div class='headline-grid'>
+                    {% for item in news %}
+                        {% set item_index = loop.index0 %}
+                        {% include 'headline_card.html' %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Financial Analysis Section -->
+    <div class='col-lg-4' id='financialAnalysisColumn'>
+        <div class='card shadow-sm h-100'>
+            <div class='card-header bg-secondary text-white'>
+                <span class='fw-bold'><i class='fas fa-robot me-1'></i>Financial Analysis</span>
+            </div>
+            
+            <div class='card-body px-3 py-3'>
+                {% if financial_analysis %}
+                    <div class='financial-analysis-content'>
+                        {% if financial_analysis is string %}
+                            <div class='alert alert-info'>
+                                <pre class='mb-0' style='white-space: pre-wrap; font-family: inherit;'>{{ financial_analysis }}</pre>
+                            </div>
+                        {% else %}
+                            <!-- Professional Financial Analysis Report -->
+                            <div class='analysis-report'>
                                     <!-- Report Header -->
                                     <div class='report-header mb-4 p-3 bg-white rounded border-start border-primary border-3'>
                                         <div class='d-flex justify-content-between align-items-center'>
@@ -313,24 +326,13 @@
                                     {% endif %}
                                 </div>
                             {% endif %}
-                        </div>
-                    {% else %}
-                        <div class='alert alert-warning'>
-                            <h6 class='alert-heading'>🔧 Financial Analysis Temporarily Unavailable</h6>
-                            <p class='mb-0'>Our AI financial analysis service is currently being configured. Please check back later for comprehensive market insights and recommendations.</p>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-            
-            <!-- News Headlines Section -->
-            <div class='card-body px-3 py-4'>
-                <div class='headline-grid'>
-                    {% for item in news %}
-                        {% set item_index = loop.index0 %}
-                        {% include 'headline_card.html' %}
-                    {% endfor %}
-                </div>
+                    </div>
+                {% else %}
+                    <div class='alert alert-warning'>
+                        <h6 class='alert-heading'>🔧 Financial Analysis Temporarily Unavailable</h6>
+                        <p class='mb-0'>Our AI financial analysis service is currently being configured. Please check back later for comprehensive market insights and recommendations.</p>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
