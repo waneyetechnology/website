@@ -2,12 +2,12 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Get all headline images
   const lazyImages = document.querySelectorAll('.headline-image');
-
+  
   // Function to handle image load
   function handleImageLoad(img) {
     img.classList.add('loaded');
   }
-
+  
   // Process all images initially
   lazyImages.forEach(function(img) {
     // For already loaded or eager loaded images
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
       img.addEventListener('load', function() {
         handleImageLoad(img);
       });
-
+      
       // Add error handling
       img.addEventListener('error', function() {
         // Still add the loaded class to remove loading animation
@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // When image is visible in the viewport
         if (entry.isIntersecting) {
           const img = entry.target;
-
+          
           // If image is already loaded but doesn't have the loaded class
           if (img.complete && !img.classList.contains('loaded')) {
             handleImageLoad(img);
           }
-
+          
           // Stop observing once loaded
           imageObserver.unobserve(img);
         }
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
       rootMargin: '200px', // Load images 200px before they appear in viewport
       threshold: 0.01
     });
-
+    
     // Only observe images with loading="lazy"
     lazyImages.forEach(function(img) {
       if (img.getAttribute('loading') === 'lazy') {
@@ -592,67 +592,3 @@ if (typeof calcRSI !== 'function' || typeof calcStochastic !== 'function' || typ
 
 // Headline images are now loaded statically at build time
 // No JavaScript needed for headline images
-
-// Financial Analysis Section - Responsive Toggle
-(function() {
-  const financialAnalysisColumn = document.getElementById('financialAnalysisColumn');
-
-  if (!financialAnalysisColumn) return;
-
-  // Function to handle responsive visibility
-  function handleFinancialAnalysisVisibility() {
-    const screenWidth = window.innerWidth;
-
-    // On screens smaller than 992px (lg breakpoint), hide by default
-    // On screens 992px and larger, show always
-    if (screenWidth < 992) {
-      financialAnalysisColumn.classList.add('d-none');
-      financialAnalysisColumn.classList.remove('show');
-    } else {
-      financialAnalysisColumn.classList.remove('d-none');
-      financialAnalysisColumn.classList.add('show');
-    }
-  }
-
-  // Call on initial load
-  handleFinancialAnalysisVisibility();
-
-  // Handle window resize
-  window.addEventListener('resize', handleFinancialAnalysisVisibility);
-
-  // Optional: Add click handler for manual toggle on smaller screens
-  // This allows users to click a button to show/hide the analysis if desired
-  function setupToggleButton() {
-    if (window.innerWidth < 992) {
-      // Create toggle button if it doesn't exist
-      const headerCard = financialAnalysisColumn.querySelector('.card-header');
-      if (headerCard && !headerCard.querySelector('.toggle-analysis-btn')) {
-        const toggleBtn = document.createElement('button');
-        toggleBtn.className = 'btn btn-sm btn-outline-light toggle-analysis-btn ms-auto';
-        toggleBtn.setAttribute('type', 'button');
-        toggleBtn.setAttribute('aria-label', 'Toggle Financial Analysis');
-        toggleBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-        toggleBtn.style.marginLeft = 'auto';
-
-        toggleBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          financialAnalysisColumn.classList.toggle('show');
-          const icon = toggleBtn.querySelector('i');
-          if (financialAnalysisColumn.classList.contains('show')) {
-            icon.classList.remove('fa-chevron-down');
-            icon.classList.add('fa-chevron-up');
-          } else {
-            icon.classList.remove('fa-chevron-up');
-            icon.classList.add('fa-chevron-down');
-          }
-        });
-
-        headerCard.appendChild(toggleBtn);
-      }
-    }
-  }
-
-  setupToggleButton();
-  window.addEventListener('resize', setupToggleButton);
-})();
-
