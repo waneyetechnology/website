@@ -594,65 +594,65 @@ if (typeof calcRSI !== 'function' || typeof calcStochastic !== 'function' || typ
 // No JavaScript needed for headline images
 
 // Financial Analysis Section - Responsive Toggle
-(function() {
-  const financialAnalysisColumn = document.getElementById('financialAnalysisColumn');
+document.addEventListener('DOMContentLoaded', () => {
+  // Handle mobile Financial Analysis (with toggle, collapsed by default)
+  const mobileContainer = document.getElementById('financialAnalysisMobileContainer');
+  if (mobileContainer) {
+    const mobileHeader = mobileContainer.querySelector('.card-header');
+    const mobileContent = mobileContainer.querySelector('#financialAnalysisContentMobile');
 
-  if (!financialAnalysisColumn) return;
+    if (mobileHeader && mobileContent) {
+      // Add collapse class for Bootstrap styling
+      mobileContent.classList.add('collapse');
 
-  // Function to handle responsive visibility
-  function handleFinancialAnalysisVisibility() {
-    const screenWidth = window.innerWidth;
+      // Make header clickable
+      mobileHeader.style.cursor = 'pointer';
 
-    // On screens smaller than 992px (lg breakpoint), hide by default
-    // On screens 992px and larger, show always
-    if (screenWidth < 992) {
-      financialAnalysisColumn.classList.add('d-none');
-      financialAnalysisColumn.classList.remove('show');
-    } else {
-      financialAnalysisColumn.classList.remove('d-none');
-      financialAnalysisColumn.classList.add('show');
-    }
-  }
+      // Handle header click for toggle and animation
+      mobileHeader.addEventListener('click', (e) => {
+        e.preventDefault();
 
-  // Call on initial load
-  handleFinancialAnalysisVisibility();
+        // Toggle the show class to expand/collapse
+        const isShown = mobileContent.classList.contains('show');
 
-  // Handle window resize
-  window.addEventListener('resize', handleFinancialAnalysisVisibility);
+        if (isShown) {
+          mobileContent.classList.remove('show');
+        } else {
+          mobileContent.classList.add('show');
+        }
 
-  // Optional: Add click handler for manual toggle on smaller screens
-  // This allows users to click a button to show/hide the analysis if desired
-  function setupToggleButton() {
-    if (window.innerWidth < 992) {
-      // Create toggle button if it doesn't exist
-      const headerCard = financialAnalysisColumn.querySelector('.card-header');
-      if (headerCard && !headerCard.querySelector('.toggle-analysis-btn')) {
-        const toggleBtn = document.createElement('button');
-        toggleBtn.className = 'btn btn-sm btn-outline-light toggle-analysis-btn ms-auto';
-        toggleBtn.setAttribute('type', 'button');
-        toggleBtn.setAttribute('aria-label', 'Toggle Financial Analysis');
-        toggleBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-        toggleBtn.style.marginLeft = 'auto';
-
-        toggleBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          financialAnalysisColumn.classList.toggle('show');
-          const icon = toggleBtn.querySelector('i');
-          if (financialAnalysisColumn.classList.contains('show')) {
-            icon.classList.remove('fa-chevron-down');
-            icon.classList.add('fa-chevron-up');
-          } else {
-            icon.classList.remove('fa-chevron-up');
-            icon.classList.add('fa-chevron-down');
-          }
+        // Add click animation
+        const icons = mobileHeader.querySelectorAll('.fas');
+        icons.forEach(icon => {
+          icon.classList.add('rotate-360');
+          icon.addEventListener('animationend', () => {
+            icon.classList.remove('rotate-360');
+          }, { once: true });
         });
 
-        headerCard.appendChild(toggleBtn);
-      }
+        // Handle chevron rotation
+        const rightIcon = mobileHeader.querySelector('.financial-analysis-icon-right');
+        if (rightIcon) {
+          if (isShown) {
+            rightIcon.classList.remove('fa-chevron-up');
+            rightIcon.classList.add('fa-chevron-down');
+          } else {
+            rightIcon.classList.remove('fa-chevron-down');
+            rightIcon.classList.add('fa-chevron-up');
+          }
+        }
+      });
     }
   }
 
-  setupToggleButton();
-  window.addEventListener('resize', setupToggleButton);
-})();
-
+  // Handle desktop Financial Analysis (always visible)
+  const analysisColumn = document.getElementById('financialAnalysisColumn');
+  if (analysisColumn) {
+    const analysisContent = analysisColumn.querySelector('#financialAnalysisContent');
+    // Desktop version should always be visible and no toggle behavior
+    if (analysisContent) {
+      analysisContent.classList.remove('collapse');
+      analysisContent.classList.add('show');
+    }
+  }
+});
