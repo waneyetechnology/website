@@ -383,33 +383,27 @@ h1.display-4{color:#0a192f;text-shadow:0 2px 8px #fff,0 1px 0 #b3d1e6;}
 }
 
 /* Financial Analysis Section - Responsive Behavior */
-/* Mobile Financial Analysis Container */
-#financialAnalysisMobileContainer {
+#financialAnalysisColumn {
   display: block;
+}
+
+#financialAnalysisColumn.d-none {
+  display: none !important;
+}
+
+#financialAnalysisColumn.d-block {
+  display: block !important;
 }
 
 /* Responsive breakpoints for Financial Analysis visibility */
 @media (max-width: 991px) {
-  /* On medium screens and below, hide the desktop Financial Analysis column */
+  /* On medium screens and below, hide the Financial Analysis column by default */
   #financialAnalysisColumn {
-    display: none !important;
+    display: none;
   }
 
-  /* Show mobile Financial Analysis container */
-  #financialAnalysisMobileContainer {
-    display: block !important;
-  }
-
-  /* Mobile toggle behavior - collapsed by default */
-  #financialAnalysisContentMobile {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.35s ease;
-  }
-
-  /* When expanded, show with max-height for smooth animation */
-  #financialAnalysisContentMobile.show {
-    max-height: 9999px;
+  #financialAnalysisColumn.show {
+    display: block;
   }
 
   /* Ensure headlines section takes full width on smaller screens */
@@ -422,28 +416,13 @@ h1.display-4{color:#0a192f;text-shadow:0 2px 8px #fff,0 1px 0 #b3d1e6;}
 @media (min-width: 992px) {
   /* On large screens, always show Financial Analysis */
   #financialAnalysisColumn {
-    display: flex !important;
-  }
-
-  /* Hide mobile Financial Analysis container on desktop */
-  #financialAnalysisMobileContainer {
-    display: none !important;
-  }
-
-  /* Desktop Financial Analysis - always visible, no collapse needed */
-  #financialAnalysisContent {
     display: block !important;
-    max-height: none !important;
   }
 }
 
 /* Improve Financial Analysis card scrolling on smaller screens */
 @media (max-width: 576px) {
   #financialAnalysisColumn .card-body {
-    max-height: 600px;
-  }
-
-  #financialAnalysisMobileContainer .card-body {
     max-height: 600px;
   }
 }

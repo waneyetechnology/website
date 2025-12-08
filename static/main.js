@@ -595,64 +595,66 @@ if (typeof calcRSI !== 'function' || typeof calcStochastic !== 'function' || typ
 
 // Financial Analysis Section - Responsive Toggle
 document.addEventListener('DOMContentLoaded', () => {
-  // Handle mobile Financial Analysis (with toggle, collapsed by default)
-  const mobileContainer = document.getElementById('financialAnalysisMobileContainer');
-  if (mobileContainer) {
-    const mobileHeader = mobileContainer.querySelector('.card-header');
-    const mobileContent = mobileContainer.querySelector('#financialAnalysisContentMobile');
-
-    if (mobileHeader && mobileContent) {
-      // Add collapse class for Bootstrap styling
-      mobileContent.classList.add('collapse');
-
-      // Make header clickable
-      mobileHeader.style.cursor = 'pointer';
-
-      // Handle header click for toggle and animation
-      mobileHeader.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        // Toggle the show class to expand/collapse
-        const isShown = mobileContent.classList.contains('show');
-
-        if (isShown) {
-          mobileContent.classList.remove('show');
-        } else {
-          mobileContent.classList.add('show');
-        }
-
-        // Add click animation
-        const icons = mobileHeader.querySelectorAll('.fas');
-        icons.forEach(icon => {
-          icon.classList.add('rotate-360');
-          icon.addEventListener('animationend', () => {
-            icon.classList.remove('rotate-360');
-          }, { once: true });
-        });
-
-        // Handle chevron rotation
-        const rightIcon = mobileHeader.querySelector('.financial-analysis-icon-right');
-        if (rightIcon) {
-          if (isShown) {
-            rightIcon.classList.remove('fa-chevron-up');
-            rightIcon.classList.add('fa-chevron-down');
-          } else {
-            rightIcon.classList.remove('fa-chevron-down');
-            rightIcon.classList.add('fa-chevron-up');
-          }
-        }
-      });
-    }
-  }
-
-  // Handle desktop Financial Analysis (always visible)
   const analysisColumn = document.getElementById('financialAnalysisColumn');
-  if (analysisColumn) {
-    const analysisContent = analysisColumn.querySelector('#financialAnalysisContent');
-    // Desktop version should always be visible and no toggle behavior
-    if (analysisContent) {
+  if (!analysisColumn) return;
+
+  const analysisHeader = analysisColumn.querySelector('.card-header');
+  const analysisContent = analysisColumn.querySelector('.card-body');
+  if (!analysisHeader || !analysisContent) return;
+
+  const setViewState = () => {
+    const isMobile = window.innerWidth < 992;
+    analysisHeader.style.cursor = isMobile ? 'pointer' : 'default';
+
+    if (isMobile) {
+      analysisHeader.setAttribute('data-bs-toggle', 'collapse');
+      analysisHeader.setAttribute('data-bs-target', '#financialAnalysisContent');
+      analysisContent.classList.add('collapse');
+    } else {
+      analysisHeader.removeAttribute('data-bs-toggle');
+      analysisHeader.removeAttribute('data-bs-target');
+      // For desktop, ensure it's shown
       analysisContent.classList.remove('collapse');
       analysisContent.classList.add('show');
     }
+  };
+
+  analysisHeader.addEventListener('click', () => {
+    if (window.innerWidth < 992) {
+      const icons = analysisHeader.querySelectorAll('.fas');
+      icons.forEach(icon => {
+        icon.classList.add('rotate-360');
+        icon.addEventListener('animationend', () => {
+          icon.classList.remove('rotate-360');
+        }, { once: true });
+      });
+    }
+  });
+
+  // Handle chevron rotation if the icon and content exist
+  if (analysisContent.id === 'financialAnalysisContent') {
+    const rightIcon = analysisHeader.querySelector('.financial-analysis-icon-right');
+    if (rightIcon) {
+      analysisContent.addEventListener('show.bs.collapse', () => {
+        rightIcon.classList.remove('fa-chevron-down');
+        rightIcon.classList.add('fa-chevron-up');
+      });
+      analysisContent.addEventListener('hide.bs.collapse', () => {
+        rightIcon.classList.remove('fa-chevron-up');
+        rightIcon.classList.add('fa-chevron-down');
+      });
+
+      // Set initial state of chevron
+      if (!analysisContent.classList.contains('show')) {
+        rightIcon.classList.remove('fa-chevron-up');
+        rightIcon.classList.add('fa-chevron-down');
+      } else {
+        rightIcon.classList.remove('fa-chevron-down');
+        rightIcon.classList.add('fa-chevron-up');
+      }
+    }
   }
+
+  setViewState();
+  window.addEventListener('resize', setViewState);
 });
