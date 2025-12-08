@@ -1,13 +1,10 @@
+/* Modern minimal CSS to complement Tailwind */
+
 * {
   box-sizing: border-box;
 }
-body {
-  background: #eaf6ff;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-}
+
+/* Canvas background */
 #bg-canvas {
   position: fixed;
   top: 0;
@@ -19,72 +16,44 @@ body {
   background: transparent !important;
   pointer-events: none;
 }
-.container, .container * {
-  position: relative;
-  z-index: 1;
-}
-.container {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-h1.display-4{color:#0a192f;text-shadow:0 2px 8px #fff,0 1px 0 #b3d1e6;}
-.list-group-item a{text-decoration:none!important;}
-.headline-bullet{display:inline-block;width:1.1em;height:1.1em;margin-right:0.5em;border-radius:50%;background:linear-gradient(135deg,#0074d9 60%,#ffdc00 100%);box-shadow:0 1px 4px #0074d955;vertical-align:middle;}
 
-/* Headline card styles */
+/* Headline grid layout */
 .headline-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
   width: 100%;
-  max-width: 100%;
-  justify-content: center;
 }
-.headline-card {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  height: 220px;
-  background-color: #f8f9fa;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  width: 320px;
-  flex-shrink: 0;
+
+@media (max-width: 640px) {
+  .headline-grid {
+    grid-template-columns: 1fr;
+  }
 }
-.headline-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .headline-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-.placeholder-content {
-  background: linear-gradient(135deg, #0074d9 0%, #7fdbff 100%);
-  position: relative;
+
+@media (min-width: 1025px) and (max-width: 1536px) {
+  .headline-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
-.placeholder-content .text-primary {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+@media (min-width: 1537px) {
+  .headline-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
+
+/* Image loading animation */
 .headline-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  max-height: 220px; /* Ensures consistent height */
-  background-color: #e9ecef;
   transition: opacity 0.3s ease, filter 0.3s ease;
-  /* Add a nice blur-up effect during loading */
   opacity: 0;
   filter: blur(10px);
-  
-  /* Add loading background animation */
   background-image: linear-gradient(90deg, #eaf6ff 0%, #f4f9fe 50%, #eaf6ff 100%);
   background-size: 200% 100%;
   animation: loading-bg 1.5s ease infinite;
@@ -93,281 +62,106 @@ h1.display-4{color:#0a192f;text-shadow:0 2px 8px #fff,0 1px 0 #b3d1e6;}
 .headline-image.loaded {
   opacity: 1;
   filter: blur(0);
-}
-/* Moved from base.html */
-.source-attribution {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 5px 8px;
-  border-bottom-right-radius: 5px;
-  display: flex;
-  align-items: center;
-  font-size: 0.75rem;
-  max-width: 90%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-}
-.source-favicon {
-  width: 16px;
-  height: 16px;
-  margin-right: 6px;
-  border-radius: 2px;
+  animation: none;
 }
 
 @keyframes loading-bg {
-  0% { background-position: 0% 0; }
-  100% { background-position: 200% 0; }
-}
-/* Special styling for AI-generated images (now 512x512) */
-.headline-card .ai-generated-image {
-  object-fit: cover; /* Changed from contain to cover for better filling */
-  background-color: #f0f5ff;
-  padding: 0; /* Removed padding since images are now higher resolution */
-}
-/* Badge for AI-generated images */
-.ai-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: rgba(0, 116, 217, 0.9);
-  color: white;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: bold;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  z-index: 2;
+  0% { 
+    background-position: 0% 0; 
+  }
+  100% { 
+    background-position: 200% 0; 
+  }
 }
 
-/* Badge for dynamic images */
-.dynamic-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: rgba(128, 128, 128, 0.9);
-  color: white;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: bold;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  z-index: 2;
-}
-
-/* Style for dynamic images */
-.headline-card .dynamic-image {
-  object-fit: cover;
-  background-color: #f8f9fa;
-  filter: grayscale(30%);
-}
-.headline-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0.75rem 1rem;
-  background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0) 100%);
-  color: white;
-  min-height: 80px; /* Ensure consistent height for captions */
-  display: flex;
-  align-items: center;
-}
-.headline-caption a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  display: block;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-  overflow: hidden;
+/* Line clamp utility for older browsers */
+.line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  line-clamp: 3;
   -webkit-box-orient: vertical;
-  font-size: 1rem;
-  line-height: 1.4;
-}
-.placeholder-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 
-/* Responsive adjustments for headline grid */
-@media (max-width: 480px) {
-  .headline-grid {
-    gap: 1rem;
-    padding: 0;
-    margin-bottom: 1rem;
+/* Smooth scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Smooth transitions for interactive elements */
+a, button, .hover-effect {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom focus styles for accessibility */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+  outline: 2px solid #0074d9;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  #bg-canvas {
+    display: none;
   }
+  
   .headline-card {
-    width: 100%;
-    height: 200px;
-    flex-shrink: 1;
-  }
-  .card-body {
-    padding: 0.75rem !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
-  .headline-grid {
-    gap: 1rem;
-    padding: 0.25rem;
+/* Loading skeleton animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
   }
-  .headline-card {
-    width: 280px;
-    height: 210px;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .headline-grid {
-    gap: 1.25rem;
-    padding: 0.5rem;
-  }
-  .headline-card {
-    width: 300px;
-    height: 220px;
+  50% {
+    opacity: 0.5;
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1400px) {
-  .headline-grid {
-    gap: 1.5rem;
-  }
-  .headline-card {
-    width: 320px;
-    height: 230px;
-  }
+.loading-skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-@media (min-width: 1400px) {
-  .headline-grid {
-    gap: 1.5rem;
-  }
-  .headline-card {
-    width: 340px;
-    height: 240px;
+/* Smooth page transitions */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-.card-body.px-3.py-4 {
-  padding: 1.25rem !important; /* Ensures consistent padding even if Bootstrap changes */
-}
-
-/* Prevent image distortion */
-.headline-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  max-height: 220px; /* Ensures consistent height */
-}
-
-/* Fix for image container to maintain aspect ratio */
-
-/* Card hover effect improvements */
-.headline-card:hover .headline-image.loaded {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
-}
-
-.headline-card:hover .headline-caption {
-  background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.75) 70%, rgba(0,0,0,0) 100%);
-}
-
-/* Financial Analysis Styles */
+/* Legacy styles for compatibility */
 .financial-analysis-content {
-  line-height: 1.6;
-  font-size: 0.95rem;
+  line-height: 1.5;
+  word-wrap: break-word;
 }
 
-.financial-analysis-content h3 {
-  color: #198754;
-  border-bottom: 2px solid #198754;
-  padding-bottom: 0.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-  font-weight: 600;
+/* Live update indicator animation */
+@keyframes subtle-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(34, 197, 94, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.4), 0 0 25px rgba(34, 197, 94, 0.1);
+  }
 }
 
-.financial-analysis-content h3:first-child {
-  margin-top: 0;
-}
-
-.financial-analysis-content h4 {
-  color: #0d6efd;
-  margin-top: 1.2rem;
-  margin-bottom: 0.8rem;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.financial-analysis-content table {
-  font-size: 0.85rem;
-  margin: 1rem 0;
-}
-
-.financial-analysis-content table th {
-  background-color: #f8f9fa;
-  color: #495057;
-  border: 1px solid #dee2e6;
-  padding: 0.5rem;
-  font-weight: 600;
-}
-
-.financial-analysis-content table td {
-  border: 1px solid #dee2e6;
-  padding: 0.5rem;
-  vertical-align: top;
-}
-
-.financial-analysis-content ul {
-  padding-left: 1.5rem;
-}
-
-.financial-analysis-content li {
-  margin-bottom: 0.5rem;
-}
-
-.financial-analysis-content p {
-  margin-bottom: 1rem;
-}
-
-.financial-analysis-content strong {
-  color: #212529;
-  font-weight: 600;
-}
-
-.financial-analysis-content em {
-  color: #6c757d;
-  font-style: italic;
-}
-
-/* Collapse button animation */
-[data-bs-toggle="collapse"] i {
-  transition: transform 0.3s ease;
-}
-
-[data-bs-toggle="collapse"][aria-expanded="true"] i {
-  transform: rotate(180deg);
-}
-
-/* Analysis section highlight colors */
-.financial-analysis-content .table-success {
-  background-color: #d1e7dd;
-}
-
-.financial-analysis-content .table-warning {
-  background-color: #fff3cd;
-}
-
-.financial-analysis-content .table-danger {
-  background-color: #f8d7da;
+#last-updated {
+  animation: subtle-glow 3s ease-in-out infinite;
 }

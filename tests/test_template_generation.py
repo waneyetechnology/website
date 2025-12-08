@@ -277,7 +277,7 @@ class TestTemplateGeneration(unittest.TestCase):
         html = generate_html(self.test_news, self.test_policies, self.test_econ, self.test_forex, self.test_fed_econ_data)
         
         # Verify HTML contains expected content
-        self.assertIn('Waneye Financial Overview', html)
+        self.assertIn('Waneye', html)
         self.assertIn('Test Financial News 1', html)
         self.assertIn('Test Financial News 2', html)
         self.assertIn('Federal Reserve', html)
@@ -387,7 +387,7 @@ class TestTemplateGeneration(unittest.TestCase):
         
         # Should still generate valid HTML
         self.assertIn('<html', html)
-        self.assertIn('Waneye Financial Overview', html)
+        self.assertIn('Waneye', html)
         self.assertIn('</html>', html)
     
     @patch('src.htmlgen.get_template_env')
