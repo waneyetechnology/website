@@ -111,7 +111,7 @@
             <p class='text-xl md:text-2xl lg:text-3xl font-light text-gray-600 mb-3'>
                 <span class='text-gray-400'>—</span> global vision for smarter finance
             </p>
-            <div class='inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-full border border-green-200'>
+            <div class='inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-full border border-green-200 mb-4'>
                 <span class='relative flex h-2 w-2'>
                     <span class='animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75'></span>
                     <span class='relative inline-flex rounded-full h-2 w-2 bg-green-500'></span>
@@ -119,6 +119,24 @@
                 <p class='text-gray-600 text-sm font-medium' id='last-updated'>
                     <span class='text-green-600 font-semibold'>Live:</span> <em>Last updated: {{ last_updated }}</em>
                 </p>
+            </div>
+            
+            <!-- Quick Navigation - Mobile Optimized -->
+            <div class='lg:hidden mt-6 mb-4'>
+                <div class='flex flex-wrap justify-center gap-2 px-4'>
+                    <a href='#headlines' class='flex items-center gap-1 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors shadow-md'>
+                        <i class='fas fa-newspaper'></i>
+                        <span>Headlines</span>
+                    </a>
+                    <a href='#financial-analysis' class='flex items-center gap-1 px-4 py-2 bg-purple-600 text-white rounded-lg text-sm font-semibold hover:bg-purple-700 transition-colors shadow-md animate-pulse'>
+                        <i class='fas fa-robot'></i>
+                        <span>Analysis</span>
+                    </a>
+                    <a href='#market-data' class='flex items-center gap-1 px-4 py-2 bg-green-600 text-white rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors shadow-md'>
+                        <i class='fas fa-chart-line'></i>
+                        <span>Markets</span>
+                    </a>
+                </div>
             </div>
         </div>
         
