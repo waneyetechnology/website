@@ -10,13 +10,13 @@ import os
 
 def generate_meta_tags(news_data, econ_data):
     """Generate comprehensive meta tags for SEO"""
-    
+
     # Extract keywords from headlines
     keywords = extract_keywords_from_news(news_data)
-    
+
     # Generate description based on current financial data
     description = generate_dynamic_description(news_data, econ_data)
-    
+
     meta_tags = {
         'description': description,
         'keywords': ', '.join(keywords),
@@ -27,7 +27,7 @@ def generate_meta_tags(news_data, econ_data):
         'distribution': 'global',
         'rating': 'general',
         'revisit-after': '1 day',
-        
+
         # Open Graph tags for social media
         'og:title': 'Waneye - Real-Time Financial News & Market Analysis',
         'og:description': description,
@@ -38,7 +38,7 @@ def generate_meta_tags(news_data, econ_data):
         'og:image:width': '1200',
         'og:image:height': '630',
         'og:locale': 'en_US',
-        
+
         # Twitter Card tags
         'twitter:card': 'summary_large_image',
         'twitter:site': '@WaneyeTech',
@@ -46,13 +46,13 @@ def generate_meta_tags(news_data, econ_data):
         'twitter:title': 'Waneye - Financial News & Market Data',
         'twitter:description': description,
         'twitter:image': 'https://waneye.com/static/images/waneye-twitter-card.jpg',
-        
+
         # Additional SEO tags
         'theme-color': '#eaf6ff',
         'msapplication-TileColor': '#eaf6ff',
         'msapplication-config': '/browserconfig.xml'
     }
-    
+
     return meta_tags
 
 def extract_keywords_from_news(news_data):
@@ -63,7 +63,7 @@ def extract_keywords_from_news(news_data):
         'central bank', 'interest rates', 'inflation', 'GDP', 'market analysis',
         'real-time data', 'financial dashboard', 'market trends', 'economic data'
     ]
-    
+
     # Extract keywords from headlines
     extracted_keywords = set()
     common_financial_terms = [
@@ -71,13 +71,13 @@ def extract_keywords_from_news(news_data):
         'gold', 'oil', 'bitcoin', 'crypto', 'fed', 'bank', 'rate', 'trade',
         'investment', 'growth', 'inflation', 'recession', 'bull', 'bear'
     ]
-    
+
     for headline in news_data[:20]:  # Check first 20 headlines
         headline_text = headline.get('headline', '').lower()
         for term in common_financial_terms:
             if term in headline_text:
                 extracted_keywords.add(term)
-    
+
     # Combine base keywords with extracted ones
     all_keywords = financial_keywords + list(extracted_keywords)
     return all_keywords[:30]  # Limit to 30 keywords
@@ -85,7 +85,7 @@ def extract_keywords_from_news(news_data):
 def generate_dynamic_description(news_data, econ_data):
     """Generate dynamic meta description based on current data"""
     base_description = "Waneye provides real-time financial news, market analysis, and economic indicators. "
-    
+
     # Add current market focus
     if news_data:
         # Get top categories from headlines
@@ -100,23 +100,23 @@ def generate_dynamic_description(news_data, econ_data):
                 market_focus.append('monetary policy')
             elif any(term in text for term in ['crypto', 'bitcoin', 'ethereum']):
                 market_focus.append('cryptocurrency')
-        
+
         if market_focus:
             unique_focus = list(set(market_focus[:3]))  # Get unique focuses, max 3
             focus_text = f"Track {', '.join(unique_focus)} updates, "
             base_description += focus_text
-    
+
     base_description += "central bank policies, forex rates, and comprehensive economic data dashboard."
-    
+
     # Ensure description is within recommended length (150-160 characters)
     if len(base_description) > 160:
         base_description = base_description[:157] + "..."
-    
+
     return base_description
 
 def generate_structured_data(news_data, last_updated):
     """Generate JSON-LD structured data for better SEO"""
-    
+
     # Main organization schema
     organization_schema = {
         "@context": "https://schema.org",
@@ -137,12 +137,12 @@ def generate_structured_data(news_data, last_updated):
             "availableLanguage": "English"
         }
     }
-    
+
     # Website schema
     website_schema = {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Waneye Financial Overview",
+        "name": "Waneye — global vision for smarter finance",
         "alternateName": "Waneye",
         "url": "https://waneye.com",
         "description": "Real-time financial news, market data, and economic indicators",
@@ -156,7 +156,7 @@ def generate_structured_data(news_data, last_updated):
             "query-input": "required name=search_term_string"
         }
     }
-    
+
     # News articles schema
     news_articles = []
     for i, article in enumerate(news_data[:10]):  # Top 10 articles
@@ -180,7 +180,7 @@ def generate_structured_data(news_data, last_updated):
                     "@id": article['url']
                 }
             }
-            
+
             # Add image if available
             if article.get('image'):
                 article_schema["image"] = {
@@ -189,14 +189,14 @@ def generate_structured_data(news_data, last_updated):
                     "width": 512,
                     "height": 512
                 }
-            
+
             news_articles.append(article_schema)
-    
+
     # Financial data dashboard schema
     dashboard_schema = {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Waneye Financial Overview",
+        "name": "Waneye — global vision for smarter finance",
         "url": "https://waneye.com",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -207,7 +207,7 @@ def generate_structured_data(news_data, last_updated):
             "priceCurrency": "USD"
         }
     }
-    
+
     return {
         'organization': organization_schema,
         'website': website_schema,
@@ -217,19 +217,19 @@ def generate_structured_data(news_data, last_updated):
 
 def generate_sitemap(base_url="https://waneye.com"):
     """Generate XML sitemap"""
-    
+
     # Create root element
     urlset = ET.Element('urlset')
     urlset.set('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
     urlset.set('xmlns:news', 'http://www.google.com/schemas/sitemap-news/0.9')
-    
+
     # Main page
     url_main = ET.SubElement(urlset, 'url')
     ET.SubElement(url_main, 'loc').text = base_url
     ET.SubElement(url_main, 'lastmod').text = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S+00:00')
     ET.SubElement(url_main, 'changefreq').text = 'hourly'
     ET.SubElement(url_main, 'priority').text = '1.0'
-    
+
     # Convert to string with pretty formatting
     rough_string = ET.tostring(urlset, 'utf-8')
     reparsed = minidom.parseString(rough_string)
@@ -269,17 +269,17 @@ def save_seo_files(structured_data):
         with open('sitemap.xml', 'w', encoding='utf-8') as f:
             f.write(sitemap_xml)
         logger.info("Generated sitemap.xml")
-        
+
         # Save robots.txt
         robots_txt = generate_robots_txt()
         with open('robots.txt', 'w', encoding='utf-8') as f:
             f.write(robots_txt)
         logger.info("Generated robots.txt")
-        
+
         # Save structured data as JSON file for reference
         with open('structured-data.json', 'w', encoding='utf-8') as f:
             json.dump(structured_data, f, indent=2, ensure_ascii=False)
         logger.info("Generated structured-data.json")
-        
+
     except Exception as e:
         logger.error(f"Error saving SEO files: {e}")
