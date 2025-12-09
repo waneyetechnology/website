@@ -124,7 +124,7 @@ def generate_structured_data(news_data, last_updated):
         "name": "Waneye Technology",
         "alternateName": "Waneye",
         "url": "https://waneye.com",
-        "logo": "https://waneye.com/favicon.svg",
+        "logo": "https://waneye.com/static/icons/favicon-256x256.svg",
         "description": "Real-time financial news aggregation and market analysis platform",
         "foundingDate": "2024",
         "sameAs": [
@@ -172,7 +172,7 @@ def generate_structured_data(news_data, last_updated):
                     "name": "Waneye Technology",
                     "logo": {
                         "@type": "ImageObject",
-                        "url": "https://waneye.com/favicon.svg"
+                        "url": "https://waneye.com/static/icons/favicon-256x256.svg"
                     }
                 },
                 "mainEntityOfPage": {

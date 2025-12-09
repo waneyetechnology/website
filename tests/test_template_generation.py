@@ -102,7 +102,7 @@ class TestTemplateGeneration(unittest.TestCase):
     <title>{{ title }}</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta name='last-modified' content='{{ last_updated }}'>
-    <link rel='icon' type='image/svg+xml' href='favicon.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' href='static/icons/favicon-256x256.svg?v={{ cache_buster }}'>
     <link rel='stylesheet' href='static/style.css?v={{ cache_buster }}'>
 </head>
 <body>
