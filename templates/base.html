@@ -50,7 +50,14 @@
     <!-- Indicate to browsers that we'll be lazy-loading images -->
     <meta name='theme-color' content='{{ meta_tags["theme-color"] }}'>
     <meta name='msapplication-TileColor' content='{{ meta_tags["msapplication-TileColor"] }}'>
-    <link rel='icon' type='image/svg+xml' href='favicon.svg?v={{ cache_buster }}'>
+    <!-- Favicons for different sizes and contexts -->
+    <link rel='icon' type='image/x-icon' href='static/icons/favicon.ico?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='16x16' href='static/icons/favicon-16x16.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='32x32' href='static/icons/favicon-32x32.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='64x64' href='static/icons/favicon-64x64.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='128x128' href='static/icons/favicon-128x128.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='256x256' href='static/icons/favicon-256x256.svg?v={{ cache_buster }}'>
+    <link rel='apple-touch-icon' sizes='180x180' href='static/icons/favicon-256x256.svg?v={{ cache_buster }}'>
     <link rel='canonical' href='https://waneye.com/'>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
