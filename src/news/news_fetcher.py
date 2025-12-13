@@ -1687,8 +1687,8 @@ def cleanup_old_images(current_headlines):
             # Extract the headline ID from filename (without extension)
             file_id = image_file.stem
 
-            # Skip dynamic images (they're regenerated anyway) and special files
-            if dir_type == 'dynamic' or file_id in ['fallback_error', 'default']:
+            # Skip special fallback files
+            if file_id in ['fallback_error', 'default']:
                 continue
 
             # If this image is not associated with a current headline, delete it
