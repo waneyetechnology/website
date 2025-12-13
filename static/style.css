@@ -165,3 +165,46 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 #last-updated {
   animation: subtle-glow 3s ease-in-out infinite;
 }
+
+/* Mobile Tab Navigation - Tab switching layout */
+@media (max-width: 1023px) {
+  /* Content wrapper - maintains consistent spacing */
+  #content-wrapper {
+    display: block;
+    min-height: 600px;
+  }
+
+  /* Ensure sections are properly hidden/shown */
+  #headlines[class*="hidden"],
+  #financial-analysis[class*="hidden"],
+  #market-data[class*="hidden"] {
+    display: none !important;
+  }
+
+  #headlines,
+  #financial-analysis,
+  #market-data {
+    display: block !important;
+  }
+
+  /* Smooth transitions between tabs */
+  #headlines,
+  #financial-analysis,
+  #market-data {
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Ensure market-data appears at same location as headlines/analysis on mobile */
+  #market-data {
+    margin-top: 0 !important;
+  }
+}
+
+/* Desktop layout - show all three sections in grid */
+@media (min-width: 1024px) {
+  #headlines,
+  #financial-analysis,
+  #market-data {
+    display: block !important;
+  }
+}

@@ -592,3 +592,4 @@ if (typeof calcRSI !== 'function' || typeof calcStochastic !== 'function' || typ
 
 // Headline images are now loaded statically at build time
 // No JavaScript needed for headline images
+
