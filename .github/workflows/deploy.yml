@@ -14,6 +14,35 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+
+      - name: Fetch existing images from gh-pages
+        run: |
+          # Create a temporary directory for gh-pages content
+          mkdir -p /tmp/gh-pages
+
+          # Check if gh-pages branch exists
+          if git ls-remote --heads origin gh-pages | grep -q gh-pages; then
+            echo "Fetching existing images from gh-pages branch..."
+
+            # Fetch gh-pages branch
+            git fetch origin gh-pages:gh-pages || echo "Failed to fetch gh-pages branch"
+
+            # Extract static/images/ from gh-pages if it exists
+            git archive --remote=origin gh-pages static/images/ 2>/dev/null | tar -x -C /tmp/gh-pages || echo "No images directory in gh-pages yet"
+
+            # Copy images to current working directory
+            if [ -d "/tmp/gh-pages/static/images" ]; then
+              mkdir -p static/images
+              cp -r /tmp/gh-pages/static/images/* static/images/ || true
+              echo "Successfully restored existing images"
+              ls -la static/images/
+            else
+              echo "No existing images to restore"
+            fi
+          else
+            echo "gh-pages branch doesn't exist yet, starting fresh"
+          fi
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
