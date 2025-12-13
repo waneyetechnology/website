@@ -165,3 +165,94 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 #last-updated {
   animation: subtle-glow 3s ease-in-out infinite;
 }
+
+/* Mobile Tab Navigation - Tab switching layout */
+@media (max-width: 1023px) {
+  /* Content wrapper - maintains consistent spacing */
+  #content-wrapper {
+    display: block;
+    position: relative;
+  }
+
+  /* Main grid for headlines and analysis - remove bottom margin when markets tab is active */
+  #content-wrapper > .grid:first-of-type {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* When markets tab is active, remove the margin from the first grid to prevent double spacing */
+  #content-wrapper > .grid:first-of-type:has(#headlines.hidden):has(#financial-analysis.hidden) {
+    margin-bottom: 0 !important;
+  }
+
+  /* Headline section - positioned at top on mobile */
+  #headlines {
+    display: block !important;
+    position: relative;
+    width: 100%;
+  }
+
+  /* Analysis section - positioned at top on mobile */
+  #financial-analysis {
+    display: block !important;
+    position: relative;
+    width: 100%;
+  }
+
+  /* Market data grid - same spacing and layout as headlines/analysis */
+  #market-data {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  /* Hide sections when not active */
+  #headlines.hidden,
+  #financial-analysis.hidden,
+  #market-data.hidden {
+    display: none !important;
+  }
+
+  /* Smooth transitions between tabs */
+  #headlines,
+  #financial-analysis,
+  #market-data {
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Ensure market-data appears at same location as headlines/analysis on mobile */
+  /* Remove margin/padding to align with other sections */
+  #market-data {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
+  /* Alternative approach: make the parent grid behave consistently */
+  #content-wrapper > .grid {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Desktop layout - show all three sections in grid */
+@media (min-width: 1024px) {
+  #headlines,
+  #financial-analysis,
+  #market-data {
+    display: block !important;
+  }
+
+  /* On desktop, market data displays in 3-column grid below headlines/analysis */
+  #market-data {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
