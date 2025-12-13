@@ -435,15 +435,15 @@
     <div class='relative'>
         <!-- Menu Items -->
         <div x-show='showMenu' x-transition:enter='transition ease-out duration-200' x-transition:enter-start='opacity-0 scale-95' x-transition:enter-end='opacity-100 scale-100' x-transition:leave='transition ease-in duration-150' x-transition:leave-start='opacity-100 scale-100' x-transition:leave-end='opacity-0 scale-95' class='absolute bottom-16 right-0 flex flex-col gap-2 mb-2'>
-            <button @click='activeTab = "headlines"; showMenu = false' class='flex items-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors shadow-lg whitespace-nowrap'>
+            <button @click='activeTab = "headlines"; showMenu = false; window.scrollTo({ top: 0, behavior: "smooth" })' class='flex items-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors shadow-lg whitespace-nowrap'>
                 <i class='fas fa-newspaper'></i>
                 <span>Headlines</span>
             </button>
-            <button @click='activeTab = "analysis"; showMenu = false' class='flex items-center gap-2 px-4 py-3 bg-purple-600 text-white rounded-lg text-sm font-semibold hover:bg-purple-700 transition-colors shadow-lg whitespace-nowrap'>
+            <button @click='activeTab = "analysis"; showMenu = false; window.scrollTo({ top: 0, behavior: "smooth" })' class='flex items-center gap-2 px-4 py-3 bg-purple-600 text-white rounded-lg text-sm font-semibold hover:bg-purple-700 transition-colors shadow-lg whitespace-nowrap'>
                 <i class='fas fa-robot'></i>
                 <span>Analysis</span>
             </button>
-            <button @click='activeTab = "markets"; showMenu = false' class='flex items-center gap-2 px-4 py-3 bg-green-600 text-white rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors shadow-lg whitespace-nowrap'>
+            <button @click='activeTab = "markets"; showMenu = false; window.scrollTo({ top: 0, behavior: "smooth" })' class='flex items-center gap-2 px-4 py-3 bg-green-600 text-white rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors shadow-lg whitespace-nowrap'>
                 <i class='fas fa-chart-line'></i>
                 <span>Markets</span>
             </button>
