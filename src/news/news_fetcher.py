@@ -1648,6 +1648,65 @@ def is_headline_too_old(headline, max_days=3):
 
     return timestamp < cutoff_time
 
+def cleanup_old_images(current_headlines):
+    """
+    Clean up images that are not associated with current headlines.
+    Keeps only images for headlines in the current fetch list.
+
+    Args:
+        current_headlines: List of current headline dictionaries with 'url' keys
+    """
+    logger.info("Starting cleanup of old images...")
+
+    # Get current headline IDs
+    current_ids = set()
+    for headline in current_headlines:
+        headline_id = hashlib.md5(headline['url'].encode()).hexdigest()
+        current_ids.add(headline_id)
+
+    logger.info(f"Current headlines count: {len(current_ids)}")
+
+    # Directories to clean
+    image_dirs = {
+        'headlines': ensure_image_dir(),
+        'ai-generated': ensure_ai_image_dir(),
+        'dynamic': ensure_dynamic_image_dir()
+    }
+
+    total_deleted = 0
+
+    for dir_type, dir_path in image_dirs.items():
+        if not dir_path.exists():
+            continue
+
+        # Get all image files in the directory
+        image_files = list(dir_path.glob('*.jpg')) + list(dir_path.glob('*.png')) + list(dir_path.glob('*.webp'))
+
+        deleted_count = 0
+        for image_file in image_files:
+            # Extract the headline ID from filename (without extension)
+            file_id = image_file.stem
+
+            # Skip dynamic images (they're regenerated anyway) and special files
+            if dir_type == 'dynamic' or file_id in ['fallback_error', 'default']:
+                continue
+
+            # If this image is not associated with a current headline, delete it
+            if file_id not in current_ids:
+                try:
+                    image_file.unlink()
+                    deleted_count += 1
+                    logger.debug(f"Deleted old image: {image_file}")
+                except Exception as e:
+                    logger.warning(f"Failed to delete {image_file}: {e}")
+
+        if deleted_count > 0:
+            logger.info(f"Deleted {deleted_count} old images from {dir_type}/")
+        total_deleted += deleted_count
+
+    logger.info(f"Cleanup complete. Total images deleted: {total_deleted}")
+    return total_deleted
+
 def fetch_financial_headlines(test_mode=False):
     """
     Fetches financial headlines from multiple sources/APIs, applies a random weight to each source,
