@@ -17,27 +17,32 @@ jobs:
 
       - name: Fetch existing images from gh-pages
         run: |
-          # Create a temporary directory for gh-pages content
-          mkdir -p /tmp/gh-pages
-
           # Check if gh-pages branch exists
           if git ls-remote --heads origin gh-pages | grep -q gh-pages; then
             echo "Fetching existing images from gh-pages branch..."
 
             # Fetch gh-pages branch
-            git fetch origin gh-pages:gh-pages || echo "Failed to fetch gh-pages branch"
+            git fetch origin gh-pages:gh-pages
 
-            # Extract static/images/ from gh-pages if it exists
-            git archive --remote=origin gh-pages static/images/ 2>/dev/null | tar -x -C /tmp/gh-pages || echo "No images directory in gh-pages yet"
+            # Check out the static/images directory from gh-pages branch
+            if git show gh-pages:static/images/ > /dev/null 2>&1; then
+              echo "Extracting images from gh-pages..."
 
-            # Copy images to current working directory
-            if [ -d "/tmp/gh-pages/static/images" ]; then
+              # Create the static/images directory structure
               mkdir -p static/images
-              cp -r /tmp/gh-pages/static/images/* static/images/ || true
-              echo "Successfully restored existing images"
-              ls -la static/images/
+
+              # Extract the entire static/images directory from gh-pages
+              git checkout gh-pages -- static/images/ 2>/dev/null || true
+
+              # Count restored images
+              if [ -d "static/images" ]; then
+                image_count=$(find static/images -type f -name "*.jpg" -o -name "*.png" -o -name "*.webp" | wc -l)
+                echo "Successfully restored $image_count existing images"
+                echo "Directory structure:"
+                ls -la static/images/ || true
+              fi
             else
-              echo "No existing images to restore"
+              echo "No images directory in gh-pages yet"
             fi
           else
             echo "gh-pages branch doesn't exist yet, starting fresh"
