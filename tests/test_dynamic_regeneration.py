@@ -17,8 +17,9 @@ def test_dynamic_regeneration():
     """Test that dynamic images are regenerated with different content"""
     print("Testing dynamic image regeneration...")
     
-    # Create first dynamic image
-    first_image_path = create_dynamic_image()
+    # Create first dynamic image with test headline_id
+    test_id_1 = hashlib.md5(b"test_headline_1").hexdigest()
+    first_image_path = create_dynamic_image(test_id_1)
     if first_image_path:
         first_full_path = Path(first_image_path)
         if first_full_path.exists():
@@ -33,8 +34,9 @@ def test_dynamic_regeneration():
         print("ERROR: create_dynamic_image() returned None!")
         return False
     
-    # Create second dynamic image
-    second_image_path = create_dynamic_image()
+    # Create second dynamic image with different headline_id
+    test_id_2 = hashlib.md5(b"test_headline_2").hexdigest()
+    second_image_path = create_dynamic_image(test_id_2)
     if second_image_path:
         second_full_path = Path(second_image_path)
         if second_full_path.exists():

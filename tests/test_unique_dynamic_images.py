@@ -22,7 +22,8 @@ def test_unique_dynamic_images():
     
     images_created = []
     for i in range(3):
-        image_path = create_dynamic_image()
+        test_id = hashlib.md5(f"test_headline_{i}".encode()).hexdigest()
+        image_path = create_dynamic_image(test_id)
         if image_path:
             images_created.append(image_path)
             print(f"   Created: {image_path}")
