@@ -386,17 +386,16 @@ def ensure_dynamic_image_dir():
     dynamic_img_dir.mkdir(parents=True, exist_ok=True)
     return dynamic_img_dir
 
-def create_dynamic_image():
-    """Create a unique dynamic image with timestamp - regenerated every time for fresh appearance"""
-    import time
-    import uuid
+def create_dynamic_image(headline_id):
+    """Create a unique dynamic image named with the headline hash ID
 
+    Args:
+        headline_id: The MD5 hash of the headline URL to use as filename
+    """
     dynamic_img_dir = ensure_dynamic_image_dir()
 
-    # Generate unique filename with timestamp and UUID
-    timestamp = int(time.time())
-    unique_id = str(uuid.uuid4())[:8]  # Use first 8 characters of UUID
-    filename = f"dynamic_{timestamp}_{unique_id}.jpg"
+    # Use headline_id as filename for consistent naming
+    filename = f"{headline_id}.jpg"
     dynamic_img_path = dynamic_img_dir / filename
 
     # Always regenerate the dynamic image for fresh, randomized appearance
@@ -600,8 +599,10 @@ def get_random_ai_image():
         return relative_path + "#ai-generated"
     else:
         logger.warning("No AI-generated images available for fallback")
-        # Generate a unique dynamic image
-        dynamic_image_path = create_dynamic_image()
+        # Note: This function is called without headline_id, so we'll use a fallback name
+        import uuid
+        fallback_id = str(uuid.uuid4()).replace('-', '')[:32]  # Generate a random ID
+        dynamic_image_path = create_dynamic_image(fallback_id)
         if dynamic_image_path:
             return dynamic_image_path + "#dynamic"
         else:
@@ -616,11 +617,14 @@ def fetch_image_with_browser_automation(url, headline_id):
     # Ensure directories exist
     img_dir = ensure_image_dir()
     ai_img_dir = ensure_ai_image_dir()
+    dynamic_img_dir = ensure_dynamic_image_dir()
 
     image_path = f"static/images/headlines/{headline_id}.jpg"
     full_path = img_dir / f"{headline_id}.jpg"
     ai_image_path = f"static/images/ai-generated/{headline_id}.jpg"
     ai_full_path = ai_img_dir / f"{headline_id}.jpg"
+    dynamic_image_path = f"static/images/dynamic/{headline_id}.jpg"
+    dynamic_full_path = dynamic_img_dir / f"{headline_id}.jpg"
 
     # Don't refetch if we already have a regular web image
     if os.path.exists(full_path):
@@ -631,6 +635,11 @@ def fetch_image_with_browser_automation(url, headline_id):
     if os.path.exists(ai_full_path):
         logger.info(f"Using existing AI-generated image for {headline_id}")
         return ai_image_path + "#ai-generated"
+
+    # Check if we already have a dynamic image
+    if os.path.exists(dynamic_full_path):
+        logger.info(f"Using existing dynamic image for {headline_id}")
+        return dynamic_image_path + "#dynamic"
 
     # Check for domains known to have HTTP/2 or other protocol issues
     try:
@@ -1063,11 +1072,27 @@ def fetch_and_save_image_traditional(url, headline_id):
     # Ensure directories exist
     img_dir = ensure_image_dir()
     ai_img_dir = ensure_ai_image_dir()
+    dynamic_img_dir = ensure_dynamic_image_dir()
 
     image_path = f"static/images/headlines/{headline_id}.jpg"
     full_path = img_dir / f"{headline_id}.jpg"
     ai_image_path = f"static/images/ai-generated/{headline_id}.jpg"
     ai_full_path = ai_img_dir / f"{headline_id}.jpg"
+    dynamic_image_path = f"static/images/dynamic/{headline_id}.jpg"
+    dynamic_full_path = dynamic_img_dir / f"{headline_id}.jpg"
+
+    # Check if we already have any type of image for this headline
+    if os.path.exists(full_path):
+        logger.info(f"Using existing web image for {headline_id}")
+        return image_path
+
+    if os.path.exists(ai_full_path):
+        logger.info(f"Using existing AI-generated image for {headline_id}")
+        return ai_image_path + "#ai-generated"
+
+    if os.path.exists(dynamic_full_path):
+        logger.info(f"Using existing dynamic image for {headline_id}")
+        return dynamic_image_path + "#dynamic"
 
     # Try to fetch the page and extract an image
     try:
@@ -1612,9 +1637,24 @@ def generate_ai_image(headline_id):
         logger.info(f"Using existing AI-generated image for {headline_id}")
         return image_path + "#ai-generated"
 
-    # If no AI image exists, use a random AI image or generate a dynamic fallback
-    fallback_result = get_random_ai_image()
-    return fallback_result
+    # Check if we have any AI images to use randomly
+    ai_images = [f for f in os.listdir(ai_img_dir) if f.endswith(('.jpg', '.jpeg', '.png'))]
+
+    if ai_images:
+        # Use a random AI-generated image
+        random_image = random.choice(ai_images)
+        relative_path = f"static/images/ai-generated/{random_image}"
+        logger.info(f"Using random AI-generated image: {relative_path}")
+        return relative_path + "#ai-generated"
+    else:
+        # No AI images available, create a dynamic image with the headline_id
+        logger.info(f"No AI images available, creating dynamic image for {headline_id}")
+        dynamic_image_path = create_dynamic_image(headline_id)
+        if dynamic_image_path:
+            return dynamic_image_path + "#dynamic"
+        else:
+            # Ultimate fallback
+            return "static/images/dynamic/fallback_error.jpg"
 
 def get_publish_timestamp(headline):
     """Extract and parse publishedAt timestamp for sorting"""
