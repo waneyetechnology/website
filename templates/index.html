@@ -1,0 +1,460 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Main Content Container - Tabs wrapper for mobile -->
+<div id='content-wrapper'>
+    <div class='grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6'>
+        <!-- Headlines Section - Tab 1 -->
+        <div class='lg:col-span-2' :class="{ 'hidden lg:block': activeTab !== 'headlines' }" id='headlines'>
+            <div class='bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden transition-all hover:shadow-2xl'>
+                <div class='bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4'>
+                    <h2 class='text-xl font-bold text-white'>Top Financial Headlines</h2>
+                </div>
+            
+            <!-- News Headlines Section -->
+            <div class='p-6'>
+                <div class='headline-grid'>
+                    {% for item in news %}
+                        {% set item_index = loop.index0 %}
+                        {% include 'headline_card.html' %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <!-- Financial Analysis Section - Tab 2 -->
+        <div class='lg:col-span-1' :class="{ 'hidden lg:block': activeTab !== 'analysis' }" id='financial-analysis'>
+            <div class='bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden h-full transition-all hover:shadow-2xl'>
+            <div class='bg-gradient-to-r from-purple-600 to-purple-700 px-6 py-4'>
+                <h2 class='text-xl font-bold text-white'><i class='fas fa-robot mr-2'></i>Financial Analysis</h2>
+            </div>
+            
+            <div class='p-6'>
+                {% if financial_analysis %}
+                    <div class='financial-analysis-content'>
+                        {% if financial_analysis is string %}
+                            <div class='bg-blue-50 border border-blue-200 rounded-lg p-4'>
+                                <pre class='text-sm text-gray-700 whitespace-pre-wrap font-sans'>{{ financial_analysis }}</pre>
+                            </div>
+                        {% else %}
+                            <!-- Professional Financial Analysis Report -->
+                            <div class='analysis-report space-y-6'>
+                                    <!-- Report Header -->
+                                    <div class='report-header bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-4 border-l-4 border-blue-600'>
+                                        <div class='flex justify-between items-center'>
+                                            <div>
+                                                <h3 class='text-xl font-bold text-blue-700'>Financial Analysis Report</h3>
+                                            </div>
+                                            {% if financial_analysis.executive_summary and financial_analysis.executive_summary.market_sentiment_score %}
+                                                <div class='text-center'>
+                                                    <div class='text-3xl font-bold {% if financial_analysis.executive_summary.market_sentiment_score >= 70 %}text-green-600{% elif financial_analysis.executive_summary.market_sentiment_score >= 40 %}text-yellow-600{% else %}text-red-600{% endif %}'>
+                                                        {{ financial_analysis.executive_summary.market_sentiment_score }}
+                                                    </div>
+                                                    <p class='text-xs text-gray-500'>Market Score</p>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+
+                                    <!-- Executive Summary -->
+                                    {% if financial_analysis.executive_summary %}
+                                        <section>
+                                            <div class='flex items-center mb-4'>
+                                                <i class='fas fa-chart-line text-blue-600 mr-2 text-lg'></i>
+                                                <h4 class='text-lg font-bold text-blue-700'>Executive Summary</h4>
+                                            </div>
+                                            
+                                            <div class='grid grid-cols-1 md:grid-cols-3 gap-4'>
+                                                <div class='md:col-span-2'>
+                                                    {% if financial_analysis.executive_summary.key_highlights %}
+                                                        <div class='highlight-box p-4 bg-gradient-to-br from-white to-gray-50 rounded-lg border border-gray-200 shadow-sm'>
+                                                            <h5 class='text-gray-700 font-semibold mb-3'><i class='fas fa-star mr-2 text-yellow-500'></i>Key Highlights</h5>
+                                                            <ul class='space-y-2'>
+                                                                {% for highlight in financial_analysis.executive_summary.key_highlights %}
+                                                                    <li class='flex'>
+                                                                        <i class='fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0'></i>
+                                                                        <span class='text-sm text-gray-700'>{{ highlight }}</span>
+                                                                    </li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                                
+                                                <div class='md:col-span-1'>
+                                                    {% if financial_analysis.executive_summary.overall_sentiment %}
+                                                        <div class='sentiment-box p-4 bg-gradient-to-br from-white to-gray-50 rounded-lg border border-gray-200 shadow-sm text-center'>
+                                                            <h5 class='text-gray-700 font-semibold mb-3'>Market Sentiment</h5>
+                                                            <div class='mb-3'>
+                                                                <span class='inline-block px-4 py-2 rounded-full text-white font-semibold bg-{% if financial_analysis.executive_summary.overall_sentiment == "positive" %}green{% elif financial_analysis.executive_summary.overall_sentiment == "negative" %}red{% else %}yellow{% endif %}-600'>
+                                                                    {{ financial_analysis.executive_summary.overall_sentiment | title }}
+                                                                </span>
+                                                            </div>
+                                                            {% if financial_analysis.executive_summary.market_sentiment_score %}
+                                                                <div class='w-full bg-gray-200 rounded-full h-2 mb-2'>
+                                                                    <div class='h-2 rounded-full bg-{% if financial_analysis.executive_summary.market_sentiment_score >= 70 %}green{% elif financial_analysis.executive_summary.market_sentiment_score >= 40 %}yellow{% else %}red{% endif %}-600 transition-all' 
+                                                                         style='width: {{ financial_analysis.executive_summary.market_sentiment_score }}%'></div>
+                                                                </div>
+                                                                <p class='text-sm text-gray-600'>{{ financial_analysis.executive_summary.market_sentiment_score }}/100</p>
+                                                            {% endif %}
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </section>
+                                    {% endif %}
+
+                                    <!-- Market Insights -->
+                                    {% if financial_analysis.market_insights %}
+                                        <section>
+                                            <div class='flex items-center mb-4'>
+                                                <i class='fas fa-lightbulb text-yellow-500 mr-2 text-lg'></i>
+                                                <h4 class='text-lg font-bold text-blue-700'>Market Insights</h4>
+                                            </div>
+                                            
+                                            {% if financial_analysis.market_insights.sectors %}
+                                                <div class='mb-4'>
+                                                    <h5 class='text-gray-700 font-semibold mb-3'><i class='fas fa-industry mr-2 text-blue-500'></i>Sector Analysis</h5>
+                                                    <div class='grid grid-cols-1 lg:grid-cols-2 gap-3'>
+                                                        {% for sector in financial_analysis.market_insights.sectors %}
+                                                            <div class='sector-card p-4 bg-gradient-to-br from-white to-blue-50 rounded-lg border-l-4 border-cyan-500 shadow-sm hover:shadow-md transition-shadow'>
+                                                                <div class='flex justify-between items-start'>
+                                                                    <div>
+                                                                        <h6 class='font-semibold text-gray-800 mb-1'>{{ sector.sector }}</h6>
+                                                                        <p class='text-sm text-gray-600 mb-1'>{{ sector.trend }}</p>
+                                                                        {% if sector.implications %}
+                                                                            <p class='text-sm text-cyan-600'><i class='fas fa-arrow-right mr-1'></i>{{ sector.implications }}</p>
+                                                                        {% endif %}
+                                                                    </div>
+                                                                    <i class='fas fa-chart-area text-cyan-500 text-xl'></i>
+                                                                </div>
+                                                            </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            
+                                            {% if financial_analysis.market_insights.key_themes %}
+                                                <div class='themes-section'>
+                                                    <h5 class='text-gray-700 font-semibold mb-3'><i class='fas fa-tags mr-2 text-purple-500'></i>Key Market Themes</h5>
+                                                    <ul class='space-y-2'>
+                                                        {% for theme in financial_analysis.market_insights.key_themes %}
+                                                            <li class='flex items-center'>
+                                                                <i class='fas fa-tag text-purple-500 mr-2 flex-shrink-0 text-sm'></i>
+                                                                <span class='text-sm font-medium text-gray-700'>{{ theme }}</span>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            {% endif %}
+                                        </section>
+                                    {% endif %}
+
+                                    <!-- Risk Assessment -->
+                                    {% if financial_analysis.risk_assessment %}
+                                        <section>
+                                            <div class='flex items-center mb-4'>
+                                                <i class='fas fa-shield-alt text-red-600 mr-2 text-lg'></i>
+                                                <h4 class='text-lg font-bold text-blue-700'>Risk Assessment</h4>
+                                            </div>
+                                            
+                                            <div class='risk-matrix space-y-3'>
+                                                {% for risk in financial_analysis.risk_assessment %}
+                                                    <div class='risk-item p-4 bg-gradient-to-r from-white to-gray-50 rounded-lg border-l-4 border-{% if risk.impact == "High" %}red{% elif risk.impact == "Medium" %}yellow{% else %}green{% endif %}-600 shadow-sm hover:shadow-md transition-shadow'>
+                                                        <div class='flex flex-col md:flex-row md:items-center md:justify-between gap-3'>
+                                                            <div class='flex-1'>
+                                                                <h6 class='font-semibold text-gray-800 mb-1'>{{ risk.risk_factor }}</h6>
+                                                                {% if risk.mitigation %}
+                                                                    <p class='text-sm text-gray-600'><strong class='text-gray-700'>Mitigation:</strong> {{ risk.mitigation }}</p>
+                                                                {% endif %}
+                                                            </div>
+                                                            <div class='flex flex-wrap gap-2'>
+                                                                {% if risk.impact %}
+                                                                    <span class='inline-block px-3 py-1 rounded-full text-xs font-semibold text-white bg-{% if risk.impact == "High" %}red{% elif risk.impact == "Medium" %}yellow{% else %}green{% endif %}-600'>
+                                                                        Impact: {{ risk.impact }}
+                                                                    </span>
+                                                                {% endif %}
+                                                                {% if risk.likelihood %}
+                                                                    <span class='inline-block px-3 py-1 rounded-full text-xs font-semibold text-white bg-{% if risk.likelihood == "High" %}red{% elif risk.likelihood == "Medium" %}yellow{% else %}green{% endif %}-600'>
+                                                                        Probability: {{ risk.likelihood }}
+                                                                    </span>
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </section>
+                                    {% endif %}
+                                
+                                    <!-- Strategic Recommendations -->
+                                    {% if financial_analysis.strategic_recommendations %}
+                                        <section>
+                                            <div class='flex items-center mb-4'>
+                                                <i class='fas fa-bullseye text-green-600 mr-2 text-lg'></i>
+                                                <h4 class='text-lg font-bold text-blue-700'>Strategic Recommendations</h4>
+                                            </div>
+                                            
+                                            <div class='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+                                                {% if financial_analysis.strategic_recommendations.opportunities %}
+                                                    <div>
+                                                        <h5 class='text-green-600 font-semibold mb-3'><i class='fas fa-arrow-trend-up mr-2'></i>Investment Opportunities</h5>
+                                                        <div class='space-y-3'>
+                                                        {% for opp in financial_analysis.strategic_recommendations.opportunities %}
+                                                            <div class='opportunity-card p-4 bg-gradient-to-br from-white to-green-50 rounded-lg border-l-4 border-green-600 shadow-sm hover:shadow-md transition-shadow'>
+                                                                <div class='flex justify-between items-start mb-2'>
+                                                                    <h6 class='font-semibold text-gray-800'>{{ opp.recommendation }}</h6>
+                                                                    {% if opp.timeframe %}
+                                                                        <span class='inline-block px-2 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded'>{{ opp.timeframe }}</span>
+                                                                    {% endif %}
+                                                                </div>
+                                                                {% if opp.rationale %}
+                                                                    <p class='text-sm text-gray-600 mb-2'>{{ opp.rationale }}</p>
+                                                                {% endif %}
+                                                                {% if opp.tickers %}
+                                                                    <div class='ticker-list flex flex-wrap gap-1 items-center'>
+                                                                        <span class='text-xs text-gray-500'>Tickers:</span>
+                                                                        {% for ticker in opp.tickers %}
+                                                                            <a href='https://finance.yahoo.com/quote/{{ ticker }}' target='_blank' class='inline-block px-2 py-1 bg-green-600 text-white text-xs font-semibold rounded hover:bg-green-700 transition-colors'>{{ ticker }}</a>
+                                                                        {% endfor %}
+                                                                    </div>
+                                                                {% endif %}
+                                                            </div>
+                                                        {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                                
+                                                {% if financial_analysis.strategic_recommendations.defensive_moves %}
+                                                    <div>
+                                                        <h5 class='text-yellow-600 font-semibold mb-3'><i class='fas fa-shield mr-2'></i>Defensive Strategies</h5>
+                                                        <div class='space-y-3'>
+                                                        {% for def in financial_analysis.strategic_recommendations.defensive_moves %}
+                                                            <div class='defensive-card p-4 bg-gradient-to-br from-white to-yellow-50 rounded-lg border-l-4 border-yellow-600 shadow-sm hover:shadow-md transition-shadow'>
+                                                                <div class='flex justify-between items-start mb-2'>
+                                                                    <h6 class='font-semibold text-gray-800'>{{ def.recommendation }}</h6>
+                                                                    {% if def.timeframe %}
+                                                                        <span class='inline-block px-2 py-1 bg-yellow-100 text-yellow-700 text-xs font-semibold rounded'>{{ def.timeframe }}</span>
+                                                                    {% endif %}
+                                                                </div>
+                                                                {% if def.rationale %}
+                                                                    <p class='text-sm text-gray-600 mb-2'>{{ def.rationale }}</p>
+                                                                {% endif %}
+                                                                {% if def.tickers %}
+                                                                    <div class='ticker-list flex flex-wrap gap-1 items-center'>
+                                                                        <span class='text-xs text-gray-500'>Tickers:</span>
+                                                                        {% for ticker in def.tickers %}
+                                                                            <a href='https://finance.yahoo.com/quote/{{ ticker }}' target='_blank' class='inline-block px-2 py-1 bg-yellow-500 text-gray-900 text-xs font-semibold rounded hover:bg-yellow-600 transition-colors'>{{ ticker }}</a>
+                                                                        {% endfor %}
+                                                                    </div>
+                                                                {% endif %}
+                                                            </div>
+                                                        {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </section>
+                                    {% endif %}
+
+                                    <!-- Market Outlook -->
+                                    {% if financial_analysis.market_outlook %}
+                                        <section>
+                                            <div class='flex items-center mb-4'>
+                                                <i class='fas fa-crystal-ball text-cyan-600 mr-2 text-lg'></i>
+                                                <h4 class='text-lg font-bold text-blue-700'>Market Outlook</h4>
+                                            </div>
+                                            
+                                            <div class='outlook-section'>
+                                                <div class='grid grid-cols-1 md:grid-cols-2 gap-4 mb-4'>
+                                                    {% if financial_analysis.market_outlook.short_term %}
+                                                        <div>
+                                                            <div class='outlook-card p-4 bg-gradient-to-br from-white to-blue-50 rounded-lg border-l-4 border-blue-600 shadow-sm hover:shadow-md transition-shadow'>
+                                                                <h5 class='text-blue-700 font-semibold mb-2'><i class='fas fa-clock mr-2'></i>Short-term Outlook (1-3 months)</h5>
+                                                                <p class='text-sm text-gray-700'>{{ financial_analysis.market_outlook.short_term }}</p>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                    
+                                                    {% if financial_analysis.market_outlook.long_term %}
+                                                        <div>
+                                                            <div class='outlook-card p-4 bg-gradient-to-br from-white to-cyan-50 rounded-lg border-l-4 border-cyan-600 shadow-sm hover:shadow-md transition-shadow'>
+                                                                <h5 class='text-cyan-700 font-semibold mb-2'><i class='fas fa-calendar-alt mr-2'></i>Long-term Outlook (6-12 months)</h5>
+                                                                <p class='text-sm text-gray-700'>{{ financial_analysis.market_outlook.long_term }}</p>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                                
+                                                <div class='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                                                    {% if financial_analysis.market_outlook.key_catalysts %}
+                                                        <div>
+                                                            <div class='catalysts-box p-4 bg-gradient-to-br from-white to-gray-50 rounded-lg border border-gray-200 shadow-sm'>
+                                                                <h5 class='text-gray-700 font-semibold mb-3'><i class='fas fa-rocket mr-2 text-orange-500'></i>Key Market Catalysts</h5>
+                                                                <ul class='space-y-2'>
+                                                                    {% for catalyst in financial_analysis.market_outlook.key_catalysts %}
+                                                                        <li class='flex'>
+                                                                            <i class='fas fa-chevron-right text-blue-600 mr-2 mt-1 flex-shrink-0'></i>
+                                                                            <span class='text-sm text-gray-700'>{{ catalyst }}</span>
+                                                                        </li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                    
+                                                    {% if financial_analysis.market_outlook.watch_list %}
+                                                        <div>
+                                                            <div class='watchlist-box p-4 bg-gradient-to-br from-white to-gray-50 rounded-lg border border-gray-200 shadow-sm'>
+                                                                <h5 class='text-gray-700 font-semibold mb-3'><i class='fas fa-eye mr-2 text-indigo-500'></i>Monitor Closely</h5>
+                                                                <ul class='space-y-2'>
+                                                                    {% for item in financial_analysis.market_outlook.watch_list %}
+                                                                        <li class='flex items-center'>
+                                                                            <i class='fas fa-circle text-cyan-500 mr-2 flex-shrink-0 text-xs'></i>
+                                                                            <span class='text-sm text-gray-600'>{{ item }}</span>
+                                                                        </li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </section>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                    </div>
+                {% else %}
+                    <div class='bg-yellow-50 border border-yellow-200 rounded-lg p-4'>
+                        <h5 class='font-semibold text-yellow-800 mb-2'>🔧 Financial Analysis Temporarily Unavailable</h5>
+                        <p class='text-sm text-yellow-700'>Our AI financial analysis service is currently being configured. Please check back later for comprehensive market insights and recommendations.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Market Data Section - Tab 3 (shown in same grid on desktop, tabbed on mobile) -->
+    <div class='grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6' :class="{ 'hidden lg:grid': activeTab !== 'markets' }" id='market-data'>
+        <div>
+            <div class='bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden transition-all hover:shadow-2xl'>
+                <div class='bg-gradient-to-r from-cyan-600 to-cyan-700 px-6 py-4'>
+                    <h2 class='text-xl font-bold text-white'>Central Banks</h2>
+                </div>
+                
+                <!-- US Federal Reserve subsection -->
+                {% if fed_econ_data %}
+                <div class='p-6 border-b border-gray-200'>
+                    <h3 class='text-base font-semibold text-gray-700 mb-3'>US Federal Reserve - Economy at a Glance</h3>
+                    <div class='space-y-2'>
+                        {% for item in fed_econ_data %}
+                        <div class='text-sm'><span class='font-semibold text-gray-800'>{{ item.indicator }}:</span> <span class='text-gray-600'>{{ item.value }}</span></div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                <!-- Central Bank Rates -->
+                <div class='p-6'>
+                    <h3 class='text-base font-semibold text-gray-700 mb-3'>Policy Rates</h3>
+                    <ul class='space-y-3'>
+                        {% for policy in policies %}
+                        <li class='flex justify-between items-center pb-2 border-b border-gray-100 last:border-0'>
+                            <span class='font-semibold text-gray-800'>{{ policy.bank }}:</span>
+                            <span class='text-gray-600'>{{ policy.rate }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <div class='bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden transition-all hover:shadow-2xl'>
+                <div class='bg-gradient-to-r from-green-600 to-green-700 px-6 py-4'>
+                    <h2 class='text-xl font-bold text-white'>Key Economic Data</h2>
+                </div>
+                <div class='p-6'>
+                    {% for item in econ %}
+                    <div class='mb-4 last:mb-0'>
+                        <div class='flex justify-between items-center mb-2'>
+                            <span class='font-semibold text-sm text-gray-800'>{{ item.event }}</span>
+                            <span class='inline-block px-2 py-1 text-xs font-semibold text-white rounded bg-{% if item.sentiment == "positive" %}green{% elif item.sentiment == "negative" %}red{% else %}gray{% endif %}-600'>{{ item.value }}</span>
+                        </div>
+                        <div class='w-full bg-gray-200 rounded-full h-2.5 mb-1'>
+                            {% set percentage = (item.numeric_value / item.max_value) * 100 %}
+                            <div class='h-2.5 rounded-full bg-{% if item.sentiment == "positive" %}green{% elif item.sentiment == "negative" %}red{% else %}gray{% endif %}-600 transition-all' style='width: {{ percentage }}%'></div>
+                        </div>
+                        <p class='text-xs text-gray-500'>{{ item.date }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <div class='bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden transition-all hover:shadow-2xl'>
+                <div class='bg-gradient-to-r from-yellow-500 to-yellow-600 px-6 py-4'>
+                    <h2 class='text-xl font-bold text-gray-900'>Forex CFD Quotes</h2>
+                </div>
+                <div class='overflow-x-auto'>
+                    <table class='w-full'>
+                        <thead class='bg-gray-50 border-b border-gray-200'>
+                            <tr>
+                                <th class='px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>Pair</th>
+                                <th class='px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>Bid</th>
+                                <th class='px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>Ask</th>
+                                <th class='px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>Change</th>
+                            </tr>
+                        </thead>
+                        <tbody class='divide-y divide-gray-200'>
+                            {% for item in forex %}
+                            <tr class='hover:bg-gray-50 transition-colors'>
+                                <td class='px-6 py-4 text-sm font-medium text-gray-900'>{{ item.pair }}</td>
+                                <td class='px-6 py-4 text-sm text-gray-600'>{{ item.bid }}</td>
+                                <td class='px-6 py-4 text-sm text-gray-600'>{{ item.ask }}</td>
+                                <td class='px-6 py-4 text-sm font-semibold {% if item.change > 0 %}text-green-600{% elif item.change < 0 %}text-red-600{% endif %}'>
+                                    {% if item.change > 0 %}<i class='fas fa-arrow-up mr-1'></i>{% elif item.change < 0 %}<i class='fas fa-arrow-down mr-1'></i>{% endif %}
+                                    {{ item.change }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Floating Quick Nav Button for Mobile (always visible, with tab switching instead of scrolling) -->
+<div class='lg:hidden fixed bottom-6 right-6 z-50' x-data='{ showMenu: false }'>
+    <div class='relative'>
+        <!-- Menu Items -->
+        <div x-show='showMenu' x-transition:enter='transition ease-out duration-200' x-transition:enter-start='opacity-0 scale-95' x-transition:enter-end='opacity-100 scale-100' x-transition:leave='transition ease-in duration-150' x-transition:leave-start='opacity-100 scale-100' x-transition:leave-end='opacity-0 scale-95' class='absolute bottom-16 right-0 flex flex-col gap-2 mb-2'>
+            <button @click='activeTab = "headlines"; showMenu = false; window.scrollTo({ top: 0, behavior: "smooth" })' class='flex items-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors shadow-lg whitespace-nowrap'>
+                <i class='fas fa-newspaper'></i>
+                <span>Headlines</span>
+            </button>
+            <button @click='activeTab = "analysis"; showMenu = false; window.scrollTo({ top: 0, behavior: "smooth" })' class='flex items-center gap-2 px-4 py-3 bg-purple-600 text-white rounded-lg text-sm font-semibold hover:bg-purple-700 transition-colors shadow-lg whitespace-nowrap'>
+                <i class='fas fa-robot'></i>
+                <span>Analysis</span>
+            </button>
+            <button @click='activeTab = "markets"; showMenu = false; window.scrollTo({ top: 0, behavior: "smooth" })' class='flex items-center gap-2 px-4 py-3 bg-green-600 text-white rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors shadow-lg whitespace-nowrap'>
+                <i class='fas fa-chart-line'></i>
+                <span>Markets</span>
+            </button>
+        </div>
+        
+        <!-- Toggle Button -->
+        <button @click='showMenu = !showMenu' class='flex items-center justify-center w-14 h-14 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-2xl hover:scale-110 transition-transform'>
+            <i class='fas fa-bars text-xl' x-show='!showMenu'></i>
+            <i class='fas fa-times text-xl' x-show='showMenu'></i>
+        </button>
+    </div>
+</div>
+
+{% endblock %}

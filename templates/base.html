@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>{{ title }}</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <!-- SEO Meta Tags -->
+    <meta name='description' content='{{ meta_tags.description }}'>
+    <meta name='keywords' content='{{ meta_tags.keywords }}'>
+    <meta name='author' content='{{ meta_tags.author }}'>
+    <meta name='robots' content='{{ meta_tags.robots }}'>
+    <meta name='googlebot' content='{{ meta_tags.googlebot }}'>
+    <meta name='language' content='{{ meta_tags.language }}'>
+    <meta name='distribution' content='{{ meta_tags.distribution }}'>
+    <meta name='rating' content='{{ meta_tags.rating }}'>
+    <meta name='revisit-after' content='{{ meta_tags["revisit-after"] }}'>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property='og:type' content='{{ meta_tags["og:type"] }}'>
+    <meta property='og:url' content='{{ meta_tags["og:url"] }}'>
+    <meta property='og:title' content='{{ meta_tags["og:title"] }}'>
+    <meta property='og:description' content='{{ meta_tags["og:description"] }}'>
+    <meta property='og:image' content='{{ meta_tags["og:image"] }}'>
+    <meta property='og:image:width' content='{{ meta_tags["og:image:width"] }}'>
+    <meta property='og:image:height' content='{{ meta_tags["og:image:height"] }}'>
+    <meta property='og:site_name' content='{{ meta_tags["og:site_name"] }}'>
+    <meta property='og:locale' content='{{ meta_tags["og:locale"] }}'>
+    
+    <!-- Twitter -->
+    <meta property='twitter:card' content='{{ meta_tags["twitter:card"] }}'>
+    <meta property='twitter:url' content='{{ meta_tags["og:url"] }}'>
+    <meta property='twitter:title' content='{{ meta_tags["twitter:title"] }}'>
+    <meta property='twitter:description' content='{{ meta_tags["twitter:description"] }}'>
+    <meta property='twitter:image' content='{{ meta_tags["twitter:image"] }}'>
+    <meta property='twitter:site' content='{{ meta_tags["twitter:site"] }}'>
+    <meta property='twitter:creator' content='{{ meta_tags["twitter:creator"] }}'>
+    
+    <!-- Cache control meta tags to prevent browser caching -->
+    <meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate'>
+    <meta http-equiv='Pragma' content='no-cache'>
+    <meta http-equiv='Expires' content='0'>
+    <meta name='last-modified' content='{{ last_updated }}'>
+    
+    <!-- Performance optimizations for resource loading -->
+    <link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin>
+    <link rel='preconnect' href='https://cdn.jsdelivr.net/gh' crossorigin>
+    <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+    <link rel='dns-prefetch' href='https://cdn.jsdelivr.net/gh'>
+    <!-- Indicate to browsers that we'll be lazy-loading images -->
+    <meta name='theme-color' content='{{ meta_tags["theme-color"] }}'>
+    <meta name='msapplication-TileColor' content='{{ meta_tags["msapplication-TileColor"] }}'>
+    <!-- Favicons for different sizes and contexts -->
+    <link rel='icon' type='image/x-icon' href='static/icons/favicon.ico?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='16x16' href='static/icons/favicon-16x16.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='32x32' href='static/icons/favicon-32x32.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='64x64' href='static/icons/favicon-64x64.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='128x128' href='static/icons/favicon-128x128.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='256x256' href='static/icons/favicon-256x256.svg?v={{ cache_buster }}'>
+    <link rel='apple-touch-icon' sizes='180x180' href='static/icons/favicon-256x256.svg?v={{ cache_buster }}'>
+    <link rel='canonical' href='https://waneye.com/'>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0074d9',
+              secondary: '#6c757d',
+              accent: '#ffdc00',
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous' referrerpolicy='no-referrer'>
+    <link rel='stylesheet' href='static/style.css?v={{ cache_buster }}'>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {{ structured_data.organization | tojson }}
+    </script>
+    <script type="application/ld+json">
+    {{ structured_data.website | tojson }}
+    </script>
+    <script type="application/ld+json">
+    {{ structured_data.dashboard | tojson }}
+    </script>
+
+    {% if structured_data.news_articles %}
+    {% for article in structured_data.news_articles[:5] %}
+    <script type="application/ld+json">
+    {{ article | tojson }}
+    </script>
+    {% endfor %}
+    {% endif %}
+    
+    <!-- Google Analytics 4 (GA4) tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSJVVBKXLG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RSJVVBKXLG');
+    </script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-white to-blue-50 min-h-screen" x-data="{ mobileMenuOpen: false, activeTab: 'headlines' }">
+    <canvas id='bg-canvas'></canvas>
+    <div class='w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10'>
+        <div class='text-center mb-12'>
+            <h1 class='text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4'>
+                <span class='bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent'>Waneye</span>
+            </h1>
+            <p class='text-xl md:text-2xl lg:text-3xl font-light text-gray-600 mb-3'>
+                <span class='text-gray-400'>—</span> global vision for smarter finance
+            </p>
+            <div class='inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-full border border-green-200 mb-4'>
+                <span class='relative flex h-2 w-2'>
+                    <span class='animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75'></span>
+                    <span class='relative inline-flex rounded-full h-2 w-2 bg-green-500'></span>
+                </span>
+                <p class='text-gray-600 text-sm font-medium' id='last-updated'>
+                    <span class='text-green-600 font-semibold'>Live:</span> <em>Last updated: {{ last_updated }}</em>
+                </p>
+            </div>
+            
+            <!-- Quick Navigation - Mobile Optimized (Tab-based switching) -->
+            <div class='lg:hidden mt-6 mb-4'>
+                <div class='flex flex-wrap justify-center gap-2 px-4'>
+                    <button @click='activeTab = "headlines"' :class="activeTab === 'headlines' ? 'bg-blue-700 ring-2 ring-blue-500' : 'bg-blue-600 hover:bg-blue-700'" class='flex items-center gap-1 px-4 py-2 text-white rounded-lg text-sm font-semibold transition-colors shadow-md'>
+                        <i class='fas fa-newspaper'></i>
+                        <span>Headlines</span>
+                    </button>
+                    <button @click='activeTab = "analysis"' :class="activeTab === 'analysis' ? 'bg-purple-700 ring-2 ring-purple-500' : 'bg-purple-600 hover:bg-purple-700'" class='flex items-center gap-1 px-4 py-2 text-white rounded-lg text-sm font-semibold transition-colors shadow-md animate-pulse'>
+                        <i class='fas fa-robot'></i>
+                        <span>Analysis</span>
+                    </button>
+                    <button @click='activeTab = "markets"' :class="activeTab === 'markets' ? 'bg-green-700 ring-2 ring-green-500' : 'bg-green-600 hover:bg-green-700'" class='flex items-center gap-1 px-4 py-2 text-white rounded-lg text-sm font-semibold transition-colors shadow-md'>
+                        <i class='fas fa-chart-line'></i>
+                        <span>Markets</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        {% block content %}{% endblock %}
+        
+        <footer class='text-center mt-12 text-gray-500 border-t border-gray-200 pt-6'>
+            <small>Generated by Waneye.com &mdash; Powered by Modern Web Technologies</small>
+        </footer>
+    </div>
+    <!-- Alpine.js - Loaded without defer to ensure it's ready before user interaction -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src='static/main.js?v={{ cache_buster }}'></script>
+</body>
+</html>
