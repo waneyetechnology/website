@@ -1,7 +1,64 @@
+/* Inter font via Bunny Fonts (EU-hosted, GDPR-compliant Google Fonts mirror, accessible globally) */
+@import url('https://fonts.bunny.net/css2?family=inter:wght@300;400;500;600;700;800&display=swap');
+
 /* Modern minimal CSS to complement Tailwind */
 
 * {
   box-sizing: border-box;
+}
+
+/* Apply Inter globally */
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sticky header */
+.site-header {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Active tab underline indicator */
+.tab-underline {
+  position: relative;
+}
+.tab-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px 1px 0 0;
+}
+
+/* Section panel header */
+.panel-header {
+  border-bottom: 1px solid;
+}
+
+/* Improved card border & shadow */
+.headline-card {
+  border: 1px solid #e2e8f0;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.headline-card:hover {
+  border-color: #bfdbfe;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.10);
+  transform: translateY(-2px);
+}
+
+/* Source badge on card */
+.card-source-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 500;
 }
 
 /* Canvas background */
@@ -15,6 +72,7 @@
   display: block;
   background: transparent !important;
   pointer-events: none;
+  opacity: 0.06;
 }
 
 /* Headline grid layout */
@@ -54,7 +112,7 @@
   transition: opacity 0.3s ease, filter 0.3s ease;
   opacity: 0;
   filter: blur(10px);
-  background-image: linear-gradient(90deg, #eaf6ff 0%, #f4f9fe 50%, #eaf6ff 100%);
+  background-image: linear-gradient(90deg, #f1f5f9 0%, #f8fafc 50%, #f1f5f9 100%);
   background-size: 200% 100%;
   animation: loading-bg 1.5s ease infinite;
 }
@@ -84,22 +142,22 @@
 
 /* Smooth scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f8fafc;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #cbd5e1;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #94a3b8;
 }
 
 /* Smooth transitions for interactive elements */
@@ -108,8 +166,8 @@ a, button, .hover-effect {
 }
 
 /* Custom focus styles for accessibility */
-a:focus, button:focus, input:focus, select:focus, textarea:focus {
-  outline: 2px solid #0074d9;
+a:focus-visible, button:focus-visible, input:focus, select:focus, textarea:focus {
+  outline: 2px solid #2563eb;
   outline-offset: 2px;
 }
 
@@ -152,18 +210,9 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
   word-wrap: break-word;
 }
 
-/* Live update indicator animation */
-@keyframes subtle-glow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(34, 197, 94, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 15px rgba(34, 197, 94, 0.4), 0 0 25px rgba(34, 197, 94, 0.1);
-  }
-}
-
+/* Live update indicator - clean, no pulsing glow */
 #last-updated {
-  animation: subtle-glow 3s ease-in-out infinite;
+  font-size: 0.75rem;
 }
 
 /* Mobile Tab Navigation - Tab switching layout */
