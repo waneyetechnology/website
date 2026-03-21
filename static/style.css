@@ -583,17 +583,41 @@ a:focus-visible, button:focus-visible, input:focus, select:focus, textarea:focus
   letter-spacing: 0.08em;
   margin-bottom: 10px;
 }
+.evidence-strip-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.evidence-nav-btn {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.09);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #64748b;
+  font-size: 11px;
+  transition: box-shadow 0.15s, color 0.15s, background 0.15s;
+}
+.evidence-nav-btn:hover {
+  background: #f1f5f9;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.13);
+  color: #1e293b;
+}
 .evidence-cards-row {
+  flex: 1;
+  min-width: 0;
   display: flex;
   gap: 10px;
   overflow-x: auto;
-  padding-bottom: 4px;
-  scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 transparent;
+  scrollbar-width: none;
 }
-.evidence-cards-row::-webkit-scrollbar { height: 4px; }
-.evidence-cards-row::-webkit-scrollbar-track { background: transparent; }
-.evidence-cards-row::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+.evidence-cards-row::-webkit-scrollbar { display: none; }
 .evidence-card {
   display: flex;
   flex-direction: column;
