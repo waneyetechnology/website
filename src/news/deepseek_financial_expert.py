@@ -231,7 +231,7 @@ Provide comprehensive, data-driven analysis in this JSON structure without any m
                 }
             ],
             "temperature": 0.3,  # Lower temperature for more consistent, factual analysis
-            "max_tokens": 4000,  # Sufficient for comprehensive analysis
+            "max_tokens": 8000,  # Sufficient for comprehensive analysis
             "stream": False
         }
 
