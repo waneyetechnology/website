@@ -684,6 +684,26 @@ a:focus-visible, button:focus-visible, input:focus, select:focus, textarea:focus
 .evidence-card-source { font-size: 0.62rem; color: #94a3b8; display: flex; align-items: center; margin-top: auto; }
 
 /* Sidebar panels */
+.sidebar-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+#headlines-sidebar {
+  display: flex;
+  flex-direction: column;
+  /* max-height set dynamically by Alpine ResizeObserver */
+}
+.headlines-sidebar-body {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+.headlines-sidebar-body::-webkit-scrollbar { width: 4px; }
+.headlines-sidebar-body::-webkit-scrollbar-track { background: transparent; }
+.headlines-sidebar-body::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
 .sidebar-panel {
   background: white;
   border: 1px solid #e2e8f0;

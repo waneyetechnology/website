@@ -226,10 +226,19 @@
 {# ═══════════════════════════════════════════════════════════════ #}
 {# MAIN BODY: Analysis (2/3) + Sidebar (1/3)                      #}
 {# ═══════════════════════════════════════════════════════════════ #}
-<div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6"
+     x-data
+     x-init="$nextTick(() => {
+       const sync = () => {
+         if ($refs.analysisCol && $refs.headlinesPanel)
+           $refs.headlinesPanel.style.maxHeight = $refs.analysisCol.offsetHeight + 'px';
+       };
+       sync();
+       if ($refs.analysisCol) new ResizeObserver(sync).observe($refs.analysisCol);
+     })">
 
   {# ── LEFT: ANALYSIS SECTIONS ── #}
-  <div class="xl:col-span-2 space-y-5">
+  <div class="xl:col-span-2 space-y-5" x-ref="analysisCol">
 
     {# ─── §01 EXECUTIVE SUMMARY ─── #}
     {% if financial_analysis.executive_summary %}
@@ -615,11 +624,11 @@
 
 
   {# ── RIGHT SIDEBAR ── #}
-  <div class="xl:col-span-1 space-y-5">
+  <div class="xl:col-span-1 sidebar-col">
 
     {# Headlines reference panel #}
     {% if news %}
-    <div class="sidebar-panel" id="headlines-sidebar">
+    <div class="sidebar-panel" id="headlines-sidebar" x-ref="headlinesPanel">
       <div class="sidebar-panel-header">
         <div class="flex items-center gap-2">
           <i class="fas fa-newspaper text-blue-500 text-sm"></i>
@@ -627,7 +636,7 @@
         </div>
         <span class="sidebar-count">{{ news|length }} analyzed</span>
       </div>
-      <div class="divide-y divide-slate-100">
+      <div class="divide-y divide-slate-100 headlines-sidebar-body">
         {% for item in news %}
         <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer"
            id="headline-{{ loop.index }}"
