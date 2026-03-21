@@ -110,7 +110,7 @@
       gtag('config', 'G-RSJVVBKXLG');
     </script>
 </head>
-<body class="bg-slate-50 min-h-screen" x-data="{ mobileMenuOpen: false, activeTab: 'headlines' }">
+<body class="bg-slate-50 min-h-screen" x-data="{ mobileMenuOpen: false }">
     <canvas id='bg-canvas'></canvas>
 
     <!-- Sticky Professional Header -->
@@ -125,26 +125,14 @@
                     <span class='hidden md:inline text-xs text-slate-400 font-medium tracking-wide'>Global financial intelligence</span>
                 </div>
 
-                <!-- Desktop Tab Nav -->
-                <nav class='hidden lg:flex items-center gap-0.5 bg-slate-100 rounded-lg p-1'>
-                    <button @click='activeTab = "headlines"'
-                            :class="activeTab === 'headlines' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-600 hover:text-slate-900'"
-                            class='flex items-center gap-1.5 px-3.5 py-1.5 text-sm font-medium rounded-md transition-all duration-150'>
-                        <i class='fas fa-newspaper text-xs'></i>
-                        <span>Headlines</span>
-                    </button>
-                    <button @click='activeTab = "analysis"'
-                            :class="activeTab === 'analysis' ? 'bg-white text-violet-700 shadow-sm' : 'text-slate-600 hover:text-slate-900'"
-                            class='flex items-center gap-1.5 px-3.5 py-1.5 text-sm font-medium rounded-md transition-all duration-150'>
-                        <i class='fas fa-robot text-xs'></i>
-                        <span>Analysis</span>
-                    </button>
-                    <button @click='activeTab = "markets"'
-                            :class="activeTab === 'markets' ? 'bg-white text-emerald-700 shadow-sm' : 'text-slate-600 hover:text-slate-900'"
-                            class='flex items-center gap-1.5 px-3.5 py-1.5 text-sm font-medium rounded-md transition-all duration-150'>
-                        <i class='fas fa-chart-line text-xs'></i>
-                        <span>Markets</span>
-                    </button>
+                <!-- Section anchor nav (desktop) -->
+                <nav class='hidden lg:flex items-center gap-0.5'>
+                    <a href='#exec-summary' class='header-anchor-link'><i class='fas fa-chart-line text-xs'></i> Summary</a>
+                    <a href='#market-insights' class='header-anchor-link'><i class='fas fa-lightbulb text-xs'></i> Insights</a>
+                    <a href='#risk-assessment' class='header-anchor-link'><i class='fas fa-shield-alt text-xs'></i> Risks</a>
+                    <a href='#recommendations' class='header-anchor-link'><i class='fas fa-bullseye text-xs'></i> Strategy</a>
+                    <a href='#market-outlook' class='header-anchor-link'><i class='fas fa-binoculars text-xs'></i> Outlook</a>
+                    <a href='#market-data' class='header-anchor-link'><i class='fas fa-database text-xs'></i> Data</a>
                 </nav>
 
                 <!-- Live Badge -->
@@ -160,27 +148,15 @@
                 </div>
             </div>
 
-            <!-- Mobile Tab Bar -->
+            <!-- Mobile section nav -->
             <div class='lg:hidden border-t border-slate-100'>
-                <div class='flex'>
-                    <button @click='activeTab = "headlines"'
-                            :class="activeTab === 'headlines' ? 'border-blue-600 text-blue-700' : 'border-transparent text-slate-500 hover:text-slate-700'"
-                            class='flex-1 flex items-center justify-center gap-1.5 py-2.5 text-sm font-medium border-b-2 transition-colors'>
-                        <i class='fas fa-newspaper text-xs'></i>
-                        <span>Headlines</span>
-                    </button>
-                    <button @click='activeTab = "analysis"'
-                            :class="activeTab === 'analysis' ? 'border-violet-600 text-violet-700' : 'border-transparent text-slate-500 hover:text-slate-700'"
-                            class='flex-1 flex items-center justify-center gap-1.5 py-2.5 text-sm font-medium border-b-2 transition-colors'>
-                        <i class='fas fa-robot text-xs'></i>
-                        <span>Analysis</span>
-                    </button>
-                    <button @click='activeTab = "markets"'
-                            :class="activeTab === 'markets' ? 'border-emerald-600 text-emerald-700' : 'border-transparent text-slate-500 hover:text-slate-700'"
-                            class='flex-1 flex items-center justify-center gap-1.5 py-2.5 text-sm font-medium border-b-2 transition-colors'>
-                        <i class='fas fa-chart-line text-xs'></i>
-                        <span>Markets</span>
-                    </button>
+                <div class='flex overflow-x-auto scrollbar-none'>
+                    <a href='#exec-summary' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-blue-700 border-b-2 border-transparent hover:border-blue-600 transition-colors whitespace-nowrap'><i class='fas fa-chart-line'></i> Summary</a>
+                    <a href='#market-insights' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-amber-700 border-b-2 border-transparent hover:border-amber-600 transition-colors whitespace-nowrap'><i class='fas fa-lightbulb'></i> Insights</a>
+                    <a href='#risk-assessment' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-red-700 border-b-2 border-transparent hover:border-red-600 transition-colors whitespace-nowrap'><i class='fas fa-shield-alt'></i> Risks</a>
+                    <a href='#recommendations' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-green-700 border-b-2 border-transparent hover:border-green-600 transition-colors whitespace-nowrap'><i class='fas fa-bullseye'></i> Strategy</a>
+                    <a href='#market-outlook' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-cyan-700 border-b-2 border-transparent hover:border-cyan-600 transition-colors whitespace-nowrap'><i class='fas fa-binoculars'></i> Outlook</a>
+                    <a href='#market-data' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-slate-700 border-b-2 border-transparent hover:border-slate-600 transition-colors whitespace-nowrap'><i class='fas fa-database'></i> Data</a>
                 </div>
             </div>
         </div>
