@@ -350,6 +350,28 @@ a:focus-visible, button:focus-visible, input:focus, select:focus, textarea:focus
   min-width: 160px;
 }
 
+/* Briefing stat counters */
+.briefing-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.briefing-stat-num {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: #f1f5f9;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.briefing-stat-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+}
+
 /* Analysis Sections */
 .analysis-section {
   background: white;

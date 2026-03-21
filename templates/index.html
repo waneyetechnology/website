@@ -129,32 +129,54 @@
 {# ═══════════════════════════════════════════════════════════════ #}
 <div class="briefing-banner mb-6">
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-    {# Left: title + date + top highlights #}
+    {# Left: title + date + report stats #}
     <div class="md:col-span-2">
       <div class="flex items-center gap-2 mb-2">
         <span class="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-slate-400 uppercase">
-          <i class="fas fa-robot text-violet-400"></i> AI Financial Briefing
+          <i class="fas fa-robot text-violet-400"></i> Financial Briefing
         </span>
       </div>
       <h1 class="text-2xl lg:text-3xl font-black text-white leading-tight mb-1">Market Analysis Report</h1>
       {% if financial_analysis.analysis_date %}
-      <p class="text-slate-400 text-sm mb-4">
+      <p class="text-slate-400 text-sm mb-5">
         <i class="far fa-calendar-alt mr-1.5"></i>{{ financial_analysis.analysis_date }}{% if financial_analysis.analysis_time %} &middot; {{ financial_analysis.analysis_time }}{% endif %}
       </p>
       {% endif %}
-      {% if financial_analysis.executive_summary and financial_analysis.executive_summary.key_highlights %}
-      <ul class="space-y-1.5">
-        {% for hl in financial_analysis.executive_summary.key_highlights[:4] %}
-        <li class="flex items-start gap-2 text-sm text-slate-300">
-          <i class="fas fa-check-circle text-emerald-400 mt-0.5 flex-shrink-0 text-xs"></i>
-          <span class="leading-snug">{{ hl }}</span>
-        </li>
-        {% endfor %}
-        {% if financial_analysis.executive_summary.key_highlights|length > 4 %}
-        <li class="text-xs text-slate-500 pl-4">+ {{ financial_analysis.executive_summary.key_highlights|length - 4 }} more highlights in Executive Summary ↓</li>
+      <div class="flex flex-wrap gap-4">
+        {% if financial_analysis.executive_summary and financial_analysis.executive_summary.key_highlights %}
+        <div class="briefing-stat">
+          <span class="briefing-stat-num">{{ financial_analysis.executive_summary.key_highlights|length }}</span>
+          <span class="briefing-stat-label">Key Highlights</span>
+        </div>
         {% endif %}
-      </ul>
-      {% endif %}
+        {% if financial_analysis.market_insights and financial_analysis.market_insights.sectors %}
+        <div class="briefing-stat">
+          <span class="briefing-stat-num">{{ financial_analysis.market_insights.sectors|length }}</span>
+          <span class="briefing-stat-label">Sectors Covered</span>
+        </div>
+        {% endif %}
+        {% if financial_analysis.risk_assessment %}
+        <div class="briefing-stat">
+          <span class="briefing-stat-num">{{ financial_analysis.risk_assessment|length }}</span>
+          <span class="briefing-stat-label">Risks Identified</span>
+        </div>
+        {% endif %}
+        {% if financial_analysis.strategic_recommendations %}
+          {% set opp_count = (financial_analysis.strategic_recommendations.opportunities|length if financial_analysis.strategic_recommendations.opportunities else 0) + (financial_analysis.strategic_recommendations.defensive_moves|length if financial_analysis.strategic_recommendations.defensive_moves else 0) %}
+          {% if opp_count > 0 %}
+          <div class="briefing-stat">
+            <span class="briefing-stat-num">{{ opp_count }}</span>
+            <span class="briefing-stat-label">Strategies</span>
+          </div>
+          {% endif %}
+        {% endif %}
+        {% if news %}
+        <div class="briefing-stat">
+          <span class="briefing-stat-num">{{ news|length }}</span>
+          <span class="briefing-stat-label">Headlines Analyzed</span>
+        </div>
+        {% endif %}
+      </div>
     </div>
 
     {# Right: sentiment score widget #}
@@ -168,7 +190,7 @@
             {% if score >= 70 %}text-emerald-400{% elif score >= 40 %}text-amber-400{% else %}text-red-400{% endif %}">
             {{ score }}
           </div>
-          <p class="text-slate-500 text-xs mt-1 uppercase tracking-wider">Sentiment Score / 100</p>
+          <p class="text-slate-500 text-xs mt-1 uppercase tracking-wider">Market Score</p>
           <div class="w-full bg-slate-700 rounded-full h-1.5 mt-2.5">
             <div class="h-1.5 rounded-full
               {% if score >= 70 %}bg-emerald-400{% elif score >= 40 %}bg-amber-400{% else %}bg-red-400{% endif %}"
@@ -186,26 +208,6 @@
             {{ sentiment | title }}
           </span>
           {% endif %}
-          <div class="mt-3 flex gap-3 text-center text-xs">
-            {% if financial_analysis.risk_assessment %}
-            <div>
-              <div class="text-slate-200 font-bold text-base">{{ financial_analysis.risk_assessment|length }}</div>
-              <div class="text-slate-500">Risks</div>
-            </div>
-            {% endif %}
-            {% if financial_analysis.market_insights and financial_analysis.market_insights.sectors %}
-            <div>
-              <div class="text-slate-200 font-bold text-base">{{ financial_analysis.market_insights.sectors|length }}</div>
-              <div class="text-slate-500">Sectors</div>
-            </div>
-            {% endif %}
-            {% if news %}
-            <div>
-              <div class="text-slate-200 font-bold text-base">{{ news|length }}</div>
-              <div class="text-slate-500">Headlines</div>
-            </div>
-            {% endif %}
-          </div>
         </div>
       {% endif %}
     </div>
