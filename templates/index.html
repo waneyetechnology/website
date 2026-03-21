@@ -10,9 +10,6 @@
   {% for src in sources %}{% if src >= 1 and src <= news_list|length %}{% set ns.valid = ns.valid + [src] %}{% endif %}{% endfor %}
   {% if ns.valid %}
   <div class="evidence-strip">
-    <p class="evidence-strip-label">
-      <i class="fas fa-newspaper text-xs"></i> Supporting Headlines
-    </p>
     <div class="evidence-strip-nav" x-data>
       <button @click="$refs.row.scrollBy({left: -230, behavior: 'smooth'})" class="evidence-nav-btn" aria-label="Scroll left">
         <i class="fas fa-chevron-left"></i>
@@ -345,7 +342,6 @@
             {% for src in sector.headline_sources %}{% if src >= 1 and src <= news|length %}{% set ns.valid = ns.valid + [src] %}{% endif %}{% endfor %}
             {% if ns.valid %}
             <div class="sector-card-right" x-data>
-              <p class="evidence-strip-label mb-2"><i class="fas fa-newspaper text-xs"></i> Supporting Headlines</p>
               <div class="evidence-strip-nav">
                 <button @click="$refs.srow{{ loop.index }}.scrollBy({left: -200, behavior: 'smooth'})" class="evidence-nav-btn" aria-label="Scroll left">
                   <i class="fas fa-chevron-left"></i>
