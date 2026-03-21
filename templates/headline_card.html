@@ -1,4 +1,4 @@
-<div class='headline-card group relative bg-white rounded-xl overflow-hidden'>
+<div id='headline-{{ item_index + 1 }}' class='headline-card group relative bg-white rounded-xl overflow-hidden'>
     {% if item.image %}
         {% set loading_attr = "eager" if item_index < 2 else "lazy" %}
         {% set priority_attr = "high" if item_index < 2 else "auto" %}
@@ -27,9 +27,12 @@
     {% endif %}
     
     <div class='p-4'>
-        <a href='{{ item.url }}' target='_blank' rel='noopener noreferrer' title="{{ item.headline }}" class='block text-slate-800 font-semibold text-sm leading-snug hover:text-blue-600 transition-colors duration-150 line-clamp-3'>
-            {{ item.headline }}
-        </a>
+        <div class='flex items-start gap-2'>
+            <span class='flex-shrink-0 inline-flex items-center justify-center w-5 h-5 rounded-full bg-slate-200 text-slate-600 text-xs font-bold mt-0.5' title='Headline #{{ item_index + 1 }}'>{{ item_index + 1 }}</span>
+            <a href='{{ item.url }}' target='_blank' rel='noopener noreferrer' title="{{ item.headline }}" class='block text-slate-800 font-semibold text-sm leading-snug hover:text-blue-600 transition-colors duration-150 line-clamp-3'>
+                {{ item.headline }}
+            </a>
+        </div>
     </div>
     
     {% if item.source %}

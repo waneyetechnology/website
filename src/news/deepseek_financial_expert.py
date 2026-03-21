@@ -136,6 +136,8 @@ Please provide a detailed financial analysis answering: "{self.analysis_question
 
 Your answer should be in JSON format to be consumed easily by other applications.
 
+IMPORTANT: Each section must include a "headline_sources" field — an array of 1-based headline numbers (from the numbered list above) that directly support that section's analysis. This allows readers to trace every insight back to its source headlines.
+
 Format your response as a JSON object with the following structure:
 {{
   "analysis_date": "{current_date}",
@@ -143,24 +145,28 @@ Format your response as a JSON object with the following structure:
   "executive_summary": {{
     "key_highlights": ["Add as many key highlights as relevant to cover the main points"],
     "market_sentiment_score": 85,
-    "overall_sentiment": "positive/negative/neutral"
+    "overall_sentiment": "positive/negative/neutral",
+    "headline_sources": [1, 2, 3]
   }},
   "market_insights": {{
     "sectors": [
       {{
         "sector": "Technology",
         "trend": "description",
-        "implications": "impact analysis"
+        "implications": "impact analysis",
+        "headline_sources": [1, 3]
       }}
     ],
-    "key_themes": ["Include all relevant themes identified from the headlines"]
+    "key_themes": ["Include all relevant themes identified from the headlines"],
+    "headline_sources": [1, 2, 3, 4, 5]
   }},
   "risk_assessment": [
     {{
       "risk_factor": "Factor name",
       "impact": "High/Medium/Low",
       "likelihood": "High/Medium/Low",
-      "mitigation": "Strategy description"
+      "mitigation": "Strategy description",
+      "headline_sources": [2, 4]
     }}
   ],
   "strategic_recommendations": {{
@@ -169,7 +175,8 @@ Format your response as a JSON object with the following structure:
         "recommendation": "Action to take",
         "rationale": "Why this is recommended",
         "tickers": ["Include relevant ticker symbols as appropriate"],
-        "timeframe": "short/medium/long-term"
+        "timeframe": "short/medium/long-term",
+        "headline_sources": [1, 5]
       }}
     ],
     "defensive_moves": [
@@ -177,7 +184,8 @@ Format your response as a JSON object with the following structure:
         "recommendation": "Defensive action",
         "rationale": "Risk mitigation reasoning",
         "tickers": ["Include relevant defensive tickers as appropriate"],
-        "timeframe": "short/medium/long-term"
+        "timeframe": "short/medium/long-term",
+        "headline_sources": [2, 3]
       }}
     ]
   }},
@@ -185,7 +193,8 @@ Format your response as a JSON object with the following structure:
     "short_term": "1-3 month outlook",
     "long_term": "6-12 month outlook",
     "key_catalysts": ["Include all significant upcoming events or factors that could impact markets"],
-    "watch_list": ["Include all important indicators, events, or metrics to monitor"]
+    "watch_list": ["Include all important indicators, events, or metrics to monitor"],
+    "headline_sources": [1, 2, 3, 4, 5]
   }}
 }}
 

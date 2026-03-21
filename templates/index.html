@@ -1,438 +1,736 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Main Content Container - Tabs wrapper for mobile -->
-<div id='content-wrapper'>
-    <div class='grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6'>
-        <!-- Headlines Section - Tab 1 -->
-        <div class='lg:col-span-2' :class="{ 'hidden lg:block': activeTab !== 'headlines' }" id='headlines'>
-            <div class='bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow'>
-                <div class='px-6 py-4 border-b border-slate-100 flex items-center gap-2.5'>
-                    <span class='inline-flex items-center justify-center w-7 h-7 bg-blue-50 rounded-lg'><i class='fas fa-newspaper text-blue-600 text-sm'></i></span>
-                    <h2 class='text-base font-semibold text-slate-800'>Top Financial Headlines</h2>
-                </div>
-            
-            <!-- News Headlines Section -->
-            <div class='p-6'>
-                <div class='headline-grid'>
-                    {% for item in news %}
-                        {% set item_index = loop.index0 %}
-                        {% include 'headline_card.html' %}
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
+
+{# ─── MACRO: evidence strip ─── #}
+{# Renders a horizontal scrollable row of headline mini-cards for the given source indices #}
+{% macro evidence_strip(sources, news_list) %}
+{% if sources and news_list %}
+  {% set ns = namespace(valid=[]) %}
+  {% for src in sources %}{% if src >= 1 and src <= news_list|length %}{% set ns.valid = ns.valid + [src] %}{% endif %}{% endfor %}
+  {% if ns.valid %}
+  <div class="evidence-strip">
+    <p class="evidence-strip-label">
+      <i class="fas fa-newspaper text-xs"></i> Supporting Headlines
+    </p>
+    <div class="evidence-cards-row">
+      {% for src in ns.valid %}
+        {% set h = news_list[src - 1] %}
+        <a href="{{ h.url }}" target="_blank" rel="noopener noreferrer"
+           class="evidence-card" title="{{ h.headline }}">
+          <div class="evidence-card-img-wrap">
+            {% if h.image %}
+              {% set actual_img = h.image.split("#")[0] %}
+              <img src="{{ actual_img }}" alt="{{ h.headline }}"
+                   class="evidence-card-img headline-image" loading="lazy">
+            {% else %}
+              <div class="evidence-card-img-fallback">
+                <i class="fas fa-newspaper text-slate-300 text-lg"></i>
+              </div>
+            {% endif %}
+            <span class="evidence-card-num">{{ src }}</span>
+          </div>
+          <div class="evidence-card-text">
+            <p class="evidence-card-headline">{{ h.headline }}</p>
+            {% if h.source %}
+              <span class="evidence-card-source">
+                <img src="{{ h.favicon }}" alt="" class="inline-block w-3 h-3 rounded-sm mr-1" loading="lazy">{{ h.source }}
+              </span>
+            {% endif %}
+          </div>
+        </a>
+      {% endfor %}
     </div>
-    
-        <!-- Financial Analysis Section - Tab 2 -->
-        <div class='lg:col-span-1' :class="{ 'hidden lg:block': activeTab !== 'analysis' }" id='financial-analysis'>
-            <div class='bg-white rounded-xl border border-slate-200 overflow-hidden h-full shadow-sm hover:shadow-md transition-shadow'>
-            <div class='px-6 py-4 border-b border-slate-100 flex items-center gap-2.5'>
-                <span class='inline-flex items-center justify-center w-7 h-7 bg-violet-50 rounded-lg'><i class='fas fa-robot text-violet-600 text-sm'></i></span>
-                <h2 class='text-base font-semibold text-slate-800'>Financial Analysis</h2>
-            </div>
-            
-            <div class='p-6'>
-                {% if financial_analysis %}
-                    <div class='financial-analysis-content'>
-                        {% if financial_analysis is string %}
-                            <div class='bg-blue-50 border border-blue-200 rounded-lg p-4'>
-                                <pre class='text-sm text-gray-700 whitespace-pre-wrap font-sans'>{{ financial_analysis }}</pre>
-                            </div>
-                        {% else %}
-                            <!-- Professional Financial Analysis Report -->
-                            <div class='analysis-report space-y-6'>
-                                    <!-- Report Header -->
-                                    <div class='report-header bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-4 border-l-4 border-blue-600'>
-                                        <div class='flex justify-between items-center'>
-                                            <div>
-                                                <h3 class='text-xl font-bold text-blue-700'>Financial Analysis Report</h3>
-                                            </div>
-                                            {% if financial_analysis.executive_summary and financial_analysis.executive_summary.market_sentiment_score %}
-                                                <div class='text-center'>
-                                                    <div class='text-3xl font-bold {% if financial_analysis.executive_summary.market_sentiment_score >= 70 %}text-green-600{% elif financial_analysis.executive_summary.market_sentiment_score >= 40 %}text-yellow-600{% else %}text-red-600{% endif %}'>
-                                                        {{ financial_analysis.executive_summary.market_sentiment_score }}
-                                                    </div>
-                                                    <p class='text-xs text-gray-500'>Market Score</p>
-                                                </div>
-                                            {% endif %}
-                                        </div>
-                                    </div>
+  </div>
+  {% endif %}
+{% endif %}
+{% endmacro %}
 
-                                    <!-- Executive Summary -->
-                                    {% if financial_analysis.executive_summary %}
-                                        <section>
-                                            <div class='flex items-center mb-4'>
-                                                <i class='fas fa-chart-line text-blue-600 mr-2 text-lg'></i>
-                                                <h4 class='text-lg font-bold text-blue-700'>Executive Summary</h4>
-                                            </div>
-                                            
-                                            <div class='grid grid-cols-1 md:grid-cols-3 gap-4'>
-                                                <div class='md:col-span-2'>
-                                                    {% if financial_analysis.executive_summary.key_highlights %}
-                                                        <div class='highlight-box p-4 bg-gradient-to-br from-white to-gray-50 rounded-lg border border-gray-200 shadow-sm'>
-                                                            <h5 class='text-gray-700 font-semibold mb-3'><i class='fas fa-star mr-2 text-yellow-500'></i>Key Highlights</h5>
-                                                            <ul class='space-y-2'>
-                                                                {% for highlight in financial_analysis.executive_summary.key_highlights %}
-                                                                    <li class='flex'>
-                                                                        <i class='fas fa-check-circle text-green-600 mr-2 mt-1 flex-shrink-0'></i>
-                                                                        <span class='text-sm text-gray-700'>{{ highlight }}</span>
-                                                                    </li>
-                                                                {% endfor %}
-                                                            </ul>
-                                                        </div>
-                                                    {% endif %}
-                                                </div>
-                                                
-                                                <div class='md:col-span-1'>
-                                                    {% if financial_analysis.executive_summary.overall_sentiment %}
-                                                        <div class='sentiment-box p-4 bg-gradient-to-br from-white to-gray-50 rounded-lg border border-gray-200 shadow-sm text-center'>
-                                                            <h5 class='text-gray-700 font-semibold mb-3'>Market Sentiment</h5>
-                                                            <div class='mb-3'>
-                                                                <span class='inline-block px-4 py-2 rounded-full text-white font-semibold bg-{% if financial_analysis.executive_summary.overall_sentiment == "positive" %}green{% elif financial_analysis.executive_summary.overall_sentiment == "negative" %}red{% else %}yellow{% endif %}-600'>
-                                                                    {{ financial_analysis.executive_summary.overall_sentiment | title }}
-                                                                </span>
-                                                            </div>
-                                                            {% if financial_analysis.executive_summary.market_sentiment_score %}
-                                                                <div class='w-full bg-gray-200 rounded-full h-2 mb-2'>
-                                                                    <div class='h-2 rounded-full bg-{% if financial_analysis.executive_summary.market_sentiment_score >= 70 %}green{% elif financial_analysis.executive_summary.market_sentiment_score >= 40 %}yellow{% else %}red{% endif %}-600 transition-all' 
-                                                                         style='width: {{ financial_analysis.executive_summary.market_sentiment_score }}%'></div>
-                                                                </div>
-                                                                <p class='text-sm text-gray-600'>{{ financial_analysis.executive_summary.market_sentiment_score }}/100</p>
-                                                            {% endif %}
-                                                        </div>
-                                                    {% endif %}
-                                                </div>
-                                            </div>
-                                        </section>
-                                    {% endif %}
-
-                                    <!-- Market Insights -->
-                                    {% if financial_analysis.market_insights %}
-                                        <section>
-                                            <div class='flex items-center mb-4'>
-                                                <i class='fas fa-lightbulb text-yellow-500 mr-2 text-lg'></i>
-                                                <h4 class='text-lg font-bold text-blue-700'>Market Insights</h4>
-                                            </div>
-                                            
-                                            {% if financial_analysis.market_insights.sectors %}
-                                                <div class='mb-4'>
-                                                    <h5 class='text-gray-700 font-semibold mb-3'><i class='fas fa-industry mr-2 text-blue-500'></i>Sector Analysis</h5>
-                                                    <div class='grid grid-cols-1 lg:grid-cols-2 gap-3'>
-                                                        {% for sector in financial_analysis.market_insights.sectors %}
-                                                            <div class='sector-card p-4 bg-gradient-to-br from-white to-blue-50 rounded-lg border-l-4 border-cyan-500 shadow-sm hover:shadow-md transition-shadow'>
-                                                                <div class='flex justify-between items-start'>
-                                                                    <div>
-                                                                        <h6 class='font-semibold text-gray-800 mb-1'>{{ sector.sector }}</h6>
-                                                                        <p class='text-sm text-gray-600 mb-1'>{{ sector.trend }}</p>
-                                                                        {% if sector.implications %}
-                                                                            <p class='text-sm text-cyan-600'><i class='fas fa-arrow-right mr-1'></i>{{ sector.implications }}</p>
-                                                                        {% endif %}
-                                                                    </div>
-                                                                    <i class='fas fa-chart-area text-cyan-500 text-xl'></i>
-                                                                </div>
-                                                            </div>
-                                                        {% endfor %}
-                                                    </div>
-                                                </div>
-                                            {% endif %}
-                                            
-                                            {% if financial_analysis.market_insights.key_themes %}
-                                                <div class='themes-section'>
-                                                    <h5 class='text-gray-700 font-semibold mb-3'><i class='fas fa-tags mr-2 text-purple-500'></i>Key Market Themes</h5>
-                                                    <ul class='space-y-2'>
-                                                        {% for theme in financial_analysis.market_insights.key_themes %}
-                                                            <li class='flex items-center'>
-                                                                <i class='fas fa-tag text-purple-500 mr-2 flex-shrink-0 text-sm'></i>
-                                                                <span class='text-sm font-medium text-gray-700'>{{ theme }}</span>
-                                                            </li>
-                                                        {% endfor %}
-                                                    </ul>
-                                                </div>
-                                            {% endif %}
-                                        </section>
-                                    {% endif %}
-
-                                    <!-- Risk Assessment -->
-                                    {% if financial_analysis.risk_assessment %}
-                                        <section>
-                                            <div class='flex items-center mb-4'>
-                                                <i class='fas fa-shield-alt text-red-600 mr-2 text-lg'></i>
-                                                <h4 class='text-lg font-bold text-blue-700'>Risk Assessment</h4>
-                                            </div>
-                                            
-                                            <div class='risk-matrix space-y-3'>
-                                                {% for risk in financial_analysis.risk_assessment %}
-                                                    <div class='risk-item p-4 bg-gradient-to-r from-white to-gray-50 rounded-lg border-l-4 border-{% if risk.impact == "High" %}red{% elif risk.impact == "Medium" %}yellow{% else %}green{% endif %}-600 shadow-sm hover:shadow-md transition-shadow'>
-                                                        <div class='flex flex-col md:flex-row md:items-center md:justify-between gap-3'>
-                                                            <div class='flex-1'>
-                                                                <h6 class='font-semibold text-gray-800 mb-1'>{{ risk.risk_factor }}</h6>
-                                                                {% if risk.mitigation %}
-                                                                    <p class='text-sm text-gray-600'><strong class='text-gray-700'>Mitigation:</strong> {{ risk.mitigation }}</p>
-                                                                {% endif %}
-                                                            </div>
-                                                            <div class='flex flex-wrap gap-2'>
-                                                                {% if risk.impact %}
-                                                                    <span class='inline-block px-3 py-1 rounded-full text-xs font-semibold text-white bg-{% if risk.impact == "High" %}red{% elif risk.impact == "Medium" %}yellow{% else %}green{% endif %}-600'>
-                                                                        Impact: {{ risk.impact }}
-                                                                    </span>
-                                                                {% endif %}
-                                                                {% if risk.likelihood %}
-                                                                    <span class='inline-block px-3 py-1 rounded-full text-xs font-semibold text-white bg-{% if risk.likelihood == "High" %}red{% elif risk.likelihood == "Medium" %}yellow{% else %}green{% endif %}-600'>
-                                                                        Probability: {{ risk.likelihood }}
-                                                                    </span>
-                                                                {% endif %}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                {% endfor %}
-                                            </div>
-                                        </section>
-                                    {% endif %}
-                                
-                                    <!-- Strategic Recommendations -->
-                                    {% if financial_analysis.strategic_recommendations %}
-                                        <section>
-                                            <div class='flex items-center mb-4'>
-                                                <i class='fas fa-bullseye text-green-600 mr-2 text-lg'></i>
-                                                <h4 class='text-lg font-bold text-blue-700'>Strategic Recommendations</h4>
-                                            </div>
-                                            
-                                            <div class='grid grid-cols-1 lg:grid-cols-2 gap-4'>
-                                                {% if financial_analysis.strategic_recommendations.opportunities %}
-                                                    <div>
-                                                        <h5 class='text-green-600 font-semibold mb-3'><i class='fas fa-arrow-trend-up mr-2'></i>Investment Opportunities</h5>
-                                                        <div class='space-y-3'>
-                                                        {% for opp in financial_analysis.strategic_recommendations.opportunities %}
-                                                            <div class='opportunity-card p-4 bg-gradient-to-br from-white to-green-50 rounded-lg border-l-4 border-green-600 shadow-sm hover:shadow-md transition-shadow'>
-                                                                <div class='flex justify-between items-start mb-2'>
-                                                                    <h6 class='font-semibold text-gray-800'>{{ opp.recommendation }}</h6>
-                                                                    {% if opp.timeframe %}
-                                                                        <span class='inline-block px-2 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded'>{{ opp.timeframe }}</span>
-                                                                    {% endif %}
-                                                                </div>
-                                                                {% if opp.rationale %}
-                                                                    <p class='text-sm text-gray-600 mb-2'>{{ opp.rationale }}</p>
-                                                                {% endif %}
-                                                                {% if opp.tickers %}
-                                                                    <div class='ticker-list flex flex-wrap gap-1 items-center'>
-                                                                        <span class='text-xs text-gray-500'>Tickers:</span>
-                                                                        {% for ticker in opp.tickers %}
-                                                                            <a href='https://finance.yahoo.com/quote/{{ ticker }}' target='_blank' class='inline-block px-2 py-1 bg-green-600 text-white text-xs font-semibold rounded hover:bg-green-700 transition-colors'>{{ ticker }}</a>
-                                                                        {% endfor %}
-                                                                    </div>
-                                                                {% endif %}
-                                                            </div>
-                                                        {% endfor %}
-                                                        </div>
-                                                    </div>
-                                                {% endif %}
-                                                
-                                                {% if financial_analysis.strategic_recommendations.defensive_moves %}
-                                                    <div>
-                                                        <h5 class='text-yellow-600 font-semibold mb-3'><i class='fas fa-shield mr-2'></i>Defensive Strategies</h5>
-                                                        <div class='space-y-3'>
-                                                        {% for def in financial_analysis.strategic_recommendations.defensive_moves %}
-                                                            <div class='defensive-card p-4 bg-gradient-to-br from-white to-yellow-50 rounded-lg border-l-4 border-yellow-600 shadow-sm hover:shadow-md transition-shadow'>
-                                                                <div class='flex justify-between items-start mb-2'>
-                                                                    <h6 class='font-semibold text-gray-800'>{{ def.recommendation }}</h6>
-                                                                    {% if def.timeframe %}
-                                                                        <span class='inline-block px-2 py-1 bg-yellow-100 text-yellow-700 text-xs font-semibold rounded'>{{ def.timeframe }}</span>
-                                                                    {% endif %}
-                                                                </div>
-                                                                {% if def.rationale %}
-                                                                    <p class='text-sm text-gray-600 mb-2'>{{ def.rationale }}</p>
-                                                                {% endif %}
-                                                                {% if def.tickers %}
-                                                                    <div class='ticker-list flex flex-wrap gap-1 items-center'>
-                                                                        <span class='text-xs text-gray-500'>Tickers:</span>
-                                                                        {% for ticker in def.tickers %}
-                                                                            <a href='https://finance.yahoo.com/quote/{{ ticker }}' target='_blank' class='inline-block px-2 py-1 bg-yellow-500 text-gray-900 text-xs font-semibold rounded hover:bg-yellow-600 transition-colors'>{{ ticker }}</a>
-                                                                        {% endfor %}
-                                                                    </div>
-                                                                {% endif %}
-                                                            </div>
-                                                        {% endfor %}
-                                                        </div>
-                                                    </div>
-                                                {% endif %}
-                                            </div>
-                                        </section>
-                                    {% endif %}
-
-                                    <!-- Market Outlook -->
-                                    {% if financial_analysis.market_outlook %}
-                                        <section>
-                                            <div class='flex items-center mb-4'>
-                                                <i class='fas fa-crystal-ball text-cyan-600 mr-2 text-lg'></i>
-                                                <h4 class='text-lg font-bold text-blue-700'>Market Outlook</h4>
-                                            </div>
-                                            
-                                            <div class='outlook-section'>
-                                                <div class='grid grid-cols-1 md:grid-cols-2 gap-4 mb-4'>
-                                                    {% if financial_analysis.market_outlook.short_term %}
-                                                        <div>
-                                                            <div class='outlook-card p-4 bg-gradient-to-br from-white to-blue-50 rounded-lg border-l-4 border-blue-600 shadow-sm hover:shadow-md transition-shadow'>
-                                                                <h5 class='text-blue-700 font-semibold mb-2'><i class='fas fa-clock mr-2'></i>Short-term Outlook (1-3 months)</h5>
-                                                                <p class='text-sm text-gray-700'>{{ financial_analysis.market_outlook.short_term }}</p>
-                                                            </div>
-                                                        </div>
-                                                    {% endif %}
-                                                    
-                                                    {% if financial_analysis.market_outlook.long_term %}
-                                                        <div>
-                                                            <div class='outlook-card p-4 bg-gradient-to-br from-white to-cyan-50 rounded-lg border-l-4 border-cyan-600 shadow-sm hover:shadow-md transition-shadow'>
-                                                                <h5 class='text-cyan-700 font-semibold mb-2'><i class='fas fa-calendar-alt mr-2'></i>Long-term Outlook (6-12 months)</h5>
-                                                                <p class='text-sm text-gray-700'>{{ financial_analysis.market_outlook.long_term }}</p>
-                                                            </div>
-                                                        </div>
-                                                    {% endif %}
-                                                </div>
-                                                
-                                                <div class='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                                                    {% if financial_analysis.market_outlook.key_catalysts %}
-                                                        <div>
-                                                            <div class='catalysts-box p-4 bg-gradient-to-br from-white to-gray-50 rounded-lg border border-gray-200 shadow-sm'>
-                                                                <h5 class='text-gray-700 font-semibold mb-3'><i class='fas fa-rocket mr-2 text-orange-500'></i>Key Market Catalysts</h5>
-                                                                <ul class='space-y-2'>
-                                                                    {% for catalyst in financial_analysis.market_outlook.key_catalysts %}
-                                                                        <li class='flex'>
-                                                                            <i class='fas fa-chevron-right text-blue-600 mr-2 mt-1 flex-shrink-0'></i>
-                                                                            <span class='text-sm text-gray-700'>{{ catalyst }}</span>
-                                                                        </li>
-                                                                    {% endfor %}
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    {% endif %}
-                                                    
-                                                    {% if financial_analysis.market_outlook.watch_list %}
-                                                        <div>
-                                                            <div class='watchlist-box p-4 bg-gradient-to-br from-white to-gray-50 rounded-lg border border-gray-200 shadow-sm'>
-                                                                <h5 class='text-gray-700 font-semibold mb-3'><i class='fas fa-eye mr-2 text-indigo-500'></i>Monitor Closely</h5>
-                                                                <ul class='space-y-2'>
-                                                                    {% for item in financial_analysis.market_outlook.watch_list %}
-                                                                        <li class='flex items-center'>
-                                                                            <i class='fas fa-circle text-cyan-500 mr-2 flex-shrink-0 text-xs'></i>
-                                                                            <span class='text-sm text-gray-600'>{{ item }}</span>
-                                                                        </li>
-                                                                    {% endfor %}
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    {% endif %}
-                                                </div>
-                                            </div>
-                                        </section>
-                                    {% endif %}
-                                </div>
-                            {% endif %}
-                    </div>
-                {% else %}
-                    <div class='bg-yellow-50 border border-yellow-200 rounded-lg p-4'>
-                        <h5 class='font-semibold text-yellow-800 mb-2'>🔧 Financial Analysis Temporarily Unavailable</h5>
-                        <p class='text-sm text-yellow-700'>Our AI financial analysis service is currently being configured. Please check back later for comprehensive market insights and recommendations.</p>
-                    </div>
-                {% endif %}
-            </div>
+{# ─── MACRO: sidebar market data ─── #}
+{% macro sidebar_market_data() %}
+  {# Central Banks #}
+  {% if policies or fed_econ_data %}
+  <div class="sidebar-panel">
+    <div class="sidebar-panel-header">
+      <div class="flex items-center gap-2">
+        <i class="fas fa-university text-cyan-500 text-sm"></i>
+        <h3 class="sidebar-panel-title">Central Banks</h3>
+      </div>
+    </div>
+    {% if fed_econ_data %}
+    <div class="p-4 border-b border-slate-100">
+      <p class="data-label mb-2">Fed — Economy at a Glance</p>
+      <div class="space-y-1.5">
+        {% for item in fed_econ_data %}
+        <div class="flex justify-between items-center text-xs">
+          <span class="text-slate-500">{{ item.indicator }}</span>
+          <span class="font-semibold text-slate-800 tabular-nums">{{ item.value }}</span>
         </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% if policies %}
+    <div class="p-4">
+      <p class="data-label mb-2">Policy Rates</p>
+      <div class="space-y-1.5">
+        {% for policy in policies %}
+        <div class="flex justify-between items-center text-xs">
+          <span class="text-slate-500">{{ policy.bank }}</span>
+          <span class="font-semibold text-slate-800 tabular-nums">{{ policy.rate }}</span>
         </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {# Economic Indicators #}
+  {% if econ %}
+  <div class="sidebar-panel">
+    <div class="sidebar-panel-header">
+      <div class="flex items-center gap-2">
+        <i class="fas fa-chart-bar text-emerald-500 text-sm"></i>
+        <h3 class="sidebar-panel-title">Economic Indicators</h3>
+      </div>
+    </div>
+    <div class="p-4 space-y-3">
+      {% for item in econ %}
+      <div>
+        <div class="flex justify-between items-center mb-1">
+          <span class="text-xs font-medium text-slate-700 leading-tight pr-2">{{ item.event }}</span>
+          <span class="text-xs font-bold px-1.5 py-0.5 rounded flex-shrink-0
+            {% if item.sentiment == 'positive' %}bg-emerald-100 text-emerald-700
+            {% elif item.sentiment == 'negative' %}bg-red-100 text-red-700
+            {% else %}bg-slate-100 text-slate-600{% endif %}">{{ item.value }}</span>
+        </div>
+        <div class="w-full bg-slate-200 rounded-full h-1.5">
+          {% set pct = (item.numeric_value / item.max_value * 100) %}
+          <div class="h-1.5 rounded-full transition-all
+            {% if item.sentiment == 'positive' %}bg-emerald-500
+            {% elif item.sentiment == 'negative' %}bg-red-500
+            {% else %}bg-slate-400{% endif %}"
+            style="width: {{ pct }}%"></div>
+        </div>
+        <p class="text-xs text-slate-400 mt-0.5">{{ item.date }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+{% endmacro %}
+
+
+{% if financial_analysis and financial_analysis is not string %}
+
+{# ═══════════════════════════════════════════════════════════════ #}
+{# BRIEFING BANNER                                                 #}
+{# ═══════════════════════════════════════════════════════════════ #}
+<div class="briefing-banner mb-6">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+    {# Left: title + date + top highlights #}
+    <div class="md:col-span-2">
+      <div class="flex items-center gap-2 mb-2">
+        <span class="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-slate-400 uppercase">
+          <i class="fas fa-robot text-violet-400"></i> AI Financial Briefing
+        </span>
+      </div>
+      <h1 class="text-2xl lg:text-3xl font-black text-white leading-tight mb-1">Market Analysis Report</h1>
+      {% if financial_analysis.analysis_date %}
+      <p class="text-slate-400 text-sm mb-4">
+        <i class="far fa-calendar-alt mr-1.5"></i>{{ financial_analysis.analysis_date }}{% if financial_analysis.analysis_time %} &middot; {{ financial_analysis.analysis_time }}{% endif %}
+      </p>
+      {% endif %}
+      {% if financial_analysis.executive_summary and financial_analysis.executive_summary.key_highlights %}
+      <ul class="space-y-1.5">
+        {% for hl in financial_analysis.executive_summary.key_highlights[:4] %}
+        <li class="flex items-start gap-2 text-sm text-slate-300">
+          <i class="fas fa-check-circle text-emerald-400 mt-0.5 flex-shrink-0 text-xs"></i>
+          <span class="leading-snug">{{ hl }}</span>
+        </li>
+        {% endfor %}
+        {% if financial_analysis.executive_summary.key_highlights|length > 4 %}
+        <li class="text-xs text-slate-500 pl-4">+ {{ financial_analysis.executive_summary.key_highlights|length - 4 }} more highlights in Executive Summary ↓</li>
+        {% endif %}
+      </ul>
+      {% endif %}
     </div>
 
-    <!-- Market Data Section - Tab 3 (shown in same grid on desktop, tabbed on mobile) -->
-    <div class='grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6' :class="{ 'hidden lg:grid': activeTab !== 'markets' }" id='market-data'>
-        <div>
-            <div class='bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow'>
-                <div class='px-6 py-4 border-b border-slate-100 flex items-center gap-2.5'>
-                    <span class='inline-flex items-center justify-center w-7 h-7 bg-cyan-50 rounded-lg'><i class='fas fa-university text-cyan-600 text-sm'></i></span>
-                    <h2 class='text-base font-semibold text-slate-800'>Central Banks</h2>
-                </div>
-                
-                <!-- US Federal Reserve subsection -->
-                {% if fed_econ_data %}
-                <div class='p-6 border-b border-gray-200'>
-                    <h3 class='text-base font-semibold text-gray-700 mb-3'>US Federal Reserve - Economy at a Glance</h3>
-                    <div class='space-y-2'>
-                        {% for item in fed_econ_data %}
-                        <div class='text-sm'><span class='font-semibold text-gray-800'>{{ item.indicator }}:</span> <span class='text-gray-600'>{{ item.value }}</span></div>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endif %}
-                
-                <!-- Central Bank Rates -->
-                <div class='p-6'>
-                    <h3 class='text-base font-semibold text-gray-700 mb-3'>Policy Rates</h3>
-                    <ul class='space-y-3'>
-                        {% for policy in policies %}
-                        <li class='flex justify-between items-center pb-2 border-b border-gray-100 last:border-0'>
-                            <span class='font-semibold text-gray-800'>{{ policy.bank }}:</span>
-                            <span class='text-gray-600'>{{ policy.rate }}</span>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
+    {# Right: sentiment score widget #}
+    <div class="flex justify-center md:justify-end">
+      {% if financial_analysis.executive_summary %}
+        {% set score = financial_analysis.executive_summary.market_sentiment_score %}
+        {% set sentiment = financial_analysis.executive_summary.overall_sentiment %}
+        <div class="briefing-score-widget">
+          {% if score %}
+          <div class="text-6xl font-black leading-none tabular-nums
+            {% if score >= 70 %}text-emerald-400{% elif score >= 40 %}text-amber-400{% else %}text-red-400{% endif %}">
+            {{ score }}
+          </div>
+          <p class="text-slate-500 text-xs mt-1 uppercase tracking-wider">Sentiment Score / 100</p>
+          <div class="w-full bg-slate-700 rounded-full h-1.5 mt-2.5">
+            <div class="h-1.5 rounded-full
+              {% if score >= 70 %}bg-emerald-400{% elif score >= 40 %}bg-amber-400{% else %}bg-red-400{% endif %}"
+              style="width: {{ score }}%"></div>
+          </div>
+          {% endif %}
+          {% if sentiment %}
+          <span class="mt-3 inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide
+            {% if sentiment == 'positive' %}bg-emerald-900 text-emerald-300
+            {% elif sentiment == 'negative' %}bg-red-900 text-red-300
+            {% else %}bg-amber-900 text-amber-300{% endif %}">
+            {% if sentiment == 'positive' %}<i class="fas fa-arrow-trend-up mr-1"></i>
+            {% elif sentiment == 'negative' %}<i class="fas fa-arrow-trend-down mr-1"></i>
+            {% else %}<i class="fas fa-minus mr-1"></i>{% endif %}
+            {{ sentiment | title }}
+          </span>
+          {% endif %}
+          <div class="mt-3 flex gap-3 text-center text-xs">
+            {% if financial_analysis.risk_assessment %}
+            <div>
+              <div class="text-slate-200 font-bold text-base">{{ financial_analysis.risk_assessment|length }}</div>
+              <div class="text-slate-500">Risks</div>
             </div>
-        </div>
-        
-        <div>
-            <div class='bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow'>
-                <div class='px-6 py-4 border-b border-slate-100 flex items-center gap-2.5'>
-                    <span class='inline-flex items-center justify-center w-7 h-7 bg-emerald-50 rounded-lg'><i class='fas fa-chart-bar text-emerald-600 text-sm'></i></span>
-                    <h2 class='text-base font-semibold text-slate-800'>Key Economic Data</h2>
-                </div>
-                <div class='p-6'>
-                    {% for item in econ %}
-                    <div class='mb-4 last:mb-0'>
-                        <div class='flex justify-between items-center mb-2'>
-                            <span class='font-semibold text-sm text-gray-800'>{{ item.event }}</span>
-                            <span class='inline-block px-2 py-1 text-xs font-semibold text-white rounded bg-{% if item.sentiment == "positive" %}green{% elif item.sentiment == "negative" %}red{% else %}gray{% endif %}-600'>{{ item.value }}</span>
-                        </div>
-                        <div class='w-full bg-gray-200 rounded-full h-2.5 mb-1'>
-                            {% set percentage = (item.numeric_value / item.max_value) * 100 %}
-                            <div class='h-2.5 rounded-full bg-{% if item.sentiment == "positive" %}green{% elif item.sentiment == "negative" %}red{% else %}gray{% endif %}-600 transition-all' style='width: {{ percentage }}%'></div>
-                        </div>
-                        <p class='text-xs text-gray-500'>{{ item.date }}</p>
-                    </div>
-                    {% endfor %}
-                </div>
+            {% endif %}
+            {% if financial_analysis.market_insights and financial_analysis.market_insights.sectors %}
+            <div>
+              <div class="text-slate-200 font-bold text-base">{{ financial_analysis.market_insights.sectors|length }}</div>
+              <div class="text-slate-500">Sectors</div>
             </div>
-        </div>
-        
-        <div>
-            <div class='bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow'>
-                <div class='px-6 py-4 border-b border-slate-100 flex items-center gap-2.5'>
-                    <span class='inline-flex items-center justify-center w-7 h-7 bg-amber-50 rounded-lg'><i class='fas fa-exchange-alt text-amber-600 text-sm'></i></span>
-                    <h2 class='text-base font-semibold text-slate-800'>Forex CFD Quotes</h2>
-                </div>
-                <div class='overflow-x-auto'>
-                    <table class='w-full'>
-                        <thead class='bg-gray-50 border-b border-gray-200'>
-                            <tr>
-                                <th class='px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>Pair</th>
-                                <th class='px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>Bid</th>
-                                <th class='px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>Ask</th>
-                                <th class='px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>Change</th>
-                            </tr>
-                        </thead>
-                        <tbody class='divide-y divide-gray-200'>
-                            {% for item in forex %}
-                            <tr class='hover:bg-gray-50 transition-colors'>
-                                <td class='px-6 py-4 text-sm font-medium text-gray-900'>{{ item.pair }}</td>
-                                <td class='px-6 py-4 text-sm text-gray-600'>{{ item.bid }}</td>
-                                <td class='px-6 py-4 text-sm text-gray-600'>{{ item.ask }}</td>
-                                <td class='px-6 py-4 text-sm font-semibold {% if item.change > 0 %}text-green-600{% elif item.change < 0 %}text-red-600{% endif %}'>
-                                    {% if item.change > 0 %}<i class='fas fa-arrow-up mr-1'></i>{% elif item.change < 0 %}<i class='fas fa-arrow-down mr-1'></i>{% endif %}
-                                    {{ item.change }}
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+            {% endif %}
+            {% if news %}
+            <div>
+              <div class="text-slate-200 font-bold text-base">{{ news|length }}</div>
+              <div class="text-slate-500">Headlines</div>
             </div>
+            {% endif %}
+          </div>
         </div>
+      {% endif %}
     </div>
+  </div>
 </div>
+
+
+{# ═══════════════════════════════════════════════════════════════ #}
+{# MAIN BODY: Analysis (2/3) + Sidebar (1/3)                      #}
+{# ═══════════════════════════════════════════════════════════════ #}
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+
+  {# ── LEFT: ANALYSIS SECTIONS ── #}
+  <div class="xl:col-span-2 space-y-5">
+
+    {# ─── §01 EXECUTIVE SUMMARY ─── #}
+    {% if financial_analysis.executive_summary %}
+    <section id="exec-summary" class="analysis-section">
+      <div class="analysis-section-header">
+        <span class="section-num">01</span>
+        <div>
+          <h2 class="section-title">Executive Summary</h2>
+          <p class="section-desc">Key market highlights and overall sentiment assessment</p>
+        </div>
+      </div>
+      <div class="analysis-section-body">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="md:col-span-2">
+            {% if financial_analysis.executive_summary.key_highlights %}
+            <h3 class="data-label mb-3"><i class="fas fa-star text-amber-400 mr-1.5 text-xs"></i>Key Highlights</h3>
+            <ul class="space-y-2.5">
+              {% for hl in financial_analysis.executive_summary.key_highlights %}
+              <li class="flex items-start gap-2.5">
+                <i class="fas fa-check-circle text-emerald-500 mt-0.5 flex-shrink-0 text-sm"></i>
+                <span class="text-sm text-slate-700 leading-snug">{{ hl }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </div>
+          <div class="md:col-span-1">
+            {% set score = financial_analysis.executive_summary.market_sentiment_score %}
+            {% set sentiment = financial_analysis.executive_summary.overall_sentiment %}
+            {% if score or sentiment %}
+            <div class="sentiment-widget">
+              <h3 class="data-label mb-3">Market Sentiment</h3>
+              {% if sentiment %}
+              <div class="text-center mb-3">
+                <span class="sentiment-pill sentiment-{{ sentiment }}">
+                  {% if sentiment == 'positive' %}<i class="fas fa-arrow-trend-up mr-1"></i>
+                  {% elif sentiment == 'negative' %}<i class="fas fa-arrow-trend-down mr-1"></i>
+                  {% else %}<i class="fas fa-minus mr-1"></i>{% endif %}
+                  {{ sentiment | title }}
+                </span>
+              </div>
+              {% endif %}
+              {% if score %}
+              <div class="text-center">
+                <div class="text-3xl font-black tabular-nums
+                  {% if score >= 70 %}text-emerald-600{% elif score >= 40 %}text-amber-600{% else %}text-red-600{% endif %}">
+                  {{ score }}<span class="text-sm font-normal text-slate-400">/100</span>
+                </div>
+                <div class="mt-2 w-full bg-slate-200 rounded-full h-2">
+                  <div class="h-2 rounded-full
+                    {% if score >= 70 %}bg-emerald-500{% elif score >= 40 %}bg-amber-500{% else %}bg-red-500{% endif %}"
+                    style="width: {{ score }}%"></div>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {{ evidence_strip(financial_analysis.executive_summary.headline_sources, news) }}
+      </div>
+    </section>
+    {% endif %}
+
+    {# ─── §02 MARKET INSIGHTS ─── #}
+    {% if financial_analysis.market_insights %}
+    <section id="market-insights" class="analysis-section">
+      <div class="analysis-section-header">
+        <span class="section-num">02</span>
+        <div>
+          <h2 class="section-title">Market Insights</h2>
+          <p class="section-desc">Sector trends, themes, and emerging market dynamics</p>
+        </div>
+      </div>
+      <div class="analysis-section-body">
+        {% if financial_analysis.market_insights.key_themes %}
+        <div class="mb-5">
+          <h3 class="data-label mb-3"><i class="fas fa-tags text-violet-500 mr-1.5 text-xs"></i>Key Market Themes</h3>
+          <div class="flex flex-wrap gap-2">
+            {% for theme in financial_analysis.market_insights.key_themes %}
+            <span class="theme-tag">{{ theme }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        {% if financial_analysis.market_insights.sectors %}
+        <h3 class="data-label mb-3"><i class="fas fa-industry text-blue-500 mr-1.5 text-xs"></i>Sector Analysis</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-2">
+          {% for sector in financial_analysis.market_insights.sectors %}
+          <div class="sector-card">
+            <div class="flex items-start justify-between mb-1.5">
+              <h4 class="font-semibold text-slate-800 text-sm leading-snug pr-2">{{ sector.sector }}</h4>
+              <i class="fas fa-chart-area text-cyan-400 text-base flex-shrink-0"></i>
+            </div>
+            <p class="text-xs text-slate-600 mb-1 leading-relaxed">{{ sector.trend }}</p>
+            {% if sector.implications %}
+            <p class="text-xs text-cyan-700 font-medium leading-snug">
+              <i class="fas fa-arrow-right text-cyan-400 mr-1"></i>{{ sector.implications }}
+            </p>
+            {% endif %}
+            {% if sector.headline_sources %}
+            <div class="mt-2 flex flex-wrap gap-1 items-center">
+              <span class="text-xs text-slate-400">Sources:</span>
+              {% for src in sector.headline_sources %}{% if src >= 1 and src <= news|length %}
+              <a href="{{ news[src-1].url }}" target="_blank" rel="noopener noreferrer"
+                 class="src-chip" title="{{ news[src-1].headline }}">{{ src }}</a>
+              {% endif %}{% endfor %}
+            </div>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {{ evidence_strip(financial_analysis.market_insights.headline_sources, news) }}
+      </div>
+    </section>
+    {% endif %}
+
+    {# ─── §03 RISK ASSESSMENT ─── #}
+    {% if financial_analysis.risk_assessment %}
+    <section id="risk-assessment" class="analysis-section">
+      <div class="analysis-section-header">
+        <span class="section-num">03</span>
+        <div>
+          <h2 class="section-title">Risk Assessment</h2>
+          <p class="section-desc">Identified risk factors, impact levels and mitigation strategies</p>
+        </div>
+      </div>
+      <div class="analysis-section-body">
+        {# Risk matrix header row #}
+        <div class="hidden sm:grid grid-cols-12 gap-3 mb-2 px-1">
+          <div class="col-span-2 text-xs font-bold text-slate-400 uppercase tracking-wider">Impact</div>
+          <div class="col-span-6 text-xs font-bold text-slate-400 uppercase tracking-wider">Risk Factor</div>
+          <div class="col-span-2 text-xs font-bold text-slate-400 uppercase tracking-wider">Likelihood</div>
+          <div class="col-span-2 text-xs font-bold text-slate-400 uppercase tracking-wider text-right">Sources</div>
+        </div>
+        <div class="space-y-2">
+          {% for risk in financial_analysis.risk_assessment %}
+          <div class="risk-row risk-row-{{ risk.impact | lower if risk.impact else 'low' }}">
+            <div class="flex items-start gap-3">
+              <div class="flex-shrink-0 pt-0.5">
+                <span class="risk-badge risk-{{ risk.impact | lower if risk.impact else 'low' }}">
+                  {{ risk.impact or '—' }}
+                </span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
+                  <h4 class="font-semibold text-slate-800 text-sm leading-snug">{{ risk.risk_factor }}</h4>
+                  {% if risk.likelihood %}
+                  <span class="risk-likelihood risk-{{ risk.likelihood | lower }} flex-shrink-0">{{ risk.likelihood }}</span>
+                  {% endif %}
+                </div>
+                {% if risk.mitigation %}
+                <p class="text-xs text-slate-500 leading-relaxed">
+                  <span class="font-semibold text-slate-600">Mitigation:</span> {{ risk.mitigation }}
+                </p>
+                {% endif %}
+                {% if risk.headline_sources %}
+                <div class="mt-1.5 flex flex-wrap gap-1 items-center">
+                  <span class="text-xs text-slate-400">Sources:</span>
+                  {% for src in risk.headline_sources %}{% if src >= 1 and src <= news|length %}
+                  <a href="{{ news[src-1].url }}" target="_blank" rel="noopener noreferrer"
+                     class="src-chip" title="{{ news[src-1].headline }}">{{ src }}</a>
+                  {% endif %}{% endfor %}
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {# Collect unique sources across all risks #}
+        {% set rns = namespace(s=[]) %}
+        {% for risk in financial_analysis.risk_assessment %}{% if risk.headline_sources %}{% for src in risk.headline_sources %}{% if src not in rns.s %}{% set rns.s = rns.s + [src] %}{% endif %}{% endfor %}{% endif %}{% endfor %}
+        {{ evidence_strip(rns.s, news) }}
+      </div>
+    </section>
+    {% endif %}
+
+    {# ─── §04 STRATEGIC RECOMMENDATIONS ─── #}
+    {% if financial_analysis.strategic_recommendations %}
+    <section id="recommendations" class="analysis-section">
+      <div class="analysis-section-header">
+        <span class="section-num">04</span>
+        <div>
+          <h2 class="section-title">Strategic Recommendations</h2>
+          <p class="section-desc">Actionable investment opportunities and defensive strategies</p>
+        </div>
+      </div>
+      <div class="analysis-section-body">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {% if financial_analysis.strategic_recommendations.opportunities %}
+          <div>
+            <h3 class="data-label text-emerald-700 mb-3">
+              <i class="fas fa-arrow-trend-up text-emerald-500 mr-1.5 text-xs"></i>Investment Opportunities
+            </h3>
+            <div class="space-y-3">
+              {% for opp in financial_analysis.strategic_recommendations.opportunities %}
+              <div class="rec-card rec-opportunity">
+                <div class="flex items-start justify-between gap-2 mb-1.5">
+                  <h4 class="font-semibold text-slate-800 text-sm leading-snug">{{ opp.recommendation }}</h4>
+                  {% if opp.timeframe %}
+                  <span class="timeframe-badge bg-emerald-100 text-emerald-700 flex-shrink-0">{{ opp.timeframe }}</span>
+                  {% endif %}
+                </div>
+                {% if opp.rationale %}
+                <p class="text-xs text-slate-600 mb-2 leading-relaxed">{{ opp.rationale }}</p>
+                {% endif %}
+                {% if opp.tickers %}
+                <div class="flex flex-wrap gap-1 items-center mb-1.5">
+                  {% for ticker in opp.tickers %}
+                  <a href="https://finance.yahoo.com/quote/{{ ticker }}" target="_blank"
+                     class="ticker-chip bg-emerald-700 text-white hover:bg-emerald-800">{{ ticker }}</a>
+                  {% endfor %}
+                </div>
+                {% endif %}
+                {% if opp.headline_sources %}
+                <div class="flex flex-wrap gap-1 items-center">
+                  <span class="text-xs text-slate-400">Sources:</span>
+                  {% for src in opp.headline_sources %}{% if src >= 1 and src <= news|length %}
+                  <a href="{{ news[src-1].url }}" target="_blank" rel="noopener noreferrer"
+                     class="src-chip" title="{{ news[src-1].headline }}">{{ src }}</a>
+                  {% endif %}{% endfor %}
+                </div>
+                {% endif %}
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+
+          {% if financial_analysis.strategic_recommendations.defensive_moves %}
+          <div>
+            <h3 class="data-label text-amber-700 mb-3">
+              <i class="fas fa-shield text-amber-500 mr-1.5 text-xs"></i>Defensive Strategies
+            </h3>
+            <div class="space-y-3">
+              {% for def in financial_analysis.strategic_recommendations.defensive_moves %}
+              <div class="rec-card rec-defensive">
+                <div class="flex items-start justify-between gap-2 mb-1.5">
+                  <h4 class="font-semibold text-slate-800 text-sm leading-snug">{{ def.recommendation }}</h4>
+                  {% if def.timeframe %}
+                  <span class="timeframe-badge bg-amber-100 text-amber-700 flex-shrink-0">{{ def.timeframe }}</span>
+                  {% endif %}
+                </div>
+                {% if def.rationale %}
+                <p class="text-xs text-slate-600 mb-2 leading-relaxed">{{ def.rationale }}</p>
+                {% endif %}
+                {% if def.tickers %}
+                <div class="flex flex-wrap gap-1 items-center mb-1.5">
+                  {% for ticker in def.tickers %}
+                  <a href="https://finance.yahoo.com/quote/{{ ticker }}" target="_blank"
+                     class="ticker-chip bg-amber-600 text-white hover:bg-amber-700">{{ ticker }}</a>
+                  {% endfor %}
+                </div>
+                {% endif %}
+                {% if def.headline_sources %}
+                <div class="flex flex-wrap gap-1 items-center">
+                  <span class="text-xs text-slate-400">Sources:</span>
+                  {% for src in def.headline_sources %}{% if src >= 1 and src <= news|length %}
+                  <a href="{{ news[src-1].url }}" target="_blank" rel="noopener noreferrer"
+                     class="src-chip" title="{{ news[src-1].headline }}">{{ src }}</a>
+                  {% endif %}{% endfor %}
+                </div>
+                {% endif %}
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+
+        {# Collect unique sources across all recommendations #}
+        {% set recns = namespace(s=[]) %}
+        {% if financial_analysis.strategic_recommendations.opportunities %}
+          {% for opp in financial_analysis.strategic_recommendations.opportunities %}{% if opp.headline_sources %}{% for src in opp.headline_sources %}{% if src not in recns.s %}{% set recns.s = recns.s + [src] %}{% endif %}{% endfor %}{% endif %}{% endfor %}
+        {% endif %}
+        {% if financial_analysis.strategic_recommendations.defensive_moves %}
+          {% for def in financial_analysis.strategic_recommendations.defensive_moves %}{% if def.headline_sources %}{% for src in def.headline_sources %}{% if src not in recns.s %}{% set recns.s = recns.s + [src] %}{% endif %}{% endfor %}{% endif %}{% endfor %}
+        {% endif %}
+        {{ evidence_strip(recns.s, news) }}
+      </div>
+    </section>
+    {% endif %}
+
+    {# ─── §05 MARKET OUTLOOK ─── #}
+    {% if financial_analysis.market_outlook %}
+    <section id="market-outlook" class="analysis-section">
+      <div class="analysis-section-header">
+        <span class="section-num">05</span>
+        <div>
+          <h2 class="section-title">Market Outlook</h2>
+          <p class="section-desc">Forward-looking scenarios, key catalysts and indicators to watch</p>
+        </div>
+      </div>
+      <div class="analysis-section-body">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+          {% if financial_analysis.market_outlook.short_term %}
+          <div class="outlook-card outlook-short">
+            <p class="text-xs font-bold text-blue-700 uppercase tracking-wide mb-2">
+              <i class="fas fa-clock mr-1.5"></i>Short-term · 1–3 months
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">{{ financial_analysis.market_outlook.short_term }}</p>
+          </div>
+          {% endif %}
+          {% if financial_analysis.market_outlook.long_term %}
+          <div class="outlook-card outlook-long">
+            <p class="text-xs font-bold text-cyan-700 uppercase tracking-wide mb-2">
+              <i class="fas fa-calendar-alt mr-1.5"></i>Long-term · 6–12 months
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed">{{ financial_analysis.market_outlook.long_term }}</p>
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {% if financial_analysis.market_outlook.key_catalysts %}
+          <div>
+            <h3 class="data-label mb-3"><i class="fas fa-rocket text-orange-500 mr-1.5 text-xs"></i>Key Catalysts</h3>
+            <ul class="space-y-2">
+              {% for catalyst in financial_analysis.market_outlook.key_catalysts %}
+              <li class="flex items-start gap-2 text-sm text-slate-700">
+                <i class="fas fa-chevron-right text-blue-400 mt-0.5 flex-shrink-0 text-xs"></i>
+                {{ catalyst }}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+          {% if financial_analysis.market_outlook.watch_list %}
+          <div>
+            <h3 class="data-label mb-3"><i class="fas fa-eye text-indigo-500 mr-1.5 text-xs"></i>Monitor Closely</h3>
+            <ul class="space-y-2">
+              {% for watch in financial_analysis.market_outlook.watch_list %}
+              <li class="flex items-center gap-2 text-sm text-slate-600">
+                <i class="fas fa-circle text-cyan-400 flex-shrink-0 text-xs"></i>
+                {{ watch }}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+        </div>
+        {{ evidence_strip(financial_analysis.market_outlook.headline_sources, news) }}
+      </div>
+    </section>
+    {% endif %}
+
+  </div>{# end xl:col-span-2 #}
+
+
+  {# ── RIGHT SIDEBAR ── #}
+  <div class="xl:col-span-1 space-y-5">
+
+    {# Headlines reference panel #}
+    {% if news %}
+    <div class="sidebar-panel" id="headlines-sidebar">
+      <div class="sidebar-panel-header">
+        <div class="flex items-center gap-2">
+          <i class="fas fa-newspaper text-blue-500 text-sm"></i>
+          <h3 class="sidebar-panel-title">Today's Headlines</h3>
+        </div>
+        <span class="sidebar-count">{{ news|length }} analyzed</span>
+      </div>
+      <div class="divide-y divide-slate-100">
+        {% for item in news %}
+        <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer"
+           id="headline-{{ loop.index }}"
+           class="sidebar-headline-item group">
+          <div class="flex items-start gap-2.5">
+            <span class="sidebar-headline-num flex-shrink-0">{{ loop.index }}</span>
+            {% if item.image %}
+              {% set actual_img = item.image.split("#")[0] %}
+              <img src="{{ actual_img }}" alt="{{ item.headline }}"
+                   class="sidebar-headline-thumb flex-shrink-0 headline-image" loading="lazy">
+            {% else %}
+              <div class="sidebar-headline-thumb-placeholder flex-shrink-0">
+                <i class="fas fa-newspaper text-slate-300 text-xs"></i>
+              </div>
+            {% endif %}
+            <div class="flex-1 min-w-0">
+              <p class="text-xs font-medium text-slate-700 group-hover:text-blue-600 transition-colors leading-snug line-clamp-3">{{ item.headline }}</p>
+              {% if item.source %}
+              <span class="flex items-center gap-1 mt-1">
+                <img src="{{ item.favicon }}" alt="" class="w-3 h-3 rounded-sm" loading="lazy">
+                <span class="text-xs text-slate-400">{{ item.source }}</span>
+              </span>
+              {% endif %}
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {# Market data panels #}
+    {{ sidebar_market_data() }}
+
+  </div>{# end sidebar #}
+
+</div>{# end main grid #}
+
+
+{# ═══════════════════════════════════════════════════════════════ #}
+{# FOREX TABLE — full width below both columns                     #}
+{# ═══════════════════════════════════════════════════════════════ #}
+{% if forex %}
+<section id="market-data" class="mt-6">
+  <div class="sidebar-panel">
+    <div class="sidebar-panel-header">
+      <div class="flex items-center gap-2">
+        <i class="fas fa-exchange-alt text-amber-500 text-sm"></i>
+        <h3 class="sidebar-panel-title">Forex CFD Quotes</h3>
+      </div>
+      <span class="sidebar-count">{{ forex|length }} pairs</span>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full">
+        <thead>
+          <tr class="border-b border-slate-100 bg-slate-50">
+            <th class="px-5 py-2.5 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Pair</th>
+            <th class="px-5 py-2.5 text-right text-xs font-semibold text-slate-500 uppercase tracking-wider">Bid</th>
+            <th class="px-5 py-2.5 text-right text-xs font-semibold text-slate-500 uppercase tracking-wider">Ask</th>
+            <th class="px-5 py-2.5 text-right text-xs font-semibold text-slate-500 uppercase tracking-wider">Change</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          {% for item in forex %}
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-5 py-3 text-sm font-semibold text-slate-800">{{ item.pair }}</td>
+            <td class="px-5 py-3 text-sm text-slate-600 text-right tabular-nums">{{ item.bid }}</td>
+            <td class="px-5 py-3 text-sm text-slate-600 text-right tabular-nums">{{ item.ask }}</td>
+            <td class="px-5 py-3 text-sm font-semibold text-right tabular-nums
+              {% if item.change > 0 %}text-emerald-600{% elif item.change < 0 %}text-red-600{% else %}text-slate-500{% endif %}">
+              {% if item.change > 0 %}<i class="fas fa-caret-up mr-0.5"></i>{% elif item.change < 0 %}<i class="fas fa-caret-down mr-0.5"></i>{% endif %}
+              {{ item.change }}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+{% else %}
+{# ═══════════════════════════════════════════════════════════════ #}
+{# FALLBACK: No structured analysis — show headlines + market data #}
+{# ═══════════════════════════════════════════════════════════════ #}
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+  <div class="xl:col-span-2">
+    <div class="sidebar-panel">
+      <div class="sidebar-panel-header">
+        <div class="flex items-center gap-2">
+          <i class="fas fa-newspaper text-blue-500 text-sm"></i>
+          <h3 class="sidebar-panel-title">Top Financial Headlines</h3>
+        </div>
+        {% if news %}<span class="sidebar-count">{{ news|length }} articles</span>{% endif %}
+      </div>
+      <div class="p-6">
+        {% if financial_analysis is string %}
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+          <pre class="text-sm text-slate-700 whitespace-pre-wrap font-sans">{{ financial_analysis }}</pre>
+        </div>
+        {% elif not financial_analysis %}
+        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 flex items-start gap-3">
+          <i class="fas fa-robot text-amber-500 mt-0.5"></i>
+          <p class="text-sm text-amber-800">AI financial analysis is currently unavailable. Headlines are shown below.</p>
+        </div>
+        {% endif %}
+        {% if news %}
+        <div class="headline-grid">
+          {% for item in news %}
+            {% set item_index = loop.index0 %}
+            {% include 'headline_card.html' %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="xl:col-span-1 space-y-5">
+    {{ sidebar_market_data() }}
+    {% if forex %}
+    <div class="sidebar-panel">
+      <div class="sidebar-panel-header">
+        <div class="flex items-center gap-2">
+          <i class="fas fa-exchange-alt text-amber-500 text-sm"></i>
+          <h3 class="sidebar-panel-title">Forex CFD</h3>
+        </div>
+      </div>
+      <div class="divide-y divide-slate-100">
+        {% for item in forex %}
+        <div class="flex justify-between items-center px-4 py-2.5">
+          <span class="text-xs font-semibold text-slate-800">{{ item.pair }}</span>
+          <span class="text-xs font-semibold tabular-nums
+            {% if item.change > 0 %}text-emerald-600{% elif item.change < 0 %}text-red-600{% else %}text-slate-500{% endif %}">
+            {% if item.change > 0 %}<i class="fas fa-caret-up mr-0.5"></i>{% elif item.change < 0 %}<i class="fas fa-caret-down mr-0.5"></i>{% endif %}
+            {{ item.bid }}
+          </span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
 
 {% endblock %}
