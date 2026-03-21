@@ -656,7 +656,7 @@ a:focus-visible, button:focus-visible, input:focus, select:focus, textarea:focus
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  width: 155px;
+  width: 200px;
   background: white;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
@@ -666,10 +666,10 @@ a:focus-visible, button:focus-visible, input:focus, select:focus, textarea:focus
 }
 .evidence-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.10); transform: translateY(-2px); }
 .evidence-card-img-wrap { position: relative; flex-shrink: 0; }
-.evidence-card-img { width: 100%; height: 76px; object-fit: cover; display: block; }
+.evidence-card-img { width: 100%; height: 110px; object-fit: cover; display: block; }
 .evidence-card-img-fallback {
   width: 100%;
-  height: 76px;
+  height: 110px;
   background: #f1f5f9;
   display: flex;
   align-items: center;
@@ -809,6 +809,6 @@ a:focus-visible, button:focus-visible, input:focus, select:focus, textarea:focus
   .briefing-banner { border-radius: 10px; }
 
   /* Evidence cards: slightly narrower on very small screens so more fit */
-  .evidence-card { width: 140px; }
-  .evidence-card-img { height: 68px; }
+  .evidence-card { width: 165px; }
+  .evidence-card-img { height: 90px; }
 }
