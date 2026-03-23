@@ -144,7 +144,7 @@
       <h1 class="text-2xl lg:text-3xl font-black text-white leading-tight mb-1">Market Analysis Report</h1>
       {% if financial_analysis.analysis_date %}
       <p class="text-slate-400 text-sm mb-5">
-        <i class="far fa-calendar-alt mr-1.5"></i>{{ financial_analysis.analysis_date }}{% if financial_analysis.analysis_time %} &middot; {{ financial_analysis.analysis_time }}{% endif %}
+        <i class="far fa-calendar-alt mr-1.5"></i>{{ financial_analysis.analysis_date }}{% if financial_analysis.analysis_time %} &middot; {{ financial_analysis.analysis_time }} UTC{% endif %}
       </p>
       {% endif %}
       <div class="flex flex-wrap gap-4">
