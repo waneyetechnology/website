@@ -80,6 +80,18 @@ jobs:
           GNEWS_API_KEY: ${{ secrets.GNEWS_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: python generate_site.py
+      - name: Push analysis report to history branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./history
+          publish_branch: history
+          keep_files: true
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
+          commit_message: "history: ${{ github.run_id }}"
+      - name: Remove history folder before site deploy
+        run: rm -rf history
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
