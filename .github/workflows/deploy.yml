@@ -90,6 +90,8 @@ jobs:
           user_name: github-actions[bot]
           user_email: github-actions[bot]@users.noreply.github.com
           commit_message: "history: ${{ github.run_id }}"
+      - name: Remove history folder before site deploy
+        run: rm -rf history
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
