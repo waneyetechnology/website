@@ -1,6 +1,7 @@
 import argparse
 from src import fetch_financial_headlines, fetch_central_bank_policies, fetch_central_bank_rates, fetch_fed_economy_at_glance, fetch_economic_data, fetch_forex_cfd_data, generate_html
 from src.news import cleanup_old_images
+from src.history_saver import save_analysis_history
 from src.log import logger
 
 def main():
@@ -20,6 +21,10 @@ def main():
 
     # Clean up images that are no longer associated with current headlines
     cleanup_old_images(news)
+
+    # Persist history: analysis JSON + indexed headlines → 'history' git branch
+    save_analysis_history(financial_analysis, news)
+
 
     rates_data = fetch_central_bank_rates()
     fed_econ_data = fetch_fed_economy_at_glance()
