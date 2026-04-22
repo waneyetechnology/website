@@ -1,1032 +1,958 @@
 {
   "analysis": {
     "analysis_date": "April 22, 2026",
-    "analysis_time": "20:04",
+    "analysis_time": "20:59",
     "executive_summary": {
       "key_highlights": [
-        "Geopolitical tensions in the Middle East (Iran, Strait of Hormuz) are driving oil price volatility and market uncertainty, with the VIX fear index edging higher.",
-        "Major U.S. equity indices (S&P 500, Dow) are under pressure from oil spikes, but tech strength (chipmakers up 16 straight days) provides counterbalance.",
-        "Significant corporate developments: Amazon launches GLP-1 weight loss program, Apple announces CEO transition (Ternus to replace Cook), UnitedHealth posts strong earnings, and Disney announces layoffs.",
-        "Cryptocurrency and digital asset ecosystem shows strong momentum with Bitcoin/Ethereum rising, BlackRock launching a staking ETF with Galaxy Digital, and stablecoin adoption initiatives.",
-        "Regulatory and policy shifts are in focus: DOJ expected to ease marijuana controls, U.S.-Iran truce talks, and Kevin Warsh's confirmation hearing for a key economic role.",
-        "Sector rotation evident: Defense/aerospace (Northrop Grumman, RTX) benefit from conflict-driven demand, while consumer sectors face headwinds from Goldman Sachs' warning."
+        "U.S. stock markets reach fresh record highs (S&P 500, Dow) driven by strong earnings (UnitedHealth, Tesla) and geopolitical de-escalation (Iran ceasefire extension).",
+        "Geopolitical tensions in the Strait of Hormuz drive oil prices above $100/barrel (Brent), creating inflationary pressure and sector volatility.",
+        "AI-driven rally continues with chip stocks posting a record 16-day winning streak, indicating sustained tech sector momentum.",
+        "Significant corporate leadership changes announced: Apple's Tim Cook to transition to Executive Chairman, John Ternus named new CEO.",
+        "SpaceX initiates analyst meetings ahead of a potential $75 billion IPO, marking a landmark event for private space and tech.",
+        "Federal Reserve policy in focus with nominee Warsh advocating for a smaller Fed balance sheet, impacting future liquidity expectations."
       ],
-      "market_sentiment_score": 65,
-      "overall_sentiment": "cautiously positive",
+      "market_sentiment_score": 85,
+      "overall_sentiment": "positive",
       "headline_sources": [
-        1,
-        6,
-        17,
-        18,
-        30,
+        25,
         40,
-        41,
-        42,
-        50,
-        71,
+        5,
+        24,
         75,
-        82,
-        93,
-        95
+        63
       ]
     },
     "market_insights": {
       "sectors": [
         {
           "sector": "Technology & AI",
-          "trend": "Continued dominance with chipmakers (likely Nvidia) rising for 16 consecutive days. AI deal-making pace accelerating. However, Anthropic's Claude Code pricing and AI security concerns (U.S. cyber agency access) present nuanced risks.",
-          "implications": "Tech remains market leader, but valuation sensitivity and regulatory scrutiny on AI models are increasing. AI infrastructure and software plays (Datadog, JFrog) receive analyst endorsements.",
+          "trend": "Extremely bullish, led by semiconductor and AI infrastructure companies. Rally is broadening to enterprise AI applications.",
+          "implications": "Strong capital inflows into tech; validates AI as a core investment theme. Watch for potential overextension.",
           "headline_sources": [
+            5,
             27,
-            62,
-            77,
-            82,
-            83,
-            96
+            56,
+            85,
+            88
           ]
         },
         {
-          "sector": "Energy",
-          "trend": "Extreme volatility driven by geopolitical risk in the Strait of Hormuz. Prices spike on Iran gunboat attacks, then drop on potential U.S.-Iran talks. Citi outlines three scenarios with significant oil price implications.",
-          "implications": "High risk premium embedded in oil prices. Energy sector trades on headlines, creating both trading opportunities and portfolio volatility. Companies linked to the region (Temenos) reaffirm strategies.",
+          "sector": "Energy & Commodities",
+          "trend": "Highly volatile due to Middle East conflict. Oil prices surging on supply disruption risks; precious metals (gold, silver) reacting to safe-haven flows and ceasefire news.",
+          "implications": "Higher energy costs threaten corporate margins and consumer spending. Benefits energy producers and certain mining stocks.",
           "headline_sources": [
-            30,
-            34,
-            39,
+            23,
             40,
-            45,
-            84
+            57,
+            62,
+            68,
+            71,
+            105
           ]
         },
         {
-          "sector": "Defense/Aerospace",
-          "trend": "Strong demand and raised forecasts due to rising global conflicts. Northrop Grumman and RTX post higher revenue/profits. Boeing is highlighted as a potential large-cap buy despite past issues.",
-          "implications": "Sector is a direct beneficiary of heightened geopolitical tensions and increased defense spending globally. Earnings resilience is notable.",
+          "sector": "Transportation & Travel",
+          "trend": "Under pressure from soaring fuel costs and Middle East war impact, leading to significantly higher airfares and operational disruptions.",
+          "implications": "Compressed margins for airlines; potential demand destruction. Logistics and freight companies face cost inflation.",
           "headline_sources": [
-            13,
-            42,
-            75
-          ]
-        },
-        {
-          "sector": "Healthcare/Biotech",
-          "trend": "Mixed signals. Amazon's entry into GLP-1 weight loss programs disrupts traditional healthcare delivery. UnitedHealth shows strong turnaround. IDEXX and Thermo Fisher face earnings scrutiny.",
-          "implications": "Amazon's move pressures existing healthcare providers and pharma distribution. Strong earnings from managed care suggest operational resilience.",
-          "headline_sources": [
-            11,
-            17,
-            41,
-            90
+            32,
+            54,
+            79,
+            99
           ]
         },
         {
           "sector": "Financials",
-          "trend": "Divergent paths. UBS faces massive capital requirement hikes. Capital One and Equifax are in focus with analyst reports. Private credit remains active (Blackstone raising $850M). Payment/credit score firms (Fair Isaac) face cost-cutting pressure.",
-          "implications": "Regulatory pressures on global banks contrast with strength in payments/data and private credit. Credit cycle monitoring is crucial.",
+          "trend": "Mixed. Strong earnings from some banks (UnitedHealth) but credit market innovations (risk transfers) and regulatory scrutiny (FICO) creating divergence.",
+          "implications": "Sector performance tied to interest rate outlook and credit quality. Fintech and payment processors may face headwinds.",
           "headline_sources": [
-            22,
-            56,
-            76,
-            90,
-            98
+            13,
+            14,
+            33,
+            65,
+            73
           ]
         },
         {
-          "sector": "Consumer & Travel",
-          "trend": "Anxiety among restaurants (OpenTable terms). Airfares up 24% due to Middle East war. United Airlines analyst report positive. Booking Holdings price target raised. Spirit Airlines seeks rescue. Goldman warns of consumer challenges.",
-          "implications": "Travel demand remains robust but at higher costs, squeezing discretionary spending. Consumer-facing businesses face margin and demand pressures.",
+          "sector": "Healthcare",
+          "trend": "Active with major strategic moves: Amazon launching GLP-1 program, UnitedHealth beating estimates. Large philanthropic investment in medical education.",
+          "implications": "Convergence of tech and healthcare accelerating. Weight-loss drug market becoming a key battleground.",
           "headline_sources": [
-            2,
-            3,
-            12,
-            20,
-            36,
-            97,
-            100
-          ]
-        },
-        {
-          "sector": "Cryptocurrency/Blockchain",
-          "trend": "Powerful bullish momentum. Bitcoin/Ethereum prices rising. Major institutional adoption continues (BlackRock staking ETF). Companies like Bit Digital and BTCS show explosive revenue growth from staking/operations. Stablecoin usability (Exodus) advancing.",
-          "implications": "Digital asset ecosystem is maturing rapidly with institutional infrastructure, creating investable equity proxies (Galaxy Digital, BTCS) beyond direct crypto holdings.",
-          "headline_sources": [
-            7,
-            18,
-            64,
-            74,
-            79,
-            81,
-            95,
-            103,
-            105
+            13,
+            21,
+            49,
+            65
           ]
         }
       ],
       "key_themes": [
-        "Geopolitical Risk Dominance",
-        "AI Integration & Scrutiny",
-        "Institutional Crypto Adoption",
-        "Earnings Resilience Amid Uncertainty",
-        "Consumer Sector Strains",
-        "Defense & Energy Volatility",
-        "Regulatory & Policy Shifts",
-        "Leadership Transitions (Apple, Trump Media)"
+        "Geopolitical Risk Premium in Commodities",
+        "AI Integration Across Industries",
+        "Earnings Resilience Amid Macro Uncertainty",
+        "Leadership Transition in Mega-Caps",
+        "Monetary Policy and Balance Sheet Normalization",
+        "IPO & Private Market Activity Resurgence"
       ],
       "headline_sources": [
-        1,
-        6,
-        17,
-        18,
-        27,
-        30,
-        34,
-        41,
-        50,
-        56,
-        71,
+        5,
+        23,
+        24,
+        25,
+        40,
+        57,
+        63,
         75,
-        82,
-        88,
-        93,
-        95
+        92,
+        105
       ]
     },
     "risk_assessment": [
       {
-        "risk_factor": "Escalation in Middle East Conflict (Strait of Hormuz)",
+        "risk_factor": "Strait of Hormuz Conflict & Oil Price Shock",
         "impact": "High",
         "likelihood": "Medium",
-        "mitigation": "Increase portfolio hedges (oil, defense stocks, gold). Reduce exposure to consumer discretionary, airlines, and global industrials with supply chain risks. Monitor Citi's three scenarios for oil price trajectories.",
+        "mitigation": "Diversify energy exposure (integrated oils, renewables). Hedge portfolios with commodities. Monitor shipping and airline stocks closely for stress.",
         "headline_sources": [
-          1,
-          30,
-          34,
-          39,
-          40,
-          58,
-          100
+          57,
+          62,
+          68,
+          71,
+          105
         ]
       },
       {
-        "risk_factor": "Consumer Spending Slowdown",
+        "risk_factor": "Inflation Resurgence from Energy/Transport Costs",
         "impact": "High",
-        "likelihood": "Medium-High",
-        "mitigation": "Shift from consumer cyclical to consumer staples and value-oriented retailers. Favor companies with strong pricing power and low debt. Monitor credit card data (COF, EFX) and retail sales reports.",
+        "likelihood": "High",
+        "mitigation": "Favor companies with strong pricing power. Increase allocation to inflation-resistant assets (TIPS, commodities, real estate). Reduce duration in fixed income.",
         "headline_sources": [
-          20,
-          36,
-          67,
-          90,
-          97,
-          100
-        ]
-      },
-      {
-        "risk_factor": "AI Model Security & Regulatory Risk",
-        "impact": "Medium",
-        "likelihood": "Medium",
-        "mitigation": "Diversify AI investments across infrastructure (semis), software, and secure enterprise applications. Avoid over-concentration in pure-play AI model companies facing regulatory headwinds.",
-        "headline_sources": [
-          10,
-          27,
-          83
-        ]
-      },
-      {
-        "risk_factor": "Sharp Rise in Market Volatility (VIX)",
-        "impact": "Medium",
-        "likelihood": "Medium",
-        "mitigation": "Implement option strategies (collars, puts) on concentrated positions. Increase cash allocation for potential buying opportunities during spikes. Favor low-beta, dividend-paying sectors.",
-        "headline_sources": [
-          6,
-          26,
+          32,
           40,
-          82
+          54,
+          105
         ]
       },
       {
-        "risk_factor": "Policy Uncertainty (Trump Administration Actions)",
+        "risk_factor": "AI Sector Overvaluation & Momentum Reversal",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Take partial profits in extended AI/chip names. Focus on companies with tangible AI revenue and strong fundamentals, not just narrative.",
+        "headline_sources": [
+          5,
+          56,
+          88
+        ]
+      },
+      {
+        "risk_factor": "Tighter Monetary Policy (Fed Balance Sheet Reduction)",
         "impact": "Medium",
         "likelihood": "High",
-        "mitigation": "Focus on domestic-oriented companies less sensitive to trade/foreign policy. Monitor developments in airline rescues, equity stake purchases, and regulatory hearings (Warsh, FCC).",
+        "mitigation": "Reduce exposure to highly leveraged companies and long-duration growth stocks. Increase cash holdings for future opportunities.",
         "headline_sources": [
-          24,
-          36,
-          59,
-          87,
-          93,
-          97,
-          101
+          63,
+          90
+        ]
+      },
+      {
+        "risk_factor": "Single-Stock Volatility in 'Meme' / Speculative Names",
+        "impact": "Low",
+        "likelihood": "High",
+        "mitigation": "Avoid concentrated positions in highly volatile, sentiment-driven stocks (e.g., Trump Media). Maintain disciplined position sizing.",
+        "headline_sources": [
+          6,
+          77
         ]
       }
     ],
     "strategic_recommendations": {
       "opportunities": [
         {
-          "recommendation": "Overweight Defense & Aerospace Contractors",
-          "rationale": "Direct beneficiaries of elevated global conflict spending, with demonstrated earnings power (RTX, NOC). Demand is structural and less sensitive to consumer cycles.",
+          "recommendation": "Overweight Energy Sector - Selectively",
+          "rationale": "Geopolitical risk premium and supply constraints support elevated oil prices. Favor integrated majors with strong balance sheets and dividend yields.",
           "tickers": [
-            "RTX",
-            "NOC",
-            "LMT",
-            "BA"
+            "XOM",
+            "CVX",
+            "SHEL"
           ],
           "timeframe": "medium-term",
           "headline_sources": [
-            13,
-            42,
-            75
+            40,
+            57,
+            62,
+            68
           ]
         },
         {
-          "recommendation": "Add Exposure to Crypto Infrastructure Equities",
-          "rationale": "Institutional adoption is accelerating (BlackRock ETF). Companies like Galaxy Digital, BTCS, and Bit Digital offer leveraged exposure to crypto ecosystem growth (staking, trading) with explosive revenue trends.",
+          "recommendation": "Add to AI Infrastructure Leaders on Pullbacks",
+          "rationale": "The AI investment cycle is in early stages, with demand for chips, cloud, and data infrastructure remaining robust. Focus on companies with proven technology and customer adoption.",
           "tickers": [
-            "GLXY",
-            "BTCS",
-            "BTBT",
-            "MSTR"
+            "NVDA",
+            "AVGO",
+            "MSFT",
+            "AMZN"
           ],
           "timeframe": "long-term",
           "headline_sources": [
-            64,
-            74,
-            95,
-            103
+            5,
+            27,
+            56,
+            85
           ]
         },
         {
-          "recommendation": "Selectively Buy High-Quality Tech on Geopolitical Dips",
-          "rationale": "Tech leadership (chipmakers) remains intact. Use market weakness from oil/conflict news to add to names with strong AI exposure and pricing power.",
+          "recommendation": "Initiate Position in Precious Metals Miners",
+          "rationale": "Gold recovering on ceasefire news shows its role as a geopolitical hedge. Strategic acquisitions (Agnico Eagle) and mine restarts (First Majestic) indicate industry consolidation and growth focus.",
           "tickers": [
-            "NVDA",
-            "GOOGL",
-            "MSFT",
-            "AMD"
+            "AEM",
+            "NEM",
+            "AG",
+            "PAAS"
           ],
-          "timeframe": "short-to-medium-term",
+          "timeframe": "medium-term",
           "headline_sources": [
-            52,
-            77,
-            82
+            4,
+            23,
+            26,
+            78
           ]
         },
         {
-          "recommendation": "Consider Energy Sector for Trading, Not Investing",
-          "rationale": "Oil prices are headline-driven. Skilled traders can capitalize on volatility around U.S.-Iran talks and Hormuz incidents. Prefer large, integrated majors with strong balance sheets.",
+          "recommendation": "Monitor and Potentially Participate in SpaceX IPO",
+          "rationale": "A $75B IPO would be a landmark event, offering exposure to the leading private space and satellite internet company. Assess valuation at launch.",
           "tickers": [
-            "XOM",
-            "CVX"
+            "SpaceX (Pre-IPO)"
           ],
-          "timeframe": "short-term",
+          "timeframe": "long-term",
           "headline_sources": [
-            30,
-            34,
-            39,
-            45
+            75
           ]
         }
       ],
       "defensive_moves": [
         {
-          "recommendation": "Reduce Exposure to Consumer Discretionary and Travel",
-          "rationale": "Goldman's consumer warning, high airfares, and OpenTable's terms point to sector pressure. Shift to staples, healthcare, and utilities.",
+          "recommendation": "Underweight Airlines and Consumer Discretionary Vulnerable to Fuel Costs",
+          "rationale": "24% higher airfares will likely dampen demand. Airlines have limited ability to fully pass through sustained cost increases, pressuring margins.",
           "tickers": [
-            "Avoid: ABNB, BKNG, discretionary retail"
-          ],
-          "timeframe": "short-to-medium-term",
-          "headline_sources": [
-            2,
-            20,
-            70,
-            100
-          ]
-        },
-        {
-          "recommendation": "Increase Portfolio Hedges",
-          "rationale": "With VIX rising and geopolitical uncertainty high, prudent to add hedges. Consider long VIX ETFs, put options on indices, or allocations to gold.",
-          "tickers": [
-            "GLD",
-            "UVXY (for trading only)",
-            "SPY puts"
+            "UAL",
+            "AAL",
+            "DAL",
+            "JBLU"
           ],
           "timeframe": "short-term",
           "headline_sources": [
-            1,
-            26,
-            30,
-            40
+            32,
+            54,
+            79,
+            99
           ]
         },
         {
-          "recommendation": "Avoid 'Meme' or Politically-Linked Speculative Stocks",
-          "rationale": "Trump Media CEO exit and 90% drop exemplify extreme volatility and fundamental disconnect. Stick to companies with strong cash flows and governance.",
+          "recommendation": "Increase Portfolio Liquidity and Quality",
+          "rationale": "Elevated market levels combined with geopolitical and monetary policy uncertainty warrant a defensive tilt. Raise cash, focus on companies with strong free cash flow and low debt.",
           "tickers": [
-            "Avoid: DJT, other meme stocks"
-          ],
-          "timeframe": "ongoing",
-          "headline_sources": [
-            88
-          ]
-        },
-        {
-          "recommendation": "Scrutinize High-Flying AI Software Valuations",
-          "rationale": "While AI is a mega-trend, pricing pressures (Anthropic) and security concerns signal potential for corrections. Focus on companies with durable competitive moats.",
-          "tickers": [
-            "Be selective in: APP, other pure-play AI software"
+            "BRK-B",
+            "JNJ",
+            "PG",
+            "Cash"
           ],
           "timeframe": "short-to-medium-term",
           "headline_sources": [
-            14,
-            27,
-            83
+            25,
+            63,
+            102,
+            106
+          ]
+        },
+        {
+          "recommendation": "Hedge with Broad Commodities Exposure",
+          "rationale": "Direct hedge against persistent inflation driven by energy and potential agricultural supply issues (soybeans up, corn down shows volatility).",
+          "tickers": [
+            "GSG",
+            "DBC"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            3,
+            40,
+            86,
+            105
           ]
         }
       ]
     },
     "market_outlook": {
-      "short_term": "Volatile and range-bound (1-3 months). Markets are caught between powerful tech earnings momentum and significant geopolitical/consumer headwinds. The direction will hinge on the evolution of Middle East tensions (truce vs. escalation) and the next round of consumer data. Expect continued sector rotation, with defense, energy, and tech likely outperforming consumer and financials.",
-      "long_term": "Cautiously optimistic (6-12 months). Assuming no major geopolitical explosion, foundational strengths in AI productivity gains, institutional crypto adoption, and resilient corporate earnings (outside consumer) can drive markets higher. However, higher volatility is the new normal. The launch of the Texas Stock Exchange in 2027 and potential Fed policy shifts (Warsh influence) are long-term structural factors to watch.",
+      "short_term": "Cautiously bullish with high volatility. Record-high indices are supported by strong earnings (UNH, TSLA) and a temporary geopolitical de-escalation (Iran ceasefire). However, oil above $100 and the potential for renewed conflict in the Hormuz Strait present a clear near-term downside risk. The market will be highly sensitive to incoming earnings (especially from tech giants), oil inventory data, and any headlines from the Middle East.",
+      "long_term": "Structural trends favor technology (AI, automation) and energy security/transition. The US push for rare-earth independence and strategic acquisitions in mining point to a long-term re-shoring theme. However, the path will be punctuated by cycles of inflation and the Fed's response. The successful normalization of the Fed's balance sheet is critical for sustainable long-term growth without asset bubbles.",
       "key_catalysts": [
-        "Resolution or Escalation of U.S.-Iran Tensions/Strait of Hormuz Situation",
-        "Upcoming Earnings from key companies (Airbnb, Motorola, Targa, IDEXX)",
-        "Kevin Warsh Confirmation Hearing Outcome for Economic Policy Role",
-        "DOJ Decision on Marijuana Rescheduling (expected imminently)",
-        "Consumer Spending and Retail Sales Data Releases",
-        "Federal Reserve Policy Signals Amid Repo Market Wagers"
+        "SpaceX IPO launch and valuation",
+        "Resolution or escalation of the Strait of Hormuz conflict",
+        "Federal Reserve policy decisions under new leadership (Warsh confirmation)",
+        "Q1 2026 earnings results from major tech and consumer companies",
+        "Pentagon budget release impacting defense/AI contractors like Palantir"
       ],
       "watch_list": [
-        "VIX Index (Fear Gauge)",
-        "WTI Crude Oil Prices",
-        "U.S. Dollar Strength (given currency swap line requests from Gulf/Asian allies)",
-        "Bitcoin/Ethereum Prices as a Risk Sentiment Indicator",
-        "High-Yield Credit Spreads (HYG performance)",
-        "Earnings Guidance from Consumer-Facing Companies"
+        "Brent Crude Oil Price (above $100 level)",
+        "VIX Volatility Index",
+        "Philadelphia Semiconductor Index (SOX) for continuation of rally",
+        "U.S. Dollar Index (DXY) - strength pressuring emerging markets",
+        "10-Year Treasury Yield - reaction to Fed policy and inflation data",
+        "Weekly U.S. oil inventory and production data"
       ],
       "headline_sources": [
-        1,
-        6,
-        16,
-        19,
-        20,
-        26,
-        30,
-        37,
+        25,
         40,
-        45,
-        53,
-        70,
-        80,
-        89,
-        93,
-        101,
-        102,
-        107
+        57,
+        63,
+        68,
+        75,
+        88,
+        92,
+        105
       ]
     }
   },
   "headlines": [
     {
       "index": 1,
-      "headline": "Yardeni, Who Pegged S&amp;P 500 Nadir, Says War Risks Far From Over",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/yardeni-who-aced-s-p-500-s-nadir-says-war-risks-far-from-over",
-      "publishedAt": "2026-04-22T16:58:10+00:00"
+      "headline": "Islamabad, Peshawar may face fuel shortage as main crude distillation unit shut down",
+      "url": "https://pakobserver.net/islamabad-peshawar-may-face-fuel-shortage-as-main-crude-distillation-unit-shut-down/",
+      "publishedAt": "2026-04-22T08:53:46Z"
     },
     {
       "index": 2,
-      "headline": "Why restaurants are anxious about OpenTable’s new terms",
-      "url": "https://finance.yahoo.com/sectors/technology/articles/why-restaurants-anxious-opentable-terms-105500851.html",
-      "publishedAt": "2026-04-21T10:55:00Z"
-    },
-    {
-      "index": 3,
-      "headline": "Analyst Report: United Airlines Holdings Inc",
-      "url": "https://finance.yahoo.com/research/reports/ARGUS_4407_AnalystReport_1776880442000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
-      "publishedAt": "2026-04-22T17:54:02Z"
-    },
-    {
-      "index": 4,
-      "headline": "Iconic British Brand Laura Ashley launches Four Fragrances Inspired by Archival Prints",
-      "url": "https://www.manilatimes.net/2026/04/22/tmt-newswire/pr-newswire/iconic-british-brand-laura-ashley-launches-four-fragrances-inspired-by-archival-prints/2325742",
-      "publishedAt": "2026-04-22T07:52:16Z"
-    },
-    {
-      "index": 5,
-      "headline": "Here’s Why Uber Technologies (UBER) Made the Best Large Cap Stocks List",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/why-uber-technologies-uber-made-105251591.html",
-      "publishedAt": "2026-04-21T10:52:51Z"
-    },
-    {
-      "index": 6,
-      "headline": "Stock Market Today: Dow, S&P 500 Fall As Oil Spikes; Amazon Lifts These Names (Live Coverage) - Investor's Business Daily",
-      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-retail-sales-warsh-hearing/",
-      "publishedAt": "2026-04-21T17:23:00Z"
-    },
-    {
-      "index": 7,
-      "headline": "Exodus Movement (EXOD) Wants to Make Stablecoin Spending as Easy as a Banking App",
-      "url": "https://finance.yahoo.com/markets/crypto/articles/exodus-movement-exod-wants-stablecoin-105451401.html",
-      "publishedAt": "2026-04-21T10:54:51Z"
-    },
-    {
-      "index": 8,
-      "headline": "TD Cowen Lowers Thermo Fisher (TMO) Price Target, Keeps Buy Rating",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/td-cowen-lowers-thermo-fisher-105322432.html",
-      "publishedAt": "2026-04-21T10:53:22Z"
-    },
-    {
-      "index": 9,
-      "headline": "Huntington Ingalls Earnings Preview: What to Expect",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/huntington-ingalls-earnings-preview-expect-112157989.html",
-      "publishedAt": "2026-04-21T11:21:57Z"
-    },
-    {
-      "index": 10,
-      "headline": " Mythos Breach Shows Need for AI Framework, Magaziner",
-      "url": "https://www.bloomberg.com/news/videos/2026-04-22/mythos-breach-shows-need-for-ai-framework-magaziner-video",
-      "publishedAt": "2026-04-22T18:30:15+00:00"
-    },
-    {
-      "index": 11,
-      "headline": "What You Need to Know Ahead of IDEXX Laboratories' Earnings Release",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/know-ahead-idexx-laboratories-earnings-112334511.html",
-      "publishedAt": "2026-04-21T11:23:34Z"
-    },
-    {
-      "index": 12,
-      "headline": "Tigress Financial Partners Raises Booking Holdings (BKNG) Price Target, Keeps Buy Rating",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/tigress-financial-partners-raises-booking-105354158.html",
-      "publishedAt": "2026-04-21T10:53:54Z"
-    },
-    {
-      "index": 13,
-      "headline": "Boeing (BA): One of the Best Large Cap Stocks to Invest In?",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/boeing-ba-one-best-large-105313781.html",
-      "publishedAt": "2026-04-21T10:53:13Z"
-    },
-    {
-      "index": 14,
-      "headline": "What BofA and Macquarie Think About AppLovin’s (APP) Ecommerce Push",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/bofa-macquarie-think-applovin-app-105400594.html",
-      "publishedAt": "2026-04-21T10:54:00Z"
-    },
-    {
-      "index": 15,
-      "headline": "ECB’s Cipollone Not Worried About Delay of Digital Euro Vote",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/ecb-s-cipollone-not-worried-about-delay-of-digital-euro-vote",
-      "publishedAt": "2026-04-22T13:57:09+00:00"
-    },
-    {
-      "index": 16,
-      "headline": "Bessent Says Gulf, Asian Allies Requested Currency Swap Lines",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/bessent-says-many-us-allies-in-gulf-asia-requested-swap-lines",
-      "publishedAt": "2026-04-22T15:00:41+00:00"
-    },
-    {
-      "index": 17,
-      "headline": "Amazon launches GLP-1 weight loss program, promising 'fast, convenient' access - CNBC",
-      "url": "https://www.cnbc.com/2026/04/21/amazon-glp-1-weight-loss-program.html",
-      "publishedAt": "2026-04-21T17:20:02Z"
-    },
-    {
-      "index": 18,
-      "headline": "Bitcoin and ethereum prices today, Tuesday, April 21, 2026: Prices on the rise this morning",
-      "url": "https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-tuesday-april-21-2026-prices-on-the-rise-this-morning-113401602.html",
-      "publishedAt": "2026-04-21T11:34:01Z"
-    },
-    {
-      "index": 19,
-      "headline": "Stock Index Futures Gain on Hopes of U.S.-Iran Talks, Retail Sales Data and Warsh Hearing on Tap",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/stock-index-futures-gain-hopes-102746703.html",
-      "publishedAt": "2026-04-21T10:27:46Z"
-    },
-    {
-      "index": 20,
-      "headline": "Goldman Sachs warns US consumers could have a challenging few months",
-      "url": "https://finance.yahoo.com/news/goldman-sachs-warns-us-consumers-could-have-a-challenging-few-months-113704421.html",
-      "publishedAt": "2026-04-21T11:37:04Z"
-    },
-    {
-      "index": 21,
-      "headline": "Texas Stock Exchange Adviser Expects First IPOs in Early 2027",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/texas-stock-exchange-adviser-expects-first-ipos-in-early-2027",
-      "publishedAt": "2026-04-22T17:46:31+00:00"
-    },
-    {
-      "index": 22,
-      "headline": "Fair Isaac Shares Slump as Pulte Moves to Cut Credit Score Costs",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/fair-isaac-shares-slump-as-pulte-moves-to-cut-credit-score-costs",
-      "publishedAt": "2026-04-22T19:15:24+00:00"
-    },
-    {
-      "index": 23,
-      "headline": "Michael and Susan Dell to donate $750 million to UT Austin to fund new medical campus - CNBC",
-      "url": "https://www.cnbc.com/2026/04/21/michael-susan-dell-ut-austin-donation-medical-campus.html",
-      "publishedAt": "2026-04-21T17:15:01Z"
-    },
-    {
-      "index": 24,
       "headline": "NFL defended streaming strategy in meeting with Trump administration regulators, FCC filing shows",
       "url": "https://www.nbcnews.com/sports/nfl/nfl-defended-streaming-strategy-meeting-trump-administration-regulator-rcna341450",
       "publishedAt": "2026-04-22T17:05:58+00:00"
     },
     {
-      "index": 25,
-      "headline": "Luckin Coffee's Smart Roasting Center Commences Operation",
-      "url": "https://www.manilatimes.net/2026/04/22/tmt-newswire/pr-newswire/luckin-coffees-smart-roasting-center-commences-operation/2325741",
-      "publishedAt": "2026-04-22T07:52:15Z"
+      "index": 3,
+      "headline": "Soybeans Posting Tuesday Morning Gains",
+      "url": "https://finance.yahoo.com/markets/commodities/articles/soybeans-posting-tuesday-morning-gains-122110008.html",
+      "publishedAt": "2026-04-21T12:21:10Z"
     },
     {
-      "index": 26,
-      "headline": "Wall Street Fear Index Edges Higher on Iran Uncertainty. Markets Haven't Hit the Panic Button.",
-      "url": "https://www.barrons.com/livecoverage/stock-market-news-today-042126/card/wall-street-fear-index-edges-higher-on-iran-uncertainty-markets-haven-t-hit-the-panic-button--8RxtGb0cTmAX2wE0dycl?siteid=yhoof2&yptr=yahoo",
-      "publishedAt": "2026-04-21T10:41:56Z"
+      "index": 4,
+      "headline": "Agnico Eagle Mines (AEM) Consolidates Central Lapland Greenstone Belt Through Strategic Acquisitions",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/agnico-eagle-mines-aem-consolidates-115648221.html",
+      "publishedAt": "2026-04-21T11:56:48Z"
     },
     {
-      "index": 27,
-      "headline": "Anthropic's Claude Code pricing pain is Sam Altman's pleasure",
-      "url": "https://www.businessinsider.com/anthropic-claude-code-price-confusion-sam-altman-2026-4",
-      "publishedAt": "2026-04-22T19:53:36.000000Z"
+      "index": 5,
+      "headline": "Chip Stocks Rally for Record 16th Straight Day on AI Optimism",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/chipmakers-on-track-for-longest-ever-rally-amid-ai-optimism",
+      "publishedAt": "2026-04-22T14:22:34+00:00"
     },
     {
-      "index": 28,
-      "headline": "Here Are the Best Ways to Put Your Tax Refund to Good Use",
-      "url": "https://www.today.com/video/tax-refund-tips-paying-down-debt-boosting-savings-more-261787205548",
-      "publishedAt": "2026-04-21T13:33:31+00:00"
-    },
-    {
-      "index": 29,
-      "headline": "Bearish Tesla analyst has good news for Rivian stock investors",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/bearish-tesla-analyst-good-news-181700034.html",
-      "publishedAt": "2026-04-21T18:17:00Z"
-    },
-    {
-      "index": 30,
-      "headline": "Citi spells out 3 scenarios for the Strait of Hormuz — and where oil prices would go in each - CNBC",
-      "url": "https://www.cnbc.com/2026/04/21/citi-oil-prices-stocks-strait-hormuz-supply-shock.html",
-      "publishedAt": "2026-04-21T14:12:05Z"
-    },
-    {
-      "index": 31,
-      "headline": "Is Salesforce (CRM) One of the Best Large Cap Stocks to Buy Right Now?",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/salesforce-crm-one-best-large-105301040.html",
-      "publishedAt": "2026-04-21T10:53:01Z"
-    },
-    {
-      "index": 32,
-      "headline": "Mark Cuban-Led Sports Fund Has $450 Million in Commitments",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/mark-cuban-led-sports-fund-has-450-million-in-commitments",
-      "publishedAt": "2026-04-22T16:53:17+00:00"
-    },
-    {
-      "index": 33,
-      "headline": "Blackstone Credit Fund Set to Raise $850 Million From Bond Sale",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/blackstone-private-credit-fund-looks-to-sell-high-grade-bonds",
-      "publishedAt": "2026-04-22T14:21:14+00:00"
-    },
-    {
-      "index": 34,
-      "headline": "Oil Rises on Elusive Peace Deal Outlook, Iran Gunboat Attacks",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-21/latest-oil-market-news-and-analysis-for-april-22",
-      "publishedAt": "2026-04-21T22:01:13+00:00"
-    },
-    {
-      "index": 35,
-      "headline": "PDIC max coverage hike to ₱1 million pushes insured deposits up to ₱5.2 trillion in 2025",
-      "url": "https://mb.com.ph/2026/04/22/pdic-max-coverage-hike-to-1-million-pushes-insured-deposits-up-to-52-trillion-in-2025",
-      "publishedAt": "2026-04-22T07:46:52Z"
-    },
-    {
-      "index": 36,
-      "headline": "Spirit Airlines nears deal with Trump administration for $500 million rescue package",
-      "url": "https://www.nbcnews.com/business/travel/spirit-airlines-trump-administration-bailout-rcna341430",
-      "publishedAt": "2026-04-22T16:43:58+00:00"
-    },
-    {
-      "index": 37,
-      "headline": "What You Need to Know Ahead of Motorola Solutions’ Earnings Release",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/know-ahead-motorola-solutions-earnings-113308154.html",
-      "publishedAt": "2026-04-21T11:33:08Z"
-    },
-    {
-      "index": 38,
-      "headline": "Kalshi fines and suspends three politicians for insider trading on their own elections",
-      "url": "https://www.nbcnews.com/business/markets/kalshi-fines-suspends-politicians-insider-trading-elections-rcna341505",
-      "publishedAt": "2026-04-22T19:40:44+00:00"
-    },
-    {
-      "index": 39,
-      "headline": "Oil prices jump, adding to weeks of swings over Strait of Hormuz",
-      "url": "https://www.nbcnews.com/business/markets/oil-prices-jump-renewed-tensions-strait-hormuz-rcna340901",
-      "publishedAt": "2026-04-19T22:53:27+00:00"
-    },
-    {
-      "index": 40,
-      "headline": "Wall Street is lower as a U.S.-Iran truce remains uncertain; Warsh faces confirmation hearing (COMP:IND:) - Seeking Alpha",
-      "url": "https://seekingalpha.com/news/4577174-sp500-dow-jones-nasdaq-composite-wall-street-news",
-      "publishedAt": "2026-04-21T17:26:00Z"
-    },
-    {
-      "index": 41,
-      "headline": "UnitedHealth posts quarterly profit above Wall Street estimates, on track for turnaround - Yahoo Finance",
-      "url": "https://finance.yahoo.com/sectors/healthcare/articles/unitedhealth-reports-2026-q1-profit-095745260.html",
-      "publishedAt": "2026-04-21T14:35:34Z"
-    },
-    {
-      "index": 42,
-      "headline": "Northrop Grumman posts higher revenue amid rising global conflicts",
-      "url": "https://finance.yahoo.com/news/northrop-grumman-posts-higher-revenue-104854865.html",
-      "publishedAt": "2026-04-21T10:48:54Z"
-    },
-    {
-      "index": 43,
-      "headline": "Why Goldman Sachs thinks stocks will rip even higher",
-      "url": "https://finance.yahoo.com/news/why-goldman-sachs-thinks-stocks-will-rip-even-higher-112018077.html",
-      "publishedAt": "2026-04-21T11:20:18Z"
-    },
-    {
-      "index": 44,
-      "headline": "DOE rushes fuel to power plants linked to Zaldy Co",
-      "url": "https://mb.com.ph/2026/04/22/doe-rushes-fuel-to-power-plants-linked-to-zaldy-co",
-      "publishedAt": "2026-04-22T07:46:52Z"
-    },
-    {
-      "index": 45,
-      "headline": "Oil drops more than $1 as potential US-Iran talks lift supply outlook",
-      "url": "https://finance.yahoo.com/sectors/energy/articles/oil-drops-more-1-potential-105703206.html",
-      "publishedAt": "2026-04-21T10:57:03Z"
-    },
-    {
-      "index": 46,
-      "headline": "Vedanta Demerger: How the price discovery will happen? Explained",
-      "url": "https://www.zeebiz.com/markets/stocks/news-vedanta-demerger-how-the-price-discovery-will-happen-explained-394071",
-      "publishedAt": "2026-04-22T07:48:59Z"
-    },
-    {
-      "index": 47,
-      "headline": "ECB’s Lane Sees ‘Natural’ Fiscal Case for Europe Common Debt",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/ecb-s-lane-sees-natural-fiscal-case-for-european-common-debt",
-      "publishedAt": "2026-04-22T07:40:00+00:00"
-    },
-    {
-      "index": 48,
-      "headline": "USA Rare Earth CEO Says US is in ‘Early Innings’ of Independence",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/usa-rare-earth-ceo-says-us-is-in-early-innings-of-independence",
-      "publishedAt": "2026-04-22T18:31:24+00:00"
-    },
-    {
-      "index": 49,
-      "headline": "Petrobras Director Pans Low Fuel Prices, Exposing Board Rift",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/petrobras-board-member-seeks-fuel-price-increase-in-brazil-to-stem-losses",
-      "publishedAt": "2026-04-22T14:25:10+00:00"
-    },
-    {
-      "index": 50,
-      "headline": "Disney (DIS) To Lay Off 1,000 Employees",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/disney-dis-lay-off-1-105332551.html",
-      "publishedAt": "2026-04-21T10:53:32Z"
-    },
-    {
-      "index": 51,
-      "headline": "Jadestone signs GSPA with PV Gas for Nam Du and U Minh fields",
-      "url": "https://finance.yahoo.com/sectors/energy/articles/jadestone-signs-gspa-pv-gas-104726262.html",
-      "publishedAt": "2026-04-21T10:47:26Z"
-    },
-    {
-      "index": 52,
-      "headline": "Nvidia and Google Options Highlight 2 Great Trades Ideas for Bulls Here",
-      "url": "https://finance.yahoo.com/markets/options/articles/nvidia-google-options-highlight-2-110002793.html",
-      "publishedAt": "2026-04-21T11:00:02Z"
-    },
-    {
-      "index": 53,
-      "headline": "Texas Stock Exchange Expects First IPO in Early 2027",
-      "url": "https://www.bloomberg.com/news/videos/2026-04-22/texas-stock-exchange-expects-first-ipo-in-early-2027-video",
-      "publishedAt": "2026-04-22T18:09:40+00:00"
-    },
-    {
-      "index": 54,
-      "headline": "Compass Point Just Downgraded Circle (CRCL); So Why Is It Still Among the Best Ethereum Stocks to Buy?",
-      "url": "https://finance.yahoo.com/markets/crypto/articles/compass-point-just-downgraded-circle-105601557.html",
-      "publishedAt": "2026-04-21T10:56:01Z"
-    },
-    {
-      "index": 55,
-      "headline": "Mizuho, BTIG, and Evercore Cut Intuitive Surgical (ISRG) Price Targets",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/mizuho-btig-evercore-cut-intuitive-105340048.html",
-      "publishedAt": "2026-04-21T10:53:40Z"
-    },
-    {
-      "index": 56,
-      "headline": "UBS Faces $20 Billion Hike in Capital Needs as Swiss Split Grows",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/swiss-give-ubs-capital-concessions-ahead-of-main-parliament-test",
-      "publishedAt": "2026-04-22T14:00:00+00:00"
-    },
-    {
-      "index": 57,
-      "headline": "KKR Is Said to Invest $1.5 Billion in Tower Firm Vertical Bridge",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/kkr-is-said-to-invest-1-5-billion-in-tower-firm-vertical-bridge",
-      "publishedAt": "2026-04-22T19:30:00+00:00"
-    },
-    {
-      "index": 58,
-      "headline": "Major housebuilder almost halves in value as Iran war hits profits",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/major-housebuilder-almost-halves-value-104733334.html",
-      "publishedAt": "2026-04-21T10:47:33Z"
-    },
-    {
-      "index": 59,
-      "headline": "Trump’s Shopping Spree for Equity Stakes Nears $21B",
-      "url": "https://www.bloomberg.com/news/videos/2026-04-22/trump-s-shopping-spree-for-equity-stakes-nears-21b-video",
-      "publishedAt": "2026-04-22T19:13:11+00:00"
-    },
-    {
-      "index": 60,
-      "headline": "Moncler shares struggle despite defying luxury's Middle East slump",
-      "url": "https://www.cnbc.com/2026/04/22/moncler-stock-q1-earnings-monc-luxury-iran-war-lvmh-kering-hermes.html",
-      "publishedAt": "2026-04-22T07:57:42Z"
-    },
-    {
-      "index": 61,
-      "headline": "'Early Innings' of US Rare-Earth Independence: Humpton",
-      "url": "https://www.bloomberg.com/news/videos/2026-04-22/-early-innings-of-us-rare-earth-independence-humpton-video",
-      "publishedAt": "2026-04-22T18:50:55+00:00"
-    },
-    {
-      "index": 62,
-      "headline": "Centerview’s Tony Kim Says AI Changes Pace, Structure of Deals",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/centerview-s-tony-kim-says-ai-changes-pace-structure-of-deals",
-      "publishedAt": "2026-04-22T18:43:24+00:00"
-    },
-    {
-      "index": 63,
-      "headline": "BRB Shareholders Greenlight Capital Raise Up to $1.8 Billion",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/brb-shareholders-greenlight-capital-raise-of-up-to-1-8-billion",
-      "publishedAt": "2026-04-22T14:53:59+00:00"
-    },
-    {
-      "index": 64,
-      "headline": "BTCS (BTCS): 305% Revenue Growth, a Target Cut, and a Buy Rating Still Standing",
-      "url": "https://finance.yahoo.com/markets/crypto/articles/btcs-btcs-305-revenue-growth-105501882.html",
-      "publishedAt": "2026-04-21T10:55:01Z"
-    },
-    {
-      "index": 65,
-      "headline": "US Could Own Up to 90% of Spirit",
-      "url": "https://www.bloomberg.com/news/videos/2026-04-22/us-could-own-up-to-90-of-spirit-video",
-      "publishedAt": "2026-04-22T19:02:31+00:00"
-    },
-    {
-      "index": 66,
-      "headline": "Into the world of competitive rock, paper, scissors ",
-      "url": "https://www.nbcnews.com/business/personal-finance/rock-paper-scissors-tournament-rcna332263",
-      "publishedAt": "2026-04-20T14:23:01+00:00"
-    },
-    {
-      "index": 67,
-      "headline": "Philippine vehicle sales fall 10% in March",
-      "url": "https://www.just-auto.com/news/philippine-vehicle-sales-fall-10-in-march/",
-      "publishedAt": "2026-04-22T07:56:05Z"
-    },
-    {
-      "index": 68,
-      "headline": "GameSquare (GAME) Posts Its First Profitable Quarter and Triples Its Buyback",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/gamesquare-game-posts-first-profitable-105429946.html",
-      "publishedAt": "2026-04-21T10:54:29Z"
-    },
-    {
-      "index": 69,
-      "headline": "National Healthcare REIT Sinks 3.7% After $462 Million US IPO",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/national-healthcare-reit-sinks-3-7-after-462-million-us-ipo",
-      "publishedAt": "2026-04-22T16:41:35+00:00"
-    },
-    {
-      "index": 70,
-      "headline": "Airbnb's Quarterly Earnings Preview: What You Need to Know",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/airbnbs-quarterly-earnings-preview-know-103326889.html",
-      "publishedAt": "2026-04-21T10:33:26Z"
-    },
-    {
-      "index": 71,
-      "headline": "Apple says John Ternus will be new CEO, Tim Cook will transition to executive chairman",
-      "url": "https://www.nbcnews.com/business/business-news/apple-ceo-john-ternus-tim-cook-rcna341096",
-      "publishedAt": "2026-04-20T20:36:15+00:00"
-    },
-    {
-      "index": 72,
-      "headline": "Asian benchmarks mixed in cautious trading, Nikkei closes at record high",
-      "url": "https://www.asahi.com/ajw/articles/16517486",
-      "publishedAt": "2026-04-22T07:51:00Z"
-    },
-    {
-      "index": 73,
-      "headline": "Leftist Candidate in Copper Giant Peru Wants New Mining Rules",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/leftist-candidate-in-copper-giant-peru-wants-new-mining-rules",
-      "publishedAt": "2026-04-22T17:31:59+00:00"
-    },
-    {
-      "index": 74,
-      "headline": "Bit Digital (BTBT) Grew ETH Staking Revenue 287%, The Market Hasn’t Noticed Yet",
-      "url": "https://finance.yahoo.com/markets/crypto/articles/bit-digital-btbt-grew-eth-105443641.html",
-      "publishedAt": "2026-04-21T10:54:43Z"
-    },
-    {
-      "index": 75,
-      "headline": "RTX lifts profit, revenue forecasts amid strong demand for weapons",
-      "url": "https://finance.yahoo.com/news/rtx-lifts-profit-revenue-forecasts-105732807.html",
-      "publishedAt": "2026-04-21T11:10:24Z"
-    },
-    {
-      "index": 76,
-      "headline": "Analyst Report: Equifax Inc",
-      "url": "https://finance.yahoo.com/research/reports/ARGUS_3702_AnalystReport_1776880442000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
-      "publishedAt": "2026-04-22T17:54:02Z"
-    },
-    {
-      "index": 77,
-      "headline": "Morning Bid: Tech overwhelms Iran tension",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/morning-bid-tech-overwhelms-iran-105432407.html",
-      "publishedAt": "2026-04-21T10:54:32Z"
-    },
-    {
-      "index": 78,
-      "headline": "UK approves bill banning people born after 2008 from buying tobacco products",
-      "url": "https://www.thehindubusinessline.com/news/world/uk-approves-bill-banning-people-born-after-2008-from-buying-tobacco-products/article70894492.ece",
-      "publishedAt": "2026-04-22T19:46:39.000000Z"
-    },
-    {
-      "index": 79,
-      "headline": "SharpLink (SBET) Just Fired Its Ethereum Managers, and That May Be a Good Sign",
-      "url": "https://finance.yahoo.com/markets/crypto/articles/sharplink-sbet-just-fired-ethereum-105523849.html",
-      "publishedAt": "2026-04-21T10:55:23Z"
-    },
-    {
-      "index": 80,
-      "headline": "DOJ Expected to Ease Marijuana Controls as Soon as Wednesday",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/doj-expected-to-ease-marijuana-restrictions-as-soon-as-wednesday",
-      "publishedAt": "2026-04-22T16:46:13+00:00"
-    },
-    {
-      "index": 81,
-      "headline": "Is Canaan (CAN) the Most Overlooked Name Among the Best Ethereum Stocks to Buy Now?",
-      "url": "https://finance.yahoo.com/markets/crypto/articles/canaan-most-overlooked-name-among-105411067.html",
-      "publishedAt": "2026-04-21T10:54:11Z"
-    },
-    {
-      "index": 82,
-      "headline": "S&amp;P Near Peak as Chipmakers Rise 16th Straight Day: Markets Wrap",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-21/stock-market-today-dow-s-p-live-updates",
-      "publishedAt": "2026-04-21T22:13:53+00:00"
-    },
-    {
-      "index": 83,
-      "headline": "Scoop: Top U.S. cyber agency doesn't have access to Anthropic's powerful hacking model - Axios",
-      "url": "https://www.axios.com/2026/04/21/cisa-anthropic-mythos-ai-security",
-      "publishedAt": "2026-04-21T15:36:29Z"
-    },
-    {
-      "index": 84,
-      "headline": "Temenos CEO says Middle East strategy will not change",
-      "url": "https://www.globalbankingandfinance.com/temenos-ceo-middle-east-strategy-change-shares-rise-results/",
-      "publishedAt": "2026-04-22T07:59:23Z"
-    },
-    {
-      "index": 85,
-      "headline": "Jay Leno Hypes Up Burbank Airport Bond Sale to Muni Investors",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/jay-leno-hypes-up-burbank-airport-bond-sale-to-muni-investors",
-      "publishedAt": "2026-04-22T19:29:16+00:00"
-    },
-    {
-      "index": 86,
-      "headline": "Warren Buffett dumped 77% of Amazon to buy surging media stock",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/warren-buffett-dumped-77-amazon-003700673.html",
-      "publishedAt": "2026-04-22T00:37:00Z"
-    },
-    {
-      "index": 87,
-      "headline": "Trump’s Shopping Spree for Equity Stakes Nears $21 Billion",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/trump-s-shopping-spree-for-equity-stakes-nears-21-billion",
-      "publishedAt": "2026-04-22T15:03:34+00:00"
-    },
-    {
-      "index": 88,
+      "index": 6,
       "headline": "Trump Media CEO Exit Caps a 90% Drop as MAGA Stocks Stumble",
       "url": "https://www.bloomberg.com/news/articles/2026-04-22/trump-media-ceo-s-exit-caps-a-90-drop-as-maga-stocks-stumble",
       "publishedAt": "2026-04-22T16:17:12+00:00"
     },
     {
-      "index": 89,
-      "headline": "Earnings Preview: What to Expect From Targa Resources’ Report",
-      "url": "https://finance.yahoo.com/sectors/energy/articles/earnings-preview-expect-targa-resources-113700324.html",
-      "publishedAt": "2026-04-21T11:37:00Z"
+      "index": 7,
+      "headline": "Lululemon (LULU) Launches Official E-Commerce Platform in Mexico",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/lululemon-lulu-launches-official-e-115623550.html",
+      "publishedAt": "2026-04-21T11:56:23Z"
     },
     {
-      "index": 90,
+      "index": 8,
+      "headline": "Flexsteel Industries, Inc. Q3 2026 Earnings Call Summary",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/flexsteel-industries-inc-q3-2026-123000337.html",
+      "publishedAt": "2026-04-21T12:30:00Z"
+    },
+    {
+      "index": 9,
+      "headline": "AT&T Kicks Off Earnings Reports For Telecom Stocks. Why It's Not Business As Usual.",
+      "url": "https://www.investors.com/news/technology/telecom-stocks-earnings-att-verizon-tmus-financial-reporting-changes/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-04-21T12:01:04Z"
+    },
+    {
+      "index": 10,
+      "headline": "Email Marketing in 2026: Why you're probably doing it wrong",
+      "url": "https://www.myjoyonline.com/email-marketing-in-2026-why-youre-probably-doing-it-wrong/",
+      "publishedAt": "2026-04-22T08:47:29Z"
+    },
+    {
+      "index": 11,
+      "headline": "London to Peterborough rail disruption after person hit by train",
+      "url": "https://www.bbc.com/news/articles/c04x6y2vv9ko",
+      "publishedAt": "2026-04-22T08:48:10Z"
+    },
+    {
+      "index": 12,
       "headline": "Market Update: COF, EFX, UAL, MRNA",
       "url": "https://finance.yahoo.com/research/reports/ARGUS_46817_MarketUpdate_1776879542000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
       "publishedAt": "2026-04-22T17:39:02Z"
     },
     {
-      "index": 91,
-      "headline": "Tim Cook’s secret weapon that turned Apple into a $4 trillion empire - MarketWatch",
-      "url": "https://www.marketwatch.com/story/tim-cooks-secret-weapon-that-turned-apple-into-a-4-trillion-apple-empire-1983f7f8",
-      "publishedAt": "2026-04-21T15:17:00Z"
+      "index": 13,
+      "headline": "UnitedHealth posts quarterly profit above Wall Street estimates, on track for turnaround - Yahoo Finance",
+      "url": "https://finance.yahoo.com/sectors/healthcare/articles/unitedhealth-reports-2026-q1-profit-095745260.html",
+      "publishedAt": "2026-04-21T14:35:34Z"
     },
     {
-      "index": 92,
-      "headline": "US regulators seek to ease reporting load for private funds",
-      "url": "https://finance.yahoo.com/economy/policy/articles/us-regulators-seek-ease-reporting-104749938.html",
-      "publishedAt": "2026-04-21T10:47:49Z"
+      "index": 14,
+      "headline": "Fair Isaac Shares Slump as Pulte Moves to Cut Credit Score Costs",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/fair-isaac-shares-slump-as-pulte-moves-to-cut-credit-score-costs",
+      "publishedAt": "2026-04-22T19:15:24+00:00"
     },
     {
-      "index": 93,
-      "headline": "US Stocks On Track For Record Close as Trump Extends Iran Truce",
+      "index": 15,
+      "headline": "Alaska Air Group, Inc. Q1 2026 Earnings Call Summary",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/alaska-air-group-inc-q1-123000862.html",
+      "publishedAt": "2026-04-21T12:30:00Z"
+    },
+    {
+      "index": 16,
+      "headline": "Xpress Global Systems celebrates 40 years of moving the trickiest freight in America",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/xpress-global-systems-celebrates-40-120000774.html",
+      "publishedAt": "2026-04-21T12:00:00Z"
+    },
+    {
+      "index": 17,
+      "headline": " Mythos Breach Shows Need for AI Framework, Magaziner",
+      "url": "https://www.bloomberg.com/news/videos/2026-04-22/mythos-breach-shows-need-for-ai-framework-magaziner-video",
+      "publishedAt": "2026-04-22T18:30:15+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "What to Expect From Consolidated Edison's Next Quarterly Earnings Report",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/expect-consolidated-edisons-next-quarterly-121057559.html",
+      "publishedAt": "2026-04-21T12:10:57Z"
+    },
+    {
+      "index": 19,
+      "headline": "Here Are the Best Ways to Put Your Tax Refund to Good Use",
+      "url": "https://www.today.com/video/tax-refund-tips-paying-down-debt-boosting-savings-more-261787205548",
+      "publishedAt": "2026-04-21T13:33:31+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "Is Pan American Silver (PAAS) One of the Best Canadian Stocks to Buy for Long Term?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/pan-american-silver-paas-one-115631161.html",
+      "publishedAt": "2026-04-21T11:56:31Z"
+    },
+    {
+      "index": 21,
+      "headline": "Michael and Susan Dell to donate $750 million to UT Austin to fund new medical campus - CNBC",
+      "url": "https://www.cnbc.com/2026/04/21/michael-susan-dell-ut-austin-donation-medical-campus.html",
+      "publishedAt": "2026-04-21T17:15:01Z"
+    },
+    {
+      "index": 22,
+      "headline": "RBB Bancorp Q1 2026 Earnings Call Summary",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/rbb-bancorp-q1-2026-earnings-123000749.html",
+      "publishedAt": "2026-04-21T12:30:00Z"
+    },
+    {
+      "index": 23,
+      "headline": "Gold Recovers After Two-Day Drop as Trump Extends Iran Ceasefire",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-21/gold-steadies-as-trump-extends-iran-ceasefire-peace-talks-stall",
+      "publishedAt": "2026-04-21T22:22:50+00:00"
+    },
+    {
+      "index": 24,
+      "headline": "Apple says John Ternus will be new CEO, Tim Cook will transition to executive chairman",
+      "url": "https://www.nbcnews.com/business/business-news/apple-ceo-john-ternus-tim-cook-rcna341096",
+      "publishedAt": "2026-04-20T20:36:15+00:00"
+    },
+    {
+      "index": 25,
+      "headline": "US Stocks Set Fresh Record High as Trump Extends Iran Ceasefire",
       "url": "https://www.bloomberg.com/news/articles/2026-04-22/us-futures-advance-as-president-trump-extends-truce-with-iran",
       "publishedAt": "2026-04-22T12:02:59+00:00"
     },
     {
-      "index": 94,
-      "headline": "Ex-MrBeast employee sues his company, alleging retaliation after she reported a hostile work environment",
-      "url": "https://www.businessinsider.com/ex-mrbeast-employee-sues-the-company-accusing-it-of-retaliation-2026-4",
-      "publishedAt": "2026-04-22T19:53:36.000000Z"
+      "index": 26,
+      "headline": "First Majestic Silver (AG) Announces Restart Plan for Jerritt Canyon Gold Mine",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/first-majestic-silver-ag-announces-115558970.html",
+      "publishedAt": "2026-04-21T11:55:58Z"
     },
     {
-      "index": 95,
-      "headline": "BlackRock Picks Galaxy Digital (GLXY) to Power Its New Staking ETF",
-      "url": "https://finance.yahoo.com/markets/crypto/articles/blackrock-picks-galaxy-digital-glxy-105530307.html",
-      "publishedAt": "2026-04-21T10:55:30Z"
+      "index": 27,
+      "headline": "Descartes Systems (DSGX) Introduces AI-Powered Fleet Data Intelligence Platform",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/descartes-systems-dsgx-introduces-ai-115551913.html",
+      "publishedAt": "2026-04-21T11:55:51Z"
     },
     {
-      "index": 96,
-      "headline": "Datadog and JFrog Are 2 Software Stocks to Buy Now According to Morgan Stanley",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/datadog-jfrog-2-software-stocks-113002834.html",
-      "publishedAt": "2026-04-21T11:30:02Z"
+      "index": 28,
+      "headline": "A patchy quarter for Reckitt",
+      "url": "https://www.marketscreener.com/news/a-patchy-quarter-for-reckitt-ce7f59d8db8af227",
+      "publishedAt": "2026-04-22T08:50:12Z"
     },
     {
-      "index": 97,
-      "headline": "Trump Pushes $500 Million Plan to Save Spirit Airlines",
-      "url": "https://www.bloomberg.com/news/videos/2026-04-22/us-could-own-up-to-90-of-spirit-as-part-of-500m-rescue-video",
-      "publishedAt": "2026-04-22T16:29:30+00:00"
+      "index": 29,
+      "headline": "Citadel’s Yearslong Spirit Bet Faces New Risk on US Rescue Plan",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/citadel-s-yearslong-spirit-bet-faces-new-risk-on-us-rescue-plan",
+      "publishedAt": "2026-04-22T20:17:18+00:00"
     },
     {
-      "index": 98,
-      "headline": "Analyst Report: Capital One Financial Corp",
-      "url": "https://finance.yahoo.com/research/reports/ARGUS_2854_AnalystReport_1776880442000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+      "index": 30,
+      "headline": "Jay Leno Hypes Up Burbank Airport Bond Sale to Muni Investors",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/jay-leno-hypes-up-burbank-airport-bond-sale-to-muni-investors",
+      "publishedAt": "2026-04-22T19:29:16+00:00"
+    },
+    {
+      "index": 31,
+      "headline": "Analyst Report: Equifax Inc",
+      "url": "https://finance.yahoo.com/research/reports/ARGUS_3702_AnalystReport_1776880442000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
       "publishedAt": "2026-04-22T17:54:02Z"
     },
     {
-      "index": 99,
-      "headline": "The Onion relaunches InfoWars as legal wrangling continues",
-      "url": "https://www.nbcnews.com/business/media/onion-relaunches-infowars-as-legal-wrangling-continues-alex-jones-rcna341056",
-      "publishedAt": "2026-04-20T18:23:50+00:00"
-    },
-    {
-      "index": 100,
+      "index": 32,
       "headline": "Middle East war has pushed up air fares 24%, research shows - BBC",
       "url": "https://www.bbc.com/news/articles/crr14qplxe8o",
       "publishedAt": "2026-04-21T15:20:51Z"
     },
     {
-      "index": 101,
-      "headline": "Kevin Warsh Brings Uncomfortable Job Application to Senate Confirmation Hearing",
-      "url": "https://finance.yahoo.com/economy/policy/articles/kevin-warsh-brings-uncomfortable-job-104008056.html",
-      "publishedAt": "2026-04-21T10:40:08Z"
+      "index": 33,
+      "headline": "Credit risk transfers earn bipartisan praise",
+      "url": "https://www.americanbanker.com/news/credit-risk-transfers-earn-bipartisan-praise",
+      "publishedAt": "2026-04-22T20:43:21.000000Z"
     },
     {
-      "index": 102,
-      "headline": "HYG Investors Collect 10% Gains Plus Stable Dividends This Year",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/hyg-investors-collect-10-gains-105239646.html",
-      "publishedAt": "2026-04-21T10:52:39Z"
+      "index": 34,
+      "headline": "NETSTREIT Corp. Q1 2026 Earnings Call Summary",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/netstreit-corp-q1-2026-earnings-123000929.html",
+      "publishedAt": "2026-04-21T12:30:00Z"
     },
     {
-      "index": 103,
-      "headline": "BitMine (BMNR) Now Owns 4% of All Ethereum and Is Closing In on 5%",
-      "url": "https://finance.yahoo.com/markets/crypto/articles/bitmine-bmnr-now-owns-4-105549461.html",
-      "publishedAt": "2026-04-21T10:55:49Z"
+      "index": 35,
+      "headline": "'Early Innings' of US Rare-Earth Independence: Humpton",
+      "url": "https://www.bloomberg.com/news/videos/2026-04-22/-early-innings-of-us-rare-earth-independence-humpton-video",
+      "publishedAt": "2026-04-22T18:50:55+00:00"
     },
     {
-      "index": 104,
-      "headline": "Exclusive: Kabeer Biswas’s new startup raising Rs 102 Cr from Peak XV, Blume, and CRED",
-      "url": "https://entrackr.com/exclusive/exclusive-kabeer-biswass-new-startup-raising-rs-102-cr-from-peak-xv-blume-and-cred-11753427",
-      "publishedAt": "2026-04-22T07:58:34Z"
+      "index": 36,
+      "headline": "US Could Own Up to 90% of Spirit",
+      "url": "https://www.bloomberg.com/news/videos/2026-04-22/us-could-own-up-to-90-of-spirit-video",
+      "publishedAt": "2026-04-22T19:02:31+00:00"
     },
     {
-      "index": 105,
-      "headline": "Forum Markets (FRMM) Is Lending to AI Chip Buyers While Tokenizing Real Assets on Ethereum",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/forum-markets-frmm-lending-ai-105511946.html",
-      "publishedAt": "2026-04-21T10:55:11Z"
+      "index": 37,
+      "headline": "Trump’s Shopping Spree for Equity Stakes Nears $21B",
+      "url": "https://www.bloomberg.com/news/videos/2026-04-22/trump-s-shopping-spree-for-equity-stakes-nears-21b-video",
+      "publishedAt": "2026-04-22T19:13:11+00:00"
     },
     {
-      "index": 106,
+      "index": 38,
+      "headline": "Analyst Report: Capital One Financial Corp",
+      "url": "https://finance.yahoo.com/research/reports/ARGUS_2854_AnalystReport_1776880442000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+      "publishedAt": "2026-04-22T17:54:02Z"
+    },
+    {
+      "index": 39,
+      "headline": "BOK Financial Corporation Q1 2026 Earnings Call Summary",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/bok-financial-corporation-q1-2026-123000908.html",
+      "publishedAt": "2026-04-21T12:30:00Z"
+    },
+    {
+      "index": 40,
+      "headline": "Stocks Rise on Big Earnings Day as Brent Hits $100: Markets Wrap",
+      "url": "https://www.swissinfo.ch/eng/stocks-rise-on-big-earnings-day-as-brent-hits-%24100%3A-markets-wrap/91294700",
+      "publishedAt": "2026-04-22T08:47:15Z"
+    },
+    {
+      "index": 41,
+      "headline": "ABF to split food assets from retail arm Primark",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/abf-split-food-assets-retail-112407047.html",
+      "publishedAt": "2026-04-21T12:24:12Z"
+    },
+    {
+      "index": 42,
+      "headline": "Reddit Stock Gets New Analyst Buy Rating On 'Compelling Opportunity'",
+      "url": "https://www.investors.com/news/technology/reddit-stock-rddt-buy-da-davidson/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-04-21T12:36:16Z"
+    },
+    {
+      "index": 43,
+      "headline": "India's HCLTech forecasts weak annual revenue growth as clients rein in discretionary spends",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/indias-hcltech-misses-q4-revenue-123559903.html",
+      "publishedAt": "2026-04-21T12:35:59Z"
+    },
+    {
+      "index": 44,
+      "headline": "Warren Buffett dumped 77% of Amazon to buy surging media stock",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/warren-buffett-dumped-77-amazon-003700673.html",
+      "publishedAt": "2026-04-22T00:37:00Z"
+    },
+    {
+      "index": 45,
+      "headline": "Kimco Realty's Q1 2025 Earnings: What to Expect",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/kimco-realtys-q1-2025-earnings-122419334.html",
+      "publishedAt": "2026-04-21T12:24:19Z"
+    },
+    {
+      "index": 46,
+      "headline": "Silver Range Resources advances expanded Drum project in Utah",
+      "url": "https://finance.yahoo.com/markets/commodities/articles/silver-range-resources-advances-expanded-123000325.html",
+      "publishedAt": "2026-04-21T12:30:00Z"
+    },
+    {
+      "index": 47,
+      "headline": "G Mining Ventures sees production growth ahead as Brazil mine advances to higher grades",
+      "url": "https://finance.yahoo.com/markets/commodities/articles/g-mining-ventures-sees-production-122800777.html",
+      "publishedAt": "2026-04-21T12:28:00Z"
+    },
+    {
+      "index": 48,
+      "headline": "Into the world of competitive rock, paper, scissors ",
+      "url": "https://www.nbcnews.com/business/personal-finance/rock-paper-scissors-tournament-rcna332263",
+      "publishedAt": "2026-04-20T14:23:01+00:00"
+    },
+    {
+      "index": 49,
+      "headline": "Amazon launches GLP-1 weight loss program, promising 'fast, convenient' access - CNBC",
+      "url": "https://www.cnbc.com/2026/04/21/amazon-glp-1-weight-loss-program.html",
+      "publishedAt": "2026-04-21T17:20:02Z"
+    },
+    {
+      "index": 50,
+      "headline": "Bessent Says Gulf, Asian Allies Requested Currency Swap Lines",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/bessent-says-many-us-allies-in-gulf-asia-requested-swap-lines",
+      "publishedAt": "2026-04-22T15:00:41+00:00"
+    },
+    {
+      "index": 51,
+      "headline": "ServisFirst Bancshares, Inc. Q1 2026 Earnings Call Summary",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/servisfirst-bancshares-inc-q1-2026-123000374.html",
+      "publishedAt": "2026-04-21T12:30:00Z"
+    },
+    {
+      "index": 52,
+      "headline": "IBM slides as it reiterates full-year forecast despite strong Q1 results, ups dividend (IBM:NYSE)",
+      "url": "https://seekingalpha.com/news/4578027-ibm-slides-as-it-reiterates-full-year-forecast-despite-strong-q1-results-ups-dividend",
+      "publishedAt": "2026-04-22T20:42:29.000000Z"
+    },
+    {
+      "index": 53,
+      "headline": "Here's What to Expect From AES Corporation's Next Earnings Report",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/heres-expect-aes-corporations-next-121434551.html",
+      "publishedAt": "2026-04-21T12:14:34Z"
+    },
+    {
+      "index": 54,
+      "headline": "Fuel surcharge for air travel more than doubles for late April",
+      "url": "https://www.rappler.com/business/fuel-surcharge-level-late-april-2026/",
+      "publishedAt": "2026-04-22T08:46:33Z"
+    },
+    {
+      "index": 55,
+      "headline": "Convenience Store Chain Yesway Climbs After $280 Million IPO",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/convenience-store-chain-yesway-climbs-10-after-280-million-ipo",
+      "publishedAt": "2026-04-22T16:14:25+00:00"
+    },
+    {
+      "index": 56,
+      "headline": "Centerview’s Tony Kim Says AI Changes Pace, Structure of Deals",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/centerview-s-tony-kim-says-ai-changes-pace-structure-of-deals",
+      "publishedAt": "2026-04-22T18:43:24+00:00"
+    },
+    {
+      "index": 57,
+      "headline": "Citi spells out 3 scenarios for the Strait of Hormuz — and where oil prices would go in each - CNBC",
+      "url": "https://www.cnbc.com/2026/04/21/citi-oil-prices-stocks-strait-hormuz-supply-shock.html",
+      "publishedAt": "2026-04-21T14:12:05Z"
+    },
+    {
+      "index": 58,
+      "headline": "Scoop: Top U.S. cyber agency doesn't have access to Anthropic's powerful hacking model - Axios",
+      "url": "https://www.axios.com/2026/04/21/cisa-anthropic-mythos-ai-security",
+      "publishedAt": "2026-04-21T15:36:29Z"
+    },
+    {
+      "index": 59,
+      "headline": "Lloyds pilots AI investment guidance tool as UK regulator studies impact",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/lloyds-pilots-ai-investment-guidance-123026045.html",
+      "publishedAt": "2026-04-21T12:30:26Z"
+    },
+    {
+      "index": 60,
+      "headline": "Afresh Pulls In $34M Funding Round",
+      "url": "https://vcnewsdaily.com/afresh-technologies/venture-capital-funding/pvzrxyvsgc",
+      "publishedAt": "2026-04-22T20:47:02.000000Z"
+    },
+    {
+      "index": 61,
+      "headline": "Steel Dynamics, Inc. Q1 2026 Earnings Call Summary",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/steel-dynamics-inc-q1-2026-123000344.html",
+      "publishedAt": "2026-04-21T12:30:00Z"
+    },
+    {
+      "index": 62,
+      "headline": "Oil prices jump, adding to weeks of swings over Strait of Hormuz",
+      "url": "https://www.nbcnews.com/business/markets/oil-prices-jump-renewed-tensions-strait-hormuz-rcna340901",
+      "publishedAt": "2026-04-19T22:53:27+00:00"
+    },
+    {
+      "index": 63,
+      "headline": "Fed chair pick Warsh makes case for smaller Fed holdings in hearing",
+      "url": "https://www.ksl.com/article/51486668/fed-chair-pick-warsh-makes-case-for-smaller-fed-holdings-in-hearing",
+      "publishedAt": "2026-04-22T08:46:34Z"
+    },
+    {
+      "index": 64,
+      "headline": "What You Need To Know Ahead of Ingersoll Rand's Earnings Release",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/know-ahead-ingersoll-rands-earnings-122444695.html",
+      "publishedAt": "2026-04-21T12:24:44Z"
+    },
+    {
+      "index": 65,
+      "headline": "UnitedHealth Leads Dow Jones As Earnings Heal, Membership Falls",
+      "url": "https://www.investors.com/news/unitedhealth-earnings-unh-stock-dow-jones-q12026/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-04-21T12:24:11Z"
+    },
+    {
+      "index": 66,
+      "headline": "Zions Bancorporation, National Association Q1 2026 Earnings Call Summary",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/zions-bancorporation-national-association-q1-123000226.html",
+      "publishedAt": "2026-04-21T12:30:00Z"
+    },
+    {
+      "index": 67,
+      "headline": "KKR Is Said to Invest $1.5 Billion in Tower Firm Vertical Bridge",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/kkr-is-said-to-invest-1-5-billion-in-tower-firm-vertical-bridge",
+      "publishedAt": "2026-04-22T19:30:00+00:00"
+    },
+    {
+      "index": 68,
+      "headline": "Oil Rises on Elusive Peace Deal Outlook, Iran Gunboat Attacks",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-21/latest-oil-market-news-and-analysis-for-april-22",
+      "publishedAt": "2026-04-21T22:01:13+00:00"
+    },
+    {
+      "index": 69,
+      "headline": "Bearish Tesla analyst has good news for Rivian stock investors",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/bearish-tesla-analyst-good-news-181700034.html",
+      "publishedAt": "2026-04-21T18:17:00Z"
+    },
+    {
+      "index": 70,
       "headline": "Kash Patel sues The Atlantic over report alleging excessive drinking and absences",
       "url": "https://www.nbcnews.com/politics/trump-administration/kash-patel-lawsuit-atlantic-allegations-drinking-absences-rcna341001",
       "publishedAt": "2026-04-20T16:43:09+00:00"
     },
     {
+      "index": 71,
+      "headline": "The World Will Never Forget the Hormuz Crisis",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-04-22/the-world-will-never-forget-the-hormuz-crisis",
+      "publishedAt": "2026-04-22T20:45:51+00:00"
+    },
+    {
+      "index": 72,
+      "headline": "AGNC Investment Corp. Q1 2026 Earnings Call Summary",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/agnc-investment-corp-q1-2026-123000456.html",
+      "publishedAt": "2026-04-21T12:30:00Z"
+    },
+    {
+      "index": 73,
+      "headline": "Blackstone Private Credit Fund Draws Strong Demand for Bond Sale",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/blackstone-private-credit-fund-looks-to-sell-high-grade-bonds",
+      "publishedAt": "2026-04-22T14:21:14+00:00"
+    },
+    {
+      "index": 74,
+      "headline": "USA Rare Earth CEO Says US is in ‘Early Innings’ of Independence",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/usa-rare-earth-ceo-says-us-is-in-early-innings-of-independence",
+      "publishedAt": "2026-04-22T18:31:24+00:00"
+    },
+    {
+      "index": 75,
+      "headline": "SpaceX hosts analyst meetings ahead of $75 billion IPO",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/spacex-hosts-analyst-meetings-ahead-122439296.html",
+      "publishedAt": "2026-04-21T12:24:39Z"
+    },
+    {
+      "index": 76,
+      "headline": "S&amp;P 500 Climbs to All-Time Highs; Tesla Jumps Late: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-21/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-04-21T22:13:53+00:00"
+    },
+    {
+      "index": 77,
+      "headline": "Kalshi fines and suspends three politicians for 'insider trading' on their own races",
+      "url": "https://www.nbcnews.com/business/markets/kalshi-fines-suspends-politicians-insider-trading-elections-rcna341505",
+      "publishedAt": "2026-04-22T19:40:44+00:00"
+    },
+    {
+      "index": 78,
+      "headline": "Equinox Gold (EQX) Projects Annual Production Growth Supported by Updated Technical Reports",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/equinox-gold-eqx-projects-annual-115613262.html",
+      "publishedAt": "2026-04-21T11:56:13Z"
+    },
+    {
+      "index": 79,
+      "headline": "Ryanair passengers who want to check in bags must get to airport even earlier",
+      "url": "https://www.independent.co.uk/travel/news-and-advice/ryanair-bag-drop-deadline-one-hour-b2962482.html",
+      "publishedAt": "2026-04-22T08:50:00Z"
+    },
+    {
+      "index": 80,
+      "headline": "Shopify (SHOP): Best Canadian Stocks to Buy for Long Term",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/shopify-shop-best-canadian-stocks-115656955.html",
+      "publishedAt": "2026-04-21T11:56:56Z"
+    },
+    {
+      "index": 81,
+      "headline": "Petrobras Director Pans Low Fuel Prices, Exposing Board Rift",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/petrobras-board-member-seeks-fuel-price-increase-in-brazil-to-stem-losses",
+      "publishedAt": "2026-04-22T14:25:10+00:00"
+    },
+    {
+      "index": 82,
+      "headline": "Head of Bolivian State Oil Company Quits After Less Than a Month",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/head-of-bolivian-state-oil-company-ypfb-quits-after-less-than-a-month",
+      "publishedAt": "2026-04-22T20:01:27+00:00"
+    },
+    {
+      "index": 83,
+      "headline": "Texas Stock Exchange Expects First IPO in Early 2027",
+      "url": "https://www.bloomberg.com/news/videos/2026-04-22/texas-stock-exchange-expects-first-ipo-in-early-2027-video",
+      "publishedAt": "2026-04-22T18:09:40+00:00"
+    },
+    {
+      "index": 84,
+      "headline": "Spirit Airlines nears deal with Trump administration for $500 million rescue package",
+      "url": "https://www.nbcnews.com/business/travel/spirit-airlines-trump-administration-bailout-rcna341430",
+      "publishedAt": "2026-04-22T16:43:58+00:00"
+    },
+    {
+      "index": 85,
+      "headline": "CloudMile Sweeps Four Major Awards at Google Cloud Next 2026 Demonstrating Cloud Technology Leadership in APAC",
+      "url": "https://www.manilatimes.net/2026/04/22/tmt-newswire/pr-newswire/cloudmile-sweeps-four-major-awards-at-google-cloud-next-2026-demonstrating-cloud-technology-leadership-in-apac/2325776",
+      "publishedAt": "2026-04-22T08:52:39Z"
+    },
+    {
+      "index": 86,
+      "headline": "Corn Starting Tuesday with Fractional Losses",
+      "url": "https://finance.yahoo.com/markets/commodities/articles/corn-starting-tuesday-fractional-losses-122110064.html",
+      "publishedAt": "2026-04-21T12:21:10Z"
+    },
+    {
+      "index": 87,
+      "headline": "Coinbase Launches USDC Borrowing for UK Users: Use Crypto Without Selling",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/coinbase-launches-usdc-borrowing-uk-123114087.html",
+      "publishedAt": "2026-04-21T12:31:14Z"
+    },
+    {
+      "index": 88,
+      "headline": "How Pentagon Budget Reveal Could Boost Palantir Stock Amid AI Wave",
+      "url": "https://www.investors.com/news/technology/palantir-stock-boost-pentagon-2027-budget-reveal-artificial-intelligence-wave/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-04-21T11:55:38Z"
+    },
+    {
+      "index": 89,
+      "headline": "Uber CEO says other execs are lying about AI: 'They say it'll be fine' but privately admit millions of jobs are gone",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/uber-ceo-says-other-execs-120500927.html",
+      "publishedAt": "2026-04-21T12:05:00Z"
+    },
+    {
+      "index": 90,
+      "headline": "ECB’s Lane Sees ‘Natural’ Fiscal Case for Europe Common Debt",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/ecb-s-lane-sees-natural-fiscal-case-for-european-common-debt",
+      "publishedAt": "2026-04-22T07:40:00+00:00"
+    },
+    {
+      "index": 91,
+      "headline": " See Opportunity in Dislocations: Diameter Lewinsohn",
+      "url": "https://www.bloomberg.com/news/videos/2026-04-22/see-opportunity-in-dislocations-diameter-lewinsohn-video",
+      "publishedAt": "2026-04-22T20:20:40+00:00"
+    },
+    {
+      "index": 92,
+      "headline": "Tesla 1Q Earnings Beat Estimates Sending Share Higher ",
+      "url": "https://www.bloomberg.com/news/videos/2026-04-22/tesla-1q-earnings-beat-estimates-sending-share-higher-video",
+      "publishedAt": "2026-04-22T20:24:10+00:00"
+    },
+    {
+      "index": 93,
+      "headline": "Wintrust Financial Corporation Q1 2026 Earnings Call Summary",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wintrust-financial-corporation-q1-2026-123000112.html",
+      "publishedAt": "2026-04-21T12:30:00Z"
+    },
+    {
+      "index": 94,
+      "headline": "Sino Jet Releases 2025 Carbon Emissions Report, Fully Achieving Carbon-Neutral Goals for Its Own Fleet and Ground Operations",
+      "url": "https://www.manilatimes.net/2026/04/22/tmt-newswire/pr-newswire/sino-jet-releases-2025-carbon-emissions-report-fully-achieving-carbon-neutral-goals-for-its-own-fleet-and-ground-operations/2325774",
+      "publishedAt": "2026-04-22T08:52:37Z"
+    },
+    {
+      "index": 95,
+      "headline": "National Healthcare REIT Closes Flat After $462 Million IPO",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/national-healthcare-reit-sinks-3-7-after-462-million-us-ipo",
+      "publishedAt": "2026-04-22T16:41:35+00:00"
+    },
+    {
+      "index": 96,
+      "headline": "Sweden's Einride to deploy 75 electric trucks for Amazon's US freight",
+      "url": "https://finance.yahoo.com/news/swedens-einride-deploy-75-electric-120630987.html",
+      "publishedAt": "2026-04-21T12:06:30Z"
+    },
+    {
+      "index": 97,
+      "headline": "Tim Cook’s secret weapon that turned Apple into a $4 trillion empire - MarketWatch",
+      "url": "https://www.marketwatch.com/story/tim-cooks-secret-weapon-that-turned-apple-into-a-4-trillion-apple-empire-1983f7f8",
+      "publishedAt": "2026-04-21T15:17:00Z"
+    },
+    {
+      "index": 98,
+      "headline": "Tesla’s Earnings Beat Expectations Amid Focus on Robotics, Driverless Cars",
+      "url": "https://www.bloomberg.com/news/videos/2026-04-22/tesla-earnings-beat-expectations-amid-focus-on-robotics-video",
+      "publishedAt": "2026-04-22T20:36:41+00:00"
+    },
+    {
+      "index": 99,
+      "headline": "Analyst Report: United Airlines Holdings Inc",
+      "url": "https://finance.yahoo.com/research/reports/ARGUS_4407_AnalystReport_1776880442000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+      "publishedAt": "2026-04-22T17:54:02Z"
+    },
+    {
+      "index": 100,
+      "headline": "Getty Images Downgraded on Weaker Liquidity, Merger Doubt",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/getty-images-downgraded-on-weaker-liquidity-merger-uncertainty",
+      "publishedAt": "2026-04-22T05:56:22+00:00"
+    },
+    {
+      "index": 101,
+      "headline": "Spanish confectioner Lacasa buys stake in cocoa processor KKO International",
+      "url": "https://finance.yahoo.com/markets/commodities/articles/spanish-confectioner-lacasa-buys-stake-122112226.html",
+      "publishedAt": "2026-04-21T12:21:12Z"
+    },
+    {
+      "index": 102,
+      "headline": "Wall Street is lower as a U.S.-Iran truce remains uncertain; Warsh faces confirmation hearing (COMP:IND:) - Seeking Alpha",
+      "url": "https://seekingalpha.com/news/4577174-sp500-dow-jones-nasdaq-composite-wall-street-news",
+      "publishedAt": "2026-04-21T17:26:00Z"
+    },
+    {
+      "index": 103,
+      "headline": "Iron Mountain Earnings Preview: What to Expect",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/iron-mountain-earnings-preview-expect-121658581.html",
+      "publishedAt": "2026-04-21T12:16:58Z"
+    },
+    {
+      "index": 104,
+      "headline": "What to Expect From Camden Property's Next Quarterly Earnings Report",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/expect-camden-propertys-next-quarterly-122009677.html",
+      "publishedAt": "2026-04-21T12:20:09Z"
+    },
+    {
+      "index": 105,
+      "headline": "Emerging FX Sinks as Iran War Drags On, Oil Holds Over $100",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-22/emerging-markets-rally-hits-pause-as-iran-risks-lift-oil",
+      "publishedAt": "2026-04-22T11:11:58+00:00"
+    },
+    {
+      "index": 106,
+      "headline": "Stock Market Today: Dow, S&P 500 Fall As Oil Spikes; Amazon Lifts These Names (Live Coverage) - Investor's Business Daily",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-retail-sales-warsh-hearing/",
+      "publishedAt": "2026-04-21T17:23:00Z"
+    },
+    {
       "index": 107,
-      "headline": "Traders Return to Fed Funds Wager That Surged During Repo Stress",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-22/traders-return-to-fed-funds-trade-that-surged-during-repo-stress",
-      "publishedAt": "2026-04-22T18:05:54+00:00"
+      "headline": "The Onion relaunches InfoWars as legal wrangling continues",
+      "url": "https://www.nbcnews.com/business/media/onion-relaunches-infowars-as-legal-wrangling-continues-alex-jones-rcna341056",
+      "publishedAt": "2026-04-20T18:23:50+00:00"
     }
   ]
 }
