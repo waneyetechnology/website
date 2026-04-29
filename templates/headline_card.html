@@ -1,0 +1,44 @@
+<div id='headline-{{ item_index + 1 }}' class='headline-card group relative bg-white rounded-xl overflow-hidden'>
+    {% if item.image %}
+        {% set loading_attr = "eager" if item_index < 2 else "lazy" %}
+        {% set priority_attr = "high" if item_index < 2 else "auto" %}
+        
+        {% if "#dynamic" in item.image %}
+            {% set actual_path = item.image.split("#")[0] %}
+            <div class='relative overflow-hidden'>
+                <img src='{{ actual_path }}' alt="{{ item.headline }}" class='headline-image w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105' loading="{{ loading_attr }}" fetchpriority="{{ priority_attr }}">
+                <div class='absolute top-2 right-2 bg-violet-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full'>Dynamic</div>
+            </div>
+        {% elif "#ai-generated" in item.image %}
+            {% set actual_path = item.image.split("#")[0] %}
+            <div class='relative overflow-hidden'>
+                <img src='{{ actual_path }}' alt="{{ item.headline }}" class='headline-image w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105' loading="{{ loading_attr }}" fetchpriority="{{ priority_attr }}">
+                <div class='absolute top-2 right-2 bg-gradient-to-r from-pink-500 to-violet-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full'>AI</div>
+            </div>
+        {% else %}
+            <div class='overflow-hidden'>
+                <img src='{{ item.image }}' alt="{{ item.headline }}" class='headline-image w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105' loading="{{ loading_attr }}" fetchpriority="{{ priority_attr }}">
+            </div>
+        {% endif %}
+    {% else %}
+        <div class='flex items-center justify-center bg-slate-100 h-48'>
+            <i class='fas fa-newspaper text-2xl text-slate-300'></i>
+        </div>
+    {% endif %}
+    
+    <div class='p-4'>
+        <div class='flex items-start gap-2'>
+            <span class='flex-shrink-0 inline-flex items-center justify-center w-5 h-5 rounded-full bg-slate-200 text-slate-600 text-xs font-bold mt-0.5' title='Headline #{{ item_index + 1 }}'>{{ item_index + 1 }}</span>
+            <a href='{{ item.url }}' target='_blank' rel='noopener noreferrer' title="{{ item.headline }}" class='block text-slate-800 font-semibold text-sm leading-snug hover:text-blue-600 transition-colors duration-150 line-clamp-3'>
+                {{ item.headline }}
+            </a>
+        </div>
+    </div>
+    
+    {% if item.source %}
+    <div class='px-4 pb-3 flex items-center gap-1.5 card-source-badge'>
+        <img src='{{ item.favicon }}' alt='{{ item.source }} favicon' class='w-3.5 h-3.5 rounded-sm flex-shrink-0'>
+        <span>{{ item.source }}</span>
+    </div>
+    {% endif %}
+</div>
