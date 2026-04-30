@@ -406,37 +406,58 @@ def fetch_central_bank_policies():
 
     return policies
 
+def _fetch_bis_policy_rate(country_code):
+    """
+    Fetches the latest central bank policy rate from the BIS SDMX API.
+    Returns a float on success, or None on failure.
+    """
+    url = f"https://stats.bis.org/api/v1/data/WS_CBPOL/D.{country_code}.?lastNObservations=1"
+    headers = {
+        'Accept': 'application/vnd.sdmx.data+json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+    }
+    resp = requests.get(url, timeout=10, headers=headers)
+    resp.raise_for_status()
+    data = resp.json()
+    series = data['data']['dataSets'][0]['series']
+    for s in series.values():
+        for obs_values in s['observations'].values():
+            return float(obs_values[0])
+    return None
+
+
 def fetch_central_bank_rates():
     """
     Fetches the latest policy/interest rate for each of the 9 major central banks.
-    Rates are scraped from official central bank websites; when scraping fails the last
-    known rate is returned with an "~" prefix to signal the value is estimated.
+    Primary source: BIS SDMX API (stats.bis.org) which covers all banks reliably.
+    Fallback: scraping each bank's official website.
+    Last resort: last-known rates with "~" prefix to signal the value is estimated.
     Returns a list of dicts: {"bank": ..., "rate": ..., "url": ...}
     """
-    # Last-known policy rates used as fallback when live scraping fails.
-    # Values reflect approximate rates as of early 2025.
+    # Last-known policy rates used as fallback when all live fetching fails.
+    # Values reflect approximate rates as of late April 2026.
     _KNOWN_RATES = {
-        "fed":  "~4.25-4.50%",
-        "ecb":  "~2.40%",
-        "boe":  "~4.50%",
-        "boj":  "~0.50%",
-        "snb":  "~0.25%",
-        "boc":  "~2.75%",
+        "fed":  "~3.50-3.75%",
+        "ecb":  "~2.00%",
+        "boe":  "~3.75%",
+        "boj":  "~0.75%",
+        "snb":  "~0.00%",
+        "boc":  "~2.25%",
         "rba":  "~4.10%",
-        "pboc": "~3.10%",
-        "rbnz": "~3.75%",
+        "pboc": "~3.00%",
+        "rbnz": "~2.25%",
     }
 
     banks = [
-        {"name": "Federal Reserve", "code": "fed", "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm"},
-        {"name": "European Central Bank", "code": "ecb", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html"},
-        {"name": "Bank of England", "code": "boe", "url": "https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp"},
-        {"name": "Bank of Japan", "code": "boj", "url": "https://www.boj.or.jp/en/statistics/boj/other/interest/index.htm/"},
-        {"name": "Swiss National Bank", "code": "snb", "url": "https://www.snb.ch/en/iabout/stat/statpub/zirefi/id/statpub_zirefi_hist"},
-        {"name": "Bank of Canada", "code": "boc", "url": "https://www.bankofcanada.ca/rates/interest-rates/canadian-interest-rates/"},
-        {"name": "Reserve Bank of Australia", "code": "rba", "url": "https://www.rba.gov.au/statistics/cash-rate/"},
-        {"name": "People's Bank of China", "code": "pboc", "url": "http://www.pbc.gov.cn/en/3688229/index.html"},
-        {"name": "Reserve Bank of New Zealand", "code": "rbnz", "url": "https://www.rbnz.govt.nz/monetary-policy/official-cash-rate"},
+        {"name": "Federal Reserve", "code": "fed", "bis_code": "US", "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm"},
+        {"name": "European Central Bank", "code": "ecb", "bis_code": "XM", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html"},
+        {"name": "Bank of England", "code": "boe", "bis_code": "GB", "url": "https://www.bankofengland.co.uk/monetary-policy/interest-rates-and-bank-rate"},
+        {"name": "Bank of Japan", "code": "boj", "bis_code": "JP", "url": "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2025/"},
+        {"name": "Swiss National Bank", "code": "snb", "bis_code": "CH", "url": "https://www.snb.ch/en/"},
+        {"name": "Bank of Canada", "code": "boc", "bis_code": "CA", "url": "https://www.bankofcanada.ca/rates/interest-rates/canadian-interest-rates/"},
+        {"name": "Reserve Bank of Australia", "code": "rba", "bis_code": "AU", "url": "https://www.rba.gov.au/statistics/cash-rate/"},
+        {"name": "People's Bank of China", "code": "pboc", "bis_code": "CN", "url": "http://www.pbc.gov.cn/en/3688229/index.html"},
+        {"name": "Reserve Bank of New Zealand", "code": "rbnz", "bis_code": "NZ", "url": "https://www.rbnz.govt.nz/monetary-policy/official-cash-rate"},
     ]
     rates_data = []
 
@@ -500,6 +521,27 @@ def fetch_central_bank_rates():
     for bank in banks:
         rate_str = "Rate not found"
         keyword_found_for_bank = False # Flag to control last resort regex application
+
+        # --- Primary source: BIS SDMX API ---
+        bis_code = bank.get("bis_code")
+        if bis_code:
+            try:
+                bis_rate = _fetch_bis_policy_rate(bis_code)
+                if bis_rate is not None:
+                    bank_code = bank.get("code")
+                    if bank_code == "fed":
+                        # BIS reports the midpoint of the Fed's ±0.125% target range
+                        low = round(bis_rate - 0.125, 2)
+                        high = round(bis_rate + 0.125, 2)
+                        rate_str = f"{low:.2f}-{high:.2f}%"
+                    else:
+                        rate_str = f"{bis_rate:.2f}%"
+                    logger.info(f"BIS API rate for {bank['name']} ({bis_code}): {rate_str}")
+                    rates_data.append({"bank": bank["name"], "rate": rate_str, "url": bank["url"]})
+                    continue
+            except Exception as e:
+                logger.warning(f"BIS API failed for {bank['name']} ({bis_code}): {e}. Falling back to scraping.")
+
         try:
             resp = requests.get(bank["url"], timeout=15)
             resp.raise_for_status()
