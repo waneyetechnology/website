@@ -297,14 +297,13 @@ a:focus-visible, button:focus-visible, input:focus, select:focus, textarea:focus
 /* Desktop layout - show all three sections in grid */
 @media (min-width: 1024px) {
   #headlines,
-  #financial-analysis,
-  #market-data {
+  #financial-analysis {
     display: block !important;
   }
 
   /* On desktop, market data displays in 3-column grid below headlines/analysis */
   #market-data {
-    display: grid;
+    display: grid !important;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     margin-bottom: 1.5rem;
