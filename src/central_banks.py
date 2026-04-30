@@ -409,8 +409,24 @@ def fetch_central_bank_policies():
 def fetch_central_bank_rates():
     """
     Fetches the latest policy/interest rate for each of the 9 major central banks.
+    Rates are scraped from official central bank websites; when scraping fails the last
+    known rate is returned with an "~" prefix to signal the value is estimated.
     Returns a list of dicts: {"bank": ..., "rate": ..., "url": ...}
     """
+    # Last-known policy rates used as fallback when live scraping fails.
+    # Values reflect approximate rates as of early 2025.
+    _KNOWN_RATES = {
+        "fed":  "~4.25-4.50%",
+        "ecb":  "~2.40%",
+        "boe":  "~4.50%",
+        "boj":  "~0.50%",
+        "snb":  "~0.25%",
+        "boc":  "~2.75%",
+        "rba":  "~4.10%",
+        "pboc": "~3.10%",
+        "rbnz": "~3.75%",
+    }
+
     banks = [
         {"name": "Federal Reserve", "code": "fed", "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm"},
         {"name": "European Central Bank", "code": "ecb", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html"},
@@ -611,13 +627,29 @@ def fetch_central_bank_rates():
                  logger.info(f"Keywords were found for {bank['name']}, but rate value regexes failed. NOT using last resort regex.")
 
 
+            # Use known fallback when scraping yields nothing
+            if rate_str == "Rate not found":
+                bank_code = bank.get("code", "")
+                rate_str = _KNOWN_RATES.get(bank_code, "N/A")
+                logger.warning(f"Using known fallback rate for {bank['name']}: {rate_str}")
+
             rates_data.append({"bank": bank["name"], "rate": rate_str, "url": bank["url"]})
 
         except requests.exceptions.RequestException as e:
             logger.error(f"Error fetching rate for {bank['name']} from {bank['url']}: {e}")
-            rates_data.append({"bank": bank["name"], "rate": "Could not fetch rate (Request Error)", "url": bank["url"]})
+            bank_code = bank.get("code", "")
+            rates_data.append({
+                "bank": bank["name"],
+                "rate": _KNOWN_RATES.get(bank_code, "N/A"),
+                "url": bank["url"],
+            })
         except Exception as e:
             logger.error(f"Generic error processing rate for {bank['name']}: {e}", exc_info=True)
-            rates_data.append({"bank": bank["name"], "rate": "Error processing rate data", "url": bank["url"]})
+            bank_code = bank.get("code", "")
+            rates_data.append({
+                "bank": bank["name"],
+                "rate": _KNOWN_RATES.get(bank_code, "N/A"),
+                "url": bank["url"],
+            })
 
     return rates_data
