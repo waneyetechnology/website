@@ -1,0 +1,988 @@
+{
+  "analysis": {
+    "analysis_date": "May 09, 2026",
+    "analysis_time": "12:00",
+    "executive_summary": {
+      "key_highlights": [
+        "U.S. stocks hit record highs as S&P 500 closes 6th straight week of gains, driven by a better-than-expected April jobs report (115,000 jobs added, unemployment at 4.3%) and surging chipmaker stocks.",
+        "Iran war continues to disrupt global energy markets, with China's energy imports plunging due to Hormuz shipping choke points, oil futures under DOJ investigation for suspicious trades, and rising gas prices impacting consumers.",
+        "Central banks remain cautious: ECB's Lagarde cites timing risks, Fed's Boston President discusses dissent and nomination, and Goldman Sachs delays rate cut expectations to December.",
+        "IPO market is heating up with multiple filings: Applied Aerospace, Safepoint, Quantinuum, Inspire Brands, and a SPAC listing for Enhanced Games, signaling renewed risk appetite.",
+        "Home equity trends show a decline in 'equity-rich' homeowners, while mortgage rates remain volatile, and Warren Buffett sends a blunt message on home financing.",
+        "AI boom is straining memory prices, impacting Sony and Nintendo, while CoreWeave shares decline on softer guidance and higher spending plans.",
+        "Stablecoin regulation is advancing, with banking trade groups urging guardrails, and BlackRock launching tokenized money-market funds.",
+        "Geopolitical risks: Iran war drives Africa's fertilizer crisis, Air India cuts costs due to war-related financial struggles, and Colombia inflation ticks up, fueling rate hike expectations."
+      ],
+      "market_sentiment_score": 80,
+      "overall_sentiment": "positive",
+      "headline_sources": [
+        2,
+        29,
+        42,
+        51,
+        65,
+        86
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology (Semiconductors & AI)",
+          "trend": "Strong rally driven by chipmaker stocks, but AI capex is pressuring cash flows. Memory prices are surging due to AI demand, constraining supply for consumer electronics (Sony, Nintendo). CoreWeave's softer guidance highlights valuation concerns in AI infrastructure.",
+          "implications": "Investors should favor established semiconductor leaders with pricing power (e.g., TSMC, NVIDIA) but be cautious on high-growth AI infrastructure names with heavy spending. Memory price inflation may benefit memory makers but hurt downstream device manufacturers.",
+          "headline_sources": [
+            4,
+            41,
+            42,
+            47,
+            51,
+            89
+          ]
+        },
+        {
+          "sector": "Energy & Commodities",
+          "trend": "Iran war is severely disrupting oil and gas flows through Hormuz, causing China's energy imports to plunge and driving up gas prices. Fertilizer crisis in Africa is worsening. DOJ is investigating suspicious oil futures trades timed to war news. Gold and silver are heading for weekly gains.",
+          "implications": "Energy prices remain elevated and volatile. Investors should consider energy sector exposure (XLE, OIH) for inflation hedging, but be wary of regulatory probes. Gold (GLD) remains a safe haven. Fertilizer stocks (e.g., CF, MOS) may benefit from supply disruptions.",
+          "headline_sources": [
+            11,
+            16,
+            36,
+            43,
+            48,
+            62,
+            63
+          ]
+        },
+        {
+          "sector": "Financials & Real Estate",
+          "trend": "REIT bear case is breaking down as rate expectations shift. Fannie/Freddie IPO odds are being underpriced by traders. Banking trade groups push for stablecoin yield guardrails. Private credit redemptions seen as manageable by Fed. Mortgage rates remain volatile, with HELOC rates consistent.",
+          "implications": "REITs (VNQ) may offer value if rate cuts materialize. Fannie/Freddie privatization could be a catalyst. Stablecoin regulation could impact crypto markets. Mortgage-sensitive sectors (homebuilders, banks) face mixed signals from jobs data and rate uncertainty.",
+          "headline_sources": [
+            1,
+            12,
+            15,
+            32,
+            50,
+            81,
+            94
+          ]
+        },
+        {
+          "sector": "Consumer & Retail",
+          "trend": "UK staycation trend is set for summer, boosting domestic tourism. Dunkin' owner Inspire Brands files for IPO. Hershey and General Mills have mixed analyst views. Blind boxes are trending among big brands. Gas price increases are squeezing consumer budgets.",
+          "implications": "Consumer discretionary may see bifurcation: travel/leisure benefits from staycations, but gas price inflation hurts lower-income households. IPO pipeline in consumer sector suggests private equity exits. Investors should focus on resilient brands with pricing power.",
+          "headline_sources": [
+            10,
+            18,
+            23,
+            35,
+            61,
+            84
+          ]
+        },
+        {
+          "sector": "Healthcare & Biotech",
+          "trend": "Precision Neuroscience partners with Medtronic. Health firms Odyssey and Mobia fall after IPO. Norovirus outbreak on cruise ship highlights infection risks. Long-term care insurance costs are high ($7,000/year).",
+          "implications": "Medtech and neuroscience are attractive sub-sectors. IPO aftermarket weakness suggests caution on new healthcare listings. Long-term care insurance remains a cost burden for retirees.",
+          "headline_sources": [
+            9,
+            26,
+            40,
+            99
+          ]
+        },
+        {
+          "sector": "Crypto & Digital Assets",
+          "trend": "Bitcoin and Ethereum hold steady after strong jobs report. Solana overtakes Ethereum in new developer signups. Crypto-backed mortgages are hitting the mainstream. Payward buys Hong Kong stablecoin payments provider Reap for $600M. BlackRock launches tokenized money-market funds.",
+          "implications": "Institutional adoption continues (BlackRock, Payward). Solana's developer momentum could drive ecosystem growth. Crypto mortgages may expand homeownership access. Stablecoin regulation is a key watch item.",
+          "headline_sources": [
+            49,
+            53,
+            83,
+            90,
+            28
+          ]
+        }
+      ],
+      "key_themes": [
+        "Iran war disruptions: energy, fertilizer, shipping, and geopolitical risk",
+        "AI capex boom vs. cash flow pressure on Big Tech and AI infrastructure firms",
+        "IPO market revival across multiple sectors (aerospace, insurance, quantum computing, food)",
+        "Central bank divergence: Fed cautious, ECB torn, Colombia may hike",
+        "Consumer resilience tested by inflation, gas prices, and housing costs",
+        "Stablecoin regulation and tokenization of traditional finance (BlackRock)",
+        "Memory price surge impacting consumer electronics and gaming",
+        "DOJ probes into oil futures trading around war news",
+        "Home equity decline and mortgage rate volatility",
+        "Prediction markets popularity but high loss rates among Gen Z/millennials"
+      ],
+      "headline_sources": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        11,
+        15,
+        16,
+        29,
+        36,
+        41,
+        42,
+        48,
+        49,
+        53,
+        62,
+        63,
+        83,
+        89,
+        90
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Iran war escalation and energy supply disruption",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Diversify into energy stocks, gold, and commodities. Reduce exposure to sectors heavily reliant on stable energy prices (e.g., airlines, shipping). Monitor ceasefire developments (Trump says ceasefire holds).",
+        "headline_sources": [
+          5,
+          11,
+          16,
+          36,
+          48,
+          62,
+          63
+        ]
+      },
+      {
+        "risk_factor": "AI capex overhang and valuation risk",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Favor profitable AI leaders with strong cash flows (e.g., NVDA, TSMC) over high-burn infrastructure names. Reduce positions in CoreWeave and similar names with weak guidance.",
+        "headline_sources": [
+          3,
+          41,
+          47,
+          89
+        ]
+      },
+      {
+        "risk_factor": "Central bank policy misstep (too early or too late on cuts)",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Maintain duration exposure in bonds (TLT) for rate cut scenarios. Hedge with short-term Treasuries if cuts are delayed. Goldman sees cuts delayed to December.",
+        "headline_sources": [
+          8,
+          72,
+          76,
+          97
+        ]
+      },
+      {
+        "risk_factor": "Regulatory and legal risks (DOJ oil probe, stablecoin rules, state tax crackdown)",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Avoid stocks in sectors under investigation (oil futures). Monitor stablecoin legislation for crypto exposure. Reduce exposure to states cracking down on tax breaks for wealthy investors.",
+        "headline_sources": [
+          15,
+          48,
+          62,
+          80,
+          92
+        ]
+      },
+      {
+        "risk_factor": "Consumer spending slowdown due to inflation and gas prices",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Favor defensive consumer staples (e.g., General Mills, Hershey) over discretionary. Monitor retail earnings for signs of weakness. Gas price tips suggest consumer strain.",
+        "headline_sources": [
+          16,
+          61,
+          84
+        ]
+      },
+      {
+        "risk_factor": "IPO market froth and aftermarket volatility",
+        "impact": "Low",
+        "likelihood": "Medium",
+        "mitigation": "Avoid chasing IPOs immediately; wait for lockup expirations and earnings. Focus on companies with strong fundamentals (e.g., Quantinuum, Applied Aerospace).",
+        "headline_sources": [
+          13,
+          18,
+          64,
+          85,
+          99
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Increase allocation to semiconductor and AI infrastructure leaders (NVDA, TSMC, ASML) on pullbacks",
+          "rationale": "Chipmaker stocks are surging on strong demand and AI capex, but valuations are high. Use pullbacks to accumulate. TSMC's JV with Sony for image sensors is a positive catalyst.",
+          "tickers": [
+            "NVDA",
+            "TSM",
+            "ASML"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            4,
+            42,
+            51,
+            89
+          ]
+        },
+        {
+          "recommendation": "Add gold and silver positions (GLD, SLV) as hedges against geopolitical risk and inflation",
+          "rationale": "Precious metals are heading for weekly gains amid Iran war uncertainty and rising inflation expectations. Central bank gold buying (China) supports demand.",
+          "tickers": [
+            "GLD",
+            "SLV"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            27,
+            43
+          ]
+        },
+        {
+          "recommendation": "Invest in tokenized money-market funds and stablecoin-related infrastructure (BlackRock, Payward)",
+          "rationale": "BlackRock's launch of tokenized funds and Payward's acquisition of Reap signal institutional adoption. Stablecoin regulation may provide clarity, benefiting compliant players.",
+          "tickers": [
+            "BLK"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            15,
+            28,
+            53
+          ]
+        },
+        {
+          "recommendation": "Consider IPO participation in select high-quality names (Quantinuum, Applied Aerospace) after lockup expiration",
+          "rationale": "IPO pipeline is strong, but aftermarket volatility is high. Wait for post-IPO stabilization and earnings. Quantinuum (quantum computing) and Applied Aerospace (space) have long-term growth potential.",
+          "tickers": [
+            "QNTM (if listed)",
+            "APLD (if listed)"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            13,
+            85
+          ]
+        },
+        {
+          "recommendation": "Buy REITs (VNQ) on weakness as rate cut expectations build",
+          "rationale": "REIT bear case is breaking down. If Fed cuts in December, REITs could rally. Focus on data center and industrial REITs benefiting from AI demand.",
+          "tickers": [
+            "VNQ",
+            "DLR",
+            "EQIX"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            32,
+            97
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Reduce exposure to high-burn AI infrastructure names (CoreWeave) and consumer discretionary stocks sensitive to gas prices",
+          "rationale": "CoreWeave's softer guidance and higher spending plans signal valuation risk. Gas price increases are squeezing consumer budgets, hurting discretionary spending.",
+          "tickers": [
+            "CRWV",
+            "AMZN",
+            "TSLA"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            3,
+            16,
+            47
+          ]
+        },
+        {
+          "recommendation": "Increase cash and short-term Treasury holdings (BIL, SHV) to hedge against rate uncertainty and geopolitical shocks",
+          "rationale": "Fed policy is uncertain (cuts delayed to December), and Iran war risks remain. Short-term Treasuries offer 4%+ yields with low risk.",
+          "tickers": [
+            "BIL",
+            "SHV"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            8,
+            72,
+            97
+          ]
+        },
+        {
+          "recommendation": "Hedge oil price exposure via put options on energy ETFs or long positions in defensive sectors (utilities, healthcare)",
+          "rationale": "Oil prices are volatile due to war and DOJ probe. Defensive sectors like utilities (XLU) and healthcare (XLV) offer stability.",
+          "tickers": [
+            "XLE",
+            "XLU",
+            "XLV"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            11,
+            48,
+            62,
+            63
+          ]
+        },
+        {
+          "recommendation": "Avoid IPOs until after lockup expiration and first earnings report",
+          "rationale": "Recent IPOs (Odyssey, Mobia) fell after strong initial hauls. Wait for price discovery and fundamental validation.",
+          "tickers": [],
+          "timeframe": "short-term",
+          "headline_sources": [
+            99
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "1-3 month outlook: Markets are likely to remain volatile but with a positive bias, supported by strong jobs data and AI-driven tech rally. However, Iran war escalation, rising gas prices, and central bank uncertainty could trigger pullbacks. The S&P 500 may test new highs but faces resistance from geopolitical risks. Focus on energy, gold, and defensive sectors.",
+      "long_term": "6-12 month outlook: Positive if Fed cuts materialize in December and geopolitical tensions ease. AI capex cycle supports tech earnings. IPO market revival and stablecoin adoption signal risk appetite. Risks include prolonged Iran conflict, inflation resurgence, and regulatory crackdowns. Long-term investors should overweight AI, energy, and digital assets.",
+      "key_catalysts": [
+        "Iran ceasefire developments (Trump says holds, but risks remain)",
+        "Fed rate decision and inflation data (CPI, PCE) in coming months",
+        "DOJ investigation outcomes on oil futures trading",
+        "Q2 earnings season for AI and semiconductor companies",
+        "Stablecoin regulation progress in the Senate",
+        "IPO pricing and aftermarket performance of major filings (Inspire Brands, Quantinuum)",
+        "China's energy import recovery and Hormuz shipping status",
+        "Colombia and other EM rate decisions"
+      ],
+      "watch_list": [
+        "WTI and Brent crude oil prices",
+        "10-year Treasury yield and Fed funds futures",
+        "Gold and silver prices (GLD, SLV)",
+        "Bitcoin and Ethereum prices (BTC, ETH)",
+        "S&P 500 and Nasdaq 100 levels",
+        "VIX volatility index",
+        "US dollar index (DXY)",
+        "China energy import data",
+        "Air India and British Airways operational updates (fuel costs)",
+        "Norovirus outbreak developments (cruise industry impact)"
+      ],
+      "headline_sources": [
+        2,
+        8,
+        11,
+        29,
+        42,
+        43,
+        48,
+        49,
+        51,
+        62,
+        63,
+        72,
+        86,
+        97
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "HELOC and home equity loan rates Saturday, May 9, 2026: Number of 'equity-rich' homeowners falls",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/heloc-home-equity-loan-interest-rates-today-saturday-may-9-2026-100000312.html",
+      "publishedAt": "2026-05-09T10:00:00Z"
+    },
+    {
+      "index": 2,
+      "headline": "S&P Closes Out 6th Straight Week of Gains | Closing Bell",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-08/s-p-closes-out-6th-straight-week-of-gains-closing-bell-video",
+      "publishedAt": "2026-05-08T20:35:47+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "CoreWeave (CRWV) shares decline after softer guidance and higher spending plans",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/coreweave-crwv-shares-decline-softer-095724457.html",
+      "publishedAt": "2026-05-08T09:57:24Z"
+    },
+    {
+      "index": 4,
+      "headline": "Sony, TSMC plan new Japan joint venture for next-generation image sensors",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/sony-tsmc-plan-japan-joint-083834976.html",
+      "publishedAt": "2026-05-08T08:38:34Z"
+    },
+    {
+      "index": 5,
+      "headline": "Air India to Cut Costs, Reduce Flights as War Worsens Financial Struggles",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/air-india-to-cut-costs-reduce-flights-as-war-worsens-financial-struggles",
+      "publishedAt": "2026-05-08T06:18:04+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "A victim every three days",
+      "url": "https://www.thestar.com.my/news/nation/2026/05/09/a-victim-every-three-days",
+      "publishedAt": "2026-05-08T23:08:24Z"
+    },
+    {
+      "index": 7,
+      "headline": "Sony Announces $3 Billion Buyback as Memory Prices Take Toll - Bloomberg.com",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/sony-gives-upbeat-outlook-with-help-from-music-and-games-empire",
+      "publishedAt": "2026-05-08T09:24:42Z"
+    },
+    {
+      "index": 8,
+      "headline": "Lagarde Says ECB Torn Between Risk of Acting Too Early, Too Late",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-09/lagarde-says-ecb-torn-between-risk-of-acting-too-early-too-late",
+      "publishedAt": "2026-05-09T08:41:10+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "Norovirus Outbreak Sickens 115 on Cruise Ship",
+      "url": "https://www.nytimes.com/2026/05/08/world/americas/norovirus-outbreak-cruise-ship.html",
+      "publishedAt": "2026-05-08T23:24:32Z"
+    },
+    {
+      "index": 10,
+      "headline": "The UK is set for a staycation summer - and there are plenty of hidden gems",
+      "url": "https://www.bbc.com/news/articles/cgjpv9pdnpwo",
+      "publishedAt": "2026-05-08T23:30:12Z"
+    },
+    {
+      "index": 11,
+      "headline": "China’s Energy Imports Plunge as War Chokes Hormuz Shipments",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-09/china-s-energy-imports-plunge-as-war-chokes-hormuz-shipments",
+      "publishedAt": "2026-05-09T04:33:32+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Fannie, Freddie’s Latest Bull Says Traders Underpricing IPO Odds",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/fannie-freddie-s-latest-bull-says-traders-underpricing-ipo-odds",
+      "publishedAt": "2026-05-08T11:55:51+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "Applied Aerospace Files for IPO, Joining Pre-SpaceX Rush",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/applied-aerospace-files-for-ipo-joining-pre-spacex-rush",
+      "publishedAt": "2026-05-08T19:56:22+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "Winning the Degenerate Economy: Masters in Business with Howard Lindzon",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-08/winning-the-degenerate-economy-howard-lindzon-video",
+      "publishedAt": "2026-05-08T21:20:18+00:00"
+    },
+    {
+      "index": 15,
+      "headline": "Banking Trade Groups Urge Senate Banking Leaders to Strengthen Stablecoin Yield Guardrails to Prevent Deposit Flight",
+      "url": "https://consumerbankers.com/press-release/banking-trade-groups-urge-senate-banking-leaders-to-strengthen-stablecoin-yield-guardrails-to-prevent-deposit-flight/",
+      "publishedAt": "2026-05-08T23:10:10Z"
+    },
+    {
+      "index": 16,
+      "headline": "Tips to Save Money at the Gas Pump as Prices Continue to Climb",
+      "url": "https://www.today.com/video/how-to-save-as-gas-loyalty-programs-maximize-efficiency-more-262831685635",
+      "publishedAt": "2026-05-06T11:50:37+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "Wall Street Week | High Stakes Summit, New Zealand's Brain Drain, Stablecoin Adoption, Bubbly Water",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-08/wall-street-week-high-stakes-summit-talent-troubles-video",
+      "publishedAt": "2026-05-08T23:14:55+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "Dunkin’ Owner Inspire Brands Files Confidentially for US IPO",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/dunkin-owner-inspire-brands-files-confidentially-for-us-ipo",
+      "publishedAt": "2026-05-08T19:31:10+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "Dominion Energy Stock: Analyst Estimates & Ratings",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/dominion-energy-stock-analyst-estimates-103148201.html",
+      "publishedAt": "2026-05-08T10:31:48Z"
+    },
+    {
+      "index": 20,
+      "headline": "People are using free apps to sue companies without having to hire a lawyer — and some claim they're getting thousands",
+      "url": "https://finance.yahoo.com/economy/policy/articles/people-using-free-apps-sue-100500511.html",
+      "publishedAt": "2026-05-08T10:05:00Z"
+    },
+    {
+      "index": 21,
+      "headline": "British Airways’ Message On Jet Fuel: We Have Enough",
+      "url": "https://www.wsj.com/livecoverage/april-jobs-report-stock-market-05-08-2026/card/british-airways-message-on-jet-fuel-we-have-enough-Mtj3YTclJwoMJ33O6qhm?siteid=yhoof2&yptr=yahoo",
+      "publishedAt": "2026-05-08T09:56:48Z"
+    },
+    {
+      "index": 22,
+      "headline": "Gen Z and millennials are pouring money into prediction markets — but a whopping 69% of accounts end up losing",
+      "url": "https://finance.yahoo.com/markets/options/articles/gen-z-millennials-pouring-money-092000140.html",
+      "publishedAt": "2026-05-08T09:20:00Z"
+    },
+    {
+      "index": 23,
+      "headline": "What's a Blind Box and Why Are Big Brands Following the Trend?",
+      "url": "https://www.today.com/video/what-s-a-blind-box-and-why-are-big-brands-following-the-trend-262987845731",
+      "publishedAt": "2026-05-08T13:35:34+00:00"
+    },
+    {
+      "index": 24,
+      "headline": "Ted Turner, billionaire media mogul and CNN founder, dies at 87",
+      "url": "https://www.nbcnews.com/news/obituaries/ted-turner-cnn-founder-dies-87-rcna4931",
+      "publishedAt": "2026-05-06T14:16:51+00:00"
+    },
+    {
+      "index": 25,
+      "headline": "Colombia Inflation Ticks Up, Fueling Case For Renewed Rate Hikes",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/colombia-inflation-ticks-up-fueling-case-for-renewed-rate-hikes",
+      "publishedAt": "2026-05-08T23:30:57+00:00"
+    },
+    {
+      "index": 26,
+      "headline": "Precision Neuroscience CEO on Medtronic Partnership, What's Next",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-08/precision-neuroscience-ceo-on-medtronic-partnership-video",
+      "publishedAt": "2026-05-08T20:15:21+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "China Gold Output Falls as Investor Demand for Bars, Coins Jumps",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-09/china-gold-output-falls-as-investor-demand-for-bars-coins-jumps",
+      "publishedAt": "2026-05-09T03:32:54+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "Payward to buy Hong Kong stablecoin payments provider Reap for $600m",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/payward-buy-hong-kong-stablecoin-095316566.html",
+      "publishedAt": "2026-05-08T09:53:16Z"
+    },
+    {
+      "index": 29,
+      "headline": "U.S. added 115,000 jobs in April as economy contends with Iran war impact",
+      "url": "https://www.nbcnews.com/business/economy/april-jobs-report-iran-war-pressure-rcna344166",
+      "publishedAt": "2026-05-08T09:00:41+00:00"
+    },
+    {
+      "index": 30,
+      "headline": "Warren Buffett sends blunt message on mortgages, home financing",
+      "url": "https://finance.yahoo.com/markets/options/articles/warren-buffett-sends-blunt-message-140700722.html",
+      "publishedAt": "2026-05-08T14:07:00Z"
+    },
+    {
+      "index": 31,
+      "headline": "Private Equity Taps Junk Market for Dividends as Exits Stall",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/pe-firms-tap-europe-s-junk-market-for-dividends-as-exits-stall",
+      "publishedAt": "2026-05-08T11:32:24+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "The REIT Bear Case Is Breaking Down",
+      "url": "https://seekingalpha.com/article/4898816-the-reit-bear-case-is-breaking-down",
+      "publishedAt": "2026-05-09T11:15:00.000000Z"
+    },
+    {
+      "index": 33,
+      "headline": "Shaquille O'Neal on Partnership with Authentic Brands",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-08/shaquille-o-neal-on-partnership-with-authentic-brands-video",
+      "publishedAt": "2026-05-08T20:45:08+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "IKEA's recall alert over VÄRDEFULL garlic press utensil: 'Return for full refund'",
+      "url": "https://au.lifestyle.yahoo.com/ikeas-recall-alert-over-vardefull-garlic-press-utensil-return-for-full-refund-231401235.html",
+      "publishedAt": "2026-05-08T23:14:01Z"
+    },
+    {
+      "index": 35,
+      "headline": "The UK is set for a staycation summer - and there are plenty of hidden gems",
+      "url": "https://www.bbc.co.uk/news/articles/cgjpv9pdnpwo",
+      "publishedAt": "2026-05-08T23:30:12Z"
+    },
+    {
+      "index": 36,
+      "headline": "Iran War Drives Africa’s Fertilizer Crisis",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-09/iran-war-drives-africa-s-fertilizer-crisis",
+      "publishedAt": "2026-05-09T05:00:13+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "Is Wall Street Bullish or Bearish on Palo Alto Networks Stock?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-bullish-bearish-palo-102123820.html",
+      "publishedAt": "2026-05-08T10:21:23Z"
+    },
+    {
+      "index": 38,
+      "headline": "Dow Jones Futures Rise As Trump Says U.S.-Iran Ceasefire Holds; Akamai, Cloudflare, IREN Are Big Earnings Movers - Investor's Business Daily",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-trump-us-iran-ceasefire-akamai-cloudflare-iren-earnings/",
+      "publishedAt": "2026-05-08T11:32:00Z"
+    },
+    {
+      "index": 39,
+      "headline": "How to refinance student loans: A step-by-step guide for beginners",
+      "url": "https://finance.yahoo.com/personal-finance/student-loans/article/how-to-refinance-student-loans-223121353.html",
+      "publishedAt": "2026-05-07T22:31:21Z"
+    },
+    {
+      "index": 40,
+      "headline": "Is $7,000 Per Year Too High for Long-Term Care Insurance?",
+      "url": "https://finance.yahoo.com/sectors/healthcare/articles/quoted-7-000-per-long-123000289.html",
+      "publishedAt": "2026-05-08T09:00:00Z"
+    },
+    {
+      "index": 41,
+      "headline": "The AI arms race is eating into Big Tech's cash flow: Chart of the Day",
+      "url": "https://finance.yahoo.com/markets/article/the-ai-arms-race-is-eating-into-big-techs-cash-flow-chart-of-the-day-100000590.html",
+      "publishedAt": "2026-05-08T10:00:00Z"
+    },
+    {
+      "index": 42,
+      "headline": "Stocks Hit Record High on Jobs as Chipmakers Surge",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-08/stocks-hit-record-high-on-jobs-as-chipmakers-surge-video",
+      "publishedAt": "2026-05-08T20:12:08+00:00"
+    },
+    {
+      "index": 43,
+      "headline": "Gold and silver prices today, Friday, May 8: Prices headed for weekly gains following positive jobs report",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-and-silver-prices-today-friday-may-8-prices-headed-for-weekly-gains-following-positive-jobs-report-105332364.html",
+      "publishedAt": "2026-05-08T10:53:32Z"
+    },
+    {
+      "index": 44,
+      "headline": "Best CD rates today, May 8, 2026 (up to 4% APY return)",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-friday-may-8-2026-100000789.html",
+      "publishedAt": "2026-05-08T10:00:00Z"
+    },
+    {
+      "index": 45,
+      "headline": "Kia appoints Cycle & Carriage as key dealer in Malaysia",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/kia-appoints-cycle-carriage-key-095129209.html",
+      "publishedAt": "2026-05-08T09:51:29Z"
+    },
+    {
+      "index": 46,
+      "headline": "Best money market account rates today, May 9, 2026 (best account provides 4.01% APY)",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-money-market-account-rates-today-saturday-may-9-2026-100000025.html",
+      "publishedAt": "2026-05-09T10:00:00Z"
+    },
+    {
+      "index": 47,
+      "headline": "CoreWeave Stock Wavers After Earnings Report - Barron's",
+      "url": "https://www.barrons.com/articles/coreweave-earnings-stock-price-13d24b29",
+      "publishedAt": "2026-05-08T08:09:00Z"
+    },
+    {
+      "index": 48,
+      "headline": "$7 Billion in Oil Bets Under Investigation - Crude Oil Prices Today | OilPrice.com",
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/7-Billion-in-Oil-Bets-Under-Investigation.html",
+      "publishedAt": "2026-05-08T06:00:00Z"
+    },
+    {
+      "index": 49,
+      "headline": "Bitcoin and ethereum prices today, Friday, May 8, 2026: Prices holding following strong jobs report",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-friday-may-8-2026-prices-holding-following-strong-jobs-report-113214250.html",
+      "publishedAt": "2026-05-08T11:32:14Z"
+    },
+    {
+      "index": 50,
+      "headline": "Mortgage and refinance interest rates today, May 8, 2026: Rates following bell-shaped curve this week",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-refinance-interest-rates-today-friday-may-8-2026-100000195.html",
+      "publishedAt": "2026-05-08T10:00:00Z"
+    },
+    {
+      "index": 51,
+      "headline": "US Stocks Set Record High as Chip Stocks Roar, Payrolls Beat",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/us-futures-rise-as-chip-stocks-rally-iran-ceasefire-holds",
+      "publishedAt": "2026-05-08T11:42:18+00:00"
+    },
+    {
+      "index": 52,
+      "headline": "Tamil Nadu govt formation: Vijay set to become chief minister as VCK extends support to TVK",
+      "url": "https://www.livemint.com/news/india/tamil-nadu-govt-formation-vijay-set-to-become-chief-minister-as-vck-extends-support-to-tvk-11778325140470.html",
+      "publishedAt": "2026-05-09T11:15:44.000000Z"
+    },
+    {
+      "index": 53,
+      "headline": "BlackRock Readies Launch of Two Tokenized Money-Market Funds",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/blackrock-readies-launch-of-two-tokenized-money-market-funds",
+      "publishedAt": "2026-05-08T21:18:46+00:00"
+    },
+    {
+      "index": 54,
+      "headline": "Colombia Gives Priority to TGI’s LNG Project as Gas Dwindles",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/colombia-gives-priority-to-tgi-s-lng-project-as-gas-dwindles",
+      "publishedAt": "2026-05-08T20:14:43+00:00"
+    },
+    {
+      "index": 55,
+      "headline": "Best high-yield savings interest rates today, May 9, 2026 (Earn up to 4.1% APY)",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-high-yield-savings-interest-rates-today-saturday-may-9-2026-100000422.html",
+      "publishedAt": "2026-05-09T10:00:00Z"
+    },
+    {
+      "index": 56,
+      "headline": "Are Wall Street Analysts Predicting International Business Machines Stock Will Climb or Sink?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-analysts-predicting-international-102431697.html",
+      "publishedAt": "2026-05-08T10:24:31Z"
+    },
+    {
+      "index": 57,
+      "headline": "Best CD rates today, Saturday, May 9, 2026 (best account provides 4% APY)",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-saturday-may-9-2026-100000061.html",
+      "publishedAt": "2026-05-09T10:00:00Z"
+    },
+    {
+      "index": 58,
+      "headline": "She had four kids with Elon Musk. Now she’s central to his courtroom fight. - The Washington Post",
+      "url": "https://www.washingtonpost.com/technology/2026/05/08/shivon-zilis-elon-musk-trial/",
+      "publishedAt": "2026-05-08T10:32:14Z"
+    },
+    {
+      "index": 59,
+      "headline": "Ex-lawyer liable for cheating elderly client in RM415,000 property deal",
+      "url": "https://www.freemalaysiatoday.com/category/nation/2026/05/09/ex-lawyer-liable-for-cheating-elderly-client-in-rm415000-property-deal",
+      "publishedAt": "2026-05-08T23:30:47Z"
+    },
+    {
+      "index": 60,
+      "headline": "Why Bloom Energy Stock Skyrocketed 109% in April",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-bloom-energy-stock-skyrocketed-095000099.html",
+      "publishedAt": "2026-05-08T09:50:00Z"
+    },
+    {
+      "index": 61,
+      "headline": "Hershey Stock Outlook: Is Wall Street Bullish or Bearish?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/hershey-stock-outlook-wall-street-101045704.html",
+      "publishedAt": "2026-05-08T10:10:45Z"
+    },
+    {
+      "index": 62,
+      "headline": "DOJ probing trades in oil futures and prediction markets just ahead of major Iran war news",
+      "url": "https://www.nbcnews.com/business/energy/doj-probes-oil-prediction-markets-iran-news-rcna344135",
+      "publishedAt": "2026-05-07T21:56:36+00:00"
+    },
+    {
+      "index": 63,
+      "headline": "Iran War Shockwaves Spread Across US Economy - Bloomberg.com",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-05-07/war-s-economic-damage-to-us-spreads-evening-briefing-americas",
+      "publishedAt": "2026-05-08T10:42:36Z"
+    },
+    {
+      "index": 64,
+      "headline": "Florida, Louisiana-Focused Insurer Safepoint Files for IPO",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/florida-and-louisiana-focused-insurer-safepoint-files-for-us-ipo",
+      "publishedAt": "2026-05-08T22:27:41+00:00"
+    },
+    {
+      "index": 65,
+      "headline": "Stocks Hit Record High on Jobs as Chipmakers Surge: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-07/us-stock-futures-fall-oil-climbs-on-iran-tensions-markets-wrap",
+      "publishedAt": "2026-05-07T22:05:59+00:00"
+    },
+    {
+      "index": 66,
+      "headline": "Colombia 12-month inflation edges up in April",
+      "url": "https://www.marketscreener.com/news/colombia-12-month-inflation-edges-up-in-april-ce7f5bdbd181f421",
+      "publishedAt": "2026-05-08T23:10:21Z"
+    },
+    {
+      "index": 67,
+      "headline": "What Are Wall Street Analysts' Target Price for Cardinal Health Stock?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-analysts-target-price-101447835.html",
+      "publishedAt": "2026-05-08T10:14:47Z"
+    },
+    {
+      "index": 68,
+      "headline": "LSMi Creative Hub to Boost Africa's Creative Economy",
+      "url": "https://punchng.com/lsmi-creative-hub-to-bridge-creative-infrastructure-gap/",
+      "publishedAt": "2026-05-08T23:38:39Z"
+    },
+    {
+      "index": 69,
+      "headline": "Enhanced Games Owner Jumps 21% After Going Public Via SPAC",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/enhanced-games-falls-14-after-spac-merger-at-1-2-billion-value",
+      "publishedAt": "2026-05-08T13:52:20+00:00"
+    },
+    {
+      "index": 70,
+      "headline": "Jobs report set to show hiring as Iran war took hold - ABC News - Breaking News, Latest News and Videos",
+      "url": "https://abcnews.com/Business/jobs-report-set-show-hiring-iran-war-hold/story?id\\\\u003d132666578",
+      "publishedAt": "2026-05-08T11:21:37Z"
+    },
+    {
+      "index": 71,
+      "headline": "Retirees the target of aggressive tactics",
+      "url": "https://www.thestar.com.my/news/nation/2026/05/09/retirees-the-target-of-aggressive-tactics",
+      "publishedAt": "2026-05-08T23:18:10Z"
+    },
+    {
+      "index": 72,
+      "headline": "Treasuries Gain to End Choppy Week as Focus Shifts to Inflation",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/treasuries-gain-ahead-of-us-payrolls-with-jobs-growth-expected",
+      "publishedAt": "2026-05-08T10:53:28+00:00"
+    },
+    {
+      "index": 73,
+      "headline": "Danone to close US dairy-alternatives factory",
+      "url": "https://finance.yahoo.com/sectors/healthcare/articles/danone-close-us-dairy-alternatives-095157997.html",
+      "publishedAt": "2026-05-08T09:51:57Z"
+    },
+    {
+      "index": 74,
+      "headline": "HELOC and home equity loan rates today, May 8, 2026: Rates remain incredibly consistent",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/heloc-home-equity-loan-interest-rates-today-friday-may-8-2026-100000395.html",
+      "publishedAt": "2026-05-08T10:00:00Z"
+    },
+    {
+      "index": 75,
+      "headline": "How a massive hack on school software disrupted classes across America",
+      "url": "https://www.nbcnews.com/tech/security/canvas-software-hacked-disrupted-classes-america-shinyhunters-rcna344199",
+      "publishedAt": "2026-05-08T21:03:12+00:00"
+    },
+    {
+      "index": 76,
+      "headline": "Boston Fed President on FOMC Dissent and Kevin Warsh’s Nomination",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-08/boston-fed-president-on-fomc-dissent-and-kevin-warsh-s-nomination",
+      "publishedAt": "2026-05-08T19:49:03+00:00"
+    },
+    {
+      "index": 77,
+      "headline": "ABC accuses Trump administration of violating free speech rights",
+      "url": "https://www.nbcnews.com/business/media/abc-accuses-trump-administration-violating-free-speech-rights-rcna344247",
+      "publishedAt": "2026-05-08T17:26:29+00:00"
+    },
+    {
+      "index": 78,
+      "headline": "Trade Desk (TTD) shares tumble after earnings miss and weaker outlook",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/trade-desk-ttd-shares-tumble-095617658.html",
+      "publishedAt": "2026-05-08T09:56:17Z"
+    },
+    {
+      "index": 79,
+      "headline": "Ryan Serhant Helps Boston Mom Find New Home For Her Family",
+      "url": "https://www.today.com/video/ryan-serhant-helps-a-single-mom-find-new-home-in-boston-262914629988",
+      "publishedAt": "2026-05-07T15:11:08+00:00"
+    },
+    {
+      "index": 80,
+      "headline": "States crack down on tax break for wealthy investors - CNBC",
+      "url": "https://www.cnbc.com/2026/05/08/tax-break-wealthy-investors-qsbs.html",
+      "publishedAt": "2026-05-08T11:30:01Z"
+    },
+    {
+      "index": 81,
+      "headline": "Mortgage and refinance interest rates today, May 9, 2026: 30- and 15-year rates move back up",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-refinance-interest-rates-today-saturday-may-9-2026-100000903.html",
+      "publishedAt": "2026-05-09T10:00:00Z"
+    },
+    {
+      "index": 82,
+      "headline": "Best high-yield savings interest rates today, May 8, 2026 (up to 4.1% APY return)",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-high-yield-savings-interest-rates-today-friday-may-8-2026-100000404.html",
+      "publishedAt": "2026-05-08T10:00:00Z"
+    },
+    {
+      "index": 83,
+      "headline": "Solana Just Overtook Ethereum in New Developer Signups — Biggest News Shift for Solana?",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/solana-just-overtook-ethereum-developer-094509890.html",
+      "publishedAt": "2026-05-08T09:45:09Z"
+    },
+    {
+      "index": 84,
+      "headline": "Are Wall Street Analysts Bullish on General Mills Stock?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-analysts-bullish-general-101804605.html",
+      "publishedAt": "2026-05-08T10:18:04Z"
+    },
+    {
+      "index": 85,
+      "headline": "Honeywell-Backed Computing Firm Quantinuum Files for US IPO",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/honeywell-backed-computing-firm-quantinuum-files-for-us-ipo",
+      "publishedAt": "2026-05-08T20:22:44+00:00"
+    },
+    {
+      "index": 86,
+      "headline": "U.S. payrolls increased 115,000 in April, more than expected; unemployment at 4.3% - CNBC",
+      "url": "https://www.cnbc.com/2026/05/08/jobs-report-april-2026.html",
+      "publishedAt": "2026-05-08T12:31:00Z"
+    },
+    {
+      "index": 87,
+      "headline": "Best money market account rates today, May 8, 2026 (up to 4.01% APY return)",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-money-market-account-rates-today-friday-may-8-2026-100000884.html",
+      "publishedAt": "2026-05-08T10:00:00Z"
+    },
+    {
+      "index": 88,
+      "headline": "How the viral '70-20-10 rule' could help you build a better budget",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/70-20-10-rule-budget-201846216.html",
+      "publishedAt": "2026-05-07T20:18:46Z"
+    },
+    {
+      "index": 89,
+      "headline": "Sony, Nintendo grapple with memory price surge as AI boom constrains supply",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/sony-nintendo-grapple-memory-price-101802900.html",
+      "publishedAt": "2026-05-08T10:18:02Z"
+    },
+    {
+      "index": 90,
+      "headline": "Crypto-backed mortgages are hitting the mainstream. Here's how they work.",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/crypto-backed-mortgage-183809393.html",
+      "publishedAt": "2026-05-07T18:38:09Z"
+    },
+    {
+      "index": 91,
+      "headline": "Ted Turner managed one Braves game — and forever changed professional sports",
+      "url": "https://www.nbcnews.com/sports/baseball/ted-turner-managed-one-braves-game-forever-changed-professional-sports-rcna343897",
+      "publishedAt": "2026-05-06T23:22:15+00:00"
+    },
+    {
+      "index": 92,
+      "headline": "Source: DOJ investigating suspicious oil trades timed around Iran war",
+      "url": "https://www.nbcnews.com/video/source-doj-investigating-suspicious-oil-trades-timed-around-iran-war-262944837880",
+      "publishedAt": "2026-05-07T21:51:05+00:00"
+    },
+    {
+      "index": 93,
+      "headline": "Pakistan to Receive $1.32 Billion as IMF Board Approves Tranches",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/pakistan-to-receive-1-32-billion-as-imf-board-approves-tranches",
+      "publishedAt": "2026-05-08T22:21:46+00:00"
+    },
+    {
+      "index": 94,
+      "headline": "Fed Sees Private Credit Redemptions as ‘Manageable’ Risks",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/fed-calls-risks-tied-to-private-credit-redemptions-manageable",
+      "publishedAt": "2026-05-08T20:00:00+00:00"
+    },
+    {
+      "index": 95,
+      "headline": "America’s Most Infamous Nuclear Site Returns to Fuel the AI Boom",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-08/america-s-most-infamous-nuclear-site-returns-to-fuel-ai-video",
+      "publishedAt": "2026-05-08T20:03:47+00:00"
+    },
+    {
+      "index": 96,
+      "headline": "When Spirit folded, this tiny airport suddenly had zero flights - The Washington Post",
+      "url": "https://www.washingtonpost.com/nation/2026/05/08/spirit-shutdown-bankrupt-airport/",
+      "publishedAt": "2026-05-08T12:02:14Z"
+    },
+    {
+      "index": 97,
+      "headline": "Goldman Sees Fed Cuts Delayed to December, March on Inflation",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-09/goldman-sees-fed-cuts-delayed-to-december-march-on-inflation",
+      "publishedAt": "2026-05-09T06:24:55+00:00"
+    },
+    {
+      "index": 98,
+      "headline": "Japanese Proverb of the day: ‘Study the old to understand the new’; meaning, business lesson, why it still matters today",
+      "url": "https://www.livemint.com/news/us-news/japanese-proverb-of-the-day-study-the-old-to-understand-the-new-meaning-business-lesson-why-it-still-matters-today-11778325154107.html",
+      "publishedAt": "2026-05-09T11:22:08.000000Z"
+    },
+    {
+      "index": 99,
+      "headline": "Health Firms Odyssey, Mobia Fall After $454 Million IPO Haul",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-08/odyssey-therapeutics-climbs-11-after-304-million-us-ipo",
+      "publishedAt": "2026-05-08T15:58:48+00:00"
+    }
+  ]
+}
