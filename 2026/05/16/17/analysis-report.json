@@ -1,0 +1,913 @@
+{
+  "analysis": {
+    "analysis_date": "May 16, 2026",
+    "analysis_time": "17:46",
+    "executive_summary": {
+      "key_highlights": [
+        "Global markets experienced a sharp sell-off, with the Dow falling 400 points, driven by geopolitical tensions from the U.S.-China summit ending without major tech deals and no progress on Iran.",
+        "Bond yields surged, threatening the AI stock rally, as the 10-year Treasury yield rose amid inflation and rate hike concerns.",
+        "The ECB is considering a modest rate hike to limit economic pain, while U.S. mortgage and HELOC rates are rising in tandem with Treasury yields.",
+        "AI and tech stocks remain a focal point: Cerebras soared 90% in its IPO, Nvidia and Walmart earnings loom, but chip stocks slid post-summit.",
+        "Energy sector sees major M&A: NextEra Energy is in talks to acquire Dominion, and Berkshire sold $8 billion of Chevron shares while building a $2.6 billion stake in Delta Air Lines.",
+        "Diamond production is in striking decline, while stablecoin supply hit $322B but rally indicators are not yet present.",
+        "Infrastructure and labor disruptions: LIRR strike strands 300,000 daily riders, and Detroit automakers cut over 20,000 salaried jobs.",
+        "Social Security depletion risk by 2032 could cost a typical retired couple $18,400 annually."
+      ],
+      "market_sentiment_score": 35,
+      "overall_sentiment": "negative",
+      "headline_sources": [
+        16,
+        17,
+        29,
+        34,
+        37,
+        59,
+        68,
+        80,
+        81,
+        44
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology & AI",
+          "trend": "Mixed: AI IPOs (Cerebras) and strong earnings (Amphenol, Arista) contrast with post-summit chip stock declines and bond sell-off threatening AI frenzy. Nvidia and Walmart earnings are key catalysts.",
+          "implications": "Investors should focus on AI infrastructure plays (NVDA, ANET) and companies with strong earnings growth (APP, ADSK) but be cautious of valuation compression if rates rise further.",
+          "headline_sources": [
+            8,
+            13,
+            21,
+            34,
+            47,
+            53,
+            59,
+            61
+          ]
+        },
+        {
+          "sector": "Energy & Utilities",
+          "trend": "Active M&A: NextEra Energy in talks to acquire Dominion; Berkshire selling Chevron and buying Delta. Enbridge bullish on natural gas. Oil price fears contributed to market sell-off.",
+          "implications": "Utility and energy stocks may offer defensive value amid volatility. M&A activity suggests consolidation. Monitor oil price dynamics and Iran negotiations.",
+          "headline_sources": [
+            12,
+            26,
+            63,
+            75,
+            82
+          ]
+        },
+        {
+          "sector": "Real Estate & Housing",
+          "trend": "Mortgage and HELOC rates are rising with Treasury yields, but still relatively low. Zillow CEO preparing for next real estate revolution. Foreclosure rates up in some metros.",
+          "implications": "Rising rates could cool housing demand. Home equity products may become more expensive. Watch for refinancing activity and housing market data.",
+          "headline_sources": [
+            4,
+            9,
+            25,
+            71
+          ]
+        },
+        {
+          "sector": "Finance & Banking",
+          "trend": "Forbright files for IPO focusing on middle market and digital banking. Goldman Sachs doubles down on bullish stock market message. Bond sell-off pressures bank balance sheets.",
+          "implications": "Digital banking IPOs may offer growth, but rising rates could squeeze net interest margins. Goldman's bullish stance contrasts with current market weakness.",
+          "headline_sources": [
+            3,
+            79,
+            59
+          ]
+        },
+        {
+          "sector": "Commodities & Precious Metals",
+          "trend": "Gold and silver headed for weekly losses amid Iran standstill. Diamond production in striking decline. Oil price fears spiked.",
+          "implications": "Precious metals may be under pressure from rising rates and dollar strength. Diamond supply constraints could benefit lab-grown diamonds. Oil volatility remains high.",
+          "headline_sources": [
+            2,
+            72,
+            29
+          ]
+        },
+        {
+          "sector": "Crypto & Digital Assets",
+          "trend": "Stablecoin supply hits $322B but rally indicators not yet present. Bitcoin and Ethereum prices opened higher but slipping. Gemini shares surged after founders' $100M lifeline.",
+          "implications": "Crypto market remains speculative. Stablecoin growth suggests institutional interest, but lack of rally catalysts. Gemini's recovery may signal confidence in regulated exchanges.",
+          "headline_sources": [
+            5,
+            56,
+            87
+          ]
+        }
+      ],
+      "key_themes": [
+        "Geopolitical risk: U.S.-China summit failure and Iran standoff trigger broad market sell-off.",
+        "Monetary policy divergence: ECB considering rate hike, U.S. bond yields rising, impacting growth stocks.",
+        "AI and tech earnings season: Nvidia, Walmart, and other key reports will set near-term direction.",
+        "M&A and corporate restructuring: NextEra-Dominion, Berkshire portfolio shifts, Starbucks layoffs.",
+        "Labor and infrastructure disruptions: LIRR strike, auto industry job cuts, gig worker protests.",
+        "Demographic and social risks: Social Security depletion, migrant labor shortages in Spain.",
+        "Energy transition: Enphase AI data center and EV charging roadmap, Honda EV losses, VinFast debt restructuring."
+      ],
+      "headline_sources": [
+        1,
+        16,
+        17,
+        34,
+        37,
+        59,
+        68,
+        80,
+        81,
+        44,
+        83,
+        15,
+        73,
+        48
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Geopolitical escalation (U.S.-China, Iran)",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Diversify into defensive sectors (utilities, healthcare, consumer staples). Reduce exposure to cyclical and tech stocks tied to global trade.",
+        "headline_sources": [
+          1,
+          17,
+          34,
+          37,
+          46
+        ]
+      },
+      {
+        "risk_factor": "Rising interest rates and bond sell-off",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Shorten duration in fixed income, favor floating rate bonds. Reduce exposure to high-growth, high-valuation tech stocks. Consider value and dividend stocks.",
+        "headline_sources": [
+          4,
+          9,
+          16,
+          59,
+          60
+        ]
+      },
+      {
+        "risk_factor": "AI stock bubble and concentration risk",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Take profits on AI winners, diversify into other sectors. Use options for hedging. Monitor earnings and forward guidance from Nvidia and others.",
+        "headline_sources": [
+          13,
+          21,
+          34,
+          59,
+          91
+        ]
+      },
+      {
+        "risk_factor": "Labor strikes and supply chain disruptions",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Avoid stocks directly impacted by strikes (e.g., LIRR-dependent companies). Favor companies with diversified supply chains and strong labor relations.",
+        "headline_sources": [
+          68,
+          80,
+          81,
+          45
+        ]
+      },
+      {
+        "risk_factor": "Social Security depletion and fiscal risk",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Increase exposure to assets that benefit from inflation (TIPS, real estate, commodities). Plan for potential tax increases or benefit cuts.",
+        "headline_sources": [
+          44,
+          90
+        ]
+      },
+      {
+        "risk_factor": "Diamond production decline and commodity supply shocks",
+        "impact": "Low",
+        "likelihood": "Medium",
+        "mitigation": "Monitor diamond miners and lab-grown diamond producers. Diversify commodity exposure.",
+        "headline_sources": [
+          2
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Buy AI infrastructure and data center plays on pullback",
+          "rationale": "Long-term demand for AI inference and training remains strong. Arista Networks (ANET) and Nvidia (NVDA) are well-positioned. Enphase's AI data center roadmap adds to the theme.",
+          "tickers": [
+            "ANET",
+            "NVDA",
+            "ENPH"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            13,
+            15,
+            47
+          ]
+        },
+        {
+          "recommendation": "Accumulate quality energy and utility stocks amid M&A",
+          "rationale": "NextEra-Dominion deal signals consolidation. Enbridge bullish on natural gas. Berkshire's Delta stake suggests value in airlines. Defensive income from utilities.",
+          "tickers": [
+            "NEE",
+            "D",
+            "ENB",
+            "DAL"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            12,
+            26,
+            63,
+            82
+          ]
+        },
+        {
+          "recommendation": "Invest in digital banking and fintech IPOs selectively",
+          "rationale": "Forbright's IPO targets middle market and digital banking, a growing niche. Goldman Sachs bullish on stocks. Monitor for attractive entry points.",
+          "tickers": [
+            "FORB (IPO)"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            3,
+            79
+          ]
+        },
+        {
+          "recommendation": "Consider high-yield savings and money market accounts for cash",
+          "rationale": "Rates up to 4.1% APY offer safe returns amid market volatility. Lock in CD rates at 4% before potential rate cuts.",
+          "tickers": [],
+          "timeframe": "short-term",
+          "headline_sources": [
+            49,
+            58,
+            60
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Reduce exposure to high-growth tech and increase allocation to value and dividend stocks",
+          "rationale": "Rising bond yields and geopolitical uncertainty favor defensive sectors. Mastercard (MA) and Eli Lilly (LLY) offer stable earnings growth.",
+          "tickers": [
+            "MA",
+            "LLY",
+            "VST"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            26,
+            38,
+            62
+          ]
+        },
+        {
+          "recommendation": "Hedge against further market decline with put options or inverse ETFs",
+          "rationale": "Market sentiment is negative, with Dow down 400 points and bond sell-off. Protect portfolios from further downside.",
+          "tickers": [
+            "SPY",
+            "QQQ"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            16,
+            29,
+            59
+          ]
+        },
+        {
+          "recommendation": "Increase cash position and reduce leverage",
+          "rationale": "Volatility is elevated, and key earnings (Nvidia, Walmart) could trigger further swings. Cash provides optionality to buy dips.",
+          "tickers": [],
+          "timeframe": "short-term",
+          "headline_sources": [
+            18,
+            16,
+            59
+          ]
+        },
+        {
+          "recommendation": "Diversify into commodities and inflation hedges",
+          "rationale": "Rising rates and geopolitical tensions may boost gold and silver. Diamond supply decline could support prices. Consider gold ETFs.",
+          "tickers": [
+            "GLD",
+            "SLV"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            2,
+            72
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Bearish with high volatility. The market sell-off is likely to continue in the near term as geopolitical risks (U.S.-China, Iran) and rising bond yields pressure equities. Key earnings from Nvidia and Walmart could provide a catalyst for a rebound if results are strong, but the overall tone is cautious. The LIRR strike and auto job cuts add to negative sentiment. Expect further downside in tech and cyclical stocks.",
+      "long_term": "Cautiously optimistic. The AI revolution and energy transition remain powerful secular trends. M&A activity (NextEra-Dominion, Berkshire moves) suggests corporate confidence. However, structural risks (Social Security, labor disruptions, demographic shifts) and monetary policy tightening could cap gains. A diversified portfolio with a mix of growth (AI, fintech) and defensive (utilities, healthcare) is recommended.",
+      "key_catalysts": [
+        "Nvidia (NVDA) earnings report (likely next week) - will set tone for AI stocks.",
+        "Walmart (WMT) earnings - consumer spending health indicator.",
+        "ECB rate decision and commentary - impact on global rates.",
+        "U.S.-China trade negotiations progress or lack thereof.",
+        "Iran nuclear deal developments - oil price impact.",
+        "NextEra-Dominion acquisition details and regulatory approval.",
+        "Cerebras (CBR) IPO performance and follow-on offerings.",
+        "SpaceX IPO (June 12) - potential market sentiment boost.",
+        "Social Security reform discussions in Congress.",
+        "LIRR strike resolution - infrastructure and labor market signal."
+      ],
+      "watch_list": [
+        "10-year Treasury yield trajectory",
+        "VIX volatility index",
+        "WTI crude oil price",
+        "DXY dollar index",
+        "Bitcoin price and stablecoin supply trends",
+        "Gold and silver prices",
+        "Mortgage and HELOC rate changes",
+        "Initial jobless claims and employment data",
+        "Consumer confidence and retail sales",
+        "AI and tech sector earnings guidance"
+      ],
+      "headline_sources": [
+        1,
+        16,
+        17,
+        18,
+        29,
+        34,
+        37,
+        44,
+        59,
+        68,
+        80,
+        81,
+        83,
+        91
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Trump Says US Forces, Nigeria Military Killed ISIS Leader",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/trump-says-us-forces-nigeria-armed-forces-killed-isis-leader",
+      "publishedAt": "2026-05-16T04:06:43+00:00"
+    },
+    {
+      "index": 2,
+      "headline": "Paul Zimnisky Research Shows a Striking Decline in Diamond Production",
+      "url": "https://www.prweb.com/releases/paul-zimnisky-research-shows-a-striking-decline-in-diamond-production-302773217.html",
+      "publishedAt": "2026-05-16T17:32:00.000000Z"
+    },
+    {
+      "index": 3,
+      "headline": "Forbright Files for IPO Pitching Middle Market, Digital Banking",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-15/forbright-files-for-ipo-pitching-middle-market-digital-banking",
+      "publishedAt": "2026-05-15T21:57:39+00:00"
+    },
+    {
+      "index": 4,
+      "headline": "HELOC and home equity loan rates Saturday, May 16, 2026: Rates remain low, but poised to rise?",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/heloc-home-equity-loan-interest-rates-today-saturday-may-16-2026-100000044.html",
+      "publishedAt": "2026-05-16T10:00:00Z"
+    },
+    {
+      "index": 5,
+      "headline": "Stablecoin supply hits $322B, but THESE two indicators say the rally isn't here yet!",
+      "url": "https://ambcrypto.com/stablecoin-supply-hits-322b-but-these-two-indicators-say-the-rally-isnt-here-yet/",
+      "publishedAt": "2026-05-16T05:30:03Z"
+    },
+    {
+      "index": 6,
+      "headline": "Modest ECB Rate Hike Would Limit Economic Pain, Stournaras Says",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/modest-ecb-rate-hike-would-limit-economic-pain-stournaras-says",
+      "publishedAt": "2026-05-16T09:33:00+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "African Proverb of the Day: “If a woman doesn’t love you, she calls you… — Life lessons on boundaries, rejection, acceptance and why you can’t force love",
+      "url": "https://economictimes.indiatimes.com/news/international/us/african-proverb-of-the-day-if-a-woman-doesnt-love-you-she-calls-you-life-lessons-on-boundaries-rejection-acceptance-and-why-you-cant-force-love/articleshow/131141052.cms",
+      "publishedAt": "2026-05-16T17:21:49.000000Z"
+    },
+    {
+      "index": 8,
+      "headline": "Amphenol Corporation (APH) Posts Strong Growth but Loses Place on BofA’s “US 1 List”",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/amphenol-corporation-aph-posts-strong-153114476.html",
+      "publishedAt": "2026-05-16T15:31:14Z"
+    },
+    {
+      "index": 9,
+      "headline": "Mortgage and refinance interest rates today, May 16, 2026: Rates rise right along with Treasury yields",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-refinance-interest-rates-today-saturday-may-16-2026-100000427.html",
+      "publishedAt": "2026-05-16T10:00:00Z"
+    },
+    {
+      "index": 10,
+      "headline": "What to Know About This Fund’s $8 Million Sprinklr Exit Amid AI Push",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/know-fund-8-million-sprinklr-171221704.html",
+      "publishedAt": "2026-05-16T17:12:21Z"
+    },
+    {
+      "index": 11,
+      "headline": "Classic Cars, Cocktails, Peptides | BTW: Headlines You Should See",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-16/classic-cars-cocktails-peptides-btw-video",
+      "publishedAt": "2026-05-16T12:52:36+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "NextEra Energy Is Said to Be in Talks to Acquire Dominion",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/nextera-energy-is-said-to-be-in-talks-to-acquire-dominion-energy",
+      "publishedAt": "2026-05-16T01:39:43+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "Is NVIDIA Corporation (NVDA) Among the Most Profitable Tech Stocks to Buy?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-corporation-nvda-among-most-140749769.html",
+      "publishedAt": "2026-05-16T14:07:49Z"
+    },
+    {
+      "index": 14,
+      "headline": "Europe Lacks Everything Needed to Make Its Stock Market a Winner",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/europe-lacks-everything-needed-to-make-its-stock-market-a-winner",
+      "publishedAt": "2026-05-16T05:00:00+00:00"
+    },
+    {
+      "index": 15,
+      "headline": "Enphase Energy Unveils AI Data Center, Battery and EV Charging Roadmap",
+      "url": "https://finance.yahoo.com/sectors/energy/articles/enphase-energy-unveils-ai-data-171218825.html",
+      "publishedAt": "2026-05-16T17:12:18Z"
+    },
+    {
+      "index": 16,
+      "headline": "Stocks Post Worst Day Since March as Bonds Get Hit: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-14/asian-stocks-to-rise-as-ai-rally-spurs-wall-street-markets-wrap",
+      "publishedAt": "2026-05-14T22:06:03+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "Markets Plunge Amid Concerns About Aftermath of China Summit",
+      "url": "https://www.today.com/video/stock-market-plunges-amid-concerns-over-trump-s-china-summit-263448645726",
+      "publishedAt": "2026-05-16T13:23:06+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "Dow Jones Futures: S&P 500, Nasdaq Still Near Highs As Nvidia, Walmart Earnings Loom",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-sp500-nasdaq-nvidia-walmart-earnings/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-05-16T16:00:10Z"
+    },
+    {
+      "index": 19,
+      "headline": "Adnoc Keeps Loading LNG Onto Tankers Gone Dark in Persian Gulf",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/adnoc-keeps-loading-lng-onto-tankers-gone-dark-in-persian-gulf",
+      "publishedAt": "2026-05-16T00:51:18+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "<strong>Ray Dalio Talks about China, and Whitney Tilson Weighs in on Mamdani’s Feud With Griffin</strong>",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-05-16/dalio-talks-about-china-and-whitney-tilson-weighs-in-on-mamdani-s-griffin-feud",
+      "publishedAt": "2026-05-16T12:00:01+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "AI chipmaker Cerebras soars 90% in year’s biggest IPO so far",
+      "url": "https://www.nbcnews.com/business/business-news/ai-chipmaker-cerebras-soars-90-years-biggest-ipo-far-rcna345128",
+      "publishedAt": "2026-05-14T17:21:44+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "AI data centers employ very few people: What the numbers how",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/ai-data-centers-employ-very-165832949.html",
+      "publishedAt": "2026-05-15T16:58:32Z"
+    },
+    {
+      "index": 23,
+      "headline": "Stephen Miran exits the Fed. How he set the stage for Kevin Warsh. - CNBC",
+      "url": "https://www.cnbc.com/2026/05/15/stephen-miran-exits-the-fed-how-he-set-the-stage-for-kevin-warsh.html",
+      "publishedAt": "2026-05-15T15:29:59Z"
+    },
+    {
+      "index": 24,
+      "headline": "Strong Growth, Mixed Outlook: What’s Next for Airbnb, Inc. (ABNB)?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/strong-growth-mixed-outlook-next-152637502.html",
+      "publishedAt": "2026-05-16T15:26:37Z"
+    },
+    {
+      "index": 25,
+      "headline": "Zillow CEO Jeremy Wacksman is preparing for the next revolution in real estate",
+      "url": "https://www.nbcnews.com/business/ceo-interviews/zillow-ceo-wacksman-real-estate-ai-innovation-rcna345184",
+      "publishedAt": "2026-05-15T12:48:27+00:00"
+    },
+    {
+      "index": 26,
+      "headline": "Why the Long-Term Case for Vistra Corp. (VST) Remains Strong",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-long-term-case-vistra-152632921.html",
+      "publishedAt": "2026-05-16T15:26:32Z"
+    },
+    {
+      "index": 27,
+      "headline": "Kentucky Derby-Winning Trainer Cherie DeVaux on Business of Horse Racing",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-15/kentucky-derby-winning-trainer-on-horse-racing-business-video",
+      "publishedAt": "2026-05-15T22:27:28+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "BlackRock weighs multibillion-dollar investment in SpaceX IPO, the Information reports",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/blackrock-weighs-multibillion-dollar-investment-161440412.html",
+      "publishedAt": "2026-05-16T16:14:40Z"
+    },
+    {
+      "index": 29,
+      "headline": "Stock Market Today: Dow Falls 400 Points Lower on Oil Price Fears — Live Updates - WSJ",
+      "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-05-15-2026",
+      "publishedAt": "2026-05-15T15:34:00Z"
+    },
+    {
+      "index": 30,
+      "headline": "Trump misses deadline to disclose tens of millions of dollars in stock trades - The Washington Post",
+      "url": "https://www.washingtonpost.com/politics/2026/05/15/trump-misses-deadline-disclose-tens-millions-dollars-stock-trades/",
+      "publishedAt": "2026-05-15T14:32:01Z"
+    },
+    {
+      "index": 31,
+      "headline": "North America’s largest commuter rail system faces a potential shutdown - AP News",
+      "url": "https://apnews.com/article/lirr-new-york-commuter-rail-strike-union-eefab0d1f91470934fb89bd1809d0a94",
+      "publishedAt": "2026-05-15T11:52:00Z"
+    },
+    {
+      "index": 32,
+      "headline": "New banknote designs sent to cabinet for approval",
+      "url": "https://www.pakistantoday.com.pk/2026/05/16/new-banknote-designs-sent-to-cabinet-for-approval",
+      "publishedAt": "2026-05-16T05:33:18Z"
+    },
+    {
+      "index": 33,
+      "headline": "Singapore's first EV fast charging hub at HDB carpark launched in Tengah",
+      "url": "https://www.asiaone.com/singapore/first-hdb-ev-fast-charging-hub-tengah-sp-mobility-sun-xueling-choo-pei-ling",
+      "publishedAt": "2026-05-16T05:20:00Z"
+    },
+    {
+      "index": 34,
+      "headline": "Chip Stocks Slide After U.S.-China Summit Ends Without Major Tech Deals - Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNUGNuZXJBY25hOGlvektWcUY4alkyVkJiSi1oTmNTSEswYVFKNUZHTndlSnB5cWpDd1k4VWFpR2RuNTFkOHRILTJrOVFOMTdQYUVxTENWbk5la1k5MGlHUUVyTHR1cWljRjN1MUhyTnM1RkYtbDJic0JOT1RyQlU1NEpIUlh1Y2Z3V2lpN0VHMng5LXdp?oc=5",
+      "publishedAt": "2026-05-15T14:33:00Z"
+    },
+    {
+      "index": 35,
+      "headline": "NANC Traders Beat the Crowd by 33 Points and the Difference Keeps Growing",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nanc-traders-beat-crowd-33-171520563.html",
+      "publishedAt": "2026-05-16T17:15:20Z"
+    },
+    {
+      "index": 36,
+      "headline": "Oracle Corporation (ORCL) Named Top Pick as Oppenheimer Lifts Price Target",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/oracle-corporation-orcl-named-top-152629171.html",
+      "publishedAt": "2026-05-16T15:26:29Z"
+    },
+    {
+      "index": 37,
+      "headline": "Few deals from Trump’s trip and no progress on Iran send global markets into a sell-off",
+      "url": "https://www.nbcnews.com/business/markets/bonds-oil-prices-stocks-trump-china-trip-rcna345290",
+      "publishedAt": "2026-05-15T15:15:06+00:00"
+    },
+    {
+      "index": 38,
+      "headline": "Is Mastercard Incorporated (MA) the Stock with Best Earnings Growth for the Next 10 Years?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/mastercard-incorporated-ma-stock-best-152624116.html",
+      "publishedAt": "2026-05-16T15:26:24Z"
+    },
+    {
+      "index": 39,
+      "headline": "Pi Network V23 Auto-Updates - But Pioneers Must Do This One Step",
+      "url": "https://coinfomania.com/pi-network-v23-auto-updates-but-pioneers-must-do-this-one-step/",
+      "publishedAt": "2026-05-16T05:16:23Z"
+    },
+    {
+      "index": 40,
+      "headline": "This Medical Device Stock Is Down 25%. One Fund Just Disclosed Buying $5 Million More",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/medical-device-stock-down-25-171944584.html",
+      "publishedAt": "2026-05-16T17:19:44Z"
+    },
+    {
+      "index": 41,
+      "headline": "BTIG Cuts Target on MercadoLibre, Inc. (MELI) as Margins Reset Near 7%",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/btig-cuts-target-mercadolibre-inc-152627680.html",
+      "publishedAt": "2026-05-16T15:26:27Z"
+    },
+    {
+      "index": 42,
+      "headline": "Latvia’s President Nominates Kulbergs to Form New Government",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/latvia-s-president-nominates-kulbergs-to-form-new-government",
+      "publishedAt": "2026-05-16T13:39:52+00:00"
+    },
+    {
+      "index": 43,
+      "headline": "Hong Kong parents warned of choking, injury risks from catapult and tangram toys",
+      "url": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3353799/hong-kong-parents-warned-choking-injury-risks-catapult-and-tangram-toys",
+      "publishedAt": "2026-05-16T05:25:51Z"
+    },
+    {
+      "index": 44,
+      "headline": "Social Security could be depleted by 2032 — and a typical retired couple stands to lose $18,400 a year",
+      "url": "https://finance.yahoo.com/economy/policy/articles/social-security-could-depleted-2032-141500893.html",
+      "publishedAt": "2026-05-16T14:15:00Z"
+    },
+    {
+      "index": 45,
+      "headline": "Telangana gig workers join global 'switchoff' call, no services 12 pm to 5 pm",
+      "url": "https://www.siasat.com/telangana-gig-workers-join-global-total-switch-off-call-demand-rs-20-per-km-3471930/",
+      "publishedAt": "2026-05-16T05:15:00Z"
+    },
+    {
+      "index": 46,
+      "headline": "Returning from China, Trump is Ambiguous Over Taiwan",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-16/returning-from-china-trump-is-ambiguous-over-taiwan-video",
+      "publishedAt": "2026-05-16T15:40:40+00:00"
+    },
+    {
+      "index": 47,
+      "headline": "Arista Networks, Inc. (ANET) Well-positioned for Inference-based Use Cases, Says Piper Sandler",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/arista-networks-inc-anet-well-152634715.html",
+      "publishedAt": "2026-05-16T15:26:34Z"
+    },
+    {
+      "index": 48,
+      "headline": "VinFast Seeks to Shed Most Debt With Vietnam Factory Spinoffs",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/vinfast-seeks-to-shed-most-debt-with-vietnam-factory-spinoffs",
+      "publishedAt": "2026-05-16T03:45:47+00:00"
+    },
+    {
+      "index": 49,
+      "headline": "Best high-yield savings interest rates today, May 16, 2026: Earn up to 4.1% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-high-yield-savings-interest-rates-today-saturday-may-16-2026-100000462.html",
+      "publishedAt": "2026-05-16T10:00:00Z"
+    },
+    {
+      "index": 50,
+      "headline": "The SpaceX IPO Is Coming June 12. Here’s Why You Shouldn’t Rush In to Buy",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/spacex-ipo-coming-june-12-172220729.html",
+      "publishedAt": "2026-05-16T17:22:20Z"
+    },
+    {
+      "index": 51,
+      "headline": "Irishman named to top role at CVC, the private equity backer of Six Nations rugby",
+      "url": "https://www.irishtimes.com/business/2026/05/16/irishman-named-to-top-role-at-cvc-the-private-equity-backer-of-six-nations-rugby/",
+      "publishedAt": "2026-05-16T05:09:18Z"
+    },
+    {
+      "index": 52,
+      "headline": "Starbucks to lay off 300 U.S. employees, shutter some regional support offices - CNBC",
+      "url": "https://www.cnbc.com/2026/05/15/starbucks-to-lay-off-300-us-employees-close-some-regional-offices.html",
+      "publishedAt": "2026-05-15T13:03:00Z"
+    },
+    {
+      "index": 53,
+      "headline": "Wall Street Sees Major Upside in Autodesk, Inc. (ADSK) Ahead of Earnings",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-sees-major-upside-152635210.html",
+      "publishedAt": "2026-05-16T15:26:35Z"
+    },
+    {
+      "index": 54,
+      "headline": "SBP expands cashless payments to cattle markets",
+      "url": "https://www.pakistantoday.com.pk/2026/05/16/sbp-expands-eidul-azha-cashless-payments-drive-to-cattle-markets",
+      "publishedAt": "2026-05-16T05:35:06Z"
+    },
+    {
+      "index": 55,
+      "headline": "Sylogist Q1 Earnings Call Highlights",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/sylogist-q1-earnings-call-highlights-171216976.html",
+      "publishedAt": "2026-05-16T17:12:16Z"
+    },
+    {
+      "index": 56,
+      "headline": "Winklevoss-founded Gemini shares surge after founders' $100 million lifeline - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/winklevoss-founded-gemini-shares-surge-115922150.html",
+      "publishedAt": "2026-05-15T11:59:22Z"
+    },
+    {
+      "index": 57,
+      "headline": "Wall Street Week | Dalio's Warning, AI Arms Race, China Powers Ahead, NYC Tax Standoff ",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-16/wall-street-week-dalio-s-warning-nyc-tax-standoff-video",
+      "publishedAt": "2026-05-16T14:15:21+00:00"
+    },
+    {
+      "index": 58,
+      "headline": "Best money market account rates today, May 16, 2026: Best account provides 4.01% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-money-market-account-rates-today-saturday-may-16-2026-100000181.html",
+      "publishedAt": "2026-05-16T10:00:00Z"
+    },
+    {
+      "index": 59,
+      "headline": "Bond Selloff Threatens to Knock AI Stock Frenzy Off Course",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/bond-selloff-threatens-to-knock-ai-stock-frenzy-off-course",
+      "publishedAt": "2026-05-16T13:31:01+00:00"
+    },
+    {
+      "index": 60,
+      "headline": "Best CD rates today, Saturday, May 16, 2026: Best account provides 4% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-saturday-may-16-2026-100000077.html",
+      "publishedAt": "2026-05-16T10:00:00Z"
+    },
+    {
+      "index": 61,
+      "headline": "Here’s Why AppLovin Corporation (APP) Is One of the Stocks With Best Earnings Growth For the Next Decade",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-applovin-corporation-app-one-152630195.html",
+      "publishedAt": "2026-05-16T15:26:30Z"
+    },
+    {
+      "index": 62,
+      "headline": "Eli Lilly and Company (LLY): Investors Advised to Focus on the Bigger Picture",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/eli-lilly-company-lly-investors-152626115.html",
+      "publishedAt": "2026-05-16T15:26:26Z"
+    },
+    {
+      "index": 63,
+      "headline": "Enbridge CEO on Canada Pipelines, Natural Gas Outlook",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-15/enbridge-ceo-on-canada-pipelines-natural-gas-outlook-video",
+      "publishedAt": "2026-05-15T22:23:02+00:00"
+    },
+    {
+      "index": 64,
+      "headline": "Sports, Media, Inflation | Pointed News Quiz",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-16/sports-media-inflation-pointed-news-quiz-video",
+      "publishedAt": "2026-05-16T15:24:26+00:00"
+    },
+    {
+      "index": 65,
+      "headline": "Tech Chiefs Accompany Trump on China Trip",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-16/tech-chiefs-accompany-trump-on-china-trip-video",
+      "publishedAt": "2026-05-16T12:57:57+00:00"
+    },
+    {
+      "index": 66,
+      "headline": "Building work starts on Daventry M&S warehouse",
+      "url": "https://www.bbc.co.uk/news/articles/cg7pd572rkxo",
+      "publishedAt": "2026-05-16T05:25:24Z"
+    },
+    {
+      "index": 67,
+      "headline": "Understanding crypto yield farming",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/what-is-yield-farming-143008070.html",
+      "publishedAt": "2026-05-15T14:30:08Z"
+    },
+    {
+      "index": 68,
+      "headline": "Long Island Rail Workers Strike in First Walkout Since 1994",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/long-island-rail-workers-to-strike-in-first-walkout-since-1994",
+      "publishedAt": "2026-05-16T05:39:00Z"
+    },
+    {
+      "index": 69,
+      "headline": "Harvard’s Endowment Chief Begins Plans to Depart from Fund",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/harvard-s-endowment-chief-begins-plans-to-depart-from-fund",
+      "publishedAt": "2026-05-16T14:45:43+00:00"
+    },
+    {
+      "index": 70,
+      "headline": "Best CD rates today, May 15, 2026: Up to 4% APY return",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-friday-may-15-2026-100000536.html",
+      "publishedAt": "2026-05-15T10:00:00Z"
+    },
+    {
+      "index": 71,
+      "headline": "2 Upstate NY metros among top 100 in US for foreclosure rate in first quarter - Syracuse.com",
+      "url": "https://www.syracuse.com/data/2026/05/2-upstate-ny-metros-among-top-100-in-us-for-foreclosure-rate-in-first-quarter.html",
+      "publishedAt": "2026-05-15T12:30:00Z"
+    },
+    {
+      "index": 72,
+      "headline": "Gold and silver prices today, Friday, May 15: Prices headed for weekly losses with Iran negotiations at a standstill",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-and-silver-prices-today-friday-may-15-prices-headed-for-weekly-losses-with-iran-negotiations-at-a-standstill-104946910.html",
+      "publishedAt": "2026-05-15T10:49:46Z"
+    },
+    {
+      "index": 73,
+      "headline": "Honda shows off new hybrids for America as it absorbs $9 billion EV loss - Ars Technica",
+      "url": "https://arstechnica.com/cars/2026/05/honda-shows-off-new-hybrids-for-america-as-it-absorbs-9-billion-ev-loss/",
+      "publishedAt": "2026-05-15T15:56:33Z"
+    },
+    {
+      "index": 74,
+      "headline": "Total Energy Services Q1 Earnings Call Highlights",
+      "url": "https://finance.yahoo.com/sectors/energy/articles/total-energy-services-q1-earnings-171218948.html",
+      "publishedAt": "2026-05-16T17:12:18Z"
+    },
+    {
+      "index": 75,
+      "headline": "Berkshire Sold $8 Billion of Chevron Shares as Prices Soared",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-15/berkshire-sold-8-billion-of-chevron-shares-as-prices-soared",
+      "publishedAt": "2026-05-15T22:06:06+00:00"
+    },
+    {
+      "index": 76,
+      "headline": "India Tightens Silver Import Rules Amid Measures to Defend Rupee",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/india-tightens-silver-import-rules-amid-measures-to-defend-rupee",
+      "publishedAt": "2026-05-16T14:53:40+00:00"
+    },
+    {
+      "index": 77,
+      "headline": "Is Subscription Fatigue Alienating Frustrated Consumers?",
+      "url": "https://www.today.com/video/why-subscription-fatigue-is-growing-among-consumers-in-the-us-263373893530",
+      "publishedAt": "2026-05-15T11:53:11+00:00"
+    },
+    {
+      "index": 78,
+      "headline": "Odd Lots: Stripe’s John Collison on Agentic Commerce (Podcast)",
+      "url": "https://www.bloomberg.com/news/audio/2026-05-16/odd-lots-stripe-s-john-collison-on-agentic-commerce-podcast",
+      "publishedAt": "2026-05-16T08:00:00+00:00"
+    },
+    {
+      "index": 79,
+      "headline": "Goldman Sachs doubles down on stock market message for 2026",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-doubles-down-stock-171700289.html",
+      "publishedAt": "2026-05-16T17:17:00Z"
+    },
+    {
+      "index": 80,
+      "headline": "NY Commuter Rail Strikes, Stranding 300,000 Daily Riders",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-16/ny-commuter-rail-strikes-stranding-300-000-daily-riders-video",
+      "publishedAt": "2026-05-16T14:52:16+00:00"
+    },
+    {
+      "index": 81,
+      "headline": "Detroit automakers have cut more than 20,000 U.S. salaried jobs as AI threat looms - CNBC",
+      "url": "https://www.cnbc.com/2026/05/15/general-motors-ford-stellantis-job-cuts-ai.html",
+      "publishedAt": "2026-05-15T12:00:01Z"
+    },
+    {
+      "index": 82,
+      "headline": "Berkshire Amasses $2.6 Billion Stake in Delta Airlines",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-15/berkshire-boosts-alphabet-exits-amazon-in-ceo-s-first-quarter",
+      "publishedAt": "2026-05-15T20:39:06+00:00"
+    },
+    {
+      "index": 83,
+      "headline": "Without Migrants, Spain Says Bars Would Shut and Services Suffer",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/without-migrants-spain-says-bars-would-shut-and-services-suffer",
+      "publishedAt": "2026-05-16T06:00:00+00:00"
+    },
+    {
+      "index": 84,
+      "headline": "Trump Calls China Trip \"Historic Moment\"",
+      "url": "https://www.bloomberg.com/news/videos/2026-05-16/trump-calls-china-trip-historic-moment-video",
+      "publishedAt": "2026-05-16T11:42:26+00:00"
+    },
+    {
+      "index": 85,
+      "headline": "Stripe's John Collison on How Agentic Commerce Will Reshape the Internet",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/stripe-s-john-collison-on-ai-shopping-and-agentic-commerce",
+      "publishedAt": "2026-05-16T08:00:11+00:00"
+    },
+    {
+      "index": 86,
+      "headline": "Rare Ebola Strain With No Vaccine Linked to 87 Congo Deaths",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/rare-ebola-strain-with-no-approved-vaccine-kills-dozens-in-congo",
+      "publishedAt": "2026-05-16T04:08:38+00:00"
+    },
+    {
+      "index": 87,
+      "headline": "Bitcoin and ethereum prices today, Friday, May 15, 2026: Prices open higher, but slipping this morning",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-friday-may-15-2026-prices-open-higher-but-slipping-this-morning-111851137.html",
+      "publishedAt": "2026-05-15T11:18:51Z"
+    },
+    {
+      "index": 88,
+      "headline": "Why the prices of World Cup resale tickets are falling",
+      "url": "https://www.nbcnews.com/business/consumer/world-cup-ticket-prices-resale-market-hotels-rcna344996",
+      "publishedAt": "2026-05-14T11:00:41+00:00"
+    },
+    {
+      "index": 89,
+      "headline": "PGA Championship 2026 prize money peaks to $20 million but purse still way less than other golf majors",
+      "url": "https://economictimes.indiatimes.com/news/international/us/pga-championship-2026-prize-money-peaks-to-20-million-but-purse-still-way-less-than-other-golf-majors/articleshow/131142468.cms",
+      "publishedAt": "2026-05-16T17:21:03.000000Z"
+    },
+    {
+      "index": 90,
+      "headline": "These 5 major tax mistakes can lead to costly headaches after you retire. Learn how to avoid them now",
+      "url": "https://finance.yahoo.com/economy/policy/articles/5-major-tax-mistakes-lead-142500882.html",
+      "publishedAt": "2026-05-16T14:25:00Z"
+    },
+    {
+      "index": 91,
+      "headline": "Retail Euphoria Turns Six-Week Fund Into Record-Busting AI Trade",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-16/retail-euphoria-turns-six-week-fund-into-record-busting-ai-trade",
+      "publishedAt": "2026-05-16T13:00:00+00:00"
+    },
+    {
+      "index": 92,
+      "headline": "Coffee company employs people struggling with homelessness and gives them a second chance",
+      "url": "https://www.nbcnews.com/now/video/coffee-company-employs-people-struggling-with-homelessness-and-gives-them-a-second-chance-263350853901",
+      "publishedAt": "2026-05-15T00:05:53+00:00"
+    }
+  ]
+}
