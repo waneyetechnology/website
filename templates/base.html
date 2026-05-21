@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>{{ title }}</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <!-- SEO Meta Tags -->
+    <meta name='description' content='{{ meta_tags.description }}'>
+    <meta name='keywords' content='{{ meta_tags.keywords }}'>
+    <meta name='author' content='{{ meta_tags.author }}'>
+    <meta name='robots' content='{{ meta_tags.robots }}'>
+    <meta name='googlebot' content='{{ meta_tags.googlebot }}'>
+    <meta name='language' content='{{ meta_tags.language }}'>
+    <meta name='distribution' content='{{ meta_tags.distribution }}'>
+    <meta name='rating' content='{{ meta_tags.rating }}'>
+    <meta name='revisit-after' content='{{ meta_tags["revisit-after"] }}'>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property='og:type' content='{{ meta_tags["og:type"] }}'>
+    <meta property='og:url' content='{{ meta_tags["og:url"] }}'>
+    <meta property='og:title' content='{{ meta_tags["og:title"] }}'>
+    <meta property='og:description' content='{{ meta_tags["og:description"] }}'>
+    <meta property='og:image' content='{{ meta_tags["og:image"] }}'>
+    <meta property='og:image:width' content='{{ meta_tags["og:image:width"] }}'>
+    <meta property='og:image:height' content='{{ meta_tags["og:image:height"] }}'>
+    <meta property='og:site_name' content='{{ meta_tags["og:site_name"] }}'>
+    <meta property='og:locale' content='{{ meta_tags["og:locale"] }}'>
+    
+    <!-- Twitter -->
+    <meta property='twitter:card' content='{{ meta_tags["twitter:card"] }}'>
+    <meta property='twitter:url' content='{{ meta_tags["og:url"] }}'>
+    <meta property='twitter:title' content='{{ meta_tags["twitter:title"] }}'>
+    <meta property='twitter:description' content='{{ meta_tags["twitter:description"] }}'>
+    <meta property='twitter:image' content='{{ meta_tags["twitter:image"] }}'>
+    <meta property='twitter:site' content='{{ meta_tags["twitter:site"] }}'>
+    <meta property='twitter:creator' content='{{ meta_tags["twitter:creator"] }}'>
+    
+    <!-- Cache control meta tags to prevent browser caching -->
+    <meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate'>
+    <meta http-equiv='Pragma' content='no-cache'>
+    <meta http-equiv='Expires' content='0'>
+    <meta name='last-modified' content='{{ last_updated }}'>
+    
+    <!-- Performance optimizations for resource loading -->
+    <link rel='preconnect' href='https://fonts.bunny.net' crossorigin>
+    <link rel='dns-prefetch' href='https://fonts.bunny.net'>
+    <link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin>
+    <link rel='preconnect' href='https://cdn.jsdelivr.net/gh' crossorigin>
+    <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+    <link rel='dns-prefetch' href='https://cdn.jsdelivr.net/gh'>
+    <!-- Indicate to browsers that we'll be lazy-loading images -->
+    <meta name='theme-color' content='{{ meta_tags["theme-color"] }}'>
+    <meta name='msapplication-TileColor' content='{{ meta_tags["msapplication-TileColor"] }}'>
+    <!-- Favicons for different sizes and contexts -->
+    <link rel='icon' type='image/x-icon' href='static/icons/favicon.ico?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='16x16' href='static/icons/favicon-16x16.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='32x32' href='static/icons/favicon-32x32.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='64x64' href='static/icons/favicon-64x64.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='128x128' href='static/icons/favicon-128x128.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='256x256' href='static/icons/favicon-256x256.svg?v={{ cache_buster }}'>
+    <link rel='apple-touch-icon' sizes='180x180' href='static/icons/favicon-256x256.svg?v={{ cache_buster }}'>
+    <link rel='canonical' href='https://waneye.com/'>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1d4ed8',
+              secondary: '#475569',
+              accent: '#f59e0b',
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous' referrerpolicy='no-referrer'>
+    <link rel='stylesheet' href='static/style.css?v={{ cache_buster }}'>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {{ structured_data.organization | tojson }}
+    </script>
+    <script type="application/ld+json">
+    {{ structured_data.website | tojson }}
+    </script>
+    <script type="application/ld+json">
+    {{ structured_data.dashboard | tojson }}
+    </script>
+
+    {% if structured_data.news_articles %}
+    {% for article in structured_data.news_articles[:5] %}
+    <script type="application/ld+json">
+    {{ article | tojson }}
+    </script>
+    {% endfor %}
+    {% endif %}
+    
+    <!-- Google Analytics 4 (GA4) tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSJVVBKXLG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RSJVVBKXLG');
+    </script>
+</head>
+<body class="bg-slate-50 min-h-screen" x-data="{ mobileMenuOpen: false }">
+    <canvas id='bg-canvas'></canvas>
+
+    <!-- Sticky Professional Header -->
+    <header class='site-header sticky top-0 z-50 bg-white/95 border-b border-slate-200 shadow-sm'>
+        <div class='w-full mx-auto px-4 sm:px-6 lg:px-8'>
+            <!-- Main header row -->
+            <div class='flex items-center justify-between h-14 gap-4'>
+                <!-- Brand -->
+                <div class='flex items-center gap-2.5 flex-shrink-0'>
+                    <span class='text-lg font-bold text-slate-900 tracking-tight'>Waneye</span>
+                    <span class='hidden md:inline-block h-4 w-px bg-slate-300'></span>
+                    <span class='hidden md:inline text-xs text-slate-400 font-medium tracking-wide'>Global financial intelligence</span>
+                </div>
+
+                <!-- Section anchor nav (desktop) -->
+                <nav class='hidden lg:flex items-center gap-0.5'>
+                    <a href='#exec-summary' class='header-anchor-link'><i class='fas fa-chart-line text-xs'></i> Summary</a>
+                    <a href='#market-insights' class='header-anchor-link'><i class='fas fa-lightbulb text-xs'></i> Insights</a>
+                    <a href='#risk-assessment' class='header-anchor-link'><i class='fas fa-shield-alt text-xs'></i> Risks</a>
+                    <a href='#recommendations' class='header-anchor-link'><i class='fas fa-bullseye text-xs'></i> Strategy</a>
+                    <a href='#market-outlook' class='header-anchor-link'><i class='fas fa-binoculars text-xs'></i> Outlook</a>
+                    <a href='#market-data' class='header-anchor-link'><i class='fas fa-database text-xs'></i> Data</a>
+                </nav>
+
+                <!-- Live Badge -->
+                <div class='flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full border border-emerald-200 flex-shrink-0'>
+                    <span class='relative flex h-2 w-2 flex-shrink-0'>
+                        <span class='animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75'></span>
+                        <span class='relative inline-flex rounded-full h-2 w-2 bg-emerald-500'></span>
+                    </span>
+                    <p class='text-slate-600 text-xs font-medium hidden sm:block' id='last-updated'>
+                        <em>Last updated: {{ last_updated }}</em>
+                    </p>
+                    <p class='text-emerald-700 text-xs font-semibold sm:hidden'>Live</p>
+                </div>
+            </div>
+
+            <!-- Mobile section nav -->
+            <div class='lg:hidden border-t border-slate-100'>
+                <div class='flex overflow-x-auto scrollbar-none'>
+                    <a href='#exec-summary' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-blue-700 border-b-2 border-transparent hover:border-blue-600 transition-colors whitespace-nowrap'><i class='fas fa-chart-line'></i> Summary</a>
+                    <a href='#market-insights' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-amber-700 border-b-2 border-transparent hover:border-amber-600 transition-colors whitespace-nowrap'><i class='fas fa-lightbulb'></i> Insights</a>
+                    <a href='#risk-assessment' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-red-700 border-b-2 border-transparent hover:border-red-600 transition-colors whitespace-nowrap'><i class='fas fa-shield-alt'></i> Risks</a>
+                    <a href='#recommendations' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-green-700 border-b-2 border-transparent hover:border-green-600 transition-colors whitespace-nowrap'><i class='fas fa-bullseye'></i> Strategy</a>
+                    <a href='#market-outlook' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-cyan-700 border-b-2 border-transparent hover:border-cyan-600 transition-colors whitespace-nowrap'><i class='fas fa-binoculars'></i> Outlook</a>
+                    <a href='#market-data' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-slate-700 border-b-2 border-transparent hover:border-slate-600 transition-colors whitespace-nowrap'><i class='fas fa-database'></i> Data</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class='w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-10'>
+        
+        {% block content %}{% endblock %}
+        
+        <footer class='mt-12 border-t border-slate-200 bg-white'>
+            <div class='w-full mx-auto px-4 sm:px-6 lg:px-8 py-6'>
+                <div class='flex flex-col sm:flex-row items-center justify-between gap-3'>
+                    <div class='flex items-center gap-2.5'>
+                        <span class='text-sm font-bold text-slate-800'>Waneye</span>
+                        <span class='text-slate-300 text-xs'>·</span>
+                        <span class='text-xs text-slate-400'>Global vision for smarter finance</span>
+                    </div>
+                    <p class='text-xs text-slate-400 text-center sm:text-right'>
+                        Financial data is provided for informational purposes only and does not constitute investment advice.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Alpine.js - Loaded without defer to ensure it's ready before user interaction -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src='static/main.js?v={{ cache_buster }}'></script>
+</body>
+</html>
