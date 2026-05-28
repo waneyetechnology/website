@@ -399,47 +399,73 @@ def _ensure_cn_image_dir():
 
 
 def _fetch_cn_image(url, headline_id):
-    """Simple image extraction for Chinese news articles."""
+    """
+    Extract image for a CN headline. CN pages live at cn/index.html so all
+    image paths must be prefixed with ../ to reach the static/ directory.
+
+    Strategy:
+      1. Return cached cn-headline image if already downloaded.
+      2. Return existing dynamic image if already generated.
+      3. Scrape OG/Twitter meta image from article page.
+      4. Fall back to create_dynamic_image() (PIL-generated placeholder).
+    """
     img_dir = _ensure_cn_image_dir()
     img_path = img_dir / f"{headline_id}.jpg"
-    rel_path = f"static/images/cn-headlines/{headline_id}.jpg"
+    # Paths relative from cn/index.html → need ../
+    rel_path = f"../static/images/cn-headlines/{headline_id}.jpg"
 
+    # Check cached cn-headline image
     if img_path.exists():
         return rel_path
 
+    # Check cached dynamic image
+    dynamic_full = Path(__file__).parent.parent.parent / "static" / "images" / "dynamic" / f"{headline_id}.jpg"
+    if dynamic_full.exists():
+        return f"../static/images/dynamic/{headline_id}.jpg#dynamic"
+
+    # Try to scrape OG/Twitter image from article
     try:
         resp = requests.get(url, headers=_HEADERS, timeout=10)
-        if not resp.ok:
-            return None
-        resp.encoding = resp.apparent_encoding or "utf-8"
-        soup = BeautifulSoup(resp.text, "html.parser")
+        if resp.ok:
+            resp.encoding = resp.apparent_encoding or "utf-8"
+            soup = BeautifulSoup(resp.text, "html.parser")
 
-        # OG image first
-        for prop in ["og:image", "twitter:image"]:
-            meta = soup.find("meta", property=prop) or soup.find("meta", attrs={"name": prop})
-            if meta and meta.get("content"):
-                img_url = meta["content"].strip()
-                if img_url.startswith("//"):
-                    img_url = "https:" + img_url
-                if img_url.startswith("http"):
-                    _download_image(img_url, img_path, url)
+            # OG/Twitter meta image
+            for prop in ["og:image", "twitter:image"]:
+                meta = soup.find("meta", property=prop) or soup.find("meta", attrs={"name": prop})
+                if meta and meta.get("content"):
+                    img_url = meta["content"].strip()
+                    if img_url.startswith("//"):
+                        img_url = "https:" + img_url
+                    if img_url.startswith("http"):
+                        _download_image(img_url, img_path, url)
+                        if img_path.exists():
+                            return rel_path
+
+            # Article body images
+            for img in soup.select("article img, .article-img img, .content img")[:3]:
+                src = img.get("src") or img.get("data-src", "")
+                if src:
+                    if src.startswith("//"):
+                        src = "https:" + src
+                    if not src.startswith("http"):
+                        parsed = urlparse(url)
+                        src = f"{parsed.scheme}://{parsed.netloc}{src}"
+                    _download_image(src, img_path, url)
                     if img_path.exists():
                         return rel_path
-
-        # Article content images
-        for img in soup.select("article img, .article-img img, .content img")[:3]:
-            src = img.get("src") or img.get("data-src", "")
-            if src:
-                if src.startswith("//"):
-                    src = "https:" + src
-                if not src.startswith("http"):
-                    parsed = urlparse(url)
-                    src = f"{parsed.scheme}://{parsed.netloc}{src}"
-                _download_image(src, img_path, url)
-                if img_path.exists():
-                    return rel_path
     except Exception as e:
         logger.debug(f"CN image fetch error for {headline_id}: {e}")
+
+    # Fallback: generate dynamic PIL image (same as EN site fallback)
+    try:
+        from .news_fetcher import create_dynamic_image
+        dyn = create_dynamic_image(headline_id)
+        if dyn:
+            return f"../{dyn}#dynamic"
+    except Exception as e:
+        logger.debug(f"CN dynamic image fallback failed for {headline_id}: {e}")
+
     return None
 
 
