@@ -80,6 +80,10 @@ jobs:
           GNEWS_API_KEY: ${{ secrets.GNEWS_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: python generate_site.py
+      - name: Generate Chinese site
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python generate_site_cn.py
       - name: Push analysis report to history branch
         uses: peaceiris/actions-gh-pages@v4
         with:
