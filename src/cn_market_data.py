@@ -12,7 +12,7 @@ Fetches:
 import re
 import time
 import requests
-from ..log import logger
+from .log import logger
 
 _HEADERS = {
     "User-Agent": (
