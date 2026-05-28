@@ -1,22 +1,23 @@
 """
 Chinese Financial News Fetcher
 
-Fetches financial headlines from major Chinese financial media:
-- 新浪财经 (Sina Finance)
-- 网易财经 (NetEase Finance)
-- 凤凰财经 (ifeng Finance)
-- 东方财富 (Eastmoney)
-- 华尔街见闻 (Wallstreet CN)
-- 第一财经 (Yicai)
-- 21世纪财经 (21jingji)
-- 财联社 (cls.cn)
+Fetches financial headlines from Chinese and China-focused financial media:
+- 新浪财经 (Sina Finance) — JSON roll API
+- 东方财富快讯 (Eastmoney Kuaixun) — JS-var API
+- 华尔街见闻 (Wallstreet CN) — live-feed JSON API
+- 财新 (Caixin) — scraping
+- 中国日报财经 (China Daily Biz) — RSS
+- 南华早报 (SCMP China) — RSS
+- 网易财经 (NetEase Finance) — scraping fallback
+- 凤凰财经 (ifeng Finance) — best-effort (China-hosted)
+- 第一财经 (Yicai) — best-effort
+- 财联社 (CLS) — best-effort
 """
 
-import os
+import json
 import re
 import hashlib
 import random
-import time
 import requests
 import xml.etree.ElementTree as ET
 from urllib.parse import urlparse
@@ -49,12 +50,11 @@ def _make_headline(title, url, source, published_at=None):
     }
 
 
-def _parse_rss_items(xml_text, source_name, max_items=15):
-    """Parse generic RSS/Atom XML and return headline dicts."""
+def _parse_rss_feed(xml_text, source_name, max_items=20):
+    """Parse RSS 2.0 or Atom feed, return headline dicts."""
     headlines = []
     try:
         root = ET.fromstring(xml_text)
-        # Handle both RSS 2.0 and Atom
         ns = {"atom": "http://www.w3.org/2005/Atom"}
         items = root.findall(".//item") or root.findall(".//atom:entry", ns)
         for item in items[:max_items]:
@@ -62,15 +62,12 @@ def _parse_rss_items(xml_text, source_name, max_items=15):
             link_el = item.find("link") or item.find("atom:link", ns)
             pub_el = item.find("pubDate") or item.find("atom:published", ns)
 
-            title = title_el.text.strip() if title_el is not None and title_el.text else None
-            # <link> in Atom can be an element with href attr
+            title = (title_el.text or "").strip() if title_el is not None else None
             if link_el is not None:
-                link = link_el.text or link_el.get("href", "")
-                link = link.strip() if link else None
+                link = (link_el.text or link_el.get("href", "")).strip()
             else:
                 link = None
-
-            pub = pub_el.text.strip() if pub_el is not None and pub_el.text else None
+            pub = (pub_el.text or "").strip() if pub_el is not None else None
 
             if title and link:
                 headlines.append(_make_headline(title, link, source_name, pub))
@@ -79,279 +76,318 @@ def _parse_rss_items(xml_text, source_name, max_items=15):
     return headlines
 
 
+def _strip_html(text):
+    """Remove HTML tags from a string."""
+    return re.sub(r"<[^>]+>", "", text or "").strip()
+
+
 # ─── SINA FINANCE (新浪财经) ─────────────────────────────────────────────────
+# Uses the Mix Roll API — accessible from outside China
 
 def fetch_sina_finance_headlines():
-    """Fetch from Sina Finance RSS feeds."""
+    """Fetch from Sina Finance via their JSON roll API."""
     headlines = []
-    feeds = [
-        ("https://rss.sina.com.cn/finance/gnews/index.xml", "新浪财经"),
-        ("https://rss.sina.com.cn/finance/stock/cjkx/index.xml", "新浪股票"),
+    # pageid=153 lid=2516 = general finance; lid=2584 = stocks
+    api_urls = [
+        ("https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2516&num=20&page=1", "新浪财经"),
+        ("https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2584&num=20&page=1", "新浪股票"),
     ]
-    for url, source in feeds:
+    for url, source in api_urls:
         try:
             resp = requests.get(url, headers=_HEADERS, timeout=12)
             if resp.ok:
-                resp.encoding = resp.apparent_encoding or "utf-8"
-                items = _parse_rss_items(resp.text, source)
-                headlines.extend(items)
-                logger.info(f"Fetched {len(items)} from {source}")
+                data = resp.json()
+                items = data.get("result", {}).get("data", [])
+                if not isinstance(items, list):
+                    items = []
+                count = 0
+                for item in items[:20]:
+                    title = (item.get("title") or "").strip()
+                    link = (item.get("url") or "").strip()
+                    pub = item.get("ctime") or item.get("mtime")
+                    if title and link and link.startswith("http"):
+                        headlines.append(_make_headline(title, link, source, pub))
+                        count += 1
+                if count:
+                    logger.info(f"Fetched {count} from {source}")
             else:
-                logger.warning(f"Sina RSS {url} → {resp.status_code}")
+                logger.warning(f"Sina API {url} → {resp.status_code}")
         except Exception as e:
-            logger.error(f"Sina Finance fetch error ({url}): {e}")
+            logger.error(f"Sina Finance fetch error: {e}")
     return headlines
 
 
-# ─── EASTMONEY (东方财富) ─────────────────────────────────────────────────────
+# ─── EASTMONEY KUAIXUN (东方财富快讯) ────────────────────────────────────────
+# Kuaixun endpoint returns JS-wrapped JSON — accessible globally
 
 def fetch_eastmoney_headlines():
-    """Fetch from Eastmoney (东方财富) news API."""
+    """Fetch fast financial flashes from Eastmoney (东方财富快讯)."""
     headlines = []
-    # Eastmoney provides a JSON news API
-    url = (
-        "https://np-listapi.eastmoney.com/comm/wap/getListInfo"
-        "?client=wap&type=1&mTypeAndCode=0&pageSize=20&pageIndex=1"
-        "&callback=&token=Eastmoney_Bull_Client_Web"
-    )
+    url = "https://newsapi.eastmoney.com/kuaixun/v1/getlist_102_ajaxResult_20_1_.html"
     try:
         resp = requests.get(url, headers=_HEADERS, timeout=12)
         if resp.ok:
-            data = resp.json()
-            articles = (
-                data.get("data", {}).get("list", [])
-                or data.get("data", [])
-            )
-            for art in articles[:15]:
-                title = art.get("title") or art.get("Title")
-                art_url = art.get("url") or art.get("Url")
-                pub = art.get("publishTime") or art.get("time")
-                if title and art_url:
+            # Response: var ajaxResult={...};
+            text = re.sub(r"^var\s+ajaxResult\s*=\s*", "", resp.text.strip()).rstrip(";")
+            data = json.loads(text)
+            items = data.get("LivesList", [])
+            if not isinstance(items, list):
+                items = []
+            for item in items[:20]:
+                title = (item.get("title") or item.get("content") or "").strip()
+                title = _strip_html(title)
+                newsid = item.get("newsid") or item.get("id", "")
+                art_url = f"https://finance.eastmoney.com/a/{newsid}.html" if newsid else ""
+                pub = item.get("showtime") or item.get("time")
+                if title and art_url and len(title) > 5:
                     headlines.append(_make_headline(title, art_url, "东方财富", pub))
-            logger.info(f"Fetched {len(headlines)} from Eastmoney API")
+            logger.info(f"Fetched {len(headlines)} from Eastmoney")
         else:
-            logger.warning(f"Eastmoney API → {resp.status_code}")
+            logger.warning(f"Eastmoney Kuaixun → {resp.status_code}")
     except Exception as e:
         logger.error(f"Eastmoney fetch error: {e}")
-
-    # Fallback: scrape main page
-    if not headlines:
-        try:
-            page_url = "https://finance.eastmoney.com/"
-            resp = requests.get(page_url, headers=_HEADERS, timeout=12)
-            if resp.ok:
-                resp.encoding = resp.apparent_encoding or "utf-8"
-                soup = BeautifulSoup(resp.text, "html.parser")
-                for a in soup.select("a[href*='eastmoney.com']")[:15]:
-                    text = a.get_text(strip=True)
-                    href = a.get("href", "")
-                    if len(text) > 10 and href.startswith("http"):
-                        headlines.append(_make_headline(text, href, "东方财富"))
-                logger.info(f"Eastmoney scrape fallback: {len(headlines)} items")
-        except Exception as e:
-            logger.error(f"Eastmoney scrape fallback error: {e}")
-    return headlines
-
-
-# ─── NETEASE FINANCE (网易财经) ───────────────────────────────────────────────
-
-def fetch_netease_finance_headlines():
-    """Fetch from NetEase Finance (网易财经)."""
-    headlines = []
-    # NetEase Finance news list API
-    urls = [
-        "https://money.163.com/special/00252G50/newsdata_index.js",
-    ]
-    for url in urls:
-        try:
-            resp = requests.get(url, headers=_HEADERS, timeout=12)
-            if resp.ok:
-                resp.encoding = resp.apparent_encoding or "utf-8"
-                text = resp.text.strip()
-                # Remove JSONP wrapper if present
-                text = re.sub(r'^[^(]+\(', '', text).rstrip(");")
-                import json
-                items = json.loads(text)
-                if isinstance(items, list):
-                    for item in items[:15]:
-                        title = item.get("title") or item.get("name")
-                        link = item.get("url") or item.get("docurl")
-                        pub = item.get("ptime") or item.get("time")
-                        if title and link:
-                            headlines.append(_make_headline(title, link, "网易财经", pub))
-                logger.info(f"Fetched {len(headlines)} from NetEase Finance")
-        except Exception as e:
-            logger.error(f"NetEase Finance fetch error: {e}")
-
-    # Fallback: scrape
-    if not headlines:
-        try:
-            resp = requests.get("https://money.163.com/", headers=_HEADERS, timeout=12)
-            if resp.ok:
-                resp.encoding = resp.apparent_encoding or "utf-8"
-                soup = BeautifulSoup(resp.text, "html.parser")
-                for a in soup.select(".news_title a, .mod_newslist a, h3 a")[:15]:
-                    text = a.get_text(strip=True)
-                    href = a.get("href", "")
-                    if len(text) > 10 and href.startswith("http"):
-                        headlines.append(_make_headline(text, href, "网易财经"))
-        except Exception as e:
-            logger.error(f"NetEase scrape fallback error: {e}")
-    return headlines
-
-
-# ─── IFENG FINANCE (凤凰财经) ────────────────────────────────────────────────
-
-def fetch_ifeng_finance_headlines():
-    """Fetch from ifeng Finance (凤凰财经) RSS."""
-    headlines = []
-    feeds = [
-        ("https://rss.ifeng.com/finance.xml", "凤凰财经"),
-        ("https://finance.ifeng.com/rss.xml", "凤凰财经"),
-    ]
-    for url, source in feeds:
-        try:
-            resp = requests.get(url, headers=_HEADERS, timeout=12)
-            if resp.ok:
-                resp.encoding = resp.apparent_encoding or "utf-8"
-                items = _parse_rss_items(resp.text, source)
-                if items:
-                    headlines.extend(items)
-                    logger.info(f"Fetched {len(items)} from {source} ({url})")
-                    break
-            else:
-                logger.warning(f"ifeng RSS {url} → {resp.status_code}")
-        except Exception as e:
-            logger.error(f"ifeng fetch error ({url}): {e}")
-
-    # Fallback: scrape
-    if not headlines:
-        try:
-            resp = requests.get("https://finance.ifeng.com/", headers=_HEADERS, timeout=12)
-            if resp.ok:
-                resp.encoding = resp.apparent_encoding or "utf-8"
-                soup = BeautifulSoup(resp.text, "html.parser")
-                for a in soup.select(".news-stream a, .list a, h3 a, h4 a")[:15]:
-                    text = a.get_text(strip=True)
-                    href = a.get("href", "")
-                    if len(text) > 10 and ("ifeng.com" in href or href.startswith("/")):
-                        if href.startswith("/"):
-                            href = "https://finance.ifeng.com" + href
-                        headlines.append(_make_headline(text, href, "凤凰财经"))
-        except Exception as e:
-            logger.error(f"ifeng scrape fallback error: {e}")
     return headlines
 
 
 # ─── WALLSTREET CN (华尔街见闻) ───────────────────────────────────────────────
+# Live-feed API is accessible globally and returns real-time Chinese market news
 
 def fetch_wallstreetcn_headlines():
-    """Fetch from Wallstreet CN (华尔街见闻)."""
+    """Fetch live market flashes from Wallstreet CN (华尔街见闻)."""
     headlines = []
-    # Wallstreet CN public API
-    url = "https://api-one.wallstcn.com/apiv1/content/information-flow?channel=global-channel&cursor=0&limit=20&accept=article"
+    url = "https://api-one.wallstcn.com/apiv1/content/lives?channel=global-channel&limit=30"
     try:
-        resp = requests.get(url, headers={**_HEADERS, "Referer": "https://wallstreetcn.com/"}, timeout=12)
+        resp = requests.get(
+            url,
+            headers={**_HEADERS, "Referer": "https://wallstreetcn.com/"},
+            timeout=12,
+        )
         if resp.ok:
-            data = resp.json()
-            items = data.get("data", {}).get("items", [])
-            for item in items[:15]:
-                resource = item.get("resource", {}) or {}
-                title = resource.get("title") or resource.get("content_text", "")[:80]
-                art_id = resource.get("id") or resource.get("uri", "")
-                art_url = f"https://wallstreetcn.com/articles/{art_id}" if art_id else ""
-                pub = resource.get("display_time") or resource.get("created_at")
-                if title and art_url:
-                    headlines.append(_make_headline(title, art_url, "华尔街见闻", pub))
+            items = resp.json().get("data", {}).get("items", [])
+            if not isinstance(items, list):
+                items = []
+            for item in items[:20]:
+                content = _strip_html(item.get("content") or item.get("content_text") or "")
+                title = item.get("title") or (content[:80] if content else "")
+                art_uri = item.get("uri") or ""
+                if not art_uri.startswith("http"):
+                    art_uri = "https://wallstreetcn.com/livenews/" + str(item.get("id", ""))
+                pub = item.get("display_time")
+                if title and len(title) > 8:
+                    headlines.append(_make_headline(title, art_uri, "华尔街见闻", pub))
             logger.info(f"Fetched {len(headlines)} from Wallstreet CN")
         else:
-            logger.warning(f"Wallstreet CN API → {resp.status_code}")
+            logger.warning(f"Wallstreet CN → {resp.status_code}")
     except Exception as e:
         logger.error(f"Wallstreet CN fetch error: {e}")
     return headlines
 
 
-# ─── YICAI (第一财经) ─────────────────────────────────────────────────────────
+# ─── CAIXIN (财新) ────────────────────────────────────────────────────────────
+# caixin.com homepage is accessible globally
 
-def fetch_yicai_headlines():
-    """Fetch from Yicai (第一财经)."""
+def fetch_caixin_headlines():
+    """Fetch from Caixin (财新) homepage."""
     headlines = []
     try:
-        resp = requests.get("https://www.yicai.com/news/", headers=_HEADERS, timeout=12)
+        resp = requests.get("https://www.caixin.com/", headers=_HEADERS, timeout=12)
         if resp.ok:
-            resp.encoding = resp.apparent_encoding or "utf-8"
+            resp.encoding = "utf-8"
             soup = BeautifulSoup(resp.text, "html.parser")
-            for a in soup.select(".m-con-lst a, .news-item a, h2 a, h3 a")[:15]:
+            seen = set()
+            for a in soup.find_all("a", href=True):
+                href = a.get("href", "").strip()
                 text = a.get_text(strip=True)
-                href = a.get("href", "")
-                if len(text) > 10:
-                    if href.startswith("/"):
-                        href = "https://www.yicai.com" + href
-                    if href.startswith("http"):
-                        headlines.append(_make_headline(text, href, "第一财经"))
-            logger.info(f"Fetched {len(headlines)} from Yicai")
+                if (
+                    len(text) > 10
+                    and "caixin.com" in href
+                    and re.search(r"/\d{4}-\d{2}-\d{2}/\d+", href)
+                    and href not in seen
+                ):
+                    seen.add(href)
+                    headlines.append(_make_headline(text, href, "财新"))
+            logger.info(f"Fetched {len(headlines)} from Caixin")
         else:
-            logger.warning(f"Yicai → {resp.status_code}")
+            logger.warning(f"Caixin → {resp.status_code}")
     except Exception as e:
-        logger.error(f"Yicai fetch error: {e}")
+        logger.error(f"Caixin fetch error: {e}")
+    return headlines[:20]
+
+
+# ─── CHINA DAILY (中国日报财经) ──────────────────────────────────────────────
+# RSS feed, accessible globally
+
+def fetch_chinadaily_headlines():
+    """Fetch from China Daily Business RSS."""
+    headlines = []
+    feeds = [
+        ("https://www.chinadaily.com.cn/rss/bizchina_rss.xml", "中国日报"),
+        ("https://www.chinadaily.com.cn/rss/china_rss.xml", "中国日报"),
+    ]
+    for url, source in feeds:
+        try:
+            resp = requests.get(url, headers=_HEADERS, timeout=12)
+            if resp.ok:
+                items = _parse_rss_feed(resp.text, source, max_items=15)
+                if items:
+                    headlines.extend(items)
+                    logger.info(f"Fetched {len(items)} from {source} RSS")
+                    break
+            else:
+                logger.warning(f"ChinaDaily RSS {url} → {resp.status_code}")
+        except Exception as e:
+            logger.error(f"ChinaDaily fetch error: {e}")
     return headlines
 
 
-# ─── CLS (财联社) ────────────────────────────────────────────────────────────
+# ─── SCMP CHINA (南华早报) ────────────────────────────────────────────────────
+# RSS accessible globally, China section covers markets and business
+
+def fetch_scmp_headlines():
+    """Fetch from SCMP China section RSS."""
+    headlines = []
+    feeds = [
+        ("https://www.scmp.com/rss/5/feed", "南华早报"),          # China
+        ("https://www.scmp.com/rss/92/feed", "南华早报"),          # Business
+    ]
+    for url, source in feeds:
+        try:
+            resp = requests.get(url, headers=_HEADERS, timeout=12)
+            if resp.ok:
+                items = _parse_rss_feed(resp.text, source, max_items=15)
+                if items:
+                    headlines.extend(items)
+                    logger.info(f"Fetched {len(items)} from SCMP {url}")
+                    break
+            else:
+                logger.warning(f"SCMP RSS {url} → {resp.status_code}")
+        except Exception as e:
+            logger.error(f"SCMP fetch error: {e}")
+    return headlines
+
+
+# ─── NETEASE FINANCE (网易财经) — best effort ─────────────────────────────────
+
+def fetch_netease_finance_headlines():
+    """Fetch from NetEase Finance (网易财经)."""
+    headlines = []
+    try:
+        resp = requests.get("https://money.163.com/", headers=_HEADERS, timeout=12)
+        if resp.ok:
+            resp.encoding = resp.apparent_encoding or "utf-8"
+            soup = BeautifulSoup(resp.text, "html.parser")
+            seen = set()
+            for a in soup.find_all("a", href=True):
+                href = a.get("href", "").strip()
+                text = a.get_text(strip=True)
+                if (
+                    len(text) > 10
+                    and "money.163.com" in href
+                    and href not in seen
+                    and any(ord(c) > 0x4E00 for c in text)
+                ):
+                    seen.add(href)
+                    headlines.append(_make_headline(text, href, "网易财经"))
+            if headlines:
+                logger.info(f"Fetched {len(headlines)} from NetEase Finance")
+    except Exception as e:
+        logger.error(f"NetEase Finance fetch error: {e}")
+    return headlines[:15]
+
+
+# ─── IFENG FINANCE (凤凰财经) — best effort ──────────────────────────────────
+
+def fetch_ifeng_finance_headlines():
+    """Fetch from ifeng Finance (凤凰财经) — best effort."""
+    headlines = []
+    try:
+        resp = requests.get("https://finance.ifeng.com/", headers=_HEADERS, timeout=10)
+        if resp.ok:
+            resp.encoding = resp.apparent_encoding or "utf-8"
+            soup = BeautifulSoup(resp.text, "html.parser")
+            seen = set()
+            for a in soup.find_all("a", href=True):
+                href = a.get("href", "").strip()
+                text = a.get_text(strip=True)
+                if href.startswith("/"):
+                    href = "https://finance.ifeng.com" + href
+                if (
+                    len(text) > 10
+                    and "ifeng.com" in href
+                    and href not in seen
+                    and any(ord(c) > 0x4E00 for c in text)
+                ):
+                    seen.add(href)
+                    headlines.append(_make_headline(text, href, "凤凰财经"))
+            if headlines:
+                logger.info(f"Fetched {len(headlines)} from ifeng Finance")
+    except Exception as e:
+        logger.debug(f"ifeng Finance unavailable: {e}")
+    return headlines[:15]
+
+
+# ─── YICAI (第一财经) — best effort ──────────────────────────────────────────
+
+def fetch_yicai_headlines():
+    """Fetch from Yicai (第一财经) — best effort."""
+    headlines = []
+    try:
+        resp = requests.get("https://www.yicai.com/news/", headers=_HEADERS, timeout=10)
+        if resp.ok:
+            resp.encoding = resp.apparent_encoding or "utf-8"
+            soup = BeautifulSoup(resp.text, "html.parser")
+            seen = set()
+            for a in soup.find_all("a", href=True):
+                href = a.get("href", "").strip()
+                text = a.get_text(strip=True)
+                if href.startswith("/"):
+                    href = "https://www.yicai.com" + href
+                if (
+                    len(text) > 10
+                    and href.startswith("http")
+                    and href not in seen
+                    and any(ord(c) > 0x4E00 for c in text)
+                ):
+                    seen.add(href)
+                    headlines.append(_make_headline(text, href, "第一财经"))
+            if headlines:
+                logger.info(f"Fetched {len(headlines)} from Yicai")
+    except Exception as e:
+        logger.debug(f"Yicai unavailable: {e}")
+    return headlines[:15]
+
+
+# ─── CLS (财联社) — best effort ──────────────────────────────────────────────
 
 def fetch_cls_headlines():
-    """Fetch from CLS (财联社) — fast financial news wire."""
+    """Fetch from CLS (财联社) — best effort."""
     headlines = []
-    url = "https://www.cls.cn/api/sw?app=CLS&sv=7.7.5&os=web"
     try:
         resp = requests.get(
             "https://www.cls.cn/telegraph",
             headers={**_HEADERS, "Referer": "https://www.cls.cn/"},
-            timeout=12,
+            timeout=10,
         )
         if resp.ok:
             resp.encoding = resp.apparent_encoding or "utf-8"
             soup = BeautifulSoup(resp.text, "html.parser")
-            for el in soup.select(".telegraph-content-box, .tele-title, .news-item")[:15]:
+            seen = set()
+            for el in soup.select(".telegraph-content-box, .tele-title, .news-item"):
                 text = el.get_text(strip=True)
                 a = el.find("a")
-                href = a.get("href", "") if a else ""
-                if len(text) > 10:
-                    if href.startswith("/"):
-                        href = "https://www.cls.cn" + href
-                    if not href.startswith("http"):
-                        href = "https://www.cls.cn/telegraph"
+                href = (a.get("href", "") if a else "").strip()
+                if href.startswith("/"):
+                    href = "https://www.cls.cn" + href
+                if not href.startswith("http"):
+                    href = "https://www.cls.cn/telegraph"
+                if len(text) > 10 and href not in seen:
+                    seen.add(href)
                     headlines.append(_make_headline(text[:120], href, "财联社"))
-            logger.info(f"Fetched {len(headlines)} from CLS")
+            if headlines:
+                logger.info(f"Fetched {len(headlines)} from CLS")
     except Exception as e:
-        logger.error(f"CLS fetch error: {e}")
-    return headlines
-
-
-# ─── 21JINGJI (21世纪财经) ────────────────────────────────────────────────────
-
-def fetch_21jingji_headlines():
-    """Fetch from 21st Century Business Herald (21世纪财经)."""
-    headlines = []
-    try:
-        resp = requests.get("https://www.21jingji.com/", headers=_HEADERS, timeout=12)
-        if resp.ok:
-            resp.encoding = resp.apparent_encoding or "utf-8"
-            soup = BeautifulSoup(resp.text, "html.parser")
-            for a in soup.select(".news-item a, .article-item a, h2 a, h3 a")[:15]:
-                text = a.get_text(strip=True)
-                href = a.get("href", "")
-                if len(text) > 10:
-                    if href.startswith("/"):
-                        href = "https://www.21jingji.com" + href
-                    if href.startswith("http"):
-                        headlines.append(_make_headline(text, href, "21世纪财经"))
-            logger.info(f"Fetched {len(headlines)} from 21jingji")
-        else:
-            logger.warning(f"21jingji → {resp.status_code}")
-    except Exception as e:
-        logger.error(f"21jingji fetch error: {e}")
-    return headlines
+        logger.debug(f"CLS unavailable: {e}")
+    return headlines[:15]
 
 
 # ─── IMAGE HANDLING ───────────────────────────────────────────────────────────
@@ -441,27 +477,34 @@ def cleanup_old_cn_images(current_headlines):
 
 def fetch_cn_financial_headlines(test_mode=False):
     """
-    Fetch financial headlines from major Chinese financial media sources.
+    Fetch financial headlines from Chinese and China-focused financial media.
     Returns dict with 'headlines' list and 'analysis' from DeepSeek.
+
+    Priority sources (reliable globally):
+      Sina Finance API, Eastmoney Kuaixun, Wallstreet CN, Caixin, China Daily RSS, SCMP
+
+    Best-effort sources (may be blocked outside mainland China):
+      NetEase, ifeng, Yicai, CLS
     """
-    sources = [
+    primary_sources = [
         fetch_sina_finance_headlines,
         fetch_eastmoney_headlines,
+        fetch_wallstreetcn_headlines,
+        fetch_caixin_headlines,
+        fetch_chinadaily_headlines,
+        fetch_scmp_headlines,
+    ]
+    fallback_sources = [
         fetch_netease_finance_headlines,
         fetch_ifeng_finance_headlines,
-        fetch_wallstreetcn_headlines,
         fetch_yicai_headlines,
         fetch_cls_headlines,
-        fetch_21jingji_headlines,
     ]
-
-    weighted = [(random.random(), fn) for fn in sources]
-    weighted.sort(reverse=True)
 
     all_headlines = []
     seen_urls = set()
 
-    for _, fn in weighted:
+    for fn in primary_sources + fallback_sources:
         try:
             items = fn()
         except Exception as e:
@@ -473,14 +516,13 @@ def fetch_cn_financial_headlines(test_mode=False):
 
         for h in items:
             url = h.get("url", "")
-            norm_url = re.sub(r'(\?|&)(utm_[^&]*)(&|$)', '', url).rstrip("/")
+            norm_url = re.sub(r"(\?|&)(utm_[^&]*)(&|$)", "", url).rstrip("/")
             if norm_url and norm_url not in seen_urls:
                 all_headlines.append(h)
                 seen_urls.add(norm_url)
 
     logger.info(f"Total CN headlines collected: {len(all_headlines)}")
 
-    # Shuffle for balanced processing
     random.shuffle(all_headlines)
 
     # Fetch images

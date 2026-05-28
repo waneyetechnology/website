@@ -24,9 +24,30 @@
     <meta http-equiv='Expires' content='0'>
     <meta name='last-modified' content='{{ last_updated }}'>
 
-    <!-- Preconnect -->
+    <!-- Twitter Card -->
+    <meta property='twitter:card' content='summary_large_image'>
+    <meta property='twitter:url' content='https://waneye.com/cn/'>
+    <meta property='twitter:title' content='万眼财经 - 中国金融市场全景'>
+    <meta property='twitter:description' content='中国A股、港股实时行情与AI驱动的市场分析'>
+    <meta property='twitter:image' content='https://waneye.com/static/og-image.png'>
+    <meta property='twitter:site' content='@waneye'>
+    <meta property='twitter:creator' content='@waneye'>
+
+    <!-- Additional meta -->
+    <meta name='googlebot' content='index, follow'>
+    <meta name='distribution' content='global'>
+    <meta name='rating' content='general'>
+    <meta name='revisit-after' content='1 days'>
+    <meta name='theme-color' content='#dc2626'>
+    <meta name='msapplication-TileColor' content='#dc2626'>
+
+    <!-- Preconnect + dns-prefetch -->
     <link rel='preconnect' href='https://fonts.bunny.net' crossorigin>
+    <link rel='dns-prefetch' href='https://fonts.bunny.net'>
     <link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin>
+    <link rel='preconnect' href='https://cdn.jsdelivr.net/gh' crossorigin>
+    <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+    <link rel='dns-prefetch' href='https://cdn.jsdelivr.net/gh'>
     <link rel='canonical' href='https://waneye.com/cn/'>
 
     <!-- Tailwind CSS -->
@@ -55,7 +76,11 @@
 
     <!-- Favicons -->
     <link rel='icon' type='image/x-icon' href='../static/icons/favicon.ico?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='16x16' href='../static/icons/favicon-16x16.svg?v={{ cache_buster }}'>
     <link rel='icon' type='image/svg+xml' sizes='32x32' href='../static/icons/favicon-32x32.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='64x64' href='../static/icons/favicon-64x64.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='128x128' href='../static/icons/favicon-128x128.svg?v={{ cache_buster }}'>
+    <link rel='icon' type='image/svg+xml' sizes='256x256' href='../static/icons/favicon-256x256.svg?v={{ cache_buster }}'>
     <link rel='apple-touch-icon' sizes='180x180' href='../static/icons/favicon-256x256.svg?v={{ cache_buster }}'>
 
     <!-- Google Analytics 4 -->
@@ -65,6 +90,17 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-RSJVVBKXLG');
+    </script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Organization","name":"万眼 Waneye","url":"https://waneye.com/cn/","description":"中国金融市场全景智能洞察平台","logo":{"@type":"ImageObject","url":"https://waneye.com/static/icons/favicon-256x256.svg"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","name":"万眼财经","url":"https://waneye.com/cn/","description":"中国A股、港股实时行情与AI驱动的市场分析","inLanguage":"zh-CN"}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebPage","name":"万眼 - 中国金融市场实时资讯与分析","url":"https://waneye.com/cn/","description":"覆盖上证、深证、创业板、科创板、港股实时行情，AI智能财经分析","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","url":"https://waneye.com/cn/"}}
     </script>
 
     <!-- Geo-redirect: non-Chinese users → English version -->
