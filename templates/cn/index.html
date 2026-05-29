@@ -3,6 +3,7 @@
 {% block content %}
 
 {# ─── MACRO: evidence strip ─── #}
+{# Renders a horizontal scrollable row of headline mini-cards for the given source indices #}
 {% macro evidence_strip(sources, news_list) %}
 {% if sources and news_list %}
   {% set ns = namespace(valid=[]) %}
@@ -48,6 +49,107 @@
   </div>
   {% endif %}
 {% endif %}
+{% endmacro %}
+
+{# ─── MACRO: sidebar market data (used in fallback) ─── #}
+{% macro sidebar_market_data() %}
+  {# PBoC Rates #}
+  {% if pboc_rates or pboc_economy %}
+  <div class="sidebar-panel">
+    <div class="sidebar-panel-header">
+      <div class="flex items-center gap-2">
+        <i class="fas fa-university text-red-500 text-sm"></i>
+        <h3 class="sidebar-panel-title">中国人民银行</h3>
+      </div>
+    </div>
+    {% if pboc_economy %}
+    <div class="p-4 border-b border-slate-100">
+      <p class="data-label mb-2">央行关键指标</p>
+      <div class="space-y-1.5">
+        {% for item in pboc_economy %}
+        <div class="flex justify-between items-center text-xs">
+          <span class="text-slate-500">{{ item.indicator }}</span>
+          <span class="font-semibold text-slate-800 tabular-nums">{{ item.value }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% if pboc_rates %}
+    <div class="p-4">
+      <p class="data-label mb-2">政策利率</p>
+      <div class="space-y-1.5">
+        {% for rate in pboc_rates %}
+        <div class="flex justify-between items-center text-xs">
+          <span class="text-slate-500">{{ rate.indicator }}</span>
+          <span class="font-semibold text-slate-800 tabular-nums">{{ rate.value }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {# Economic Indicators #}
+  {% if econ %}
+  <div class="sidebar-panel">
+    <div class="sidebar-panel-header">
+      <div class="flex items-center gap-2">
+        <i class="fas fa-chart-bar text-emerald-500 text-sm"></i>
+        <h3 class="sidebar-panel-title">中国经济指标</h3>
+      </div>
+    </div>
+    <div class="p-4 space-y-3">
+      {% for item in econ %}
+      <div>
+        <div class="flex justify-between items-center mb-1">
+          <span class="text-xs font-medium text-slate-700 leading-tight pr-2">{{ item.event }}</span>
+          <span class="text-xs font-bold px-1.5 py-0.5 rounded flex-shrink-0
+            {% if item.sentiment == 'positive' %}bg-emerald-100 text-emerald-700
+            {% elif item.sentiment == 'negative' %}bg-red-100 text-red-700
+            {% else %}bg-slate-100 text-slate-600{% endif %}">{{ item.value }}</span>
+        </div>
+        <div class="w-full bg-slate-200 rounded-full h-1.5">
+          {% set pct = (item.numeric_value / item.max_value * 100) %}
+          <div class="h-1.5 rounded-full transition-all
+            {% if item.sentiment == 'positive' %}bg-emerald-500
+            {% elif item.sentiment == 'negative' %}bg-red-500
+            {% else %}bg-slate-400{% endif %}"
+            style="width: {{ pct }}%"></div>
+        </div>
+        <p class="text-xs text-slate-400 mt-0.5">{{ item.date }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {# Market Indices #}
+  {% if indices %}
+  <div class="sidebar-panel">
+    <div class="sidebar-panel-header">
+      <div class="flex items-center gap-2">
+        <i class="fas fa-exchange-alt text-amber-500 text-sm"></i>
+        <h3 class="sidebar-panel-title">A股及港股指数</h3>
+      </div>
+      <span class="sidebar-count">{{ indices|length }} 个</span>
+    </div>
+    <div class="divide-y divide-slate-100">
+      {% for idx in indices %}
+      <div class="flex justify-between items-center px-4 py-2.5">
+        <span class="text-xs font-semibold text-slate-800">{{ idx.name }}</span>
+        <span class="text-xs font-bold tabular-nums
+          {% if idx.direction == 'up' %}text-red-600
+          {% elif idx.direction == 'down' %}text-green-600
+          {% else %}text-slate-500{% endif %}">
+          {{ idx.price }} <span class="text-xs font-normal">({{ idx.change_pct }})</span>
+        </span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
 {% endmacro %}
 
 
@@ -735,14 +837,16 @@
 
 
 {% else %}
-{# ── FALLBACK: No structured analysis ── #}
+{# ═══════════════════════════════════════════════════════════════ #}
+{# FALLBACK: No structured analysis — show headlines + market data #}
+{# ═══════════════════════════════════════════════════════════════ #}
 <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
   <div class="xl:col-span-2">
     <div class="sidebar-panel">
       <div class="sidebar-panel-header">
         <div class="flex items-center gap-2">
           <i class="fas fa-newspaper text-red-500 text-sm"></i>
-          <h3 class="sidebar-panel-title">今日财经头条</h3>
+          <h3 class="sidebar-panel-title">今日财经要闻</h3>
         </div>
         {% if news %}<span class="sidebar-count">{{ news|length }} 条</span>{% endif %}
       </div>
@@ -754,27 +858,14 @@
         {% elif not financial_analysis %}
         <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 flex items-start gap-3">
           <i class="fas fa-robot text-amber-500 mt-0.5"></i>
-          <p class="text-sm text-amber-800">AI分析暂时不可用，以下展示原始新闻标题。</p>
+          <p class="text-sm text-amber-800">AI财经分析暂时不可用，以下展示原始新闻标题。</p>
         </div>
         {% endif %}
         {% if news %}
-        <div class="space-y-3">
+        <div class="headline-grid">
           {% for item in news %}
-          <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer"
-             class="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group">
-            <span class="text-xs font-bold text-slate-400 w-6 flex-shrink-0 mt-0.5">{{ loop.index }}</span>
-            {% if item.image %}
-              {% set actual_img = item.image.split("#")[0] %}
-              <img src="{{ actual_img }}" alt="" class="w-14 h-10 object-cover rounded flex-shrink-0" loading="lazy">
-            {% endif %}
-            <div>
-              <p class="text-sm font-medium text-slate-800 group-hover:text-red-600 leading-snug line-clamp-2">{{ item.headline }}</p>
-              <span class="text-xs text-slate-400 mt-1 flex items-center gap-1">
-                <img src="{{ item.favicon }}" alt="" class="w-3 h-3 rounded-sm">
-                {{ item.source }}
-              </span>
-            </div>
-          </a>
+            {% set item_index = loop.index0 %}
+            {% include 'headline_card.html' %}
           {% endfor %}
         </div>
         {% endif %}
@@ -782,52 +873,7 @@
     </div>
   </div>
   <div class="xl:col-span-1 space-y-5">
-    {# Index sidebar #}
-    {% if indices %}
-    <div class="sidebar-panel">
-      <div class="sidebar-panel-header">
-        <div class="flex items-center gap-2">
-          <i class="fas fa-chart-line text-red-500 text-sm"></i>
-          <h3 class="sidebar-panel-title">市场指数</h3>
-        </div>
-      </div>
-      <div class="divide-y divide-slate-100">
-        {% for idx in indices %}
-        <div class="flex justify-between items-center px-4 py-2.5">
-          <span class="text-xs font-semibold text-slate-800">{{ idx.name }}</span>
-          <span class="text-xs font-bold tabular-nums
-            {% if idx.direction == 'up' %}text-red-600
-            {% elif idx.direction == 'down' %}text-green-600
-            {% else %}text-slate-500{% endif %}">
-            {{ idx.price }} <span class="text-xs font-normal">({{ idx.change_pct }})</span>
-          </span>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
-    {# Economic data sidebar #}
-    {% if econ %}
-    <div class="sidebar-panel">
-      <div class="sidebar-panel-header">
-        <div class="flex items-center gap-2">
-          <i class="fas fa-chart-bar text-emerald-500 text-sm"></i>
-          <h3 class="sidebar-panel-title">经济指标</h3>
-        </div>
-      </div>
-      <div class="divide-y divide-slate-100">
-        {% for item in econ %}
-        <div class="flex justify-between items-center px-4 py-2.5">
-          <span class="text-xs text-slate-600">{{ item.event }}</span>
-          <span class="text-xs font-bold tabular-nums
-            {% if item.sentiment == 'positive' %}text-emerald-600
-            {% elif item.sentiment == 'negative' %}text-red-600
-            {% else %}text-slate-600{% endif %}">{{ item.value }}</span>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
+    {{ sidebar_market_data() }}
   </div>
 </div>
 {% endif %}
