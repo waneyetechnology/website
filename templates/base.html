@@ -121,11 +121,16 @@
       var isChinese = false;
       var tz = '';
       try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(e) {}
-      var cnTZ = ['Asia/Shanghai','Asia/Chongqing','Asia/Harbin','Asia/Chungking','Asia/Urumqi','Asia/Kashgar','PRC'];
+      var cnTZ = ['Asia/Shanghai','Asia/Chongqing','Asia/Harbin','Asia/Chungking','Asia/Urumqi','Asia/Kashgar','PRC','Asia/Taipei'];
       if (cnTZ.indexOf(tz) !== -1) isChinese = true;
 
+      // Fallback: UTC offset -480 = UTC+8 (China/Taiwan) — works in all browsers incl. old WebViews
+      if (!isChinese) {
+        try { if (new Date().getTimezoneOffset() === -480) isChinese = true; } catch(e) {}
+      }
+
       var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-      if (!isChinese && (lang === 'zh' || lang.indexOf('zh-cn') === 0 || lang.indexOf('zh-hans') === 0 || lang.indexOf('zh-sg') === 0)) {
+      if (!isChinese && (lang === 'zh' || lang.indexOf('zh-cn') === 0 || lang.indexOf('zh-hans') === 0 || lang.indexOf('zh-sg') === 0 || lang.indexOf('zh-tw') === 0 || lang.indexOf('zh-hant') === 0 || lang.indexOf('zh-hk') === 0)) {
         isChinese = true;
       }
 
@@ -135,12 +140,15 @@
         return;
       }
 
-      // Secondary: IP-based check (async, non-blocking)
+      // Secondary: IP-based check (async, non-blocking) — two providers for GFW resilience
       if (!isChinese) {
-        fetch('https://ipapi.co/json/', { cache: 'no-store' })
-          .then(function(r){ return r.json(); })
-          .then(function(d){
-            if (d && d.country_code === 'CN') {
+        function checkIP(url, getCode) {
+          return fetch(url, { cache: 'no-store' }).then(function(r){ return r.json(); }).then(getCode);
+        }
+        checkIP('https://ipapi.co/json/', function(d){ return d && d.country_code; })
+          .catch(function(){ return checkIP('https://api.ip.sb/geoip', function(d){ return d && d.country_code; }); })
+          .then(function(code){
+            if (code === 'CN' || code === 'TW') {
               var base = location.origin + location.pathname.replace(/\/[^/]*$/, '/');
               window.location.replace(base + 'cn/');
             }

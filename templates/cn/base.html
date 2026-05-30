@@ -119,20 +119,29 @@
       var isChinese = false;
       var tz = '';
       try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(e) {}
-      var cnTZ = ['Asia/Shanghai','Asia/Chongqing','Asia/Harbin','Asia/Chungking','Asia/Urumqi','Asia/Kashgar','PRC'];
+      var cnTZ = ['Asia/Shanghai','Asia/Chongqing','Asia/Harbin','Asia/Chungking','Asia/Urumqi','Asia/Kashgar','PRC','Asia/Taipei'];
       if (cnTZ.indexOf(tz) !== -1) isChinese = true;
 
+      // Fallback: UTC offset -480 = UTC+8 (China/Taiwan) — works in all browsers incl. old WebViews
+      if (!isChinese) {
+        try { if (new Date().getTimezoneOffset() === -480) isChinese = true; } catch(e) {}
+      }
+
       var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-      if (!isChinese && (lang === 'zh' || lang.indexOf('zh-cn') === 0 || lang.indexOf('zh-hans') === 0 || lang.indexOf('zh-sg') === 0)) {
+      if (!isChinese && (lang === 'zh' || lang.indexOf('zh-cn') === 0 || lang.indexOf('zh-hans') === 0 || lang.indexOf('zh-sg') === 0 || lang.indexOf('zh-tw') === 0 || lang.indexOf('zh-hant') === 0 || lang.indexOf('zh-hk') === 0)) {
         isChinese = true;
       }
 
       if (!isChinese) {
-        // Secondary: IP-based check — redirect to EN only if confirmed non-CN
-        fetch('https://ipapi.co/json/', { cache: 'no-store' })
-          .then(function(r){ return r.json(); })
-          .then(function(d){
-            if (d && d.country_code && d.country_code !== 'CN') {
+        // Secondary: IP-based check — redirect to EN only if confirmed non-CN/TW
+        // Two providers for GFW resilience (ipapi.co may be blocked in China)
+        function checkIP(url, getCode) {
+          return fetch(url, { cache: 'no-store' }).then(function(r){ return r.json(); }).then(getCode);
+        }
+        checkIP('https://ipapi.co/json/', function(d){ return d && d.country_code; })
+          .catch(function(){ return checkIP('https://api.ip.sb/geoip', function(d){ return d && d.country_code; }); })
+          .then(function(code){
+            if (code && code !== 'CN' && code !== 'TW') {
               window.location.replace('../');
             }
           }).catch(function(){});
@@ -159,7 +168,7 @@
                 <div class='flex items-center gap-2.5 flex-shrink-0'>
                     <span class='text-lg font-bold text-slate-900 tracking-tight'>万眼</span>
                     <span class='hidden md:inline-block h-4 w-px bg-slate-300'></span>
-                    <span class='hidden md:inline text-xs text-slate-400 font-medium tracking-wide'>中国金融市场智能洞察</span>
+                    <span class='hidden md:inline text-xs text-slate-400 font-medium tracking-wide'>金融市场智能洞察</span>
                 </div>
 
                 <!-- Nav -->
