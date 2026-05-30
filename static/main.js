@@ -57,6 +57,14 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // Fallback: after page fully loads, reveal any images that still haven't shown
+  // (handles Safari file:// mode and other edge cases where load events don't fire)
+  window.addEventListener('load', function() {
+    document.querySelectorAll('.headline-image:not(.loaded)').forEach(function(img) {
+      img.classList.add('loaded');
+    });
+  });
 });
 
 // Replace UTC timestamp with local time for the visitor
