@@ -8,6 +8,7 @@ Uses the same DeepSeek API with a Chinese-market-focused prompt.
 
 import os
 import time
+from datetime import datetime, timezone, timedelta
 import json
 import re
 import requests
@@ -42,8 +43,10 @@ class DeepSeekCNFinancialExpert:
         return "\n".join(lines).strip()
 
     def _create_analysis_prompt(self, headlines_text):
-        current_date = time.strftime("%Y年%m月%d日")
-        current_time = time.strftime("%H:%M")
+        beijing_tz = timezone(timedelta(hours=8))
+        now_beijing = datetime.now(beijing_tz)
+        current_date = now_beijing.strftime("%Y年%m月%d日")
+        current_time = now_beijing.strftime("%H:%M")
 
         return f"""你是DeepSeek，一位专注于中国金融市场的高级AI分析师。你的专业领域包括：
 - A股市场分析（上证、深证、创业板、科创板）

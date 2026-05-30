@@ -108,6 +108,13 @@
     (function() {
       // Don't redirect if user has explicitly chosen Chinese (clicked 中文 link)
       if (sessionStorage.getItem('lang_override') === 'cn') return;
+      // Allow ?preview=cn URL param to bypass redirect for local testing
+      if (location.search.indexOf('preview=cn') !== -1) {
+        sessionStorage.setItem('lang_override', 'cn');
+        return;
+      }
+      // Don't redirect from localhost / local file — for development preview
+      if (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:') return;
 
       var isChinese = false;
       var tz = '';
@@ -179,7 +186,7 @@
                     </div>
                     <!-- Switch to English -->
                     <a href='../' onclick="sessionStorage.setItem('lang_override','en')"
-                       class='hidden sm:flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-500 hover:text-blue-600 border border-slate-200 rounded-full hover:border-blue-300 transition-colors'>
+                       class='flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-500 hover:text-blue-600 border border-slate-200 rounded-full hover:border-blue-300 transition-colors'>
                         <i class='fas fa-globe text-xs'></i> EN
                     </a>
                 </div>

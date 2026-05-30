@@ -1,7 +1,7 @@
 """HTML generator for the Chinese version of the site."""
 
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 from .log import logger
@@ -26,7 +26,8 @@ def generate_cn_html(news, pboc_rates, econ, indices, pboc_economy, financial_an
         env = get_cn_template_env()
         template = env.get_template("index.html")
 
-        last_updated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+        beijing_tz = timezone(timedelta(hours=8))
+        last_updated = datetime.now(beijing_tz).strftime("%Y-%m-%d %H:%M 北京时间")
 
         template_data = {
             "title": "万眼 - 中国金融市场实时资讯与分析",
