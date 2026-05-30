@@ -109,6 +109,45 @@
       gtag('js', new Date());
       gtag('config', 'G-RSJVVBKXLG');
     </script>
+
+    <!-- Geo-redirect: Chinese users → CN version -->
+    <script>
+    (function() {
+      // Don't redirect if user has explicitly chosen English
+      if (sessionStorage.getItem('lang_override') === 'en') return;
+      // Don't redirect if already on cn/ path
+      if (location.pathname.indexOf('/cn') !== -1) return;
+
+      var isChinese = false;
+      var tz = '';
+      try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(e) {}
+      var cnTZ = ['Asia/Shanghai','Asia/Chongqing','Asia/Harbin','Asia/Chungking','Asia/Urumqi','Asia/Kashgar','PRC'];
+      if (cnTZ.indexOf(tz) !== -1) isChinese = true;
+
+      var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      if (!isChinese && (lang === 'zh' || lang.indexOf('zh-cn') === 0 || lang.indexOf('zh-hans') === 0 || lang.indexOf('zh-sg') === 0)) {
+        isChinese = true;
+      }
+
+      if (isChinese) {
+        var base = location.origin + location.pathname.replace(/\/[^/]*$/, '/');
+        window.location.replace(base + 'cn/');
+        return;
+      }
+
+      // Secondary: IP-based check (async, non-blocking)
+      if (!isChinese) {
+        fetch('https://ipapi.co/json/', { cache: 'no-store' })
+          .then(function(r){ return r.json(); })
+          .then(function(d){
+            if (d && d.country_code === 'CN') {
+              var base = location.origin + location.pathname.replace(/\/[^/]*$/, '/');
+              window.location.replace(base + 'cn/');
+            }
+          }).catch(function(){});
+      }
+    })();
+    </script>
 </head>
 <body class="bg-slate-50 min-h-screen" x-data="{ mobileMenuOpen: false }">
     <canvas id='bg-canvas'></canvas>
@@ -135,16 +174,23 @@
                     <a href='#market-data' class='header-anchor-link'><i class='fas fa-database text-xs'></i> Data</a>
                 </nav>
 
-                <!-- Live Badge -->
-                <div class='flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full border border-emerald-200 flex-shrink-0'>
-                    <span class='relative flex h-2 w-2 flex-shrink-0'>
-                        <span class='animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75'></span>
-                        <span class='relative inline-flex rounded-full h-2 w-2 bg-emerald-500'></span>
-                    </span>
-                    <p class='text-slate-600 text-xs font-medium hidden sm:block' id='last-updated'>
-                        <em>Last updated: {{ last_updated }}</em>
-                    </p>
-                    <p class='text-emerald-700 text-xs font-semibold sm:hidden'>Live</p>
+                <!-- Live Badge + Language switcher -->
+                <div class='flex items-center gap-2 flex-shrink-0'>
+                    <div class='flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full border border-emerald-200 flex-shrink-0'>
+                        <span class='relative flex h-2 w-2 flex-shrink-0'>
+                            <span class='animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75'></span>
+                            <span class='relative inline-flex rounded-full h-2 w-2 bg-emerald-500'></span>
+                        </span>
+                        <p class='text-slate-600 text-xs font-medium hidden sm:block' id='last-updated'>
+                            <em>Last updated: {{ last_updated }}</em>
+                        </p>
+                        <p class='text-emerald-700 text-xs font-semibold sm:hidden'>Live</p>
+                    </div>
+                    <!-- Switch to Chinese version -->
+                    <a href='cn/' onclick="sessionStorage.removeItem('lang_override')"
+                       class='flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-500 hover:text-red-600 border border-slate-200 rounded-full hover:border-red-300 transition-colors'>
+                        <i class='fas fa-globe text-xs'></i> 中文
+                    </a>
                 </div>
             </div>
 

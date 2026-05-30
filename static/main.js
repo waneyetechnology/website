@@ -57,18 +57,36 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // Fallback: after page fully loads, reveal any images that still haven't shown
+  // (handles Safari file:// mode and other edge cases where load events don't fire)
+  window.addEventListener('load', function() {
+    document.querySelectorAll('.headline-image:not(.loaded)').forEach(function(img) {
+      img.classList.add('loaded');
+    });
+  });
 });
 
 // Replace UTC timestamp with local time for the visitor
 (function(){
   var el = document.getElementById('last-updated');
   if(el){
+    // Try English format: "Last updated: YYYY-MM-DD HH:MM UTC"
     var utcText = el.textContent.match(/Last updated: (.*) UTC/);
     if(utcText && utcText[1]){
       var d = new Date(utcText[1]+' UTC');
       if(!isNaN(d)){
         var opts = {year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'};
         el.innerHTML = '<em>Last updated: '+d.toLocaleString(undefined,opts)+'</em>';
+      }
+    }
+    // Try Chinese format: "更新时间: YYYY-MM-DD HH:MM UTC"
+    var cnText = el.textContent.match(/更新时间: (.*) UTC/);
+    if(cnText && cnText[1]){
+      var d2 = new Date(cnText[1]+' UTC');
+      if(!isNaN(d2)){
+        var opts2 = {year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'};
+        el.innerHTML = '<em>更新时间: '+d2.toLocaleString('zh-CN',opts2)+'</em>';
       }
     }
   }
