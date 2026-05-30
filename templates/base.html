@@ -124,6 +124,11 @@
       var cnTZ = ['Asia/Shanghai','Asia/Chongqing','Asia/Harbin','Asia/Chungking','Asia/Urumqi','Asia/Kashgar','PRC','Asia/Taipei'];
       if (cnTZ.indexOf(tz) !== -1) isChinese = true;
 
+      // Fallback: UTC offset -480 = UTC+8 (China/Taiwan) — works in all browsers incl. old WebViews
+      if (!isChinese) {
+        try { if (new Date().getTimezoneOffset() === -480) isChinese = true; } catch(e) {}
+      }
+
       var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
       if (!isChinese && (lang === 'zh' || lang.indexOf('zh-cn') === 0 || lang.indexOf('zh-hans') === 0 || lang.indexOf('zh-sg') === 0 || lang.indexOf('zh-tw') === 0 || lang.indexOf('zh-hant') === 0 || lang.indexOf('zh-hk') === 0)) {
         isChinese = true;
