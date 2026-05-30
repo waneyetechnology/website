@@ -135,12 +135,15 @@
         return;
       }
 
-      // Secondary: IP-based check (async, non-blocking)
+      // Secondary: IP-based check (async, non-blocking) — two providers for GFW resilience
       if (!isChinese) {
-        fetch('https://ipapi.co/json/', { cache: 'no-store' })
-          .then(function(r){ return r.json(); })
-          .then(function(d){
-            if (d && (d.country_code === 'CN' || d.country_code === 'TW')) {
+        function checkIP(url, getCode) {
+          return fetch(url, { cache: 'no-store' }).then(function(r){ return r.json(); }).then(getCode);
+        }
+        checkIP('https://ipapi.co/json/', function(d){ return d && d.country_code; })
+          .catch(function(){ return checkIP('https://api.ip.sb/geoip', function(d){ return d && d.country_code; }); })
+          .then(function(code){
+            if (code === 'CN' || code === 'TW') {
               var base = location.origin + location.pathname.replace(/\/[^/]*$/, '/');
               window.location.replace(base + 'cn/');
             }

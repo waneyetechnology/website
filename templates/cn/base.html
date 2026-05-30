@@ -129,10 +129,14 @@
 
       if (!isChinese) {
         // Secondary: IP-based check — redirect to EN only if confirmed non-CN/TW
-        fetch('https://ipapi.co/json/', { cache: 'no-store' })
-          .then(function(r){ return r.json(); })
-          .then(function(d){
-            if (d && d.country_code && d.country_code !== 'CN' && d.country_code !== 'TW') {
+        // Two providers for GFW resilience (ipapi.co may be blocked in China)
+        function checkIP(url, getCode) {
+          return fetch(url, { cache: 'no-store' }).then(function(r){ return r.json(); }).then(getCode);
+        }
+        checkIP('https://ipapi.co/json/', function(d){ return d && d.country_code; })
+          .catch(function(){ return checkIP('https://api.ip.sb/geoip', function(d){ return d && d.country_code; }); })
+          .then(function(code){
+            if (code && code !== 'CN' && code !== 'TW') {
               window.location.replace('../');
             }
           }).catch(function(){});
