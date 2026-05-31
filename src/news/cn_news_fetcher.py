@@ -8,6 +8,8 @@ Fetches financial headlines from Chinese and China-focused financial media:
 - 财新 (Caixin) — scraping
 - 中国日报财经 (China Daily Biz) — RSS
 - 南华早报 (SCMP China) — RSS
+- 证券时报 (Securities Times) — scraping
+- 中国证券报 (China Securities Journal) — scraping
 - 网易财经 (NetEase Finance) — scraping fallback
 - 凤凰财经 (ifeng Finance) — best-effort (China-hosted)
 - 第一财经 (Yicai) — best-effort
@@ -390,6 +392,73 @@ def fetch_cls_headlines():
     return headlines[:15]
 
 
+# ─── SECURITIES TIMES (证券时报) ─────────────────────────────────────────────
+# stcn.com homepage is accessible globally and renders articles server-side
+
+def fetch_securities_times_headlines():
+    """Fetch from Securities Times (证券时报 stcn.com) — scraping."""
+    headlines = []
+    try:
+        resp = requests.get("https://www.stcn.com/", headers=_HEADERS, timeout=12)
+        if resp.ok:
+            resp.encoding = resp.apparent_encoding or "utf-8"
+            soup = BeautifulSoup(resp.text, "html.parser")
+            seen = set()
+            for a in soup.find_all("a", href=True):
+                href = a.get("href", "").strip()
+                text = a.get_text(strip=True)
+                if href.startswith("/"):
+                    href = "https://www.stcn.com" + href
+                if (
+                    len(text) > 10
+                    and "/article/detail/" in href
+                    and href not in seen
+                    and any(ord(c) > 0x4E00 for c in text)
+                ):
+                    seen.add(href)
+                    headlines.append(_make_headline(text, href, "证券时报"))
+            if headlines:
+                logger.info(f"Fetched {len(headlines)} from 证券时报")
+        else:
+            logger.warning(f"证券时报 → {resp.status_code}")
+    except Exception as e:
+        logger.debug(f"证券时报 unavailable: {e}")
+    return headlines[:20]
+
+
+# ─── CHINA SECURITIES JOURNAL (中国证券报) ────────────────────────────────────
+# cs.com.cn is the official CSRC-backed securities paper; server-side rendered
+
+def fetch_china_securities_journal_headlines():
+    """Fetch from China Securities Journal (中国证券报 cs.com.cn) — scraping."""
+    headlines = []
+    try:
+        resp = requests.get("https://www.cs.com.cn/", headers=_HEADERS, timeout=12)
+        if resp.ok:
+            resp.encoding = resp.apparent_encoding or "gb18030"
+            soup = BeautifulSoup(resp.content, "html.parser")
+            seen = set()
+            for a in soup.find_all("a", href=True):
+                href = a.get("href", "").strip()
+                text = a.get_text(strip=True)
+                if (
+                    len(text) > 10
+                    and "cs.com.cn" in href
+                    and re.search(r"/\d{4}/\d{2}/\d{2}/", href)
+                    and href not in seen
+                    and any(ord(c) > 0x4E00 for c in text)
+                ):
+                    seen.add(href)
+                    headlines.append(_make_headline(text, href, "中国证券报"))
+            if headlines:
+                logger.info(f"Fetched {len(headlines)} from 中国证券报")
+        else:
+            logger.warning(f"中国证券报 → {resp.status_code}")
+    except Exception as e:
+        logger.debug(f"中国证券报 unavailable: {e}")
+    return headlines[:20]
+
+
 # ─── IMAGE HANDLING ───────────────────────────────────────────────────────────
 
 def _ensure_cn_image_dir():
@@ -507,7 +576,8 @@ def fetch_cn_financial_headlines(test_mode=False):
     Returns dict with 'headlines' list and 'analysis' from DeepSeek.
 
     Priority sources (reliable globally):
-      Sina Finance API, Eastmoney Kuaixun, Wallstreet CN, Caixin, China Daily RSS, SCMP
+      Sina Finance API, Eastmoney Kuaixun, Wallstreet CN, Caixin, China Daily RSS, SCMP,
+      Securities Times, China Securities Journal
 
     Best-effort sources (may be blocked outside mainland China):
       NetEase, ifeng, Yicai, CLS
@@ -519,6 +589,8 @@ def fetch_cn_financial_headlines(test_mode=False):
         fetch_caixin_headlines,
         fetch_chinadaily_headlines,
         fetch_scmp_headlines,
+        fetch_securities_times_headlines,
+        fetch_china_securities_journal_headlines,
     ]
     fallback_sources = [
         fetch_netease_finance_headlines,
@@ -529,6 +601,7 @@ def fetch_cn_financial_headlines(test_mode=False):
 
     all_headlines = []
     seen_urls = set()
+    seen_titles = set()
 
     for fn in primary_sources + fallback_sources:
         try:
@@ -543,9 +616,14 @@ def fetch_cn_financial_headlines(test_mode=False):
         for h in items:
             url = h.get("url", "")
             norm_url = re.sub(r"(\?|&)(utm_[^&]*)(&|$)", "", url).rstrip("/")
-            if norm_url and norm_url not in seen_urls:
+            # Normalize title: strip punctuation/spaces, lowercase, use first 20 chars
+            raw_title = h.get("headline", "")
+            norm_title = re.sub(r"[^\w\u4e00-\u9fff]", "", raw_title.lower())[:20]
+            if norm_url and norm_url not in seen_urls and (not norm_title or norm_title not in seen_titles):
                 all_headlines.append(h)
                 seen_urls.add(norm_url)
+                if norm_title:
+                    seen_titles.add(norm_title)
 
     logger.info(f"Total CN headlines collected: {len(all_headlines)}")
 
