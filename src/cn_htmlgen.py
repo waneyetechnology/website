@@ -30,8 +30,8 @@ def generate_cn_html(news, pboc_rates, econ, indices, pboc_economy, financial_an
         last_updated = datetime.now(beijing_tz).strftime("%Y-%m-%d %H:%M 北京时间")
 
         template_data = {
-            "title": "万眼 - 中国金融市场实时资讯与分析",
-            "page_title": "万眼 — 中国金融市场全景",
+            "title": "万眼 - 金融市场实时资讯与分析",
+            "page_title": "万眼 — 金融市场全景",
             "last_updated": last_updated,
             "cache_buster": int(time.time()),
             "news": news,
