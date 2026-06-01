@@ -160,16 +160,23 @@
 <body class="bg-slate-50 min-h-screen" x-data="{ mobileMenuOpen: false }">
     <canvas id='bg-canvas'></canvas>
 
-    <!-- Sticky Header -->
-    <header class='site-header sticky top-0 z-50 bg-white/95 border-b border-slate-200 shadow-sm'>
+    <!-- Sticky Header — dark navy -->
+    <header class='site-header sticky top-0 z-50'>
         <div class='w-full mx-auto px-4 sm:px-6 lg:px-8'>
             <div class='flex items-center justify-between h-14 gap-4'>
-                <!-- Brand -->
-                <div class='flex items-center gap-2.5 flex-shrink-0'>
-                    <span class='text-lg font-bold text-slate-900 tracking-tight'>万眼</span>
-                    <span class='hidden md:inline-block h-4 w-px bg-slate-300'></span>
-                    <span class='hidden md:inline text-xs text-slate-400 font-medium tracking-wide'>金融市场智能洞察</span>
-                </div>
+                <!-- Brand with eye logo -->
+                <a href='../' class='flex items-center gap-2.5 flex-shrink-0' style='text-decoration:none'>
+                    <svg class='w-7 h-7 flex-shrink-0' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                        <ellipse cx='14' cy='14' rx='12.5' ry='7.5' stroke='#f87171' stroke-width='1.6' fill='none'/>
+                        <circle cx='14' cy='14' r='4.2' fill='#f87171'/>
+                        <circle cx='14' cy='14' r='1.8' fill='#0b1929'/>
+                        <path d='M9 11.5 C10.5 9 14 8 17.5 9.5' stroke='#fca5a5' stroke-width='0.9' stroke-linecap='round' opacity='0.55'/>
+                    </svg>
+                    <div class='leading-tight'>
+                        <span class='text-sm font-black text-white tracking-widest'>万眼</span>
+                        <span class='hidden md:block text-xs text-slate-500 font-medium leading-none mt-0.5'>全球金融智能洞察</span>
+                    </div>
+                </a>
 
                 <!-- Nav -->
                 <nav class='hidden lg:flex items-center gap-0.5'>
@@ -183,33 +190,33 @@
 
                 <!-- Right: Live badge + language switcher -->
                 <div class='flex items-center gap-2 flex-shrink-0'>
-                    <div class='flex items-center gap-2 px-3 py-1.5 bg-red-50 rounded-full border border-red-200 flex-shrink-0'>
+                    <div class='flex items-center gap-2 px-3 py-1.5 rounded-full border flex-shrink-0' style='background:rgba(127,29,29,0.35);border-color:rgba(248,113,113,0.3)'>
                         <span class='relative flex h-2 w-2 flex-shrink-0'>
                             <span class='animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75'></span>
                             <span class='relative inline-flex rounded-full h-2 w-2 bg-red-500'></span>
                         </span>
-                        <p class='text-slate-600 text-xs font-medium hidden sm:block' id='last-updated'>
+                        <p class='text-red-400 text-xs font-medium hidden sm:block' id='last-updated'>
                             <em>更新时间: {{ last_updated }}</em>
                         </p>
-                        <p class='text-red-700 text-xs font-semibold sm:hidden'>实时</p>
+                        <p class='text-red-400 text-xs font-semibold sm:hidden'>实时</p>
                     </div>
                     <!-- Switch to English -->
                     <a href='../' onclick="sessionStorage.setItem('lang_override','en')"
-                       class='flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-500 hover:text-blue-600 border border-slate-200 rounded-full hover:border-blue-300 transition-colors'>
+                       class='flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-400 hover:text-blue-300 rounded-full transition-colors' style='border:1px solid rgba(100,116,139,0.4)'>
                         <i class='fas fa-globe text-xs'></i> EN
                     </a>
                 </div>
             </div>
 
-            <!-- Mobile nav -->
-            <div class='lg:hidden border-t border-slate-100'>
+            <!-- Mobile nav — dark -->
+            <div class='lg:hidden' style='border-top:1px solid rgba(255,255,255,0.05)'>
                 <div class='flex overflow-x-auto scrollbar-none'>
-                    <a href='#exec-summary' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-red-700 border-b-2 border-transparent hover:border-red-600 transition-colors whitespace-nowrap'><i class='fas fa-chart-line'></i> 摘要</a>
-                    <a href='#market-insights' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-amber-700 border-b-2 border-transparent hover:border-amber-600 transition-colors whitespace-nowrap'><i class='fas fa-lightbulb'></i> 行业</a>
-                    <a href='#risk-assessment' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-red-700 border-b-2 border-transparent hover:border-red-600 transition-colors whitespace-nowrap'><i class='fas fa-shield-alt'></i> 风险</a>
-                    <a href='#recommendations' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-green-700 border-b-2 border-transparent hover:border-green-600 transition-colors whitespace-nowrap'><i class='fas fa-bullseye'></i> 策略</a>
-                    <a href='#market-outlook' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-cyan-700 border-b-2 border-transparent hover:border-cyan-600 transition-colors whitespace-nowrap'><i class='fas fa-binoculars'></i> 展望</a>
-                    <a href='#market-data' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-slate-700 border-b-2 border-transparent hover:border-slate-600 transition-colors whitespace-nowrap'><i class='fas fa-database'></i> 数据</a>
+                    <a href='#exec-summary' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-400 hover:text-red-400 border-b-2 border-transparent hover:border-red-500 transition-colors whitespace-nowrap'><i class='fas fa-chart-line'></i> 摘要</a>
+                    <a href='#market-insights' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-400 hover:text-amber-400 border-b-2 border-transparent hover:border-amber-500 transition-colors whitespace-nowrap'><i class='fas fa-lightbulb'></i> 行业</a>
+                    <a href='#risk-assessment' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-400 hover:text-red-400 border-b-2 border-transparent hover:border-red-500 transition-colors whitespace-nowrap'><i class='fas fa-shield-alt'></i> 风险</a>
+                    <a href='#recommendations' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-400 hover:text-emerald-400 border-b-2 border-transparent hover:border-emerald-500 transition-colors whitespace-nowrap'><i class='fas fa-bullseye'></i> 策略</a>
+                    <a href='#market-outlook' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-400 hover:text-cyan-400 border-b-2 border-transparent hover:border-cyan-500 transition-colors whitespace-nowrap'><i class='fas fa-binoculars'></i> 展望</a>
+                    <a href='#market-data' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-400 hover:text-slate-200 border-b-2 border-transparent hover:border-slate-400 transition-colors whitespace-nowrap'><i class='fas fa-database'></i> 数据</a>
                 </div>
             </div>
         </div>
@@ -219,24 +226,49 @@
 
         {% block content %}{% endblock %}
 
-        <footer class='mt-12 border-t border-slate-200 bg-white'>
-            <div class='w-full mx-auto px-4 sm:px-6 lg:px-8 py-6'>
-                <div class='flex flex-col sm:flex-row items-center justify-between gap-3'>
-                    <div class='flex items-center gap-2.5'>
-                        <span class='text-sm font-bold text-slate-800'>万眼 · Waneye</span>
-                        <span class='text-slate-300 text-xs'>·</span>
-                        <span class='text-xs text-slate-400'>金融市场全景洞察</span>
+    </div>
+
+    <!-- Dark site footer -->
+    <footer class='site-footer'>
+        <div class='w-full mx-auto px-4 sm:px-6 lg:px-8 py-8'>
+            <div class='flex flex-col md:flex-row items-start md:items-center justify-between gap-6'>
+                <!-- Brand -->
+                <div>
+                    <div class='flex items-center gap-2.5 mb-2'>
+                        <svg class='w-5 h-5 flex-shrink-0' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                            <ellipse cx='14' cy='14' rx='12.5' ry='7.5' stroke='#f87171' stroke-width='1.6' fill='none'/>
+                            <circle cx='14' cy='14' r='4.2' fill='#f87171'/>
+                            <circle cx='14' cy='14' r='1.8' fill='#0b1929'/>
+                        </svg>
+                        <span class='text-sm font-black text-white tracking-widest'>万眼 · Waneye</span>
                     </div>
-                    <p class='text-xs text-slate-400 text-center sm:text-right'>
-                        本网站提供的财经信息仅供参考，不构成任何投资建议。投资有风险，入市需谨慎。
+                    <p class='text-xs text-slate-500 max-w-xs leading-relaxed'>
+                        AI驱动的每日市场简报，提供风险分析、行业洞察和投资建议。
                     </p>
                 </div>
+                <!-- Navigation -->
+                <nav class='flex flex-wrap gap-x-5 gap-y-2'>
+                    <a href='#exec-summary' class='text-xs text-slate-500 hover:text-slate-300 transition-colors'>摘要</a>
+                    <a href='#market-insights' class='text-xs text-slate-500 hover:text-slate-300 transition-colors'>行业</a>
+                    <a href='#risk-assessment' class='text-xs text-slate-500 hover:text-slate-300 transition-colors'>风险</a>
+                    <a href='#recommendations' class='text-xs text-slate-500 hover:text-slate-300 transition-colors'>策略</a>
+                    <a href='#market-outlook' class='text-xs text-slate-500 hover:text-slate-300 transition-colors'>展望</a>
+                    <a href='#market-data' class='text-xs text-slate-500 hover:text-slate-300 transition-colors'>数据</a>
+                    <a href='../' onclick="sessionStorage.setItem('lang_override','en')" class='text-xs text-slate-500 hover:text-slate-300 transition-colors'>English</a>
+                </nav>
             </div>
-        </footer>
-    </div>
+            <div class='mt-6 pt-5 flex flex-col sm:flex-row items-center justify-between gap-3' style='border-top:1px solid rgba(255,255,255,0.05)'>
+                <p class='text-xs text-slate-600'>© <span class='footer-year'>2026</span> Waneye Technology. 保留所有权利。</p>
+                <p class='text-xs text-slate-600 text-center sm:text-right max-w-sm'>
+                    本网站提供的财经信息仅供参考，不构成任何投资建议。投资有风险，入市需谨慎。
+                </p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Alpine.js -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src='../static/main.js?v={{ cache_buster }}'></script>
+    <script>var fy=document.querySelector('.footer-year');if(fy)fy.textContent=new Date().getFullYear();</script>
 </body>
 </html>

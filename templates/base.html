@@ -160,17 +160,24 @@
 <body class="bg-slate-50 min-h-screen" x-data="{ mobileMenuOpen: false }">
     <canvas id='bg-canvas'></canvas>
 
-    <!-- Sticky Professional Header -->
-    <header class='site-header sticky top-0 z-50 bg-white/95 border-b border-slate-200 shadow-sm'>
+    <!-- Premium Dark Header -->
+    <header class='site-header sticky top-0 z-50'>
         <div class='w-full mx-auto px-4 sm:px-6 lg:px-8'>
             <!-- Main header row -->
             <div class='flex items-center justify-between h-14 gap-4'>
-                <!-- Brand -->
-                <div class='flex items-center gap-2.5 flex-shrink-0'>
-                    <span class='text-lg font-bold text-slate-900 tracking-tight'>Waneye</span>
-                    <span class='hidden md:inline-block h-4 w-px bg-slate-300'></span>
-                    <span class='hidden md:inline text-xs text-slate-400 font-medium tracking-wide'>Global financial intelligence</span>
-                </div>
+                <!-- Brand with eye logo -->
+                <a href='/' class='flex items-center gap-2.5 flex-shrink-0' style='text-decoration:none'>
+                    <svg class='w-7 h-7 flex-shrink-0' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                        <ellipse cx='14' cy='14' rx='12.5' ry='7.5' stroke='#3b82f6' stroke-width='1.6' fill='none'/>
+                        <circle cx='14' cy='14' r='4.2' fill='#3b82f6'/>
+                        <circle cx='14' cy='14' r='1.8' fill='#0b1929'/>
+                        <path d='M9 11.5 C10.5 9 14 8 17.5 9.5' stroke='#93c5fd' stroke-width='0.9' stroke-linecap='round' opacity='0.55'/>
+                    </svg>
+                    <div class='leading-tight'>
+                        <span class='text-sm font-black text-white tracking-widest uppercase'>Waneye</span>
+                        <span class='hidden md:block text-xs text-slate-500 font-medium leading-none mt-0.5'>Global Financial Intelligence</span>
+                    </div>
+                </a>
 
                 <!-- Section anchor nav (desktop) -->
                 <nav class='hidden lg:flex items-center gap-0.5'>
@@ -184,33 +191,33 @@
 
                 <!-- Live Badge + Language switcher -->
                 <div class='flex items-center gap-2 flex-shrink-0'>
-                    <div class='flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full border border-emerald-200 flex-shrink-0'>
+                    <div class='flex items-center gap-2 px-3 py-1.5 rounded-full border flex-shrink-0' style='background:rgba(6,78,59,0.35);border-color:rgba(16,185,129,0.3)'>
                         <span class='relative flex h-2 w-2 flex-shrink-0'>
                             <span class='animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75'></span>
                             <span class='relative inline-flex rounded-full h-2 w-2 bg-emerald-500'></span>
                         </span>
-                        <p class='text-slate-600 text-xs font-medium hidden sm:block' id='last-updated'>
+                        <p class='text-emerald-400 text-xs font-medium hidden sm:block' id='last-updated'>
                             <em>Last updated: {{ last_updated }}</em>
                         </p>
-                        <p class='text-emerald-700 text-xs font-semibold sm:hidden'>Live</p>
+                        <p class='text-emerald-400 text-xs font-semibold sm:hidden'>Live</p>
                     </div>
                     <!-- Switch to Chinese version -->
                     <a href='cn/' onclick="sessionStorage.removeItem('lang_override')"
-                       class='flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-500 hover:text-red-600 border border-slate-200 rounded-full hover:border-red-300 transition-colors'>
+                       class='flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-400 hover:text-blue-300 rounded-full transition-colors' style='border:1px solid rgba(100,116,139,0.4)'>
                         <i class='fas fa-globe text-xs'></i> 中文
                     </a>
                 </div>
             </div>
 
-            <!-- Mobile section nav -->
-            <div class='lg:hidden border-t border-slate-100'>
+            <!-- Mobile section nav — dark -->
+            <div class='lg:hidden' style='border-top:1px solid rgba(255,255,255,0.05)'>
                 <div class='flex overflow-x-auto scrollbar-none'>
-                    <a href='#exec-summary' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-blue-700 border-b-2 border-transparent hover:border-blue-600 transition-colors whitespace-nowrap'><i class='fas fa-chart-line'></i> Summary</a>
-                    <a href='#market-insights' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-amber-700 border-b-2 border-transparent hover:border-amber-600 transition-colors whitespace-nowrap'><i class='fas fa-lightbulb'></i> Insights</a>
-                    <a href='#risk-assessment' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-red-700 border-b-2 border-transparent hover:border-red-600 transition-colors whitespace-nowrap'><i class='fas fa-shield-alt'></i> Risks</a>
-                    <a href='#recommendations' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-green-700 border-b-2 border-transparent hover:border-green-600 transition-colors whitespace-nowrap'><i class='fas fa-bullseye'></i> Strategy</a>
-                    <a href='#market-outlook' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-cyan-700 border-b-2 border-transparent hover:border-cyan-600 transition-colors whitespace-nowrap'><i class='fas fa-binoculars'></i> Outlook</a>
-                    <a href='#market-data' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-500 hover:text-slate-700 border-b-2 border-transparent hover:border-slate-600 transition-colors whitespace-nowrap'><i class='fas fa-database'></i> Data</a>
+                    <a href='#exec-summary' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-400 hover:text-blue-400 border-b-2 border-transparent hover:border-blue-500 transition-colors whitespace-nowrap'><i class='fas fa-chart-line'></i> Summary</a>
+                    <a href='#market-insights' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-400 hover:text-amber-400 border-b-2 border-transparent hover:border-amber-500 transition-colors whitespace-nowrap'><i class='fas fa-lightbulb'></i> Insights</a>
+                    <a href='#risk-assessment' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-400 hover:text-red-400 border-b-2 border-transparent hover:border-red-500 transition-colors whitespace-nowrap'><i class='fas fa-shield-alt'></i> Risks</a>
+                    <a href='#recommendations' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-400 hover:text-emerald-400 border-b-2 border-transparent hover:border-emerald-500 transition-colors whitespace-nowrap'><i class='fas fa-bullseye'></i> Strategy</a>
+                    <a href='#market-outlook' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-400 hover:text-cyan-400 border-b-2 border-transparent hover:border-cyan-500 transition-colors whitespace-nowrap'><i class='fas fa-binoculars'></i> Outlook</a>
+                    <a href='#market-data' class='flex-shrink-0 flex items-center gap-1 px-3.5 py-2.5 text-xs font-medium text-slate-400 hover:text-slate-200 border-b-2 border-transparent hover:border-slate-400 transition-colors whitespace-nowrap'><i class='fas fa-database'></i> Data</a>
                 </div>
             </div>
         </div>
@@ -220,23 +227,48 @@
         
         {% block content %}{% endblock %}
         
-        <footer class='mt-12 border-t border-slate-200 bg-white'>
-            <div class='w-full mx-auto px-4 sm:px-6 lg:px-8 py-6'>
-                <div class='flex flex-col sm:flex-row items-center justify-between gap-3'>
-                    <div class='flex items-center gap-2.5'>
-                        <span class='text-sm font-bold text-slate-800'>Waneye</span>
-                        <span class='text-slate-300 text-xs'>·</span>
-                        <span class='text-xs text-slate-400'>Global vision for smarter finance</span>
+    </div>
+
+    <!-- Dark site footer -->
+    <footer class='site-footer'>
+        <div class='w-full mx-auto px-4 sm:px-6 lg:px-8 py-8'>
+            <div class='flex flex-col md:flex-row items-start md:items-center justify-between gap-6'>
+                <!-- Brand -->
+                <div>
+                    <div class='flex items-center gap-2.5 mb-2'>
+                        <svg class='w-5 h-5 flex-shrink-0' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                            <ellipse cx='14' cy='14' rx='12.5' ry='7.5' stroke='#3b82f6' stroke-width='1.6' fill='none'/>
+                            <circle cx='14' cy='14' r='4.2' fill='#3b82f6'/>
+                            <circle cx='14' cy='14' r='1.8' fill='#0b1929'/>
+                        </svg>
+                        <span class='text-sm font-black text-white tracking-widest uppercase'>Waneye</span>
                     </div>
-                    <p class='text-xs text-slate-400 text-center sm:text-right'>
-                        Financial data is provided for informational purposes only and does not constitute investment advice.
+                    <p class='text-xs text-slate-500 max-w-xs leading-relaxed'>
+                        AI-powered daily market briefings with risk analysis, sector insights, and strategic recommendations.
                     </p>
                 </div>
+                <!-- Navigation -->
+                <nav class='flex flex-wrap gap-x-5 gap-y-2'>
+                    <a href='#exec-summary' class='text-xs text-slate-500 hover:text-slate-300 transition-colors'>Summary</a>
+                    <a href='#market-insights' class='text-xs text-slate-500 hover:text-slate-300 transition-colors'>Insights</a>
+                    <a href='#risk-assessment' class='text-xs text-slate-500 hover:text-slate-300 transition-colors'>Risks</a>
+                    <a href='#recommendations' class='text-xs text-slate-500 hover:text-slate-300 transition-colors'>Strategy</a>
+                    <a href='#market-outlook' class='text-xs text-slate-500 hover:text-slate-300 transition-colors'>Outlook</a>
+                    <a href='#market-data' class='text-xs text-slate-500 hover:text-slate-300 transition-colors'>Data</a>
+                    <a href='cn/' onclick="sessionStorage.removeItem('lang_override')" class='text-xs text-slate-500 hover:text-slate-300 transition-colors'>中文版</a>
+                </nav>
             </div>
-        </footer>
-    </div>
+            <div class='mt-6 pt-5 flex flex-col sm:flex-row items-center justify-between gap-3' style='border-top:1px solid rgba(255,255,255,0.05)'>
+                <p class='text-xs text-slate-600'>© <span class='footer-year'>2026</span> Waneye Technology. All rights reserved.</p>
+                <p class='text-xs text-slate-600 text-center sm:text-right max-w-sm'>
+                    Financial data is for informational purposes only and does not constitute investment advice.
+                </p>
+            </div>
+        </div>
+    </footer>
     <!-- Alpine.js - Loaded without defer to ensure it's ready before user interaction -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src='static/main.js?v={{ cache_buster }}'></script>
+    <script>var fy=document.querySelector('.footer-year');if(fy)fy.textContent=new Date().getFullYear();</script>
 </body>
 </html>

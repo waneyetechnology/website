@@ -14,10 +14,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Sticky header */
+/* ─── Header: dark navy ─── */
 .site-header {
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: #0b1929;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.40);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 /* Active tab underline indicator */
@@ -314,7 +317,7 @@ a:focus-visible, button:focus-visible, input:focus, select:focus, textarea:focus
    ANALYSIS-FIRST REDESIGN — Component Styles
 ═══════════════════════════════════════════════════════════════ */
 
-/* Header anchor links */
+/* Header anchor links — dark header context */
 .header-anchor-link {
   display: inline-flex;
   align-items: center;
@@ -322,21 +325,44 @@ a:focus-visible, button:focus-visible, input:focus, select:focus, textarea:focus
   padding: 6px 12px;
   font-size: 0.8rem;
   font-weight: 500;
-  color: #64748b;
+  color: #94a3b8;
   border-radius: 6px;
   white-space: nowrap;
   transition: color 0.15s, background 0.15s;
   text-decoration: none;
 }
-.header-anchor-link:hover { color: #1e40af; background: #eff6ff; }
+.header-anchor-link:hover { color: #93c5fd; background: rgba(59,130,246,0.12); }
 
 /* Briefing Banner */
 .briefing-banner {
-  background: linear-gradient(135deg, #0f172a 0%, #1a2744 50%, #0f172a 100%);
-  border: 1px solid #1e293b;
+  background: linear-gradient(135deg, #060e1f 0%, #0d1e38 40%, #111c35 70%, #060e1f 100%);
+  border: 1px solid rgba(59,130,246,0.15);
   border-radius: 14px;
   padding: 20px 20px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.04);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.05);
+  position: relative;
+  overflow: hidden;
+}
+/* subtle grid pattern overlay */
+.briefing-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(59,130,246,0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  border-radius: inherit;
+}
+/* blue accent glow top-left */
+.briefing-banner::after {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+  pointer-events: none;
 }
 @media (min-width: 640px) {
   .briefing-banner { padding: 28px 32px; }
@@ -393,7 +419,36 @@ a:focus-visible, button:focus-visible, input:focus, select:focus, textarea:focus
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   scroll-margin-top: 72px;
+  transition: box-shadow 0.2s;
 }
+.analysis-section:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* Per-section left accent border colours */
+.analysis-section-blue   { border-left: 3px solid #3b82f6; }
+.analysis-section-amber  { border-left: 3px solid #f59e0b; }
+.analysis-section-red    { border-left: 3px solid #ef4444; }
+.analysis-section-green  { border-left: 3px solid #22c55e; }
+.analysis-section-purple { border-left: 3px solid #8b5cf6; }
+
+/* Section icon badges */
+.section-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+.section-icon-blue   { background: #dbeafe; color: #2563eb; }
+.section-icon-amber  { background: #fef3c7; color: #d97706; }
+.section-icon-red    { background: #fee2e2; color: #dc2626; }
+.section-icon-green  { background: #dcfce7; color: #16a34a; }
+.section-icon-purple { background: #ede9fe; color: #7c3aed; }
+
 .analysis-section-header {
   display: flex;
   align-items: center;
@@ -818,3 +873,48 @@ a:focus-visible, button:focus-visible, input:focus, select:focus, textarea:focus
   .evidence-card { width: 165px; }
   .evidence-card-img { height: 90px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   SITE FOOTER — dark matching header
+═══════════════════════════════════════════════════════════════ */
+.site-footer {
+  background: #0b1929;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SIDEBAR HEADLINE ITEMS — refined hover
+═══════════════════════════════════════════════════════════════ */
+.sidebar-headline-item:hover .sidebar-headline-num {
+  background: #2563eb;
+  color: white;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTOR CARDS — improved hover highlight
+═══════════════════════════════════════════════════════════════ */
+.sector-card:hover {
+  box-shadow: 0 4px 16px rgba(6,182,212,0.14);
+  transform: translateY(-1px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BRIEFING STAT COUNTERS — more visual prominence
+═══════════════════════════════════════════════════════════════ */
+.briefing-stat {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBAR — hide on mobile nav
+═══════════════════════════════════════════════════════════════ */
+.scrollbar-none { scrollbar-width: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+
