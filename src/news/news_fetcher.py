@@ -727,7 +727,7 @@ def fetch_image_with_browser_automation(url, headline_id):
                         # Strategy 3: Try with load wait condition
                         try:
                             logger.debug(f"Retrying navigation with load: {url}")
-                            page.goto(url, timeout=20000, wait_until='load')
+                            page.goto(url, timeout=5000, wait_until='load')
                             navigation_successful = True
                             logger.debug(f"Successfully navigated with load: {url}")
                         except Exception as nav_error3:
