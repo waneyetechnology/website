@@ -143,15 +143,18 @@
 
       if (!isChinese) {
         // IP-based check — redirect to EN only if confirmed non-CN/TW.
-        // Rejects on bad/empty responses so fallback chain works.
+        // Same provider chain as EN page. Self-hosted geo.waneye.com is the final fallback.
         function checkIP(url, getCode) {
           return fetch(url, { cache: 'no-store' })
             .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
             .then(function(d) { var c = getCode(d); if (!c) throw new Error('no code'); return c; });
         }
-        checkIP('https://api.ip.sb/geoip', function(d){ return d && d.country_code; })
-          .catch(function(){ return checkIP('https://ipapi.co/json/', function(d){ return d && d.country_code; }); })
-          .catch(function(){ return checkIP('https://ipwho.is/', function(d){ return d && d.country_code; }); })
+        checkIP('https://api.ip.sb/geoip',           function(d){ return d && d.country_code; })
+          .catch(function(){ return checkIP('https://ipapi.co/json/',          function(d){ return d && d.country_code; }); })
+          .catch(function(){ return checkIP('https://ipwho.is/',               function(d){ return d && d.country_code; }); })
+          .catch(function(){ return checkIP('https://ipinfo.io/json',          function(d){ return d && d.country; }); })
+          .catch(function(){ return checkIP('https://geolocation-db.com/json/',function(d){ return d && d.country_code; }); })
+          .catch(function(){ return checkIP('https://geo.waneye.com/',         function(d){ return d && d.cc; }); })
           .then(function(code){
             if (code && code !== 'CN' && code !== 'TW') {
               window.location.replace(location.origin + '/');

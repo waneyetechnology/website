@@ -150,16 +150,21 @@
         return;
       }
 
-      // IP-based check (async, non-blocking) — api.ip.sb first (more GFW-resilient),
-      // then ipapi.co, then ipwho.is. Rejects on bad/empty responses so fallback chain works.
+      // IP-based check (async, non-blocking).
+      // Providers are tried in order; each must return a non-empty country code or the next is tried.
+      // Self-hosted Cloudflare Worker (geo.waneye.com) acts as the final reliable fallback —
+      // it reads CF-IPCountry at the edge with no third-party dependency.
       function checkIP(url, getCode) {
         return fetch(url, { cache: 'no-store' })
           .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
           .then(function(d) { var c = getCode(d); if (!c) throw new Error('no code'); return c; });
       }
-      checkIP('https://api.ip.sb/geoip', function(d){ return d && d.country_code; })
-        .catch(function(){ return checkIP('https://ipapi.co/json/', function(d){ return d && d.country_code; }); })
-        .catch(function(){ return checkIP('https://ipwho.is/', function(d){ return d && d.country_code; }); })
+      checkIP('https://api.ip.sb/geoip',           function(d){ return d && d.country_code; })
+        .catch(function(){ return checkIP('https://ipapi.co/json/',          function(d){ return d && d.country_code; }); })
+        .catch(function(){ return checkIP('https://ipwho.is/',               function(d){ return d && d.country_code; }); })
+        .catch(function(){ return checkIP('https://ipinfo.io/json',          function(d){ return d && d.country; }); })
+        .catch(function(){ return checkIP('https://geolocation-db.com/json/',function(d){ return d && d.country_code; }); })
+        .catch(function(){ return checkIP('https://geo.waneye.com/',         function(d){ return d && d.cc; }); })
         .then(function(code){
           if (code === 'CN' || code === 'TW') {
             window.location.replace(location.origin + '/cn/');
