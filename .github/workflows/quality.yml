@@ -1,0 +1,60 @@
+name: Code Quality
+
+on:
+  pull_request:
+    branches: [ main, master, develop ]
+  push:
+    branches: [ main, master ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.12"
+        
+    - name: Install linting tools
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 black isort
+        
+    - name: Run Black (code formatting check)
+      run: |
+        black --check --diff src/ tests/ || echo "⚠️ Black formatting issues found (not failing CI)"
+        
+    - name: Run isort (import sorting check)
+      run: |
+        isort --check-only --diff src/ tests/ || echo "⚠️ Import sorting issues found (not failing CI)"
+        
+    - name: Run flake8 (style guide enforcement)
+      run: |
+        flake8 src/ tests/ --max-line-length=100 --extend-ignore=E203,W503 || echo "⚠️ Flake8 style issues found (not failing CI)"
+
+  security:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.12"
+        
+    - name: Install security tools
+      run: |
+        python -m pip install --upgrade pip
+        pip install bandit safety
+        
+    - name: Run bandit (security linter)
+      run: |
+        bandit -r src/ -f json || echo "⚠️ Security issues found (not failing CI)"
+        
+    - name: Check for known security vulnerabilities
+      run: |
+        safety check --json || echo "⚠️ Known vulnerabilities found (not failing CI)"
