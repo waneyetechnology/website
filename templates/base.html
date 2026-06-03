@@ -151,9 +151,8 @@
       }
 
       // IP-based check (async, non-blocking).
-      // Providers are tried in order; each must return a non-empty country code or the next is tried.
-      // Self-hosted Cloudflare Worker (geo.waneye.com) acts as the final reliable fallback —
-      // it reads CF-IPCountry at the edge with no third-party dependency.
+      // Providers tried in order; each must return a valid country code or the next is tried.
+      // If all fail, the browser-based signals above (timezone/UTC offset/language) are the fallback.
       function checkIP(url, getCode) {
         return fetch(url, { cache: 'no-store' })
           .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
@@ -164,7 +163,6 @@
         .catch(function(){ return checkIP('https://ipwho.is/',               function(d){ return d && d.country_code; }); })
         .catch(function(){ return checkIP('https://ipinfo.io/json',          function(d){ return d && d.country; }); })
         .catch(function(){ return checkIP('https://geolocation-db.com/json/',function(d){ return d && d.country_code; }); })
-        .catch(function(){ return checkIP('https://geo.waneye.com/',         function(d){ return d && d.cc; }); })
         .then(function(code){
           if (code === 'CN' || code === 'TW') {
             window.location.replace(location.origin + '/cn/');
