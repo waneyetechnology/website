@@ -101,7 +101,7 @@ jobs:
         run: |
           mv website-core/history ./history 2>/dev/null || true
           mv website-core/index.html ./
-          mv website-core/zh.html ./ 2>/dev/null || true
+          mv website-core/cn ./cn 2>/dev/null || true
           rm -rf ./static
           mv website-core/static ./static
           rm -rf website-core
