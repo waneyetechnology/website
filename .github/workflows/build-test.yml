@@ -11,16 +11,27 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+      
+      - name: Checkout website-core
+        uses: actions/checkout@v4
+        with:
+          repository: 'waneyetechnology/website-core'
+          token: ${{ secrets.GH_PAT }}
+          path: 'website-core'
+          
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install -r website-core/requirements.txt
+          
       - name: Install Playwright browsers
         run: |
           playwright install chromium
+          
       - name: Install system dependencies for Playwright
         run: |
           sudo apt-get update
@@ -34,9 +45,13 @@ jobs:
             libasound2t64 \
             libxrandr2 \
             libxss1
+            
       - name: Build static site (no deploy) - Test Mode for Fast CI/CD
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python generate_site.py --test-mode
+        run: |
+          cd website-core
+          python generate_site.py --test-mode
+          
       - name: Check index.html generated
-        run: test -f index.html
+        run: test -f website-core/index.html

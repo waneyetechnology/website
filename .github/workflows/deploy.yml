@@ -15,6 +15,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Checkout website-core
+        uses: actions/checkout@v4
+        with:
+          repository: 'waneyetechnology/website-core'
+          token: ${{ secrets.GH_PAT }}
+          path: 'website-core'
+
       - name: Fetch existing images from gh-pages
         run: |
           # Check if gh-pages branch exists
@@ -28,18 +35,20 @@ jobs:
             if git show gh-pages:static/images/ > /dev/null 2>&1; then
               echo "Extracting images from gh-pages..."
 
-              # Create the static/images directory structure
-              mkdir -p static/images
+              # Create the static/images directory structure in website-core
+              mkdir -p website-core/static/images
 
-              # Extract the entire static/images directory from gh-pages
+              # Extract the entire static/images directory from gh-pages into current working directory
               git checkout gh-pages -- static/images/ 2>/dev/null || true
 
-              # Count restored images
+              # Count restored images and move to website-core
               if [ -d "static/images" ]; then
                 image_count=$(find static/images -type f -name "*.jpg" -o -name "*.png" -o -name "*.webp" | wc -l)
                 echo "Successfully restored $image_count existing images"
+                mv static/images/* website-core/static/images/ 2>/dev/null || true
+                rm -rf static/images
                 echo "Directory structure:"
-                ls -la static/images/ || true
+                ls -la website-core/static/images/ || true
               fi
             else
               echo "No images directory in gh-pages yet"
@@ -54,7 +63,7 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install -r website-core/requirements.txt
       - name: Install Playwright browsers
         run: |
           playwright install chromium
@@ -79,11 +88,22 @@ jobs:
           MARKETAUX_API_KEY: ${{ secrets.MARKETAUX_API_KEY }}
           GNEWS_API_KEY: ${{ secrets.GNEWS_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: python generate_site.py
+        run: |
+          cd website-core
+          python generate_site.py
       - name: Generate Chinese site
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: python generate_site_cn.py
+        run: |
+          cd website-core
+          python generate_site_cn.py
+      - name: Move generated artifacts
+        run: |
+          mv website-core/history ./history 2>/dev/null || true
+          mv website-core/index.html ./
+          mv website-core/zh.html ./ 2>/dev/null || true
+          mv website-core/static ./static
+          rm -rf website-core
       - name: Push analysis report to history branch
         uses: peaceiris/actions-gh-pages@v4
         with:
