@@ -107,10 +107,10 @@
     <script>
     (function() {
       // Don't redirect if user has explicitly chosen Chinese (clicked 中文 link)
-      if (sessionStorage.getItem('lang_override') === 'cn') return;
+      try { if (sessionStorage.getItem('lang_override') === 'cn') return; } catch(e) {}
       // Allow ?preview=cn URL param to bypass redirect for local testing
       if (location.search.indexOf('preview=cn') !== -1) {
-        sessionStorage.setItem('lang_override', 'cn');
+        try { sessionStorage.setItem('lang_override', 'cn'); } catch(e) {}
         return;
       }
       // Don't redirect from localhost / local file — for development preview
@@ -127,22 +127,36 @@
         try { if (new Date().getTimezoneOffset() === -480) isChinese = true; } catch(e) {}
       }
 
-      var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-      if (!isChinese && (lang === 'zh' || lang.indexOf('zh-cn') === 0 || lang.indexOf('zh-hans') === 0 || lang.indexOf('zh-sg') === 0 || lang.indexOf('zh-tw') === 0 || lang.indexOf('zh-hant') === 0 || lang.indexOf('zh-hk') === 0)) {
-        isChinese = true;
+      // Check full navigator.languages array (mirrors EN-page detection to prevent redirect loops)
+      if (!isChinese) {
+        var langs = [];
+        try {
+          langs = navigator.languages && navigator.languages.length
+            ? Array.prototype.slice.call(navigator.languages)
+            : [navigator.language || navigator.userLanguage || ''];
+        } catch(e) { langs = [navigator.language || '']; }
+        for (var i = 0; i < langs.length; i++) {
+          var l = (langs[i] || '').toLowerCase();
+          if (l === 'zh' || l.indexOf('zh-') === 0) { isChinese = true; break; }
+        }
       }
 
       if (!isChinese) {
-        // Secondary: IP-based check — redirect to EN only if confirmed non-CN/TW
-        // Two providers for GFW resilience (ipapi.co may be blocked in China)
+        // IP-based check — redirect to EN only if confirmed non-CN/TW.
+        // Same provider chain as EN page. Browser signals above are the fallback if all fail.
         function checkIP(url, getCode) {
-          return fetch(url, { cache: 'no-store' }).then(function(r){ return r.json(); }).then(getCode);
+          return fetch(url, { cache: 'no-store' })
+            .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+            .then(function(d) { var c = getCode(d); if (!c) throw new Error('no code'); return c; });
         }
-        checkIP('https://ipapi.co/json/', function(d){ return d && d.country_code; })
-          .catch(function(){ return checkIP('https://api.ip.sb/geoip', function(d){ return d && d.country_code; }); })
+        checkIP('https://api.ip.sb/geoip',           function(d){ return d && d.country_code; })
+          .catch(function(){ return checkIP('https://ipapi.co/json/',          function(d){ return d && d.country_code; }); })
+          .catch(function(){ return checkIP('https://ipwho.is/',               function(d){ return d && d.country_code; }); })
+          .catch(function(){ return checkIP('https://ipinfo.io/json',          function(d){ return d && d.country; }); })
+          .catch(function(){ return checkIP('https://geolocation-db.com/json/',function(d){ return d && d.country_code; }); })
           .then(function(code){
             if (code && code !== 'CN' && code !== 'TW') {
-              window.location.replace('../');
+              window.location.replace(location.origin + '/');
             }
           }).catch(function(){});
       }

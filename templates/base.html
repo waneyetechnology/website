@@ -114,9 +114,11 @@
     <script>
     (function() {
       // Don't redirect if user has explicitly chosen English
-      if (sessionStorage.getItem('lang_override') === 'en') return;
+      try { if (sessionStorage.getItem('lang_override') === 'en') return; } catch(e) {}
       // Don't redirect if already on cn/ path
-      if (location.pathname.indexOf('/cn') !== -1) return;
+      if (/^\/cn(\/|$)/.test(location.pathname)) return;
+      // Don't redirect from localhost / local file — for development preview
+      if (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:') return;
 
       var isChinese = false;
       var tz = '';
@@ -129,31 +131,43 @@
         try { if (new Date().getTimezoneOffset() === -480) isChinese = true; } catch(e) {}
       }
 
-      var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-      if (!isChinese && (lang === 'zh' || lang.indexOf('zh-cn') === 0 || lang.indexOf('zh-hans') === 0 || lang.indexOf('zh-sg') === 0 || lang.indexOf('zh-tw') === 0 || lang.indexOf('zh-hant') === 0 || lang.indexOf('zh-hk') === 0)) {
-        isChinese = true;
+      // Check full navigator.languages array (covers users with Chinese as secondary language)
+      if (!isChinese) {
+        var langs = [];
+        try {
+          langs = navigator.languages && navigator.languages.length
+            ? Array.prototype.slice.call(navigator.languages)
+            : [navigator.language || navigator.userLanguage || ''];
+        } catch(e) { langs = [navigator.language || '']; }
+        for (var i = 0; i < langs.length; i++) {
+          var l = (langs[i] || '').toLowerCase();
+          if (l === 'zh' || l.indexOf('zh-') === 0) { isChinese = true; break; }
+        }
       }
 
       if (isChinese) {
-        var base = location.origin + location.pathname.replace(/\/[^/]*$/, '/');
-        window.location.replace(base + 'cn/');
+        window.location.replace(location.origin + '/cn/');
         return;
       }
 
-      // Secondary: IP-based check (async, non-blocking) — two providers for GFW resilience
-      if (!isChinese) {
-        function checkIP(url, getCode) {
-          return fetch(url, { cache: 'no-store' }).then(function(r){ return r.json(); }).then(getCode);
-        }
-        checkIP('https://ipapi.co/json/', function(d){ return d && d.country_code; })
-          .catch(function(){ return checkIP('https://api.ip.sb/geoip', function(d){ return d && d.country_code; }); })
-          .then(function(code){
-            if (code === 'CN' || code === 'TW') {
-              var base = location.origin + location.pathname.replace(/\/[^/]*$/, '/');
-              window.location.replace(base + 'cn/');
-            }
-          }).catch(function(){});
+      // IP-based check (async, non-blocking).
+      // Providers tried in order; each must return a valid country code or the next is tried.
+      // If all fail, the browser-based signals above (timezone/UTC offset/language) are the fallback.
+      function checkIP(url, getCode) {
+        return fetch(url, { cache: 'no-store' })
+          .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+          .then(function(d) { var c = getCode(d); if (!c) throw new Error('no code'); return c; });
       }
+      checkIP('https://api.ip.sb/geoip',           function(d){ return d && d.country_code; })
+        .catch(function(){ return checkIP('https://ipapi.co/json/',          function(d){ return d && d.country_code; }); })
+        .catch(function(){ return checkIP('https://ipwho.is/',               function(d){ return d && d.country_code; }); })
+        .catch(function(){ return checkIP('https://ipinfo.io/json',          function(d){ return d && d.country; }); })
+        .catch(function(){ return checkIP('https://geolocation-db.com/json/',function(d){ return d && d.country_code; }); })
+        .then(function(code){
+          if (code === 'CN' || code === 'TW') {
+            window.location.replace(location.origin + '/cn/');
+          }
+        }).catch(function(){});
     })();
     </script>
 </head>
