@@ -97,11 +97,18 @@ jobs:
         run: |
           cd website-core
           python generate_site_cn.py
+      - name: Generate Australian site
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          cd website-core
+          python generate_site_au.py
       - name: Move generated artifacts
         run: |
           mv website-core/history ./history 2>/dev/null || true
           mv website-core/index.html ./
           mv website-core/cn ./cn 2>/dev/null || true
+          mv website-core/au ./au 2>/dev/null || true
           rm -rf ./static
           mv website-core/static ./static
           rm -rf website-core
