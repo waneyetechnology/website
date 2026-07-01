@@ -1,0 +1,1358 @@
+{
+  "analysis": {
+    "analysis_date": "July 01, 2026",
+    "analysis_time": "00:01",
+    "executive_summary": {
+      "key_highlights": [
+        "S&P 500 and Nasdaq post best quarter since 2020, driven by AI boom and tech megacaps.",
+        "Gold holds above $4,000 amid Fed outlook and Iran tensions; Bitcoin slides below $60,000 on Strategy selloff.",
+        "Comcast announces spin-off of NBCUniversal and Sky; Dish DBS prepares for bankruptcy filing.",
+        "BofA upgrades global growth forecast citing AI acceleration; chip stocks have best quarter ever.",
+        "Trump reports $1.4 billion in crypto earnings from meme coins; Oaktree-backed ITG raises $312M in IPO.",
+        "Nike shows weakness despite better-than-expected results; Wall Street patience wears thin.",
+        "Oil steadies as Hormuz traffic recovers but remains fragile; Iran talks in focus.",
+        "China factory activity returns to growth; South Korea plans $1T spend on memory chips and humanoid robots.",
+        "Inflation concerns persist, squeezing the South and threatening retirement plans.",
+        "Alphabet debuts in Dow Jones; SpaceX stock faces post-IPO slump despite Russell 1000 inclusion."
+      ],
+      "market_sentiment_score": 75,
+      "overall_sentiment": "positive",
+      "headline_sources": [
+        1,
+        4,
+        10,
+        26,
+        36,
+        38,
+        52,
+        54,
+        63,
+        94,
+        98,
+        105
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology",
+          "trend": "Strong bullish momentum, especially in AI and chip stocks, with the sector posting its best quarter ever. Alphabet joins Dow Jones, and Micron surges on blockbuster earnings and long-term supply deals. However, Microsoft hits new lows, presenting a potential long-term opportunity. AI regulatory challenges are emerging in the UAE.",
+          "implications": "Investors should maintain exposure to AI and semiconductor leaders but watch for regulatory headwinds and valuation risks. Microsoft's dip may be a buying opportunity for long-term investors.",
+          "headline_sources": [
+            4,
+            52,
+            63,
+            67,
+            99,
+            55
+          ]
+        },
+        {
+          "sector": "Energy",
+          "trend": "Oil prices steady as peace talks continue and Hormuz traffic recovers, but the situation remains fragile. Halliburton, Valero, and others are set up for a fragile truce. Gold holds above $4,000, reflecting safe-haven demand amid geopolitical uncertainty.",
+          "implications": "Energy stocks may benefit from a truce but remain volatile. Gold is a key hedge. Investors should monitor Iran negotiations and Strait of Hormuz developments.",
+          "headline_sources": [
+            10,
+            21,
+            36,
+            50,
+            76,
+            103
+          ]
+        },
+        {
+          "sector": "Real Estate",
+          "trend": "Interest rate sensitive stocks like AvalonBay, Sun Communities, and Host Hotels are gaining attention as bond spreads narrow. Multiple upgrades from banks (BofA, Wells Fargo, Truist) on REITs indicate a favorable outlook amid stable rates.",
+          "implications": "REITs are attractive in a declining rate environment. Focus on residential and data center REITs. Monitor Fed policy and inflation data.",
+          "headline_sources": [
+            25,
+            33,
+            45,
+            59,
+            64,
+            70,
+            74,
+            75,
+            92
+          ]
+        },
+        {
+          "sector": "Consumer Discretionary",
+          "trend": "Nike shows persistent weakness despite better-than-expected results, with Wall Street patience wearing thin. Airbnb rises on analyst price target hike. Kura Sushi accelerates US growth. 'Funflation' is squeezing consumers as live event prices soar.",
+          "implications": "Consumer spending is bifurcated: luxury and experience-driven spending remain strong, but value-conscious consumers are under pressure. Nike's struggles may signal broader weakness in apparel. Focus on companies with pricing power and unique experiences.",
+          "headline_sources": [
+            1,
+            7,
+            44,
+            56,
+            66,
+            77,
+            78
+          ]
+        },
+        {
+          "sector": "Financials",
+          "trend": "Citigroup CEO brings the bank into Trump's graces. Canadian banks are beating US banks for a second year. Bond spreads narrow, indicating improving credit conditions. Robinhood CFO hands off PAO role. Klarna fell on cautious guidance.",
+          "implications": "Financials benefit from narrowing spreads and a stable yield curve. Canadian banks offer relative strength. Fintech faces headwinds from cautious guidance. Monitor regulatory changes and interest rate policy.",
+          "headline_sources": [
+            24,
+            34,
+            25,
+            32,
+            71
+          ]
+        },
+        {
+          "sector": "Healthcare",
+          "trend": "Moderna spikes on mRNA pipeline update. FDA panel on peptides includes experts promoting unproven chemicals. V&E appoints new IP litigation partner in LA.",
+          "implications": "Biotech remains volatile but with potential catalysts from pipeline updates. Regulatory scrutiny on unproven treatments could create risks. Focus on companies with strong clinical data.",
+          "headline_sources": [
+            43,
+            83,
+            51
+          ]
+        },
+        {
+          "sector": "Industrials",
+          "trend": "Alcoa bets on aluminum boom with $5.6B South32 deal. Schneider announces additional leadership changes. MDU Resources Group has an analyst report. Drayage sector evolution noted.",
+          "implications": "Commodity-linked industrials benefit from AI-driven demand for metals. Leadership changes may signal strategic shifts. Infrastructure and reshoring themes remain supportive.",
+          "headline_sources": [
+            20,
+            22,
+            18,
+            104
+          ]
+        },
+        {
+          "sector": "Media & Telecom",
+          "trend": "Comcast to spin off NBCUniversal and Sky, potentially ahead of ITV takeover. Dish DBS prepares for bankruptcy. Shutterstock falls after Getty ends merger. Paramount's Warner Bros. takeover faces UK intervention. T-Mobile boots customers from oldest plans.",
+          "implications": "Media consolidation continues with spin-offs and M&A. Traditional pay-TV is declining (Dish bankruptcy). Streaming and content remain competitive. Telecoms are rationalizing plans to boost ARPU.",
+          "headline_sources": [
+            6,
+            12,
+            27,
+            37,
+            95,
+            96,
+            102
+          ]
+        },
+        {
+          "sector": "Commodities",
+          "trend": "Gold holds above $4,000. Oil steadies but remains fragile. Cotton prices are bearish. China rare-earth arrests raise supply risks for South Korea. Aluminum boom driven by AI and energy transition.",
+          "implications": "Gold is a key safe haven amid geopolitical and inflation risks. Oil is volatile but supported by supply risks. Rare earths are strategic; South Korea faces supply chain risks. Aluminum is a long-term beneficiary of AI and green energy.",
+          "headline_sources": [
+            10,
+            21,
+            36,
+            50,
+            19,
+            20,
+            93
+          ]
+        },
+        {
+          "sector": "Crypto & Digital Assets",
+          "trend": "Bitcoin slides below $60,000 as Strategy selloff refuels anxiety. BlackRock's IBIT suffers $1.3B outflow. Trump reports $1.4B in crypto earnings from meme coins. Ripple's Brad Garlinghouse targets $16T payment flows.",
+          "implications": "Crypto is under pressure from regulatory uncertainty and outflows. Meme coins are highly speculative. Institutional adoption remains mixed. Focus on utility-driven projects like XRP for payments.",
+          "headline_sources": [
+            11,
+            16,
+            38,
+            101
+          ]
+        }
+      ],
+      "key_themes": [
+        "AI Boom Accelerates: BofA upgrades global growth forecast; chip stocks have best quarter ever; South Korea invests $1T in memory chips and humanoid robots.",
+        "Geopolitical Uncertainty: Iran talks, Strait of Hormuz tensions, China rare-earth arrests, Ukraine drone production.",
+        "Inflation and Interest Rates: Inflation squeezing the South and threatening retirement; bond spreads narrow; Fed outlook in focus.",
+        "Corporate Restructuring: Comcast spin-off, Dish bankruptcy, Shutterstock/Getty merger collapse, Paramount/Warner Bros. deal scrutiny.",
+        "Crypto Volatility: Bitcoin below $60K, Trump's meme coin earnings, BlackRock outflows, Ripple's payment ambitions.",
+        "Consumer Spending Bifurcation: 'Funflation' boosts live events but squeezes lower-income consumers; Nike weakness; Kura Sushi expansion.",
+        "Real Estate and REITs: Interest rate sensitive stocks gain favor; multiple upgrades from banks.",
+        "Global Market Divergence: Canadian stocks beat US; Asian stocks rise; Brazil real weakens; China factory activity returns to growth.",
+        "Regulatory and Legal Risks: Zillow lawsuit, Ryanair court ruling, FDA panel controversy, Trump Fed ruling.",
+        "Space and Defense: NASA moon base contracts, SpaceX post-IPO slump, Ukraine drone maker manual work."
+      ],
+      "headline_sources": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Geopolitical Tensions (Iran, China, Ukraine)",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Diversify into safe havens (gold, US Treasuries) and energy stocks with hedging strategies. Monitor Iran talks and Strait of Hormuz traffic closely.",
+        "headline_sources": [
+          10,
+          19,
+          21,
+          36,
+          50,
+          76,
+          91,
+          103
+        ]
+      },
+      {
+        "risk_factor": "Inflation and Interest Rate Uncertainty",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Focus on inflation-protected assets (TIPS, commodities, real estate). Maintain duration management in bond portfolios. Consider floating-rate debt.",
+        "headline_sources": [
+          8,
+          40,
+          65
+        ]
+      },
+      {
+        "risk_factor": "Crypto Market Volatility and Regulatory Risk",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Limit exposure to speculative crypto assets. Focus on established cryptocurrencies with utility. Monitor regulatory developments and institutional flows.",
+        "headline_sources": [
+          11,
+          16,
+          38,
+          101
+        ]
+      },
+      {
+        "risk_factor": "Corporate Credit and Bankruptcy Risk",
+        "impact": "Medium",
+        "likelihood": "Low",
+        "mitigation": "Avoid high-yield bonds in distressed sectors (pay-TV, retail). Focus on investment-grade corporates. Monitor Dish DBS and other stressed credits.",
+        "headline_sources": [
+          12,
+          27,
+          30,
+          71
+        ]
+      },
+      {
+        "risk_factor": "AI Bubble and Concentration Risk",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Diversify beyond megacap tech. Consider equal-weight S&P 500 or value-oriented ETFs. Monitor AI regulatory developments and earnings sustainability.",
+        "headline_sources": [
+          4,
+          17,
+          55,
+          63,
+          73
+        ]
+      },
+      {
+        "risk_factor": "Consumer Spending Slowdown",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Focus on defensive consumer staples and discount retailers. Avoid overvalued discretionary names. Monitor Nike and other bellwethers for further weakness.",
+        "headline_sources": [
+          7,
+          44,
+          56,
+          77,
+          78
+        ]
+      },
+      {
+        "risk_factor": "Regulatory and Legal Risks (Zillow, Ryanair, Trump rulings)",
+        "impact": "Low",
+        "likelihood": "Medium",
+        "mitigation": "Stay informed on sector-specific legal developments. Avoid stocks with high litigation exposure. Diversify across jurisdictions.",
+        "headline_sources": [
+          3,
+          31,
+          57
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Increase exposure to AI and semiconductor leaders (NVDA, AMD, AVGO) on pullbacks.",
+          "rationale": "AI boom is accelerating with BofA upgrading global growth forecast and chip stocks having best quarter ever. Long-term supply deals (Micron) are game changers.",
+          "tickers": [
+            "NVDA",
+            "AMD",
+            "AVGO",
+            "MU"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            4,
+            63,
+            99
+          ]
+        },
+        {
+          "recommendation": "Buy gold and gold miners (GLD, NEM, GDX) as a hedge against geopolitical and inflation risks.",
+          "rationale": "Gold holds above $4,000 with potential to rise further amid Fed uncertainty and Iran tensions. Safe-haven demand remains strong.",
+          "tickers": [
+            "GLD",
+            "NEM",
+            "GDX"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            10,
+            36
+          ]
+        },
+        {
+          "recommendation": "Invest in interest rate sensitive REITs (AVB, SUI, INVH) as bond spreads narrow.",
+          "rationale": "Multiple bank upgrades and narrowing spreads favor REITs. Residential and data center REITs offer stable income and growth.",
+          "tickers": [
+            "AVB",
+            "SUI",
+            "INVH",
+            "EQR",
+            "CUZ"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            25,
+            33,
+            45,
+            59,
+            64,
+            70,
+            74,
+            75,
+            92
+          ]
+        },
+        {
+          "recommendation": "Consider long-term value in Microsoft (MSFT) on recent lows.",
+          "rationale": "Microsoft hitting new lows presents a buying opportunity for long-term investors given its strong AI and cloud positioning.",
+          "tickers": [
+            "MSFT"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            67
+          ]
+        },
+        {
+          "recommendation": "Explore aluminum and industrial metals plays (AA, FCX) driven by AI and energy transition demand.",
+          "rationale": "Alcoa's $5.6B South32 deal and AI-driven demand for metals signal a structural boom. Freeport-McMoRan earnings are upcoming.",
+          "tickers": [
+            "AA",
+            "FCX",
+            "SCCO"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            20,
+            79
+          ]
+        },
+        {
+          "recommendation": "Monitor and potentially invest in SpaceX (SPCX) on post-IPO slump if fundamentals remain strong.",
+          "rationale": "Russell 1000 inclusion may reverse slump. NASA moon base contracts and space expansion provide long-term growth.",
+          "tickers": [
+            "SPCX"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            39,
+            49
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Reduce exposure to speculative crypto and meme coins.",
+          "rationale": "Bitcoin below $60K, BlackRock outflows, and regulatory uncertainty increase downside risk. Focus on utility-driven projects.",
+          "tickers": [
+            "BTC",
+            "ETH",
+            "XRP"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            11,
+            16,
+            38,
+            101
+          ]
+        },
+        {
+          "recommendation": "Hedge against inflation with TIPS and commodity ETFs.",
+          "rationale": "Inflation is squeezing the South and threatening retirement. TIPS and commodities provide direct inflation protection.",
+          "tickers": [
+            "TIP",
+            "DBC",
+            "GSG"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            8,
+            40
+          ]
+        },
+        {
+          "recommendation": "Avoid distressed sectors like traditional pay-TV and weak retailers.",
+          "rationale": "Dish DBS bankruptcy and Nike weakness signal structural decline. Focus on companies with strong balance sheets and pricing power.",
+          "tickers": [
+            "DISH",
+            "NKE",
+            "SHLD"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            7,
+            12,
+            27,
+            56,
+            78
+          ]
+        },
+        {
+          "recommendation": "Increase cash or short-duration bonds to prepare for potential volatility.",
+          "rationale": "Geopolitical risks, inflation uncertainty, and AI bubble concerns warrant a cautious stance. Short-duration bonds offer safety and yield.",
+          "tickers": [
+            "SHY",
+            "BIL",
+            "JPST"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            10,
+            21,
+            36,
+            40,
+            55
+          ]
+        },
+        {
+          "recommendation": "Diversify internationally with exposure to Canadian and Asian markets.",
+          "rationale": "Canadian stocks are beating US for a second year; Asian stocks are rising. China factory activity returns to growth. South Korea invests heavily in tech.",
+          "tickers": [
+            "EWC",
+            "EWA",
+            "FXI",
+            "EWY"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            26,
+            34,
+            60,
+            94
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "The market is likely to remain positive in the near term, driven by AI momentum and a strong quarter-end rally. However, geopolitical risks (Iran, China) and inflation concerns could trigger pullbacks. Gold and oil will remain volatile. Focus on earnings season for confirmation of trends.",
+      "long_term": "The AI boom and corporate restructuring (spin-offs, M&A) provide structural support. Inflation and interest rate normalization will be key drivers. Diversification across sectors and geographies is crucial. Long-term winners include AI, semiconductors, REITs, and commodities. Crypto faces headwinds but utility-driven projects may recover.",
+      "key_catalysts": [
+        "Q2 2026 earnings season (Nike, Micron, Freeport-McMoRan, etc.)",
+        "Federal Reserve interest rate decisions and inflation data",
+        "Iran nuclear deal negotiations and Strait of Hormuz stability",
+        "US presidential election and policy changes (tariffs, crypto regulation)",
+        "AI regulatory developments (UAE, EU, US)",
+        "China economic recovery and rare-earth export controls",
+        "Corporate spin-offs and M&A (Comcast, Paramount, ITV)",
+        "Crypto market regulatory clarity and institutional adoption",
+        "Global trade tensions and tariff outcomes",
+        "Space exploration and defense spending (NASA, SpaceX)"
+      ],
+      "watch_list": [
+        "S&P 500 and Nasdaq technical levels (support/resistance)",
+        "Gold price action above $4,000",
+        "Bitcoin price and ETF flows (IBIT)",
+        "Oil prices and Strait of Hormuz traffic data",
+        "US 10-year Treasury yield and bond spreads",
+        "US Dollar Index (DXY) and emerging market currencies (Brazil Real)",
+        "China PMI and factory activity data",
+        "South Korea and Taiwan semiconductor exports",
+        "Consumer discretionary earnings (Nike, Kura Sushi, Airbnb)",
+        "Regulatory rulings on Zillow, Ryanair, and Trump cases",
+        "AI industry sentiment and Mark Cuban's warnings",
+        "Dish DBS bankruptcy proceedings",
+        "Comcast spin-off details and ITV takeover progress",
+        "SpaceX stock performance post-Russell 1000 inclusion",
+        "Inflation reports (CPI, PCE) and Fed minutes"
+      ],
+      "headline_sources": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Airbnb Stock Rises After Analyst Hikes Price Target",
+      "url": "https://www.investors.com/news/technology/airbnb-stock-rises-after-analyst-hikes-price-target/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-06-29T16:06:57Z"
+    },
+    {
+      "index": 2,
+      "headline": "Fidelity reveals how much Americans actually have in their 401(k) by age — and when most finally hit $100K",
+      "url": "https://finance.yahoo.com/markets/articles/fidelity-reveals-much-americans-actually-160000405.html",
+      "publishedAt": "2026-06-29T16:00:00Z"
+    },
+    {
+      "index": 3,
+      "headline": "Zillow faces another lawsuit over Redfin deal",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/zillow-faces-another-lawsuit-over-153800069.html",
+      "publishedAt": "2026-06-29T15:38:00Z"
+    },
+    {
+      "index": 4,
+      "headline": "BofA upgrades global growth forecast as AI boom accelerates: Chart of the Day",
+      "url": "https://finance.yahoo.com/markets/article/bofa-upgrades-global-growth-forecast-as-ai-boom-accelerates-chart-of-the-day-161222422.html",
+      "publishedAt": "2026-06-29T16:12:22Z"
+    },
+    {
+      "index": 5,
+      "headline": "Oaktree Capital-Backed ITG Raises $312.2 Million in US IPO",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/oaktree-capital-backed-itg-raises-312-2-million-in-us-ipo",
+      "publishedAt": "2026-06-30T22:51:53+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "Comcast to spin off NBCUniversal and Sky into separate company",
+      "url": "https://www.nbcnews.com/business/business-news/comcast-spinoff-nbcuniversal-sky-split-two-companies-rcna352188",
+      "publishedAt": "2026-06-29T10:20:29+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "After a soft Nike quarter, we have a big decision to make on the stock",
+      "url": "https://www.cnbc.com/2026/06/30/after-soft-nike-earnings-we-have-a-big-decision-to-make-on-the-stock.html",
+      "publishedAt": "2026-06-30T23:42:28.000000Z"
+    },
+    {
+      "index": 8,
+      "headline": "Inflation Could Wreck Your Retirement. Here's How to Tackle It.",
+      "url": "https://finance.yahoo.com/markets/articles/inflation-could-wreck-retirement-heres-154100936.html",
+      "publishedAt": "2026-06-29T15:41:00Z"
+    },
+    {
+      "index": 9,
+      "headline": "Yao Ming on NBA Legacy, Steph Curry, Global Expansion",
+      "url": "https://www.bloomberg.com/news/videos/2026-06-30/yao-ming-on-nba-legacy-steph-curry-global-expansion-video",
+      "publishedAt": "2026-06-30T21:15:47+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "Gold prices today, Tuesday, June 30: Hanging just above $4,000, but ready to rise?",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-prices-today-tuesday-june-30-hanging-just-above-4000-but-ready-to-rise-115357985.html?guce_referrer=aHR0cHM6Ly9uZXdzLmdvb2dsZS5jb20vXy9Eb3RzU3BsYXNoVWkvZGF0YS9iYXRjaGV4ZWN1dGU&guce_referrer_sig=AQAAABF9uqbhxAk2DvZZxM8nZDH5KkR5Jsazi4K2miFTo63LBW8x6tQ16yDdMXLAWLaF60Z1iWQPFBOp-wlOw_yXlaNTfygJ7U7TGMGsr7m-ELN78cAmqSBwh7SGfShHiygwuZFslq8ZCQN9ilJbi_og9Og0Dd5JeJFp3jb04940dCxN&_guc_consent_skip=1782830928",
+      "publishedAt": "2026-06-30T11:53:57Z"
+    },
+    {
+      "index": 11,
+      "headline": "Brad Garlinghouse Takes Aim at $16Tn Payment Flows: Is XRP Ripple Really Going to 100X?",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/brad-garlinghouse-takes-aim-16tn-153411060.html",
+      "publishedAt": "2026-06-29T15:34:11Z"
+    },
+    {
+      "index": 12,
+      "headline": "Exclusive | Satellite Pay-TV Provider Dish DBS Prepares for Bankruptcy Filing - WSJ",
+      "url": "https://www.wsj.com/pro/bankruptcy/echostar-prepares-dish-dbs-bankruptcy-filing-as-soon-as-tuesday-b028dfe6",
+      "publishedAt": "2026-06-29T20:38:00Z"
+    },
+    {
+      "index": 13,
+      "headline": "Chicago news crew attacked near Adler Planetarium",
+      "url": "https://www.nbcnews.com/news/us-news/chicago-news-crew-attacked-adler-planetarium-rcna352347",
+      "publishedAt": "2026-06-30T03:05:46+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "Trump Reports at Least $1.4 Billion in 2025 Crypto Earnings",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/trump-reports-at-least-1-2-billion-in-crypto-earnings-for-2025",
+      "publishedAt": "2026-06-30T21:20:53+00:00"
+    },
+    {
+      "index": 15,
+      "headline": "Former $450 million Israeli cyber exit Argus to shut down",
+      "url": "https://www.calcalistech.com/ctechnews/article/rj3q6xzmfg",
+      "publishedAt": "2026-06-30T11:55:00Z"
+    },
+    {
+      "index": 16,
+      "headline": "Trump’s financial disclosure lists $1.4 billion in crypto earnings, powered largely by meme coins",
+      "url": "https://www.nbcnews.com/politics/donald-trump/financial-disclosure-1-billion-cryptocurrency-earnings-meme-coins-rcna352497",
+      "publishedAt": "2026-06-30T23:27:56+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "Mark Cuban Outlines ‘Multiple Ways’ AI Industry Could Collapse If People View It As ‘Toxic’ — But The Billionaire Remains Bullish",
+      "url": "https://finance.yahoo.com/technology/ai/articles/mark-cuban-outlines-multiple-ways-160337305.html",
+      "publishedAt": "2026-06-29T16:03:37Z"
+    },
+    {
+      "index": 18,
+      "headline": "Analyst Report: MDU Resources Group Inc",
+      "url": "https://finance.yahoo.com/research/reports/ARGUS_3181_AnalystReport_1782817097000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+      "publishedAt": "2026-06-30T10:58:17Z"
+    },
+    {
+      "index": 19,
+      "headline": "China rare-earth arrests raise supply risks for South Korea",
+      "url": "https://www.upi.com/Top_News/World-News/2026/06/30/rare-earth-japan-fuji-electric/6211782862980/",
+      "publishedAt": "2026-06-30T23:49:31.000000Z"
+    },
+    {
+      "index": 20,
+      "headline": "Alcoa Bets on Aluminum Boom With $5.6 Billion South32 Deal",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/south32-sells-aluminum-assets-to-alcoa-in-5-6-billion-deal",
+      "publishedAt": "2026-06-30T21:44:52+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "Oil Steadies as Peace Talks Continue, Hormuz Traffic Recovers",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/latest-oil-market-news-and-analysis-for-july-1",
+      "publishedAt": "2026-06-30T22:04:24+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "Schneider announces additional leadership changes",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/schneider-announces-additional-leadership-changes-151939370.html",
+      "publishedAt": "2026-06-29T15:19:39Z"
+    },
+    {
+      "index": 23,
+      "headline": "Genesco Is the Latest Shoe Firm to Have a New Finance Guru",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/genesco-latest-shoe-firm-finance-153754895.html",
+      "publishedAt": "2026-06-29T15:37:54Z"
+    },
+    {
+      "index": 24,
+      "headline": "Citigroup CEO Brings Long-Troubled Bank Into Trump’s Graces",
+      "url": "https://www.bloomberg.com/news/videos/2026-06-30/citigroup-ceo-brings-long-troubled-bank-into-trump-s-graces",
+      "publishedAt": "2026-06-30T21:01:40+00:00"
+    },
+    {
+      "index": 25,
+      "headline": "Daily Spotlight: Bond Spreads Narrow",
+      "url": "https://finance.yahoo.com/research/reports/ARGUS_47476_MarketOutlook_1782816864000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+      "publishedAt": "2026-06-30T10:54:24Z"
+    },
+    {
+      "index": 26,
+      "headline": "Asian Stocks Set to Rise After Stellar Quarter: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/asian-stocks-eye-gains-as-us-posts-stellar-quarter-markets-wrap",
+      "publishedAt": "2026-06-30T22:09:34+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "Shutterstock Shares Fall After Getty Says It Will End Merger",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/shutterstock-shares-fall-after-getty-says-it-will-end-merger",
+      "publishedAt": "2026-06-30T22:27:32+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "RBC Capital Keeps Outperform Rating on Carvana (CVNA)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/rbc-capital-keeps-outperform-rating-161438855.html",
+      "publishedAt": "2026-06-29T16:14:38Z"
+    },
+    {
+      "index": 29,
+      "headline": "Strategy’s Turnaround Plan Includes Stock Buyback, Bitcoin Sales and More Reserves - WSJ",
+      "url": "https://www.wsj.com/finance/currencies/strategys-turnaround-plan-includes-stock-buyback-bitcoin-sales-and-more-reserves-4c61c8b6",
+      "publishedAt": "2026-06-29T20:41:00Z"
+    },
+    {
+      "index": 30,
+      "headline": "Ranpak Holdings Corp. (PACK) Slid on Weak Results",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ranpak-holdings-corp-pack-slid-160736271.html",
+      "publishedAt": "2026-06-29T16:07:36Z"
+    },
+    {
+      "index": 31,
+      "headline": "Court Rules Ryanair Can't Charge For Check-In, Boarding Passes, And More",
+      "url": "https://onemileatatime.com/news/court-rules-ryanair-cant-charge-check-in-boarding-passes/",
+      "publishedAt": "2026-06-30T11:48:44Z"
+    },
+    {
+      "index": 32,
+      "headline": "Robinhood CFO hands off PAO role",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/robinhood-cfo-hands-off-pao-154105433.html",
+      "publishedAt": "2026-06-29T15:41:05Z"
+    },
+    {
+      "index": 33,
+      "headline": "AvalonBay (AVB): The Best Interest Rate Sensitive Stock to Buy Now",
+      "url": "https://finance.yahoo.com/real-estate/articles/avalonbay-avb-best-interest-rate-161359586.html",
+      "publishedAt": "2026-06-29T16:13:59Z"
+    },
+    {
+      "index": 34,
+      "headline": "Canadian Stocks Beating US for a Second Year as Banks Surge",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/canada-banks-power-stocks-possible-back-to-back-win-over-s-p-500",
+      "publishedAt": "2026-06-30T19:40:30+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "Warren Buffett Annual Donation To Gates Foundation-Waits For Its Review Into Epstein Links",
+      "url": "https://www.forbes.com/sites/siladityaray/2026/06/30/buffett-delays-annual-gift-to-gates-foundation-amid-scrutiny-over-epstein-ties-report-says/",
+      "publishedAt": "2026-06-30T11:56:11Z"
+    },
+    {
+      "index": 36,
+      "headline": "Gold Holds Above $4,000 as Traders Eye Fed Outlook, Iran Talks",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-29/gold-holds-drop-as-us-iran-tensions-weigh-on-inflation-outlook",
+      "publishedAt": "2026-06-29T23:44:48+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "British government may ‘intervene’ in Paramount’s takeover of Warner Bros.",
+      "url": "https://www.nbcnews.com/business/media/british-government-may-intervene-paramounts-takeover-warner-bros-rcna352381",
+      "publishedAt": "2026-06-30T14:01:32+00:00"
+    },
+    {
+      "index": 38,
+      "headline": "Bitcoin Slides Below $60,000 as Strategy Selloff Refuels Anxiety",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/bitcoin-slides-below-60-000-as-strategy-selloff-refuels-anxiety",
+      "publishedAt": "2026-06-30T17:24:54+00:00"
+    },
+    {
+      "index": 39,
+      "headline": "SpaceX Stock (SPCX): Will Russell 1000 Inclusion Reverse Its Post-IPO Slump? - Barron's",
+      "url": "https://www.barrons.com/articles/spacex-stock-russell-1000-nasdaq-musk-433036f4",
+      "publishedAt": "2026-06-29T20:37:00Z"
+    },
+    {
+      "index": 40,
+      "headline": "Rising Inflation Is Squeezing the South",
+      "url": "https://www.bloomberg.com/news/videos/2026-06-30/rising-inflation-is-squeezing-the-south-video",
+      "publishedAt": "2026-06-30T20:14:09+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Trump’s ‘big, beautiful bill’ is bringing a big set of student loan changes",
+      "url": "https://www.nbcnews.com/news/education/trump-big-beautiful-bill-student-loan-changes-rcna350126",
+      "publishedAt": "2026-06-28T16:02:41+00:00"
+    },
+    {
+      "index": 42,
+      "headline": "Two boys, 11 and 12, given conditional warnings after breaking into MRT train’s back cabin",
+      "url": "https://www.straitstimes.com/singapore/two-boys-11-and-12-given-conditional-warnings-after-breaking-into-mrt-trains-back-cabin",
+      "publishedAt": "2026-06-30T11:55:47Z"
+    },
+    {
+      "index": 43,
+      "headline": "MRNA Stock Spikes as Moderna Shares mRNA Pipeline Update",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/mrna-stock-spikes-moderna-shares-153010180.html",
+      "publishedAt": "2026-06-29T15:30:10Z"
+    },
+    {
+      "index": 44,
+      "headline": "Consumers Pay the Price of ‘Funflation’ as Live Event Prices Soar",
+      "url": "https://www.today.com/video/-funflation-has-consumers-experiencing-summer-sticker-shock-265947205901",
+      "publishedAt": "2026-06-30T12:49:09+00:00"
+    },
+    {
+      "index": 45,
+      "headline": "Here’s Why Host Hotels & Resorts (HST) is Among the 10 Interest Rate Sensitive Stocks to Buy Now",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-host-hotels-resorts-hst-161447819.html",
+      "publishedAt": "2026-06-29T16:14:47Z"
+    },
+    {
+      "index": 46,
+      "headline": "Ford recalling more than 741,00 vehicles because of park system issue",
+      "url": "https://abcnews.com/Business/wireStory/ford-recalling-74100-vehicles-park-system-issue-134337363",
+      "publishedAt": "2026-06-30T11:48:45Z"
+    },
+    {
+      "index": 47,
+      "headline": "Amazon invests in spekboom land restoration in South Africa, creating 11,000 jobs",
+      "url": "https://www.aboutamazon.com/news/sustainability/amazon-south-africa-land-restoration",
+      "publishedAt": "2026-06-30T11:51:44Z"
+    },
+    {
+      "index": 48,
+      "headline": "【今朝の5本】仕事を始める前に読んでおきたい厳選ニュース",
+      "url": "https://www.bloomberg.com/jp/news/newsletters/2026-06-30/THGQJOKIJH8S00",
+      "publishedAt": "2026-06-30T21:04:36+00:00"
+    },
+    {
+      "index": 49,
+      "headline": "NASA barrels ahead with moon base plans, doling out nearly $600 million in new contracts",
+      "url": "https://www.nbcnews.com/science/space/nasa-moon-base-private-space-companies-contracts-rcna352382",
+      "publishedAt": "2026-06-30T22:39:39+00:00"
+    },
+    {
+      "index": 50,
+      "headline": "Crude Oil Prices Climb as Tanker Traffic Slows Through Strait of Hormuz",
+      "url": "https://finance.yahoo.com/energy/articles/crude-oil-prices-climb-tanker-153502616.html",
+      "publishedAt": "2026-06-29T15:35:02Z"
+    },
+    {
+      "index": 51,
+      "headline": "V&E Appoints Michael Jay as New IP Litigation Partner in LA",
+      "url": "https://finance.yahoo.com/technology/articles/v-e-appoints-michael-jay-161305810.html",
+      "publishedAt": "2026-06-29T16:13:05Z"
+    },
+    {
+      "index": 52,
+      "headline": "Alphabet debuts in Dow Jones Industrial Average as index tilts toward tech",
+      "url": "https://finance.yahoo.com/markets/world-indices/articles/alphabet-debuts-dow-jones-industrial-152012819.html",
+      "publishedAt": "2026-06-29T15:20:12Z"
+    },
+    {
+      "index": 53,
+      "headline": "Market Digest: DRI, IFF, MDU",
+      "url": "https://finance.yahoo.com/research/reports/ARGUS_47473_MarketSummary_1782816197000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+      "publishedAt": "2026-06-30T10:43:17Z"
+    },
+    {
+      "index": 54,
+      "headline": "S&amp;P 500 Climbs at End of Best Quarter Since 2020: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-29/japan-stocks-set-to-climb-as-yen-hits-40-year-low-markets-wrap",
+      "publishedAt": "2026-06-29T22:06:50+00:00"
+    },
+    {
+      "index": 55,
+      "headline": "DIFC report highlights AI regulatory challenges for UAE financial markets",
+      "url": "https://www.pinsentmasons.com/out-law/news/difc-ai-regulatory-challenges-uae-financial-markets",
+      "publishedAt": "2026-06-30T11:55:18Z"
+    },
+    {
+      "index": 56,
+      "headline": "Breaking Down Nike's Better-Than-Expected Results",
+      "url": "https://www.bloomberg.com/news/videos/2026-06-30/breaking-down-nike-s-better-than-expected-results-video",
+      "publishedAt": "2026-06-30T20:33:34+00:00"
+    },
+    {
+      "index": 57,
+      "headline": "Justices rule Trump can’t fire Fed member but grant more power over independent agencies",
+      "url": "https://www.nbcnews.com/politics/supreme-court/supreme-court-rules-trump-cannot-fire-fed-member-lisa-cook-grants-powe-rcna234931",
+      "publishedAt": "2026-06-29T14:21:58+00:00"
+    },
+    {
+      "index": 58,
+      "headline": "Ryman Hospitality (RHP) Evaluates OEG Partnership Opportunities",
+      "url": "https://finance.yahoo.com/real-estate/articles/ryman-hospitality-rhp-evaluates-oeg-161429069.html",
+      "publishedAt": "2026-06-29T16:14:29Z"
+    },
+    {
+      "index": 59,
+      "headline": "Scotiabank Upgrades BXP (BXP) to Outperform",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/scotiabank-upgrades-bxp-bxp-outperform-161421849.html",
+      "publishedAt": "2026-06-29T16:14:21Z"
+    },
+    {
+      "index": 60,
+      "headline": "South Korea to spend $1T on more memory chip production and humanoid robots - Ars Technica",
+      "url": "https://arstechnica.com/ai/2026/06/south-korea-to-spend-1t-on-more-memory-chip-production-and-humanoid-robots/",
+      "publishedAt": "2026-06-29T21:09:43Z"
+    },
+    {
+      "index": 61,
+      "headline": "Brazil Real Becomes ‘Collateral Damage’ as Dollar Roars Back",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/brazilian-real-becomes-collateral-damage-as-dollar-roars-back",
+      "publishedAt": "2026-06-30T14:38:58+00:00"
+    },
+    {
+      "index": 62,
+      "headline": "Colombia’s Next President Taps Gómez as Incoming Finance Chief",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/miguel-gomez-to-be-next-colombia-finance-minister-el-tiempo-mr16awmh",
+      "publishedAt": "2026-06-30T21:43:05+00:00"
+    },
+    {
+      "index": 63,
+      "headline": "Chip Stocks Put Up Their Best Quarter Ever With Some Wild Swings",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/chip-stocks-best-quarter-ever-is-ending-with-some-wild-swings",
+      "publishedAt": "2026-06-30T09:00:51+00:00"
+    },
+    {
+      "index": 64,
+      "headline": "BMO Capital Upgrades American Homes (AMH) to Outperform",
+      "url": "https://finance.yahoo.com/real-estate/articles/bmo-capital-upgrades-american-homes-161453916.html",
+      "publishedAt": "2026-06-29T16:14:53Z"
+    },
+    {
+      "index": 65,
+      "headline": "Western Asset Total Return Unconstrained Fund Q1 2026 Commentary (WAARX)",
+      "url": "https://seekingalpha.com/article/4918991-western-asset-total-return-unconstrained-fund-q1-2026-commentary",
+      "publishedAt": "2026-06-30T23:40:00.000000Z"
+    },
+    {
+      "index": 66,
+      "headline": "Kura Sushi to Accelerate US Growth to Fend Off Rivals’ Expansion",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/sushi-chain-in-which-trump-holds-stake-accelerates-us-expansion",
+      "publishedAt": "2026-06-30T21:00:00+00:00"
+    },
+    {
+      "index": 67,
+      "headline": "Microsoft Stock Hitting New Lows Could Be a Long-Term Opportunity",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/microsoft-stock-hitting-lows-could-145842753.html",
+      "publishedAt": "2026-06-29T14:58:42Z"
+    },
+    {
+      "index": 68,
+      "headline": "Trump Tariff Defeat Is Market Tailwind ‘No One Is Talking About’",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/trump-tariff-defeat-is-market-tailwind-no-one-is-talking-about",
+      "publishedAt": "2026-06-30T11:54:05+00:00"
+    },
+    {
+      "index": 69,
+      "headline": "Progress Software Earnings Beat Estimates, Boosts Forecast",
+      "url": "https://www.bloomberg.com/news/videos/2026-06-30/progress-software-earnings-top-estimate-boosts-forecast-video",
+      "publishedAt": "2026-06-30T21:40:39+00:00"
+    },
+    {
+      "index": 70,
+      "headline": "Wells Fargo Upgrades Invitation Homes (INVH) to Overweight",
+      "url": "https://finance.yahoo.com/real-estate/articles/wells-fargo-upgrades-invitation-homes-161508095.html",
+      "publishedAt": "2026-06-29T16:15:08Z"
+    },
+    {
+      "index": 71,
+      "headline": "Klarna Group PLC (KLAR) Fell Amid Management’s Cautious Guidance",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/klarna-group-plc-klar-fell-153638089.html",
+      "publishedAt": "2026-06-29T15:36:38Z"
+    },
+    {
+      "index": 72,
+      "headline": "S&P 500 Climbs at End of Best Quarter Since 2020 | Closing Bell",
+      "url": "https://www.bloomberg.com/news/videos/2026-06-30/s-p-500-has-best-quarter-since-2020-closing-bell-video",
+      "publishedAt": "2026-06-30T20:30:17+00:00"
+    },
+    {
+      "index": 73,
+      "headline": "Debt and Risky Bets Fuel South Korea and Taiwan's AI Stock Boom",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/the-risky-debt-fueling-taiwan-and-korea-s-ai-stock-boom-big-take-asia-podcast",
+      "publishedAt": "2026-06-30T21:11:15+00:00"
+    },
+    {
+      "index": 74,
+      "headline": "Is Sun Communities (SUI) the Best Interest Rate Sensitive Stock to Buy Now?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/sun-communities-sui-best-interest-161459772.html",
+      "publishedAt": "2026-06-29T16:14:59Z"
+    },
+    {
+      "index": 75,
+      "headline": "Truist Raises its Price Target on Cousins Properties (CUZ)",
+      "url": "https://finance.yahoo.com/real-estate/articles/truist-raises-price-target-cousins-161406089.html",
+      "publishedAt": "2026-06-29T16:14:06Z"
+    },
+    {
+      "index": 76,
+      "headline": "Halliburton, Valero and 3 More Stocks Set Up for a Fragile Hormuz Truce",
+      "url": "https://finance.yahoo.com/energy/articles/halliburton-valero-3-more-stocks-150000805.html",
+      "publishedAt": "2026-06-29T15:00:00Z"
+    },
+    {
+      "index": 77,
+      "headline": "Assessing Nike vs. Adidas as World Cup Heats Up",
+      "url": "https://www.bloomberg.com/news/videos/2026-06-30/assessing-nike-vs-adidas-as-world-cup-heats-up-video",
+      "publishedAt": "2026-06-30T21:40:09+00:00"
+    },
+    {
+      "index": 78,
+      "headline": "Nike Sees Weakness Persisting as Wall Street Patience Wears Thin",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/nike-posts-earnings-that-surpass-expectations-in-latest-quarter",
+      "publishedAt": "2026-06-30T20:16:55+00:00"
+    },
+    {
+      "index": 79,
+      "headline": "What to Expect From Freeport-McMoRan's Q2 2026 Earnings Report",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/expect-freeport-mcmorans-q2-2026-152841076.html",
+      "publishedAt": "2026-06-29T15:28:41Z"
+    },
+    {
+      "index": 80,
+      "headline": "JetBlue pilot reports hitting drone as plane approached JFK airport to land Monday morning - AP News",
+      "url": "https://apnews.com/article/jetblue-faa-jfk-plane-hits-drone-airport-9d10e881662e1151eb9fe9588c685e48",
+      "publishedAt": "2026-06-29T22:15:00Z"
+    },
+    {
+      "index": 81,
+      "headline": "Market Update: CRL, MKC",
+      "url": "https://finance.yahoo.com/research/reports/ARGUS_47479_MarketUpdate_1782838843000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+      "publishedAt": "2026-06-30T17:00:43Z"
+    },
+    {
+      "index": 82,
+      "headline": "A mom got fired in her first week for taking 1 day off — and in 49 states, it's perfectly legal",
+      "url": "https://finance.yahoo.com/small-business/articles/mom-got-fired-her-first-150000760.html",
+      "publishedAt": "2026-06-29T15:00:00Z"
+    },
+    {
+      "index": 83,
+      "headline": "FDA panel on peptides will include experts who promote the unproven chemicals favored by RFK Jr. - AP News",
+      "url": "https://apnews.com/article/peptides-fda-rfk-jr-drugs-wellness-dc3eeb67358373d580529c50784af109",
+      "publishedAt": "2026-06-29T20:17:45Z"
+    },
+    {
+      "index": 84,
+      "headline": "'We started with a maxed-out credit card': How The Nitro Bar became a booming coffee business",
+      "url": "https://www.nbcnews.com/now/video/how-the-nitro-bar-became-a-booming-coffee-business-265870917920",
+      "publishedAt": "2026-06-29T14:02:12+00:00"
+    },
+    {
+      "index": 85,
+      "headline": "How AI is Changing the Job Market and Workplace in America",
+      "url": "https://www.today.com/video/how-ai-is-changing-the-job-market-and-workplace-in-america-265832517936",
+      "publishedAt": "2026-06-28T13:01:51+00:00"
+    },
+    {
+      "index": 86,
+      "headline": "Which Vanguard ETF Offers Superior International Exposure: VWO or VXUS?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/vanguard-etf-offers-superior-international-153346600.html",
+      "publishedAt": "2026-06-29T15:33:46Z"
+    },
+    {
+      "index": 87,
+      "headline": "Daily – Vickers Top Insider Picks for 06/30/2026",
+      "url": "https://finance.yahoo.com/research/reports/ARGUS_47471_InsiderActivity_1782815761000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+      "publishedAt": "2026-06-30T10:36:01Z"
+    },
+    {
+      "index": 88,
+      "headline": "UBS, BofA, Jefferies Start Quantinuum With Buy Ratings On 'Full-Stack' Platform",
+      "url": "https://www.investors.com/news/technology/jefferies-starts-quantinuum-stock-qnt-buy-rating-full-stack-platform/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-06-29T15:04:00Z"
+    },
+    {
+      "index": 89,
+      "headline": "Technical Assessment: Bullish in the Intermediate-Term",
+      "url": "https://finance.yahoo.com/research/reports/ARGUS_47475_TechnicalAnalysis_1782816834000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+      "publishedAt": "2026-06-30T10:53:54Z"
+    },
+    {
+      "index": 90,
+      "headline": "Nike Appoints Pfizer CFO as New Finance Chief Amid Industry Experience Questions",
+      "url": "https://www.bloomberg.com/news/videos/2026-06-30/nike-appoints-pfizer-cfo-as-new-finance-chief-video",
+      "publishedAt": "2026-06-30T21:52:39+00:00"
+    },
+    {
+      "index": 91,
+      "headline": "Ukraine Drone Maker Uses Manual Work, Not Just Automation, to Keep up",
+      "url": "https://www.businessinsider.com/ukraine-drone-maker-uses-manual-work-not-just-automation-changes-2026-6",
+      "publishedAt": "2026-06-30T11:50:45Z"
+    },
+    {
+      "index": 92,
+      "headline": "Truist Raises its Price Target on Equity Residential (EQR)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/truist-raises-price-target-equity-161517450.html",
+      "publishedAt": "2026-06-29T16:15:17Z"
+    },
+    {
+      "index": 93,
+      "headline": "Bears Are in Control of Cotton Prices. Sell Now Before They Head Lower.",
+      "url": "https://finance.yahoo.com/markets/commodities/articles/bears-control-cotton-prices-sell-151544303.html",
+      "publishedAt": "2026-06-29T15:15:44Z"
+    },
+    {
+      "index": 94,
+      "headline": "China’s Factory Activity Returns to Growth | The China Show 6/30/2026",
+      "url": "https://www.bloomberg.com/news/videos/2026-06-30/the-china-show-6-30-2026-video",
+      "publishedAt": "2026-06-30T21:17:29+00:00"
+    },
+    {
+      "index": 95,
+      "headline": "Sky’s US owner to spin off media business ahead of ITV takeover",
+      "url": "https://finance.yahoo.com/media-advertising/articles/sky-us-owner-spin-off-153911348.html",
+      "publishedAt": "2026-06-29T15:39:11Z"
+    },
+    {
+      "index": 96,
+      "headline": "Comcast Sets Company Split. Is More M&A Coming? Telecom Stocks Fall.",
+      "url": "https://www.investors.com/news/technology/comcast-stock-soars-on-company-split-as-cable-tv-giants-makeover-continues/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-06-29T15:22:15Z"
+    },
+    {
+      "index": 97,
+      "headline": "Nearly 7,000 ‘illegal and potentially unsafe’ teeth-whitening products detained last year",
+      "url": "https://www.irishtimes.com/health/2026/06/30/nearly-7000-illegal-and-potentially-unsafe-teeth-whitening-products-detained-last-year/",
+      "publishedAt": "2026-06-30T11:52:03Z"
+    },
+    {
+      "index": 98,
+      "headline": "Dow Jones Futures: Stock Market Rallies On U.S.-Iran News; Alphabet, Rocket Lab, SpaceX, Tesla Are Big Winners - Investor's Business Daily",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-us-iran-spacex-spcx-tesla-tsla/",
+      "publishedAt": "2026-06-29T23:33:00Z"
+    },
+    {
+      "index": 99,
+      "headline": "Micron Stock Jumps After Blockbuster Earnings. Its Long-Term Supply Deals Could Be a Game Changer.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/micron-stock-jumps-blockbuster-earnings-152518227.html",
+      "publishedAt": "2026-06-29T15:25:18Z"
+    },
+    {
+      "index": 100,
+      "headline": "Top tobacco company to cut thousands of jobs - Fox Business",
+      "url": "https://www.foxbusiness.com/markets/top-tobacco-company-cut-thousands-jobs",
+      "publishedAt": "2026-06-29T21:24:00Z"
+    },
+    {
+      "index": 101,
+      "headline": "BlackRock Bitcoin News: IBIT Suffers $1.3Bn Outflow as Iran Shakes Safe Money",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/blackrock-bitcoin-news-ibit-suffers-153620356.html",
+      "publishedAt": "2026-06-29T15:36:20Z"
+    },
+    {
+      "index": 102,
+      "headline": "T-Mobile is booting customers from its oldest plans - The Verge",
+      "url": "https://www.theverge.com/tech/959144/t-mobile-legacy-plan-retire-sprint",
+      "publishedAt": "2026-06-29T21:06:14Z"
+    },
+    {
+      "index": 103,
+      "headline": "Oil Market Still Regulating Despite 'Flare Ups' Says Samantha Dart",
+      "url": "https://www.bloomberg.com/news/videos/2026-06-30/oil-market-still-regulating-despite-flare-ups-dart-video",
+      "publishedAt": "2026-06-30T21:28:35+00:00"
+    },
+    {
+      "index": 104,
+      "headline": "What It Takes to Win in the Next Era of Drayage",
+      "url": "https://finance.yahoo.com/small-business/articles/takes-win-next-era-drayage-154355767.html",
+      "publishedAt": "2026-06-29T15:43:55Z"
+    },
+    {
+      "index": 105,
+      "headline": "US Stocks Gain as S&amp;P 500, Nasdaq Notch Best Quarter Since 2020",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/us-stocks-mixed-as-indexes-head-for-best-quarter-since-2020",
+      "publishedAt": "2026-06-30T13:48:17+00:00"
+    },
+    {
+      "index": 106,
+      "headline": "Daily – Vickers Top Buyers & Sellers for 06/30/2026",
+      "url": "https://finance.yahoo.com/research/reports/ARGUS_47472_TopBottomInsiderActivity_1782815761000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+      "publishedAt": "2026-06-30T10:36:01Z"
+    },
+    {
+      "index": 107,
+      "headline": "Analyst Report: McCormick & Co Inc/MD",
+      "url": "https://finance.yahoo.com/research/reports/ARGUS_4136_AnalystReport_1782839743000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+      "publishedAt": "2026-06-30T17:15:43Z"
+    },
+    {
+      "index": 108,
+      "headline": "iHerb Is Said to Select Banks for $500 Million IPO This Year",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-30/iherb-is-said-to-select-banks-for-500-million-ipo-this-year",
+      "publishedAt": "2026-06-30T21:05:56+00:00"
+    },
+    {
+      "index": 109,
+      "headline": "Stock Indexes Push Higher as Megacap Tech Stocks Rally",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/stock-indexes-push-higher-megacap-151603585.html",
+      "publishedAt": "2026-06-29T15:16:03Z"
+    }
+  ]
+}
