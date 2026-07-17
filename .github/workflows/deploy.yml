@@ -111,6 +111,8 @@ jobs:
           mv website-core/au ./au 2>/dev/null || true
           rm -rf ./static
           mv website-core/static ./static
+          rm -rf ./api
+          mv website-core/api ./api 2>/dev/null || true
           rm -rf website-core
       - name: Push analysis report to history branch
         uses: peaceiris/actions-gh-pages@v4
