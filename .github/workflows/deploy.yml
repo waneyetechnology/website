@@ -112,6 +112,14 @@ jobs:
           rm -rf ./static
           mv website-core/static ./static
           rm -rf website-core
+          
+          mkdir -p ./history/cn
+          mv ./cn/history/* ./history/cn/ 2>/dev/null || true
+          rm -rf ./cn/history
+          
+          mkdir -p ./history/au
+          mv ./au/history/* ./history/au/ 2>/dev/null || true
+          rm -rf ./au/history
       - name: Push analysis report to history branch
         uses: peaceiris/actions-gh-pages@v4
         with:
