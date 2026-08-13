@@ -88,18 +88,21 @@ jobs:
           MARKETAUX_API_KEY: ${{ secrets.MARKETAUX_API_KEY }}
           GNEWS_API_KEY: ${{ secrets.GNEWS_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           cd website-core
           python generate_site.py
       - name: Generate Chinese site
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           cd website-core
           python generate_site_cn.py
       - name: Generate Australian site
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           cd website-core
           python generate_site_au.py
