@@ -169,6 +169,18 @@ run_act_mode() {
   fi
   success "Secrets file found"
 
+  step "Detecting Ollama on host"
+  OLLAMA_REACHABLE=false
+  if curl -sf --max-time 3 http://localhost:11434/api/version &>/dev/null; then
+    OLLAMA_REACHABLE=true
+    local ollama_ver
+    ollama_ver=$(curl -sf --max-time 3 http://localhost:11434/api/version 2>/dev/null || echo "unknown")
+    success "Ollama is running on host (${ollama_ver})"
+    info "Container will access it via host.docker.internal:11434"
+  else
+    warn "Ollama not detected on localhost:11434 — Ollama fallback will be unavailable in the container"
+  fi
+
   step "Running workflow via act"
   local act_args=()
   act_args+=(push)
@@ -178,6 +190,19 @@ run_act_mode() {
 
   # Use a medium-size image for ubuntu-24.04
   act_args+=(-P "ubuntu-24.04=catthehacker/ubuntu:act-22.04")
+
+  # ── Ollama: map host.docker.internal so the container can reach the host ──
+  # On macOS Docker Desktop, host.docker.internal is available by default.
+  # We pass OLLAMA_HOST as an env var pointing to the Docker-accessible address.
+  if [[ "$OLLAMA_REACHABLE" == true ]]; then
+    act_args+=(--env "OLLAMA_HOST=http://host.docker.internal:11434/v1")
+    act_args+=(--env "OLLAMA_MODEL=${OLLAMA_MODEL:-}")
+
+    # Add extra_hosts mapping as a safety net (needed on some Docker/Linux setups)
+    act_args+=(--container-options "--add-host=host.docker.internal:host-gateway")
+
+    info "OLLAMA_HOST=http://host.docker.internal:11434/v1"
+  fi
 
   info "Running: act ${act_args[*]}"
   echo ""
