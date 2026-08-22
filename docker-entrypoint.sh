@@ -252,16 +252,7 @@ else
     HISTORY_TMP=$(mktemp -d)
     cp -R ./history/* "$HISTORY_TMP/" 2>/dev/null || true
 
-    # Check if history branch exists
-    if git ls-remote --heads origin history | grep -q history; then
-      git fetch origin history:history 2>/dev/null || true
-      git worktree add "$HISTORY_TMP/.wt" history 2>/dev/null || {
-        # Fallback: push as orphan
-        warn "Worktree failed, using alternative deploy method"
-      }
-    fi
-
-    # Simple approach: use a temporary orphan commit
+    # Simple approach: initialize a new repo in the temp dir and fetch history
     cd "$HISTORY_TMP"
     git init
     git config user.name "docker-deploy[bot]"
