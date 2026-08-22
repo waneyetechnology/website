@@ -32,7 +32,7 @@ DOCKER_RUN_OPTS := \
 
 # ── Targets ──────────────────────────────────────────────────────────────────
 
-.PHONY: build deploy deploy-test deploy-dry clean help
+.PHONY: build deploy deploy-test deploy-dry setup-cron clean help
 
 ## Build the Docker image
 build:
@@ -70,6 +70,10 @@ deploy-dry: _check-env _check-core
 		-v "$(CORE_PATH):/workspace/website-core:ro" \
 		$(FULL_IMAGE)
 
+## Set up an hourly cron job to run deploy
+setup-cron:
+	@./setup-cron.sh
+
 ## Remove the Docker image
 clean:
 	@echo "🗑  Removing $(FULL_IMAGE)..."
@@ -86,6 +90,7 @@ help:
 	@echo "  make deploy        Run the full deploy workflow"
 	@echo "  make deploy-test   Run in test mode (faster)"
 	@echo "  make deploy-dry    Build only, skip gh-pages push"
+	@echo "  make setup-cron    Set up an hourly cron job for deploy"
 	@echo "  make clean         Remove the Docker image"
 	@echo "  make help          Show this help"
 	@echo ""
