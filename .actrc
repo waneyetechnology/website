@@ -1,0 +1,15 @@
+# =============================================================================
+# act configuration — maps GitHub runner labels to Docker images
+# =============================================================================
+# See: https://nektosact.com/usage/runners.html
+#
+# Using catthehacker images which are compatible with act and include
+# common tools pre-installed.
+# =============================================================================
+
+-P ubuntu-24.04=catthehacker/ubuntu:act-22.04
+-P ubuntu-22.04=catthehacker/ubuntu:act-22.04
+-P ubuntu-latest=catthehacker/ubuntu:act-22.04
+
+# Reuse containers between runs for faster iteration
+--reuse

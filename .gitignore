@@ -99,12 +99,18 @@ celerybeat.pid
 
 # Environments
 .env
+.env.local
 .venv
+.venv-deploy/
 env/
 venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Local deploy secrets and artifacts
+.secrets
+website-core
 
 # Spyder project settings
 .spyderproject
