@@ -250,23 +250,27 @@ else
 
     # Create a temporary directory for the history deploy
     HISTORY_TMP=$(mktemp -d)
+
+    # Cleanly clone the history branch
+    if git ls-remote --heads "https://${GH_PAT}@github.com/waneyetechnology/website.git" history | grep -q history; then
+      git clone -b history --depth 1 "https://${GH_PAT}@github.com/waneyetechnology/website.git" "$HISTORY_TMP"
+    else
+      git clone "https://${GH_PAT}@github.com/waneyetechnology/website.git" "$HISTORY_TMP"
+      cd "$HISTORY_TMP"
+      git checkout --orphan history
+      git rm -rf .
+      cd /workspace/website
+    fi
+
+    # Copy new history files into the cloned repository
     cp -R ./history/* "$HISTORY_TMP/" 2>/dev/null || true
 
-    # Simple approach: initialize a new repo in the temp dir and fetch history
     cd "$HISTORY_TMP"
-    git init
     git config user.name "docker-deploy[bot]"
     git config user.email "docker-deploy[bot]@users.noreply.github.com"
-    git remote add origin "https://${GH_PAT}@github.com/waneyetechnology/website.git"
-
-    # Try to fetch existing history branch to keep files
-    git fetch origin history 2>/dev/null && git checkout -b history origin/history 2>/dev/null || git checkout -b history
-
-    # Copy new history files
-    cp -R /workspace/website/history/* . 2>/dev/null || true
     git add -A
     git commit -m "history: docker deploy $(date +%Y%m%d-%H%M%S)" --allow-empty
-    git push origin history --force
+    git push origin history
     cd /workspace/website
     rm -rf "$HISTORY_TMP"
 
