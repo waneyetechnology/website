@@ -80,6 +80,10 @@ jobs:
             libasound2t64 \
             libxrandr2 \
             libxss1
+      - name: Install agy CLI
+        run: |
+          curl -fsSL https://antigravity.google/cli/install.sh | bash
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
       - name: Generate static site
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
