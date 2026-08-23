@@ -54,6 +54,8 @@ jobs:
       - name: Build static site (no deploy) - Test Mode for Fast CI/CD
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          AGY_PROVIDER: ${{ secrets.AGY_PROVIDER }}
+          ANTIGRAVITY_API_KEY: ${{ secrets.ANTIGRAVITY_API_KEY }}
         run: |
           cd website-core
           python generate_site.py --test-mode
