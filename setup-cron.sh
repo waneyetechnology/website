@@ -17,7 +17,7 @@ CRON_SCHEDULE="0 * * * *"
 MARKER="WANEYE_DOCKER_DEPLOY_CRON"
 
 # Add common bin paths to ensure docker and make are found in cron's limited PATH
-CRON_CMD="PATH=/usr/local/bin:/opt/homebrew/bin:\$PATH cd ${REPO_DIR} && make deploy >> ${LOG_FILE} 2>&1 # ${MARKER}"
+CRON_CMD="export PATH=/usr/local/bin:/opt/homebrew/bin:\$PATH; cd ${REPO_DIR} && make deploy >> ${LOG_FILE} 2>&1 # ${MARKER}"
 
 echo -e "${CYAN}Setting up hourly cron job for Waneye deploy...${NC}"
 
