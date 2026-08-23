@@ -88,6 +88,11 @@ RUN pip install --no-cache-dir --upgrade pip setuptools wheel && \
 # ── Install Playwright Chromium ──────────────────────────────────────────────
 RUN playwright install chromium
 
+# ── Install agy CLI ──────────────────────────────────────────────────────────
+RUN curl -fsSL https://antigravity.google/cli/install.sh | bash
+ENV PATH="/root/.local/bin:$PATH"
+RUN agy --version
+
 # ── Working directory ────────────────────────────────────────────────────────
 WORKDIR /workspace
 
