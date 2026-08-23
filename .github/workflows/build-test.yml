@@ -51,6 +51,9 @@ jobs:
           curl -fsSL https://antigravity.google/cli/install.sh | bash
           echo "$HOME/.local/bin" >> $GITHUB_PATH
             
+      - name: Verify agy CLI installation
+        run: agy --version
+        
       - name: Build static site (no deploy) - Test Mode for Fast CI/CD
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
