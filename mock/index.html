@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Waneye global market intelligence dashboard concept">
+  <title>Waneye — Market Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to report</a>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Waneye home">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M3 17C6.8 10.7 11.4 7.5 17 7.5S27.2 10.7 31 17c-3.8 6.3-8.4 9.5-14 9.5S6.8 23.3 3 17Z"/><circle cx="17" cy="17" r="5"/><path d="M17 3v3M17 28v3M3 8l3 2M28 24l3 2"/></svg>
+      <span>WANEYE</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <a class="active" href="index.html">Intelligence</a>
+      <a href="markets/index.html">Markets</a>
+      <a href="newsroom/index.html">Newsroom</a>
+      <a href="archive/index.html">Archive</a>
+    </nav>
+    <div class="top-actions">
+      <span class="status"><i></i> Live intelligence</span>
+      <button class="icon-button" id="searchButton" aria-label="Open search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+      </button>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="ticker" aria-label="Market themes">
+    <div class="ticker-label">SIGNAL BOARD</div>
+    <div class="ticker-track" id="tickerTrack"></div>
+    <time>23 AUG 2026</time>
+  </div>
+
+  <main id="main">
+    <section class="masthead" id="overview">
+      <div class="eyebrow"><span>WANEYE RESEARCH</span><span class="rule"></span><span id="editionLabel">GLOBAL EDITION</span></div>
+      <div class="masthead-grid">
+        <div>
+          <p class="issue" id="issueLabel">MARKET BRIEF / 12:16 UTC</p>
+          <h1>See the market<br><em>before it moves.</em></h1>
+          <p class="dek">Independent signal extraction from global reporting, structured for investors who value context over noise.</p>
+        </div>
+        <div class="lead-panel">
+          <div class="score-wrap">
+            <div class="score-ring" id="scoreRing"><span id="scoreValue">58</span><small>/ 100</small></div>
+            <div><span class="kicker">MARKET PULSE</span><strong id="sentimentLabel">Measured confidence</strong><p>Composite sentiment across today’s source set.</p></div>
+          </div>
+          <div class="report-meta">
+            <div><span>Sources analysed</span><strong id="sourceCount">95</strong></div>
+            <div><span>Sector signals</span><strong id="sectorCount">05</strong></div>
+            <div><span>Risk flags</span><strong id="riskCount">04</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="region-tabs" role="tablist" aria-label="Report edition">
+        <button role="tab" aria-selected="true" data-region="global"><span>01</span> Global</button>
+        <button role="tab" aria-selected="false" data-region="au"><span>02</span> Australia</button>
+        <button role="tab" aria-selected="false" data-region="cn"><span>03</span> Greater China</button>
+      </div>
+    </section>
+
+    <section class="brief container" aria-labelledby="brief-title">
+      <div class="section-heading">
+        <div><span class="section-num">01</span><p class="kicker">THE DAILY BRIEF</p><h2 id="brief-title">What matters now</h2></div>
+        <p id="briefDate" class="dateline">23 AUGUST 2026<br>12:16 UTC</p>
+      </div>
+      <div class="brief-grid">
+        <article class="lead-story" id="leadStory"></article>
+        <div class="brief-list" id="briefList"></div>
+      </div>
+    </section>
+
+    <section class="signal-section" id="sectors" aria-labelledby="signals-title">
+      <div class="container">
+        <div class="section-heading light">
+          <div><span class="section-num">02</span><p class="kicker">SECTOR INTELLIGENCE</p><h2 id="signals-title">Signals across the board</h2></div>
+          <p>Directional intelligence, distilled from the current reporting cycle.</p>
+        </div>
+        <div class="sector-grid" id="sectorGrid"></div>
+      </div>
+    </section>
+
+    <section class="risk-section container" aria-labelledby="risk-title">
+      <div class="section-heading">
+        <div><span class="section-num">03</span><p class="kicker">RISK REGISTER</p><h2 id="risk-title">Know the downside</h2></div>
+        <p>Likelihood and impact are assessed independently from market sentiment.</p>
+      </div>
+      <div class="risk-layout">
+        <div class="risk-matrix" aria-label="Risk impact and likelihood matrix">
+          <div class="axis axis-y">IMPACT</div><div class="axis axis-x">LIKELIHOOD</div>
+          <div class="matrix-grid"><span></span><span></span><span></span><span></span></div>
+          <div id="riskDots"></div>
+          <span class="matrix-label high">HIGH</span><span class="matrix-label low">LOW</span>
+        </div>
+        <div class="risk-list" id="riskList"></div>
+      </div>
+    </section>
+
+    <section class="strategy-section" id="strategy" aria-labelledby="strategy-title">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="section-num">04</span><p class="kicker">POSITIONING</p><h2 id="strategy-title">Act on the signal</h2></div>
+          <div class="strategy-toggle" role="tablist" aria-label="Strategy category"><button class="active" data-strategy="opportunities">Opportunities</button><button data-strategy="defensive">Defensive</button></div>
+        </div>
+        <div class="strategy-grid" id="strategyGrid"></div>
+      </div>
+    </section>
+
+    <section class="outlook container" aria-labelledby="outlook-title">
+      <div class="outlook-copy">
+        <span class="section-num">05</span><p class="kicker">FORWARD VIEW</p><h2 id="outlook-title">The road ahead</h2>
+        <div class="horizon"><span>1—3 MONTHS</span><p id="shortOutlook"></p></div>
+        <div class="horizon"><span>6—12 MONTHS</span><p id="longOutlook"></p></div>
+      </div>
+      <div class="catalyst-card"><p class="kicker">CATALYST MONITOR</p><div id="catalystList"></div></div>
+    </section>
+
+    <section class="news-section" id="news" aria-labelledby="news-title">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="section-num">06</span><p class="kicker">SOURCE LEDGER</p><h2 id="news-title">Reporting behind the view</h2></div>
+          <p>Selected source headlines referenced by the analysis.</p>
+        </div>
+        <div class="news-list" id="newsList"></div>
+      </div>
+    </section>
+
+    <section class="archive container" id="archive" aria-labelledby="archive-title">
+      <p class="kicker">RESEARCH ARCHIVE</p><h2 id="archive-title">Every report. One continuous view.</h2>
+      <p>Explore the preserved record of Waneye analysis across global, Australian and Greater China markets.</p>
+      <div class="archive-stats"><div><strong>05</strong><span>Current archive records</span></div><div><strong>03</strong><span>Market editions</span></div><div><strong>Hourly</strong><span>Analysis cadence</span></div></div>
+      <button class="button" id="archiveButton">Browse the archive <span>↗</span></button>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="index.html"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M3 17C6.8 10.7 11.4 7.5 17 7.5S27.2 10.7 31 17c-3.8 6.3-8.4 9.5-14 9.5S6.8 23.3 3 17Z"/><circle cx="17" cy="17" r="5"/></svg><span>WANEYE</span></a>
+    <p>Global vision for smarter finance.</p><p>Analysis is informational and does not constitute investment advice.</p><span>© 2026 WANEYE TECHNOLOGY</span>
+  </footer>
+
+  <dialog id="searchDialog">
+    <form method="dialog"><button aria-label="Close search">×</button></form>
+    <p class="kicker">SEARCH INTELLIGENCE</p><label for="searchInput">Find a sector, theme or ticker</label>
+    <input id="searchInput" type="search" placeholder="Try “AI infrastructure” or “NVDA”">
+    <div id="searchResults"></div>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
