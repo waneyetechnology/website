@@ -274,24 +274,25 @@ input {
 }
 .lead-panel {
   border-left: 1px solid #384457;
-  padding-left: clamp(32px, 3vw, 64px);
+  padding-left: clamp(36px, 4vw, 72px);
 }
 .score-wrap {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 28px;
 }
 .score-ring {
   --score: 58;
   position: relative;
-  width: 108px;
-  height: 108px;
+  width: 144px;
+  height: 144px;
+  flex: 0 0 144px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: baseline;
-  padding-top: 36px;
-  font: 700 31px/1 var(--display);
+  padding-top: 51px;
+  font: 700 42px/1 var(--display);
   background: conic-gradient(var(--blue-2) calc(var(--score) * 1%), #2b374a 0);
 }
 .score-ring:before {
@@ -306,7 +307,7 @@ input {
   position: relative;
 }
 .score-ring small {
-  font-size: var(--type-index);
+  font-size: var(--type-label);
   color: #7c8797;
 }
 .kicker {
@@ -317,20 +318,24 @@ input {
 }
 .score-wrap strong {
   display: block;
-  font: 700 17px/1.2 var(--display);
+  font: 700 22px/1.2 var(--display);
 }
 .score-wrap p {
   color: #808b9a;
+  font-size: var(--type-support);
+  line-height: 1.55;
+  margin: 9px 0 0;
+  max-width: 260px;
+}
+.score-wrap .kicker {
   font-size: var(--type-meta);
-  line-height: 1.5;
-  margin: 7px 0 0;
 }
 .report-meta {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid #354155;
-  margin-top: 32px;
-  padding-top: 28px;
+  margin-top: 38px;
+  padding-top: 32px;
   gap: 16px;
 }
 .report-meta div {
@@ -340,10 +345,10 @@ input {
 }
 .report-meta span {
   color: #737f90;
-  font-size: var(--type-label);
+  font-size: var(--type-meta);
 }
 .report-meta strong {
-  font: 600 24px/1 var(--display);
+  font: 600 28px/1 var(--display);
 }
 .region-tabs {
   display: flex;
@@ -1019,9 +1024,11 @@ dialog input {
     font-size: var(--type-lead);
   }
   .score-ring {
-    width: 90px;
-    height: 90px;
-    padding-top: 29px;
+    width: 104px;
+    height: 104px;
+    flex-basis: 104px;
+    padding-top: 35px;
+    font-size: 34px;
   }
   .region-tabs {
     margin: 0 -18px;
@@ -1106,10 +1113,10 @@ dialog input {
     padding: 40px 18px;
   }
   .score-wrap {
-    gap: 15px;
+    gap: 18px;
   }
   .report-meta strong {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 @media (max-width: 640px) {
