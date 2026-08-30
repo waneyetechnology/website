@@ -82,42 +82,42 @@ window.WANEYE_REPORTS = {
     ]
   },
   cn: {
-    edition:"Greater China edition", date:"2026年08月23日", time:"20:20 CST", score:68, sentiment:"Constructive bias", sources:150,
-    themes:["AI infrastructure", "Humanoid robotics", "Precious metals", "Earnings dispersion", "Regulatory discipline"],
+    edition:"大中华区版", date:"2026年08月23日", time:"20:20 CST", score:68, sentiment:"偏积极", sources:150,
+    themes:["人工智能基础设施", "人形机器人", "贵金属", "业绩分化", "监管规范"],
     highlights:[
-      "AI infrastructure demand continues to translate into earnings as optical modules, chips and specialist upstream suppliers expand capacity.",
-      "Humanoid robotics attracts intense capital interest following new technical milestones, though commercialisation remains the key test.",
-      "Gold and industrial metals strengthen, improving the earnings outlook for scaled resource producers.",
-      "Policy support and improved fiscal receipts sit alongside tighter disclosure and delisting enforcement."
+      "AI基础设施需求持续转化为业绩，光模块、芯片及专业上游供应商加速扩产。",
+      "人形机器人在技术指标取得新突破后吸引大量资本关注，商业化落地仍是核心验证点。",
+      "黄金与工业金属价格走强，大型资源企业的盈利预期进一步改善。",
+      "政策支持与财政收入改善同步推进，信息披露及退市监管亦持续收紧。"
     ],
     sectors:[
-      {name:"Semiconductors & AI",direction:"Positive",tone:"up",trend:"Orders and earnings confirm accelerating compute infrastructure demand.",implication:"The cycle is moving from expectations toward fundamental delivery.",metric:"↑",metricLabel:"Capex cycle"},
-      {name:"Humanoid Robotics",direction:"Emerging",tone:"up",trend:"Technical milestones and investor attention keep embodied AI in focus.",implication:"Commercial use cases and component scale will separate leaders.",metric:"Early",metricLabel:"Adoption phase"},
-      {name:"Metals & Gold",direction:"Positive",tone:"up",trend:"Gold at record levels and firm copper support producer earnings.",implication:"Large resource names offer strong earnings visibility.",metric:"$4,600",metricLabel:"Gold reference"},
-      {name:"New Energy Materials",direction:"Selective",tone:"flat",trend:"Solid-state battery pilots progress while legacy supply remains competitive.",implication:"Focus on validated next-generation materials and global cost leaders.",metric:"Pilot",metricLabel:"Commercial stage"},
-      {name:"Banks & Asset Management",direction:"Stable",tone:"flat",trend:"Quality regional banks improve while disclosure rules tighten.",implication:"High-dividend financials remain core institutional holdings.",metric:"Yield",metricLabel:"Primary factor"}
+      {name:"半导体与人工智能",direction:"积极",tone:"up",trend:"订单及业绩共同验证算力基础设施需求正在加速。",implication:"产业周期正由预期驱动转向基本面兑现。",metric:"↑",metricLabel:"资本开支周期"},
+      {name:"人形机器人",direction:"新兴",tone:"up",trend:"技术突破与投资热度使具身智能持续处于市场焦点。",implication:"商业场景与零部件量产能力将决定最终领先者。",metric:"早期",metricLabel:"应用阶段"},
+      {name:"有色金属与黄金",direction:"积极",tone:"up",trend:"金价创出新高，铜价保持强势，为资源企业盈利提供支撑。",implication:"大型资源企业具备较高的盈利可见度。",metric:"$4,600",metricLabel:"黄金参考价"},
+      {name:"新能源材料",direction:"精选",tone:"flat",trend:"固态电池中试持续推进，传统产业链竞争依然激烈。",implication:"重点关注已验证的新一代材料及具备全球成本优势的企业。",metric:"中试",metricLabel:"商业化阶段"},
+      {name:"银行与资产管理",direction:"稳定",tone:"flat",trend:"优质区域银行经营改善，行业信息披露规则进一步收紧。",implication:"高股息金融资产仍是机构底仓的重要组成部分。",metric:"股息率",metricLabel:"主要因子"}
     ],
     risks:[
-      {name:"Trade and tariff escalation",impact:"High",likelihood:"High",mitigation:"Prefer domestic demand and diversified exporters.",x:82,y:18},
-      {name:"Financial reporting failures",impact:"Medium",likelihood:"Medium",mitigation:"Avoid weak disclosure and investigation risk.",x:54,y:58},
-      {name:"Commodity and leverage volatility",impact:"Medium",likelihood:"Medium",mitigation:"Control derivatives exposure and position size.",x:60,y:66}
+      {name:"贸易及关税摩擦升级",impact:"高",likelihood:"高",mitigation:"优先配置内需方向及出口市场多元化企业。",x:82,y:18},
+      {name:"财务报告与信披风险",impact:"中",likelihood:"中",mitigation:"规避信披质量较弱或存在调查风险的公司。",x:54,y:58},
+      {name:"商品价格及杠杆波动",impact:"中",likelihood:"中",mitigation:"控制衍生品风险敞口与单一持仓规模。",x:60,y:66}
     ],
     opportunities:[
-      {title:"Accumulate core AI supply-chain leaders",horizon:"MEDIUM / LONG",tickers:["300308.SZ","688256.SH","9988.HK"],rationale:"Capex and earnings momentum improve visibility across the compute stack."},
-      {title:"Overweight scaled gold and copper",horizon:"MEDIUM / LONG",tickers:["601899.SH","2899.HK","600547.SH"],rationale:"High commodity prices and rising output reinforce earnings quality."},
-      {title:"Select next-gen battery materials",horizon:"SHORT / MEDIUM",tickers:["002709.SZ","301211.SZ"],rationale:"Pilot production creates selective commercial inflection points."}
+      {title:"布局AI核心供应链龙头",horizon:"中长期",tickers:["300308.SZ","688256.SH","9988.HK"],rationale:"资本开支与业绩动能提升算力产业链的盈利可见度。"},
+      {title:"超配大型黄金与铜矿企业",horizon:"中长期",tickers:["601899.SH","2899.HK","600547.SH"],rationale:"商品价格高位与产量增长共同强化盈利质量。"},
+      {title:"精选下一代电池材料",horizon:"短中期",tickers:["002709.SZ","301211.SZ"],rationale:"中试投产为部分企业带来商业化拐点机会。"}
     ],
     defensive:[
-      {title:"Keep quality dividend ballast",horizon:"LONG",tickers:["600028.SH","601009.SH","510300.SH"],rationale:"Cash flow and valuation offer defence against external volatility."},
-      {title:"Exit unsupported concept trades",horizon:"SHORT",tickers:["301117.SZ","588000.SH"],rationale:"Stricter disclosure and delisting enforcement punish weak fundamentals."}
+      {title:"保留优质高股息底仓",horizon:"长期",tickers:["600028.SH","601009.SH","510300.SH"],rationale:"稳定现金流与合理估值可对冲外部市场波动。"},
+      {title:"退出缺乏业绩支撑的概念交易",horizon:"短期",tickers:["301117.SZ","588000.SH"],rationale:"信披及退市监管趋严将持续压制基本面薄弱标的。"}
     ],
-    short:"Technology growth and resources are driving a selective rotation as earnings season pushes the market toward fundamentally supported leaders.",
-    long:"Domestic policy support, AI investment and a potential global easing cycle can support earnings recovery and valuation repair.",
-    catalysts:["Domestic AI chip commercialisation","Policy support for private-sector payment terms","Federal Reserve turning point","Solid-state battery production milestones","Humanoid robot order conversion"],
+    short:"科技成长与资源板块推动结构性轮动，业绩披露期促使资金进一步向基本面扎实的龙头集中。",
+    long:"国内政策支持、人工智能投资及潜在的全球宽松周期，有望共同推动盈利修复与估值重塑。",
+    catalysts:["国产AI芯片商业化进展","支持民营企业账款支付的政策落地","美联储政策转向节点","固态电池量产里程碑","人形机器人订单转化"],
     news:[
-      {index:2,title:"中钨高新，上半年净利增超280%！股价曾暴涨逾12倍",source:"证券时报",date:"23 AUG",url:"https://www.stcn.com/article/detail/4102865.html"},
-      {index:20,title:"27家百亿私募重仓股揭晓！新进29只个股，减持7只",source:"证券时报",date:"23 AUG",url:"https://www.stcn.com/article/detail/4102672.html"},
-      {index:23,title:"周一亚太早盘 WTI原油期货价格跌0.68%",source:"东方财富",date:"24 AUG",url:"https://finance.eastmoney.com/a/202608243850452768.html"}
+      {index:2,title:"中钨高新，上半年净利增超280%！股价曾暴涨逾12倍",source:"证券时报",date:"8月23日",url:"https://www.stcn.com/article/detail/4102865.html"},
+      {index:20,title:"27家百亿私募重仓股揭晓！新进29只个股，减持7只",source:"证券时报",date:"8月23日",url:"https://www.stcn.com/article/detail/4102672.html"},
+      {index:23,title:"周一亚太早盘 WTI原油期货价格跌0.68%",source:"东方财富",date:"8月24日",url:"https://finance.eastmoney.com/a/202608243850452768.html"}
     ]
   }
 };
