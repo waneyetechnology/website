@@ -11,7 +11,7 @@
   align-items: center;
   gap: 9px;
   color: #798597;
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 54px;
@@ -24,6 +24,10 @@
   font-style: normal;
   color: #7f8a9a;
 }
+.breadcrumbs span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
 .sub-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(340px, 0.65fr);
@@ -31,14 +35,14 @@
   align-items: end;
 }
 .sub-hero h1 {
-  font: 600 clamp(48px, 6vw, 94px) / 0.98 var(--display);
+  font: 600 clamp(44px, 5.8vw, 88px) / 1.02 var(--display);
   letter-spacing: -0.055em;
   margin: 13px 0 24px;
   max-width: 1100px;
 }
 .sub-hero .hero-dek {
   color: #a0aaba;
-  font-size: 17px;
+  font-size: var(--type-reading);
   line-height: 1.7;
   max-width: 720px;
   margin: 0;
@@ -49,7 +53,7 @@
 }
 .hero-aside p {
   color: #8994a5;
-  font-size: 13px;
+  font-size: var(--type-support);
   line-height: 1.65;
 }
 .hero-aside strong {
@@ -59,7 +63,7 @@
   margin: 14px 0 5px;
 }
 .hero-aside span {
-  font-size: 10px;
+  font-size: var(--type-label);
   color: #b4c0cf;
 }
 .subnav {
@@ -102,13 +106,13 @@
   margin-bottom: 38px;
 }
 .page-intro h2 {
-  font: 600 clamp(30px, 3vw, 48px) / 1.05 var(--display);
+  font: 600 var(--type-title-md)/1.08 var(--display);
   letter-spacing: -0.04em;
   margin: 8px 0 0;
 }
 .page-intro > p {
-  font-size: 12px;
-  line-height: 1.55;
+  font-size: var(--type-support);
+  line-height: 1.6;
   color: var(--muted);
   max-width: 370px;
   text-align: right;
@@ -125,7 +129,7 @@
   background: transparent;
   color: #5e6876;
   padding: 9px 13px;
-  font-size: 11px;
+  font-size: var(--type-ui);
   text-decoration: none;
   cursor: pointer;
 }
@@ -163,13 +167,13 @@
 }
 .market-card h2,
 .market-card h3 {
-  font: 600 22px/1.25 var(--display);
+  font: 600 var(--type-title-sm)/1.25 var(--display);
   letter-spacing: -0.03em;
   margin: 28px 0 14px;
 }
 .market-card p {
   color: var(--muted);
-  font-size: 13px;
+  font-size: var(--type-support);
   line-height: 1.6;
   margin: 0;
   max-width: 480px;
@@ -186,12 +190,12 @@
   font: 600 25px/1 var(--display);
 }
 .market-card .card-bottom span {
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   color: var(--blue);
   letter-spacing: 0.08em;
 }
 .direction-badge {
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-index)/1.25 var(--display);
   letter-spacing: 0.08em;
   padding: 7px 8px;
 }
@@ -208,7 +212,7 @@
   background: #f4ecd9;
 }
 .region-tag {
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   letter-spacing: 0.1em;
   color: #68655f;
 }
@@ -220,7 +224,7 @@
   text-align: left;
   padding: 12px 16px;
   border-bottom: 1px solid var(--ink);
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   letter-spacing: 0.1em;
   color: #68655f;
 }
@@ -266,7 +270,7 @@
 }
 .detail-meta span {
   display: block;
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   letter-spacing: 0.1em;
   color: #68655f;
   margin-bottom: 8px;
@@ -354,7 +358,7 @@
   padding: 8px 9px;
   background: #edf0fc;
   color: var(--blue);
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
 }
 .source-button {
   display: flex;
@@ -381,7 +385,7 @@
   min-height: 180px;
 }
 .related-card span {
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   letter-spacing: 0.09em;
   color: var(--blue);
 }
@@ -425,7 +429,7 @@
   padding-top: 18px;
   display: flex;
   justify-content: space-between;
-  font-size: 10px;
+  font-size: var(--type-label);
   color: #7f8b9c;
 }
 .news-stack {
@@ -453,7 +457,7 @@
   color: #888;
   display: flex;
   justify-content: space-between;
-  font-size: 9px;
+  font-size: var(--type-label);
 }
 .ledger-list {
   border-top: 1px solid var(--ink);
@@ -469,7 +473,7 @@
   text-decoration: none;
 }
 .ledger-item span {
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   color: #8b8984;
   letter-spacing: 0.08em;
 }
@@ -493,7 +497,7 @@
 .archive-summary span {
   display: block;
   color: #c5d0ff;
-  font-size: 10px;
+  font-size: var(--type-label);
   margin-bottom: 12px;
 }
 .archive-summary strong {
@@ -513,7 +517,7 @@
   text-decoration: none;
 }
 .archive-row .archive-time {
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   color: #5e6876;
 }
 .archive-row .archive-region {
@@ -571,7 +575,7 @@
   line-height: 1.55;
 }
 .report-highlight span {
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-index)/1.25 var(--display);
   color: var(--blue);
 }
 .report-block {
@@ -602,7 +606,7 @@
   align-items: center;
   padding: 45px var(--gutter);
   gap: 35px;
-  font-size: 10px;
+  font-size: var(--type-label);
 }
 .page-footer p {
   margin: 0;
@@ -765,7 +769,7 @@
     display: inline-block;
     width: auto;
     margin-right: 16px;
-    font-size: 10px;
+    font-size: var(--type-label);
     color: var(--muted);
   }
 }
@@ -797,7 +801,7 @@
   gap: 14px;
 }
 .data-record span {
-  font: 700 9px/1.3 var(--display);
+  font: 700 var(--type-label)/1.35 var(--display);
   letter-spacing: 0.07em;
   color: #8a8882;
 }
@@ -836,7 +840,7 @@
 }
 .quote-card > span {
   display: block;
-  font: 700 9px/1.3 var(--display);
+  font: 700 var(--type-label)/1.35 var(--display);
   letter-spacing: 0.09em;
   color: #5d6673;
 }
@@ -859,12 +863,12 @@
   color: #8a8170;
 }
 .market-card .card-bottom > strong {
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   letter-spacing: 0.08em;
   color: #5e6876;
 }
 .market-card-top > span:last-child {
-  font-size: 10px;
+  font-size: var(--type-label);
   color: #5e6876;
 }
 .group-title {
@@ -919,7 +923,7 @@
   flex-direction: column;
 }
 .event-card > span {
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   color: #5e6876;
 }
 .event-card h3 {
@@ -931,7 +935,7 @@
   margin-top: auto;
 }
 .event-card b {
-  font: 700 8px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   text-transform: uppercase;
   color: var(--blue);
   margin-top: 10px;
@@ -972,7 +976,7 @@
 .stacked-news-card span,
 .lead-news-overlay span,
 .headline-row div > span {
-  font: 700 9px/1.35 var(--display);
+  font: 700 var(--type-label)/1.35 var(--display);
   letter-spacing: 0.06em;
   color: #5e6876;
 }
@@ -983,7 +987,7 @@
 .visual-news-card b {
   margin-top: auto;
   color: var(--blue);
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   letter-spacing: 0.08em;
 }
 .home-news-grid .visual-news-card:first-child {
@@ -1034,7 +1038,7 @@
   margin: 20px 0;
 }
 .lead-news-overlay b {
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   letter-spacing: 0.1em;
   color: #9eb0ff;
 }
@@ -1083,7 +1087,7 @@
   background: #d9d5cc;
 }
 .headline-number {
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-index)/1.25 var(--display);
   color: var(--blue);
 }
 .headline-row h3 {
@@ -1140,7 +1144,7 @@
   bottom: 20px;
   left: 22px;
   color: #fff;
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   letter-spacing: 0.08em;
 }
 .connection-list {
@@ -1154,7 +1158,7 @@
   text-decoration: none;
 }
 .connection-list > a > span {
-  font: 700 10px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   color: var(--blue);
   letter-spacing: 0.08em;
 }
@@ -1162,7 +1166,7 @@
   margin: 12px 0 !important;
 }
 .connection-list b {
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   color: var(--blue);
 }
 .button-link {
@@ -1221,7 +1225,7 @@
   background: #0d1a2b;
   color: #fff;
   padding: 7px 9px;
-  font: 700 8px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
 }
 .framework-grid {
   display: grid;
@@ -1239,7 +1243,7 @@
   border-right: 0;
 }
 .framework-grid span {
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   color: var(--blue);
 }
 .framework-grid h3 {
@@ -1263,7 +1267,7 @@
   margin-top: 18px;
 }
 .evidence-links a {
-  font: 700 9px/1.3 var(--display);
+  font: 700 var(--type-label)/1.35 var(--display);
   color: var(--blue);
   text-decoration: none;
 }
@@ -1275,7 +1279,7 @@
   background: #f4e5e2;
   color: #8e3430;
   padding: 6px 8px;
-  font: 700 8px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   text-transform: uppercase;
 }
 .outlook-pair {
@@ -1421,7 +1425,7 @@
   min-height: 54px;
   cursor: pointer;
   color: var(--ink);
-  font: 700 10px/1 var(--display);
+  font: 700 var(--type-label)/1.3 var(--display);
   letter-spacing: 0.11em;
   text-transform: uppercase;
   list-style: none;
@@ -1441,7 +1445,7 @@
 }
 .headline-batch summary span {
   color: #5e6876;
-  font-size: 9px;
+  font-size: var(--type-label);
   margin-left: auto;
 }
 .headline-batch summary:focus-visible {
@@ -1455,7 +1459,7 @@
   display: block;
   margin-top: 13px;
   color: var(--blue);
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   letter-spacing: 0.08em;
 }
 .lead-news-card:focus-visible,
@@ -1546,10 +1550,10 @@
 @media (max-width: 640px) {
   .headline-batch summary {
     min-height: 50px;
-    font-size: 9px;
+    font-size: var(--type-label);
   }
   .stacked-news-card b {
-    font-size: 8px;
+    font-size: var(--type-label);
   }
   .detail-hero .detail-dek {
     font-size: 17px;
@@ -1577,7 +1581,7 @@
   display: block;
   margin-bottom: 6px;
   color: #707987;
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
@@ -1673,7 +1677,7 @@
 }
 .sector-evidence-stats dt {
   color: #b4c0cf;
-  font: 700 9px/1 var(--display);
+  font: 700 var(--type-label)/1.25 var(--display);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
