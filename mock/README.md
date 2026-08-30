@@ -7,16 +7,16 @@ cd mock
 python3 -m http.server 4173
 ```
 
-The displayed editorial and market values are copied from the regional folders on `origin/gh-pages`: `api/v1/global`, `api/v1/au`, and `api/v1/cn`. The nine JSON snapshots under `mock/api/v1/` are exact copies; `api-snapshot.js` packages the same objects so the mock also works when opened directly with `file://`. The presentation adapter reshapes fields for the UI but does not translate or rewrite their values.
+The mock treats the supplied Global, Australian, and Chinese analysis, headlines, market data, and headline imagery as its editorial inputs. `content.js` holds one deduplicated content bundle, `images/` packages every headline image for reliable review, and `data.js` prepares the inputs for presentation while preserving the editorial values.
 
 ## Page map
 
 - `index.html` — main intelligence dashboard
-- `markets/index.html` — regional sector records and complete `data.json` values
-- `markets/sector.html` — one verbatim sector record, driven by region and sector parameters
-- `newsroom/index.html` — complete regional `headlines.json` ledger
-- `newsroom/article.html` — one complete headline record
-- `archive/index.html` — current regional API report directory
-- `archive/report.html` — complete structured `analysis.json` presentation
+- `markets/index.html` — integrated market snapshot, macro context, and sector views
+- `markets/sector.html` — sector trend, investment implication, and linked supporting reporting
+- `newsroom/index.html` — complete visual regional source ledger
+- `newsroom/article.html` — headline imagery, original publisher link, and connected sector context
+- `archive/index.html` — current regional research overview
+- `archive/report.html` — complete connected intelligence report
 
 No build step or third-party JavaScript dependency is required. Google Fonts gracefully fall back to system sans-serif fonts when offline.

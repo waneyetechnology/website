@@ -1,11 +1,17 @@
-// Presentation adapter only. All displayed editorial and market values remain
-// byte-for-byte values from the matching origin/gh-pages api/v1 payload.
+// Presentation adapter for the supplied regional analysis, market and headline inputs.
 (function () {
-  const api = window.WANEYE_API;
+  const input = window.WANEYE_INPUT;
   const editions = {global:"Global edition", au:"Australia edition", cn:"大中华区版"};
+  const localRoot = typeof document!=="undefined" ? new URL(".",document.currentScript.src) : null;
+
+  function headlineImage(value) {
+    const clean=value.replace(/^\.\.\//,"").split("#")[0];
+    if(localRoot)return new URL(clean.replace("static/",""),localRoot).href;
+    return `https://www.waneye.com/${clean}`;
+  }
 
   function report(region) {
-    const payload = api[region];
+    const payload = input[region];
     const analysis = payload.analysis.analysis;
     const summary = analysis.executive_summary;
     const insights = analysis.market_insights;
@@ -57,7 +63,17 @@
       long: analysis.market_outlook.long_term,
       catalysts: analysis.market_outlook.key_catalysts,
       watchList: analysis.market_outlook.watch_list,
-      news: headlines.map((item,index) => ({index:index+1,title:item.headline,url:item.url,publishedAt:item.publishedAt,source:item.source,favicon:item.favicon,image:item.image})),
+      news: headlines.map((item,index) => ({
+        index:index+1,
+        title:item.headline,
+        url:item.url,
+        publishedAt:item.publishedAt,
+        source:item.source,
+        meta:[item.source,item.publishedAt].filter(Boolean).join(" · "),
+        favicon:item.favicon,
+        image:item.image,
+        imageUrl:headlineImage(item.image)
+      })),
       marketData: payload.data
     };
   }
