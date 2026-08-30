@@ -1,0 +1,755 @@
+{
+  "analysis": {
+    "analysis_date": "31 August 2026",
+    "analysis_time": "06:17 AEST",
+    "executive_summary": {
+      "key_highlights": [
+        "ASX ended a volatile week higher despite Wall Street retreat and Fed hawkish commentary on inflation (10, 52)",
+        "Aussie interest rate expectations rocket, signalling potential RBA hawkish shift; mortgage rates rising week-on-week (36, 38)",
+        "Housing market under stress: auction sentiment deteriorating, signs of a 'real housing crash' emerging (42, 59, 64)",
+        "US strikes on Iranian launchers in Strait of Hormuz elevate geopolitical risk and oil price volatility (6, 66)",
+        "Pilbara iron ore 'killer' booms; Gateway Resources adds 7km gold trend in WA; small-caps X2M, Discovery Alaska, Metal Hawk, Bapcor lead ASX runners (57, 62, 54)",
+        "ASIC warns insurers short-changing homeowners on cash settlements, creating regulatory overhang for insurance sector (15, 24, 32)",
+        "Virgin Australia shielded from oil shock via fuel hedging and new fleet (58)",
+        "Consumer trends: surging weight-loss drug demand, 'dupe' brand loyalty, accelerating EV uptake (44)"
+      ],
+      "market_sentiment_score": 53,
+      "overall_sentiment": "neutral",
+      "headline_sources": [
+        10,
+        36,
+        42,
+        52,
+        6,
+        57,
+        62,
+        15,
+        58,
+        44
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Materials / Mining",
+          "trend": "Positive. Pilbara iron ore production surging ('killer booms'), Gateway Resources discovers 7km gold trend in WA. Small-cap miners (X2M, Discovery Alaska, Metal Hawk, Bapcor) lead weekly gains. Geopolitical tension in Hormuz supports commodity prices.",
+          "implications": "BHP.AX, RIO.AX, FMG.AX benefit from iron ore strength. Gold miners (GOLD.AX, NGX.AX) supported by safe-haven flows from Iran conflict. Small-cap explorers see speculative inflows.",
+          "headline_sources": [
+            57,
+            62,
+            54,
+            6
+          ]
+        },
+        {
+          "sector": "Financials / Banks",
+          "trend": "Mixed-to-negative. Rising rate expectations (36) support NIMs but housing stress (42, 59, 64) raises credit-loss concerns. Mortgage rates climbing week-on-week (38). ASIC scrutiny of insurers pressures IAG.AX, CGF.AX.",
+          "implications": "CBA.AX, NAB.AX, ANZ.AX, WBC.AX face a tug-of-war: higher yields vs. deteriorating housing credit quality. Insurers (IAG.AX, CGF.AX) face regulatory and reputational risk from settlement practices.",
+          "headline_sources": [
+            36,
+            38,
+            42,
+            59,
+            64,
+            15,
+            24,
+            32
+          ]
+        },
+        {
+          "sector": "Energy",
+          "trend": "Elevated volatility. US-Iran conflict in Strait of Hormuz (6) spikes oil risk premium. Virgin Australia (QAN.AX) insulated via hedging (58). Oil majors retreating from clean energy capex (16). Australia sets 'high bar' for fossil-fuel-powered data centres (53).",
+          "implications": "WDS.AX, WLE.AX, SXG.AX benefit from oil price spikes. QAN.AX neutral-to-positive on hedging. Renewable/energy-transition names face policy headwinds from data-centre restrictions.",
+          "headline_sources": [
+            6,
+            58,
+            16,
+            53,
+            66
+          ]
+        },
+        {
+          "sector": "Consumer / Healthcare",
+          "trend": "Divergent. Weight-loss drug demand surging, EV uptake accelerating, 'dupe' brands gaining share (44). Major fruit grower lays off ~1,000 workers (41). Qantas redundancies signal labour-market softening (61).",
+          "implications": "CSL.AX, WES.AX, WOW.AX see mixed signals. CSL benefits from global weight-loss drug demand. Consumer staples (WES.AX, WOW.AX) supported by 'dupe' trend. QAN.AX faces ongoing restructuring overhang.",
+          "headline_sources": [
+            44,
+            41,
+            61
+          ]
+        },
+        {
+          "sector": "Technology / AI Infrastructure",
+          "trend": "AI power demand transforming industrials into high-multiple plays (31). SpaceX potential disruption to AI data centres (47). Australia restricts fossil-fuel data centres (53).",
+          "implications": "ASX-listed data-centre and power infrastructure names (e.g., VMC.AX, IAG.AX infrastructure) benefit. Energy demand tailwind for utilities. Regulatory constraints may favour renewables.",
+          "headline_sources": [
+            31,
+            47,
+            53
+          ]
+        },
+        {
+          "sector": "REITs / Property",
+          "trend": "Negative. Housing auction sentiment deteriorating (42), signs of a genuine housing crash (59), households being terminated (64). Housing inflation persistent (60).",
+          "implications": "REITs (GPW.AX, DGL.AX, ICOL.AX) face occupancy and valuation pressure. Residential property developers (SRG.AX, MYR.AX) at elevated risk. Mortgage-backed securities under stress.",
+          "headline_sources": [
+            42,
+            59,
+            64,
+            60
+          ]
+        }
+      ],
+      "key_themes": [
+        "RBA hawkish pivot risk: rate expectations rising sharply, housing inflation persistent (36, 60)",
+        "Geopolitical escalation: US-Iran conflict in Hormuz threatens oil supply and global risk appetite (6, 66)",
+        "Housing market inflection: deteriorating auctions, crash signals, household terminations (42, 59, 64)",
+        "Commodity strength: iron ore boom, gold discovery, oil risk premium (57, 62, 6)",
+        "Regulatory pressure on insurers: ASIC enforcement on cash settlements (15, 24, 32)",
+        "AI-driven power demand reshaping energy and infrastructure investment (31, 47, 53)",
+        "Consumer resilience via 'dupe' brands and weight-loss drugs amid softening labour market (44, 41, 61)"
+      ],
+      "headline_sources": [
+        36,
+        60,
+        6,
+        66,
+        42,
+        59,
+        64,
+        57,
+        62,
+        15,
+        24,
+        32,
+        31,
+        47,
+        53,
+        44,
+        41,
+        61
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Geopolitical escalation (US-Iran, Strait of Hormuz)",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Hedge energy exposure; maintain commodity hedges; monitor oil price for supply-disruption spikes",
+        "headline_sources": [
+          6,
+          66
+        ]
+      },
+      {
+        "risk_factor": "RBA hawkish surprise / rate expectation spike",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Reduce duration in rate-sensitive REITs and property developers; favour fixed-income ladders",
+        "headline_sources": [
+          36,
+          60,
+          38
+        ]
+      },
+      {
+        "risk_factor": "Housing market correction / credit deterioration",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Underweight residential REITs and developers; monitor NIM vs. credit-loss provisions at major banks",
+        "headline_sources": [
+          42,
+          59,
+          64,
+          60
+        ]
+      },
+      {
+        "risk_factor": "Insurance regulatory action (ASIC)",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Review IAG.AX, CGF.AX settlement practices; monitor for fines or policy changes",
+        "headline_sources": [
+          15,
+          24,
+          32
+        ]
+      },
+      {
+        "risk_factor": "Global risk-off from Fed hawkishness and Wall Street retreat",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Maintain cash buffers; favour domestic defensive equities (WES.AX, CSL.AX)",
+        "headline_sources": [
+          10,
+          66,
+          52
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Overweight iron ore and gold miners on commodity strength and safe-haven flows",
+          "rationale": "Pilbara iron ore boom and WA gold discovery support earnings; Hormuz risk lifts oil and gold",
+          "tickers": [
+            "BHP.AX",
+            "RIO.AX",
+            "FMG.AX",
+            "GOLD.AX",
+            "NGX.AX"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            57,
+            62,
+            6
+          ]
+        },
+        {
+          "recommendation": "Add to energy majors on oil risk premium from Hormuz conflict",
+          "rationale": "Supply-disruption risk in Strait of Hormuz supports Brent above trend; Virgin hedging validates oil-price concern",
+          "tickers": [
+            "WDS.AX",
+            "WLE.AX",
+            "SXG.AX"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            6,
+            58,
+            66
+          ]
+        },
+        {
+          "recommendation": "Position in AI-power infrastructure and utilities",
+          "rationale": "AI data-centre demand transforming power consumption; Australia's fossil-fuel 'high bar' favours renewables and grid operators",
+          "tickers": [
+            "VMC.AX",
+            "AGL.AX",
+            "IGT.AX"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            31,
+            47,
+            53
+          ]
+        },
+        {
+          "recommendation": "Selective small-cap mining exposure on discovery momentum",
+          "rationale": "Gateway 7km gold trend and ASX runners (X2M, Discovery Alaska, Metal Hawk, Bapcor) signal speculative inflows",
+          "tickers": [
+            "GAT.AX"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            57,
+            54
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Reduce exposure to residential REITs and property developers",
+          "rationale": "Deteriorating auction sentiment, housing crash signals, and rising rates pressure valuations and occupancy",
+          "tickers": [
+            "GPW.AX",
+            "DGL.AX",
+            "SRG.AX",
+            "MYR.AX"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            42,
+            59,
+            64,
+            36
+          ]
+        },
+        {
+          "recommendation": "Hedge bank credit risk via short NAB/ANZ or long CBA",
+          "rationale": "Housing stress raises credit-loss provisions; CBA's stronger balance sheet offers relative safety",
+          "tickers": [
+            "CBA.AX",
+            "NAB.AX",
+            "ANZ.AX"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            36,
+            59,
+            64
+          ]
+        },
+        {
+          "recommendation": "Underweight insurers pending ASIC enforcement outcome",
+          "rationale": "Regulatory overhang from cash-settlement shortfalls could trigger fines and reputational damage",
+          "tickers": [
+            "IAG.AX",
+            "CGF.AX"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            15,
+            24,
+            32
+          ]
+        },
+        {
+          "recommendation": "Maintain 10–15% cash or short-duration bonds as geopolitical hedge",
+          "rationale": "US-Iran conflict and Fed hawkishness create tail-risk; CD rates up to 4.30% APY offer yield",
+          "tickers": [
+            "^AXJO"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            6,
+            66,
+            37
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "ASX likely to remain volatile. Hormuz conflict and Fed hawkishness cap upside, but commodity strength (iron ore, gold, oil) and a resilient week-close (52) provide a floor. Rate-expectation spike (36) pressures rate-sensitive sectors. Net: range-bound with sector rotation into materials and energy.",
+      "long_term": "Housing correction risk (59, 64) and persistent housing inflation (60) constrain RBA easing, keeping rates elevated. AI-driven power demand (31, 47) and commodity super-cycle in iron ore/gold support structural earnings growth. Consumer shift to 'dupe' brands and weight-loss drugs (44) reshapes retail and pharma. 12-month view: cautious constructive, favouring materials, energy, and healthcare over property and consumer discretionary.",
+      "key_catalysts": [
+        "RBA board decision and statement (rate expectation spike)",
+        "US-Iran conflict escalation or de-escalation in Strait of Hormuz",
+        "Housing auction and CoreLogic data next 2–3 weeks",
+        "ASIC enforcement action on insurance cash settlements",
+        "Q3 earnings season for BHP, CBA, CSL, WES",
+        "Fed policy response to inflation (66)"
+      ],
+      "watch_list": [
+        "^AXJO (S&P/ASX 200) and ^AORD (All Ordinaries) weekly close",
+        "AUD/USD and iron ore (62% Fines) spot price",
+        "Brent crude and gold spot (Hormuz risk premium)",
+        "RBA cash rate expectations (3-month and 12-month)",
+        "CoreLogic house price index and auction clearance rates",
+        "ASIC regulatory announcements on insurers",
+        "QAN.AX restructuring progress and fuel-hedge expiry",
+        "CSL.AX weight-loss drug pipeline updates"
+      ],
+      "headline_sources": [
+        10,
+        36,
+        52,
+        59,
+        60,
+        6,
+        66,
+        42,
+        64,
+        31,
+        44,
+        15
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Sydney kangaroos face cull as university looks to develop campus",
+      "url": "https://www.abc.net.au/news/2026-08-31/fears-for-western-sydney-kangaroo-mob-over-wsu-plan/107071250",
+      "publishedAt": "2026-08-30T20:08:24+00:00"
+    },
+    {
+      "index": 2,
+      "headline": "Victorian prisoners to help fix the state's crumbling roads",
+      "url": "https://www.abc.net.au/news/2026-08-31/victorian-prisoners-to-work-on-road-maintenance/107096380",
+      "publishedAt": "2026-08-30T20:03:52+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "Wattle lovers push for Brisbane Olympics 'bathed in green and gold'",
+      "url": "https://www.abc.net.au/news/2026-08-31/qld-brisbane-olympics-wattle-planting/107086556",
+      "publishedAt": "2026-08-30T20:00:18+00:00"
+    },
+    {
+      "index": 4,
+      "headline": "'Almost dystopian': Should AI be used to write work emails?",
+      "url": "https://www.abc.net.au/news/2026-08-31/should-artificial-intelligence-ai-be-used-to-write-work-emails/107051458",
+      "publishedAt": "2026-08-30T19:54:38+00:00"
+    },
+    {
+      "index": 5,
+      "headline": "The Roth Conversion That Cost a 62-Year-Old His $9,600 Health Insurance Subsidy",
+      "url": "https://finance.yahoo.com/healthcare/articles/roth-conversion-cost-62-old-195213072.html",
+      "publishedAt": "2026-08-30T19:52:13Z"
+    },
+    {
+      "index": 6,
+      "headline": "Breaking: US strikes Iranian launchers on island in Strait of Hormuz",
+      "url": "https://www.abc.net.au/news/2026-08-31/middle-east-war-us-strikes-launched-iran-larak-island/107096404",
+      "publishedAt": "2026-08-30T19:47:23+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "PayPal just lost its $53 billion safety net",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/paypal-just-lost-53-billion-194700412.html",
+      "publishedAt": "2026-08-30T19:47:00Z"
+    },
+    {
+      "index": 8,
+      "headline": "Strategy’s Bitcoin Is $2.8 Billion in Profit—Is Saylor Teeing Up a Buy?",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/strategy-bitcoin-2-8-billion-193955159.html",
+      "publishedAt": "2026-08-30T19:39:55Z"
+    },
+    {
+      "index": 9,
+      "headline": "Parents want review of historical abuse allegations at special school",
+      "url": "https://www.abc.net.au/news/2026-08-31/latrobe-special-development-school-abuse-allegations/106998354",
+      "publishedAt": "2026-08-30T19:24:55+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "ASX set to slide as Wall Street retreats; Fed chief talks up inflation fight",
+      "url": "https://www.smh.com.au/business/markets/asx-set-to-slide-as-wall-street-retreats-fed-chief-talks-up-inflation-fight-20260831-p60svl.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-31T05:22:49+10:00"
+    },
+    {
+      "index": 11,
+      "headline": "Families concerned for Australians missing in China after Nepal-Tibet floods",
+      "url": "https://www.abc.net.au/news/2026-08-31/australians-missing-in-china-after-nepal-tibet-floods/107096136",
+      "publishedAt": "2026-08-30T19:13:00+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Gynaecologist Simon Gordon referred to tribunal over alleged misconduct",
+      "url": "https://www.abc.net.au/news/2026-08-31/gynaecologist-simon-gordon-referred-to-victorian-tribunal/107091270",
+      "publishedAt": "2026-08-30T19:07:59+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "What's in store at this week's Pacific Islands Forum leaders meeting",
+      "url": "https://www.abc.net.au/news/2026-08-31/pacific-islands-forum-leaders-meeting-politically-charged/107095316",
+      "publishedAt": "2026-08-30T19:07:32+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "As rising inequality demands reform, business is 'circling the wagons'",
+      "url": "https://www.abc.net.au/news/2026-08-31/declining-productivity-bca-unions-ai-future/107095052",
+      "publishedAt": "2026-08-30T19:01:33+00:00"
+    },
+    {
+      "index": 15,
+      "headline": "Home owners are being short-changed by insurers’ cash payouts",
+      "url": "https://www.smh.com.au/business/companies/home-owners-are-being-short-changed-by-insurers-cash-payouts-20260828-p60sh6.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-31T05:00:00+10:00"
+    },
+    {
+      "index": 16,
+      "headline": "Oil giant’s retreat on clean energy shows limits of investor pressure",
+      "url": "https://www.smh.com.au/business/companies/oil-giant-s-retreat-on-clean-energy-shows-limits-of-investor-pressure-20260827-p60s98.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-31T05:00:00+10:00"
+    },
+    {
+      "index": 17,
+      "headline": "‘Every time we get up, we cop a hit’: Casino billionaire’s fury at regulators",
+      "url": "https://www.smh.com.au/business/companies/every-time-we-get-up-we-cop-a-hit-casino-billionaire-s-fury-at-regulators-20260830-p60srh.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-31T05:00:00+10:00"
+    },
+    {
+      "index": 18,
+      "headline": "The gift card tampering scam costing shoppers thousands",
+      "url": "https://www.abc.net.au/news/2026-08-31/inside-the-gift-card-tampering-scam-spreading-nationally/107074588",
+      "publishedAt": "2026-08-30T18:52:39+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "Miniso (MNSO) Booming Membership Growth Collides With A Struggling Global Expansion",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/miniso-mnso-booming-membership-growth-184952315.html",
+      "publishedAt": "2026-08-30T18:49:52Z"
+    },
+    {
+      "index": 20,
+      "headline": "Hanson says she can smash Labor and message could be resonating",
+      "url": "https://www.abc.net.au/news/2026-08-31/one-nation-wa-byelection-win-danger-for-labor/107095314",
+      "publishedAt": "2026-08-30T18:46:07+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "From cane and cattle to billion-dollar housing estates",
+      "url": "https://www.abc.net.au/news/2026-08-31/coastal-farmland-becomes-major-housing-developments/107079998",
+      "publishedAt": "2026-08-30T18:44:18+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "Oscar Jenkins gives first interview since 13-year sentence in Russia",
+      "url": "https://www.abc.net.au/news/2026-08-31/australian-oscar-jenkins-first-interview-russia-conviction-13-yr/107095560",
+      "publishedAt": "2026-08-30T18:44:16+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "Frontline (FRO) Just Delivered Its Best Quarter Yet, But Can It Last?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/frontline-fro-just-delivered-best-184112065.html",
+      "publishedAt": "2026-08-30T18:41:12Z"
+    },
+    {
+      "index": 24,
+      "headline": "Watchdog warns insurers are offering insufficient cash settlements",
+      "url": "https://www.abc.net.au/news/2026-08-31/asic-warns-insurers-unfairly-treating-customers-cash-settlements/107075776",
+      "publishedAt": "2026-08-30T18:35:52+00:00"
+    },
+    {
+      "index": 25,
+      "headline": "Can you tell fact from fiction in this week's history quiz?",
+      "url": "https://www.abc.net.au/news/2026-08-31/this-week-in-history-quiz-august-31/107084592",
+      "publishedAt": "2026-08-30T18:30:00+00:00"
+    },
+    {
+      "index": 26,
+      "headline": "Golden retriever provides life-saving blood donation for another dog",
+      "url": "https://www.abc.net.au/news/2026-08-31/dog-blood-donation-demand-grows/107090222",
+      "publishedAt": "2026-08-30T18:30:00+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "How to prepare to buy a home while you save a deposit",
+      "url": "https://www.abc.net.au/news/2026-08-31/how-to-prepare-to-buy-while-saving-home-deposit/107089806",
+      "publishedAt": "2026-08-30T18:30:00+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "Pinterest’s (PINS) CFO Exit Tests Whether The Growth Story Holds",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/pinterest-pins-cfo-exit-tests-182159557.html",
+      "publishedAt": "2026-08-30T18:21:59Z"
+    },
+    {
+      "index": 29,
+      "headline": "Honda (HMC), Nissan Edge Toward a Software Alliance",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/honda-hmc-nissan-edge-toward-180935321.html",
+      "publishedAt": "2026-08-30T18:09:35Z"
+    },
+    {
+      "index": 30,
+      "headline": "What Affirm’s (AFRM) Blowout Quarter and Cautious CEO Say About the Consumer",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/affirm-afrm-blowout-quarter-cautious-175800405.html",
+      "publishedAt": "2026-08-30T17:58:00Z"
+    },
+    {
+      "index": 31,
+      "headline": "How AI Power Demand Transformed Caterpillar (CAT) into a High-Multiple Tech Play",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ai-power-demand-transformed-caterpillar-173543057.html",
+      "publishedAt": "2026-08-30T17:35:43Z"
+    },
+    {
+      "index": 32,
+      "headline": "Cash settlements on home insurance claims leaving vulnerable Australians short-changed, Asic says",
+      "url": "https://www.theguardian.com/australia-news/2026/aug/31/cash-settlements-home-insurance-cyclone-disaster-repairs-vulnerable-australians-asic",
+      "publishedAt": "2026-08-30T15:01:00+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "Hundreds lost in Nepal mourned in vigils across Australia",
+      "url": "https://www.abc.net.au/news/2026-08-31/hundreds-attend-vigils-for-nepal/107095694",
+      "publishedAt": "2026-08-30T14:47:41+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "At least 8 killed with more missing after boat capsizes off northern Cyprus",
+      "url": "https://www.abc.net.au/news/2026-08-31/north-cyprus-boat-capsizes/107095814",
+      "publishedAt": "2026-08-30T14:43:32+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "Man posed as a 49ers player and convinced 26 women to hand over $1.3 million in romance scam scheme",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/man-posed-49ers-player-convinced-142000089.html",
+      "publishedAt": "2026-08-30T14:20:00Z"
+    },
+    {
+      "index": 36,
+      "headline": "Aussie interest rate expectations rocket",
+      "url": "https://www.macrobusiness.com.au/2026/08/aussie-interest-rate-expectations-rocket/",
+      "publishedAt": "2026-08-30T14:01:17+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "Best CD rates today, Sunday, August 30, 2026: Lock in up to 4.30% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-sunday-august-30-2026-lock-in-up-to-430-apy-100000110.html",
+      "publishedAt": "2026-08-30T10:00:00Z"
+    },
+    {
+      "index": 38,
+      "headline": "Mortgage and refinance interest rates today, Sunday, August 30, 2026: Purchase rates higher than last week",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-sunday-august-30-2026-purchase-rates-higher-than-last-week-100000187.html",
+      "publishedAt": "2026-08-30T10:00:00Z"
+    },
+    {
+      "index": 39,
+      "headline": "Why this Perth author’s fifth book was her most difficult to write yet",
+      "url": "https://www.smh.com.au/business/banking-and-finance/why-this-perth-author-s-fifth-book-was-her-most-difficult-to-write-yet-20260830-p60stx.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-30T17:15:01+10:00"
+    },
+    {
+      "index": 40,
+      "headline": "‘We’re the new Vegemite’: Yo-Chi wins over London, next stop America",
+      "url": "https://www.smh.com.au/business/entrepreneurship/we-re-the-new-vegemite-yo-chi-wins-over-london-next-stop-america-20260828-p60sf3.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-30T12:14:52+10:00"
+    },
+    {
+      "index": 41,
+      "headline": "Major fruit grower lays off nearly 1,000 workers",
+      "url": "https://finance.yahoo.com/small-business/articles/major-fruit-grower-lays-off-010300694.html",
+      "publishedAt": "2026-08-30T01:03:00Z"
+    },
+    {
+      "index": 42,
+      "headline": "Auction market crunched lower amid deteriorating sentiment",
+      "url": "https://www.macrobusiness.com.au/2026/08/auction-market-crunched-lower-amid-deteriorating-sentiment/",
+      "publishedAt": "2026-08-29T23:46:17+00:00"
+    },
+    {
+      "index": 43,
+      "headline": "‘You can’t be what you can’t see’: Neha is putting NRLW on the map, one post at a time",
+      "url": "https://www.smh.com.au/business/small-business/you-can-t-be-what-you-can-t-see-neha-is-putting-nrlw-on-the-map-one-post-at-a-time-20260807-p60mb9.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-30T09:00:00+10:00"
+    },
+    {
+      "index": 44,
+      "headline": "August reveals Australians’ big appetite for weight-loss drugs, love for ‘dupe’ brands and an accelerating EV uptake",
+      "url": "https://www.theguardian.com/business/2026/aug/30/australians-buying-less-pizza-more-weight-loss-drugs-consumer-report",
+      "publishedAt": "2026-08-29T20:00:38+00:00"
+    },
+    {
+      "index": 45,
+      "headline": "How ‘reverse mentoring’ is being used by unexpected high-flyers at work",
+      "url": "https://www.smh.com.au/business/workplace/how-reverse-mentoring-is-being-used-by-unexpected-high-flyers-at-work-20260819-p60pmi.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-30T05:00:00+10:00"
+    },
+    {
+      "index": 46,
+      "headline": "Best CD rates today, Saturday, August 29, 2026: Lock in up to 4.30% APY with a 16- or 18-month CD",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-saturday-august-29-2026-lock-in-up-to-430-apy-with-a-16--or-18-month-cd-100000220.html",
+      "publishedAt": "2026-08-29T10:00:00Z"
+    },
+    {
+      "index": 47,
+      "headline": "Can SpaceX Disrupt AI Data Centres?",
+      "url": "https://www.macrobusiness.com.au/2026/08/can-spacex-disrupt-ai-data-centres/",
+      "publishedAt": "2026-08-28T22:53:51+00:00"
+    },
+    {
+      "index": 48,
+      "headline": "This hotel lost its gloss for decades. Now it’s a tribute to a classic cinematic era",
+      "url": "https://www.smh.com.au/business/consumer-affairs/this-hotel-lost-its-gloss-for-decades-now-it-s-a-tribute-to-a-classic-cinematic-era-20260813-p60nzs.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-29T05:00:00+10:00"
+    },
+    {
+      "index": 49,
+      "headline": "‘Highly inappropriate’: Leaked trove reveals serious concerns at new-look Star",
+      "url": "https://www.smh.com.au/business/companies/highly-inappropriate-leaked-trove-reveals-serious-concerns-at-new-look-star-20260827-p60s3r.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-29T05:00:00+10:00"
+    },
+    {
+      "index": 50,
+      "headline": "Weekend reading, videos and MB media appearances",
+      "url": "https://www.macrobusiness.com.au/2026/08/weekend-reading-videos-and-mb-media-appearances/",
+      "publishedAt": "2026-08-28T14:01:53+00:00"
+    },
+    {
+      "index": 51,
+      "headline": "The world’s most influential economist is under heavy fire",
+      "url": "https://www.smh.com.au/business/the-economy/the-world-s-most-influential-economist-is-under-heavy-fire-20260820-p60pwd.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-28T18:15:00+10:00"
+    },
+    {
+      "index": 52,
+      "headline": "Australia’s share market ends volatile week higher",
+      "url": "https://www.smh.com.au/business/markets/asx-set-to-edge-up-wall-street-gets-ai-boost-virgin-harvey-norman-results-ahead-20260828-p60sae.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-28T17:38:57+10:00"
+    },
+    {
+      "index": 53,
+      "headline": "Australia demands ‘high bar’ for data centres seeking fossil fuel power",
+      "url": "https://www.smh.com.au/business/the-economy/australia-demands-high-bar-for-data-centres-seeking-fossil-fuel-power-20260828-p60sga.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-28T17:33:43+10:00"
+    },
+    {
+      "index": 54,
+      "headline": "ASX Runners of the Week: X2M, Discovery Alaska, Metal Hawk & Bapcor",
+      "url": "https://www.smh.com.au/business/companies/asx-runners-of-the-week-x2m-discovery-alaska-metal-hawk-and-bapcor-20260828-p60siq.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-28T16:50:30+10:00"
+    },
+    {
+      "index": 55,
+      "headline": "Hanson tells star One Nation candidate to stop speaking Japanese – as it happened",
+      "url": "https://www.theguardian.com/australia-news/live/2026/aug/28/nepal-floods-australians-missing-penny-wong-anthony-albanese-angus-taylor-liberal-party-pauline-hanson-one-nation-ntwnfb",
+      "publishedAt": "2026-08-28T06:13:44+00:00"
+    },
+    {
+      "index": 56,
+      "headline": "Childcare in upheaval as losses, closures, and plunging revenue mount",
+      "url": "https://www.smh.com.au/business/companies/childcare-in-upheaval-as-losses-closures-and-plunging-revenue-mount-20260826-p60rnt.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-28T15:59:00+10:00"
+    },
+    {
+      "index": 57,
+      "headline": "Gateway adds huge 7km-long gold trend to existing WA gold zone",
+      "url": "https://www.smh.com.au/business/companies/gateway-adds-huge-7km-long-gold-trend-to-existing-wa-gold-zone-20260828-p60shf.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-28T15:06:17+10:00"
+    },
+    {
+      "index": 58,
+      "headline": "New planes, fuel hedging shield Virgin from oil price shock",
+      "url": "https://www.smh.com.au/business/companies/virgin-post-strong-rise-in-profits-helped-by-fuel-hedging-20260827-p60s9o.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-28T12:18:02+10:00"
+    },
+    {
+      "index": 59,
+      "headline": "This is what a real housing crash looks like",
+      "url": "https://www.macrobusiness.com.au/2026/08/this-is-what-a-real-housing-crash-looks-like/",
+      "publishedAt": "2026-08-28T02:00:02+00:00"
+    },
+    {
+      "index": 60,
+      "headline": "Housing inflation is a persistent thorn in the RBA’s side",
+      "url": "https://www.macrobusiness.com.au/2026/08/housing-inflation-is-a-persistent-thorn-in-the-rbas-side/",
+      "publishedAt": "2026-08-28T01:00:52+00:00"
+    },
+    {
+      "index": 61,
+      "headline": "Unemployed and unpaid: What the fate of sacked Qantas workers tells us",
+      "url": "https://www.smh.com.au/business/companies/bitter-aftertaste-for-qantas-workers-from-the-largest-corporate-fine-in-australia-s-history-20260820-p60q48.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-08-28T11:00:00+10:00"
+    },
+    {
+      "index": 62,
+      "headline": "Cockroach squashed as Pilbara killer booms",
+      "url": "https://www.macrobusiness.com.au/2026/08/iron-ore-flames-out-as-cockroach-suashed/",
+      "publishedAt": "2026-08-28T00:30:20+00:00"
+    },
+    {
+      "index": 63,
+      "headline": "Victoria’s Suburban Rail Loop black hole deepens",
+      "url": "https://www.macrobusiness.com.au/2026/08/victorias-suburban-rail-loop-black-hole-deepens/",
+      "publishedAt": "2026-08-28T00:00:17+00:00"
+    },
+    {
+      "index": 64,
+      "headline": "Aussie houses and households terminated",
+      "url": "https://www.macrobusiness.com.au/2026/08/aussie-houses-and-households-terminated/",
+      "publishedAt": "2026-08-27T23:30:43+00:00"
+    },
+    {
+      "index": 65,
+      "headline": "Midterm boom",
+      "url": "https://www.macrobusiness.com.au/2026/08/midterm-boom/",
+      "publishedAt": "2026-08-27T23:30:06+00:00"
+    },
+    {
+      "index": 66,
+      "headline": "Will the Fed join the war?",
+      "url": "https://www.macrobusiness.com.au/2026/08/will-the-fed-join-the-war/",
+      "publishedAt": "2026-08-27T23:00:37+00:00"
+    },
+    {
+      "index": 67,
+      "headline": "Why One Nation’s immigration policy is the best on offer",
+      "url": "https://www.macrobusiness.com.au/2026/08/why-one-nations-immigration-policy-is-the-best-on-offer/",
+      "publishedAt": "2026-08-27T22:00:08+00:00"
+    }
+  ]
+}
