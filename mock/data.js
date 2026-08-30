@@ -33,17 +33,14 @@
         name: item.sector,
         trend: item.trend,
         implication: item.implications,
-        sourceIndexes: item.headline_sources,
-        tone: "flat"
+        sourceIndexes: item.headline_sources
       })),
-      risks: analysis.risk_assessment.map((item,index) => ({
+      risks: analysis.risk_assessment.map(item => ({
         name: item.risk_factor,
         impact: item.impact,
         likelihood: item.likelihood,
         mitigation: item.mitigation,
-        sourceIndexes: item.headline_sources,
-        x: 24 + ((index * 19) % 62),
-        y: 18 + ((index * 23) % 65)
+        sourceIndexes: item.headline_sources
       })),
       opportunities: recommendations.opportunities.map(item => ({
         title: item.recommendation,

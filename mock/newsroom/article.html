@@ -1,10 +1,162 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Waneye source context"><title>Source context — Waneye</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../page.css"></head>
-<body><div id="siteHeader"></div><main id="main" class="page-shell">
-  <section class="article-hero"><div class="breadcrumbs"><a href="../index.html">Intelligence</a><i>/</i><a href="index.html">Newsroom</a><i>/</i><span>Source context</span></div><div class="article-hero-grid"><div><p class="kicker" id="sourceIndex"></p><h1 id="articleTitle"></h1><div class="story-byline"><span id="publisher"></span><span id="publishDate"></span><span id="articleEdition"></span></div></div><a id="imageLink" target="_blank" rel="noreferrer"><img id="articleImage" alt=""><span id="imageCta">Read original reporting ↗</span></a></div></section>
-  <section class="page-section"><div class="container article-layout"><article class="prose"><p class="kicker">MARKET CONNECTION</p><h2 id="connectionTitle">Where this story enters the view</h2><div class="connection-list" id="connectionList"></div></article><aside class="detail-aside"><div class="aside-card"><p class="kicker">ORIGINAL PUBLISHER</p><h3 id="sourceCardTitle"></h3><p id="sourceNote">Continue to the publisher for the complete article.</p><a class="source-button" id="originalLink" target="_blank" rel="noreferrer">Read original source <span>↗</span></a></div></aside></div></section>
-  <section class="page-section alt"><div class="container"><div class="page-intro"><div><p class="kicker">MORE REPORTING</p><h2>Continue through the source set</h2></div></div><div class="visual-news-grid" id="relatedNews"></div></div></section>
-</main><div id="siteFooter"></div><script src="../content.js"></script><script src="../data.js"></script><script src="../pages.js"></script><script>
-const P=WaneyePage;const region=P.safeRegion(P.query('region','global'));const zh=region==='cn';P.mountChrome('newsroom','../',zh?'zh':'en');const r=P.REPORTS[region];const wanted=Number(P.query('id',String(r.news[0].index)));const n=r.news.find(x=>x.index===wanted)||r.news[0];const connected=r.sectors.map((s,i)=>({s,i})).filter(x=>x.s.sourceIndexes.includes(n.index));const nearby=r.news.filter(x=>x!==n).slice(Math.max(0,n.index-3),Math.max(0,n.index-3)+6);
-document.title=`${n.title} — Waneye`;document.querySelector('#sourceIndex').textContent=`${zh?'来源':'SOURCE'} ${String(n.index).padStart(3,'0')}`;document.querySelector('#articleTitle').textContent=n.title;document.querySelector('#publisher').textContent=n.source;document.querySelector('#publishDate').textContent=n.publishedAt||"—";document.querySelector('#articleEdition').textContent=P.REGION_NAMES[region];document.querySelector('#articleImage').src=n.imageUrl;document.querySelector('#imageLink').href=n.url;document.querySelector('#sourceCardTitle').textContent=n.source;document.querySelector('#originalLink').href=n.url;document.querySelector('#connectionList').innerHTML=connected.length?connected.map(({s,i})=>`<a href="../markets/sector.html?region=${region}&sector=${i}"><span>${s.name}</span><p>${s.implication}</p><b>${zh?'查看板块观点':'VIEW SECTOR'} ↗</b></a>`).join(''):`<div class="report-block"><p>${zh?'本条报道属于当前信息源，但未单独关联至某一板块观点。':'This story contributes to the current source set without a dedicated sector attribution.'}</p></div>`;document.querySelector('#relatedNews').innerHTML=nearby.map(x=>`<a class="visual-news-card" href="article.html?region=${region}&id=${x.index}"><img src="${x.imageUrl}" alt="" loading="lazy"><div><span>${x.meta}</span><h3>${x.title}</h3><b>${zh?'查看报道':'VIEW STORY'} ↗</b></div></a>`).join('');
-if(zh){const crumbs=document.querySelectorAll('.breadcrumbs a');crumbs[0].textContent='市场情报';crumbs[1].textContent='新闻中心';document.querySelector('.breadcrumbs span').textContent='来源解读';document.querySelector('#imageCta').textContent='阅读原始报道 ↗';document.querySelector('.prose .kicker').textContent='市场关联';document.querySelector('#connectionTitle').textContent='本条报道如何进入市场研判';document.querySelector('.aside-card .kicker').textContent='原始发布机构';document.querySelector('#sourceNote').textContent='前往发布机构阅读完整报道。';document.querySelector('#originalLink').innerHTML='阅读原始报道 <span>↗</span>';const intro=document.querySelector('.page-intro');intro.querySelector('.kicker').textContent='更多报道';intro.querySelector('h2').textContent='继续浏览信息源';}
-</script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Waneye source context" />
+    <title>Source context — Waneye</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../page.css" />
+  </head>
+  <body>
+    <div id="siteHeader"></div>
+    <main id="main" class="page-shell">
+      <section class="article-hero">
+        <div class="breadcrumbs">
+          <a href="../index.html">Intelligence</a><i>/</i
+          ><a href="index.html">Newsroom</a><i>/</i><span>Source context</span>
+        </div>
+        <div class="article-hero-grid">
+          <div>
+            <p class="kicker" id="sourceIndex"></p>
+            <h1 id="articleTitle"></h1>
+            <div class="story-byline">
+              <span id="publisher"></span><span id="publishDate"></span
+              ><span id="articleEdition"></span>
+            </div>
+          </div>
+          <a id="imageLink" target="_blank" rel="noreferrer"
+            ><img id="articleImage" alt="" /><span id="imageCta"
+              >Read original reporting ↗</span
+            ></a
+          >
+        </div>
+      </section>
+      <section class="page-section">
+        <div class="container article-layout">
+          <article class="prose">
+            <p class="kicker">MARKET CONNECTION</p>
+            <h2 id="connectionTitle">Where this story enters the view</h2>
+            <div class="connection-list" id="connectionList"></div>
+          </article>
+          <aside class="detail-aside">
+            <div class="aside-card">
+              <p class="kicker">ORIGINAL PUBLISHER</p>
+              <h3 id="sourceCardTitle"></h3>
+              <p id="sourceNote">
+                Continue to the publisher for the complete article.
+              </p>
+              <a
+                class="source-button"
+                id="originalLink"
+                target="_blank"
+                rel="noreferrer"
+                >Read original source <span>↗</span></a
+              >
+            </div>
+          </aside>
+        </div>
+      </section>
+      <section class="page-section alt">
+        <div class="container">
+          <div class="page-intro">
+            <div>
+              <p class="kicker">MORE REPORTING</p>
+              <h2>Continue through the source set</h2>
+            </div>
+          </div>
+          <div class="visual-news-grid" id="relatedNews"></div>
+        </div>
+      </section>
+    </main>
+    <div id="siteFooter"></div>
+    <script src="../content.js"></script>
+    <script src="../data.js"></script>
+    <script src="../pages.js"></script>
+    <script>
+      const P = WaneyePage;
+      const region = P.safeRegion(P.query("region", "global"));
+      const zh = region === "cn";
+      P.mountChrome("newsroom", "../", zh ? "zh" : "en");
+      const r = P.REPORTS[region];
+      const wanted = Number(P.query("id", String(r.news[0].index)));
+      const n = r.news.find((x) => x.index === wanted) || r.news[0];
+      const connected = r.sectors
+        .map((s, i) => ({ s, i }))
+        .filter((x) => x.s.sourceIndexes.includes(n.index));
+      const nearby = r.news
+        .filter((x) => x !== n)
+        .slice(Math.max(0, n.index - 3), Math.max(0, n.index - 3) + 6);
+      document.title = zh
+        ? `来源解读：${n.title} — Waneye`
+        : `${n.title} — Waneye`;
+      document.querySelector("#sourceIndex").textContent =
+        `${zh ? "来源" : "SOURCE"} ${String(n.index).padStart(3, "0")}`;
+      document.querySelector("#articleTitle").textContent = n.title;
+      document.querySelector("#publisher").textContent = n.source;
+      document.querySelector("#publishDate").textContent = n.publishedAt || "—";
+      document.querySelector("#articleEdition").textContent =
+        P.REGION_NAMES[region];
+      document.querySelector("#articleImage").src = n.imageUrl;
+      document.querySelector("#articleImage").alt = "";
+      document.querySelector("#imageLink").href = n.url;
+      document
+        .querySelector("#imageLink")
+        .setAttribute(
+          "aria-label",
+          zh
+            ? `阅读原始报道：${n.title}（在新窗口打开）`
+            : `Read original reporting: ${n.title} (opens in a new tab)`,
+        );
+      document.querySelector("#sourceCardTitle").textContent = n.source;
+      document.querySelector("#originalLink").href = n.url;
+      document
+        .querySelector("#originalLink")
+        .setAttribute(
+          "aria-label",
+          zh
+            ? `在新窗口阅读${n.source}报道：${n.title}`
+            : `Read ${n.source}: ${n.title} (opens in a new tab)`,
+        );
+      document.querySelector("#connectionList").innerHTML = connected.length
+        ? connected
+            .map(
+              ({ s, i }) =>
+                `<a href="../markets/sector.html?region=${region}&sector=${i}"><span>${s.name}</span><p>${s.implication}</p><b>${zh ? "查看板块观点" : "VIEW SECTOR"} ↗</b></a>`,
+            )
+            .join("")
+        : `<div class="report-block"><p>${zh ? "本条报道属于当前信息源，但未单独关联至某一板块观点。" : "This story contributes to the current source set without a dedicated sector attribution."}</p></div>`;
+      document.querySelector("#relatedNews").innerHTML = nearby
+        .map(
+          (x) =>
+            `<a class="visual-news-card" href="article.html?region=${region}&id=${x.index}"><img src="${x.imageUrl}" alt="" loading="lazy"><div><span>${x.meta}</span><h3>${x.title}</h3><b>${zh ? "查看报道" : "VIEW STORY"} ↗</b></div></a>`,
+        )
+        .join("");
+      if (zh) {
+        const crumbs = document.querySelectorAll(".breadcrumbs a");
+        crumbs[0].textContent = "市场情报";
+        crumbs[1].textContent = "新闻中心";
+        document.querySelector(".breadcrumbs span").textContent = "来源解读";
+        document.querySelector("#imageCta").textContent = "阅读原始报道 ↗";
+        document.querySelector(".prose .kicker").textContent = "市场关联";
+        document.querySelector("#connectionTitle").textContent =
+          "本条报道如何进入市场研判";
+        document.querySelector(".aside-card .kicker").textContent =
+          "原始发布机构";
+        document.querySelector("#sourceNote").textContent =
+          "前往发布机构阅读完整报道。";
+        document.querySelector("#originalLink").innerHTML =
+          "阅读原始报道 <span>↗</span>";
+        const intro = document.querySelector(".page-intro");
+        intro.querySelector(".kicker").textContent = "更多报道";
+        intro.querySelector("h2").textContent = "继续浏览信息源";
+      }
+    </script>
+  </body>
+</html>
