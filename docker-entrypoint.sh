@@ -215,16 +215,23 @@ fi
 # ─── Step: Move generated artifacts ─────────────────────────────────────────
 step "Moving generated artifacts"
 
-stage-generated-site website-core .
+mv website-core/history ./history 2>/dev/null || true
+mv website-core/index.html ./
+mv website-core/archive ./archive
+mv website-core/markets ./markets
+mv website-core/newsroom ./newsroom
+mv website-core/cn ./cn 2>/dev/null || true
+mv website-core/au ./au 2>/dev/null || true
+rm -rf ./static
+mv website-core/static ./static
+rm -rf ./api
+mv website-core/api ./api 2>/dev/null || true
 
 success "Artifacts moved"
 
 # Show what was generated
 echo ""
 [[ -f "./index.html" ]] && echo -e "  ${GREEN}✓${NC} index.html"
-[[ -d "./archive" ]]    && echo -e "  ${GREEN}✓${NC} archive/"
-[[ -d "./markets" ]]    && echo -e "  ${GREEN}✓${NC} markets/"
-[[ -d "./newsroom" ]]   && echo -e "  ${GREEN}✓${NC} newsroom/"
 [[ -d "./cn" ]]         && echo -e "  ${GREEN}✓${NC} cn/"
 [[ -d "./au" ]]         && echo -e "  ${GREEN}✓${NC} au/"
 [[ -d "./static" ]]     && echo -e "  ${GREEN}✓${NC} static/"

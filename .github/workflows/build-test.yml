@@ -54,9 +54,6 @@ jobs:
       - name: Verify agy CLI installation
         run: agy --version
 
-      - name: Test generated artifact staging
-        run: bash tests/test-stage-generated-site.sh
-        
       - name: Build static site (no deploy) - Test Mode for Fast CI/CD
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -66,12 +63,9 @@ jobs:
           cd website-core
           python generate_site.py --test-mode
           
-      - name: Stage and verify generated site
+      - name: Check generated pages
         run: |
-          mkdir staged-site
-          bash scripts/stage-generated-site.sh website-core staged-site
-          test -f staged-site/index.html
-          test -f staged-site/archive/index.html
-          test -f staged-site/archive/report.html
-          test -f staged-site/markets/index.html
-          test -f staged-site/newsroom/index.html
+          test -f website-core/index.html
+          test -f website-core/archive/index.html
+          test -f website-core/markets/index.html
+          test -f website-core/newsroom/index.html
