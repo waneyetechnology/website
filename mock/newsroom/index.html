@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Waneye financial intelligence newsroom" />
+    <title>Newsroom — Waneye</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../page.css" />
+  </head>
+  <body>
+    <div id="siteHeader"></div>
+    <main id="main" class="page-shell">
+      <section class="sub-hero">
+        <div class="breadcrumbs">
+          <a href="../index.html">Intelligence</a><i>/</i><span>Newsroom</span>
+        </div>
+        <div class="sub-hero-grid">
+          <div>
+            <p class="kicker">MARKET NEWSROOM</p>
+            <h1>The reporting<br />behind the signals.</h1>
+            <p class="hero-dek">
+              A visual source ledger for the selected market, connecting
+              original reporting with the current intelligence view.
+            </p>
+          </div>
+          <aside class="hero-aside">
+            <p class="kicker">CURRENT SOURCE SET</p>
+            <strong id="sourceTotal">—</strong><span>linked headlines</span>
+            <p>
+              Every image and headline opens into its source context and
+              original publisher.
+            </p>
+          </aside>
+        </div>
+      </section>
+      <nav class="subnav" aria-label="Newsroom sections">
+        <a class="active" aria-current="location" href="#lead">Lead reporting</a
+        ><a href="#ledger">More headlines</a
+        ><a href="../archive/index.html">Market report</a>
+      </nav>
+      <section class="page-section" id="lead">
+        <div class="container">
+          <div class="page-intro">
+            <div>
+              <p class="kicker">LEAD REPORTING</p>
+              <h2>Stories setting the frame</h2>
+            </div>
+            <p>The opening stories in the current regional source set.</p>
+          </div>
+          <div class="editorial-lead">
+            <a class="lead-news-card" id="featured"></a>
+            <div class="lead-news-stack" id="newsStack"></div>
+          </div>
+        </div>
+      </section>
+      <section class="page-section alt" id="ledger">
+        <div class="container">
+          <div class="page-intro">
+            <div>
+              <p class="kicker">MORE HEADLINES</p>
+              <h2>Follow the reporting</h2>
+            </div>
+            <p id="ledgerDescription"></p>
+          </div>
+          <div class="headline-ledger" id="ledgerList"></div>
+        </div>
+      </section>
+    </main>
+    <div id="siteFooter"></div>
+    <script src="../content.js"></script>
+    <script src="../data.js"></script>
+    <script src="../pages.js"></script>
+    <script>
+      const P = WaneyePage;
+      const region = P.safeRegion(P.query("region", "global"));
+      const zh = region === "cn";
+      P.mountChrome("newsroom", "../", zh ? "zh" : "en");
+      const r = P.REPORTS[region];
+      document.querySelector("#sourceTotal").textContent = r.news.length;
+      document.querySelector("#ledgerDescription").textContent = zh
+        ? `其余${r.news.length - 4}条报道按当前来源顺序呈现。`
+        : `The remaining ${r.news.length - 4} stories in the current source order.`;
+      const [lead, ...rest] = r.news;
+      const detail = (n) => `article.html?region=${region}&id=${n.index}`;
+      const featured = document.querySelector("#featured");
+      featured.href = detail(lead);
+      featured.innerHTML = `<img src="${lead.imageUrl}" alt=""><div class="lead-news-overlay"><span>${lead.meta}</span><h2>${lead.title}</h2><b>${zh ? "查看报道" : "VIEW STORY"} ↗</b></div>`;
+      document.querySelector("#newsStack").innerHTML = rest
+        .slice(0, 3)
+        .map(
+          (n) =>
+            `<a class="stacked-news-card" href="${detail(n)}"><img src="${n.imageUrl}" alt="" loading="lazy"><div><span>${n.meta}</span><h3>${n.title}</h3><b>${zh ? "查看报道" : "VIEW STORY"} ↗</b></div></a>`,
+        )
+        .join("");
+      const ledgerNews = r.news.slice(4);
+      const batchSize = 12;
+      document.querySelector("#ledgerList").innerHTML = Array.from(
+        { length: Math.ceil(ledgerNews.length / batchSize) },
+        (_, batch) => {
+          const stories = ledgerNews.slice(
+            batch * batchSize,
+            (batch + 1) * batchSize,
+          );
+          const first = String(stories[0].index).padStart(3, "0");
+          const last = String(stories[stories.length - 1].index).padStart(
+            3,
+            "0",
+          );
+          return `<details class="headline-batch"${batch === 0 ? " open" : ""}><summary>${zh ? `报道 ${first}—${last}` : `Headlines ${first}—${last}`} <span>${stories.length} ${zh ? "条" : "stories"}</span></summary><div>${stories.map((n) => `<a class="headline-row" href="${detail(n)}"><img src="${n.imageUrl}" alt="" loading="lazy"><span class="headline-number">${String(n.index).padStart(3, "0")}</span><div><span>${n.meta}</span><h3>${n.title}</h3></div><b aria-hidden="true">↗</b></a>`).join("")}</div></details>`;
+        },
+      ).join("");
+      if (zh) {
+        document.title = "新闻中心 — Waneye";
+        const hero = document.querySelector(".sub-hero");
+        hero.querySelector(".breadcrumbs a").textContent = "市场情报";
+        hero.querySelector(".breadcrumbs span").textContent = "新闻中心";
+        hero.querySelector(".kicker").textContent = "市场新闻中心";
+        hero.querySelector("h1").innerHTML = "信号背后的<br>市场报道。";
+        hero.querySelector(".hero-dek").textContent =
+          "以视觉方式呈现当前市场的信息来源，并连接原始报道与市场研判。";
+        hero.querySelector(".hero-aside .kicker").textContent = "当前信息源";
+        hero.querySelector(".hero-aside span").textContent = "条链接报道";
+        hero.querySelector(".hero-aside p:last-child").textContent =
+          "每张图片与标题均可进入来源详情及原始发布机构。";
+        const nav = document.querySelectorAll(".subnav a");
+        ["重点报道", "更多报道", "市场报告"].forEach(
+          (x, i) => (nav[i].textContent = x),
+        );
+        const intros = document.querySelectorAll(".page-intro");
+        intros[0].querySelector(".kicker").textContent = "重点报道";
+        intros[0].querySelector("h2").textContent = "塑造当前框架的报道";
+        intros[0].querySelector(":scope > p").textContent =
+          "当前区域信息源中的重点内容。";
+        intros[1].querySelector(".kicker").textContent = "更多报道";
+        intros[1].querySelector("h2").textContent = "追踪市场报道";
+      }
+    </script>
+  </body>
+</html>

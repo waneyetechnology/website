@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Waneye current market research" />
+    <title>Research — Waneye</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../page.css" />
+  </head>
+  <body>
+    <div id="siteHeader"></div>
+    <main id="main" class="page-shell">
+      <section class="sub-hero">
+        <div class="breadcrumbs">
+          <a href="../index.html">Intelligence</a><i>/</i><span>Research</span>
+        </div>
+        <div class="sub-hero-grid">
+          <div>
+            <p class="kicker">CURRENT RESEARCH</p>
+            <h1>One market view,<br />fully connected.</h1>
+            <p class="hero-dek">
+              The selected edition brings its executive brief, sector signals,
+              risks, positioning and outlook into one research report.
+            </p>
+          </div>
+          <aside class="hero-aside">
+            <p class="kicker">MARKET PULSE</p>
+            <strong id="heroScore">—</strong><span id="heroSentiment"></span>
+            <p id="heroDate"></p>
+          </aside>
+        </div>
+      </section>
+      <nav class="subnav" aria-label="Research sections">
+        <a class="active" aria-current="location" href="#report"
+          >Current report</a
+        ><a href="#framework">Research framework</a
+        ><a href="../newsroom/index.html">Source ledger</a>
+      </nav>
+      <section class="page-section" id="report">
+        <div class="container">
+          <div class="archive-summary">
+            <div><span>EDITION</span><strong id="statEdition">—</strong></div>
+            <div>
+              <span>SECTOR VIEWS</span><strong id="statSectors">—</strong>
+            </div>
+            <div>
+              <span>RISK FACTORS</span><strong id="statRisks">—</strong>
+            </div>
+            <div><span>SOURCES</span><strong id="statSources">—</strong></div>
+          </div>
+          <div class="research-feature">
+            <div>
+              <p class="kicker">LATEST REPORT</p>
+              <h2 id="reportName"></h2>
+              <p id="reportLead"></p>
+              <div class="pill-list" id="themePills"></div>
+              <a class="button-link" id="reportLink"
+                >Open full intelligence report <span>↗</span></a
+              >
+            </div>
+            <div class="research-collage" id="researchCollage"></div>
+          </div>
+        </div>
+      </section>
+      <section class="page-section alt" id="framework">
+        <div class="container">
+          <div class="page-intro">
+            <div>
+              <p class="kicker">RESEARCH FRAMEWORK</p>
+              <h2>From reporting to positioning</h2>
+            </div>
+            <p>Each edition follows the same decision-oriented structure.</p>
+          </div>
+          <div class="framework-grid">
+            <article>
+              <span>01</span>
+              <h3>Executive brief</h3>
+              <p>
+                The highest-conviction developments shaping the market view.
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Sector intelligence</h3>
+              <p>
+                Trend, implication and supporting reporting organised by sector.
+              </p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Risk &amp; positioning</h3>
+              <p>
+                Downside factors, mitigations and practical portfolio responses.
+              </p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>Forward view</h3>
+              <p>Short- and long-term outlooks, catalysts and watch points.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="siteFooter"></div>
+    <script src="../content.js"></script>
+    <script src="../data.js"></script>
+    <script src="../pages.js"></script>
+    <script>
+      const P = WaneyePage;
+      const region = P.safeRegion(P.query("region", "global"));
+      const zh = region === "cn";
+      P.mountChrome("archive", "../", zh ? "zh" : "en");
+      const r = P.REPORTS[region];
+      document.querySelector("#heroScore").textContent = `${r.score}/100`;
+      document.querySelector("#heroSentiment").textContent = r.sentiment;
+      document.querySelector("#heroDate").textContent = `${r.date} · ${r.time}`;
+      document.querySelector("#statEdition").textContent =
+        P.REGION_NAMES[region];
+      document.querySelector("#statSectors").textContent = r.sectors.length;
+      document.querySelector("#statRisks").textContent = r.risks.length;
+      document.querySelector("#statSources").textContent = r.sources;
+      document.querySelector("#reportName").textContent = zh
+        ? `${P.REGION_NAMES[region]}市场情报`
+        : `${P.REGION_NAMES[region]} Market Intelligence`;
+      document.querySelector("#reportLead").textContent = r.highlights[0];
+      document.querySelector("#themePills").innerHTML = r.themes
+        .map((x) => `<span>${x}</span>`)
+        .join("");
+      document.querySelector("#reportLink").href =
+        `report.html?region=${region}`;
+      document.querySelector("#researchCollage").innerHTML = r.news
+        .slice(0, 3)
+        .map(
+          (n) =>
+            `<a href="${n.url}" target="_blank" rel="noreferrer" aria-label="${zh ? `在新窗口阅读${n.source}报道：${n.title}` : `Read ${n.source}: ${n.title} (opens in a new tab)`}"><img src="${n.imageUrl}" alt="" loading="lazy"><span>${n.source} ↗</span></a>`,
+        )
+        .join("");
+      if (zh) {
+        document.title = "研究 — Waneye";
+        const hero = document.querySelector(".sub-hero");
+        hero.querySelector(".breadcrumbs a").textContent = "市场情报";
+        hero.querySelector(".breadcrumbs span").textContent = "研究";
+        hero.querySelector(".kicker").textContent = "当前研究";
+        hero.querySelector("h1").innerHTML = "一个完整连贯的<br>市场视角。";
+        hero.querySelector(".hero-dek").textContent =
+          "当前版本将核心摘要、板块信号、风险、策略配置与前景整合为一份研究报告。";
+        hero.querySelector(".hero-aside .kicker").textContent = "市场温度";
+        const nav = document.querySelectorAll(".subnav a");
+        ["当前报告", "研究框架", "信息来源"].forEach(
+          (x, i) => (nav[i].textContent = x),
+        );
+        document
+          .querySelectorAll(".archive-summary span")
+          .forEach(
+            (x, i) =>
+              (x.textContent = ["市场版本", "板块观点", "风险因素", "信息源"][
+                i
+              ]),
+          );
+        document.querySelector(".research-feature .kicker").textContent =
+          "最新报告";
+        document.querySelector("#reportLink").innerHTML =
+          "打开完整市场情报报告 <span>↗</span>";
+        const intro = document.querySelector(".page-intro");
+        intro.querySelector(".kicker").textContent = "研究框架";
+        intro.querySelector("h2").textContent = "从市场报道到策略配置";
+        intro.querySelector(":scope > p").textContent =
+          "每个市场版本均采用统一、面向决策的结构。";
+        const cards = document.querySelectorAll(".framework-grid article");
+        [
+          ["核心摘要", "提炼塑造市场判断的高确信度发展。"],
+          ["板块情报", "按板块呈现趋势、投资含义及相关报道。"],
+          ["风险与策略", "识别下行因素、缓释措施及组合应对。"],
+          ["前瞻展望", "呈现短期与长期前景、催化剂及关注事项。"],
+        ].forEach((a, i) => {
+          cards[i].querySelector("h3").textContent = a[0];
+          cards[i].querySelector("p").textContent = a[1];
+        });
+      }
+    </script>
+  </body>
+</html>
