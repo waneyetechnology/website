@@ -21,6 +21,8 @@
 #   GNEWS_API_KEY     — Required for main site generation
 #   DEEPSEEK_API_KEY  — Required for site generation
 #   GEMINI_API_KEY    — Required for site generation
+#   AGY_PROVIDER      — Optional agy CLI fallback provider
+#   ANTIGRAVITY_API_KEY — Optional agy CLI fallback credential
 #   OLLAMA_HOST       — Optional, defaults to http://host.docker.internal:11434/v1
 #   OLLAMA_MODEL      — Optional, Ollama model to use
 #   SKIP_CN           — Set to "true" to skip Chinese site generation
@@ -103,8 +105,6 @@ REQUIRED_KEYS=(
   GNEWS_API_KEY
   DEEPSEEK_API_KEY
   GEMINI_API_KEY
-  AGY_PROVIDER
-  ANTIGRAVITY_API_KEY
   GH_PAT
 )
 missing_keys=()
@@ -127,6 +127,12 @@ if [[ ${#missing_keys[@]} -gt 0 ]]; then
   exit 1
 fi
 success "All required environment variables present"
+
+if [[ -z "${AGY_PROVIDER:-}" || -z "${ANTIGRAVITY_API_KEY:-}" ]]; then
+  warn "agy CLI credentials not configured — optional last-resort fallback disabled"
+else
+  info "agy CLI fallback configured"
+fi
 
 # ─── Step: Set up website-core (writable copy) ──────────────────────────────
 step "Setting up website-core"
