@@ -120,14 +120,7 @@ jobs:
           python generate_site_au.py
       - name: Move generated artifacts
         run: |
-          mv website-core/history ./history 2>/dev/null || true
-          mv website-core/index.html ./
-          mv website-core/cn ./cn 2>/dev/null || true
-          mv website-core/au ./au 2>/dev/null || true
-          rm -rf ./static
-          mv website-core/static ./static
-          rm -rf ./api
-          mv website-core/api ./api 2>/dev/null || true
+          bash scripts/stage-generated-site.sh website-core .
           rm -rf website-core
       - name: Push analysis report to history branch
         uses: peaceiris/actions-gh-pages@v4

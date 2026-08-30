@@ -215,20 +215,16 @@ fi
 # ─── Step: Move generated artifacts ─────────────────────────────────────────
 step "Moving generated artifacts"
 
-mv website-core/history ./history 2>/dev/null || true
-mv website-core/index.html ./
-mv website-core/cn ./cn 2>/dev/null || true
-mv website-core/au ./au 2>/dev/null || true
-rm -rf ./static
-mv website-core/static ./static
-rm -rf ./api
-mv website-core/api ./api 2>/dev/null || true
+stage-generated-site website-core .
 
 success "Artifacts moved"
 
 # Show what was generated
 echo ""
 [[ -f "./index.html" ]] && echo -e "  ${GREEN}✓${NC} index.html"
+[[ -d "./archive" ]]    && echo -e "  ${GREEN}✓${NC} archive/"
+[[ -d "./markets" ]]    && echo -e "  ${GREEN}✓${NC} markets/"
+[[ -d "./newsroom" ]]   && echo -e "  ${GREEN}✓${NC} newsroom/"
 [[ -d "./cn" ]]         && echo -e "  ${GREEN}✓${NC} cn/"
 [[ -d "./au" ]]         && echo -e "  ${GREEN}✓${NC} au/"
 [[ -d "./static" ]]     && echo -e "  ${GREEN}✓${NC} static/"
@@ -292,7 +288,7 @@ else
   # Use a clean temporary directory for gh-pages deploy
   DEPLOY_TMP=$(mktemp -d)
   # Copy all site files (excluding .git and website-core)
-  for item in index.html cn au static api robots.txt sitemap.xml structured-data.json CNAME _config.yml LICENSE; do
+  for item in index.html archive markets newsroom cn au static api robots.txt sitemap.xml structured-data.json CNAME _config.yml LICENSE; do
     if [[ -e "$item" ]]; then
       cp -R "$item" "$DEPLOY_TMP/"
     fi

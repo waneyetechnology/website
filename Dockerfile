@@ -103,7 +103,8 @@ RUN git config --global user.name "docker-deploy[bot]" && \
     git config --global --add safe.directory /workspace/website
 
 # ── Entrypoint script ───────────────────────────────────────────────────────
+COPY scripts/stage-generated-site.sh /usr/local/bin/stage-generated-site
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/stage-generated-site /usr/local/bin/docker-entrypoint.sh
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
