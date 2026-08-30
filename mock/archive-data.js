@@ -1,7 +1,0 @@
-window.WANEYE_ARCHIVE = [
-  {id:"global-2026-08-30-00",region:"global",date:"August 30, 2026",time:"00:09 UTC",score:58,sentiment:"Neutral",sources:85,title:"Hawkish Fed signal meets persistent AI capital spending",summary:"Warsh's Jackson Hole speech reinforces a higher-for-longer rate path while AI, semiconductor and energy-transition investment continues."},
-  {id:"au-2026-08-30-10",region:"au",date:"30 August 2026",time:"10:18 AEST",score:52,sentiment:"Neutral",sources:74,title:"ASX volatility rises as rate and housing pressure converge",summary:"A firmer RBA path complicates the housing outlook while mining, healthcare and selected energy-transition exposures provide balance."},
-  {id:"cn-2026-08-30-00",region:"cn",date:"2026年08月30日",time:"08:15 CST",score:62,sentiment:"中性",sources:152,title:"AI投资与银行分红对冲地产压力",summary:"半导体与算力需求保持强劲，银行业绩分化；地产改革持续推进，但开发商资产负债表仍然承压。"},
-  {id:"au-2026-08-23-10",region:"au",date:"23 August 2026",time:"10:39 AEST",score:41,sentiment:"Negative",sources:68,title:"Bank weakness and housing stress set a defensive ASX tone",summary:"A broad financial sell-off and housing pressure move portfolio attention toward defensive income, resources and policy risk."},
-  {id:"global-2026-07-19-21",region:"global",date:"July 19, 2026",time:"21:12 UTC",score:45,sentiment:"Negative",sources:0,title:"Geopolitical escalation raises the energy and inflation premium",summary:"US–Iran tensions and disruption to the Caspian Pipeline threaten energy supply and complicate the inflation outlook."}
-];

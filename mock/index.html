@@ -24,6 +24,11 @@
       <a href="archive/index.html">Archive</a>
     </nav>
     <div class="top-actions">
+      <nav class="edition-switcher" aria-label="Market edition">
+        <a href="index.html?region=global" data-edition="global">Global</a>
+        <a href="index.html?region=au" data-edition="au">Australia</a>
+        <a href="index.html?region=cn" data-edition="cn">中文</a>
+      </nav>
       <span class="status"><i></i> Live intelligence</span>
       <button class="icon-button" id="searchButton" aria-label="Open search">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
@@ -58,11 +63,6 @@
             <div><span>Risk flags</span><strong id="riskCount">04</strong></div>
           </div>
         </div>
-      </div>
-      <div class="region-tabs" role="tablist" aria-label="Report edition">
-        <button role="tab" aria-selected="true" data-region="global"><span>01</span> Global</button>
-        <button role="tab" aria-selected="false" data-region="au"><span>02</span> Australia</button>
-        <button role="tab" aria-selected="false" data-region="cn"><span>03</span> 大中华区</button>
       </div>
     </section>
 
@@ -135,7 +135,7 @@
     <section class="archive container" id="archive" aria-labelledby="archive-title">
       <p class="kicker">RESEARCH ARCHIVE</p><h2 id="archive-title">Every report. One continuous view.</h2>
       <p>Explore the preserved record of Waneye analysis across global, Australian and Greater China markets.</p>
-      <div class="archive-stats"><div><strong>05</strong><span>Current archive records</span></div><div><strong>03</strong><span>Market editions</span></div><div><strong>Hourly</strong><span>Analysis cadence</span></div></div>
+      <div class="archive-stats"><div><strong>03</strong><span>Current regional reports</span></div><div><strong>03</strong><span>Market editions</span></div><div><strong>Hourly</strong><span>Analysis cadence</span></div></div>
       <button class="button" id="archiveButton">Browse the archive <span>↗</span></button>
     </section>
   </main>
@@ -152,6 +152,7 @@
     <div id="searchResults"></div>
   </dialog>
 
+  <script src="api-snapshot.js"></script>
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
