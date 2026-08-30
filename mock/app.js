@@ -18,7 +18,7 @@ function render() {
   $("#riskCount").textContent = String(r.risks.length).padStart(2,"0");
   $("#tickerTrack").innerHTML = r.themes.map(x => `<span class="ticker-item">${x}</span>`).join("");
 
-  $("#leadStory").innerHTML = `<span class="story-index">01 / LEAD SIGNAL</span><h3>${r.highlights[0]}</h3><div class="story-meta"><span class="signal-pill">${r.sentiment}</span><span>Derived from today’s cross-source analysis</span></div>`;
+  $("#leadStory").innerHTML = `<span class="story-index">01 / LEAD SIGNAL</span><h3>${r.highlights[0]}</h3><div class="story-meta"><span class="signal-pill">${r.sentiment}</span><span>All ${r.highlights.length} executive highlights · ${r.time} edition</span></div>`;
   $("#briefList").innerHTML = r.highlights.slice(1).map((x,i) => `<article class="brief-item"><span>0${i+2}</span><h3>${x}</h3></article>`).join("");
   $("#sectorGrid").innerHTML = r.sectors.map((s,i) => `<a class="sector-card" href="markets/sector.html?region=${region}&sector=${i}"><div class="sector-top"><span class="kicker">SECTOR SIGNAL</span><span class="direction ${s.tone}">${s.direction.toUpperCase()}</span></div><h3>${s.name}</h3><p>${s.trend}</p><p class="implication">${s.implication}</p><div class="metric"><strong>${s.metric}</strong><small>${s.metricLabel}</small></div><span class="card-link">Open analysis ↗</span></a>`).join("");
   $("#riskDots").innerHTML = r.risks.map((risk,i) => `<span class="risk-dot" style="left:${risk.x}%;top:${risk.y}%" title="${risk.name}">${i+1}</span>`).join("");
