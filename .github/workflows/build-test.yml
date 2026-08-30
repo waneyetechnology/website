@@ -53,7 +53,7 @@ jobs:
             
       - name: Verify agy CLI installation
         run: agy --version
-        
+
       - name: Build static site (no deploy) - Test Mode for Fast CI/CD
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -63,5 +63,9 @@ jobs:
           cd website-core
           python generate_site.py --test-mode
           
-      - name: Check index.html generated
-        run: test -f website-core/index.html
+      - name: Check generated pages
+        run: |
+          test -f website-core/index.html
+          test -f website-core/archive/index.html
+          test -f website-core/markets/index.html
+          test -f website-core/newsroom/index.html

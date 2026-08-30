@@ -122,6 +122,9 @@ jobs:
         run: |
           mv website-core/history ./history 2>/dev/null || true
           mv website-core/index.html ./
+          mv website-core/archive ./archive
+          mv website-core/markets ./markets
+          mv website-core/newsroom ./newsroom
           mv website-core/cn ./cn 2>/dev/null || true
           mv website-core/au ./au 2>/dev/null || true
           rm -rf ./static
