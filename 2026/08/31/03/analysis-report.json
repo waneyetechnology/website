@@ -1,0 +1,936 @@
+{
+  "analysis": {
+    "analysis_date": "August 31, 2026",
+    "analysis_time": "03:07",
+    "executive_summary": {
+      "key_highlights": [
+        "US strikes on Iranian rocket launchers escalate geopolitical risk, disrupting shipping routes and oil markets",
+        "Kevin Warsh's Jackson Hole speech fuels rate-hike bets, triggering Asian stock/bond selloff and gold's biggest 2-month drop",
+        "India faces $5B MSCI rebalancing via new closing auction mechanism, creating liquidity and execution risk",
+        "China factory activity extends slump despite gauge improvement, signaling weak manufacturing demand",
+        "Nvidia's AI-driven gross margin pressure benefits Micron; memory now 50% of global semiconductor revenue",
+        "US national debt tops $40 trillion, raising long-term fiscal and Bitcoin narrative questions",
+        "Apple leadership transition (Cook out Sept 1) mirrors Amazon's post-Bezos underperformance pattern",
+        "SpaceX $100B Louisiana buildout and smart-money overweight signal continued space-sector momentum",
+        "72% of homebuyers paused searches awaiting lower mortgage rates; 41% already regret the wait",
+        "Shein's $26B valuation and HK IPO debut face growth-outcome skepticism"
+      ],
+      "market_sentiment_score": 52,
+      "overall_sentiment": "negative",
+      "headline_sources": [
+        6,
+        11,
+        15,
+        19,
+        5,
+        1,
+        64,
+        53,
+        65,
+        12,
+        75,
+        37,
+        66
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Energy & Shipping",
+          "trend": "Iran conflict disrupts Strait of Hormuz routes; NYK CEO exploring alternative shipping corridors; oil markets volatile",
+          "implications": "Higher freight costs, energy price spikes, and supply-chain delays; XOM may underperform sector on geopolitical premium already priced in",
+          "headline_sources": [
+            6,
+            16,
+            17,
+            42,
+            14
+          ]
+        },
+        {
+          "sector": "Technology & AI",
+          "trend": "Nvidia margin pressure from AI capex cycle; Oracle emerging as AI cloud underdog vs Microsoft; Anthropic IP lawsuits; OpenAI-Cursor access ending post-SpaceX acquisition",
+          "implications": "AI capex rotation from GPU to memory (Micron) and cloud infrastructure; IP litigation risk for AI firms; SpaceX consolidation reshaping AI tooling landscape",
+          "headline_sources": [
+            64,
+            41,
+            39,
+            38,
+            55,
+            69,
+            21
+          ]
+        },
+        {
+          "sector": "Fixed Income & Rates",
+          "trend": "Warsh speech triggers rate-hike repricing; Asian bonds drop; CD rates at 4.30% APY; 6.5% bond dividend strategies gaining traction; GPIF urged to buy more JGBs",
+          "implications": "Higher-for-longer rate environment pressures equities; bond income strategies attractive; JGB yields rising as GPIF demand shifts",
+          "headline_sources": [
+            19,
+            15,
+            31,
+            51,
+            3,
+            77,
+            84
+          ]
+        },
+        {
+          "sector": "Consumer & Housing",
+          "trend": "Mortgage rates rising week-over-week; 72% homebuyers paused; major fruit grower lays off ~1,000; casual restaurant chain closes 163 locations",
+          "implications": "Consumer discretionary under pressure; housing demand suppressed; labor cost pressures in food/agriculture",
+          "headline_sources": [
+            32,
+            75,
+            33,
+            50,
+            44,
+            48
+          ]
+        },
+        {
+          "sector": "Emerging Markets & Asia",
+          "trend": "India MSCI $5B reshuffle via new auction; China factory slump; Taiwan insurers diversifying off USD; Thai gold market tightening",
+          "implications": "EM capital flows volatile; India auction liquidity risk; China manufacturing weakness weighs on global growth; currency diversification trend in Asia",
+          "headline_sources": [
+            1,
+            9,
+            5,
+            13,
+            7,
+            8
+          ]
+        },
+        {
+          "sector": "Space & Defense",
+          "trend": "SpaceX $100B Louisiana buildout; Firefly notes rocket shortage; smart money overweight SpaceX; $5,000-to-2030 projections",
+          "implications": "Space sector entering capex supercycle; launch capacity constrained; defense spending elevated by Iran conflict",
+          "headline_sources": [
+            37,
+            72,
+            66,
+            70,
+            27,
+            14
+          ]
+        }
+      ],
+      "key_themes": [
+        "Geopolitical escalation (Iran) driving risk-off and energy volatility",
+        "Rate-hike repricing post-Warsh speech pressuring global equities and gold",
+        "AI capex rotation: GPU margins compressing, memory/cloud benefiting",
+        "India MSCI auction mechanism creating structural liquidity risk",
+        "US $40T debt milestone fueling fiscal sustainability debate",
+        "Housing market frozen by rate expectations; buyer regret emerging",
+        "Space sector consolidation and massive capex cycle",
+        "Corporate leadership transitions (Apple, Amazon) as performance inflection points",
+        "Asian currency diversification away from USD dependence",
+        "Private credit expansion in India ($700M Megha deal)"
+      ],
+      "headline_sources": [
+        6,
+        19,
+        64,
+        1,
+        53,
+        75,
+        37,
+        65,
+        13,
+        8,
+        15,
+        11,
+        5,
+        14
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Iran Conflict Escalation",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Hedge energy exposure with XOM/energy ETFs; hold 10-15% in gold despite recent drop; monitor Strait of Hormuz shipping disruptions via NYK/shipper indices",
+        "headline_sources": [
+          6,
+          14,
+          17,
+          16
+        ]
+      },
+      {
+        "risk_factor": "Rate-Hike Repricing",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Shorten duration in bond portfolios; favor 6.5%+ yield strategies; lock CD rates at 4.30% APY; avoid long-duration equities",
+        "headline_sources": [
+          19,
+          15,
+          11,
+          79,
+          47
+        ]
+      },
+      {
+        "risk_factor": "India MSCI Auction Liquidity Risk",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Avoid large EM India positions during rebalancing window; monitor closing auction volume; use index futures for hedging",
+        "headline_sources": [
+          1,
+          9
+        ]
+      },
+      {
+        "risk_factor": "China Manufacturing Weakness",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Reduce China-exposed supply chain equities; favor domestic-manufacturing plays; watch PMI trend for 2-3 months",
+        "headline_sources": [
+          5
+        ]
+      },
+      {
+        "risk_factor": "US Fiscal Sustainability ($40T Debt)",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Diversify into non-USD assets; monitor TIPS spreads; consider Bitcoin as partial hedge per narrative",
+        "headline_sources": [
+          53
+        ]
+      },
+      {
+        "risk_factor": "Housing Market Freeze",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Avoid homebuilder/consumer discretionary overexposure; 41% buyer regret signals potential demand shock if rates stay elevated",
+        "headline_sources": [
+          75,
+          32,
+          62
+        ]
+      },
+      {
+        "risk_factor": "AI IP Litigation & Regulatory Risk",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Monitor Anthropic lawsuits (Sony/Warner); assess AI firm legal exposure; favor established players with IP moats",
+        "headline_sources": [
+          39,
+          38
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Overweight memory/semiconductor names benefiting from AI capex rotation",
+          "rationale": "Nvidia margin compression signals capex shift to memory; memory now 50% of global semi revenue; Micron positioned as beneficiary",
+          "tickers": [
+            "MU",
+            "NVDA",
+            "SOXX"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            64,
+            55
+          ]
+        },
+        {
+          "recommendation": "Add Oracle as AI cloud underdog play",
+          "rationale": "Oracle emerging as underdog in AI cloud vs Microsoft; data center demand from Gorman-Rupp and others signals infrastructure buildout",
+          "tickers": [
+            "ORCL",
+            "MSFT"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            41,
+            58,
+            49
+          ]
+        },
+        {
+          "recommendation": "Lock in 4.30% APY CD rates and 6.5% bond dividend strategies",
+          "rationale": "Rate-hike environment makes fixed income attractive; CD rates at multi-year highs; bond yield strategies outperforming equities",
+          "tickers": [
+            "BND",
+            "JNK"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            31,
+            51,
+            19
+          ]
+        },
+        {
+          "recommendation": "Position in SpaceX-adjacent and space infrastructure plays",
+          "rationale": "$100B Louisiana buildout, smart-money overweight, rocket shortage creating supply-demand imbalance; multi-year revenue visibility",
+          "tickers": [
+            "SPCX",
+            "FLY"
+          ],
+          "timeframe": "long",
+          "headline_sources": [
+            37,
+            66,
+            70,
+            72
+          ]
+        },
+        {
+          "recommendation": "Buy Alphabet before potential new ATH",
+          "rationale": "Three structural reasons cited; AI cloud demand tailwind; strong cash flow generation",
+          "tickers": [
+            "GOOGL"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            43
+          ]
+        },
+        {
+          "recommendation": "Consider JNJ and Amgen in healthcare rotation",
+          "rationale": "JNJ outperforming consumer staples; Amgen vs Axsome comparison favors established franchise; defensive in rate-hike environment",
+          "tickers": [
+            "JNJ",
+            "AMGN"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            46,
+            56
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Reduce long-duration equity exposure; shift to short-duration bonds and TIPS",
+          "rationale": "Warsh speech fuels rate-hike wagers; Asian bonds already dropping; gold fell on same signal",
+          "tickers": [
+            "SHY",
+            "TIP",
+            "GLD"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            19,
+            15,
+            11
+          ]
+        },
+        {
+          "recommendation": "Hedge energy/shipping exposure against Iran escalation",
+          "rationale": "US strikes on Iran create binary geopolitical risk; shipping routes disrupted; oil volatility elevated",
+          "tickers": [
+            "XOM",
+            "CCL",
+            "ULCC"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            6,
+            17,
+            16,
+            14
+          ]
+        },
+        {
+          "recommendation": "Avoid large India EM positions during MSCI rebalancing window",
+          "rationale": "$5B reshuffle via new closing auction creates execution risk and potential 'messy' liquidity events",
+          "tickers": [
+            "INDA",
+            "EMXC"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            1,
+            9
+          ]
+        },
+        {
+          "recommendation": "Underweight consumer discretionary and homebuilders",
+          "rationale": "72% homebuyers paused; 41% regret; mortgage rates rising; restaurant closures signal consumer stress",
+          "tickers": [
+            "XLY",
+            "PHM",
+            "LEN"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            75,
+            32,
+            50,
+            44
+          ]
+        },
+        {
+          "recommendation": "Diversify away from USD concentration in Asian portfolios",
+          "rationale": "Taiwan regulators pushing insurer USD diversification; AUD top forecasters see winning run over; currency rotation underway",
+          "tickers": [
+            "FXE",
+            "AUDUSD"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            13,
+            18
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Risk-off bias dominates. Iran conflict and Warsh-driven rate-hike repricing pressure equities and gold. Asian markets vulnerable. India MSCI auction adds EM volatility. Energy and defense outperform. Bond yields rising. Expect 2-4% equity drawdown risk in next 2-3 weeks.",
+      "long_term": "AI capex cycle remains structurally bullish but rotating from GPU to memory/cloud. Space sector enters multi-year buildout. US $40T debt creates fiscal overhang. Housing recovery delayed by rate environment. China manufacturing weakness may persist 2-3 quarters. Apple leadership transition (Sept 1) is key corporate catalyst.",
+      "key_catalysts": [
+        "Apple CEO transition (Tim Cook out Sept 1) - performance inflection test",
+        "Shein HK IPO debut - growth-stock sentiment gauge",
+        "Iran conflict escalation/de-escalation - oil and shipping volatility",
+        "India MSCI rebalancing execution - EM flow disruption",
+        "Next Fed/FOMC meeting post-Warsh speech - rate path clarity",
+        "SpaceX $100B Louisiana buildout progress",
+        "Anthropic IP lawsuit rulings - AI regulatory precedent",
+        "China PMI follow-through - manufacturing recovery signal"
+      ],
+      "watch_list": [
+        "Strait of Hormuz shipping status and oil price (Brent/WTI)",
+        "10Y Treasury yield and rate-hike probability (CME FedWatch)",
+        "Gold price post 2-month drop - support levels",
+        "India MSCI closing auction volume and slippage",
+        "China PMI and factory activity index trend",
+        "Nvidia gross margin trajectory and Micron revenue mix",
+        "Mortgage rates (30Y fixed) vs homebuyer sentiment",
+        "US national debt servicing costs",
+        "AUD/USD and Asian currency diversification flows",
+        "SpaceX/FLY launch schedule and capacity metrics",
+        "CD rates (4.30% APY) and bond yield curve shape",
+        "Apple stock performance post-Cook transition"
+      ],
+      "headline_sources": [
+        6,
+        19,
+        65,
+        12,
+        1,
+        5,
+        37,
+        39,
+        53,
+        32,
+        13,
+        64,
+        11,
+        15,
+        14,
+        17
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "India’s Closing Auction Faces $5 Billion MSCI Reshuffle Test",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-08-31/india-s-closing-auction-faces-5-billion-msci-reshuffle-test",
+      "publishedAt": "2026-08-31T02:41:57+00:00"
+    },
+    {
+      "index": 2,
+      "headline": "Itochu Set to Take Dentsu Soken Private in $1.3 Billion Deal",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-31/itochu-set-to-take-dentsu-soken-private-in-1-3-billion-deal",
+      "publishedAt": "2026-08-31T02:19:24+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "GPIF Would Be Justified in Buying More Japan Bonds, Analysts Say",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-31/gpif-would-be-justified-in-buying-more-japan-bonds-say-analysts",
+      "publishedAt": "2026-08-31T02:15:00+00:00"
+    },
+    {
+      "index": 4,
+      "headline": "Shein at $26 Billion Still Stirs Unease Over Growth Outlook",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-31/shein-at-26-billion-still-stirs-unease-over-growth-outlook",
+      "publishedAt": "2026-08-31T01:55:13+00:00"
+    },
+    {
+      "index": 5,
+      "headline": "China’s Factory Activity Extends Slump Even as Gauge Rises",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-31/china-factory-activity-edges-up-in-hopeful-sign-for-economy",
+      "publishedAt": "2026-08-31T01:32:09+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "US Strikes Iranian Rocket Launchers",
+      "url": "https://www.bloomberg.com/news/videos/2026-08-31/us-strikes-iranian-rocket-launchers-video",
+      "publishedAt": "2026-08-31T01:25:57+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "Thailand Plans Closer Gold Market Supervision to Curb Misuse",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-31/thailand-plans-closer-gold-market-supervision-to-curb-misuse",
+      "publishedAt": "2026-08-31T01:16:56+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "Indian Billionaire Taps $700 Million Private Credit for Megha Buyout",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-31/indian-billionaire-taps-700-million-private-credit-for-megha-buyout",
+      "publishedAt": "2026-08-31T01:00:01+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "MSCI Rebalancing Threatens to Turn ‘Messy’ in New Indian Auction",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-31/msci-rebalancing-threatens-to-turn-messy-in-new-indian-auction",
+      "publishedAt": "2026-08-31T01:00:00+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "Grand Canyon Flash Flood Leaves at Least 15 Missing",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-31/grand-canyon-flash-flood-leaves-at-least-15-missing",
+      "publishedAt": "2026-08-31T00:37:41+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "Gold Holds Biggest Drop in Over Two Months on Fed Rate-Hike Bets",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-30/gold-steadies-after-tumbling-as-warsh-spurs-fed-rate-hike-bets",
+      "publishedAt": "2026-08-30T23:58:57+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Shein Set for Long-Awaited Hong Kong IPO Debut",
+      "url": "https://www.bloomberg.com/news/videos/2026-08-30/shien-set-for-long-awaited-hong-kong-ipo-debut",
+      "publishedAt": "2026-08-30T23:07:51+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "Taiwan’s Top Regulator Wants to Wean Taiwan’s Insurers Off US Dollar Dependence",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-30/taiwan-s-top-regulator-wants-to-wean-taiwan-s-insurers-off-us-dollar-dependence",
+      "publishedAt": "2026-08-30T23:00:00+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "Trump’s Iran War Sets Test for Xi and Putin’s Security Club",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-30/trump-s-iran-war-sets-test-for-xi-and-putin-s-security-club",
+      "publishedAt": "2026-08-30T23:00:00+00:00"
+    },
+    {
+      "index": 15,
+      "headline": "Asian Stocks, Bonds Drop as Rate-Hike Bets Build: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-30/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-08-30T22:13:50+00:00"
+    },
+    {
+      "index": 16,
+      "headline": "Latest Oil Market News and Analysis for Aug. 31",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-30/latest-oil-market-news-and-analysis-for-aug-31",
+      "publishedAt": "2026-08-30T22:06:01+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "Japan’s NYK CEO on Alternative Routes Amid Iran War",
+      "url": "https://www.bloomberg.com/news/videos/2026-08-30/japan-s-nyk-ceo-on-alternative-routes-amid-iran-war-video",
+      "publishedAt": "2026-08-30T21:00:06+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "Australian Dollar’s Top Forecasters Say Winning Run Likely Over",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-30/australian-dollar-s-top-forecasters-say-winning-run-likely-over",
+      "publishedAt": "2026-08-30T21:00:00+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "Bond Investors Wary After Warsh Speech Fuels Rate-Hike Wagers",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-30/bond-investors-wary-after-warsh-fans-wagers-fed-poised-to-hike",
+      "publishedAt": "2026-08-30T19:00:00+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "Bloomberg This Weekend 08/30/2026",
+      "url": "https://www.bloomberg.com/news/videos/2026-08-30/bloomberg-this-weekend-08-30-2026-video",
+      "publishedAt": "2026-08-30T16:13:19+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "Caterpillar is bringing to AI deployment what it learned from automating mining",
+      "url": "https://techcrunch.com/2026/08/30/caterpillar-is-bringing-to-ai-deployment-what-it-learned-from-automating-mining/",
+      "publishedAt": "2026-08-30T15:00:00Z"
+    },
+    {
+      "index": 22,
+      "headline": "Hamster Kombat Daily Combo Today 31 August 2026",
+      "url": "https://www.coingabbar.com/en/crypto-currency-news/hamster-kombat-daily-combo-31-august-2026",
+      "publishedAt": "2026-08-30T15:00:00Z"
+    },
+    {
+      "index": 23,
+      "headline": "Motorhome 'parking hoggers' in Plymouth force rules rethink",
+      "url": "https://www.plymouthherald.co.uk/news/plymouth-news/motorhome-parking-hoggers-plymouth-force-11132826",
+      "publishedAt": "2026-08-30T15:00:00Z"
+    },
+    {
+      "index": 24,
+      "headline": "Range, Price and Performance",
+      "url": "https://pickuptrucktalk.com/2026/08/2026-subaru-trailseeker-review/",
+      "publishedAt": "2026-08-30T14:59:19Z"
+    },
+    {
+      "index": 25,
+      "headline": "Recruiter places ‘phoenix’ firm into liquidation just months after repurchase erased millions in debt",
+      "url": "https://www.theguardian.com/business/2026/aug/30/phoenix-redundancies-recruiter-hmrc",
+      "publishedAt": "2026-08-30T14:51:00Z"
+    },
+    {
+      "index": 26,
+      "headline": "North Norfolk railway blasts Anglian Water traffic lights",
+      "url": "https://www.edp24.co.uk/news/26507803.north-norfolk-railway-blasts-anglian-water-traffic-lights/",
+      "publishedAt": "2026-08-30T14:46:07Z"
+    },
+    {
+      "index": 27,
+      "headline": "Prediction: This Is What a $5,000 Investment in SpaceX Will Be Worth by 2030",
+      "url": "https://www.fool.com/investing/2026/08/30/prediction-this-is-what-a-5000-investment-in-space/",
+      "publishedAt": "2026-08-30T14:37:01Z"
+    },
+    {
+      "index": 28,
+      "headline": "Trade Setup for August 31: Top 15 things to know before the opening bell",
+      "url": "https://www.moneycontrol.com/news/business/markets/trade-setup-for-august-31-top-15-things-to-know-before-the-opening-bell-14018393.html",
+      "publishedAt": "2026-08-30T14:31:34Z"
+    },
+    {
+      "index": 29,
+      "headline": "Amazon Has Badly Underperformed the S&P 500 and Nasdaq-100 Since Jeff Bezos Stepped Down as CEO. Could Apple Do the Same Starting Sept. 1 When Tim Cook Steps Down?",
+      "url": "https://www.fool.com/investing/2026/08/30/amazon-has-badly-underperformed-the-sp-500-and-nas/",
+      "publishedAt": "2026-08-30T14:31:14Z"
+    },
+    {
+      "index": 30,
+      "headline": "10 Gadgets Under $100 That Deserve A Spot In Your Home Office",
+      "url": "https://www.slashgear.com/2243577/gadgets-under-100-dollars-that-deserve-spot-in-home-office/",
+      "publishedAt": "2026-08-30T14:30:00Z"
+    },
+    {
+      "index": 31,
+      "headline": "Best CD rates today, Sunday, August 30, 2026: Lock in up to 4.30% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-sunday-august-30-2026-lock-in-up-to-430-apy-100000110.html",
+      "publishedAt": "2026-08-30T10:00:00Z"
+    },
+    {
+      "index": 32,
+      "headline": "Mortgage and refinance interest rates today, Sunday, August 30, 2026: Purchase rates higher than last week",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-sunday-august-30-2026-purchase-rates-higher-than-last-week-100000187.html",
+      "publishedAt": "2026-08-30T10:00:00Z"
+    },
+    {
+      "index": 33,
+      "headline": "Major fruit grower lays off nearly 1,000 workers",
+      "url": "https://finance.yahoo.com/small-business/articles/major-fruit-grower-lays-off-010300694.html",
+      "publishedAt": "2026-08-30T01:03:00Z"
+    },
+    {
+      "index": 34,
+      "headline": "‘A Roth IRA on Steroids’: Wealthy Americans Find Another Tax-Free Way to Invest - WSJ",
+      "url": "https://www.wsj.com/finance/investing/a-roth-ira-on-steroids-wealthy-americans-find-another-tax-free-way-to-invest-82816ffc",
+      "publishedAt": "2026-08-30T00:00:00Z"
+    },
+    {
+      "index": 35,
+      "headline": "13 Unwritten Rules To Know Before Visiting Culver's - Tasting Table",
+      "url": "https://www.tastingtable.com/2245004/unwritten-rules-to-know-before-visiting-culvers/",
+      "publishedAt": "2026-08-29T22:20:00Z"
+    },
+    {
+      "index": 36,
+      "headline": "Beer bandits swipe PBR truck hauling 50,000 cans in California, leaving brand pleading for help - Fox News",
+      "url": "https://www.foxnews.com/us/beer-bandits-swipe-pbr-truck-hauling-50000-cans-california-leaving-brand-pleading-help",
+      "publishedAt": "2026-08-29T19:58:13Z"
+    },
+    {
+      "index": 37,
+      "headline": "A $100 Billion Buildout In Louisiana Is Planned for Starship. What This Means for SPCX Stock.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/100-billion-buildout-louisiana-planned-193002508.html",
+      "publishedAt": "2026-08-29T19:30:02Z"
+    },
+    {
+      "index": 38,
+      "headline": "OpenAI to end model access to Cursor after acquisition by Elon Musk's SpaceX - CNBC",
+      "url": "https://www.cnbc.com/2026/08/29/openai-cursor-spacex-model-access.html",
+      "publishedAt": "2026-08-29T19:05:55Z"
+    },
+    {
+      "index": 39,
+      "headline": "Sony Music, Warner sue Anthropic, alleging a \"brazen campaign\" of intellectual property theft - TechCrunch",
+      "url": "https://techcrunch.com/2026/08/29/sony-music-warner-sue-anthropic-alleging-a-brazen-campaign-of-intellectual-property-theft/",
+      "publishedAt": "2026-08-29T18:41:59Z"
+    },
+    {
+      "index": 40,
+      "headline": "Intel vs. AMD: Why the Market Share Number Is Misleading",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/intel-vs-amd-why-market-183002932.html",
+      "publishedAt": "2026-08-29T18:30:02Z"
+    },
+    {
+      "index": 41,
+      "headline": "Oracle vs. Microsoft: Big Tech’s AI Cloud Battle Has a New Underdog",
+      "url": "https://finance.yahoo.com/technology/ai/articles/oracle-vs-microsoft-big-tech-183002599.html",
+      "publishedAt": "2026-08-29T18:30:02Z"
+    },
+    {
+      "index": 42,
+      "headline": "ExxonMobil Stock: Is XOM Underperforming the Energy Sector?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/exxonmobil-stock-xom-underperforming-energy-173804479.html",
+      "publishedAt": "2026-08-29T17:38:04Z"
+    },
+    {
+      "index": 43,
+      "headline": "Alphabet Stock: 3 Reasons to Buy Before It Hits a New All-Time High",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/alphabet-stock-3-reasons-buy-173002809.html",
+      "publishedAt": "2026-08-29T17:30:02Z"
+    },
+    {
+      "index": 44,
+      "headline": "How Is Home Depot’s Stock Performance Compared to Other Consumer Discretionary Stocks",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/home-depot-stock-performance-compared-172747281.html",
+      "publishedAt": "2026-08-29T17:27:47Z"
+    },
+    {
+      "index": 45,
+      "headline": "Is Procter & Gamble Stock Underperforming the Nasdaq?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/procter-gamble-stock-underperforming-nasdaq-171921912.html",
+      "publishedAt": "2026-08-29T17:19:21Z"
+    },
+    {
+      "index": 46,
+      "headline": "Johnson & Johnson Stock: Is JNJ Outperforming the Consumer Staples Sector?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/johnson-johnson-stock-jnj-outperforming-171212270.html",
+      "publishedAt": "2026-08-29T17:12:12Z"
+    },
+    {
+      "index": 47,
+      "headline": "Peterson Institute's Posen: It's fine for the Fed not to give forward guidance, but a forecast is critical - Yahoo Finance",
+      "url": "https://finance.yahoo.com/economy/article/peterson-institutes-posen-its-fine-for-the-fed-not-to-give-forward-guidance-but-a-forecast-is-critical-170758706.html",
+      "publishedAt": "2026-08-29T17:07:58Z"
+    },
+    {
+      "index": 48,
+      "headline": "Is Costco Stock Underperforming the Dow?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/costco-stock-underperforming-dow-165446351.html",
+      "publishedAt": "2026-08-29T16:54:46Z"
+    },
+    {
+      "index": 49,
+      "headline": "Is Oracle Stock Underperforming the S&P 500?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/oracle-stock-underperforming-p-500-164453386.html",
+      "publishedAt": "2026-08-29T16:44:53Z"
+    },
+    {
+      "index": 50,
+      "headline": "58-year-old casual restaurant chain closed 163 locations - thestreet.com",
+      "url": "https://www.thestreet.com/restaurants/red-lobster-restaurant-chain-closed-190-locations",
+      "publishedAt": "2026-08-29T16:37:00Z"
+    },
+    {
+      "index": 51,
+      "headline": "A Simple Strategy To Get 6.5% Dividends From Surging Bond Yields - Forbes",
+      "url": "https://www.forbes.com/sites/michaelfoster/2026/08/29/a-simple-strategy-to-get-65-dividends-from-surging-bond-yields/",
+      "publishedAt": "2026-08-29T16:28:00Z"
+    },
+    {
+      "index": 52,
+      "headline": "A $2 Billion Reason to Buy UPS Stock",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/2-billion-reason-buy-ups-161356676.html",
+      "publishedAt": "2026-08-29T16:13:56Z"
+    },
+    {
+      "index": 53,
+      "headline": "The U.S. National Debt Just Topped $40 Trillion. Here's What That Could Mean for Bitcoin.",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/u-national-debt-just-topped-161300727.html",
+      "publishedAt": "2026-08-29T16:13:00Z"
+    },
+    {
+      "index": 54,
+      "headline": "$57 Billion Just Rushed Into SPYM | Is SPY’s Cheaper Twin Finally Taking Over?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/57-billion-just-rushed-spym-161008793.html",
+      "publishedAt": "2026-08-29T16:10:08Z"
+    },
+    {
+      "index": 55,
+      "headline": "Memory Now Accounts for 50% of Global Semiconductor Revenue — But There’s a Catch",
+      "url": "https://finance.yahoo.com/technology/articles/memory-now-accounts-50-global-160649380.html",
+      "publishedAt": "2026-08-29T16:06:49Z"
+    },
+    {
+      "index": 56,
+      "headline": "Amgen vs. Axsome Therapeutics: Which Healthcare Stock Is a Better Buy in 2026?",
+      "url": "https://finance.yahoo.com/healthcare/articles/amgen-vs-axsome-therapeutics-healthcare-160501235.html",
+      "publishedAt": "2026-08-29T16:05:01Z"
+    },
+    {
+      "index": 57,
+      "headline": "This Nuclear IPO Stock Just Landed a Multiyear Fuel Deal. Is it a Buy?",
+      "url": "https://finance.yahoo.com/energy/articles/nuclear-ipo-stock-just-landed-160500388.html",
+      "publishedAt": "2026-08-29T16:05:00Z"
+    },
+    {
+      "index": 58,
+      "headline": "Gorman-Rupp Eyes Data Centers, Acquisitions as Debt Falls Below Key Threshold",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/gorman-rupp-eyes-data-centers-160206039.html",
+      "publishedAt": "2026-08-29T16:02:06Z"
+    },
+    {
+      "index": 59,
+      "headline": "“It’s Not the Same Dollar”: The Big Lie Behind the Stock Market Rally",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/not-same-dollar-big-lie-160109026.html",
+      "publishedAt": "2026-08-29T16:01:09Z"
+    },
+    {
+      "index": 60,
+      "headline": "An $800,000 Inheritance Has Torn This Family Apart—Even Though The Will Was Clear",
+      "url": "https://finance.yahoo.com/real-estate/articles/800-000-inheritance-torn-family-160102407.html",
+      "publishedAt": "2026-08-29T16:01:02Z"
+    },
+    {
+      "index": 61,
+      "headline": "Executive Sells Nearly 2,300 Shares of eBay Stock, Valued at More Than $235,000",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/executive-sells-nearly-2-300-160001453.html",
+      "publishedAt": "2026-08-29T16:00:01Z"
+    },
+    {
+      "index": 62,
+      "headline": "Will the housing market crash in 2026? Experts weigh in - thestreet.com",
+      "url": "https://www.thestreet.com/real-estate/when-will-housing-market-crash-again-predictions",
+      "publishedAt": "2026-08-29T15:54:11Z"
+    },
+    {
+      "index": 63,
+      "headline": "Here's Exactly How Many ETF Shares You'd Need to Replace Your Salary With Dividends",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/heres-exactly-many-etf-shares-155000668.html",
+      "publishedAt": "2026-08-29T15:50:00Z"
+    },
+    {
+      "index": 64,
+      "headline": "Nvidia's CFO Just Explained Why the AI Boom Is Eating Its Gross Margin -- and It's a Green Light for Micron",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidias-cfo-just-explained-why-155000009.html",
+      "publishedAt": "2026-08-29T15:50:00Z"
+    },
+    {
+      "index": 65,
+      "headline": "'I Don't Know John Ternus,' Jim Cramer Says — but He Trusts Tim Cook's Word on Apple's Next CEO",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/dont-know-john-ternus-jim-154609628.html",
+      "publishedAt": "2026-08-29T15:46:09Z"
+    },
+    {
+      "index": 66,
+      "headline": "SEC Filings Just Revealed the Smart Money Is Overweight SpaceX. Should You Buy It Now?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/sec-filings-just-revealed-smart-153500877.html",
+      "publishedAt": "2026-08-29T15:35:00Z"
+    },
+    {
+      "index": 67,
+      "headline": "He Lent His Daughter the Down Payment at the Rate the IRS Publishes, Then Forgave $19,000 of It Every Christmas. Eleven Years Later the House Was Hers and the IRS Never Saw a Gift Tax Return",
+      "url": "https://finance.yahoo.com/real-estate/articles/lent-daughter-down-payment-rate-153335395.html",
+      "publishedAt": "2026-08-29T15:33:35Z"
+    },
+    {
+      "index": 68,
+      "headline": "Her Husband’s Life Insurance Was Tax-Free. The Interest the Insurer Paid Was Not.",
+      "url": "https://finance.yahoo.com/healthcare/articles/her-husband-life-insurance-tax-153053415.html",
+      "publishedAt": "2026-08-29T15:30:53Z"
+    },
+    {
+      "index": 69,
+      "headline": "Nvidia Is Getting Bigger Without Getting Expensive",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-getting-bigger-without-getting-153002917.html",
+      "publishedAt": "2026-08-29T15:30:02Z"
+    },
+    {
+      "index": 70,
+      "headline": "SpaceX Stock has a buyer that can't say no",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/spacex-stock-buyer-cant-no-151700568.html",
+      "publishedAt": "2026-08-29T15:17:00Z"
+    },
+    {
+      "index": 71,
+      "headline": "Inside Jackson Hole’s Big Question: Can Central Banks Modernize Tokenized Markets?",
+      "url": "https://www.barrons.com/articles/jackson-hole-conference-central-banks-blockchain-tokens-74c013e1?siteid=yhoof2&yptr=yahoo",
+      "publishedAt": "2026-08-29T15:16:00Z"
+    },
+    {
+      "index": 72,
+      "headline": "EXCLUSIVE: SpaceX May Lead the Launch Market, but Firefly CEO Says There's Still a Rocket Shortage",
+      "url": "https://finance.yahoo.com/technology/articles/exclusive-spacex-may-lead-launch-151533490.html",
+      "publishedAt": "2026-08-29T15:15:33Z"
+    },
+    {
+      "index": 73,
+      "headline": "Everus Construction Director Sparby Buys 1,000 Shares at $144.95",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/everus-construction-director-sparby-buys-151501721.html",
+      "publishedAt": "2026-08-29T15:15:01Z"
+    },
+    {
+      "index": 74,
+      "headline": "CrowdStrike CEO Says It Delivered Its Best Quarter Ever. Surprisingly, That May Be an Understatement.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/crowdstrike-ceo-says-delivered-best-150002644.html",
+      "publishedAt": "2026-08-29T15:00:02Z"
+    },
+    {
+      "index": 75,
+      "headline": "72% of homebuyers have paused their search waiting for lower mortgage rates — and 41% already regret it",
+      "url": "https://finance.yahoo.com/real-estate/articles/72-homebuyers-paused-search-waiting-150000785.html",
+      "publishedAt": "2026-08-29T15:00:00Z"
+    },
+    {
+      "index": 76,
+      "headline": "Is Visa Stock Underperforming the Dow?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/visa-stock-underperforming-dow-145730618.html",
+      "publishedAt": "2026-08-29T14:57:30Z"
+    },
+    {
+      "index": 77,
+      "headline": "Mortgage and refinance interest rates today, Saturday, August 29, 2026: Fixed rates move slightly higher into the weekend",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-saturday-august-29-2026-fixed-rates-move-slightly-higher-into-the-weekend-114438775.html",
+      "publishedAt": "2026-08-29T11:44:38Z"
+    },
+    {
+      "index": 78,
+      "headline": "Best CD rates today, Saturday, August 29, 2026: Lock in up to 4.30% APY with a 16- or 18-month CD",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-saturday-august-29-2026-lock-in-up-to-430-apy-with-a-16--or-18-month-cd-100000220.html",
+      "publishedAt": "2026-08-29T10:00:00Z"
+    },
+    {
+      "index": 79,
+      "headline": "Kevin Warsh walks a fine line on inflation in key speech",
+      "url": "https://www.nbcnews.com/business/economy/trumps-kevin-warsh-jackson-hole-inflation-rcna594135",
+      "publishedAt": "2026-08-28T15:04:10+00:00"
+    },
+    {
+      "index": 80,
+      "headline": "Silver price today, Friday, August 28, 2026: Silver rising before Warsh takes the stage",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/silver-price-today-friday-august-28-2026-silver-rising-before-warsh-takes-the-stage-120957222.html",
+      "publishedAt": "2026-08-28T12:09:57Z"
+    },
+    {
+      "index": 81,
+      "headline": "Gold prices today, Friday, August 28, 2026: Gold steady as markets prepare for Warsh speech",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-prices-today-friday-august-28-2026-gold-steady-as-markets-prepare-for-warsh-speech-115654858.html",
+      "publishedAt": "2026-08-28T11:56:54Z"
+    },
+    {
+      "index": 82,
+      "headline": "Bitcoin and ethereum prices today, Friday, August 28, 2026: Bitcoin moves above $81,000 before falling back",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-friday-august-28-2026-bitcoin-moves-above-81000-before-falling-back-111816647.html",
+      "publishedAt": "2026-08-28T11:18:16Z"
+    },
+    {
+      "index": 83,
+      "headline": "Best CD rates today, Friday, August 28, 2026: Up to 4.30% APY return available",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-friday-august-28-2026-up-to-430-apy-return-available-100000073.html",
+      "publishedAt": "2026-08-28T10:00:00Z"
+    },
+    {
+      "index": 84,
+      "headline": "Mortgage and refinance interest rates today, Friday, August 28, 2026: Rates down ahead of Warsh speech at Jackson Hole",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-friday-august-28-2026-rates-down-ahead-of-warsh-speech-at-jackson-hole-100000635.html",
+      "publishedAt": "2026-08-28T10:00:00Z"
+    }
+  ]
+}
