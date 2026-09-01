@@ -1,0 +1,955 @@
+{
+  "analysis": {
+    "analysis_date": "September 01, 2026",
+    "analysis_time": "10:08",
+    "executive_summary": {
+      "key_highlights": [
+        "US-Iran military exchanges and Hormuz tanker strikes drive oil surge and risk-off sentiment across global markets",
+        "Global bond selloff pushes yields to highest since 2008; gilts lead as traders reprice Fed rate-hike expectations",
+        "France sovereign debt costs near 2008 highs ahead of 2027 election, signaling European fiscal stress",
+        "China factory activity contracts for second month, though less than feared; Beijing restricts export price wars",
+        "AI/data center capex cycle accelerates: Marvell rewrites forecasts, IREN pivots to Microsoft GPU contracts, SoftBank offers $5.5B to OpenAI",
+        "Gold and silver sell off as real yields rise and Fed hike bets intensify, despite geopolitical premium",
+        "Hyundai sales hit 4-year low on labor strikes; South African and Chinese manufacturing momentum slows",
+        "RBC posts record profit as tariffs loom; Canadian financials show resilience",
+        "Zinc hits 4-year high on supply squeeze; Russian steel demand revives on war-driven construction",
+        "Young Americans shift from equities to alternative assets, signaling generational portfolio rotation"
+      ],
+      "market_sentiment_score": 32,
+      "overall_sentiment": "negative",
+      "headline_sources": [
+        17,
+        34,
+        40,
+        43,
+        70,
+        75,
+        5,
+        29,
+        71,
+        41,
+        12,
+        19,
+        38,
+        24
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Energy & Oil",
+          "trend": "Oil surges on US-Iran strikes and Hormuz tanker attacks; Goldman Sachs issues blunt oil/economy warning; electricity may be eroding oil's political leverage",
+          "implications": "Energy equities and producers benefit short-term; inflation risk to consumer sectors; geopolitical premium embedded in pricing",
+          "headline_sources": [
+            17,
+            34,
+            44,
+            72,
+            74,
+            76,
+            37
+          ]
+        },
+        {
+          "sector": "Fixed Income & Rates",
+          "trend": "Global bond selloff sends yields to 2008 highs; gilts lead; EM bonds slide on Fed risk; real yields rising further per Nuveen; CD rates up to 4.30% APY",
+          "implications": "Duration risk elevated; rate-sensitive equities under pressure; fixed-income income seekers benefit from higher yields; mortgage/refi spreads widening",
+          "headline_sources": [
+            18,
+            20,
+            28,
+            33,
+            40,
+            43,
+            63,
+            64,
+            65,
+            66,
+            67
+          ]
+        },
+        {
+          "sector": "Technology & AI",
+          "trend": "Marvell data center revenue keeps rewriting forecasts; IREN swaps Bitcoin rigs for Microsoft GPU contracts; SoftBank's $5.5B OpenAI data-center deal; PagerDuty hits milestone while cutting headcount",
+          "implications": "AI infrastructure capex cycle remains robust; selective consolidation in AI-adjacent names; margin pressure in some sub-sectors (Aviat Networks)",
+          "headline_sources": [
+            5,
+            15,
+            29,
+            30,
+            35,
+            71
+          ]
+        },
+        {
+          "sector": "Sovereign & European Debt",
+          "trend": "France borrowing costs near 2008 highs; French assets under pressure ahead of 2027 election; Bessent pressures BOJ for further hikes",
+          "implications": "European sovereign spreads widening; currency risk for EUR-denominated assets; Japan rate normalization adds global liquidity pressure",
+          "headline_sources": [
+            14,
+            42,
+            70,
+            49
+          ]
+        },
+        {
+          "sector": "Commodities & Materials",
+          "trend": "Zinc at 4-year high on supply squeeze; Russian steel demand revives; gold and silver sell off on rate-hike bets despite Mideast tensions",
+          "implications": "Industrial metals bullish on supply constraints; precious metals underperform as real yields dominate; construction-linked demand in war zones",
+          "headline_sources": [
+            38,
+            13,
+            41,
+            60,
+            61
+          ]
+        },
+        {
+          "sector": "Consumer & Retail",
+          "trend": "Gap raises outlook despite Old Navy stumble; Burlington discount model delivers; Build-A-Bear summer stumble; 161-year-old kids clothing giant closes 29 stores; firearms retailer files Chapter 11",
+          "implications": "Value/discount retail outperforming; discretionary and niche segments under stress; consumer bifurcation accelerating",
+          "headline_sources": [
+            36,
+            32,
+            21,
+            56,
+            57
+          ]
+        },
+        {
+          "sector": "China & Emerging Markets",
+          "trend": "China factory activity contracts second month (less than feared); Beijing restricts export price wars; Bilibili ad margins outpace gaming slump; Cathay SITE fined in Taiwan",
+          "implications": "China manufacturing stabilizing but not recovering; export policy shift may ease global pricing pressure; EM bond stress from Fed risk",
+          "headline_sources": [
+            10,
+            75,
+            16,
+            22,
+            20
+          ]
+        },
+        {
+          "sector": "Defense & Industrials",
+          "trend": "NIB defense pipeline surges; Elliott takes stake in Air Liquide; Russian construction demand revives steel",
+          "implications": "Defense spending cycle accelerating globally; activist involvement signals undervaluation in industrials",
+          "headline_sources": [
+            11,
+            7,
+            13
+          ]
+        }
+      ],
+      "key_themes": [
+        "Geopolitical escalation (US-Iran, Hormuz) as primary market driver",
+        "Bond market stress and 2008-level yields as systemic risk",
+        "Fed rate-hike repricing across asset classes",
+        "AI/data center capex supercycle continues",
+        "Sovereign debt fragility (France, EM)",
+        "China manufacturing stabilization with policy intervention",
+        "Commodity supply squeezes (zinc, steel)",
+        "Generational shift away from equities toward alternatives",
+        "Consumer bifurcation: discount vs. discretionary",
+        "Energy transition: electricity challenging oil's geopolitical role"
+      ],
+      "headline_sources": [
+        17,
+        34,
+        40,
+        43,
+        70,
+        5,
+        29,
+        71,
+        38,
+        13,
+        75,
+        10,
+        11,
+        24,
+        74
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "US-Iran Escalation & Hormuz Disruption",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Hedge energy exposure; maintain 10-15% energy allocation; monitor tanker insurance premiums and Brent/WTI spread",
+        "headline_sources": [
+          17,
+          34,
+          48,
+          69,
+          72,
+          73
+        ]
+      },
+      {
+        "risk_factor": "Global Bond Selloff / Yield Spike",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Shorten duration to 1-3yr; favor TIPS and floating-rate; avoid long-duration EM bonds; lock in CD rates at 4.30% APY",
+        "headline_sources": [
+          18,
+          20,
+          28,
+          40,
+          43,
+          67
+        ]
+      },
+      {
+        "risk_factor": "Sovereign Debt Crisis (France/Europe)",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Reduce EUR sovereign exposure; favor AAA-rated European credits; monitor French 2027 election signals",
+        "headline_sources": [
+          14,
+          70,
+          49
+        ]
+      },
+      {
+        "risk_factor": "China Manufacturing Contraction",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Diversify away from China-exposed supply chains; monitor PMI monthly; favor domestic-manufacturing equities",
+        "headline_sources": [
+          75,
+          10,
+          12
+        ]
+      },
+      {
+        "risk_factor": "Fed Rate-Hike Repricing",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Reduce rate-sensitive growth equity exposure; favor cash and short-duration; monitor Fed communications and Bessent/BOJ pressure",
+        "headline_sources": [
+          33,
+          42,
+          43,
+          59,
+          60,
+          61
+        ]
+      },
+      {
+        "risk_factor": "Commodity Supply Squeeze (Zinc, Steel)",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Hedge input costs for industrial exposure; monitor LME inventories; consider long zinc/steel as inflation hedge",
+        "headline_sources": [
+          38,
+          13
+        ]
+      },
+      {
+        "risk_factor": "Consumer Discretionary Weakness",
+        "impact": "Low",
+        "likelihood": "Medium",
+        "mitigation": "Favor value/discount retail (BURL, GAP) over premium discretionary; monitor Build-A-Bear and kids' clothing closures",
+        "headline_sources": [
+          21,
+          56,
+          57,
+          32
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Overweight energy equities and oil-linked ETFs as geopolitical premium persists",
+          "rationale": "US-Iran strikes and Hormuz tanker attacks create sustained supply risk; Goldman Sachs signals elevated oil trajectory",
+          "tickers": [
+            "XLE",
+            "CVX",
+            "XOM",
+            "DNO"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            17,
+            34,
+            72,
+            76,
+            37
+          ]
+        },
+        {
+          "recommendation": "Add AI/data center infrastructure exposure via selective picks",
+          "rationale": "Marvell rewriting forecasts, IREN-Microsoft GPU pivot, SoftBank $5.5B OpenAI deal confirm capex supercycle",
+          "tickers": [
+            "MRVL",
+            "IREN",
+            "MSFT",
+            "SOFB"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            5,
+            29,
+            71,
+            30
+          ]
+        },
+        {
+          "recommendation": "Lock in fixed-income income at elevated yields",
+          "rationale": "CD rates at 4.30% APY, savings at 4.15%; yields at 2008 highs offer attractive risk-adjusted returns",
+          "tickers": [
+            "SHV",
+            "BIL",
+            "TIP"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            63,
+            64,
+            40,
+            28
+          ]
+        },
+        {
+          "recommendation": "Long zinc and industrial metals on supply squeeze",
+          "rationale": "Zinc at 4-year high; Russian steel demand revives; construction-driven demand structural",
+          "tickers": [
+            "ZINC",
+            "XME"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            38,
+            13
+          ]
+        },
+        {
+          "recommendation": "Favor defense and industrials on accelerating pipeline",
+          "rationale": "NIB pipeline surging; Elliott activist stake in Air Liquide signals undervaluation; global defense spend rising",
+          "tickers": [
+            "NIB",
+            "AIR",
+            "LMT",
+            "RTX"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            11,
+            7
+          ]
+        },
+        {
+          "recommendation": "Overweight discount/value retail",
+          "rationale": "Burlington and Gap deliver on value thesis; consumer bifurcation favors affordability plays",
+          "tickers": [
+            "BURL",
+            "GAP"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            32,
+            36
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Shorten bond duration to 1-3 years; avoid long-duration EM bonds",
+          "rationale": "Global selloff, 2008-level yields, and Fed hike risk create severe duration risk; EM bonds already sliding",
+          "tickers": [
+            "SHY",
+            "IEF",
+            "TIP"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            18,
+            20,
+            40,
+            43
+          ]
+        },
+        {
+          "recommendation": "Reduce EUR sovereign and French asset exposure",
+          "rationale": "France borrowing costs near 2008 highs; 2027 election adds political risk; sovereign debt 'poster child' narrative",
+          "tickers": [
+            "AGG",
+            "IEF"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            14,
+            70,
+            49
+          ]
+        },
+        {
+          "recommendation": "Trim rate-sensitive growth equities and high-multiple tech",
+          "rationale": "Rising real yields and Fed hike bets compress multiples; Palantir and similar names face valuation pressure",
+          "tickers": [
+            "PLTR",
+            "NVDA"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            15,
+            28,
+            43,
+            67
+          ]
+        },
+        {
+          "recommendation": "Avoid Opendoor and housing-dependent equities",
+          "rationale": "Opendoor at 52-week low; ASX housing slump; rising mortgage rates pressure residential sector",
+          "tickers": [
+            "OPEN"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            8,
+            48,
+            66
+          ]
+        },
+        {
+          "recommendation": "Hedge geopolitical risk with gold despite short-term sell-off",
+          "rationale": "Gold dips on rate-hike bets but Mideast tensions provide asymmetric upside; real yield narrative may reverse",
+          "tickers": [
+            "GLD",
+            "IAU"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            41,
+            61,
+            67,
+            34
+          ]
+        },
+        {
+          "recommendation": "Reduce China-exposed manufacturing and supply chain positions",
+          "rationale": "Second-month PMI contraction; Hyundai 4-year low on strikes; export price war restrictions signal policy shift",
+          "tickers": [
+            "HYMTF",
+            "KWEB"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            75,
+            12,
+            10
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Markets face headwinds from US-Iran escalation, bond selloff, and Fed hike repricing. Oil elevated, equities under pressure, yields at 2008 highs. Expect volatility in energy, rates, and EM. Gold/silver weak on rate bets but geopolitics provides floor. 1-3 months: risk-off with energy and defense as relative outperformers.",
+      "long_term": "AI/data center capex cycle and defense spending provide structural equity support. However, sovereign debt fragility (France), China manufacturing weakness, and elevated real yields cap multiple expansion. 6-12 months: selective equity performance; fixed income attractive at current yields; commodities supported by supply constraints. Generational shift to alternatives may persist.",
+      "key_catalysts": [
+        "US-Iran conflict escalation or de-escalation (Hormuz status)",
+        "Fed policy decision and rate-hike trajectory",
+        "France 2027 election positioning and sovereign spread movements",
+        "China PMI recovery or further contraction",
+        "AI capex cycle: Marvell, Microsoft, SoftBank/OpenAI deal execution",
+        "Zinc and industrial metals supply resolution",
+        "Hyundai labor strike resolution",
+        "Nigeria fuel subsidy policy and election impact",
+        "Trump TV/movie tax incentive legislation",
+        "BOJ rate decision under Bessent pressure"
+      ],
+      "watch_list": [
+        "Brent/WTI crude and tanker insurance premiums",
+        "10Y and 30Y Treasury yields vs. 2008 levels",
+        "French 10Y OAT spread vs. Bund",
+        "China PMI (manufacturing and services)",
+        "Fed dot plot and Bessent/BOJ communications",
+        "Zinc LME inventory and 3-month forward curve",
+        "Gold vs. real yield correlation",
+        "EM bond spreads (especially Nigeria, South Africa)",
+        "Marvell and IREN quarterly guidance revisions",
+        "Hyundai monthly sales recovery",
+        "Mortgage rates vs. refi spread (19bp differential)",
+        "Bitcoin/ETH response to rate expectations",
+        "RBC and Canadian financials tariff impact",
+        "Shein post-IPO growth trajectory"
+      ],
+      "headline_sources": [
+        17,
+        34,
+        40,
+        43,
+        70,
+        75,
+        5,
+        29,
+        71,
+        38,
+        12,
+        42,
+        27,
+        19,
+        25,
+        59,
+        66
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "PMV Pharmaceuticals (PMVP) Announces $50.8M Oversubscribed Offering Amid Mixed Market Signals",
+      "url": "https://www.gurufocus.com/news/9061377/pmv-pharmaceuticals-pmvp-announces-508m-oversubscribed-offering-amid-mixed-market-signals",
+      "publishedAt": "2026-09-01T09:58:45.000000Z"
+    },
+    {
+      "index": 2,
+      "headline": "FEZ Looks 26.1% Overvalued on GF Value™ Amid Strong Dividend Profile",
+      "url": "https://www.gurufocus.com/news/9061376/fez-looks-261-overvalued-on-gf-value-amid-strong-dividend-profile",
+      "publishedAt": "2026-09-01T09:58:20.000000Z"
+    },
+    {
+      "index": 3,
+      "headline": "DE Looks 49.9% Overvalued on GF Value™ as Manufacturing Strength Meets Elevated Valuation",
+      "url": "https://www.gurufocus.com/news/9061375/de-looks-499-overvalued-on-gf-value-as-manufacturing-strength-meets-elevated-valuation",
+      "publishedAt": "2026-09-01T09:57:55.000000Z"
+    },
+    {
+      "index": 4,
+      "headline": "Azets completes integration of Ensors",
+      "url": "https://finance.yahoo.com/small-business/articles/azets-completes-integration-ensors-094316905.html",
+      "publishedAt": "2026-09-01T09:43:16Z"
+    },
+    {
+      "index": 5,
+      "headline": "Marvell’s (MRVL) Data Center Machine Keeps Rewriting Its Own Forecast",
+      "url": "https://finance.yahoo.com/technology/articles/marvell-mrvl-data-center-machine-094301143.html",
+      "publishedAt": "2026-09-01T09:43:01Z"
+    },
+    {
+      "index": 6,
+      "headline": "‘It’s Time to Evict the Truck’: Ramsey Hosts to Heir Who Paid $75K Cash for Mom’s Dying Wish",
+      "url": "https://finance.yahoo.com/small-business/articles/time-evict-truck-ramsey-hosts-094130006.html",
+      "publishedAt": "2026-09-01T09:41:30Z"
+    },
+    {
+      "index": 7,
+      "headline": "Elliott Is Said to Take Stake in Air Liquide",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-01/elliott-is-said-to-take-stake-in-air-liquide-video",
+      "publishedAt": "2026-09-01T09:41:02+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "Should You Avoid Opendoor Stock, Even at a 52-Week Low?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/avoid-opendoor-stock-even-52-094000499.html",
+      "publishedAt": "2026-09-01T09:40:00Z"
+    },
+    {
+      "index": 9,
+      "headline": "Sprintpackage moves production to larger Guangzhou site",
+      "url": "https://finance.yahoo.com/small-business/articles/sprintpackage-moves-production-larger-guangzhou-093805727.html",
+      "publishedAt": "2026-09-01T09:38:05Z"
+    },
+    {
+      "index": 10,
+      "headline": "China Tells Carmakers to Keep Price War Away From Export Markets",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-01/china-tells-carmakers-to-keep-price-war-away-from-export-markets",
+      "publishedAt": "2026-09-01T09:37:54+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "NIB CEO Says Defense Project Pipeline Has Increased Rapidly",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-01/nib-ceo-defense-project-pipeline-has-increased-rapidly-video",
+      "publishedAt": "2026-09-01T09:35:57+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Hyundai Monthly Sales Tumble to Four-Year Low on Labor Strikes",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-01/hyundai-monthly-sales-tumble-to-four-year-low-on-labor-strikes",
+      "publishedAt": "2026-09-01T09:34:36+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "Russian Steel Demand Revives as War Damage Drives Construction",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-01/russian-steel-demand-revives-as-war-damage-drives-construction",
+      "publishedAt": "2026-09-01T09:34:34+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "French Assets Are Already Under Pressure Ahead of 2027 Election",
+      "url": "https://finance.yahoo.com/video/french-assets-already-under-pressure-093256774.html",
+      "publishedAt": "2026-09-01T09:32:56Z"
+    },
+    {
+      "index": 15,
+      "headline": "Prediction: This Will Be Palantir's Stock Price in a Year (Hint: It Implies a Big Move)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/prediction-palantirs-stock-price-hint-093200881.html",
+      "publishedAt": "2026-09-01T09:32:00Z"
+    },
+    {
+      "index": 16,
+      "headline": "Bilibili’s (BILI) Ad Engine And Margins Outrun Its Slumping Game Unit",
+      "url": "https://finance.yahoo.com/media-advertising/articles/bilibili-bili-ad-engine-margins-092735917.html",
+      "publishedAt": "2026-09-01T09:27:35Z"
+    },
+    {
+      "index": 17,
+      "headline": "Oil prices rise as renewed U.S.-Iran exchanges keep supply risks in focus",
+      "url": "https://finance.yahoo.com/energy/articles/oil-prices-rise-renewed-u-092708009.html",
+      "publishedAt": "2026-09-01T09:27:08Z"
+    },
+    {
+      "index": 18,
+      "headline": "Gilts Lead Global Bond Selloff as Traders Play Catch Up",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-01/gilts-lead-global-bond-selloff-as-traders-play-catch-up",
+      "publishedAt": "2026-09-01T09:20:30+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "Royal Bank of Canada (RY) Posts Record Profit as Tariffs Loom",
+      "url": "https://finance.yahoo.com/economy/policy/articles/royal-bank-canada-ry-posts-091959289.html",
+      "publishedAt": "2026-09-01T09:19:59Z"
+    },
+    {
+      "index": 20,
+      "headline": "Bond Slide Grips Emerging Markets as Fed Risk Drags Sentiment",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-01/bond-slide-grips-emerging-markets-as-fed-risk-drags-sentiment",
+      "publishedAt": "2026-09-01T09:19:38+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "Build-A-Bear’s (BBW) Summer Stumble Tests A Brand Built On Loyalty",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/build-bear-bbw-summer-stumble-090806178.html",
+      "publishedAt": "2026-09-01T09:08:06Z"
+    },
+    {
+      "index": 22,
+      "headline": "Taiwan Fines Cathay SITE, Restricts Offshore Trust Offerings",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-01/taiwan-fines-cathay-site-restricts-offshore-trust-offerings",
+      "publishedAt": "2026-09-01T09:06:58+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "South African Factory Mood Sours as Production Momentum Slows",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-01/south-african-factory-mood-sours-as-production-momentum-slows",
+      "publishedAt": "2026-09-01T09:05:47+00:00"
+    },
+    {
+      "index": 24,
+      "headline": "Rich young Americans have already ditched stocks for alternative assets. Should you?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/rich-young-americans-already-ditched-090500306.html",
+      "publishedAt": "2026-09-01T09:05:00Z"
+    },
+    {
+      "index": 25,
+      "headline": "Shein’s Debut Shows the Cost of IPO Missing Its Growth Peak",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-01/shein-s-debut-shows-the-cost-of-ipo-missing-its-growth-peak",
+      "publishedAt": "2026-09-01T09:00:00+00:00"
+    },
+    {
+      "index": 26,
+      "headline": "Canadian Solar’s (CSIQ) Backlog Balloons While The Bottom Line Bleeds",
+      "url": "https://finance.yahoo.com/energy/articles/canadian-solar-csiq-backlog-balloons-084904843.html",
+      "publishedAt": "2026-09-01T08:49:04Z"
+    },
+    {
+      "index": 27,
+      "headline": "Nigeria’s Fuel Subsidy Returns as Key Election Battleground",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-01/ghost-of-multibillion-dollar-subsidy-stalks-key-african-election",
+      "publishedAt": "2026-09-01T08:48:36+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "Rise in Real Yields Has Further to Run, Nuveen Says",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-01/rise-in-real-yields-has-further-to-run-nuveen-says-video",
+      "publishedAt": "2026-09-01T08:46:52+00:00"
+    },
+    {
+      "index": 29,
+      "headline": "IREN (IREN) Swaps Bitcoin Rigs For Microsoft’s (MSFT) GPU Contracts",
+      "url": "https://finance.yahoo.com/technology/ai/articles/iren-iren-swaps-bitcoin-rigs-083947823.html",
+      "publishedAt": "2026-09-01T08:39:47Z"
+    },
+    {
+      "index": 30,
+      "headline": "PagerDuty (PD) Hits A Milestone While Trimming Its Own Headcount",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/pagerduty-pd-hits-milestone-while-083053100.html",
+      "publishedAt": "2026-09-01T08:30:53Z"
+    },
+    {
+      "index": 31,
+      "headline": "H.I.G. Is Said to Consider Sale of $1 Billion Drugmaker Rising Pharma",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-01/h-i-g-is-said-to-consider-sale-of-1-billion-drugmaker-rising-pharma",
+      "publishedAt": "2026-09-01T08:29:42+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "Burlington’s (BURL) Discount Playbook Keeps Delivering Even As Weather Looms",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/burlington-burl-discount-playbook-keeps-081719947.html",
+      "publishedAt": "2026-09-01T08:17:19Z"
+    },
+    {
+      "index": 33,
+      "headline": "Stock market today: Dow, S&P 500, Nasdaq futures fall as inflation, Fed rate-hike fears persist",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-september-1-dow-sp-500-nasdaq-080617884.html",
+      "publishedAt": "2026-09-01T08:06:17Z"
+    },
+    {
+      "index": 34,
+      "headline": "Hormuz Hostilities Pick Up as Two Tankers Reportedly Struck",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-01/two-oil-supertankers-hit-by-projectiles-in-hormuz-marisks-says",
+      "publishedAt": "2026-09-01T08:06:09+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "Aviat Networks (AVNW) Bets Big On Private Networks As Margins Slip",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/aviat-networks-avnw-bets-big-075002344.html",
+      "publishedAt": "2026-09-01T07:50:02Z"
+    },
+    {
+      "index": 36,
+      "headline": "Gap Inc. (GAP) Raises Its Outlook Even As Old Navy Stumbles",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/gap-inc-gap-raises-outlook-073906168.html",
+      "publishedAt": "2026-09-01T07:39:06Z"
+    },
+    {
+      "index": 37,
+      "headline": "Capricorn Energy Backs DNO’s $396 Million Bid Over Genel Offer",
+      "url": "https://finance.yahoo.com/energy/articles/capricorn-energy-backs-dno-396-072000342.html",
+      "publishedAt": "2026-09-01T07:20:00Z"
+    },
+    {
+      "index": 38,
+      "headline": "Zinc Climbs to Highest in More Than Four Years on Supply Squeeze",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-01/zinc-climbs-to-highest-in-more-than-four-years-on-supply-squeeze",
+      "publishedAt": "2026-09-01T02:37:20+00:00"
+    },
+    {
+      "index": 39,
+      "headline": "Trump calls for federal tax incentives to benefit TV and movie industry",
+      "url": "https://www.nbcnews.com/politics/donald-trump/trump-calls-federal-tax-incentives-benefit-tv-movie-industry-rcna595456",
+      "publishedAt": "2026-09-01T02:03:18+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "Global Bond Selloff Sends Yields to the Highest Level Since 2008",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-01/australian-benchmark-bond-yield-jumps-to-level-last-seen-in-2011",
+      "publishedAt": "2026-09-01T01:54:22+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Gold Extends Drop as Fresh Mideast Tensions Raise Fed Hike Bets",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-31/gold-holds-decline-as-mideast-flare-up-raises-fed-rate-hike-bets",
+      "publishedAt": "2026-08-31T23:55:53+00:00"
+    },
+    {
+      "index": 42,
+      "headline": "Bessent Ramps Up Pressure on BOJ to Raise Interest Rates Further",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-31/bessent-tells-japan-officials-rate-hikes-are-needed-nhk-says-mthudgie",
+      "publishedAt": "2026-08-31T23:00:38+00:00"
+    },
+    {
+      "index": 43,
+      "headline": "US Stocks Fall as Yields Climb on Rate Hike Bets: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-31/asian-stocks-to-fall-as-iran-flare-up-boosts-oil-markets-wrap",
+      "publishedAt": "2026-08-31T22:06:14+00:00"
+    },
+    {
+      "index": 44,
+      "headline": "Latest Oil Market News and Analysis for Sept. 1",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-31/latest-oil-market-news-and-analysis-for-sept-1",
+      "publishedAt": "2026-08-31T22:03:46+00:00"
+    },
+    {
+      "index": 45,
+      "headline": "Multi-currency wallet, cashback or miles? How to choose the best way to pay overseas",
+      "url": "https://www.channelnewsasia.com/singapore/travel-foreign-exchange-currency-spending-overseas-6351966",
+      "publishedAt": "2026-08-31T22:00:00Z"
+    },
+    {
+      "index": 46,
+      "headline": "Beyond Fintech to Infrastructure & Energy",
+      "url": "https://punchng.com/africas-next-investment-frontier-moves-beyond-fintech/",
+      "publishedAt": "2026-08-31T21:58:09Z"
+    },
+    {
+      "index": 47,
+      "headline": "Grain being shipped out of Port of Churchill for 1st time in 6 years",
+      "url": "https://www.cbc.ca/news/canada/manitoba/port-of-churchill-grain-shipment-9.7327093",
+      "publishedAt": "2026-08-31T21:55:54Z"
+    },
+    {
+      "index": 48,
+      "headline": "Markets live: Oil prices surge on latest US-Iran flare-up, ASX to slip as housing slump continues",
+      "url": "https://www.abc.net.au/news/2026-09-01/asx-markets-business-live-news-house-prices-fall/107100764",
+      "publishedAt": "2026-08-31T21:54:47Z"
+    },
+    {
+      "index": 49,
+      "headline": "Are the walls closing in on Bessent?",
+      "url": "https://www.interest.co.nz/currencies/140058/paolia-subacchi-thinks-us-treasury-secretary-scott-bessents-efforts-move-bond",
+      "publishedAt": "2026-08-31T21:54:00Z"
+    },
+    {
+      "index": 50,
+      "headline": "Sézane Coupon Code September 2026",
+      "url": "https://www.forbes.com/sites/forbes-personal-shopper/article/sezane-coupon-code/",
+      "publishedAt": "2026-08-31T21:52:14Z"
+    },
+    {
+      "index": 51,
+      "headline": "Florida cities sweep top 3 places for retirees in 2026",
+      "url": "https://www.usatoday.com/story/money/personal-finance/retirement/2026/08/31/best-places-retire-2026-florida/91545567007/",
+      "publishedAt": "2026-08-31T21:45:00Z"
+    },
+    {
+      "index": 52,
+      "headline": "Carney meets business leaders, PMO says",
+      "url": "https://www.bnnbloomberg.ca/tariffs/2026/08/31/pm-carney-meets-business-leaders-to-discuss-us-trade-says-pms-office/",
+      "publishedAt": "2026-08-31T21:44:34Z"
+    },
+    {
+      "index": 53,
+      "headline": "DHET admits it cannot track which degrees lead to graduate unemployment",
+      "url": "https://www.dailymaverick.co.za/article/2026-08-31-dhet-admits-it-cannot-track-which-degrees-lead-to-graduate-unemployment/",
+      "publishedAt": "2026-08-31T21:43:47Z"
+    },
+    {
+      "index": 54,
+      "headline": "Northern Motorway extension: Foreign farmland lease deal approved for Ara Tūhono Warkworth to Te Hana",
+      "url": "https://www.nzherald.co.nz/property/northern-motorway-extension-foreign-farmland-lease-deal-approved-for-ara-tuhono-warkworth-to-te-hana/premium/HHKFBKOUMZFNXLNTDDTJ4IBU3Y/",
+      "publishedAt": "2026-08-31T21:34:04Z"
+    },
+    {
+      "index": 55,
+      "headline": "Uphold review 2026: One account for crypto, metals, and cash",
+      "url": "https://finance.yahoo.com/personal-finance/investing/review/uphold-review-203900002.html",
+      "publishedAt": "2026-08-31T20:39:00Z"
+    },
+    {
+      "index": 56,
+      "headline": "161-year-old kids clothing giant closes 29 more stores",
+      "url": "https://finance.yahoo.com/small-business/articles/161-old-kids-clothing-giant-171700918.html",
+      "publishedAt": "2026-08-31T17:17:00Z"
+    },
+    {
+      "index": 57,
+      "headline": "Firearms retailer files Chapter 11 bankruptcy as gun sales drop",
+      "url": "https://finance.yahoo.com/small-business/articles/firearms-retailer-files-chapter-11-153300921.html",
+      "publishedAt": "2026-08-31T15:33:00Z"
+    },
+    {
+      "index": 58,
+      "headline": "How Personal Finance is Changing for Younger Generations",
+      "url": "https://www.today.com/video/new-rules-for-personal-finance-hysa-reverse-budgeting-more-269094981684",
+      "publishedAt": "2026-08-31T13:24:43+00:00"
+    },
+    {
+      "index": 59,
+      "headline": "Bitcoin and ethereum prices today, Monday, August 31, 2026: Higher rate expectations pressure crypto prices lower",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-monday-august-31-2026-higher-rate-expectations-pressure-crypto-prices-lower-132222145.html",
+      "publishedAt": "2026-08-31T13:22:22Z"
+    },
+    {
+      "index": 60,
+      "headline": "Silver prices today, Monday, August 31, 2026: Silver opens lower as rate-hike expectations rise",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/silver-prices-today-monday-august-31-2026-silver-opens-lower-as-rate-hike-expectations-rise-125201881.html",
+      "publishedAt": "2026-08-31T12:52:01Z"
+    },
+    {
+      "index": 61,
+      "headline": "Gold prices today, Monday, August 31, 2026: Gold sinks following U.S. strikes on Iran",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-prices-today-monday-august-31-2026-gold-sinks-following-us-strikes-on-iran-123744944.html",
+      "publishedAt": "2026-08-31T12:37:44Z"
+    },
+    {
+      "index": 62,
+      "headline": "What’s Old is New Again! Estate Sales Rise in Popularity",
+      "url": "https://www.today.com/video/what-s-old-is-new-again-estate-sales-rise-in-popularity-269092933875",
+      "publishedAt": "2026-08-31T12:34:16+00:00"
+    },
+    {
+      "index": 63,
+      "headline": "Best CD rates today, Monday, August 31, 2026: Lock in up to 4.30% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-monday-august-31-2026-lock-in-up-to-430-apy-100000028.html",
+      "publishedAt": "2026-08-31T10:00:00Z"
+    },
+    {
+      "index": 64,
+      "headline": "Best high-yield savings interest rates today, Monday, August 31, 2026: Earn up to 4.15% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-high-yield-savings-interest-rates-today-monday-august-31-2026-earn-up-to-415-apy-100000500.html",
+      "publishedAt": "2026-08-31T10:00:00Z"
+    },
+    {
+      "index": 65,
+      "headline": "HELOC and home equity loan rates today, Monday, August 31, 2026: A 19-basis-point differential",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/heloc-and-home-equity-loan-rates-today-monday-august-31-2026-a-19-basis-point-differential-100000999.html",
+      "publishedAt": "2026-08-31T10:00:00Z"
+    },
+    {
+      "index": 66,
+      "headline": "Mortgage and refinance interest rates today, Monday, August 31, 2026: Purchase rates currently higher than refinance rates",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-monday-august-31-2026-purchase-rates-currently-higher-than-refinance-rates-100000904.html",
+      "publishedAt": "2026-08-31T10:00:00Z"
+    },
+    {
+      "index": 67,
+      "headline": "Gold Steadies After Tumbling as Warsh Spurs Fed Rate-Hike Bets - Bloomberg.com",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-30/gold-steadies-after-tumbling-as-warsh-spurs-fed-rate-hike-bets",
+      "publishedAt": "2026-08-31T09:06:06Z"
+    },
+    {
+      "index": 68,
+      "headline": "American NS27 Intercontinental Network Expansion - AeroRoutes",
+      "url": "https://www.aeroroutes.com/eng/260831-aans27inc",
+      "publishedAt": "2026-08-31T08:00:53Z"
+    },
+    {
+      "index": 69,
+      "headline": "Stock futures fall after U.S. strikes Iran; Wall Street heads for winning month: Live updates - CNBC",
+      "url": "https://www.cnbc.com/2026/08/30/stock-market-today-live-updates.html",
+      "publishedAt": "2026-08-31T07:07:30Z"
+    },
+    {
+      "index": 70,
+      "headline": "France is becoming the ‘poster child’ of sovereign debt problems as government borrowing costs hit near 2008 highs - CNBC",
+      "url": "https://www.cnbc.com/2026/08/31/france-debt-bond-yields-budget.html",
+      "publishedAt": "2026-08-31T05:00:01Z"
+    },
+    {
+      "index": 71,
+      "headline": "Exclusive | The $5.5 Billion Perk SoftBank’s Data-Center Venture Offered to Land OpenAI - WSJ",
+      "url": "https://www.wsj.com/tech/ai/the-5-5-billion-perk-softbanks-data-center-venture-offered-to-land-openai-a5c7fb5e",
+      "publishedAt": "2026-08-31T03:55:00Z"
+    },
+    {
+      "index": 72,
+      "headline": "Oil Prices Surge as U.S. and Iran Exchange Strikes - Crude Oil Prices Today | OilPrice.com",
+      "url": "https://oilprice.com/Energy/Oil-Prices/Oil-Prices-Surge-as-US-and-Iran-Exchange-Strikes.html",
+      "publishedAt": "2026-08-31T02:30:06Z"
+    },
+    {
+      "index": 73,
+      "headline": "US plans to sanction another bank to keep economic pressure on Iran - Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/8/31/us-plans-to-sanction-another-bank-to-keep-economic-pressure-on-iran",
+      "publishedAt": "2026-08-31T02:12:07Z"
+    },
+    {
+      "index": 74,
+      "headline": "Is electricity dimming oil’s political power? - Politico",
+      "url": "https://www.politico.com/news/2026/08/30/is-electricity-dimming-oils-political-power-01055292",
+      "publishedAt": "2026-08-31T02:00:00Z"
+    },
+    {
+      "index": 75,
+      "headline": "China's factory activity shrinks for second straight month, contracting less than expected - CNBC",
+      "url": "https://www.cnbc.com/2026/08/31/china-pmi-august-economy-slowdown.html",
+      "publishedAt": "2026-08-31T01:40:00Z"
+    },
+    {
+      "index": 76,
+      "headline": "Goldman Sachs sends blunt message on oil price, economy",
+      "url": "https://finance.yahoo.com/energy/articles/goldman-sachs-sends-blunt-message-003700417.html",
+      "publishedAt": "2026-08-31T00:37:00Z"
+    }
+  ]
+}
