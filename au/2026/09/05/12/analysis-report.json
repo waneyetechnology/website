@@ -1,0 +1,808 @@
+{
+  "analysis": {
+    "analysis_date": "05 September 2026",
+    "analysis_time": "12:18 AEST",
+    "executive_summary": {
+      "key_highlights": [
+        "ASX closed the week lower as traders priced in further RBA rate hikes, with housing and rate-sensitive sectors under pressure (#35)",
+        "Aussie banks forecast record house price falls; CBA reports home loan applications down 15% since budget, signalling credit contraction (#62, #65)",
+        "Iron ore sector shows resilience: Macarthur clears WA bulk test hurdle; war-driven supply shakeout supports prices (#37, #68)",
+        "Global equities rallied sharply as Fed rate-hike fears eased; Nasdaq posted back-to-back gains (#45, #63)",
+        "Nvidia confirms $13B Hugging Face acquisition, reinforcing AI capex cycle; AI power demand benefits energy names (#61, #54, #71)",
+        "Construction sector under regulatory scrutiny: Bathla collapse, ASIC whistleblower review, and Worksafe re-examination raise systemic concerns (#38, #39, #21)",
+        "EV sales overtook petrol cars in Australia for first time, driven by soaring fuel costs; hidden infrastructure costs flagged (#28, #34)",
+        "RBA rate path debated: analysts urge caution before further hikes given stalling economy (#74)",
+        "ASX small-caps active: Kaoko Metals, Vanadium Resources, Piche, Aurum, Brightstar, Solstice, Power Minerals in focus (#25, #26, #27)"
+      ],
+      "market_sentiment_score": 44,
+      "overall_sentiment": "negative",
+      "headline_sources": [
+        35,
+        62,
+        65,
+        37,
+        68,
+        45,
+        63,
+        61,
+        38,
+        39,
+        28,
+        74,
+        25,
+        26,
+        27
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Materials / Mining",
+          "trend": "Iron ore supported by war-driven supply shakeout; Macarthur WA bulk test cleared; gold (Aurum) and small-cap miners (Kaoko, Vanadium, Piche, Brightstar, Solstice, Power Minerals) showing relative strength",
+          "implications": "BHP.AX, RIO.AX, FMG.AX benefit from supply-side tightening; small-cap explorers attract speculative flows but carry elevated risk",
+          "headline_sources": [
+            37,
+            68,
+            25,
+            26,
+            27
+          ]
+        },
+        {
+          "sector": "Financials / Banks",
+          "trend": "CBA flags 15% drop in home loan applications; banks forecast record house price declines; legal loophole criticism on customer pricing; credit contraction underway",
+          "implications": "CBA.AX, WBC.AX, NAB.AX, ANZ.AX face margin pressure from falling loan volumes; NIM compression risk if RBA pauses; credit losses may rise",
+          "headline_sources": [
+            62,
+            65,
+            57,
+            35
+          ]
+        },
+        {
+          "sector": "Energy",
+          "trend": "TMK Energy gas rates surge ahead of Mongolian drilling; Beetaloo gas cartel scrutiny; energy transition costs mounting; AI data-centre power demand (Google/Entergy) supports utilities",
+          "implications": "SGL.AX, WDS.AX, AGL.AX, CGP.AX benefit from gas price strength and AI-driven power demand; transition cost overhang weighs on sentiment",
+          "headline_sources": [
+            67,
+            72,
+            70,
+            54,
+            69
+          ]
+        },
+        {
+          "sector": "Healthcare / Consumer",
+          "trend": "Ozempic maker (Novo Nordisk) in trouble; tablet alternatives emerging; EV adoption surging as fuel costs bite; consumer spending under pressure",
+          "implications": "CSL.AX, SGH.AX relatively insulated; WOW.AX, WES.AX face soft consumer demand; EV transition benefits battery/charging names",
+          "headline_sources": [
+            66,
+            28,
+            34
+          ]
+        },
+        {
+          "sector": "Construction / Infrastructure",
+          "trend": "Bathla collapse exposes 'Ponzi economy' fragility; ASIC whistleblower review at Big Four; Worksafe re-examining Star; ratings agencies warn on Victoria debt",
+          "implications": "WTC.AX, INC.AX, GPT.AX, STP.AX face reputational and regulatory overhang; housing construction to follow prices lower",
+          "headline_sources": [
+            38,
+            31,
+            39,
+            21,
+            32,
+            36
+          ]
+        },
+        {
+          "sector": "Technology / AI",
+          "trend": "Nvidia $13B Hugging Face deal; AI boom 'not over'; AI power demand surging; but rising yields expose weakest AI business models (Applied Digital, Cipher)",
+          "implications": "Global tech rally (Nasdaq back-to-back gains) supports sentiment; ASX tech exposure limited but AI capex benefits energy and infrastructure",
+          "headline_sources": [
+            61,
+            71,
+            45,
+            63,
+            55,
+            54
+          ]
+        }
+      ],
+      "key_themes": [
+        "RBA rate path uncertainty: market bracing for hikes but analysts urge caution given stalling economy",
+        "Housing credit contraction: 15% loan application drop, record price fall forecasts",
+        "Construction sector systemic risk: Bathla, ASIC review, Worksafe re-examination",
+        "Commodity resilience: iron ore supply shakeout, gas price surge, gold strength",
+        "AI capex supercycle: Nvidia-Hugging Face, data-centre power demand",
+        "EV transition inflection point in Australia",
+        "Global risk-on: Fed rate-hike fears ease, US equities rally",
+        "Political volatility: One Nation takes Secret Harbour, Albo voter criticism"
+      ],
+      "headline_sources": [
+        35,
+        74,
+        62,
+        65,
+        38,
+        31,
+        39,
+        37,
+        67,
+        61,
+        71,
+        28,
+        12,
+        22,
+        45,
+        63
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "RBA further rate hikes amid stalling economy",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Monitor RBA statements; favour rate-insensitive sectors (healthcare, staples); hedge with gold",
+        "headline_sources": [
+          35,
+          74,
+          42
+        ]
+      },
+      {
+        "risk_factor": "Housing credit contraction and record price falls",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Reduce REIT and construction exposure; favour banks with strong capital buffers; watch NAB.AX, CBA.AX credit provisions",
+        "headline_sources": [
+          62,
+          65,
+          36
+        ]
+      },
+      {
+        "risk_factor": "Construction sector systemic failure (Bathla, ASIC, Worksafe)",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Avoid small-cap construction; monitor GPT.AX, STP.AX, WTC.AX for regulatory exposure",
+        "headline_sources": [
+          38,
+          31,
+          39,
+          21
+        ]
+      },
+      {
+        "risk_factor": "Energy transition cost overhang and gas cartel risk",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Favour gas producers (SGL.AX, WDS.AX) over transition-dependent names; monitor Beetaloo outcomes",
+        "headline_sources": [
+          70,
+          72,
+          67
+        ]
+      },
+      {
+        "risk_factor": "Global rate reversal / Fed policy shift",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Diversify across geographies; US equity rally may not sustain; watch AUD/USD",
+        "headline_sources": [
+          45,
+          63,
+          52
+        ]
+      },
+      {
+        "risk_factor": "Political instability post-Secret Harbour loss",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Monitor policy shifts on migration, housing, energy; avoid event-driven political bets",
+        "headline_sources": [
+          12,
+          22,
+          24
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Overweight iron ore and gold miners on supply-side tightening",
+          "rationale": "War-driven iron ore shakeout supports prices; Macarthur WA test cleared; Aurum gold expansion; small-cap miners showing momentum",
+          "tickers": [
+            "BHP.AX",
+            "RIO.AX",
+            "FMG.AX",
+            "GOLD.AX"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            37,
+            68,
+            26,
+            25
+          ]
+        },
+        {
+          "recommendation": "Add gas and power utilities on AI-driven demand and gas price surge",
+          "rationale": "TMK gas rates surge; Beetaloo cartel scrutiny may lift domestic gas prices; AI data-centre power demand structural tailwind",
+          "tickers": [
+            "SGL.AX",
+            "WDS.AX",
+            "AGL.AX",
+            "CGP.AX"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            67,
+            72,
+            54,
+            71
+          ]
+        },
+        {
+          "recommendation": "Selective healthcare exposure as defensive hedge",
+          "rationale": "Ozempic disruption creates tablet alternative opportunities; CSL, SGH insulated from rate and housing cycles",
+          "tickers": [
+            "CSL.AX",
+            "SGH.AX",
+            "XRO.AX"
+          ],
+          "timeframe": "long",
+          "headline_sources": [
+            66
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Reduce housing-linked and construction exposure",
+          "rationale": "Record house price fall forecasts, 15% loan application drop, Bathla/ASIC/Worksafe systemic risks, construction to follow prices lower",
+          "tickers": [
+            "GPT.AX",
+            "STP.AX",
+            "WTC.AX",
+            "INC.AX",
+            "^AORD"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            62,
+            65,
+            38,
+            31,
+            36
+          ]
+        },
+        {
+          "recommendation": "Trim bank exposure pending credit loss visibility",
+          "rationale": "Loan contraction pressures NIM; legal loophole criticism on pricing; rate hike risk to asset values",
+          "tickers": [
+            "CBA.AX",
+            "WBC.AX",
+            "NAB.AX",
+            "ANZ.AX"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            62,
+            65,
+            57,
+            35
+          ]
+        },
+        {
+          "recommendation": "Hedge AUD/USD and rate risk with gold and short-duration bonds",
+          "rationale": "RBA hike uncertainty, stalling economy, global rate reversal risk; gold benefits from safe-haven flows",
+          "tickers": [
+            "GOLD.AX",
+            "NVD.AX"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            74,
+            45,
+            42
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "ASX likely to remain under pressure from RBA rate-hike expectations and housing credit contraction. Global equity rally on Fed easing may provide partial offset. Construction sector regulatory overhang caps sentiment. Expect range-bound trading with sector rotation toward resources and energy.",
+      "long_term": "Medium-term outlook cautiously constructive if RBA pauses and housing stabilises. AI capex cycle and commodity supply tightness support resources and energy. Structural headwinds from housing correction, construction fragility, and stalling GDP cap upside. Diversification across resources, healthcare, and energy preferred.",
+      "key_catalysts": [
+        "RBA cash rate decision and statement",
+        "CBA/WBC home loan and credit loss data",
+        "Iron ore price trajectory post war-driven shakeout",
+        "Beetaloo gas cartel outcome",
+        "ASIC whistleblower review findings at Big Four",
+        "Nvidia-Hugging Face integration progress",
+        "Australian CPI and employment data",
+        "US Fed policy and global rate path"
+      ],
+      "watch_list": [
+        "^AXJO (S&P/ASX 200)",
+        "^AORD (All Ordinaries)",
+        "AUD/USD",
+        "Iron ore (62% Fe) spot price",
+        "RBA cash rate and forward guidance",
+        "CBA.AX, NAB.AX loan growth and NIM",
+        "SGL.AX, WDS.AX gas pricing",
+        "GOLD.AX, BHP.AX, RIO.AX commodity exposure",
+        "GPT.AX, STP.AX construction/REIT stress",
+        "US 10Y yield and Fed rate expectations",
+        "EV adoption rate and fuel price trends",
+        "ASIC/Worksafe regulatory actions"
+      ],
+      "headline_sources": [
+        35,
+        74,
+        62,
+        65,
+        37,
+        72,
+        39,
+        61,
+        28,
+        45,
+        63,
+        42,
+        70
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Nepali engineer relives 'miracle' survival from deadly flash flood",
+      "url": "https://www.abc.net.au/news/2026-09-05/rasuwa-nepali-engineer-flood-survivor-rabindra-hamal/107113726",
+      "publishedAt": "2026-09-05T02:09:16+00:00"
+    },
+    {
+      "index": 2,
+      "headline": "Police investigate Shepparton region caravan park death",
+      "url": "https://www.abc.net.au/news/2026-09-05/police-investigate-merrigum-caravan-park-death/107119892",
+      "publishedAt": "2026-09-05T02:08:04+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "Argentine court clears return of Nazi-looted portrait worth $400k",
+      "url": "https://www.abc.net.au/news/2026-09-05/nazi-looted-portrait-returned-to-jewish-dealers-heir-argentina/107119834",
+      "publishedAt": "2026-09-05T02:00:51+00:00"
+    },
+    {
+      "index": 4,
+      "headline": "Clarkson opens up about 'publicly humilating' Kangaroos axing",
+      "url": "https://www.abc.net.au/news/2026-09-05/afl-north-melbourne-kangaroos-alastair-clarkson-sacking/107119854",
+      "publishedAt": "2026-09-05T01:27:55+00:00"
+    },
+    {
+      "index": 5,
+      "headline": "Former senator to take 'independent' look at sexual violence in the ADF",
+      "url": "https://www.abc.net.au/news/2026-09-05/natasha-stott-despoja-australian-defence-force-violence-inquiry/107118810",
+      "publishedAt": "2026-09-05T01:16:33+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "Fewer kids open books for fun, prompting calls for national reading strategy",
+      "url": "https://www.abc.net.au/news/2026-09-05/national-reading-strategy-urged-kids-do-not-read-for-fun/107103602",
+      "publishedAt": "2026-09-05T00:59:08+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "Aussie star Myers beats Olympic champions to win Diamond League Final",
+      "url": "https://www.abc.net.au/news/2026-09-05/diamond-league-final-brussels-australian-cameron-myers-wins/107119796",
+      "publishedAt": "2026-09-05T00:37:51+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "Broome disappears into thick fog as WA wet season nears",
+      "url": "https://www.abc.net.au/news/2026-09-05/broome-disappears-into-the-fog/107106508",
+      "publishedAt": "2026-09-05T00:32:55+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "Blood-sucking, eel-like fish another possible casualty of algal bloom",
+      "url": "https://www.abc.net.au/news/2026-09-05/blood-sucking-lampreys-not-sighted-south-australia-two-years/107115068",
+      "publishedAt": "2026-09-05T00:15:11+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "Stephanie Akehurst sentenced to home detention after deadly crash",
+      "url": "https://www.abc.net.au/news/2026-09-05/stephanie-akehurst-careless-driving-fatal-crash-anthony-hobden/107033690",
+      "publishedAt": "2026-09-05T00:02:25+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "Record regional road toll hits 1,000 due to complacency, report finds",
+      "url": "https://www.abc.net.au/news/2026-09-05/experts-call-for-driver-caution-as-regional-road-toll-grows/107116680",
+      "publishedAt": "2026-09-05T00:01:43+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "How One Nation snatched the safe Labor seat of Secret Harbour",
+      "url": "https://www.abc.net.au/news/2026-09-05/how-labor-lost-heartland-secret-harbour-seat-to-one-nation/107115062",
+      "publishedAt": "2026-09-05T00:00:30+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "Handcrafted violins take six months to make, but bring timeless joy",
+      "url": "https://www.abc.net.au/news/2026-09-05/korumburra-violin-maker-richard-hall/106756220",
+      "publishedAt": "2026-09-04T23:42:28+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "Country pub owner proud to keep 'heartbeat' of town going at 86",
+      "url": "https://www.abc.net.au/news/2026-09-05/country-pub-veteran-jim-pohl-wa/107080328",
+      "publishedAt": "2026-09-04T23:19:04+00:00"
+    },
+    {
+      "index": 15,
+      "headline": "Rugby league legend walks 300km to raise $170,000 for dementia research",
+      "url": "https://www.abc.net.au/news/2026-09-05/royce-simmons-dementia-fundraiser/107097320",
+      "publishedAt": "2026-09-04T23:01:12+00:00"
+    },
+    {
+      "index": 16,
+      "headline": "Win for some, grim for others: The fractures exposed by the Beetaloo",
+      "url": "https://www.abc.net.au/news/2026-09-05/analysis-beetaloo-gas-flowing-nt-debate/107106456",
+      "publishedAt": "2026-09-04T22:49:40+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "George Russell hits back for Mercedes in Monza practice",
+      "url": "https://www.abc.net.au/news/2026-09-05/formula-1-george-russell-mercedes-italian-grand-prix-monza/107119750",
+      "publishedAt": "2026-09-04T22:39:21+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "Triple-murderer Darryl Young previously jailed for cattle theft",
+      "url": "https://www.abc.net.au/news/2026-09-05/bogie-triple-murder-darryl-young-convicted-cattle-thief/107110488",
+      "publishedAt": "2026-09-04T22:24:37+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "Before David Hockney painted the pool, he faked his art college diploma",
+      "url": "https://www.abc.net.au/news/2026-09-05/act-david-hockney-national-gallery-portrait-print-exhibition/107111980",
+      "publishedAt": "2026-09-04T22:09:28+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "Construction sector probe likely to put Mick Gatto back in the spotlight",
+      "url": "https://www.abc.net.au/news/2026-09-05/victoria-construction-sector-royal-commission-mick-gatto/107115656",
+      "publishedAt": "2026-09-04T21:39:14+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "Worksafe cleared Star over staff death, but now it’s looking again",
+      "url": "https://www.smh.com.au/business/companies/worksafe-cleared-star-over-staff-death-but-now-it-s-looking-again-20260904-p60uhm.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-05T05:00:00+10:00"
+    },
+    {
+      "index": 22,
+      "headline": "Even after Secret Harbour, Albo still sledges hapless voters as “misinformed”",
+      "url": "https://www.macrobusiness.com.au/2026/09/even-after-secret-harbour-albo-still-sledges-hapless-voters-as-misinformed/",
+      "publishedAt": "2026-09-04T14:10:12+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "Weekend reading and media appearances",
+      "url": "https://www.macrobusiness.com.au/2026/09/weekend-reading-and-media-appearances-34/",
+      "publishedAt": "2026-09-04T14:01:08+00:00"
+    },
+    {
+      "index": 24,
+      "headline": "Pocock says skilled migrants should be top priority as Australia faces shortage of AI workers and tradies – as it happened",
+      "url": "https://www.theguardian.com/australia-news/live/2026/sep/04/anthony-albanese-pauline-hanson-actu-union-labor-one-nation-coalition-angus-taylor-ntwnfb",
+      "publishedAt": "2026-09-04T07:29:46+00:00"
+    },
+    {
+      "index": 25,
+      "headline": "ASX Runners of the Week: Kaoko Metals, Vanadium Resources & Piche",
+      "url": "https://www.smh.com.au/business/companies/asx-runners-of-the-week-kaoko-metals-vanadium-resources-and-piche-20260904-p60ukr.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-04T16:19:42+10:00"
+    },
+    {
+      "index": 26,
+      "headline": "Aurum adds more high-grade ounces to West African gold tally",
+      "url": "https://www.smh.com.au/business/companies/aurum-adds-more-high-grade-ounces-to-west-african-gold-tally-20260904-p60ujg.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-04T14:29:24+10:00"
+    },
+    {
+      "index": 27,
+      "headline": "Big Hits: Brightstar Resources, Solstice Minerals and Power Minerals",
+      "url": "https://www.smh.com.au/business/companies/big-hits-brightstar-resources-solstice-minerals-and-power-minerals-20260904-p60uj9.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-04T14:27:57+10:00"
+    },
+    {
+      "index": 28,
+      "headline": "EV sales outpace petrol cars for first time as Australians dodge soaring fuel costs",
+      "url": "https://www.theguardian.com/environment/2026/sep/04/ev-sales-outpace-petrol-cars-for-first-time-as-australians-dodge-soaring-fuel-costs",
+      "publishedAt": "2026-09-04T03:26:43+00:00"
+    },
+    {
+      "index": 29,
+      "headline": "‘Crisis situation’: Volkswagen to cut another 50,000 jobs as it fights to survive",
+      "url": "https://www.smh.com.au/business/companies/crisis-situation-volkswagen-to-cut-another-50-000-jobs-as-it-fights-to-survive-20260904-p60ui3.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-04T13:25:46+10:00"
+    },
+    {
+      "index": 30,
+      "headline": "LIVE STREAM: Good Food Symposium on Melbourne’s changing dining scene",
+      "url": "https://www.smh.com.au/business/workplace/melbourne-changing-dining-scene-good-food-symposium-20260901-p60tg7.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-04T13:14:04+10:00"
+    },
+    {
+      "index": 31,
+      "headline": "Shaky foundations: Bathla’s downfall is one of many warning signs for Australia’s construction industry",
+      "url": "https://www.theguardian.com/australia-news/2026/sep/04/bathla-group-collapse-one-of-many-warning-signs-for-australia-construction-industry",
+      "publishedAt": "2026-09-04T02:40:14+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "Ratings agencies warn on Victoria’s soaring debt",
+      "url": "https://www.macrobusiness.com.au/2026/09/ratings-agencies-warn-on-victorias-soaring-debt/",
+      "publishedAt": "2026-09-04T02:00:59+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "Godzilla El Nino births cyclone triplets",
+      "url": "https://www.macrobusiness.com.au/2026/09/godzilla-el-nino-births-cyclone-triplets/",
+      "publishedAt": "2026-09-04T01:30:07+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "Australians are flocking to electric vehicles. There’s a hidden cost",
+      "url": "https://www.smh.com.au/business/the-economy/australians-are-flocking-to-electric-vehicles-there-s-a-hidden-cost-20260903-p60u4j.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-04T11:16:40+10:00"
+    },
+    {
+      "index": 35,
+      "headline": "ASX ends week lower as traders brace for higher rates",
+      "url": "https://www.smh.com.au/business/markets/asx-set-to-advance-as-wall-street-climbs-a-over-us72c-20260904-p60uc9.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-04T11:01:37+10:00"
+    },
+    {
+      "index": 36,
+      "headline": "Housing construction will follow prices lower",
+      "url": "https://www.macrobusiness.com.au/2026/09/housing-construction-will-follow-prices-lower/",
+      "publishedAt": "2026-09-04T01:00:30+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "War hides iron ore shakeout",
+      "url": "https://www.macrobusiness.com.au/2026/09/war-hides-iron-ore-shakeout/",
+      "publishedAt": "2026-09-04T00:30:41+00:00"
+    },
+    {
+      "index": 38,
+      "headline": "Bathla’s collapse is symptomatic of Australia’s Ponzi economy",
+      "url": "https://www.macrobusiness.com.au/2026/09/bathlas-collapse-is-symptomatic-of-australias-ponzi-economy/",
+      "publishedAt": "2026-09-04T00:00:03+00:00"
+    },
+    {
+      "index": 39,
+      "headline": "ASIC launches review of whistleblower complaints at accounting giants",
+      "url": "https://www.smh.com.au/business/companies/asic-probing-whether-kpmg-misled-regulator-20260902-p60twg.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-04T09:59:06+10:00"
+    },
+    {
+      "index": 40,
+      "headline": "The bull case returns",
+      "url": "https://www.macrobusiness.com.au/2026/09/the-bull-case-returns/",
+      "publishedAt": "2026-09-03T23:30:14+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Trump to declare “mission accomplished”",
+      "url": "https://www.macrobusiness.com.au/2026/09/trump-to-declare-mission-accomplished/",
+      "publishedAt": "2026-09-03T23:00:06+00:00"
+    },
+    {
+      "index": 42,
+      "headline": "Canada’s per capita economy soars as Australia’s stalls",
+      "url": "https://www.macrobusiness.com.au/2026/09/canadas-per-capita-economy-soars-as-australias-stalls/",
+      "publishedAt": "2026-09-03T22:00:25+00:00"
+    },
+    {
+      "index": 43,
+      "headline": "John Wiley & Sons, Inc. Q1 2027 Earnings Call Summary",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/john-wiley-sons-inc-q1-204629497.html",
+      "publishedAt": "2026-09-03T20:46:29Z"
+    },
+    {
+      "index": 44,
+      "headline": "Q&A: New Mountain on the future of liquidity in PE",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/q-mountain-future-liquidity-pe-204539081.html",
+      "publishedAt": "2026-09-03T20:45:39Z"
+    },
+    {
+      "index": 45,
+      "headline": "Stocks Finish Sharply Higher on Reduced Fed Rate Hike Chances",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/stocks-finish-sharply-higher-reduced-203749058.html",
+      "publishedAt": "2026-09-03T20:37:49Z"
+    },
+    {
+      "index": 46,
+      "headline": "Stock Market Today: Nasdaq Posts Back-To-Back Gains; Tesla, SpaceX Rise As Cybercab Event Nears (Live Coverage)",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-treasury-yields-broadcom-stock-avgo/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-09-03T20:29:41Z"
+    },
+    {
+      "index": 47,
+      "headline": "French trio minted as billionaires as the world’s most valuable company swoops",
+      "url": "https://www.smh.com.au/business/companies/french-trio-minted-as-billionaires-as-the-world-s-most-valuable-company-swoops-20260904-p60uc8.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-04T06:23:41+10:00"
+    },
+    {
+      "index": 48,
+      "headline": "Polestar Stock Plunges in One of the Saddest Car Stories",
+      "url": "https://www.barrons.com/articles/polestar-stock-ev-sales-outlook-9ad1b41c?siteid=yhoof2&yptr=yahoo",
+      "publishedAt": "2026-09-03T20:18:00Z"
+    },
+    {
+      "index": 49,
+      "headline": "Why Did Applied Materials Stock Nearly Triple On Single-Digit Trailing Revenue Growth?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-did-applied-materials-stock-201453045.html",
+      "publishedAt": "2026-09-03T20:14:53Z"
+    },
+    {
+      "index": 50,
+      "headline": "Smart Ring Maker Oura Files for US IPO as Revenue Surges",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/smart-ring-maker-oura-files-201434496.html",
+      "publishedAt": "2026-09-03T20:14:34Z"
+    },
+    {
+      "index": 51,
+      "headline": "Ameresco Insiders Bought About $1.9 Million After the Stock Fell. Are They Signaling an AI-Power Rebound?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ameresco-insiders-bought-1-9-201300049.html",
+      "publishedAt": "2026-09-03T20:13:00Z"
+    },
+    {
+      "index": 52,
+      "headline": "Fed Rate Comments Spark Powerful Bitcoin, Crypto Rally. Bitcoin ETFs Near Entries.",
+      "url": "https://www.investors.com/news/bitcoin-price-fed-waller-rate-signal-crypto-stocks-short-squeeze-liquidations/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-09-03T20:12:36Z"
+    },
+    {
+      "index": 53,
+      "headline": "Cathie Wood Sold About $72.8 Million of AMD and Bought About $53 Million of Nvidia. What Changed?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/cathie-wood-sold-72-8-200905404.html",
+      "publishedAt": "2026-09-03T20:09:05Z"
+    },
+    {
+      "index": 54,
+      "headline": "Google’s Arkansas Data Center Reveals the Huge Power Bill Behind AI. Entergy Stands to Benefit",
+      "url": "https://finance.yahoo.com/technology/ai/articles/google-arkansas-data-center-reveals-200631272.html",
+      "publishedAt": "2026-09-03T20:06:31Z"
+    },
+    {
+      "index": 55,
+      "headline": "Applied Digital and Cipher Just Sank Together. Did Rising Yields Expose AI’s Weakest Business Model?",
+      "url": "https://finance.yahoo.com/technology/ai/articles/applied-digital-cipher-just-sank-195427638.html",
+      "publishedAt": "2026-09-03T19:54:27Z"
+    },
+    {
+      "index": 56,
+      "headline": "Billionaire pub owner downsizes in Darlinghurst",
+      "url": "https://www.smh.com.au/business/small-business/billionaire-pub-owner-downsizes-in-darlinghurst-20260903-p60u5z.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-04T05:00:00+10:00"
+    },
+    {
+      "index": 57,
+      "headline": "How a legal loophole lets CBA and Westpac charge their most loyal customers more",
+      "url": "https://www.smh.com.au/business/companies/how-a-legal-loophole-lets-cba-and-westpac-charge-their-most-loyal-customers-more-20260903-p60u02.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-04T05:00:00+10:00"
+    },
+    {
+      "index": 58,
+      "headline": "I can’t get a job because I can work only from home. What can I do?",
+      "url": "https://www.smh.com.au/business/workplace/i-can-t-get-a-job-because-i-can-work-only-from-home-what-can-i-do-20260903-p60u01.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-04T05:00:00+10:00"
+    },
+    {
+      "index": 59,
+      "headline": "Sydney buyers swoop: Carla Zampatti nets blue-chip Brighton shop",
+      "url": "https://www.smh.com.au/business/companies/sydney-buyers-swoop-carla-zampatti-nets-blue-chip-brighton-shop-20260903-p60u40.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-04T05:00:00+10:00"
+    },
+    {
+      "index": 60,
+      "headline": "‘I was just weak’: How an avoidant Rupert Murdoch could have warded off family fight",
+      "url": "https://www.smh.com.au/business/companies/i-was-just-weak-how-an-avoidant-rupert-murdoch-could-have-warded-off-family-fight-20260903-p60u5d.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-04T05:00:00+10:00"
+    },
+    {
+      "index": 61,
+      "headline": "Nvidia confirms $13 billion acquisition of open-weight AI platform Hugging Face",
+      "url": "https://finance.yahoo.com/markets/article/nvidia-confirms-13-billion-acquisition-of-open-weight-ai-platform-hugging-face-141058641.html",
+      "publishedAt": "2026-09-03T14:10:58Z"
+    },
+    {
+      "index": 62,
+      "headline": "Aussie banks forecast biggest house price falls on record",
+      "url": "https://www.macrobusiness.com.au/2026/09/aussie-banks-forecast-biggest-house-price-falls-on-record/",
+      "publishedAt": "2026-09-03T14:01:50+00:00"
+    },
+    {
+      "index": 63,
+      "headline": "Stock market today: Dow, S&P 500 post best day in a month, Nasdaq jumps as rate-hike fears ease",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-september-3-dow-sp-500-nasdaq-futures-081525933.html",
+      "publishedAt": "2026-09-03T08:15:25Z"
+    },
+    {
+      "index": 64,
+      "headline": "Plus-size pyjamas and nerves: Qantas A380 bringing NFL’s 49ers to Australia is on its way",
+      "url": "https://www.smh.com.au/business/companies/qantas-a380-arrives-in-san-francisco-to-bring-nfl-s-49ers-to-australia-20260903-p60u41.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-03T18:08:08+10:00"
+    },
+    {
+      "index": 65,
+      "headline": "Home loan applications down by 15% since budget, CBA says – as it happened",
+      "url": "https://www.theguardian.com/australia-news/live/2026/sep/03/anthony-albanese-one-nation-jim-chalmers-labor-liberal-angus-taylor-tobacco-plan-ntwnfb",
+      "publishedAt": "2026-09-03T07:42:00+00:00"
+    },
+    {
+      "index": 66,
+      "headline": "Ozempic’s maker is in trouble. Tablets may be the answer",
+      "url": "https://www.smh.com.au/business/companies/ozempic-s-maker-is-in-trouble-tablets-may-be-the-answer-20260902-p60tl2.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-03T17:22:00+10:00"
+    },
+    {
+      "index": 67,
+      "headline": "TMK Energy gas rates surge as Mongolian drilling push looms",
+      "url": "https://www.smh.com.au/business/companies/tmk-energy-gas-rates-surge-as-mongolian-drilling-push-looms-20260903-p60u89.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-03T16:26:04+10:00"
+    },
+    {
+      "index": 68,
+      "headline": "Macarthur clears hurdle for WA iron ore bulk test",
+      "url": "https://www.smh.com.au/business/companies/macarthur-clears-hurdle-for-wa-iron-ore-bulk-test-20260903-p60u7z.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-03T15:56:40+10:00"
+    },
+    {
+      "index": 69,
+      "headline": "Big tech can’t stop people hating data centres",
+      "url": "https://www.smh.com.au/business/companies/big-tech-can-t-stop-people-hating-data-centres-20260903-p60u2o.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+      "publishedAt": "2026-09-03T15:54:07+10:00"
+    },
+    {
+      "index": 70,
+      "headline": "Costs mount as the energy transition runs off the rails",
+      "url": "https://www.macrobusiness.com.au/2026/09/costs-mount-as-the-energy-transition-runs-off-the-rails/",
+      "publishedAt": "2026-09-03T02:00:32+00:00"
+    },
+    {
+      "index": 71,
+      "headline": "Podcast: Nvidia Says the AI Boom Isn’t Over Yet",
+      "url": "https://www.macrobusiness.com.au/2026/09/podcast-nvidia-says-the-ai-boom-isnt-over-yet/",
+      "publishedAt": "2026-09-03T01:45:00+00:00"
+    },
+    {
+      "index": 72,
+      "headline": "Beetaloo must trash the gas cartel",
+      "url": "https://www.macrobusiness.com.au/2026/09/beetaloo-must-trash-the-gas-cartel/",
+      "publishedAt": "2026-09-03T01:30:46+00:00"
+    },
+    {
+      "index": 73,
+      "headline": "Melbourne councils admit they will not cope with planned population growth",
+      "url": "https://www.macrobusiness.com.au/2026/09/melbourne-councils-admit-they-will-not-cope-with-planned-population-growth/",
+      "publishedAt": "2026-09-03T01:00:41+00:00"
+    },
+    {
+      "index": 74,
+      "headline": "Australia’s economy limps along, but the RBA should take a closer look before raising interest rates again | Greg Jericho",
+      "url": "https://www.theguardian.com/business/grogonomics/2026/sep/03/australia-economy-gdp-growth-rba-expected-raise-interest-rates-again",
+      "publishedAt": "2026-09-02T15:00:29+00:00"
+    },
+    {
+      "index": 75,
+      "headline": "NSW police investigating possible mistaken identity after fatal shooting in Sydney’s west – as it happened",
+      "url": "https://www.theguardian.com/australia-news/live/2026/sep/02/anthony-albanese-palau-forum-one-nation-pauline-hanson-channel-contos-ntwnfb",
+      "publishedAt": "2026-09-02T08:48:17+00:00"
+    }
+  ]
+}
