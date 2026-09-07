@@ -1,0 +1,989 @@
+{
+  "analysis": {
+    "analysis_date": "September 07, 2026",
+    "analysis_time": "21:07",
+    "executive_summary": {
+      "key_highlights": [
+        "Oil prices climbing on refinery outages and OPEC steady output; US diesel hits record highs, pressuring equities",
+        "Copper at all-time high amid tariff turmoil and mine supply struggles—key inflation and industrial signal",
+        "Japan bond yields surging, signaling potential global rate repricing and JPY weakness",
+        "VIX anomalously low despite stock volatility—complacency risk elevated (Noviskis warns high expectations leave stocks vulnerable)",
+        "EM stocks at highest since June as tech offsets oil; Polish stocks outperforming on foreign inflows",
+        "Ultra-rich Americans rotating out of equities into cash—contrarian signal worth monitoring",
+        "Record IPO pipeline: Jio Platforms (India), Dangote ($4 entry), signaling capital market appetite in EM",
+        "Families scaling back spending; Gap closes 350 stores; Frontier Airlines exiting market—consumer stress signals",
+        "Mortgage rates rising week-over-week; CD rates at 4.35% APY—rate environment still restrictive",
+        "Fitch downgrades Genting to BBB-; Cerba Bank $5.8B restructuring; Bathla Group collapse—credit stress in select sectors"
+      ],
+      "market_sentiment_score": 52,
+      "overall_sentiment": "neutral",
+      "headline_sources": [
+        3,
+        30,
+        36,
+        37,
+        52,
+        68,
+        87,
+        23,
+        34,
+        45,
+        18,
+        21,
+        31,
+        6,
+        1
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Energy & Commodities",
+          "trend": "Oil climbing on refinery outages; OPEC holds output steady for October; diesel at record; Mercuria/Gunvor profits double on war volatility; Iraq struggles to sell Basra oil after price hikes",
+          "implications": "Energy inflation risk to consumer margins; refiners benefit but downstream consumers squeezed; copper all-time high signals industrial demand but tariff-driven supply disruption",
+          "headline_sources": [
+            30,
+            37,
+            75,
+            10,
+            16,
+            7,
+            51
+          ]
+        },
+        {
+          "sector": "Technology & AI",
+          "trend": "Google launches Gemini 3.8 Flash; Nvidia hedges Broadcom custom silicon via Hugging Face deal; Micron up 90%+ in 2026 but Taiwan strike threat looms; Tesla Cybercab hits road with snags; Apple September event anticipated",
+          "implications": "AI capex cycle intact but supply-chain concentration risk (Taiwan) is critical; custom silicon competition intensifying; Apple event could be catalyst or disappointment",
+          "headline_sources": [
+            49,
+            82,
+            57,
+            43,
+            54,
+            67,
+            63,
+            65,
+            86
+          ]
+        },
+        {
+          "sector": "Consumer & Retail",
+          "trend": "Families scaling back spending; Gap closes 350 stores with Old Navy problem; Frontier Airlines exits market; beverage brand files Chapter 11 after losing Costco deal; Labor Day sales up to 75% off",
+          "implications": "Consumer deleveraging underway; discount/essential retailers favored; discretionary spending under pressure; airline consolidation continuing",
+          "headline_sources": [
+            23,
+            34,
+            45,
+            8,
+            42,
+            81
+          ]
+        },
+        {
+          "sector": "Financials & Credit",
+          "trend": "Fitch downgrades Genting to BBB-; Cerba Bank $5.8B restructuring; Bathla Group collapse threatens homebuyer deposits; IRS lost 30% of auditors to DOGE cuts; Fidelity 401(k) balances hit record $155K",
+          "implications": "Credit quality deterioration in select names; regulatory enforcement weakening; retirement savings at record but inequality widening",
+          "headline_sources": [
+            31,
+            6,
+            1,
+            62,
+            61,
+            74,
+            59
+          ]
+        },
+        {
+          "sector": "Emerging Markets",
+          "trend": "EM stocks at highest since June; Polish stocks beating US/Europe on foreign inflows; Jio Platforms marketing record India IPO; Dangote courts retail with $4 IPO entry; South Africa Eskom spin-off",
+          "implications": "EM rotation accelerating; India and Poland as standout markets; capital formation strong but Bathla collapse shows EM credit fragility",
+          "headline_sources": [
+            33,
+            15,
+            13,
+            5,
+            11,
+            1
+          ]
+        },
+        {
+          "sector": "Rates & Fixed Income",
+          "trend": "Japan bond yields surging; US CD rates at 4.35% APY; high-yield savings at 4.10%; mortgage rates rising week-over-week; Deutsche Bank's Allen says traders wrong on rates or prices",
+          "implications": "Global rate repricing underway; JGB selloff could trigger carry trade unwind; US rates still restrictive for housing; rate direction uncertain",
+          "headline_sources": [
+            2,
+            18,
+            19,
+            21,
+            90,
+            9,
+            20
+          ]
+        }
+      ],
+      "key_themes": [
+        "Commodity inflation (oil, copper) pressuring equities and consumer margins",
+        "VIX complacency vs. actual volatility—divergence signals potential sharp move",
+        "Ultra-rich cash rotation as contrarian warning",
+        "AI capex cycle resilient but supply-chain and competition risks mounting",
+        "Consumer spending contraction across discretionary segments",
+        "EM capital formation boom (IPOs) vs. credit stress (Bathla, Cerba)",
+        "Japan rate normalization as global macro wildcard",
+        "Housing affordability crisis deepening (15-year break-even, rising mortgage rates)",
+        "Regulatory enforcement weakening (IRS audit cuts) creating fiscal risk",
+        "Climate impact on agriculture (France champagne halving)"
+      ],
+      "headline_sources": [
+        3,
+        7,
+        30,
+        36,
+        52,
+        87,
+        49,
+        57,
+        82,
+        23,
+        34,
+        33,
+        15,
+        13,
+        5,
+        2,
+        18,
+        21,
+        62,
+        89,
+        4
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Oil/Commodity Inflation Spike",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Hedge with energy ETFs (XLE) or commodity futures; reduce consumer discretionary exposure; monitor OPEC+ October decision",
+        "headline_sources": [
+          30,
+          37,
+          75,
+          10,
+          16,
+          7
+        ]
+      },
+      {
+        "risk_factor": "VIX Complacency / Hidden Volatility",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Maintain 10-15% portfolio in vol hedges (VIX calls, put spreads); Noviskis warns high expectations create fragility—trim overvalued tech",
+        "headline_sources": [
+          52,
+          3,
+          68
+        ]
+      },
+      {
+        "risk_factor": "Japan Bond Yield Surge / Carry Trade Unwind",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Reduce JPY-funded long positions; monitor JGB 10Y yield; add USD/JPY hedges; watch for global liquidity shock",
+        "headline_sources": [
+          2,
+          9
+        ]
+      },
+      {
+        "risk_factor": "Consumer Spending Contraction",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Favor essential/consumer staples (XLP); avoid overleveraged retailers; monitor monthly retail sales data",
+        "headline_sources": [
+          23,
+          34,
+          45,
+          8
+        ]
+      },
+      {
+        "risk_factor": "Taiwan Supply-Chain Disruption (Micron/AI)",
+        "impact": "High",
+        "likelihood": "Low",
+        "mitigation": "Diversify semiconductor exposure beyond TSMC-dependent names; monitor geopolitical headlines; hold NVDA as AI leader but cap position size",
+        "headline_sources": [
+          57,
+          82
+        ]
+      },
+      {
+        "risk_factor": "Credit Deterioration (Bathla, Cerba, Genting)",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Avoid high-yield EM debt; screen for restructuring signals; maintain investment-grade core",
+        "headline_sources": [
+          1,
+          6,
+          31
+        ]
+      },
+      {
+        "risk_factor": "Housing Affordability / Rate Risk",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Lock CD rates at 4.35% for liquidity; avoid variable-rate mortgages; monitor 30Y mortgage trend",
+        "headline_sources": [
+          89,
+          21,
+          90,
+          18,
+          19
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Overweight energy and commodity exposure as inflation hedge",
+          "rationale": "Diesel at record, OPEC steady, refinery outages, copper at ATH—structural supply tightness supports prices through Q4",
+          "tickers": [
+            "XLE",
+            "COPX",
+            "FCX",
+            "SCGP"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            30,
+            7,
+            75,
+            10,
+            66
+          ]
+        },
+        {
+          "recommendation": "Add EM equity exposure via India and Poland",
+          "rationale": "EM at highest since June; Jio/Dangote IPOs signal capital formation; Polish stocks outperforming on foreign inflows; tech offsetting oil",
+          "tickers": [
+            "INDA",
+            "EPI",
+            "JIO",
+            "DANGTE"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            33,
+            15,
+            13,
+            5
+          ]
+        },
+        {
+          "recommendation": "Position for Apple September event with selective tech",
+          "rationale": "Apple 'September surprise' could be bigger than iPhone; Google Gemini 3.8 Flash signals AI acceleration; but cap position given VIX complacency",
+          "tickers": [
+            "AAPL",
+            "GOOGL",
+            "NVDA"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            54,
+            67,
+            49,
+            82
+          ]
+        },
+        {
+          "recommendation": "Lock in CD rates at 4.35% APY for 12-18 month liquidity",
+          "rationale": "Rates still elevated; mortgage rates rising week-over-week suggests no imminent cut; preserves capital while rates remain restrictive",
+          "tickers": [],
+          "timeframe": "short",
+          "headline_sources": [
+            18,
+            19,
+            21,
+            90
+          ]
+        },
+        {
+          "recommendation": "Consider PepsiCo as value/dividend play over Coca-Cola",
+          "rationale": "PEP at 4.2% yield, 'dirt cheap' per analysis; Wall Street favoring KO but PEP offers better risk/reward on valuation",
+          "tickers": [
+            "PEP",
+            "KO"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            69
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Reduce equity exposure by 5-10%; add cash or short-duration bonds",
+          "rationale": "Noviskis warns high expectations create vulnerability; ultra-rich already rotating to cash; VIX sleeping while volatility present—divergence is dangerous",
+          "tickers": [
+            "SHY",
+            "BIL",
+            "SGOV"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            3,
+            52,
+            87,
+            68
+          ]
+        },
+        {
+          "recommendation": "Hedge JPY carry trade exposure",
+          "rationale": "Japan bond yields surging; potential carry trade unwind could trigger global liquidity shock; Deutsche Bank's Allen flags trader positioning errors",
+          "tickers": [
+            "JPY",
+            "FXE"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            2,
+            9
+          ]
+        },
+        {
+          "recommendation": "Avoid overleveraged consumer discretionary and airline names",
+          "rationale": "Families scaling back; Gap closing 350 stores; Frontier exiting; beverage brand in Chapter 11—consumer stress is structural, not cyclical",
+          "tickers": [
+            "GPS",
+            "FTR"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            23,
+            34,
+            45,
+            8
+          ]
+        },
+        {
+          "recommendation": "Maintain gold allocation as portfolio stabilizer",
+          "rationale": "Gold edging lower on oil/dollar focus but remains relevant hedge amid credit stress, EM volatility, and rate uncertainty",
+          "tickers": [
+            "GLD",
+            "IAU"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            35,
+            31,
+            6
+          ]
+        },
+        {
+          "recommendation": "Screen out EM high-yield debt; avoid Bathla-exposed real estate",
+          "rationale": "Bathla collapse threatens homebuyer deposits; Cerba restructuring; Genting downgrade—EM credit quality deteriorating in select segments",
+          "tickers": [],
+          "timeframe": "short",
+          "headline_sources": [
+            1,
+            6,
+            31
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Cautious. Oil-driven inflation pressure and VIX complacency create asymmetric downside risk. Apple/Google events provide near-term catalysts but high expectations limit upside. EM strength and Polish inflows offer relative value. Expect choppy, range-bound US equities with sector rotation toward energy and defensives. Japan yield surge is the key wildcard—any JGB acceleration could trigger global risk-off.",
+      "long_term": "Constructive but uneven. AI capex cycle (Nvidia, Google, Micron) supports tech leadership but Taiwan supply risk and custom silicon competition add volatility. Consumer contraction favors staples and value. EM capital formation (India, Poland) offers 12-month upside. Housing affordability crisis and rate stickiness cap broad market gains. Ultra-rich cash rotation may signal 6-9 month top in risk assets.",
+      "key_catalysts": [
+        "Apple September product event (potential 'bigger than iPhone' surprise)",
+        "OPEC+ October output decision (currently steady)",
+        "Japan BOJ policy response to bond yield surge",
+        "Jio Platforms IPO pricing (India, next week)",
+        "Dangote IPO retail subscription results",
+        "US retail sales and consumer confidence data (post-Labor Day)",
+        "Taiwan labor strike resolution (Micron/AI supply chain)",
+        "Fitch follow-on actions on Genting/Resorts World",
+        "US diesel/refinery outage resolution timeline",
+        "Q3 earnings season kickoff (late September)"
+      ],
+      "watch_list": [
+        "WTI/Brent crude and US diesel crack spreads",
+        "Copper LME price (ATH sustainability)",
+        "Japan 10Y JGB yield and USD/JPY",
+        "VIX vs. realized volatility divergence",
+        "30Y and 7Y mortgage rates (week-over-week trend)",
+        "EM equity indices (MSCI EM, Poland WIG)",
+        "Consumer spending surveys and retail same-store sales",
+        "Ultra-rich cash allocation flows (hedge fund positioning)",
+        "OPEC+ compliance and Iraq Basra oil sales",
+        "Apple/Google/Nvidia product and earnings catalysts",
+        "Fitch/S&P/Moody's credit actions on EM and gaming names",
+        "IRS enforcement recovery post-DOGE cuts"
+      ],
+      "headline_sources": [
+        3,
+        30,
+        37,
+        75,
+        2,
+        54,
+        49,
+        13,
+        5,
+        23,
+        34,
+        33,
+        15,
+        35,
+        18,
+        21,
+        62,
+        87,
+        57,
+        82
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Bathla Group Collapse: What Happens to Homebuyers and Their Deposits?",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/bathla-group-collapse-what-happens-to-homebuyers-and-their-deposits",
+      "publishedAt": "2026-09-07T20:00:00+00:00"
+    },
+    {
+      "index": 2,
+      "headline": "Why Are Japan’s Bond Yields Rising? What’s Driving the Surge",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/why-are-japan-s-bond-yields-rising-what-s-driving-the-surge",
+      "publishedAt": "2026-09-07T20:00:00+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "High Expectations Leave Stocks Vulnerable: Noviskis",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-07/high-expectations-leave-stocks-vulnerable-noviskis-video",
+      "publishedAt": "2026-09-07T16:43:47+00:00"
+    },
+    {
+      "index": 4,
+      "headline": "France Champagne Output Set to Halve on Heat Waves and Drought",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/france-champagne-output-set-to-halve-on-heat-waves-and-drought",
+      "publishedAt": "2026-09-07T16:21:01+00:00"
+    },
+    {
+      "index": 5,
+      "headline": "Dangote Courts Retail Investors With $4 Entry to Record IPO",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/dangote-turns-to-fintechs-to-make-ipo-for-the-people-a-reality",
+      "publishedAt": "2026-09-07T15:59:38+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "Cerba Bank Debt for Sale as $5.8 Billion Restructuring Progresses",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/cerba-bank-debt-for-sale-as-5-billion-restructuring-progresses",
+      "publishedAt": "2026-09-07T15:41:06+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "Copper Hits All-Time High Amid Tariff Turmoil, Mine Struggles",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/copper-surges-to-all-time-high-as-tariff-turmoil-rocks-market",
+      "publishedAt": "2026-09-07T15:08:36+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "Loss of Costco deal helps push beverage brand into Chapter 11",
+      "url": "https://finance.yahoo.com/healthcare/articles/loss-costco-deal-helps-push-150700837.html",
+      "publishedAt": "2026-09-07T15:07:00Z"
+    },
+    {
+      "index": 9,
+      "headline": "Deutsche Bank’s Allen Says Traders Are Wrong on Rates or Prices",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/deutsche-bank-s-allen-says-traders-are-wrong-on-rates-or-prices",
+      "publishedAt": "2026-09-07T14:01:57+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "Mercuria and Gunvor Profits More Than Double on War Volatility",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/mercuria-and-gunvor-see-profits-more-than-double-on-war-bonanza",
+      "publishedAt": "2026-09-07T13:21:50+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "South Africa Seeks Advisers for Eskom Transmission Unit Spin-Off",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/south-africa-seeks-advisers-for-eskom-transmission-unit-spin-off",
+      "publishedAt": "2026-09-07T13:09:39+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Spider-Man, Odyssey Help Power Box Office Comeback",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-07/spider-man-odyssey-help-power-box-office-comeback-video",
+      "publishedAt": "2026-09-07T13:05:47+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "Jio Platforms Said to Start Marketing Record India IPO Next Week",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/jio-platforms-said-to-start-marketing-record-india-ipo-next-week",
+      "publishedAt": "2026-09-07T12:50:51+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "Jefferies Fund Seeks Radiant World Asset Freeze in Singapore",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/jefferies-fund-seeks-radiant-world-asset-freeze-in-singapore",
+      "publishedAt": "2026-09-07T12:48:51+00:00"
+    },
+    {
+      "index": 15,
+      "headline": "Polish Stocks Beat US and European Peers as Foreigners Pile In",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/polish-stocks-beat-us-and-european-peers-as-foreigners-pile-in",
+      "publishedAt": "2026-09-07T12:38:37+00:00"
+    },
+    {
+      "index": 16,
+      "headline": "Iraq Struggles to Sell Oil From Basra After Hiking Its Prices",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/iraq-struggles-to-sell-oil-from-basra-after-hiking-its-prices",
+      "publishedAt": "2026-09-07T12:33:01+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "Why the End of Summer is the Best Time to Book a Cruise",
+      "url": "https://www.today.com/video/want-to-sail-the-high-seas-here-are-the-best-cruise-ship-deals-269431877784",
+      "publishedAt": "2026-09-07T11:49:05+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "Best CD rates today, Monday, September 7, 2026: Lock in up to 4.35% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-monday-september-7-2026-lock-in-up-to-435-apy-100000332.html",
+      "publishedAt": "2026-09-07T10:00:00Z"
+    },
+    {
+      "index": 19,
+      "headline": "Best high-yield savings interest rates today, Monday, September 7, 2026: Earn up to 4.10% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-high-yield-savings-interest-rates-today-monday-september-7-2026-earn-up-to-410-apy-100000748.html",
+      "publishedAt": "2026-09-07T10:00:00Z"
+    },
+    {
+      "index": 20,
+      "headline": "HELOC and home equity loan rates today, Monday, September 7, 2026: A 19-basis-point differential",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/heloc-and-home-equity-loan-rates-today-monday-september-7-2026-a-19-basis-point-differential-100000340.html",
+      "publishedAt": "2026-09-07T10:00:00Z"
+    },
+    {
+      "index": 21,
+      "headline": "Mortgage and refinance interest rates today, Monday, September 7, 2026: Fixed purchase rates lower than refi rates",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-monday-september-7-2026-fixed-purchase-rates-lower-than-refi-rates-100000677.html",
+      "publishedAt": "2026-09-07T10:00:00Z"
+    },
+    {
+      "index": 22,
+      "headline": "Apple Could Pay Tim Cook More Than John Ternus in 2027, Report Says",
+      "url": "https://gizmodo.com/apple-could-pay-tim-cook-more-than-john-ternus-in-2027-report-says-2000808024",
+      "publishedAt": "2026-09-07T09:00:10Z"
+    },
+    {
+      "index": 23,
+      "headline": "Families scale back on spending, surveys find",
+      "url": "https://www.cp24.com/news/money/2026/09/07/heres-how-much-school-supplies-have-gone-up-in-the-last-decade/",
+      "publishedAt": "2026-09-07T09:00:00Z"
+    },
+    {
+      "index": 24,
+      "headline": "People are injecting copper peptides ahead of the science : NPR",
+      "url": "https://www.npr.org/2026/09/07/nx-s1-5955552/copper-peptides-skin-aging-health-safe",
+      "publishedAt": "2026-09-07T09:00:00Z"
+    },
+    {
+      "index": 25,
+      "headline": "Tokyo’s Shinjuku Ward to ban minpaku in residential areas and near schools",
+      "url": "https://www.japantimes.co.jp/news/2026/09/07/japan/shinjuku-ward-minpaku-ban/",
+      "publishedAt": "2026-09-07T09:00:00Z"
+    },
+    {
+      "index": 26,
+      "headline": "What's open and closed on Labor Day 2026? See which businesses are operating.",
+      "url": "https://www.cbsnews.com/news/labor-day-2026-store-hours/",
+      "publishedAt": "2026-09-07T09:00:00Z"
+    },
+    {
+      "index": 27,
+      "headline": "Delta rolls out loyalty reward for cardholders",
+      "url": "https://punchng.com/delta-rolls-out-loyalty-reward-for-cardholders/",
+      "publishedAt": "2026-09-07T08:55:41Z"
+    },
+    {
+      "index": 28,
+      "headline": "Firm raises $3m for cross-border payments expansion",
+      "url": "https://thenationonlineng.net/firm-raises-3m-for-cross-border-payments-expansion/",
+      "publishedAt": "2026-09-07T08:53:42Z"
+    },
+    {
+      "index": 29,
+      "headline": "Billionaire Bill Ackman Sells Alphabet Stock and Buys a Mega-Cap Stock Down 42% From Its High",
+      "url": "https://www.fool.com/investing/2026/09/07/bill-ackman-sell-alphabet-stock-buy-mega-cap-stock/",
+      "publishedAt": "2026-09-07T08:52:25Z"
+    },
+    {
+      "index": 30,
+      "headline": "US Diesel Fuel Prices Reach Record Highs Amid Global Refinery Outages",
+      "url": "https://suaragarut.id/en/us-diesel-prices-record-highs",
+      "publishedAt": "2026-09-07T08:51:07Z"
+    },
+    {
+      "index": 31,
+      "headline": "Fitch downgrades Genting to 'BBB-‌' and Resorts World Las Vegas to 'BB+'",
+      "url": "https://www.thestar.com.my/business/business-news/2026/09/07/fitch-downgrades-genting-to-039bbb-039-and-resorts-world-las-vegas-to-039bb039",
+      "publishedAt": "2026-09-07T08:50:00Z"
+    },
+    {
+      "index": 32,
+      "headline": "European Stocks Muted as Oil Prices Climb and Novartis Falls",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/european-stocks-muted-as-oil-creeps-higher-novartis-falls",
+      "publishedAt": "2026-09-07T07:24:05+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "EM Stocks Jump to Highest Since June as Tech Offsets Higher Oil",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-07/em-stocks-jump-to-2-month-high-as-tech-rally-offsets-higher-oil",
+      "publishedAt": "2026-09-07T03:44:49+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "Gap closed 350 stores and now has an Old Navy problem",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/gap-closed-350-stores-now-233354471.html",
+      "publishedAt": "2026-09-06T23:33:54Z"
+    },
+    {
+      "index": 35,
+      "headline": "Gold Edges Lower as Traders Focus on Oil Price Swings and Dollar",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-06/gold-holds-decline-as-traders-weigh-prospects-for-fed-rate-hike",
+      "publishedAt": "2026-09-06T23:28:46+00:00"
+    },
+    {
+      "index": 36,
+      "headline": "US Stocks Slip as Oil Gains Keep Traders Cautious: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-06/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-09-06T22:15:34+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "Latest Oil Market News and Analysis for September 7",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-06/latest-oil-market-news-and-analysis-for-september-7",
+      "publishedAt": "2026-09-06T22:04:41+00:00"
+    },
+    {
+      "index": 38,
+      "headline": "Plane with Amazon logo crashes outside Miami airport - NBC News",
+      "url": "https://www.nbcnews.com/news/us-news/amazon-plane-crash-miami-rcna596369",
+      "publishedAt": "2026-09-06T20:34:25Z"
+    },
+    {
+      "index": 39,
+      "headline": "Scott Galloway issues grim SpaceX stock price forecast",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/scott-galloway-issues-grim-spacex-173300856.html",
+      "publishedAt": "2026-09-06T17:33:00Z"
+    },
+    {
+      "index": 40,
+      "headline": "A Kentucky man with a meat allergy was craving a burger. So he got into ostrich farming - AP News",
+      "url": "https://apnews.com/article/kentucky-farm-alphagal-tick-ostrich-steak-allergy-15cedc20aac4f0650e0d24d05a577139",
+      "publishedAt": "2026-09-06T17:00:00Z"
+    },
+    {
+      "index": 41,
+      "headline": "Travis Kalanick’s Atoms might be getting into the robotaxi business - TechCrunch",
+      "url": "https://techcrunch.com/2026/09/06/travis-kalanicks-atoms-might-be-getting-into-the-robotaxi-business/",
+      "publishedAt": "2026-09-06T16:45:00Z"
+    },
+    {
+      "index": 42,
+      "headline": "Labor Day sales 2026: The best expert-approved deals from Amazon, Apple, Hoka, Patagonia and more up to 75% off - Yahoo",
+      "url": "https://shopping.yahoo.com/deals/breaking-news/article/labor-day-sales-2026-the-best-expert-approved-deals-from-amazon-apple-hoka-patagonia-and-more-up-to-75-off-204203986.html",
+      "publishedAt": "2026-09-06T16:36:51Z"
+    },
+    {
+      "index": 43,
+      "headline": "TechCrunch Mobility: Tesla Cybercab hits the road — and a snag - techcrunch.com",
+      "url": "https://techcrunch.com/2026/09/06/techcrunch-mobility-tesla-cybercab-hits-the-road-and-a-snag/",
+      "publishedAt": "2026-09-06T16:08:00Z"
+    },
+    {
+      "index": 44,
+      "headline": "In Trump’s Second Term, the MAGA Merchandise Boom Is Going Bust - WSJ",
+      "url": "https://www.wsj.com/business/retail/in-trumps-second-term-the-maga-merchandise-boom-is-going-bust-725bc43a",
+      "publishedAt": "2026-09-06T15:17:00Z"
+    },
+    {
+      "index": 45,
+      "headline": "Frontier Airlines to exit entire market by October - thestreet.com",
+      "url": "https://www.thestreet.com/travel/frontier-airlines-to-exit-entire-market-by-october",
+      "publishedAt": "2026-09-06T14:53:59Z"
+    },
+    {
+      "index": 46,
+      "headline": "Scott Galloway issues grim SpaceX stock price forecast - thestreet.com",
+      "url": "https://www.thestreet.com/investing/stocks/spcx-scott-galloway-spacex-stock-price-target-forecast",
+      "publishedAt": "2026-09-06T14:33:00Z"
+    },
+    {
+      "index": 47,
+      "headline": "This Single Barrel Bourbon Stands Toe-To-Toe With Blanton's While Being 90% Cheaper - Tasting Table",
+      "url": "https://www.tastingtable.com/2248964/benchmark-bourbon-rival-blantons-90-percent-cheaper/",
+      "publishedAt": "2026-09-06T14:30:00Z"
+    },
+    {
+      "index": 48,
+      "headline": "Some Vegas hotels are treating Canada's dollar as equivalent to the greenback to offer more value - fortune.com",
+      "url": "https://fortune.com/2026/09/06/trump-tariffs-trade-war-canada-tourists-loonie-dollar-equivalent/",
+      "publishedAt": "2026-09-06T14:09:00Z"
+    },
+    {
+      "index": 49,
+      "headline": "Google Unveils Gemini 3.8 Flash and Fairwind Program: How to Play GOOGL Stock Here",
+      "url": "https://finance.yahoo.com/technology/ai/articles/google-unveils-gemini-3-8-140002406.html",
+      "publishedAt": "2026-09-06T14:00:02Z"
+    },
+    {
+      "index": 50,
+      "headline": "Alexandria’s (ARE) Profit Rebound Comes With A Cash Flow Catch",
+      "url": "https://finance.yahoo.com/real-estate/articles/alexandria-profit-rebound-comes-cash-135541164.html",
+      "publishedAt": "2026-09-06T13:55:41Z"
+    },
+    {
+      "index": 51,
+      "headline": "Murphy USA (MUSA) Delivers Robust Second-Quarter Earnings on Surging Fuel Margins",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/murphy-usa-musa-delivers-robust-133715978.html",
+      "publishedAt": "2026-09-06T13:37:15Z"
+    },
+    {
+      "index": 52,
+      "headline": "The VIX Is Playing Tricks: Why Stocks Are Volatile, But the Fear Gauge Is Sleeping",
+      "url": "https://finance.yahoo.com/markets/options/articles/vix-playing-tricks-why-stocks-133002657.html",
+      "publishedAt": "2026-09-06T13:30:02Z"
+    },
+    {
+      "index": 53,
+      "headline": "Wynn Resorts (WYNN) Doubles Its Profit But Cracks Are Showing",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wynn-resorts-wynn-doubles-profit-132704112.html",
+      "publishedAt": "2026-09-06T13:27:04Z"
+    },
+    {
+      "index": 54,
+      "headline": "Apple Stock: September Surprise Could Be Bigger Than a New iPhone",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/apple-stock-september-surprise-could-130002154.html",
+      "publishedAt": "2026-09-06T13:00:02Z"
+    },
+    {
+      "index": 55,
+      "headline": "Dear Adobe Stock Fans, Mark Your Calendars for September 10",
+      "url": "https://finance.yahoo.com/technology/ai/articles/dear-adobe-stock-fans-mark-130002907.html",
+      "publishedAt": "2026-09-06T13:00:02Z"
+    },
+    {
+      "index": 56,
+      "headline": "Dell Stock Spiked After Earnings, But Is It Close to Fair Value? Shorting Puts and Calls Work Here",
+      "url": "https://finance.yahoo.com/markets/options/articles/dell-stock-spiked-earnings-close-130002194.html",
+      "publishedAt": "2026-09-06T13:00:02Z"
+    },
+    {
+      "index": 57,
+      "headline": "Micron Stock More Than Tripled in 2026. Now Taiwan Strike Threat Could Shake the AI Boom.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/micron-stock-more-tripled-2026-130002463.html",
+      "publishedAt": "2026-09-06T13:00:02Z"
+    },
+    {
+      "index": 58,
+      "headline": "Protagonist (PTGX) Swings To A Profit As Two Drugs Near Blockbuster Status",
+      "url": "https://finance.yahoo.com/healthcare/articles/protagonist-ptgx-swings-profit-two-125554207.html",
+      "publishedAt": "2026-09-06T12:55:54Z"
+    },
+    {
+      "index": 59,
+      "headline": "Voya Financial’s (VOYA) Earnings Fell While Its Retirement Business Boomed",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/voya-financial-voya-earnings-fell-124948124.html",
+      "publishedAt": "2026-09-06T12:49:48Z"
+    },
+    {
+      "index": 60,
+      "headline": "SIGA Tech (SIGA): Profits Drop 65%, But Cash and Special Payouts Remain",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/siga-tech-siga-profits-drop-124131686.html",
+      "publishedAt": "2026-09-06T12:41:31Z"
+    },
+    {
+      "index": 61,
+      "headline": "Fidelity says average 401(k) balances surged 11% to a record $155K in Q2 — why some savers are falling behind",
+      "url": "https://finance.yahoo.com/markets/articles/fidelity-says-average-401-k-123000191.html",
+      "publishedAt": "2026-09-06T12:30:00Z"
+    },
+    {
+      "index": 62,
+      "headline": "IRS collected $3.5 billion less from audits in 2025 after losing 30% of its auditors to DOGE cuts, watchdog says",
+      "url": "https://finance.yahoo.com/economy/policy/articles/irs-collected-3-5-billion-123000181.html",
+      "publishedAt": "2026-09-06T12:30:00Z"
+    },
+    {
+      "index": 63,
+      "headline": "These AI numbers are getting crazy",
+      "url": "https://finance.yahoo.com/markets/article/these-ai-numbers-are-getting-crazy-123000121.html",
+      "publishedAt": "2026-09-06T12:30:00Z"
+    },
+    {
+      "index": 64,
+      "headline": "A bankruptcy attorney explains exactly when creditors can — and can't — garnish your 401(k) to collect debts",
+      "url": "https://finance.yahoo.com/markets/articles/bankruptcy-attorney-explains-exactly-creditors-121500208.html",
+      "publishedAt": "2026-09-06T12:15:00Z"
+    },
+    {
+      "index": 65,
+      "headline": "TSS Inc. (TSSI) Is Quietly Rewiring Its Business Around AI Data Centers",
+      "url": "https://finance.yahoo.com/technology/ai/articles/tss-inc-tssi-quietly-rewiring-121234384.html",
+      "publishedAt": "2026-09-06T12:12:34Z"
+    },
+    {
+      "index": 66,
+      "headline": "Copper Just Soared to an All-Time High, but This Stock Is Still a Great Value",
+      "url": "https://finance.yahoo.com/markets/commodities/articles/copper-just-soared-time-high-120500291.html",
+      "publishedAt": "2026-09-06T12:05:00Z"
+    },
+    {
+      "index": 67,
+      "headline": "Can Apple's New Boss Deliver a Blockbuster Product Launch?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/apples-boss-deliver-blockbuster-product-120000204.html",
+      "publishedAt": "2026-09-06T12:00:00Z"
+    },
+    {
+      "index": 68,
+      "headline": "Five Signs It’s Time to Reduce Equity Exposure",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/five-signs-time-reduce-equity-120000977.html",
+      "publishedAt": "2026-09-06T12:00:00Z"
+    },
+    {
+      "index": 69,
+      "headline": "Pepsi Is Dirt Cheap With a 4.2% Dividend Yield. Here's Why Wall Street Is Favoring Coca-Cola Instead.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/pepsi-dirt-cheap-4-2-115500475.html",
+      "publishedAt": "2026-09-06T11:55:00Z"
+    },
+    {
+      "index": 70,
+      "headline": "Breakfast News: The Sunday Edition",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/breakfast-news-sunday-edition-115000606.html",
+      "publishedAt": "2026-09-06T11:50:00Z"
+    },
+    {
+      "index": 71,
+      "headline": "NuScale Stock Is Down 83% -- Bargain or Trap? The Honest Answer Will Surprise You.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nuscale-stock-down-83-bargain-115000100.html",
+      "publishedAt": "2026-09-06T11:50:00Z"
+    },
+    {
+      "index": 72,
+      "headline": "OraSure (OSUR) Returns To Profit, But Growth Remains Elusive",
+      "url": "https://finance.yahoo.com/healthcare/articles/orasure-osur-returns-profit-growth-114837828.html",
+      "publishedAt": "2026-09-06T11:48:37Z"
+    },
+    {
+      "index": 73,
+      "headline": "‘Listen up’: Suze Orman says Americans are miscalculating 1 critical retirement cost — are you? 5 ways to get ahead now",
+      "url": "https://finance.yahoo.com/healthcare/articles/listen-suze-orman-says-americans-114500604.html",
+      "publishedAt": "2026-09-06T11:45:00Z"
+    },
+    {
+      "index": 74,
+      "headline": "Visa vs. American Express: Which Financial Stock Is the Better Buy?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/visa-vs-american-express-financial-114400597.html",
+      "publishedAt": "2026-09-06T11:44:00Z"
+    },
+    {
+      "index": 75,
+      "headline": "OPEC, Allies Agree to Keep Oil Output Steady in October",
+      "url": "https://www.wsj.com/business/energy-oil/opec-allies-agree-to-keep-oil-output-steady-in-october-c7fceb83?siteid=yhoof2&yptr=yahoo",
+      "publishedAt": "2026-09-06T11:38:00Z"
+    },
+    {
+      "index": 76,
+      "headline": "The retirement savings you'll need to spend $10,000 at age 55, 62 and 65. Can you afford to retire in 2027?",
+      "url": "https://finance.yahoo.com/markets/articles/retirement-savings-youll-spend-10-113000292.html",
+      "publishedAt": "2026-09-06T11:30:00Z"
+    },
+    {
+      "index": 77,
+      "headline": "‘The pessimists are wrong’: Fox News tax expert says big refunds signal a strong economy, but is he missing something?",
+      "url": "https://finance.yahoo.com/economy/articles/pessimists-wrong-fox-news-tax-111500664.html",
+      "publishedAt": "2026-09-06T11:15:00Z"
+    },
+    {
+      "index": 78,
+      "headline": "enCore Energy’s (EU) Uranium Sales Are Costing More Than They Earn",
+      "url": "https://finance.yahoo.com/markets/commodities/articles/encore-energy-eu-uranium-sales-111423774.html",
+      "publishedAt": "2026-09-06T11:14:23Z"
+    },
+    {
+      "index": 79,
+      "headline": "Xponential Fitness (XPOF) Swings To A Loss And Cuts Guidance",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/xponential-fitness-xpof-swings-loss-110714310.html",
+      "publishedAt": "2026-09-06T11:07:14Z"
+    },
+    {
+      "index": 80,
+      "headline": "Jhalesa Seymour started a soap business with $67 in college — it's now done over $16 million in sales",
+      "url": "https://finance.yahoo.com/small-business/articles/jhalesa-seymour-started-soap-business-110000881.html",
+      "publishedAt": "2026-09-06T11:00:00Z"
+    },
+    {
+      "index": 81,
+      "headline": "Costco Reports Double-Digit Growth in August 2026 Sales. What That Means for COST Stock.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/costco-reports-double-digit-growth-105141423.html",
+      "publishedAt": "2026-09-06T10:51:41Z"
+    },
+    {
+      "index": 82,
+      "headline": "Nvidia’s Hugging Face Deal Is a Hedge against Broadcom’s Custom Silicon Threat",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-hugging-face-deal-hedge-105111039.html",
+      "publishedAt": "2026-09-06T10:51:11Z"
+    },
+    {
+      "index": 83,
+      "headline": "Up 90% in 2026, This Cybersecurity Growth Stock Under $300 Is the Best One to Buy Now",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/90-2026-cybersecurity-growth-stock-104939003.html",
+      "publishedAt": "2026-09-06T10:49:39Z"
+    },
+    {
+      "index": 84,
+      "headline": "Retired 73-year-old Ramsey caller has ‘$175 in savings’ and $57K in debt. Is it all over? 4 habits to avoid her fate",
+      "url": "https://finance.yahoo.com/markets/articles/retired-73-old-ramsey-caller-104500509.html",
+      "publishedAt": "2026-09-06T10:45:00Z"
+    },
+    {
+      "index": 85,
+      "headline": "Wall Street Money Is Leaving Just As Atrium’s (RNA) Pipeline Turns Real",
+      "url": "https://finance.yahoo.com/healthcare/articles/wall-street-money-leaving-just-104402645.html",
+      "publishedAt": "2026-09-06T10:44:02Z"
+    },
+    {
+      "index": 86,
+      "headline": "AudioCodes (AUDC) Bets Big On Voice AI While Cash Dwindles",
+      "url": "https://finance.yahoo.com/technology/ai/articles/audiocodes-audc-bets-big-voice-102646593.html",
+      "publishedAt": "2026-09-06T10:26:46Z"
+    },
+    {
+      "index": 87,
+      "headline": "Ultra-rich Americans are dropping stocks and stockpiling historic piles of cash. Where their wealth’s going instead",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ultra-rich-americans-dropping-stocks-101500963.html",
+      "publishedAt": "2026-09-06T10:15:00Z"
+    },
+    {
+      "index": 88,
+      "headline": "Best CD rates today, Sunday, September 6, 2026: Lock in up to 4.35% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-sunday-september-6-2026-lock-in-up-to-435-apy-100000219.html",
+      "publishedAt": "2026-09-06T10:00:00Z"
+    },
+    {
+      "index": 89,
+      "headline": "It now takes an average of 15 years to break even on a home compared to renting — and nearly 50 years in these markets",
+      "url": "https://finance.yahoo.com/real-estate/articles/now-takes-average-15-years-100000984.html",
+      "publishedAt": "2026-09-06T10:00:00Z"
+    },
+    {
+      "index": 90,
+      "headline": "Mortgage and refinance interest rates today, Sunday, September 6, 2026: Rates much higher week-over-week",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-sunday-september-6-2026-rates-much-higher-week-over-week-100000794.html",
+      "publishedAt": "2026-09-06T10:00:00Z"
+    }
+  ]
+}
