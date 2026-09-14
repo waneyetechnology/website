@@ -1,0 +1,968 @@
+{
+  "analysis": {
+    "analysis_date": "September 14, 2026",
+    "analysis_time": "17:09",
+    "executive_summary": {
+      "key_highlights": [
+        "AI sector in sharp selloff: Anthropic and OpenAI CEOs issue stark warnings about AI safety, triggering broad chip-stock decline (Nvidia, Broadcom, Micron -5%, Marvell falling)",
+        "10-year Treasury yield breaches 5% as oil surges on Saudi pipeline attack and Houthi strikes; diesel hits all-time high",
+        "Fed meeting Sept 16 looms with rate-hike pressure building across G7; Trump publicly pushes for cuts while market prices hikes",
+        "US private credit default rate hits record 6.3% (Fitch); junk firms plot $13B refinancings as rates rise",
+        "S&P 500 flashing rare 27-year warning signal; BofA lifts target to 7,400 but stays cautious",
+        "Geopolitical escalation: Saudi pipeline shutdown, Houthi attacks, US $450M tungsten stake vs China",
+        "M&A active: Apollo eyeing $20B J&J orthopaedics; Puig acquires Isdin for €1.2B; YPF lines up $24B LNG buyers",
+        "Emerging markets and crypto under pressure from oil surge and AI jitters; fund flows 13-to-1 against AI funds"
+      ],
+      "market_sentiment_score": 32,
+      "overall_sentiment": "negative",
+      "headline_sources": [
+        1,
+        3,
+        4,
+        15,
+        19,
+        23,
+        31,
+        34,
+        46,
+        48,
+        53,
+        56,
+        61,
+        75,
+        79
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology/AI",
+          "trend": "Sharp selloff driven by Anthropic/OpenAI safety warnings; chip names hit hardest; rotation into UK-based AI names and Broadcom over Nvidia",
+          "implications": "AI trade disruption may be structural, not just a dip; fund outflows 13-to-1 signal sentiment shift; but BofA's 7,400 S&P target implies eventual recovery",
+          "headline_sources": [
+            1,
+            3,
+            12,
+            15,
+            17,
+            19,
+            24,
+            34,
+            41,
+            47,
+            53,
+            75,
+            79
+          ]
+        },
+        {
+          "sector": "Energy/Oil",
+          "trend": "Oil surges on Saudi pipeline shutdown and Houthi attacks; Vista, YPF LNG, and freight funds benefit; diesel at all-time high",
+          "implications": "Supply risk premium embedded; Middle East conflict could sustain elevated prices; energy names offer relative strength",
+          "headline_sources": [
+            4,
+            11,
+            27,
+            35,
+            36,
+            76,
+            81
+          ]
+        },
+        {
+          "sector": "Financials/Credit",
+          "trend": "Private credit defaults at record 6.3%; $13B junk refinancings; Citadel sees Europe bond yields capped by weak growth",
+          "implications": "Credit stress building; rate-hike environment pressures leveraged borrowers; monitor CLO and private credit exposures",
+          "headline_sources": [
+            37,
+            39,
+            51,
+            7,
+            22
+          ]
+        },
+        {
+          "sector": "Consumer/Retail",
+          "trend": "Walmart delivery expansion via Papa John's; L.L.Bean rejects AI; 49-year clothing chain closing stores; coffeehouse Chapter 11",
+          "implications": "Consumer pressure from inflation; selective retail winners; AI-resistant business models gaining attention",
+          "headline_sources": [
+            42,
+            82,
+            89,
+            73
+          ]
+        },
+        {
+          "sector": "Industrials/Defense",
+          "trend": "US $450M tungsten stake vs China; strategic metal producer +43% on Pentagon deals; AI construction applications",
+          "implications": "Supply chain decoupling from China accelerating; defense and critical minerals in structural uptrend",
+          "headline_sources": [
+            30,
+            32,
+            64,
+            20
+          ]
+        }
+      ],
+      "key_themes": [
+        "AI safety reckoning: Industry leaders publicly calling for slowdown, disrupting the very trade they built",
+        "Oil supply shock: Saudi pipeline + Houthi attacks create dual geopolitical risk",
+        "Rate-hike fever: 10Y at 5%, G7 central banks tightening, Fed Sept 16 pivotal",
+        "Credit stress: Record private credit defaults, junk refinancing wave",
+        "US-China decoupling: Tungsten, DeepSeek IPO, Yuan bond debut by Vale",
+        "M&A consolidation: Apollo/J&J, Puig/Isdin, YPF LNG signal capital reallocation",
+        "Bond market rebellion: Bessent's 'bet against me' stance losing to market forces",
+        "Energy transition: LNG, freight, and oil infrastructure commanding premiums"
+      ],
+      "headline_sources": [
+        1,
+        3,
+        4,
+        15,
+        19,
+        24,
+        30,
+        32,
+        38,
+        39,
+        46,
+        51,
+        53,
+        78,
+        79,
+        88
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "AI sector correction / sentiment reversal",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Reduce concentrated AI/chip exposure; rotate to AI-adjacent (infrastructure, energy for data centers); maintain 10-15% cash buffer",
+        "headline_sources": [
+          1,
+          3,
+          15,
+          19,
+          34,
+          47,
+          53,
+          75,
+          79
+        ]
+      },
+      {
+        "risk_factor": "Oil supply shock / Middle East escalation",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Hedge with energy ETFs or call options; monitor Brent/WTI spreads; consider inflation-linked bonds",
+        "headline_sources": [
+          4,
+          11,
+          27,
+          35,
+          56,
+          76,
+          81
+        ]
+      },
+      {
+        "risk_factor": "Rate hike / 10Y yield above 5%",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Shorten duration; favor floating-rate credit; lock in CD rates (4.35% APY available); avoid long-duration equities",
+        "headline_sources": [
+          16,
+          33,
+          38,
+          46,
+          56,
+          57,
+          58,
+          88
+        ]
+      },
+      {
+        "risk_factor": "Private credit / junk debt default wave",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Avoid leveraged credit funds; monitor CLO spreads; favor investment-grade or short-duration credit",
+        "headline_sources": [
+          39,
+          51,
+          73
+        ]
+      },
+      {
+        "risk_factor": "Geopolitical / US-China decoupling",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Diversify supply chain exposure; favor domestic producers; monitor critical minerals (tungsten, rare earths)",
+        "headline_sources": [
+          30,
+          32,
+          43,
+          5
+        ]
+      },
+      {
+        "risk_factor": "S&P 500 27-year warning signal",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Treat as caution flag, not panic; rebalance to 60/40; add defensive sectors (utilities, healthcare, staples)",
+        "headline_sources": [
+          23,
+          29,
+          48
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Rotate from Nvidia into Broadcom and UK-based AI names as AI trade restructures",
+          "rationale": "Rotation signal clear; Broadcom positioned for next AI leg; UK names undervalued relative to US peers",
+          "tickers": [
+            "AVGO",
+            "NVDA",
+            "SMI"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            3,
+            28,
+            41
+          ]
+        },
+        {
+          "recommendation": "Add energy exposure via Vista, YPF LNG, and freight funds",
+          "rationale": "Oil supply risk structural; freight fund +3,600% on Iran war; YPF $24B LNG project signals long-term demand",
+          "tickers": [
+            "VIST",
+            "YPF"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            4,
+            11,
+            36,
+            81
+          ]
+        },
+        {
+          "recommendation": "Lock in 4.35% APY CDs and 4.10% HY savings before further rate moves",
+          "rationale": "Rates at multi-year highs; 10Y at 5% suggests further upside; securing yields now is prudent",
+          "tickers": [],
+          "timeframe": "short",
+          "headline_sources": [
+            57,
+            58,
+            86,
+            87,
+            90,
+            91
+          ]
+        },
+        {
+          "recommendation": "Accumulate critical minerals / defense names on US-China decoupling",
+          "rationale": "$450M tungsten stake, Pentagon deals (+43%), structural supply chain shift",
+          "tickers": [
+            "MP",
+            "FCX"
+          ],
+          "timeframe": "long",
+          "headline_sources": [
+            30,
+            32
+          ]
+        },
+        {
+          "recommendation": "Consider Apollo/J&J orthopaedics and Puig/Isdin M&A arbitrage",
+          "rationale": "Large-cap deals signal sector consolidation; orthopaedics and dermo-cosmetics have durable demand",
+          "tickers": [
+            "APO",
+            "JNJ",
+            "PUG"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            2,
+            8
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Trim concentrated AI/chip positions by 20-30%; add stop-losses",
+          "rationale": "AI safety warnings from Anthropic, OpenAI, Microsoft CEO signal potential 15-25% correction; 27-year S&P warning adds urgency",
+          "tickers": [
+            "NVDA",
+            "MU",
+            "MRVL",
+            "AVGO"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            1,
+            12,
+            19,
+            24,
+            34,
+            47,
+            53,
+            79
+          ]
+        },
+        {
+          "recommendation": "Shorten bond duration; favor T-bills and floating-rate notes",
+          "rationale": "10Y at 5% with rate-hike risk; Bessent losing to bond market; G7 tightening cycle",
+          "tickers": [
+            "SHV",
+            "TBF"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            33,
+            38,
+            46,
+            56,
+            88
+          ]
+        },
+        {
+          "recommendation": "Avoid junk credit and private credit funds; shift to IG or short-duration",
+          "rationale": "6.3% default rate is record; $13B refinancing wave at higher rates increases distress risk",
+          "tickers": [
+            "LQD",
+            "IGF"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            39,
+            51
+          ]
+        },
+        {
+          "recommendation": "Add gold IRAs and defensive equities (utilities, staples) to portfolio",
+          "rationale": "Geopolitical risk, inflation, and rate uncertainty support gold; utilities offer dividend stability",
+          "tickers": [
+            "GLD",
+            "XLU",
+            "XLP"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            13,
+            55,
+            54
+          ]
+        },
+        {
+          "recommendation": "Reduce EM exposure or hedge with oil-linked EM names",
+          "rationale": "EM assets falling on oil surge + AI jitters; IEMG vs SCHE comparison suggests selectivity needed",
+          "tickers": [
+            "IEMG",
+            "SCHE"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            14,
+            72
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Bearish-to-volatile. AI selloff likely to extend 1-2 weeks as safety narrative digests. Oil above $90-95 sustains inflation pressure. Fed Sept 16 meeting is binary catalyst: hawkish surprise could push 10Y to 5.2%+. S&P 500 may test support near 5,800-6,000. Expect 5-8% drawdown in tech-heavy indices.",
+      "long_term": "Cautiously constructive. BofA's 7,400 S&P target implies AI capex cycle continues despite pause. Energy transition (LNG, critical minerals) and M&A consolidation support 6-12 month upside. Rate peak likely within 2 quarters. Key risk: if AI safety concerns trigger regulatory crackdown, tech multiples compress 20%+.",
+      "key_catalysts": [
+        "Fed meeting Sept 16 - rate decision and forward guidance",
+        "AI safety regulatory response to Anthropic/OpenAI warnings",
+        "Saudi pipeline restoration timeline and Houthi escalation",
+        "US private credit default trajectory (6.3% and rising)",
+        "DeepSeek IPO filing and China tech policy",
+        "Apollo/J&J orthopaedics deal resolution",
+        "G7 central bank rate decisions (Warsh focus)",
+        "Q3 earnings season approaching (late Sept)"
+      ],
+      "watch_list": [
+        "10-year Treasury yield (currently >5%)",
+        "Brent/WTI crude and diesel prices",
+        "Nvidia, Broadcom, Micron, Marvell technical levels",
+        "US private credit default rate (Fitch monthly)",
+        "S&P 500 27-year warning signal confirmation",
+        "Fed dot plot and SEP Sept 16",
+        "Saudi pipeline status and Hormuz exports",
+        "AI fund flow data (13-to-1 outflow trend)",
+        "Junk bond spreads and $13B refinancing execution",
+        "Crypto (BTC/ETH) vs rate-hike expectations",
+        "Mortgage rates and housing affordability index"
+      ],
+      "headline_sources": [
+        16,
+        23,
+        29,
+        33,
+        38,
+        46,
+        56,
+        78,
+        88,
+        52,
+        25,
+        54,
+        55,
+        60,
+        61
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Stock Market Midday, Sept. 14: Tech Stocks Slide on Dire AI Warnings, Micron Drops 5%",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-midday-sept-14-164459890.html",
+      "publishedAt": "2026-09-14T16:44:59Z"
+    },
+    {
+      "index": 2,
+      "headline": "Apollo rumoured to be eyeing $20bn takeover of J&J’s orthopaedics business",
+      "url": "https://finance.yahoo.com/healthcare/articles/apollo-rumoured-eyeing-20bn-takeover-164216185.html",
+      "publishedAt": "2026-09-14T16:42:16Z"
+    },
+    {
+      "index": 3,
+      "headline": "Nvidia, Broadcom Tumble In AI Rotation; These U.K.-Based Names Gain",
+      "url": "https://www.investors.com/news/ai-nvidia-broadcom-software-stocks-servicenow-workday-salesforce-micron/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-09-14T16:38:47Z"
+    },
+    {
+      "index": 4,
+      "headline": "Oil Surges as Saudi Pipeline Shutdown Brings Fresh Supply Risk",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-14/saudi-pipeline-shutdown-brings-fresh-supply-risk-video",
+      "publishedAt": "2026-09-14T16:38:34+00:00"
+    },
+    {
+      "index": 5,
+      "headline": "China's DeepSeek hires dealmaker as CFO ahead of possible IPO",
+      "url": "https://finance.yahoo.com/technology/ai/articles/chinas-deepseek-hires-dealmaker-cfo-163408342.html",
+      "publishedAt": "2026-09-14T16:36:46Z"
+    },
+    {
+      "index": 6,
+      "headline": "Social Security COLA Isn’t Enough To Live On",
+      "url": "https://finance.yahoo.com/economy/policy/articles/social-security-cola-isn-t-163638085.html",
+      "publishedAt": "2026-09-14T16:36:38Z"
+    },
+    {
+      "index": 7,
+      "headline": "Where Will Main Street Capital's Dividend Be in 5 Years?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/where-main-street-capitals-dividend-163500231.html",
+      "publishedAt": "2026-09-14T16:35:00Z"
+    },
+    {
+      "index": 8,
+      "headline": "Puig Agrees to Take Control of Isdin in €1.2 Billion Deal",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-14/puig-agrees-to-take-control-of-isdin-in-1-2-billion-deal",
+      "publishedAt": "2026-09-14T16:33:49+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "First American Title expands no-cost monitoring to agent network",
+      "url": "https://finance.yahoo.com/real-estate/articles/first-american-title-expands-no-163239386.html",
+      "publishedAt": "2026-09-14T16:32:39Z"
+    },
+    {
+      "index": 10,
+      "headline": "Anthropic Launches Claude for Financial Advisors",
+      "url": "https://finance.yahoo.com/technology/ai/articles/anthropic-launches-claude-financial-advisors-163137440.html",
+      "publishedAt": "2026-09-14T16:31:37Z"
+    },
+    {
+      "index": 11,
+      "headline": "Mexico-Based Energy Leader Vista Eyes Buy Point As Oil Prices Surge On Middle East Conflict",
+      "url": "https://www.investors.com/research/vista-stock-vist-energy-oil-prices/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-09-14T16:30:10Z"
+    },
+    {
+      "index": 12,
+      "headline": "Why Marvell Stock Is Falling Today",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-marvell-stock-falling-today-163000621.html",
+      "publishedAt": "2026-09-14T16:30:00Z"
+    },
+    {
+      "index": 13,
+      "headline": "How gold IRAs fit into a diversified retirement portfolio",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/how-gold-iras-fit-into-a-diversified-retirement-portfolio-162815731.html",
+      "publishedAt": "2026-09-14T16:28:15Z"
+    },
+    {
+      "index": 14,
+      "headline": "IEMG vs SCHE: Which Emerging Markets ETF Is the Smarter Choice Right Now?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/iemg-vs-sche-emerging-markets-162814287.html",
+      "publishedAt": "2026-09-14T16:28:14Z"
+    },
+    {
+      "index": 15,
+      "headline": "AI Scare Threatens Fund Flows Beating Rest of Market 13-to-1",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-14/ai-scare-threatens-fund-flows-beating-rest-of-market-13-to-1",
+      "publishedAt": "2026-09-14T16:26:55+00:00"
+    },
+    {
+      "index": 16,
+      "headline": "Federal Reserve: 1 Thing All Investors Need to Know Before Sept. 16",
+      "url": "https://finance.yahoo.com/economy/policy/articles/federal-1-thing-investors-know-162625751.html",
+      "publishedAt": "2026-09-14T16:26:25Z"
+    },
+    {
+      "index": 17,
+      "headline": "OpenAI’s Sam Altman Says an IPO Won’t Happen This Year. Should This Make You Cautious About AI Stocks, or Is It Time to Pile Into Certain AI Bargains?",
+      "url": "https://finance.yahoo.com/technology/ai/articles/openai-sam-altman-says-ipo-162501360.html",
+      "publishedAt": "2026-09-14T16:25:01Z"
+    },
+    {
+      "index": 18,
+      "headline": "Ford’s Garage Plans Expansion Into Carolinas",
+      "url": "https://finance.yahoo.com/small-business/articles/ford-garage-plans-expansion-carolinas-162459973.html",
+      "publishedAt": "2026-09-14T16:24:59Z"
+    },
+    {
+      "index": 19,
+      "headline": "This Is A Different Kind of AI Selloff",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-09-14/this-is-a-different-kind-of-ai-selloff",
+      "publishedAt": "2026-09-14T16:24:23+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "Tariffs Forced Nissan to Speed U.S. Production, Says Americas Chairman",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-14/tariffs-forced-nissan-to-speed-u-s-production-video",
+      "publishedAt": "2026-09-14T16:23:34+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "CoreWeave's CEO Just Gave Investors Great News",
+      "url": "https://finance.yahoo.com/technology/ai/articles/coreweaves-ceo-just-gave-investors-162240452.html",
+      "publishedAt": "2026-09-14T16:22:40Z"
+    },
+    {
+      "index": 22,
+      "headline": "Tax Predictions, Oracle Layoffs and More of Today’s Top Money News",
+      "url": "https://finance.yahoo.com/economy/policy/articles/tax-predictions-oracle-layoffs-more-162004370.html",
+      "publishedAt": "2026-09-14T16:20:04Z"
+    },
+    {
+      "index": 23,
+      "headline": "The S&P 500 Is Flashing a Rare Historical Warning Signal Not Seen in 27 Years, and What It Could Mean for Investors",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/p-500-flashing-rare-historical-162000444.html",
+      "publishedAt": "2026-09-14T16:20:00Z"
+    },
+    {
+      "index": 24,
+      "headline": "Microsoft AI CEO Agrees: AI Is Getting Dangerous and Needs to Be Controlled",
+      "url": "https://finance.yahoo.com/technology/ai/articles/microsoft-ai-ceo-agrees-ai-161918346.html",
+      "publishedAt": "2026-09-14T16:19:18Z"
+    },
+    {
+      "index": 25,
+      "headline": "Ethereum’s Q3 Rally Runs Into Bearish Market Signals",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/ethereum-q3-rally-runs-bearish-161910680.html",
+      "publishedAt": "2026-09-14T16:19:10Z"
+    },
+    {
+      "index": 26,
+      "headline": "AI-Backed Portfolio Management Platform Pave Finance Raises $15M Series A",
+      "url": "https://finance.yahoo.com/technology/ai/articles/ai-backed-portfolio-management-platform-161823589.html",
+      "publishedAt": "2026-09-14T16:18:23Z"
+    },
+    {
+      "index": 27,
+      "headline": "Saudis Seek to Boost Hormuz Oil Exports as Key Pipeline Attacked",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-14/saudis-seek-to-boost-hormuz-oil-exports-as-key-pipeline-attacked",
+      "publishedAt": "2026-09-14T16:16:01+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "Forget the Magnificent 7. This Duo Says Broadcom, Not Nvidia, Wins the Next Leg of AI.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/forget-magnificent-7-duo-says-161519682.html",
+      "publishedAt": "2026-09-14T16:15:19Z"
+    },
+    {
+      "index": 29,
+      "headline": "BofA’s Subramanian Lifts S&P 500 View to 7,400, Stays Cautious",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-14/bofa-s-subramanian-lifts-s-p-500-view-to-7-400-stays-cautious",
+      "publishedAt": "2026-09-14T16:13:28+00:00"
+    },
+    {
+      "index": 30,
+      "headline": "US Takes $450 Million Stake in Tungsten Firm to Counter China",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-14/us-takes-450-million-stake-in-tungsten-firm-to-counter-china",
+      "publishedAt": "2026-09-14T16:09:29+00:00"
+    },
+    {
+      "index": 31,
+      "headline": "Stocks Fall on AI Jitters and Rising Oil Prices",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-14/bloomberg-surveillance-9-14-2026-video",
+      "publishedAt": "2026-09-14T16:04:59+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "Producer Of Strategic Metal Soars 43% On Pentagon Deals",
+      "url": "https://www.investors.com/news/pentagon-department-of-war-elmet-group-elmt-stock-tungsten/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-09-14T15:53:28Z"
+    },
+    {
+      "index": 33,
+      "headline": "Stocks could have a tough road ahead if the Fed hikes rates: Chart of the Day",
+      "url": "https://finance.yahoo.com/markets/article/stocks-could-have-a-tough-road-ahead-if-the-fed-hikes-rates-chart-of-the-day-155218683.html",
+      "publishedAt": "2026-09-14T15:52:18Z"
+    },
+    {
+      "index": 34,
+      "headline": "Nvidia Triggers Key Signals As AI Warnings Mount; Is Nvidia A Sell Now?",
+      "url": "https://www.investors.com/research/nvidia-nvda-stock-ai-chips-tech-september-2026-buy-now-markets/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-09-14T15:51:06Z"
+    },
+    {
+      "index": 35,
+      "headline": "Stock Market Today: Dow Falls, Oil Jumps On Houthi Moves; Trump Hits Out At These AI Fears (Live Coverage)",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-oil-prices-nvidia-nvda-stock-ai-warning/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-09-14T15:51:03Z"
+    },
+    {
+      "index": 36,
+      "headline": "YPF Lines Up Buyers for $24 Billion Vaca Muerta LNG Project",
+      "url": "https://finance.yahoo.com/energy/articles/ypf-lines-buyers-24-billion-154703112.html",
+      "publishedAt": "2026-09-14T15:47:03Z"
+    },
+    {
+      "index": 37,
+      "headline": "Citadel Securities Sees Europe Bond Yields Capped by Weak Growth",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-14/citadel-securities-sees-europe-bond-yields-capped-by-weak-growth",
+      "publishedAt": "2026-09-14T15:33:56+00:00"
+    },
+    {
+      "index": 38,
+      "headline": "All Eyes on Warsh as Rate-Hike Fever Spreads Across G7",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-14/all-eyes-on-warsh-as-rate-hike-fever-spreads-across-g7-video",
+      "publishedAt": "2026-09-14T15:33:41+00:00"
+    },
+    {
+      "index": 39,
+      "headline": "US Private Credit Default Rate Hits a Record of 6.3%, Fitch Says",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-14/us-private-credit-default-rate-hits-a-record-of-6-3-fitch-says",
+      "publishedAt": "2026-09-14T15:30:42+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "Latam Airlines Secures $505M Loan to Finance New Aircraft",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-14/latam-airlines-secures-505m-loan-to-finance-new-aircraft",
+      "publishedAt": "2026-09-14T15:30:33+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Europe’s AI Trade Hits Reverse",
+      "url": "https://finance.yahoo.com/technology/ai/articles/europe-ai-trade-hits-reverse-151219286.html",
+      "publishedAt": "2026-09-14T15:12:19Z"
+    },
+    {
+      "index": 42,
+      "headline": "Walmart (WMT) Delivery Push Gains Momentum with Papa John’s Partnership",
+      "url": "https://finance.yahoo.com/media-advertising/articles/walmart-wmt-delivery-push-gains-150509817.html",
+      "publishedAt": "2026-09-14T15:05:09Z"
+    },
+    {
+      "index": 43,
+      "headline": "Vale S.A. (VALE) Deepens China Ties with Potential Yuan Bond Debut",
+      "url": "https://finance.yahoo.com/markets/currencies/articles/vale-vale-deepens-china-ties-150347789.html",
+      "publishedAt": "2026-09-14T15:03:47Z"
+    },
+    {
+      "index": 44,
+      "headline": "Energy Transfer’s Texas Listing Could Boost Visibility, but Risks Remain",
+      "url": "https://finance.yahoo.com/energy/articles/energy-transfer-texas-listing-could-150231871.html",
+      "publishedAt": "2026-09-14T15:02:31Z"
+    },
+    {
+      "index": 45,
+      "headline": "Rig at Citadel’s Miami Construction Site Falls; Injures Four",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-14/crane-collapses-on-cars-in-miami-financial-center-four-injured",
+      "publishedAt": "2026-09-14T14:35:52+00:00"
+    },
+    {
+      "index": 46,
+      "headline": "US 10-Year Breaches 5% as Inflation, Supply Worries Mount",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-14/us-10-year-yield-breaches-5-as-inflation-supply-worries-mount",
+      "publishedAt": "2026-09-14T14:29:47+00:00"
+    },
+    {
+      "index": 47,
+      "headline": "Tech stocks today: AI warnings send shock through chip stocks",
+      "url": "https://finance.yahoo.com/technology/live/tech-stocks-today-ai-warnings-send-shock-through-chip-stocks-140134624.html",
+      "publishedAt": "2026-09-14T14:01:34Z"
+    },
+    {
+      "index": 48,
+      "headline": "Stock Market Today (Sept. 14, 2026): Nasdaq, S&P 500 falls on rising oil, AI tensions",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-sept-14-133832281.html",
+      "publishedAt": "2026-09-14T13:38:32Z"
+    },
+    {
+      "index": 49,
+      "headline": "NextEra, Dominion Offer Virginia More Aid to Ease Deal Fears",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-14/nextera-dominion-offer-virginia-aid-to-smooth-67-billion-deal",
+      "publishedAt": "2026-09-14T13:36:02+00:00"
+    },
+    {
+      "index": 50,
+      "headline": "Chase Home Lendings' mortgage rate sale returns for a 3-week run",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/chase-home-lendings-mortgage-rate-sale-returns-for-a-3-week-run-130100448.html",
+      "publishedAt": "2026-09-14T13:01:00Z"
+    },
+    {
+      "index": 51,
+      "headline": "Junk Firms Plot $13 Billion Debt Refinancings as Rate Hikes Loom",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-14/junk-firms-are-refinancing-debt-early-on-fear-costs-will-rise",
+      "publishedAt": "2026-09-14T12:00:54+00:00"
+    },
+    {
+      "index": 52,
+      "headline": "Bitcoin and ethereum prices today, Monday, September 14, 2026: Crypto prices trying to hold as rate-hike expectations grow",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-monday-september-14-2026-crypto-prices-trying-to-hold-as-rate-hike-expectations-grow-114245430.html",
+      "publishedAt": "2026-09-14T11:42:45Z"
+    },
+    {
+      "index": 53,
+      "headline": "Stocks tumble after AI leaders warn that the industry should slow down",
+      "url": "https://www.nbcnews.com/business/markets/stocks-tumble-ai-leaders-warning-slowdown-ipos-amodei-altman-rcna597643",
+      "publishedAt": "2026-09-14T11:30:36+00:00"
+    },
+    {
+      "index": 54,
+      "headline": "Silver prices today, Monday, September 14, 2026: Silver slides as rate-hike expectations grow",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/silver-prices-today-monday-september-14-2026-silver-slides-as-rate-hike-expectations-grow-112941547.html",
+      "publishedAt": "2026-09-14T11:29:41Z"
+    },
+    {
+      "index": 55,
+      "headline": "Gold prices today, Monday, September 14, 2026: Gold sinks following new attacks on Saudi pipeline and more",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-prices-today-monday-september-14-2026-gold-sinks-following-new-attacks-on-saudi-pipeline-and-more-111825907.html",
+      "publishedAt": "2026-09-14T11:18:25Z"
+    },
+    {
+      "index": 56,
+      "headline": "10-year Treasury yield tops 5% as oil surges and diesel hits all-time high",
+      "url": "https://www.nbcnews.com/business/business-news/diesel-oil-prices-jump-saudi-pipeline-shut-hormuz-talks-postponed-iran-rcna597579",
+      "publishedAt": "2026-09-14T10:28:57+00:00"
+    },
+    {
+      "index": 57,
+      "headline": "Best CD rates today, Monday, September 14, 2026: Lock in up to 4.35% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-monday-september-14-2026-lock-in-up-to-435-apy-100000686.html",
+      "publishedAt": "2026-09-14T10:00:00Z"
+    },
+    {
+      "index": 58,
+      "headline": "Best high-yield savings interest rates today, Monday, September 14, 2026: Earn up to 4.10% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-high-yield-savings-interest-rates-today-monday-september-14-2026-earn-up-to-410-apy-100000167.html",
+      "publishedAt": "2026-09-14T10:00:00Z"
+    },
+    {
+      "index": 59,
+      "headline": "HELOC and home equity loan rates today, Monday, September 14, 2026: A 33-basis-point differential",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/heloc-and-home-equity-loan-rates-today-monday-september-14-2026-a-33-basis-point-differential-100000523.html",
+      "publishedAt": "2026-09-14T10:00:00Z"
+    },
+    {
+      "index": 60,
+      "headline": "Mortgage and refinance interest rates today, Monday, September 14, 2026: Purchase and refinance rates are mixed",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-monday-september-14-2026-purchase-and-refinance-rates-are-mixed-100000816.html",
+      "publishedAt": "2026-09-14T10:00:00Z"
+    },
+    {
+      "index": 61,
+      "headline": "Stock market today: Dow, S&P 500, Nasdaq fall as Anthropic's AI warning spooks tech traders, 10-year yield hits 5%",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-monday-september-14-dow-sp-500-nasdaq-080559558.html",
+      "publishedAt": "2026-09-14T08:05:59Z"
+    },
+    {
+      "index": 62,
+      "headline": "7 Best Mileage SUVs In India That You Can Buy",
+      "url": "https://motoroctane.com/news/323233-7-best-mileage-suvs-in-india-that-you-can-buy",
+      "publishedAt": "2026-09-14T05:00:00Z"
+    },
+    {
+      "index": 63,
+      "headline": "A pared-back Victorian house in Stoke Newington with contemporary touches by Max Radford",
+      "url": "https://www.houseandgarden.co.uk/gallery/victorian-house-stoke-newington-max-radford",
+      "publishedAt": "2026-09-14T05:00:00Z"
+    },
+    {
+      "index": 64,
+      "headline": "AI boom offers strained construction a lasting fix",
+      "url": "https://www.reuters.com/commentary/breakingviews/ai-boom-offers-strained-construction-lasting-fix-2026-09-14/",
+      "publishedAt": "2026-09-14T05:00:00Z"
+    },
+    {
+      "index": 65,
+      "headline": "Can you futureproof your career by choosing an AI-resistant degree?",
+      "url": "https://www.theguardian.com/education/2026/sep/14/futureproof-your-career-by-choosing-an-ai-resistant-degree",
+      "publishedAt": "2026-09-14T05:00:00Z"
+    },
+    {
+      "index": 66,
+      "headline": "Rail passengers get automatic right to switch operators for free when trains are cancelled",
+      "url": "https://www.theguardian.com/business/2026/sep/14/cancelled-trains-rail-passengers-automatic-right-free-switch-operators",
+      "publishedAt": "2026-09-14T05:00:00Z"
+    },
+    {
+      "index": 67,
+      "headline": "The reality of university accommodation in Bristol after homeless students claim",
+      "url": "https://www.bristolpost.co.uk/news/bristol-news/reality-university-accommodation-bristol-after-11151878",
+      "publishedAt": "2026-09-14T05:00:00Z"
+    },
+    {
+      "index": 68,
+      "headline": "What really works against pigmentation?",
+      "url": "https://www.jpost.com/health-and-wellness/health-and-wellness-around-the-world/article-906890",
+      "publishedAt": "2026-09-14T05:00:00Z"
+    },
+    {
+      "index": 69,
+      "headline": "Will AI kill us all? I doubt it, but let’s reduce the risk … now",
+      "url": "https://www.theage.com.au/technology/will-ai-kill-us-all-i-doubt-it-but-let-s-reduce-the-risk-now-20260914-p60x24.html",
+      "publishedAt": "2026-09-14T05:00:00Z"
+    },
+    {
+      "index": 70,
+      "headline": "Buy-to-let company formations may have peaked since tax changes",
+      "url": "https://thenegotiator.co.uk/news/rental-market/buy-to-let-company-formations-may-have-peaked-since-tax-changes/",
+      "publishedAt": "2026-09-14T04:59:39Z"
+    },
+    {
+      "index": 71,
+      "headline": "Leasehold property prices slide amid legal and financial concerns",
+      "url": "https://thenegotiator.co.uk/features/housing-market-movements-features/leasehold-property-prices-slide-amid-legal-and-financial-concerns/",
+      "publishedAt": "2026-09-14T04:59:39Z"
+    },
+    {
+      "index": 72,
+      "headline": "Emerging-Market Assets Fall as Oil Surge, AI Jitters Dent Mood",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-14/emerging-market-stocks-decline-on-mideast-tensions-rate-risks",
+      "publishedAt": "2026-09-14T04:26:21+00:00"
+    },
+    {
+      "index": 73,
+      "headline": "Another coffeehouse files for Chapter 11 as costs, prices rise",
+      "url": "https://finance.yahoo.com/small-business/articles/another-coffeehouse-files-chapter-11-033545256.html",
+      "publishedAt": "2026-09-14T03:35:45Z"
+    },
+    {
+      "index": 74,
+      "headline": "Amazon suspends use of 21 Air, cargo carrier involved in fatal Miami crash",
+      "url": "https://www.nbcnews.com/news/us-news/amazon-suspends-use-21-air-cargo-carrier-involved-fatal-miami-crash-rcna597593",
+      "publishedAt": "2026-09-14T00:59:07+00:00"
+    },
+    {
+      "index": 75,
+      "headline": "Stocks Fall as AI Slowdown Worries Hit Chipmakers: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-13/us-stock-futures-fall-on-ai-warning-oil-gains-markets-wrap",
+      "publishedAt": "2026-09-13T22:06:01+00:00"
+    },
+    {
+      "index": 76,
+      "headline": "Latest Oil Market News and Analysis for Sept. 14",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-13/latest-oil-market-news-and-analysis-for-sept-14",
+      "publishedAt": "2026-09-13T22:01:52+00:00"
+    },
+    {
+      "index": 77,
+      "headline": "Female passenger undresses on American Airlines flight, engages in 'indecent acts,' crew reports - foxnews.com",
+      "url": "https://www.foxnews.com/us/female-passenger-undresses-american-airlines-flight-engages-indecent-acts-crew-reports",
+      "publishedAt": "2026-09-13T16:00:53Z"
+    },
+    {
+      "index": 78,
+      "headline": "Trump Pushes Fed to Lower Rates Despite Pressure to Raise Them - Bloomberg.com",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-13/trump-pushes-fed-to-lower-rates-despite-pressure-to-raise-them",
+      "publishedAt": "2026-09-13T13:45:52Z"
+    },
+    {
+      "index": 79,
+      "headline": "Stark warnings from Anthropic and OpenAI CEOs are set to disrupt the AI stock trade they built up - finance.yahoo.com",
+      "url": "https://finance.yahoo.com/technology/article/stark-warnings-from-anthropic-and-openai-ceos-are-set-to-disrupt-the-ai-stock-trade-they-built-up-132747413.html",
+      "publishedAt": "2026-09-13T13:30:45Z"
+    },
+    {
+      "index": 80,
+      "headline": "Taxing high earners to help fund Social Security gains bipartisan attention — what it could mean for benefits - CNBC",
+      "url": "https://www.cnbc.com/2026/09/13/social-security-payroll-tax-cap.html",
+      "publishedAt": "2026-09-13T13:30:01Z"
+    },
+    {
+      "index": 81,
+      "headline": "Up 3,600%, this freight fund has posted the biggest gains of all on Iran war oil shock - CNBC",
+      "url": "https://www.cnbc.com/2026/09/13/iran-war-oil-prices-freight-tankers-shipping.html",
+      "publishedAt": "2026-09-13T13:26:44Z"
+    },
+    {
+      "index": 82,
+      "headline": "49-year-old clothing chain closing stores as its shoppers shrink - thestreet.com",
+      "url": "https://www.thestreet.com/retail/49-year-old-mens-clothing-chain-destination-xl-closing-more-stores",
+      "publishedAt": "2026-09-13T13:15:57Z"
+    },
+    {
+      "index": 83,
+      "headline": "Genesis GV60's Glowing Orb Shifter Is Ridiculous And Completely Unnecessary, And I Couldn't Possibly Love It More - Jalopnik",
+      "url": "https://www.jalopnik.com/2254391/genesis-gv60-glowing-orb-crystal-sphere-shifter-design-love/",
+      "publishedAt": "2026-09-13T13:05:00Z"
+    },
+    {
+      "index": 84,
+      "headline": "It’s the most common aviation accident. But how to stop it? - The Washington Post",
+      "url": "https://www.washingtonpost.com/transportation/2026/09/13/why-stopping-plane-skidding-off-runway-is-challenge/",
+      "publishedAt": "2026-09-13T12:42:12Z"
+    },
+    {
+      "index": 85,
+      "headline": "Bizarre New Websites Are Designed Specifically to Spark Dopamine in Your Brain - futurism.com",
+      "url": "https://futurism.com/future-society/bizarre-websites-dopamine-brain",
+      "publishedAt": "2026-09-13T12:02:00Z"
+    },
+    {
+      "index": 86,
+      "headline": "Best CD rates today, Sunday, September 13, 2026: Lock in up to 4.35% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-sunday-september-13-2026-lock-in-up-to-435-apy-100000271.html",
+      "publishedAt": "2026-09-13T10:00:00Z"
+    },
+    {
+      "index": 87,
+      "headline": "Mortgage and refinance interest rates today, Sunday, September 13, 2026: Mortgage rates surged higher in the last week",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-sunday-september-13-2026-mortgage-rates-surged-higher-in-the-last-week-100000138.html",
+      "publishedAt": "2026-09-13T10:00:00Z"
+    },
+    {
+      "index": 88,
+      "headline": "Bessent dared the bond market to ‘bet against’ him. It did — and it appears to be winning.",
+      "url": "https://www.nbcnews.com/business/markets/bessent-bond-traders-bet-rcna597044",
+      "publishedAt": "2026-09-13T09:00:41+00:00"
+    },
+    {
+      "index": 89,
+      "headline": "L.L.Bean embraces its old-school roots with brick-and-mortar stores, print catalogs, no AI",
+      "url": "https://www.nbcnews.com/business/ceo-interviews/llbean-maine-roots-catalog-ai-stores-rcna596849",
+      "publishedAt": "2026-09-12T13:11:01+00:00"
+    },
+    {
+      "index": 90,
+      "headline": "Best CD rates today, Saturday, September 12, 2026: Lock in up to 4.35% APY with an 18-month CD",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-saturday-september-12-2026-lock-in-up-to-435-apy-with-an-18-month-cd-100000342.html",
+      "publishedAt": "2026-09-12T10:00:00Z"
+    },
+    {
+      "index": 91,
+      "headline": "Mortgage and refinance interest rates today, Saturday, September 12, 2026: Mortgage rates up for the second straight day",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-saturday-september-12-2026-mortgage-rates-up-for-the-second-straight-day-100000822.html",
+      "publishedAt": "2026-09-12T10:00:00Z"
+    }
+  ]
+}
