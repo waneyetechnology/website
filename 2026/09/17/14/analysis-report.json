@@ -1,0 +1,954 @@
+{
+  "analysis": {
+    "analysis_date": "September 17, 2026",
+    "analysis_time": "14:07",
+    "executive_summary": {
+      "key_highlights": [
+        "Fed hiked rates 25bp (first since 2023) under Warsh, defying Trump; markets rallied on inflation-fighting confidence",
+        "Oil near $100 amid supply shock but Saudi pipeline restoration eased prices; 10Y Treasury yield pulled back",
+        "Stocks rebounded post-Fed-day slump; Dow, S&P 500, Nasdaq all rose on optimism",
+        "Jobless claims fell to 196K (lowest since July), signaling resilient labor market",
+        "Housing data mixed: single-family starts rebounded but multifamily dropped unexpectedly; permits fell",
+        "Gold stable ~$4,300; silver steady; crypto (BTC, ETH) moved up post-Fed",
+        "Trump threatened EU tariffs; Warsh's hawkish stance created political friction",
+        "Yardeni cut S&P 500 year-end target to 7,900; Citadel's Rubner sees SPY turning a corner",
+        "AI sector: OpenAI disclosed 6 'concerning model behavior' instances; Nebius jumped on cloud price hikes; AI EBITDA tweaks jolted debt investors",
+        "Defense stocks under pressure from midterm 'blue wave' risk; KKR surpassed Partners Group as Europe's top evergreen fund manager"
+      ],
+      "market_sentiment_score": 72,
+      "overall_sentiment": "cautiously positive",
+      "headline_sources": [
+        1,
+        2,
+        27,
+        49,
+        53,
+        67,
+        69,
+        28,
+        37,
+        22,
+        34,
+        44
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Energy/Oil",
+          "trend": "Oil near $100 on supply shock but easing as Saudi restores pipeline; refining strength at HF Sinclair despite sector weakness",
+          "implications": "Energy equities volatile; refiners with integrated operations (DINO) outperform; watch pipeline restoration progress",
+          "headline_sources": [
+            1,
+            11,
+            18,
+            39,
+            64,
+            66,
+            68
+          ]
+        },
+        {
+          "sector": "Technology/AI",
+          "trend": "Nebius up on cloud price hikes; OpenAI safety concerns; AI EBITDA manipulation jolting debt markets; spectrum auctions could exceed $100B",
+          "implications": "AI capex cycle continues but governance/safety scrutiny rising; cloud pricing power intact; debt investors face EBITDA quality risk",
+          "headline_sources": [
+            12,
+            20,
+            40,
+            57,
+            74,
+            80,
+            89
+          ]
+        },
+        {
+          "sector": "Financials",
+          "trend": "Fed hike supports net interest margins; Lazard slid on slower M&A; KKR passes Partners Group; BCSM exits HTFL, PODD on competitive concerns",
+          "implications": "Rate hike benefits banks but M&A slowdown pressures advisory; PE sector consolidating",
+          "headline_sources": [
+            16,
+            38,
+            29,
+            30,
+            69
+          ]
+        },
+        {
+          "sector": "Defense",
+          "trend": "Out of favor due to midterm 'blue wave' risk reducing defense spending expectations",
+          "implications": "Near-term headwind; monitor political cycle for policy shifts",
+          "headline_sources": [
+            32
+          ]
+        },
+        {
+          "sector": "Housing/Real Estate",
+          "trend": "Single-family starts rebound but multifamily drops; permits fall; mortgage rates tick up; The Block houses reselling ~$2M below prior sale",
+          "implications": "Mixed signals; rate sensitivity remains; multifamily oversupply risk; consumer affordability strained",
+          "headline_sources": [
+            23,
+            35,
+            51,
+            55,
+            56,
+            15
+          ]
+        },
+        {
+          "sector": "Crypto/Digital Assets",
+          "trend": "BTC/ETH up post-Fed; CleanSpark +5%, Strategy +4%; CLARITY Act cloture failed; $122M mysterious pre-Fed trade",
+          "implications": "Regulatory uncertainty persists; miner profitability improving with BTC strength; legislative risk elevated",
+          "headline_sources": [
+            9,
+            21,
+            45,
+            75,
+            88,
+            70
+          ]
+        },
+        {
+          "sector": "Consumer/Retail",
+          "trend": "Kraft Heinz keeping brands affordable; rewards card benefits eroding; WillScot demand momentum; ACV Auctions buyback",
+          "implications": "Consumer cost-consciousness persists; value-oriented strategies favored",
+          "headline_sources": [
+            71,
+            36,
+            5,
+            3
+          ]
+        }
+      ],
+      "key_themes": [
+        "Fed hawkish pivot under Warsh vs. Trump political pressure",
+        "Oil supply shock and $100 threshold dynamics",
+        "AI governance and safety scrutiny accelerating",
+        "Midterm political risk reshaping sector rotation (defense out, consumer in)",
+        "Housing affordability crisis deepening",
+        "Spectrum auction revenue potential ($100B+)",
+        "Data center energy costs becoming legislative priority",
+        "Debt market EBITDA quality concerns in AI sector",
+        "Global trade friction (Trump-EU tariffs)"
+      ],
+      "headline_sources": [
+        1,
+        2,
+        11,
+        18,
+        20,
+        27,
+        32,
+        34,
+        39,
+        40,
+        44,
+        49,
+        53,
+        57,
+        65,
+        67,
+        68,
+        69,
+        74,
+        89
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Oil supply shock / $100+ brent",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Hedge energy exposure; favor integrated refiners (DINO) over pure E&P; monitor Saudi pipeline restoration",
+        "headline_sources": [
+          1,
+          18,
+          39,
+          64,
+          68
+        ]
+      },
+      {
+        "risk_factor": "Trump-Fed political conflict / tariff escalation",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Diversify geographically; reduce EU-exposed equities; hold Treasuries as safe haven",
+        "headline_sources": [
+          34,
+          44,
+          69,
+          83
+        ]
+      },
+      {
+        "risk_factor": "AI EBITDA manipulation / debt market stress",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Scrutinize AI-sector credit quality; avoid leveraged AI debt; favor cash-flow-verified operators",
+        "headline_sources": [
+          40,
+          89,
+          74
+        ]
+      },
+      {
+        "risk_factor": "Housing affordability / multifamily oversupply",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Underweight multifamily REITs; favor single-family and industrial real estate",
+        "headline_sources": [
+          23,
+          35,
+          51,
+          15
+        ]
+      },
+      {
+        "risk_factor": "Midterm blue wave / defense spending cut",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Reduce defense allocation; rotate to consumer staples and healthcare",
+        "headline_sources": [
+          32
+        ]
+      },
+      {
+        "risk_factor": "Crypto regulatory uncertainty (CLARITY Act failure)",
+        "impact": "Low",
+        "likelihood": "High",
+        "mitigation": "Limit crypto allocation to <5% portfolio; avoid leveraged positions",
+        "headline_sources": [
+          75,
+          88
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Add to quality cloud/AI infrastructure names on pullbacks",
+          "rationale": "Nebius cloud price hikes signal pricing power; spectrum auctions $100B+ create tailwind; AI capex cycle intact despite safety noise",
+          "tickers": [
+            "NBIS",
+            "AMD",
+            "BLOOM"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            12,
+            20,
+            41,
+            57
+          ]
+        },
+        {
+          "recommendation": "Overweight integrated refiners and energy infrastructure",
+          "rationale": "HF Sinclair refining strength despite sector weakness; oil near $100 supports margins; pipeline restoration reduces supply risk",
+          "tickers": [
+            "DINO",
+            "XOM",
+            "CVX"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            11,
+            39,
+            68
+          ]
+        },
+        {
+          "recommendation": "Position in U.S. Treasuries as inflation hedge",
+          "rationale": "10Y yield easing post-Fed; gold at $4,300 supports real-asset allocation; Warsh credibility building",
+          "tickers": [
+            "TLT",
+            "IEF",
+            "GLD"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            1,
+            34,
+            48,
+            64
+          ]
+        },
+        {
+          "recommendation": "Consider SpaceX/Starlink exposure via Ron Baron vehicles",
+          "rationale": "$1T Starlink thesis; $25B committed; spectrum auction tailwind; long-term structural growth",
+          "tickers": [
+            "SPCX"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            14,
+            57
+          ]
+        },
+        {
+          "recommendation": "Buy ACV Auctions on buyback authorization and top-line growth",
+          "rationale": "Large buyback supports EPS; demand momentum in used-vehicle market",
+          "tickers": [
+            "ACVA"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            3
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Reduce defense sector allocation ahead of midterms",
+          "rationale": "Blue wave risk threatens defense spending; sector out of favor",
+          "tickers": [
+            "LMT",
+            "RTX",
+            "NOC"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            32
+          ]
+        },
+        {
+          "recommendation": "Underweight multifamily REITs and housing-sensitive names",
+          "rationale": "Multifamily starts dropped unexpectedly; permits falling; affordability crisis",
+          "tickers": [
+            "AMT",
+            "EQR",
+            "UDR"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            23,
+            35,
+            15
+          ]
+        },
+        {
+          "recommendation": "Avoid AI-sector leveraged debt; scrutinize EBITDA quality",
+          "rationale": "AI EBITDA tweaks jolting debt investors; OpenAI safety concerns may slow capex",
+          "tickers": [
+            "AI-debt-ETFs"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            40,
+            89
+          ]
+        },
+        {
+          "recommendation": "Hedge EU exposure against Trump tariff threats",
+          "rationale": "Trump fuming post-Fed; tariff escalation risk to European equities",
+          "tickers": [
+            "IEV",
+            "EWU"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            34,
+            44,
+            83
+          ]
+        },
+        {
+          "recommendation": "Lock in 2-year CDs at 4.40% APY for cash management",
+          "rationale": "Rates ticking up on mortgages; Fed hawkish; preserves yield in volatile environment",
+          "tickers": [
+            "BOND"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            50,
+            51,
+            82
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Markets likely to consolidate post-Fed rally. Oil volatility near $100 is the primary swing factor. Trump-Fed tension and EU tariff threats create headline risk. Yardeni's 7,900 S&P target implies limited upside from current levels. Citadel's Rubner sees SPY turning a corner, suggesting near-term support. Jobless claims at 196K support consumer resilience.",
+      "long_term": "Fed's first hike since 2023 signals inflation fight is ongoing, not over. AI capex cycle continues but governance scrutiny will moderate valuations. Housing affordability remains structural concern. Spectrum auctions ($100B+) and data center energy legislation create new growth vectors. KKR's rise signals PE consolidation. 6-12 month: moderate equity gains (5-8%) with elevated volatility from political and energy shocks.",
+      "key_catalysts": [
+        "Saudi pipeline restoration progress (oil supply)",
+        "Trump-EU tariff escalation timeline",
+        "Next Fed meeting / Warsh commentary",
+        "Spectrum auction results ($100B+ potential)",
+        "Midterm election dynamics / defense spending",
+        "AI safety regulatory developments (OpenAI, Anthropic)",
+        "Q3 earnings season (earnings risk per headline 42)",
+        "CLARITY Act / crypto regulatory resolution"
+      ],
+      "watch_list": [
+        "10Y Treasury yield trajectory",
+        "Brent crude vs. $100 threshold",
+        "S&P 500 vs. Yardeni 7,900 target",
+        "Jobless claims trend (196K baseline)",
+        "Housing starts/permits divergence",
+        "Gold at $4,300 support/resistance",
+        "BTC/ETH post-Fed momentum",
+        "Mortgage rate direction (ticking up)",
+        "Defense sector rotation signals",
+        "AI EBITDA quality in credit markets"
+      ],
+      "headline_sources": [
+        1,
+        2,
+        22,
+        27,
+        37,
+        42,
+        49,
+        53,
+        67,
+        69,
+        28,
+        23,
+        35,
+        48,
+        45,
+        32,
+        57,
+        65,
+        40,
+        89
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "10-year Treasury yield eases, oil falls to $100: AlphaCheck",
+      "url": "https://finance.yahoo.com/markets/article/10-year-treasury-yield-eases-oil-falls-to-100-alphacheck-134408021.html",
+      "publishedAt": "2026-09-17T13:44:08Z"
+    },
+    {
+      "index": 2,
+      "headline": "Stocks and bonds rally after Fed hikes rates and oil prices fall",
+      "url": "https://www.nbcnews.com/business/markets/stocks-bonds-fed-hikes-oil-prices-rcna598310",
+      "publishedAt": "2026-09-17T13:41:23+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "ACV Auctions (ACVA) Jumps on Top-Line Growth and Large Buyback Authorization",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/acv-auctions-acva-jumps-top-134007577.html",
+      "publishedAt": "2026-09-17T13:40:07Z"
+    },
+    {
+      "index": 4,
+      "headline": "SEC, Aware Super and Birdwood to build 1.86GWh battery in Victoria",
+      "url": "https://finance.yahoo.com/energy/articles/sec-aware-super-birdwood-build-133846082.html",
+      "publishedAt": "2026-09-17T13:38:46Z"
+    },
+    {
+      "index": 5,
+      "headline": "Renewed Demand Momentum Lifts WillScot Holdings (WSC)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/renewed-demand-momentum-lifts-willscot-133625609.html",
+      "publishedAt": "2026-09-17T13:36:25Z"
+    },
+    {
+      "index": 6,
+      "headline": "Why Networking is the Essential Career Tool",
+      "url": "https://www.today.com/video/networking-tips-how-to-build-strong-career-connections-270026309623",
+      "publishedAt": "2026-09-17T13:35:43+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "Insider Waves Goodbye to 4,250 Shares of Retailer, Valued at $1.1 Million",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/insider-waves-goodbye-4-250-133501514.html",
+      "publishedAt": "2026-09-17T13:35:01Z"
+    },
+    {
+      "index": 8,
+      "headline": "7 Words From Warren Buffett That Could Change How Every Investor Thinks About Market Downturns",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/7-words-warren-buffett-could-133500900.html",
+      "publishedAt": "2026-09-17T13:35:00Z"
+    },
+    {
+      "index": 9,
+      "headline": "CleanSpark Climbs 5% as Bitcoin Miners Outrun the Coin; Strategy Rises 4%",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/cleanspark-climbs-5-bitcoin-miners-133452100.html",
+      "publishedAt": "2026-09-17T13:34:52Z"
+    },
+    {
+      "index": 10,
+      "headline": "Stock Market Today: Dow Rises In Fed Aftermath; Generac, Nebius, Bloom, SpaceX Are Early Movers (Live Coverage)",
+      "url": "https://www.investors.com/market-trend/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-fed-reaction-generac-nebius-bloom-energy-spacex/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-09-17T13:34:46Z"
+    },
+    {
+      "index": 11,
+      "headline": "HF Sinclair (DINO) Strengthens from Its Refining Segment Despite Sector Weakness",
+      "url": "https://finance.yahoo.com/energy/articles/hf-sinclair-dino-strengthens-refining-133355052.html",
+      "publishedAt": "2026-09-17T13:33:55Z"
+    },
+    {
+      "index": 12,
+      "headline": "Generac Up on Amazon Agreement; Coreweave Kicks Off Fundraising | Stock Movers",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-17/generac-amazon-agreement-coreweave-starts-fundraising-video",
+      "publishedAt": "2026-09-17T13:32:19+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "BOE's Bailey Says Feed-Through of Energy Shock Has Been 'Subdued'",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-17/bailey-feed-through-of-energy-shock-has-been-subdued-video",
+      "publishedAt": "2026-09-17T13:31:12+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "Can SpaceX Really Turn Starlink Into a $1 Trillion Business? Ron Baron Has $25 Billion Riding on Yes",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/spacex-really-turn-starlink-1-133026493.html",
+      "publishedAt": "2026-09-17T13:30:26Z"
+    },
+    {
+      "index": 15,
+      "headline": "My parents are in their early 60s with no savings, a mortgage, and $2,400 in Social Security – where can they afford to live?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/parents-early-60s-no-savings-131525779.html",
+      "publishedAt": "2026-09-17T13:30:26Z"
+    },
+    {
+      "index": 16,
+      "headline": "Lazard (LAZ) Slid on Slower M&A Activity",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/lazard-laz-slid-slower-m-133023245.html",
+      "publishedAt": "2026-09-17T13:30:23Z"
+    },
+    {
+      "index": 17,
+      "headline": "Tesla Stock Has a Potential Catalyst Wall Street Can’t Ignore",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/tesla-stock-potential-catalyst-wall-133015247.html",
+      "publishedAt": "2026-09-17T13:30:15Z"
+    },
+    {
+      "index": 18,
+      "headline": "Here’s What the World Is Doing (and Not Doing) to Stave Off the Next Oil Shock",
+      "url": "https://www.wsj.com/business/energy-oil/heres-what-the-world-is-doing-and-not-doing-to-stave-off-the-next-oil-shock-e8dc0ba6?siteid=yhoof2&yptr=yahoo",
+      "publishedAt": "2026-09-17T13:30:00Z"
+    },
+    {
+      "index": 19,
+      "headline": "Here’s Why Dolby Laboratories (DLB) Traded Down in Q2",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-dolby-laboratories-dlb-traded-132841555.html",
+      "publishedAt": "2026-09-17T13:28:41Z"
+    },
+    {
+      "index": 20,
+      "headline": "Nebius Stock Jumps On Cloud Computing Price Hikes",
+      "url": "https://www.investors.com/news/technology/nebius-stock-jumps-cloud-computing-price-hikes-nvidia-gpu/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-09-17T13:28:20Z"
+    },
+    {
+      "index": 21,
+      "headline": "Strategy’s Preferred Stock Nears Par Value After Buybacks",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/strategy-preferred-stock-nears-par-132700962.html",
+      "publishedAt": "2026-09-17T13:27:00Z"
+    },
+    {
+      "index": 22,
+      "headline": "US Stocks (SPY) Poised to Turn a Corner, Citadel Securities’ Rubner Says",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/us-stocks-spy-poised-to-turn-a-corner-citadel-securities-rubner-says",
+      "publishedAt": "2026-09-17T13:19:57+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "US single-family housing starts rebound in August; building permits fall",
+      "url": "https://finance.yahoo.com/real-estate/articles/us-single-family-housing-starts-131652276.html",
+      "publishedAt": "2026-09-17T13:19:38Z"
+    },
+    {
+      "index": 24,
+      "headline": "Aramco Hunts for Fuel Supply in the Mediterranean After Attacks",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/aramco-hunts-for-fuel-supply-in-the-mediterranean-after-attacks",
+      "publishedAt": "2026-09-17T13:16:34+00:00"
+    },
+    {
+      "index": 25,
+      "headline": "Jim Cramer on Aflac (AFL): “Not Great, Not Bad”",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-aflac-afl-not-131248412.html",
+      "publishedAt": "2026-09-17T13:12:48Z"
+    },
+    {
+      "index": 26,
+      "headline": "Bill Dudley Calls Fed’s 25-Basis-Point Hike ‘Too Small’",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-17/bill-dudley-calls-fed-s-25-basis-point-hike-too-small-video",
+      "publishedAt": "2026-09-17T13:09:15+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "Stocks, Treasuries Rally on Optimism Around Fed Inflation Fight",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-17/stocks-treasuries-rally-on-fed-inflation-fight-optimism-video",
+      "publishedAt": "2026-09-17T12:56:54+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "US Jobless Claims Fall to Lowest Level Since July at 196,000",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-17/us-jobless-claims-fall-to-196-000-video",
+      "publishedAt": "2026-09-17T12:49:55+00:00"
+    },
+    {
+      "index": 29,
+      "headline": "BCSM Exits Heartflow (HTFL) on Competitive Concerns",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/bcsm-exits-heartflow-htfl-competitive-124947141.html",
+      "publishedAt": "2026-09-17T12:49:47Z"
+    },
+    {
+      "index": 30,
+      "headline": "BCSM Exits Insulet Corporation (PODD), Maintains Watchlist Status",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/bcsm-exits-insulet-corporation-podd-124807842.html",
+      "publishedAt": "2026-09-17T12:48:07Z"
+    },
+    {
+      "index": 31,
+      "headline": "Peter Schiff says the 7.76 cents of metal inside every nickel makes it a better bet than U.S. Treasuries",
+      "url": "https://finance.yahoo.com/markets/commodities/articles/peter-schiff-says-7-76-124500979.html",
+      "publishedAt": "2026-09-17T12:45:00Z"
+    },
+    {
+      "index": 32,
+      "headline": "Risk of Midterm ‘Blue Wave’ Leaves Defense Stocks Out of Favor",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/risk-of-midterm-blue-wave-leaves-defense-stocks-out-of-favor",
+      "publishedAt": "2026-09-17T12:43:54+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "Three New ETFs to Watch: From Tax Avoidance to AI Winners",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/three-new-etfs-to-watch-from-tax-avoidance-to-ai-winners",
+      "publishedAt": "2026-09-17T12:40:58+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "Treasuries Gain as Confidence in Warsh Grows, Trump Threatens EU Tariffs",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-17/bloomberg-brief-09-17-2026-video",
+      "publishedAt": "2026-09-17T12:38:37+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "US Housing Starts Drop Unexpectedly on Multifamily Projects",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/us-housing-starts-unexpectedly-decline-on-multifamily-projects",
+      "publishedAt": "2026-09-17T12:35:45+00:00"
+    },
+    {
+      "index": 36,
+      "headline": "‘The benefits are kind of going away’: Rewards cards rules make it harder to get your money’s worth — how you still can",
+      "url": "https://finance.yahoo.com/markets/currencies/articles/benefits-kind-going-away-rewards-123000499.html",
+      "publishedAt": "2026-09-17T12:30:00Z"
+    },
+    {
+      "index": 37,
+      "headline": "Ed Yardeni Lowers Year-End S&P 500 Target to 7,900",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-17/ed-yardeni-lowers-year-end-s-p-500-target-to-7-900-video",
+      "publishedAt": "2026-09-17T12:28:31+00:00"
+    },
+    {
+      "index": 38,
+      "headline": "KKR Passes Partners Group as Europe’s Top Evergreen Fund Manager",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/kkr-passes-partners-group-as-europe-s-top-evergreen-fund-manager",
+      "publishedAt": "2026-09-17T12:27:33+00:00"
+    },
+    {
+      "index": 39,
+      "headline": "'Oil market is a hot mess,' analyst says as supply shock keeps prices near $100: Chart of the Day",
+      "url": "https://finance.yahoo.com/markets/article/oil-market-is-a-hot-mess-analyst-says-as-supply-shock-keeps-prices-near-100-chart-of-the-day-122708703.html",
+      "publishedAt": "2026-09-17T12:27:08Z"
+    },
+    {
+      "index": 40,
+      "headline": "AI Future Savings Is Latest Ebitda Tweak to Jolt Debt Investors",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/ai-future-savings-is-latest-ebitda-tweak-to-jolt-debt-investors",
+      "publishedAt": "2026-09-17T12:21:16+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Dow Jones Futures Rise After Hawkish Fed, Warsh Hit Stocks, Trump Fumes; AMD, Bloom Energy Eye Buy Points",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-sp-500-fed-rate-hike-warsh-amd-bloom-energy-stocks-to-watch/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-09-17T12:16:34Z"
+    },
+    {
+      "index": 42,
+      "headline": "Top strategist thinks the Federal Reserve interest rate hike won't fix this huge earnings risk",
+      "url": "https://finance.yahoo.com/markets/article/top-strategist-thinks-the-federal-reserve-interest-rate-hike-wont-fix-this-huge-earnings-risk-121619669.html",
+      "publishedAt": "2026-09-17T12:16:19Z"
+    },
+    {
+      "index": 43,
+      "headline": "Rising Commoditization Threatens Booz Allen Hamilton Holding Corporation’s (BAZ) Margins",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/rising-commoditization-threatens-booz-allen-121543915.html",
+      "publishedAt": "2026-09-17T12:15:43Z"
+    },
+    {
+      "index": 44,
+      "headline": "Trump Sounds Off on Fed’s Decision on Interest Rate",
+      "url": "https://www.today.com/video/trump-lashes-out-at-fed-over-decision-to-raise-interest-rates-270020677681",
+      "publishedAt": "2026-09-17T12:12:37+00:00"
+    },
+    {
+      "index": 45,
+      "headline": "Bitcoin and ethereum prices today, Thursday, September 17, 2026: Crypto prices move up following Fed's rate increase",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-thursday-september-17-2026-crypto-prices-move-up-following-feds-rate-increase-114024955.html",
+      "publishedAt": "2026-09-17T11:40:24Z"
+    },
+    {
+      "index": 46,
+      "headline": "Silver price today, Thursday, September 17, 2026: Silver prices stay steady post Fed decision",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/silver-price-today-thursday-september-17-2026-silver-prices-stay-steady-post-fed-decision-112308053.html",
+      "publishedAt": "2026-09-17T11:23:08Z"
+    },
+    {
+      "index": 47,
+      "headline": "What Does the Interest Rate Hike Mean for American Consumers?",
+      "url": "https://www.today.com/video/interest-rates-raised-for-first-time-in-years-how-it-affects-costs-270019653540",
+      "publishedAt": "2026-09-17T11:22:03+00:00"
+    },
+    {
+      "index": 48,
+      "headline": "Gold price today, Thursday, September 17, 2026: Gold prices relatively stable following Fed rate increase",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-price-today-thursday-september-17-2026-gold-prices-relatively-stable-following-fed-rate-increase-110852391.html",
+      "publishedAt": "2026-09-17T11:08:52Z"
+    },
+    {
+      "index": 49,
+      "headline": "US Stocks Rebound From Fed Decision Day Slump as Oil Falls",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/us-stocks-primed-to-rebound-from-fed-day-slump-as-futures-rally",
+      "publishedAt": "2026-09-17T10:57:20+00:00"
+    },
+    {
+      "index": 50,
+      "headline": "Best CD rates today, Thursday, September 17, 2026: Lock in up to 4.40% APY with a 2-year CD",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-thursday-september-17-2026-lock-in-up-to-440-apy-with-a-2-year-cd-100000275.html",
+      "publishedAt": "2026-09-17T10:00:00Z"
+    },
+    {
+      "index": 51,
+      "headline": "Mortgage and refinance interest rates today, Thursday, September 17, 2026: Fixed rates tick upward",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-thursday-september-17-2026-fixed-rates-tick-upward-100000901.html",
+      "publishedAt": "2026-09-17T10:00:00Z"
+    },
+    {
+      "index": 52,
+      "headline": "Tata Sons to List, Tata Trusts Calls Chair Chandrasekaran's Extension ‘Illegal’",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/tata-offers-chandra-extension-to-steady-group-amid-listing-push",
+      "publishedAt": "2026-09-17T09:16:31+00:00"
+    },
+    {
+      "index": 53,
+      "headline": "Stock market today: Dow, S&P 500, Nasdaq rise as Fed rate hike pacifies markets' inflation worries",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-september-17-dow-sp-500-nasdaq-081248626.html",
+      "publishedAt": "2026-09-17T08:12:48Z"
+    },
+    {
+      "index": 54,
+      "headline": "How 12 people you probably don’t know knocked down Donald Trump",
+      "url": "https://www.theage.com.au/politics/federal/how-12-people-you-probably-don-t-know-knocked-down-donald-trump-20260917-p60y4m.html",
+      "publishedAt": "2026-09-17T01:58:10Z"
+    },
+    {
+      "index": 55,
+      "headline": "House from The Block that last sold in 2024 resells for about $2m less",
+      "url": "https://www.smh.com.au/property/news/house-from-the-block-that-last-sold-in-2024-resells-for-about-2m-less-20260915-p60xh7.html",
+      "publishedAt": "2026-09-17T01:58:01Z"
+    },
+    {
+      "index": 56,
+      "headline": "House from The Block that last sold in 2024 resells for about $2m less",
+      "url": "https://www.theage.com.au/property/news/house-from-the-block-that-last-sold-in-2024-resells-for-about-2m-less-20260915-p60xh7.html",
+      "publishedAt": "2026-09-17T01:58:01Z"
+    },
+    {
+      "index": 57,
+      "headline": "US official says upcoming spectrum auctions could generate more than $100 billion",
+      "url": "https://www.reuters.com/business/media-telecom/us-official-says-upcoming-spectrum-auctions-could-generate-more-than-100-billion-2026-09-17/",
+      "publishedAt": "2026-09-17T01:58:00Z"
+    },
+    {
+      "index": 58,
+      "headline": "Malaysia prepares AirAsia contingency scenarios - Channel NewsAsia",
+      "url": "https://ua.news/en/world/u-malaiziyi-gotuiut-stsenariyi-na-vipadok-problem-airasia-channel-newsasia",
+      "publishedAt": "2026-09-17T01:56:40Z"
+    },
+    {
+      "index": 59,
+      "headline": "Solutions trialled to kill gazanias and help farmers reclaim paddocks",
+      "url": "https://www.abc.net.au/news/2026-09-17/trials-to-help-farmers-reclaim-paddocks-from-weed-gazanias/107139334",
+      "publishedAt": "2026-09-17T01:55:18Z"
+    },
+    {
+      "index": 60,
+      "headline": "Longeveron explores strategic options after therapy fails mid-stage trial for infant heart condition",
+      "url": "https://pharma.economictimes.indiatimes.com/news/pharma-industry/longeveron-explores-strategic-options-after-therapy-fails-mid-stage-trial-for-infant-heart-condition/134297463",
+      "publishedAt": "2026-09-17T01:52:34Z"
+    },
+    {
+      "index": 61,
+      "headline": "E-bus delays, crowding trouble commuters",
+      "url": "https://tribune.com.pk/story/2629779/e-bus-delays-crowding-trouble-commuters",
+      "publishedAt": "2026-09-17T01:48:48Z"
+    },
+    {
+      "index": 62,
+      "headline": "Probiotics claims: ‘Over 60% of supplements off the retail shelf failed our test’",
+      "url": "https://www.irishtimes.com/business/innovation/2026/09/17/probiotics-claims-over-60-of-supplements-off-the-retail-shelf-failed-our-test/",
+      "publishedAt": "2026-09-17T01:46:19Z"
+    },
+    {
+      "index": 63,
+      "headline": "Collapsed super fund manager claims $200m was swiped for rooftop pools and supercars",
+      "url": "https://www.theage.com.au/national/victoria/collapsed-super-fund-manager-claims-200m-was-swiped-for-rooftop-pools-and-supercars-20260916-p60xxu.html",
+      "publishedAt": "2026-09-17T01:45:00Z"
+    },
+    {
+      "index": 64,
+      "headline": "Gold Surges Along With US Treasuries as Oil Price Slide Deepens",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-16/gold-holds-decline-after-fed-tilts-hawkish-and-raises-rates",
+      "publishedAt": "2026-09-16T23:54:12+00:00"
+    },
+    {
+      "index": 65,
+      "headline": "House passes bill to shield consumers from data center price hikes on energy",
+      "url": "https://www.nbcnews.com/politics/congress/house-passes-bill-shield-consumers-data-center-price-hikes-energy-rcna597683",
+      "publishedAt": "2026-09-16T22:55:58+00:00"
+    },
+    {
+      "index": 66,
+      "headline": "Petrobras Expands African Oil Hunt With Ivory Coast Blocks",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-16/petrobras-expands-hunt-for-african-oil-with-ivory-coast-blocks",
+      "publishedAt": "2026-09-16T22:19:04+00:00"
+    },
+    {
+      "index": 67,
+      "headline": "Stocks, Bonds Rise After Fed-Day Drop as Oil Falls: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-16/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-09-16T22:06:59+00:00"
+    },
+    {
+      "index": 68,
+      "headline": "Oil Extends Drop as Saudi Arabia Moves to Restore Vital Pipeline",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-16/oil-extends-slump-as-saudi-arabia-moves-to-restore-key-pipeline",
+      "publishedAt": "2026-09-16T22:05:54+00:00"
+    },
+    {
+      "index": 69,
+      "headline": "Fed raises interest rates for first time since 2023, defying Trump as inflation mounts",
+      "url": "https://www.nbcnews.com/business/economy/fed-raises-rates-defying-trump-rcna598148",
+      "publishedAt": "2026-09-16T18:00:25+00:00"
+    },
+    {
+      "index": 70,
+      "headline": "Mysterious trader moves $122 million ahead of Fed's 2 p.m. decision",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/mysterious-trader-moves-122-million-164740089.html",
+      "publishedAt": "2026-09-16T16:47:40Z"
+    },
+    {
+      "index": 71,
+      "headline": "How Kraft Heinz is keeping its legacy brands affordable to cost-conscious shoppers",
+      "url": "https://www.nbcnews.com/business/ceo-interviews/kraft-heinz-cahillane-legacy-brands-affordable-rcna597899",
+      "publishedAt": "2026-09-16T12:29:03+00:00"
+    },
+    {
+      "index": 72,
+      "headline": "Fed Meeting Today: Dow Futures Edge Up as Investors Await Warsh Rate Decision - WSJ",
+      "url": "https://www.wsj.com/livecoverage/fed-meeting-warsh-interest-rate-09-16-2026",
+      "publishedAt": "2026-09-16T12:00:00Z"
+    },
+    {
+      "index": 73,
+      "headline": "Federal Reserve Poised to Raise Interest Rates: What to Know",
+      "url": "https://www.today.com/video/federal-reserve-poised-to-raise-interest-rates-what-to-know-269957189612",
+      "publishedAt": "2026-09-16T11:32:33+00:00"
+    },
+    {
+      "index": 74,
+      "headline": "Mark Zuckerberg weighs in on AI slowdown debate with OpenAI, Anthropic - Fox News",
+      "url": "https://www.foxnews.com/live-news/artificial-intelligence-safety-mark-zuckerberg-09-16-26",
+      "publishedAt": "2026-09-16T11:30:36Z"
+    },
+    {
+      "index": 75,
+      "headline": "Bitcoin and ethereum prices today, Wednesday, September 16, 2026: Crypto prices tank after CLARITY Act fails and ahead of Fed decision",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-wednesday-september-16-2026-crypto-prices-tank-after-clarity-act-fails-and-ahead-of-fed-decision-112517152.html",
+      "publishedAt": "2026-09-16T11:25:17Z"
+    },
+    {
+      "index": 76,
+      "headline": "Silver price today, Wednesday, September 16, 2026:  Silver prices rise in anticipation of the Fed",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/silver-price-today-wednesday-september-16-2026-silver-prices-rise-in-anticipation-of-the-fed-105134969.html",
+      "publishedAt": "2026-09-16T10:51:34Z"
+    },
+    {
+      "index": 77,
+      "headline": "Gold price today, Wednesday, September 16, 2026: Gold holds in the $4,300 range, awaiting the Fed's decision",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-price-today-wednesday-september-16-2026-gold-holds-in-the-4300-range-awaiting-the-feds-decision-104038147.html",
+      "publishedAt": "2026-09-16T10:40:38Z"
+    },
+    {
+      "index": 78,
+      "headline": "6 signs you might be a good fit for debt settlement",
+      "url": "https://finance.yahoo.com/personal-finance/personal-loans/article/signs-you-might-be-a-good-fit-for-debt-settlement-102500610.html",
+      "publishedAt": "2026-09-16T10:25:00Z"
+    },
+    {
+      "index": 79,
+      "headline": "Researchers play down AI apocalypse fears, citing hurdles to creating a killer virus - Business Insider",
+      "url": "https://www.businessinsider.com/researchers-ai-apocalypse-skepticism-lethal-virus-real-world-barriers-2026-9#article",
+      "publishedAt": "2026-09-16T10:15:28Z"
+    },
+    {
+      "index": 80,
+      "headline": "OpenAI boss says world 'right to be afraid' but should trust AI firms - Yahoo",
+      "url": "https://www.bbc.com/news/articles/cqx2zpj4y525o?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bnews%5D-%5Bbizdev%5D-%5Bisapi%5D",
+      "publishedAt": "2026-09-16T10:04:03Z"
+    },
+    {
+      "index": 81,
+      "headline": "Flyers are happier with U.S. airports, despite near record travel levels, J.D. Power report shows - CNBC",
+      "url": "https://www.cnbc.com/2026/09/16/airport-satisfaction.html",
+      "publishedAt": "2026-09-16T10:00:01Z"
+    },
+    {
+      "index": 82,
+      "headline": "Best CD rates today, Wednesday, September 16, 2026: Earn up to 4.40% APY with Happen Bank",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-wednesday-september-16-2026-earn-up-to-440-apy-with-happen-bank-100000125.html",
+      "publishedAt": "2026-09-16T10:00:00Z"
+    },
+    {
+      "index": 83,
+      "headline": "Trade war is a selling point at Carney’s investment show - Politico",
+      "url": "https://www.politico.com/news/2026/09/16/trade-war-is-a-selling-point-at-carneys-investment-show-01078620",
+      "publishedAt": "2026-09-16T09:55:00Z"
+    },
+    {
+      "index": 84,
+      "headline": "Stock market today: Dow, S&P 500, Nasdaq rise ahead of crucial Fed interest rate decision - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-september-16-dow-sp-500-nasdaq-fed-meeting-decision-080356525.html",
+      "publishedAt": "2026-09-16T08:03:56Z"
+    },
+    {
+      "index": 85,
+      "headline": "Gold and the U.S. dollar: Why they often move in opposite directions",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-us-dollar-relationship-204112404.html",
+      "publishedAt": "2026-09-15T20:41:12Z"
+    },
+    {
+      "index": 86,
+      "headline": "Credit card application denied? Here’s what to do next",
+      "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/credit-card-application-denied-194416584.html",
+      "publishedAt": "2026-09-15T19:44:16Z"
+    },
+    {
+      "index": 87,
+      "headline": "Can you have two of the same credit card?",
+      "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/can-you-have-two-of-the-same-credit-card-175008954.html",
+      "publishedAt": "2026-09-15T17:50:08Z"
+    },
+    {
+      "index": 88,
+      "headline": "Clarity Act cloture vote fails: What it means for your crypto holdings",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/clarity-act-cloture-vote-fails-what-it-means-for-your-crypto-holdings-153849029.html",
+      "publishedAt": "2026-09-15T15:38:49Z"
+    },
+    {
+      "index": 89,
+      "headline": "Tech stocks today: OpenAI reveals six more instances of 'concerning model behavior'",
+      "url": "https://finance.yahoo.com/technology/live/tech-stocks-today-openai-reveals-six-more-instances-of-concerning-model-behavior-140134624.html",
+      "publishedAt": "2026-09-14T14:01:34Z"
+    }
+  ]
+}
