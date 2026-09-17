@@ -1,0 +1,936 @@
+{
+  "analysis": {
+    "analysis_date": "September 17, 2026",
+    "analysis_time": "18:08",
+    "executive_summary": {
+      "key_highlights": [
+        "Fed raises rates for first time since 2023, defying Trump, signaling more hikes ahead; markets initially sold off then rebounded as oil fell",
+        "Semiconductor sector rebounds 3rd session: AMD +7%, Broadcom +3%, NVIDIA edges higher; AI chip leader breaks all-time high",
+        "Oil prices slide on Saudi pipeline repairs and supply concerns, supporting equity rebound",
+        "Turkey financial crisis escalates: liquidations, trading bans, arrests at Tera/Destek funds",
+        "Consumer credit tightening: auto loan access shrinking, mortgage rates edging up post-hike",
+        "Geopolitical risk elevated: Poland warns Russia plans strikes on NATO allies; Putin seizes Nestle assets in Russia",
+        "AI sector shows cracks: warnings of looming AI-stock crash, Microsoft flags Anthropic 'disastrous impact', Meta overhauls teen platforms post-$17B settlement",
+        "Lululemon cuts outlook again under new CEO; J.B. Hunt plunges 10% on Q3 earnings warning",
+        "Gold and Treasuries rally as safe-haven demand rises; silver steady post-Fed",
+        "Global LNG prices face winter spike risk on low European gas stocks"
+      ],
+      "market_sentiment_score": 62,
+      "overall_sentiment": "cautiously positive",
+      "headline_sources": [
+        31,
+        36,
+        38,
+        47,
+        52,
+        66,
+        69,
+        71,
+        8,
+        27,
+        67,
+        51,
+        32,
+        11,
+        15,
+        12,
+        44,
+        64,
+        63,
+        33,
+        77,
+        26,
+        79
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology/Semiconductors",
+          "trend": "3-session rebound led by AMD (+7%), Broadcom (+3%), NVIDIA; AI chip leader hits all-time high; SK Hynix jumps on Intel deal rumors; Rackspace rallies on Nvidia partnership but carries $2.8B debt",
+          "implications": "Sector rotation into AI infrastructure continues but valuation risk builds; 'picks and shovels' AI plays (Oracle, Broadcom) show divergent runways; AI crash warnings (headline 33) suggest froth",
+          "headline_sources": [
+            8,
+            27,
+            4,
+            74,
+            28,
+            33,
+            5,
+            76,
+            77,
+            75
+          ]
+        },
+        {
+          "sector": "Energy/Oil",
+          "trend": "Oil wavers on Saudi pipeline repairs and supply concerns; prices slide, supporting equity rebound; LNG spike risk looms for winter on low European stocks",
+          "implications": "Near-term oil weakness is bullish for equities but LNG winter risk creates energy volatility; Saudi pipeline repairs may normalize supply",
+          "headline_sources": [
+            67,
+            38,
+            47,
+            61,
+            21
+          ]
+        },
+        {
+          "sector": "Financials/Real Estate",
+          "trend": "Multifamily loans face refinancing crisis; Turkey fund turmoil triggers liquidations and arrests; Aon's $17B USI deal draws hedge fund attention; Calpers CEO gets $1M bonus",
+          "implications": "Credit stress in CRE and emerging markets (Turkey) is a systemic risk; Fed hike raises refinancing costs across fixed-income",
+          "headline_sources": [
+            7,
+            51,
+            37,
+            20,
+            68,
+            34
+          ]
+        },
+        {
+          "sector": "Consumer/Consumer Discretionary",
+          "trend": "Lululemon cuts outlook under new CEO; J.B. Hunt warns Q3 earnings fall (-10%); Kraft Heinz focuses on affordability; auto loan access tightening; Americans' income hits record but lower earners lose ground",
+          "implications": "Consumer bifurcation deepening; rate-sensitive sectors (autos, housing) under pressure; value/affability plays gaining relevance",
+          "headline_sources": [
+            26,
+            79,
+            80,
+            15,
+            12,
+            17,
+            72,
+            44
+          ]
+        },
+        {
+          "sector": "Geopolitical/Defense",
+          "trend": "Poland warns Russia plans NATO strikes; Putin seizes Nestle assets; Turkey financial chaos; Amazon cargo plane crash in Miami",
+          "implications": "Elevated geopolitical premium; defense and insurance sectors may benefit; supply chain disruption risk",
+          "headline_sources": [
+            32,
+            11,
+            51,
+            30,
+            78
+          ]
+        },
+        {
+          "sector": "Pharma/Healthcare",
+          "trend": "Takeda gets priority review for zasocitinib; Ozempic-maker partners with Anthropic for medical AI research",
+          "implications": "AI-in-pharma convergence accelerating; regulatory tailwinds for pipeline drugs",
+          "headline_sources": [
+            16,
+            75
+          ]
+        }
+      ],
+      "key_themes": [
+        "Fed rate hike cycle resumption (first since 2023) with 'higher for longer' signal",
+        "AI infrastructure buildout vs. AI valuation bubble risk",
+        "Consumer credit tightening and income inequality widening",
+        "Geopolitical fragmentation: Russia-NATO tensions, Turkey crisis, asset seizures",
+        "Energy transition volatility: LNG winter risk, Saudi pipeline, data center power demand",
+        "Regulatory pressure on Big Tech: Meta teen overhaul, Apple UK lawsuit, data center energy bills",
+        "Emerging market stress: Turkey fund liquidations, Airtel Money IPO trim",
+        "Corporate governance issues: Tata Sons listing dispute, KPMG whistleblower gaps, BillionToOne CEO liquidation"
+      ],
+      "headline_sources": [
+        69,
+        71,
+        81,
+        33,
+        77,
+        15,
+        72,
+        32,
+        11,
+        51,
+        61,
+        76,
+        65,
+        29,
+        24,
+        55,
+        50,
+        59,
+        25,
+        30
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Fed rate hike cycle and inflation persistence",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Hedge with TIPS, short-duration bonds; reduce rate-sensitive consumer exposure; favor fixed-income ladders",
+        "headline_sources": [
+          69,
+          36,
+          38,
+          44,
+          49,
+          48,
+          12,
+          15
+        ]
+      },
+      {
+        "risk_factor": "AI stock valuation bubble / sector crash",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Diversify away from concentrated AI positions; favor cash-generative 'picks and shovels' over speculative AI names; set stop-losses",
+        "headline_sources": [
+          33,
+          77,
+          4,
+          28,
+          5,
+          76
+        ]
+      },
+      {
+        "risk_factor": "Geopolitical escalation (Russia-NATO, Turkey crisis)",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Maintain 10-15% allocation to defense/energy hedges; hold gold; avoid Turkey and Russia-exposed EM positions",
+        "headline_sources": [
+          32,
+          11,
+          51,
+          37,
+          61
+        ]
+      },
+      {
+        "risk_factor": "Consumer credit contraction and CRE refinancing wall",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Avoid high-yield CRE and auto-finance exposure; favor investment-grade; monitor multifamily loan defaults",
+        "headline_sources": [
+          7,
+          15,
+          12,
+          17,
+          34
+        ]
+      },
+      {
+        "risk_factor": "Energy supply disruption (LNG winter, Saudi pipeline)",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Hold energy ETFs as hedge; monitor European gas storage levels; watch LNG contract pricing",
+        "headline_sources": [
+          61,
+          67,
+          76,
+          65
+        ]
+      },
+      {
+        "risk_factor": "Regulatory/legal risk on Big Tech",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Monitor Apple UK lawsuit, Meta settlement compliance, data center energy legislation; diversify tech exposure",
+        "headline_sources": [
+          24,
+          29,
+          65,
+          76
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Add semiconductor exposure on pullbacks; favor AMD, Broadcom over speculative AI names",
+          "rationale": "3-session rebound with sector breadth; AI infrastructure demand structural; SK Hynix/Intel deal adds catalyst",
+          "tickers": [
+            "AMD",
+            "AVGO",
+            "NVDA",
+            "SKHYNIX"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            8,
+            27,
+            4,
+            74,
+            28
+          ]
+        },
+        {
+          "recommendation": "Increase gold and T-bill allocation as Fed cycle continues",
+          "rationale": "Gold surging with Treasuries post-hike; safe-haven demand elevated by geopolitics; 4.40% CD rates offer yield",
+          "tickers": [
+            "GLD",
+            "TIP",
+            "SHY"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            64,
+            63,
+            46,
+            48,
+            38
+          ]
+        },
+        {
+          "recommendation": "Consider Nokia as AI infrastructure play per Cramer; evaluate Markel as value compounder",
+          "rationale": "Nokia positioned in AI networking; Markel 18% below 52-week high with Berkshire-like structure",
+          "tickers": [
+            "NOK",
+            "MKL"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            5,
+            56
+          ]
+        },
+        {
+          "recommendation": "Position for winter LNG spike via European energy names",
+          "rationale": "Low European gas stocks create supply-demand imbalance risk; tech data center power demand adds structural tailwind",
+          "tickers": [
+            "ASML",
+            "ENR"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            61,
+            76,
+            65
+          ]
+        },
+        {
+          "recommendation": "Cybersecurity positions for 2027 as AI-driven threat landscape expands",
+          "rationale": "AI integration increases attack surface; regulatory pressure on data (Meta, Apple) drives compliance spend",
+          "tickers": [
+            "CRWD",
+            "S"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            10,
+            29,
+            24
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Reduce exposure to rate-sensitive consumer discretionary and CRE",
+          "rationale": "Fed hike + credit tightening + Lululemon/J.B. Hunt warnings signal consumer stress; multifamily refinancing wall approaching",
+          "tickers": [
+            "LULU",
+            "JBHT"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            26,
+            79,
+            7,
+            15,
+            44
+          ]
+        },
+        {
+          "recommendation": "Avoid Turkey and Russia-exposed assets; exit EM EM debt in stressed markets",
+          "rationale": "Turkey fund liquidations, bans, arrests signal systemic stress; Putin asset seizures create legal uncertainty",
+          "tickers": [],
+          "timeframe": "short-term",
+          "headline_sources": [
+            51,
+            37,
+            11
+          ]
+        },
+        {
+          "recommendation": "Hedge AI concentration risk with inverse tech ETFs or options overlays",
+          "rationale": "Explicit AI crash warnings; Microsoft-Anthropic tensions; Meta $17B settlement signals regulatory overhang",
+          "tickers": [
+            "SPY",
+            "QQQ"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            33,
+            77,
+            29,
+            73
+          ]
+        },
+        {
+          "recommendation": "Lock in 2-year CDs at 4.40% APY before further rate uncertainty",
+          "rationale": "Fed signaling more hikes; locking yield now provides certainty amid volatile rate path",
+          "tickers": [],
+          "timeframe": "short-term",
+          "headline_sources": [
+            48,
+            69,
+            36
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Markets likely choppy 1-3 months as Fed hike digests. Oil weakness supports equities but rate pressure caps upside. Semiconductor momentum may extend but AI valuation risk creates volatility. Turkey crisis and geopolitical headlines add tail risk. Expect Nasdaq to outperform Dow on AI leadership but with wider swings.",
+      "long_term": "6-12 month outlook moderately constructive if inflation stabilizes post-hike. AI infrastructure capex cycle remains multi-year. Consumer bifurcation persists. Energy transition (LNG, data center power) creates structural winners. Geopolitical fragmentation is a persistent drag on global risk appetite. Fed 'higher for longer' compresses multiples on long-duration growth.",
+      "key_catalysts": [
+        "Next Fed meeting and dot plot revision",
+        "Q3 earnings season (J.B. Hunt warning sets cautious tone)",
+        "European gas storage levels heading into winter",
+        "Russia-NATO military escalation timeline",
+        "Turkey fund resolution and contagion risk",
+        "Apple UK $2.7B lawsuit ruling",
+        "Meta teen platform overhaul compliance",
+        "Saudi pipeline repair completion and OPEC+ output",
+        "Takeda zasocitinib FDA decision",
+        "Cunext IPO and Airtel Money IPO execution"
+      ],
+      "watch_list": [
+        "Fed funds rate path and next hike timing",
+        "10-year Treasury yield vs. 2-year (curve dynamics)",
+        "WTI crude and European TTF gas prices",
+        "AMD/NVDA/AVGO relative performance and AI capex guidance",
+        "Turkey CDS spreads and fund liquidation progress",
+        "Multifamily CRE loan default rates",
+        "Auto loan delinquency and mortgage application volumes",
+        "Gold price vs. DXY correlation",
+        "Bitcoin/ETH post-Fed trajectory",
+        "Nasdaq 100 vs. S&P 500 divergence",
+        "Lululemon new CEO strategy execution",
+        "Amazon air network regulatory response post-crash"
+      ],
+      "headline_sources": [
+        69,
+        36,
+        38,
+        47,
+        52,
+        66,
+        33,
+        61,
+        32,
+        51,
+        7,
+        15,
+        48,
+        42,
+        46,
+        64,
+        63,
+        26,
+        30,
+        40
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Regulatory Capture Isn’t What You Think It Is",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-09-17/regulatory-capture-isn-t-what-you-think-it-is",
+      "publishedAt": "2026-09-17T17:46:36+00:00"
+    },
+    {
+      "index": 2,
+      "headline": "Vanguard Russell 1000 Growth vs. Invesco SmallCap 600 Revenue: Which Is Better for a Diversified Portfolio?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/vanguard-russell-1000-growth-vs-174501563.html",
+      "publishedAt": "2026-09-17T17:45:01Z"
+    },
+    {
+      "index": 3,
+      "headline": "Rocket Lab Jumps 6% as FCC Clears First Hurdle on Iridium Deal; Iridium Communications Barely Budges",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/rocket-lab-jumps-6-fcc-174330473.html",
+      "publishedAt": "2026-09-17T17:43:30Z"
+    },
+    {
+      "index": 4,
+      "headline": "Oracle vs. Broadcom: Which \"Picks and Shovels\" AI Stock Has the Bigger Growth Runway From Here?",
+      "url": "https://finance.yahoo.com/technology/ai/articles/oracle-vs-broadcom-picks-shovels-174300358.html",
+      "publishedAt": "2026-09-17T17:43:00Z"
+    },
+    {
+      "index": 5,
+      "headline": "Jim Cramer Picks Nokia as AI Supercycle Winner While Dumping on BWX Technologies’ 30x Multiple",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-picks-nokia-ai-174038456.html",
+      "publishedAt": "2026-09-17T17:40:38Z"
+    },
+    {
+      "index": 6,
+      "headline": "Why D-Wave Quantum Stock Popped Today",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-d-wave-quantum-stock-174035797.html",
+      "publishedAt": "2026-09-17T17:40:35Z"
+    },
+    {
+      "index": 7,
+      "headline": "Troubled Multifamily Loans Face A Refinancing Problem: Who Puts In New Equity?",
+      "url": "https://finance.yahoo.com/real-estate/articles/troubled-multifamily-loans-face-refinancing-173708451.html",
+      "publishedAt": "2026-09-17T17:37:08Z"
+    },
+    {
+      "index": 8,
+      "headline": "AMD Jumps 7% as Semiconductor Rebound Reaches a Third Session; Broadcom Rises 3%, NVIDIA Edges Higher",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/amd-jumps-7-semiconductor-rebound-173707172.html",
+      "publishedAt": "2026-09-17T17:37:07Z"
+    },
+    {
+      "index": 9,
+      "headline": "BillionToOne CEO Liquidates Entire Directly-Held Stake in the Company for $3 Million",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/billiontoone-ceo-liquidates-entire-directly-173547804.html",
+      "publishedAt": "2026-09-17T17:35:47Z"
+    },
+    {
+      "index": 10,
+      "headline": "2 Cybersecurity Stocks That Will Rule 2027",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/2-cybersecurity-stocks-rule-2027-173100563.html",
+      "publishedAt": "2026-09-17T17:31:00Z"
+    },
+    {
+      "index": 11,
+      "headline": "Putin Orders Temporary Administration of Nestle Assets in Russia",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/putin-orders-temporary-administration-of-nestle-assets-in-russia",
+      "publishedAt": "2026-09-17T17:28:48+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "How does the Fed interest rate affect car loans?",
+      "url": "https://finance.yahoo.com/news/fed-affects-auto-loan-rates-190622401.html",
+      "publishedAt": "2026-09-17T17:20:50Z"
+    },
+    {
+      "index": 13,
+      "headline": "What the Bassman-Simplify Asset Management Clash Tells Us About the ETF Industry",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-09-17/what-the-bassman-simplify-asset-management-clash-tells-us-about-the-etf-industry",
+      "publishedAt": "2026-09-17T17:20:24+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "Stock Market Today: Nasdaq Dwarfs Dow's Gain; This AI Chip Leader Breaks Out To All-Time High (Live Coverage)",
+      "url": "https://www.investors.com/market-trend/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-fed-reaction-generac-nebius-bloom-energy-spacex/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-09-17T17:17:07Z"
+    },
+    {
+      "index": 15,
+      "headline": "Access to credit is tightening — here’s what it means for your next auto loan",
+      "url": "https://finance.yahoo.com/economy/policy/articles/access-credit-tightening-means-next-150515547.html",
+      "publishedAt": "2026-09-17T17:11:21Z"
+    },
+    {
+      "index": 16,
+      "headline": "Takeda Pharmaceutical (TAK) Gets Priority Review. Can Zasocitinib Win in Psoriasis?",
+      "url": "https://finance.yahoo.com/healthcare/articles/takeda-pharmaceutical-tak-gets-priority-170819495.html",
+      "publishedAt": "2026-09-17T17:08:19Z"
+    },
+    {
+      "index": 17,
+      "headline": "How secured auto loans work",
+      "url": "https://finance.yahoo.com/markets/currencies/articles/secured-auto-loans-why-usually-212442450.html",
+      "publishedAt": "2026-09-17T17:05:22Z"
+    },
+    {
+      "index": 18,
+      "headline": "Spanish Copper Manufacturer Cunext Is Said to Consider an IPO",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/spanish-copper-manufacturer-cunext-is-said-to-consider-an-ipo",
+      "publishedAt": "2026-09-17T16:59:37+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "airBaltic Is Shrinking. Ryanair Is Moving In.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/airbaltic-shrinking-ryanair-moving-165823095.html",
+      "publishedAt": "2026-09-17T16:58:23Z"
+    },
+    {
+      "index": 20,
+      "headline": "Aon’s $17 Billion USI Deal: What Hedge Fund Sentiment Says About AON and KKR",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/aon-17-billion-usi-deal-165811093.html",
+      "publishedAt": "2026-09-17T16:58:11Z"
+    },
+    {
+      "index": 21,
+      "headline": "Former Trafigura CEO Contender Hallouche Starts New Energy Firm",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/former-trafigura-ceo-contender-hallouche-starts-new-energy-firm",
+      "publishedAt": "2026-09-17T16:55:06+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "Polestar (PSNY)’s US Exit Just Showed Up in its Guidance",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/polestar-psny-us-exit-just-165023810.html",
+      "publishedAt": "2026-09-17T16:50:23Z"
+    },
+    {
+      "index": 23,
+      "headline": "Jim Cramer on Tesla (TSLA): “My Only Solution to It Is That SpaceX Has to Buy It”",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-tesla-tsla-only-164733818.html",
+      "publishedAt": "2026-09-17T16:47:33Z"
+    },
+    {
+      "index": 24,
+      "headline": "Apple (AAPL) Faces a $2.7 Billion UK Lawsuit over its App Tracking Rules",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/apple-aapl-faces-2-7-164412973.html",
+      "publishedAt": "2026-09-17T16:44:12Z"
+    },
+    {
+      "index": 25,
+      "headline": "Airtel Money Is Said to Trim IPO Size Ahead of Deal Kick Off",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/airtel-money-is-said-to-trim-ipo-size-ahead-of-deal-kick-off",
+      "publishedAt": "2026-09-17T16:43:09+00:00"
+    },
+    {
+      "index": 26,
+      "headline": "Lululemon (LULU) Cuts its Outlook Again Just as a New CEO Walks through the Door",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/lululemon-lulu-cuts-outlook-again-164209283.html",
+      "publishedAt": "2026-09-17T16:42:09Z"
+    },
+    {
+      "index": 27,
+      "headline": "AMD Leads Chip Stocks Higher Amid Sector Rebound",
+      "url": "https://www.investors.com/news/technology/amd-stock-leads-chip-stocks-sox-index-higher-amid-sector-rebound/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-09-17T16:41:50Z"
+    },
+    {
+      "index": 28,
+      "headline": "Rackspace’s Nvidia Partnership Sparks Early Rally, But a $2.8 Billion Debt Load Remains",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/rackspace-nvidia-partnership-sparks-early-163851620.html",
+      "publishedAt": "2026-09-17T16:38:51Z"
+    },
+    {
+      "index": 29,
+      "headline": "Meta (META) Overhauls Instagram and Facebook for Teens after its $17 Billion Settlement",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/meta-meta-overhauls-instagram-facebook-163514422.html",
+      "publishedAt": "2026-09-17T16:35:14Z"
+    },
+    {
+      "index": 30,
+      "headline": "A Deadly Amazon (AMZN) Cargo Plane Crash in Miami Puts its Air Network Under Scrutiny",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/deadly-amazon-amzn-cargo-plane-163256704.html",
+      "publishedAt": "2026-09-17T16:32:56Z"
+    },
+    {
+      "index": 31,
+      "headline": "Stocks Gain in Wake of Fed",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-17/open-interest-9-17-2026-video",
+      "publishedAt": "2026-09-17T16:30:59+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "Poland Warns That Russia Plans to Strike Ukraine’s NATO Allies",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/poland-warns-that-russia-plans-to-strike-ukraine-s-nato-allies",
+      "publishedAt": "2026-09-17T16:30:32+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "How To Protect Yourself From The Looming AI-Stock Crash",
+      "url": "https://www.investors.com/etfs-and-funds/etfs/ai-stock-crash-how-to-protect-yourself-from-the-looming/?src=A00220&yptr=yahoo",
+      "publishedAt": "2026-09-17T16:30:04Z"
+    },
+    {
+      "index": 34,
+      "headline": "Assemblin Caverion prints €1.5B floating-rate note in bumper day for European high yield",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/assemblin-caverion-prints-1-5b-162749040.html",
+      "publishedAt": "2026-09-17T16:27:49Z"
+    },
+    {
+      "index": 35,
+      "headline": "US to Reopen Largest Port for Mexican Cattle Shipments",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/us-to-reopen-largest-port-for-mexican-cattle-shipments",
+      "publishedAt": "2026-09-17T16:12:05+00:00"
+    },
+    {
+      "index": 36,
+      "headline": "Stocks Rally, Yields Fall After Fed Hikes Rates, Signals More to Come",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-17/bloomberg-surveillance-9-17-2026-video",
+      "publishedAt": "2026-09-17T16:04:21+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "Turkey Detains Executives at Tera, Destek Amid Fund Turmoil",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/turkey-detains-executives-at-tera-destek-amid-fund-turmoil",
+      "publishedAt": "2026-09-17T15:31:35+00:00"
+    },
+    {
+      "index": 38,
+      "headline": "Stocks and bonds rally after Fed hikes rates and oil prices fall",
+      "url": "https://www.nbcnews.com/business/markets/stocks-bonds-fed-hikes-oil-prices-rcna598310",
+      "publishedAt": "2026-09-17T13:41:23+00:00"
+    },
+    {
+      "index": 39,
+      "headline": "Why Networking is the Essential Career Tool",
+      "url": "https://www.today.com/video/networking-tips-how-to-build-strong-career-connections-270026309623",
+      "publishedAt": "2026-09-17T13:35:43+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "US Stocks (SPY) Poised to Turn a Corner, Citadel Securities’ Rubner Says",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/us-stocks-spy-poised-to-turn-a-corner-citadel-securities-rubner-says",
+      "publishedAt": "2026-09-17T13:19:57+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Trump Sounds Off on Fed’s Decision on Interest Rate",
+      "url": "https://www.today.com/video/trump-lashes-out-at-fed-over-decision-to-raise-interest-rates-270020677681",
+      "publishedAt": "2026-09-17T12:12:37+00:00"
+    },
+    {
+      "index": 42,
+      "headline": "Bitcoin and ethereum prices today, Thursday, September 17, 2026: Crypto prices move up following Fed's rate increase",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-thursday-september-17-2026-crypto-prices-move-up-following-feds-rate-increase-114024955.html",
+      "publishedAt": "2026-09-17T11:40:24Z"
+    },
+    {
+      "index": 43,
+      "headline": "Silver price today, Thursday, September 17, 2026: Silver prices stay steady post Fed decision",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/silver-price-today-thursday-september-17-2026-silver-prices-stay-steady-post-fed-decision-112308053.html",
+      "publishedAt": "2026-09-17T11:23:08Z"
+    },
+    {
+      "index": 44,
+      "headline": "What Does the Interest Rate Hike Mean for American Consumers?",
+      "url": "https://www.today.com/video/interest-rates-raised-for-first-time-in-years-how-it-affects-costs-270019653540",
+      "publishedAt": "2026-09-17T11:22:03+00:00"
+    },
+    {
+      "index": 45,
+      "headline": "Can I settle my medical bills? A guide to debt settlement.",
+      "url": "https://finance.yahoo.com/personal-finance/personal-loans/article/settle-medical-bills-a-guide-to-debt-settlement-111100958.html",
+      "publishedAt": "2026-09-17T11:11:00Z"
+    },
+    {
+      "index": 46,
+      "headline": "Gold price today, Thursday, September 17, 2026: Gold prices relatively stable following Fed rate increase",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-price-today-thursday-september-17-2026-gold-prices-relatively-stable-following-fed-rate-increase-110852391.html",
+      "publishedAt": "2026-09-17T11:08:52Z"
+    },
+    {
+      "index": 47,
+      "headline": "US Stocks Rebound From Fed Decision Day Slump as Oil Falls",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/us-stocks-primed-to-rebound-from-fed-day-slump-as-futures-rally",
+      "publishedAt": "2026-09-17T10:57:20+00:00"
+    },
+    {
+      "index": 48,
+      "headline": "Best CD rates today, Thursday, September 17, 2026: Lock in up to 4.40% APY with a 2-year CD",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-thursday-september-17-2026-lock-in-up-to-440-apy-with-a-2-year-cd-100000275.html",
+      "publishedAt": "2026-09-17T10:00:00Z"
+    },
+    {
+      "index": 49,
+      "headline": "Mortgage rates fell slightly after the Fed hiked rates: Mortgage and refinance interest rates today, Thursday, September 17, 2026",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-rates-fell-slightly-after-the-fed-hiked-rates-mortgage-and-refinance-interest-rates-today-thursday-september-17-2026-100000901.html",
+      "publishedAt": "2026-09-17T10:00:00Z"
+    },
+    {
+      "index": 50,
+      "headline": "Tata Sons to List, Tata Trusts Calls Chair Chandrasekaran's Extension ‘Illegal’",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/tata-offers-chandra-extension-to-steady-group-amid-listing-push",
+      "publishedAt": "2026-09-17T09:16:31+00:00"
+    },
+    {
+      "index": 51,
+      "headline": "Turkey Acts to Stem Rout With Liquidations, Bans and Arrests",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/turkey-regulator-will-liquidiate-some-funds-managed-by-7-firms",
+      "publishedAt": "2026-09-17T08:21:00+00:00"
+    },
+    {
+      "index": 52,
+      "headline": "Stock market today: Dow, S&P 500, Nasdaq rise as oil slips, Fed rate hike pacifies markets' inflation worries",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-september-17-dow-sp-500-nasdaq-oil-fed-081248626.html",
+      "publishedAt": "2026-09-17T08:12:48Z"
+    },
+    {
+      "index": 53,
+      "headline": "Mahindra Sales Breakup Aug 2026 - Scorpio, XUV 7XO, 3XO, Bolero, XEV, ROXX, Thar, BE 6",
+      "url": "https://www.rushlane.com/mahindra-sales-breakup-aug-2026-scorpio-xuv-7xo-3xo-bolero-12556045.html",
+      "publishedAt": "2026-09-17T06:00:02Z"
+    },
+    {
+      "index": 54,
+      "headline": "Three ways to beat state pension tax trap as payments on track to hit £13,036",
+      "url": "https://www.express.co.uk/finance/personalfinance/2249102/state-pension-rise-income-tax",
+      "publishedAt": "2026-09-17T06:00:00Z"
+    },
+    {
+      "index": 55,
+      "headline": "What are the consumer rights on prepaid gym and spa package refunds?",
+      "url": "https://www.straitstimes.com/singapore/true-fitness-closure-put-limits-on-what-spas-and-gyms-can-collect-in-pre-paid-packages",
+      "publishedAt": "2026-09-17T06:00:00Z"
+    },
+    {
+      "index": 56,
+      "headline": "Markel Is Built Like a Smaller Berkshire Hathaway. Its Stock Sits 18% Below Its 52-Week High.",
+      "url": "https://www.fool.com/investing/2026/09/17/markel-is-built-like-a-smaller-berkshire-hathaway/",
+      "publishedAt": "2026-09-17T05:57:42Z"
+    },
+    {
+      "index": 57,
+      "headline": "Japanese cruise operator unveils new ship Mitsui Ocean Sakura",
+      "url": "https://mainichi.jp/english/articles/20260917/p2a/00m/0bu/009000c",
+      "publishedAt": "2026-09-17T05:57:35Z"
+    },
+    {
+      "index": 58,
+      "headline": "Why AI hasn’t taken your job yet",
+      "url": "https://www.theage.com.au/business/companies/why-ai-hasn-t-taken-your-job-yet-20260917-p60y6e.html",
+      "publishedAt": "2026-09-17T05:56:17Z"
+    },
+    {
+      "index": 59,
+      "headline": "KPMG consultant admits to ‘gaps’ in its whistleblower report",
+      "url": "https://www.smh.com.au/business/companies/kpmg-consultant-admits-to-gaps-in-its-whistleblower-report-20260917-p60y8m.html",
+      "publishedAt": "2026-09-17T05:56:09Z"
+    },
+    {
+      "index": 60,
+      "headline": "We lived in Spain for five years - will we face tax when we sell our Irish home?",
+      "url": "https://www.irishtimes.com/your-money/2026/09/17/we-lived-in-spain-for-five-years-will-we-face-tax-when-we-sell-our-irish-home/",
+      "publishedAt": "2026-09-17T05:53:08Z"
+    },
+    {
+      "index": 61,
+      "headline": "Global LNG prices could spike this winter on low European gas stocks",
+      "url": "https://www.reuters.com/business/energy/global-lng-prices-could-spike-this-winter-low-european-gas-stocks-2026-09-17/",
+      "publishedAt": "2026-09-17T05:51:00Z"
+    },
+    {
+      "index": 62,
+      "headline": "Why is China less worried about an AI dystopia than the US?",
+      "url": "https://www.cnn.com/2026/09/17/tech/china-ai-debate-intl-hnk",
+      "publishedAt": "2026-09-17T05:47:53Z"
+    },
+    {
+      "index": 63,
+      "headline": "Treasuries Gain as Growing Confidence in Warsh Calms Market",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-17/global-bonds-recover-as-warsh-s-inflation-fight-calms-market",
+      "publishedAt": "2026-09-17T02:15:47+00:00"
+    },
+    {
+      "index": 64,
+      "headline": "Gold Surges Along With US Treasuries as Oil Price Slide Deepens",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-16/gold-holds-decline-after-fed-tilts-hawkish-and-raises-rates",
+      "publishedAt": "2026-09-16T23:54:12+00:00"
+    },
+    {
+      "index": 65,
+      "headline": "House passes bill to shield consumers from data center price hikes on energy",
+      "url": "https://www.nbcnews.com/politics/congress/house-passes-bill-shield-consumers-data-center-price-hikes-energy-rcna597683",
+      "publishedAt": "2026-09-16T22:55:58+00:00"
+    },
+    {
+      "index": 66,
+      "headline": "Stocks, Bonds Rise After Fed-Day Drop as Oil Falls: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-16/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-09-16T22:06:59+00:00"
+    },
+    {
+      "index": 67,
+      "headline": "Oil Wavers Amid Saudi Pipeline Repairs, Supply Concerns",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-16/oil-extends-slump-as-saudi-arabia-moves-to-restore-key-pipeline",
+      "publishedAt": "2026-09-16T22:05:54+00:00"
+    },
+    {
+      "index": 68,
+      "headline": "Calpers CEO Notches $1 Milllion Bonus As Returns Beat Target",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-16/calpers-ceo-bonus-jumps-43-after-pension-returns-beat-target",
+      "publishedAt": "2026-09-16T21:11:34+00:00"
+    },
+    {
+      "index": 69,
+      "headline": "Fed raises interest rates for first time since 2023, defying Trump as inflation mounts",
+      "url": "https://www.nbcnews.com/business/economy/fed-raises-rates-defying-trump-rcna598148",
+      "publishedAt": "2026-09-16T18:00:25+00:00"
+    },
+    {
+      "index": 70,
+      "headline": "Mysterious trader moves $122 million ahead of Fed's 2 p.m. decision",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/mysterious-trader-moves-122-million-164740089.html",
+      "publishedAt": "2026-09-16T16:47:40Z"
+    },
+    {
+      "index": 71,
+      "headline": "Fed meeting live updates: Rate hike expected for the first time in three years - CNBC",
+      "url": "https://www.cnbc.com/2026/09/16/fed-meeting-today-live-updates.html",
+      "publishedAt": "2026-09-16T15:44:00Z"
+    },
+    {
+      "index": 72,
+      "headline": "Americans' income hits record, but lower earners lose ground - Axios",
+      "url": "https://www.axios.com/2026/09/16/us-economy-income-census",
+      "publishedAt": "2026-09-16T15:13:54Z"
+    },
+    {
+      "index": 73,
+      "headline": "Sam Altman says people are right to fear advancing AI but should trust leaders - The Washington Post",
+      "url": "https://www.washingtonpost.com/technology/2026/09/16/openais-altman-says-world-should-trust-ai-firms-amid-mounting-fears/",
+      "publishedAt": "2026-09-16T14:47:22Z"
+    },
+    {
+      "index": 74,
+      "headline": "SK Hynix stock jumps as memory maker responds to report of potential deal with Intel - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/article/sk-hynix-stock-jumps-as-memory-maker-responds-to-report-of-potential-deal-with-intel-125828355.html",
+      "publishedAt": "2026-09-16T14:21:03Z"
+    },
+    {
+      "index": 75,
+      "headline": "Ozempic-maker turns to Anthropic to turbocharge medical research - politico.eu",
+      "url": "https://www.politico.eu/article/novo-turns-to-anthropic-to-turbocharge-medical-research/",
+      "publishedAt": "2026-09-16T14:15:00Z"
+    },
+    {
+      "index": 76,
+      "headline": "Tech giants launch flexible-power coalition for data centers - Axios",
+      "url": "https://www.axios.com/2026/09/16/tech-giants-launch-flexible-power-coalition-data-centers",
+      "publishedAt": "2026-09-16T14:12:56Z"
+    },
+    {
+      "index": 77,
+      "headline": "Microsoft says AI rival Anthropic could have 'disastrous impact' on humanity - BBC",
+      "url": "https://www.bbc.com/news/articles/c6n07ypqz8kzo",
+      "publishedAt": "2026-09-16T14:02:36Z"
+    },
+    {
+      "index": 78,
+      "headline": "Passengers scream and flail as extreme turbulence ‘tears plane cabin apart’ in harrowing video - New York Post",
+      "url": "https://nypost.com/2026/09/16/lifestyle/passengers-scream-as-extreme-turbulence-tears-plane-cabin-apart-video/",
+      "publishedAt": "2026-09-16T13:28:00Z"
+    },
+    {
+      "index": 79,
+      "headline": "J.B. Hunt stock plunges 10% after company warns third-quarter earnings will fall - CNBC",
+      "url": "https://www.cnbc.com/2026/09/16/jb-hunt-stock-jbht-earnings.html",
+      "publishedAt": "2026-09-16T13:14:51Z"
+    },
+    {
+      "index": 80,
+      "headline": "How Kraft Heinz is keeping its legacy brands affordable to cost-conscious shoppers",
+      "url": "https://www.nbcnews.com/business/ceo-interviews/kraft-heinz-cahillane-legacy-brands-affordable-rcna597899",
+      "publishedAt": "2026-09-16T12:29:03+00:00"
+    },
+    {
+      "index": 81,
+      "headline": "Federal Reserve Poised to Raise Interest Rates: What to Know",
+      "url": "https://www.today.com/video/federal-reserve-poised-to-raise-interest-rates-what-to-know-269957189612",
+      "publishedAt": "2026-09-16T11:32:33+00:00"
+    },
+    {
+      "index": 82,
+      "headline": "6 signs you might be a good fit for debt settlement",
+      "url": "https://finance.yahoo.com/personal-finance/personal-loans/article/signs-you-might-be-a-good-fit-for-debt-settlement-102500610.html",
+      "publishedAt": "2026-09-16T10:25:00Z"
+    },
+    {
+      "index": 83,
+      "headline": "Gold and the U.S. dollar: Why they often move in opposite directions",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-us-dollar-relationship-204112404.html",
+      "publishedAt": "2026-09-15T20:41:12Z"
+    },
+    {
+      "index": 84,
+      "headline": "Credit card application denied? Here’s what to do next",
+      "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/credit-card-application-denied-194416584.html",
+      "publishedAt": "2026-09-15T19:44:16Z"
+    }
+  ]
+}
