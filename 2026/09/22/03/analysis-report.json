@@ -1,0 +1,987 @@
+{
+  "analysis": {
+    "analysis_date": "September 22, 2026",
+    "analysis_time": "03:09",
+    "executive_summary": {
+      "key_highlights": [
+        "Oil settles near $100/barrel as Strait of Hormuz flow disruptions stifle rally; Middle East reconstruction fund signals prolonged geopolitical risk premium",
+        "Asian stocks rally on Meta AI agent optimism; tech leads global surge as bond yields and oil tumble intraday",
+        "US-China AI talks face low expectations ahead of Trump-Xi summit; USTR Greer lays groundwork for trade negotiations",
+        "Paramount-Warner Bros merger clears state antitrust obstacles, removing key regulatory hurdle",
+        "India proprietary trading slumps on auction liquidity woes; SEBI deploys AI to combat market fraud",
+        "Gold edges higher as lower oil prices dampen rate hike expectations; silver rises ahead of US-China summit",
+        "NVIDIA names AI's next bottleneck; CoreWeave launches junk-bond offering tied to Vera Rubin data centers",
+        "Dollar General CEO raises consumer spending red flag; poll shows majority say Trump hurt economy ahead of midterms",
+        "Exxon and Chevron supercharge Venezuela return bets; BMO/Morgan Stanley see refiners (PSX, MPC, VLO) hitting new highs",
+        "NextEra's $1.9B nuclear boost and GE Vernova's $200B backlog accelerate energy transition timeline"
+      ],
+      "market_sentiment_score": 63,
+      "overall_sentiment": "cautiously positive",
+      "headline_sources": [
+        8,
+        12,
+        17,
+        19,
+        26,
+        27,
+        1,
+        3,
+        37,
+        38,
+        62,
+        85,
+        83,
+        87,
+        91,
+        73,
+        82
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology/AI",
+          "trend": "Strong momentum driven by Meta AI agent, OpenAI-Anthropic safety collaboration, NVIDIA space chip roadmap, and CoreWeave data center expansion. AI risk concerns from billion-dollar funds create counter-narrative.",
+          "implications": "AI capex cycle accelerates but regulatory/safety scrutiny intensifies. Hardware (NVDA, CRWV) and power infrastructure (GEV, NEE, BE) benefit most. Valuation stretch risk if AI monetization lags.",
+          "headline_sources": [
+            12,
+            31,
+            48,
+            57,
+            61,
+            69,
+            72,
+            52,
+            53
+          ]
+        },
+        {
+          "sector": "Energy/Oil & Gas",
+          "trend": "Oil near $100 on Hormuz disruption; refiners (PSX, MPC, VLO) see new highs per BMO/Morgan Stanley; Exxon/Chevron re-enter Venezuela; LNG agreements (Sempra) and nuclear (NextEra) signal diversified energy strategy.",
+          "implications": "Geopolitical premium sustains oil above $90. Refining margins expand. Venezuela re-entry adds 1-2M bpd optionality. Energy transition coexists with fossil expansion.",
+          "headline_sources": [
+            17,
+            14,
+            62,
+            85,
+            83,
+            88,
+            90,
+            74,
+            71,
+            59,
+            82,
+            73,
+            67,
+            68,
+            70,
+            80,
+            89
+          ]
+        },
+        {
+          "sector": "Consumer/Retail",
+          "trend": "Dollar General CEO flags consumer weakness; Southwest raises fares/fees; 100-year grocery chain closes stores in 4 states; Burger chain cancels breakfast at hundreds of locations.",
+          "implications": "Consumer discretionary under pressure. Cost-cutting and fee increases signal margin defense. Retail consolidation likely accelerates. Caution on consumer cyclicals.",
+          "headline_sources": [
+            87,
+            51,
+            47,
+            45,
+            77
+          ]
+        },
+        {
+          "sector": "Financials/Markets Infrastructure",
+          "trend": "India proprietary trading slumps; NSE $2.4B IPO sees subdued retail demand; SEBI deploys AI surveillance; prop shops pull back from $2T derivatives market.",
+          "implications": "Emerging market liquidity stress in India. Regulatory tightening via AI may reduce speculative volumes. US financials stable with CD rates at 4.40% APY supporting deposit growth.",
+          "headline_sources": [
+            1,
+            6,
+            3,
+            39,
+            41,
+            42,
+            43,
+            44
+          ]
+        },
+        {
+          "sector": "Media/Entertainment",
+          "trend": "Paramount-Warner Bros merger clears state antitrust; CNN/Politico/MS NOW sue Trump admin over White House coverage ban.",
+          "implications": "Consolidation reshapes media landscape. Political-media tension adds regulatory uncertainty. Deal completion likely within 60-90 days.",
+          "headline_sources": [
+            11,
+            20,
+            22,
+            27,
+            28,
+            40
+          ]
+        },
+        {
+          "sector": "Commodities/Crypto",
+          "trend": "Gold higher on rate cut hopes; silver rising pre-summit; Bitcoin/Ethereum hit 8-month highs; oil near $100.",
+          "implications": "Diversification into hard assets continues. Crypto momentum suggests risk-on appetite. Oil volatility tied to Hormuz/Middle East remains key swing factor.",
+          "headline_sources": [
+            8,
+            35,
+            37,
+            38,
+            17,
+            13
+          ]
+        }
+      ],
+      "key_themes": [
+        "US-China summit preparation with low AI-talk expectations creating uncertainty premium",
+        "Geopolitical risk premium in oil (Hormuz, Middle East reconstruction, Iran war)",
+        "AI infrastructure buildout (data centers, power, chips) as primary growth engine",
+        "Consumer spending deterioration vs. corporate margin defense",
+        "India market liquidity stress and regulatory evolution",
+        "Energy transition acceleration (nuclear, LNG, renewables) alongside fossil expansion",
+        "Vietnam-US trade deal signaling supply chain diversification",
+        "Political risk: midterm election pressure, media-government conflict",
+        "AI safety governance emerging as industry standard (OpenAI-Anthropic deal)"
+      ],
+      "headline_sources": [
+        7,
+        26,
+        17,
+        13,
+        12,
+        31,
+        87,
+        1,
+        3,
+        62,
+        82,
+        4,
+        10,
+        52,
+        91,
+        40
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Geopolitical escalation (Hormuz/Middle East/Iran)",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Hedge energy exposure with XLE/USO; maintain 10-15% allocation to gold/GLD; monitor Hormuz shipping data weekly",
+        "headline_sources": [
+          17,
+          13,
+          9,
+          14
+        ]
+      },
+      {
+        "risk_factor": "US-China trade/AI tensions ahead of summit",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Reduce China-exposed equities pre-summit; favor domestic tech; watch USTR Greer statements for tariff signals",
+        "headline_sources": [
+          7,
+          26,
+          60,
+          37
+        ]
+      },
+      {
+        "risk_factor": "Consumer spending deterioration",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Underweight discretionary retail; favor essential services; monitor Dollar General guidance and PMI data",
+        "headline_sources": [
+          87,
+          47,
+          45,
+          51,
+          91
+        ]
+      },
+      {
+        "risk_factor": "AI valuation bubble / regulatory backlash",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Take partial profits in AI hardware names; diversify into AI-adjacent power/infrastructure (GEV, NEE, BE) with lower multiples",
+        "headline_sources": [
+          52,
+          53,
+          48,
+          31,
+          72
+        ]
+      },
+      {
+        "risk_factor": "India market liquidity crisis",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Reduce EM India exposure; monitor SEBI regulatory actions; avoid NSE derivatives-heavy strategies",
+        "headline_sources": [
+          1,
+          6,
+          3,
+          39
+        ]
+      },
+      {
+        "risk_factor": "Political/media conflict (US)",
+        "impact": "Low",
+        "likelihood": "Medium",
+        "mitigation": "Monitor for regulatory overhang on media stocks; treat as noise unless escalation occurs",
+        "headline_sources": [
+          40,
+          91
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Overweight energy refiners and LNG plays on $100 oil and geopolitical premium",
+          "rationale": "BMO/Morgan Stanley/UBS all target new highs for PSX, MPC, VLO; Hormuz risk sustains crude above $90; Sempra 20-yr LNG deal de-risks cash flows",
+          "tickers": [
+            "PSX",
+            "MPC",
+            "VLO",
+            "SRE",
+            "XOM",
+            "CVX"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            88,
+            90,
+            74,
+            71,
+            59,
+            62,
+            85,
+            17
+          ]
+        },
+        {
+          "recommendation": "Add AI power/infrastructure names as next bottleneck play",
+          "rationale": "NVIDIA identifies power as next AI constraint; GE Vernova $200B backlog accelerating; NextEra $1.9B nuclear boost; Bloom Energy AI power play",
+          "tickers": [
+            "GEV",
+            "NEE",
+            "BE",
+            "D",
+            "CRWV"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            72,
+            73,
+            82,
+            61,
+            57,
+            76
+          ]
+        },
+        {
+          "recommendation": "Position for Paramount-Warner Bros deal completion",
+          "rationale": "State antitrust cleared; deal likely closes 60-90 days; media consolidation creates scale advantages",
+          "tickers": [
+            "PARA",
+            "WBD"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            11,
+            20,
+            27,
+            28
+          ]
+        },
+        {
+          "recommendation": "Accumulate gold and silver on rate cut expectations and summit uncertainty",
+          "rationale": "Lower oil dampens hike odds; silver rising pre-summit; geopolitical hedge value elevated",
+          "tickers": [
+            "GLD",
+            "SLV",
+            "GOLD"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            8,
+            37,
+            38
+          ]
+        },
+        {
+          "recommendation": "Buy Joby Aviation on 54% YTD decline ahead of 2027 commercial launch",
+          "rationale": "Deep value in eVTOL sector; 2027 catalyst provides asymmetric upside if regulatory timeline holds",
+          "tickers": [
+            "JOBY"
+          ],
+          "timeframe": "long",
+          "headline_sources": [
+            75
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Reduce consumer discretionary and retail exposure",
+          "rationale": "Dollar General CEO red flag, store closures, fee increases signal structural consumer weakness; midterm political risk amplifies",
+          "tickers": [
+            "DG",
+            "SWA"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            87,
+            47,
+            51,
+            91
+          ]
+        },
+        {
+          "recommendation": "Hedge oil price volatility with put spreads or energy hedges",
+          "rationale": "Oil near $100 is vulnerable to Hormuz de-escalation; $5 gas price drop in California signals demand sensitivity",
+          "tickers": [
+            "USO",
+            "XLE"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            17,
+            50,
+            77,
+            14
+          ]
+        },
+        {
+          "recommendation": "Trim India EM exposure pending liquidity resolution",
+          "rationale": "Prop trading slump, subdued IPO demand, and SEBI crackdown signal 1-2 quarter liquidity overhang",
+          "tickers": [
+            "INDA",
+            "INDX"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            1,
+            6,
+            3,
+            39
+          ]
+        },
+        {
+          "recommendation": "Maintain 10-15% cash/gold allocation for geopolitical tail risk",
+          "rationale": "Middle East reconstruction fund, Iran war context, and Hormuz flows create asymmetric downside scenario",
+          "tickers": [
+            "GLD",
+            "SGOV"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            13,
+            17,
+            9
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Markets likely range-bound with tech leading on AI catalysts while oil/geopolitics cap upside. US-China summit (this week) is binary event—low expectations create room for positive surprise. Consumer data (PMI) may disappoint. Expect volatility around summit outcome. Dow's third straight losing week suggests rotation into tech/growth.",
+      "long_term": "AI infrastructure buildout (power, chips, data centers) remains primary 12-month growth driver. Energy transition accelerates with nuclear/LNG capex. Consumer weakness may persist through 2027. Geopolitical risk premium in oil likely persists above $85. Vietnam-US trade deal signals ongoing supply chain reshoring. India markets need 2-3 quarters to stabilize.",
+      "key_catalysts": [
+        "US-China Trump-Xi summit outcome (this week)",
+        "US PMI data release",
+        "Paramount-Warner Bros deal closing timeline",
+        "Hormuz shipping normalization or escalation",
+        "SEBI regulatory actions on Indian markets",
+        "Vietnam-US trade deal finalization",
+        "CoreWeave junk-bond offering pricing",
+        "Midterm election polling shifts",
+        "NVIDIA Vera Rubin rack deployment timeline"
+      ],
+      "watch_list": [
+        "Brent/WTI crude vs. $100 level",
+        "US 10-year yield trajectory (rate cut expectations)",
+        "Gold/silver ratio and absolute levels",
+        "Bitcoin vs. $100K psychological level",
+        "India NSE trading volumes and SEBI enforcement actions",
+        "Dollar General and consumer discretionary earnings guidance",
+        "GE Vernova and NextEra order backlog updates",
+        "US-China tariff/tech restriction announcements",
+        "Hormuz daily shipping volume data",
+        "CD/savings rate trends (4.40% APY ceiling)",
+        "AI safety regulation developments (OpenAI-Anthropic framework)"
+      ],
+      "headline_sources": [
+        7,
+        26,
+        60,
+        17,
+        13,
+        11,
+        1,
+        3,
+        4,
+        10,
+        57,
+        73,
+        82,
+        87,
+        35,
+        41,
+        48,
+        31,
+        91
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "India Proprietary Trading Slumps on Auction Liquidity Woes, Trading Curbs",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-09-22/india-proprietary-trading-slumps-on-auction-liquidity-woes-trading-curbs",
+      "publishedAt": "2026-09-22T02:36:08+00:00"
+    },
+    {
+      "index": 2,
+      "headline": "India’s No. 2 Paintmaker Plans Expansion to Fend Off Birla, JSW",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-22/india-s-no-2-paintmaker-plans-expansion-to-fend-off-birla-jsw",
+      "publishedAt": "2026-09-22T02:30:00+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "India’s SEBI Taps AI to Police Traders, Fight Market Fraud",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-22/india-s-sebi-taps-ai-to-police-traders-fight-market-fraud",
+      "publishedAt": "2026-09-22T02:30:00+00:00"
+    },
+    {
+      "index": 4,
+      "headline": "Vietnam’s Top Leader Says US Trade Deal Close",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-22/vietnam-s-top-leader-says-us-trade-deal-close-video",
+      "publishedAt": "2026-09-22T01:54:29+00:00"
+    },
+    {
+      "index": 5,
+      "headline": "Rich Heirs of India’s Family Businesses Cash Out Inheritance, Manage Wealth",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-22/rich-heirs-of-india-s-family-businesses-cash-out-inheritance-manage-wealth",
+      "publishedAt": "2026-09-22T01:15:59+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "Prop Shops Pull Back From NSE’s $2 Trillion Derivatives Market",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-22/prop-shops-pull-back-from-nse-s-2-trillion-derivatives-market",
+      "publishedAt": "2026-09-22T01:00:00+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "Low Expectations for US-China AI Talks",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-22/low-expectations-for-us-china-ai-talks-video",
+      "publishedAt": "2026-09-22T00:39:50+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "Gold Edges Higher as Lower Oil Prices Damp Chance of Rate Hikes",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-22/gold-edges-higher-as-lower-oil-prices-damp-chance-of-rate-hikes",
+      "publishedAt": "2026-09-22T00:26:00+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "Macron and Trump Discuss Kyiv and Moscow Halting Energy Strikes",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-21/macron-and-trump-discuss-kyiv-and-moscow-halting-energy-strikes",
+      "publishedAt": "2026-09-21T23:47:37+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "Vietnam’s Leader Declares US Trade Deal Close",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-21/vietnam-s-leader-declares-us-trade-deal-close-video",
+      "publishedAt": "2026-09-21T23:00:23+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "Paramount settles lawsuits, allowing for Warner Bros. deal",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-21/paramount-settles-suits-allowing-for-warner-bros-deal-video",
+      "publishedAt": "2026-09-21T22:29:35+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Asian Stocks Rally as Meta AI Agent Fuels Optimism: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-21/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-09-21T22:18:13+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "US Plans $5 Billion Middle East Reconstruction Fund for Iran War",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-21/us-plans-5-billion-middle-east-reconstruction-fund-for-iran-war",
+      "publishedAt": "2026-09-21T22:13:10+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "Latest Oil Market News and Analysis for Sept. 22",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-21/latest-oil-market-news-and-analysis-for-sept-22",
+      "publishedAt": "2026-09-21T22:04:50+00:00"
+    },
+    {
+      "index": 15,
+      "headline": "Ecuador Asks US Daily to Help Curb $30 Billion Cocaine Trade",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-21/ecuador-asks-us-daily-for-help-curbing-30-billion-cocaine-trade",
+      "publishedAt": "2026-09-21T22:00:44+00:00"
+    },
+    {
+      "index": 16,
+      "headline": "'Years of Growth Left': Grimba",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-21/-years-of-growth-left-grimba-video",
+      "publishedAt": "2026-09-21T21:51:35+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "Oil Settles Near $100 as Hormuz Flows Stunt Rally",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-21/oil-settles-near-100-as-hormuz-flows-stunt-rally-video",
+      "publishedAt": "2026-09-21T21:42:00+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "CoreWeave-Tied Data Center Project Kicks Off Junk-Bond Offering",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-21/coreweave-tied-data-center-project-kicks-off-junk-bond-offering",
+      "publishedAt": "2026-09-21T21:40:59+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "Tech stocks power market surge as bond yields and oil prices tumble",
+      "url": "https://www.nbcnews.com/business/markets/tech-stocks-bond-yields-oil-tumbles-rcna599082",
+      "publishedAt": "2026-09-21T20:27:57+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "Paramount reaches deal with California, other states over Warner merger",
+      "url": "https://www.nbcnews.com/business/media/paramount-reaches-settlement-states-warner-bros-discovery-merger-rcna598645",
+      "publishedAt": "2026-09-21T17:26:19+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "Flights resume after air traffic equipment failure snarls traffic in Newark, Philadelphia",
+      "url": "https://www.nbcnews.com/news/us-news/flights-delayed-newark-philadelphia-faa-orders-ground-stops-rcna599020",
+      "publishedAt": "2026-09-21T16:46:26+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "‘Block the Merger’ push continues as Paramount settles with state AGs",
+      "url": "https://www.nbcnews.com/business/media/paramount-skydance-states-settlement-block-the-merger-rally-rcna598921",
+      "publishedAt": "2026-09-21T16:20:41+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "Local senior scammed out of around $200K in crypto scheme",
+      "url": "https://www.orilliamatters.com/police-beat/local-senior-scammed-out-of-around-200k-in-crypto-scheme-12802343",
+      "publishedAt": "2026-09-21T15:00:00Z"
+    },
+    {
+      "index": 24,
+      "headline": "NSIA launches $300m fund for renewable energy",
+      "url": "https://www.vanguardngr.com/2026/09/nsia-launches-300m-fund-for-renewable-energy/",
+      "publishedAt": "2026-09-21T14:59:26Z"
+    },
+    {
+      "index": 25,
+      "headline": "Air traffic control issue causes UK flight disruption for second time this month",
+      "url": "https://www.bbc.com/news/live/cq4g5r4e949jt?page=3",
+      "publishedAt": "2026-09-21T14:58:29Z"
+    },
+    {
+      "index": 26,
+      "headline": "USTR Jamieson Greer Lays the Groundwork for Upcoming Trump-Xi Summit",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-21/bloomberg-surveillance-9-21-2026-video",
+      "publishedAt": "2026-09-21T14:57:03+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "Paramount reaches settlement over Warner Bros. merger",
+      "url": "https://www.cnbc.com/2026/09/21/paramount-reaches-settlement-over-warner-bros-merger.html",
+      "publishedAt": "2026-09-21T14:56:46Z"
+    },
+    {
+      "index": 28,
+      "headline": "Paramount Settles State Antitrust Case Clearing Obstacle to W.B. Deal",
+      "url": "https://variety.com/2026/film/news/paramount-warner-bros-merger-settlement-1236819465/",
+      "publishedAt": "2026-09-21T14:56:00Z"
+    },
+    {
+      "index": 29,
+      "headline": "Optimized data-driven strategy for fault region identification, type classification, and location prediction in a multi-source wide area power system under practical conditions",
+      "url": "https://www.nature.com/articles/s41598-026-63496-x?error=cookies_not_supported&code=6c1516e8-5687-4587-afb8-c8c609326c97",
+      "publishedAt": "2026-09-21T14:55:55Z"
+    },
+    {
+      "index": 30,
+      "headline": "Wafer-scale 2D MoS₂ transistors with sub-5 nm channel length and subthreshold performance beyond the silicon limit",
+      "url": "https://www.nature.com/articles/s41467-026-77186-9?error=cookies_not_supported&code=4feca9e9-8747-4148-ab31-61d71a9908e0",
+      "publishedAt": "2026-09-21T14:55:55Z"
+    },
+    {
+      "index": 31,
+      "headline": "OpenAI, Anthropic negotiate landmark deal to stress-test each other’s AI models for safety risks: Report",
+      "url": "https://www.livemint.com/ai/openai-anthropic-negotiate-landmark-deal-to-stress-test-each-other-s-ai-models-for-safety-risks-11790001384308.html",
+      "publishedAt": "2026-09-21T14:54:44Z"
+    },
+    {
+      "index": 32,
+      "headline": "How to invest in Pokemon cards",
+      "url": "https://www.thesun.co.uk/money/40401792/invest-pokemon-cards-spotting-250-k-cards-avoid-ai/",
+      "publishedAt": "2026-09-21T14:54:00Z"
+    },
+    {
+      "index": 33,
+      "headline": "owned HBM Breaks Silence on High Cement Prices in Nigeria, Begins Distributor Recruitment",
+      "url": "https://www.legit.ng/business-economy/industry/1732051-chinese-owned-hbm-breaks-silence-high-cement-prices-nigeria-begins-distributor-recruitment/",
+      "publishedAt": "2026-09-21T14:53:24Z"
+    },
+    {
+      "index": 34,
+      "headline": "Bank of America says buy tumbling shares of aviation giant",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/bank-america-says-buy-tumbling-143700198.html",
+      "publishedAt": "2026-09-21T14:37:00Z"
+    },
+    {
+      "index": 35,
+      "headline": "Bitcoin and ethereum prices today, Monday, September 21, 2026: Crypto prices hit highest levels in 8 months",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-monday-september-21-2026-crypto-prices-hit-highest-levels-in-8-months-143444230.html",
+      "publishedAt": "2026-09-21T14:34:44Z"
+    },
+    {
+      "index": 36,
+      "headline": "Work from home? Here are 5 ways to save money on remote work expenses.",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/how-to-save-money-working-from-home-142616852.html",
+      "publishedAt": "2026-09-21T14:26:16Z"
+    },
+    {
+      "index": 37,
+      "headline": "Silver prices today, Monday, September 21, 2026: Silver prices rising ahead of U.S.-China summit",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/silver-prices-today-monday-september-21-2026-silver-prices-rising-ahead-of-us-china-summit-135458890.html",
+      "publishedAt": "2026-09-21T13:54:58Z"
+    },
+    {
+      "index": 38,
+      "headline": "Gold prices today, Monday, September 21, 2026: Gold prices slip on Middle East tensions",
+      "url": "https://finance.yahoo.com/personal-finance/investing/article/gold-prices-today-monday-september-21-2026-gold-prices-slip-on-middle-east-tensions-133531697.html",
+      "publishedAt": "2026-09-21T13:35:31Z"
+    },
+    {
+      "index": 39,
+      "headline": "NSE’s $2.4 Billion IPO Gets Subdued Demand From Retail Crowd",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-21/nse-s-2-4-billion-india-ipo-subscribed-5-7-times-as-books-close",
+      "publishedAt": "2026-09-21T11:46:53+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "CNN, Politico and MS NOW plan to sue Trump admin over ban on White House coverage",
+      "url": "https://www.nbcnews.com/politics/trump-administration/cnn-politico-ms-now-plan-sue-trump-administration-ban-white-house-cove-rcna598912",
+      "publishedAt": "2026-09-21T11:44:11+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Best CD rates today, Monday, September 21, 2026: Lock in up to 4.40% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-monday-september-21-2026-lock-in-up-to-440-apy-100000956.html",
+      "publishedAt": "2026-09-21T10:00:00Z"
+    },
+    {
+      "index": 42,
+      "headline": "Best high-yield savings interest rates today, Monday, September 21, 2026: Earn up to 4.10% APY",
+      "url": "https://finance.yahoo.com/personal-finance/banking/article/best-high-yield-savings-interest-rates-today-monday-september-21-2026-earn-up-to-410-apy-100000921.html",
+      "publishedAt": "2026-09-21T10:00:00Z"
+    },
+    {
+      "index": 43,
+      "headline": "HELOC and home equity loan rates today, Monday, September 21, 2026: A 33-basis-point differential",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/heloc-and-home-equity-loan-rates-today-monday-september-21-2026-a-33-basis-point-differential-100000210.html",
+      "publishedAt": "2026-09-21T10:00:00Z"
+    },
+    {
+      "index": 44,
+      "headline": "Mortgage and refinance interest rates today, Monday, September 21, 2026: Refinance rates mostly lower",
+      "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-monday-september-21-2026-refinance-rates-mostly-lower-100000495.html",
+      "publishedAt": "2026-09-21T10:00:00Z"
+    },
+    {
+      "index": 45,
+      "headline": "Burger chain cancels breakfast at hundreds of restaurants",
+      "url": "https://finance.yahoo.com/small-business/articles/fast-food-giant-cancels-breakfast-041519870.html",
+      "publishedAt": "2026-09-21T04:15:19Z"
+    },
+    {
+      "index": 46,
+      "headline": "Stock futures rise slightly after Dow posts third straight losing week: Live updates - CNBC",
+      "url": "https://www.cnbc.com/2026/09/20/stock-market-today-live-updates.html",
+      "publishedAt": "2026-09-21T01:03:42Z"
+    },
+    {
+      "index": 47,
+      "headline": "100-year-old giant grocery chain closes stores in 4 states - thestreet.com",
+      "url": "https://www.thestreet.com/retail/iga-closes-stores-in-4-states",
+      "publishedAt": "2026-09-21T00:38:00Z"
+    },
+    {
+      "index": 48,
+      "headline": "Nvidia boss rejects AI extinction fears as 'doomsday narratives' - BBC",
+      "url": "https://www.bbc.com/news/articles/cr5ye7p13jg7o",
+      "publishedAt": "2026-09-21T00:34:53Z"
+    },
+    {
+      "index": 49,
+      "headline": "US Stock Futures Up Ahead of Talks, Dollar Steady: Markets Wrap - Bloomberg.com",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-20/us-stock-futures-up-ahead-of-talks-dollar-steady-markets-wrap",
+      "publishedAt": "2026-09-20T22:14:48Z"
+    },
+    {
+      "index": 50,
+      "headline": "California gas prices set for big drop next month after weeks of hell - nypost.com",
+      "url": "https://nypost.com/2026/09/20/us-news/california-gas-prices-set-for-big-drop-next-month-after-weeks-of-hell/",
+      "publishedAt": "2026-09-20T21:11:00Z"
+    },
+    {
+      "index": 51,
+      "headline": "Southwest Airlines keeps raising fares and adding fees - thestreet.com",
+      "url": "https://www.thestreet.com/travel/southwest-airlines-kepps-raising-fares-and-adding-fees",
+      "publishedAt": "2026-09-20T21:10:00Z"
+    },
+    {
+      "index": 52,
+      "headline": "AI Risk Is Everywhere and It's Making Billion Dollar Funds Nervous - Bloomberg.com",
+      "url": "https://www.bloomberg.com/news/features/2026-09-20/ai-boom-is-making-diversifying-investments-tough-for-wall-street",
+      "publishedAt": "2026-09-20T21:00:01Z"
+    },
+    {
+      "index": 53,
+      "headline": "Human extinction fears make me want to flee AI and live on an island - BBC",
+      "url": "https://www.bbc.com/news/articles/crwyzxnj31v1o",
+      "publishedAt": "2026-09-20T20:38:57Z"
+    },
+    {
+      "index": 54,
+      "headline": "LifeMD (LFMD) Secures AT&T Partnership. Can Free Memberships Produce Paying Patients?",
+      "url": "https://finance.yahoo.com/healthcare/articles/lifemd-lfmd-secures-t-partnership-184302502.html",
+      "publishedAt": "2026-09-20T18:43:02Z"
+    },
+    {
+      "index": 55,
+      "headline": "Trip.com (TCOM) Books RMB5.2 Billion Penalty. Can Overseas Growth Offset Domestic Pressure?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/trip-com-tcom-books-rmb5-183136873.html",
+      "publishedAt": "2026-09-20T18:31:36Z"
+    },
+    {
+      "index": 56,
+      "headline": "Forgent Power (FPS) Reports $3B Backlog. Can Manufacturing Keep Up?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/forgent-power-fps-reports-3b-183008960.html",
+      "publishedAt": "2026-09-20T18:30:08Z"
+    },
+    {
+      "index": 57,
+      "headline": "CoreWeave Rises After Going Live With Vera Rubin Racks. What This Means for CRWV Stock.",
+      "url": "https://finance.yahoo.com/technology/ai/articles/coreweave-rises-going-live-vera-183002237.html",
+      "publishedAt": "2026-09-20T18:30:02Z"
+    },
+    {
+      "index": 58,
+      "headline": "RF Industries (RFIL) Reports Stronger Profits. Can New Orders Sustain the Improved Product Mix?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/rf-industries-rfil-reports-stronger-174049668.html",
+      "publishedAt": "2026-09-20T17:40:49Z"
+    },
+    {
+      "index": 59,
+      "headline": "Sempra (SRE) Adds a 20-Year LNG Agreement. How Much Commercial Risk Does it Remove?",
+      "url": "https://finance.yahoo.com/energy/articles/sempra-sre-adds-20-lng-173718056.html",
+      "publishedAt": "2026-09-20T17:37:18Z"
+    },
+    {
+      "index": 60,
+      "headline": "U.S.-China Summit, PMI and Other Can't Miss Items this Week",
+      "url": "https://finance.yahoo.com/economy/policy/articles/u-china-summit-pmi-other-170002981.html",
+      "publishedAt": "2026-09-20T17:00:02Z"
+    },
+    {
+      "index": 61,
+      "headline": "Bloom Energy (BE) Unveils a New Power Play for the AI Boom",
+      "url": "https://finance.yahoo.com/technology/ai/articles/bloom-energy-unveils-power-play-164510735.html",
+      "publishedAt": "2026-09-20T16:45:10Z"
+    },
+    {
+      "index": 62,
+      "headline": "Exxon (XOM) Eyes a Return to Venezuela After Nearly Two Decades Away",
+      "url": "https://finance.yahoo.com/energy/articles/exxon-xom-eyes-return-venezuela-164059135.html",
+      "publishedAt": "2026-09-20T16:40:59Z"
+    },
+    {
+      "index": 63,
+      "headline": "BMO Sees Phillips 66 (PSX) Breaking into New Highs",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/bmo-sees-phillips-66-psx-163523482.html",
+      "publishedAt": "2026-09-20T16:35:23Z"
+    },
+    {
+      "index": 64,
+      "headline": "Jim Cramer sends strong signal to Apple stock investors",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-sends-strong-signal-163300406.html",
+      "publishedAt": "2026-09-20T16:33:00Z"
+    },
+    {
+      "index": 65,
+      "headline": "Centrus Energy (LEU) Lands New HALEU Deal with Antares",
+      "url": "https://finance.yahoo.com/energy/articles/centrus-energy-leu-lands-haleu-163159900.html",
+      "publishedAt": "2026-09-20T16:31:59Z"
+    },
+    {
+      "index": 66,
+      "headline": "Definium’s LSD Pill Clears a Second Anxiety Trial, and the Psychedelics Sector Is Watching",
+      "url": "https://finance.yahoo.com/healthcare/articles/definium-lsd-pill-clears-second-162842492.html",
+      "publishedAt": "2026-09-20T16:28:42Z"
+    },
+    {
+      "index": 67,
+      "headline": "Transocean (RIG) Scores an $80 Million Deepwater Contract in Africa",
+      "url": "https://finance.yahoo.com/energy/articles/transocean-rig-scores-80-million-162459514.html",
+      "publishedAt": "2026-09-20T16:24:59Z"
+    },
+    {
+      "index": 68,
+      "headline": "California Resources (CRC) Sells Uinta Assets for $90 Million",
+      "url": "https://finance.yahoo.com/energy/articles/california-resources-crc-sells-uinta-162106302.html",
+      "publishedAt": "2026-09-20T16:21:06Z"
+    },
+    {
+      "index": 69,
+      "headline": "Musk Says NVIDIA (NVDA) AI Chips Are Headed to Space With SpaceX (SPCX) Next Year",
+      "url": "https://finance.yahoo.com/technology/ai/articles/musk-says-nvidia-nvda-ai-162008359.html",
+      "publishedAt": "2026-09-20T16:20:08Z"
+    },
+    {
+      "index": 70,
+      "headline": "Targa Resources (TRGP) Gets a Fresh Vote of Confidence from TD Cowen",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/targa-resources-trgp-gets-fresh-155123097.html",
+      "publishedAt": "2026-09-20T15:51:23Z"
+    },
+    {
+      "index": 71,
+      "headline": "Morgan Stanley Sees Marathon Petroleum (MPC) Breaking into New Highs",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-sees-marathon-petroleum-154726182.html",
+      "publishedAt": "2026-09-20T15:47:26Z"
+    },
+    {
+      "index": 72,
+      "headline": "NVIDIA Just Named AI's Next Bottleneck—And These 3 Stocks Sit Right In It",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-just-named-ais-next-154500158.html",
+      "publishedAt": "2026-09-20T15:45:00Z"
+    },
+    {
+      "index": 73,
+      "headline": "GE Vernova’s (GEV) $200 Billion Backlog is Coming Sooner than Expected",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ge-vernova-gev-200-billion-154331999.html",
+      "publishedAt": "2026-09-20T15:43:31Z"
+    },
+    {
+      "index": 74,
+      "headline": "Morgan Stanley Sees More Fuel for Valero’s (VLO) Rally",
+      "url": "https://finance.yahoo.com/energy/articles/morgan-stanley-sees-more-fuel-153825351.html",
+      "publishedAt": "2026-09-20T15:38:25Z"
+    },
+    {
+      "index": 75,
+      "headline": "Joby Aviation Stock Is Down 54% This Year. Here's Why I'd Buy It Before 2027.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/joby-aviation-stock-down-54-153500236.html",
+      "publishedAt": "2026-09-20T15:35:00Z"
+    },
+    {
+      "index": 76,
+      "headline": "NextEra (NEE) and Dominion (D) Unveil a Bigger Pitch for Virginia",
+      "url": "https://finance.yahoo.com/energy/articles/nextera-nee-dominion-d-unveil-153356972.html",
+      "publishedAt": "2026-09-20T15:33:56Z"
+    },
+    {
+      "index": 77,
+      "headline": "Why $5 gasoline is about to force a major holiday shift",
+      "url": "https://finance.yahoo.com/energy/articles/why-5-gasoline-force-major-153300723.html",
+      "publishedAt": "2026-09-20T15:33:00Z"
+    },
+    {
+      "index": 78,
+      "headline": "A 35-Year-Old Lives On Less Than $3K A Month With $1.95M Saved — Is That Enough To Retire?",
+      "url": "https://finance.yahoo.com/markets/articles/35-old-lives-less-3k-153008046.html",
+      "publishedAt": "2026-09-20T15:30:08Z"
+    },
+    {
+      "index": 79,
+      "headline": "‘Even Though It’s Bad for Berkshire’ Billionaire Charlie Munger Said to Skip Insurance Because ‘You’re Paying for the Other Fellow’s Frauds’",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/even-though-bad-berkshire-billionaire-153002379.html",
+      "publishedAt": "2026-09-20T15:30:02Z"
+    },
+    {
+      "index": 80,
+      "headline": "BMO Capital Bets on a Rebound for Enbridge (ENB)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/bmo-capital-bets-rebound-enbridge-152940861.html",
+      "publishedAt": "2026-09-20T15:29:40Z"
+    },
+    {
+      "index": 81,
+      "headline": "This Analyst Has a $450 Price Target on SpaceX Stock. Does That Make it a Buy?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/analyst-450-price-target-spacex-152700401.html",
+      "publishedAt": "2026-09-20T15:27:00Z"
+    },
+    {
+      "index": 82,
+      "headline": "NextEra’s Nuclear Bet Just Got a $1.9 Billion Boost",
+      "url": "https://finance.yahoo.com/energy/articles/nextera-nuclear-bet-just-got-152438612.html",
+      "publishedAt": "2026-09-20T15:24:38Z"
+    },
+    {
+      "index": 83,
+      "headline": "Morgan Stanley Sees Shell (SHEL) Hitting New Highs",
+      "url": "https://finance.yahoo.com/energy/articles/morgan-stanley-sees-shell-shel-152036523.html",
+      "publishedAt": "2026-09-20T15:20:36Z"
+    },
+    {
+      "index": 84,
+      "headline": "The Caterpillar Correction Shouldn't Last Much Longer",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/caterpillar-correction-shouldnt-last-much-152000520.html",
+      "publishedAt": "2026-09-20T15:20:00Z"
+    },
+    {
+      "index": 85,
+      "headline": "Chevron (CVX) Supercharges its Venezuela Bet with More Oil Rigs",
+      "url": "https://finance.yahoo.com/energy/articles/chevron-cvx-supercharges-venezuela-bet-151837921.html",
+      "publishedAt": "2026-09-20T15:18:37Z"
+    },
+    {
+      "index": 86,
+      "headline": "The Silver Lining in Soaring Interest Rates: The Economy Can Handle Them",
+      "url": "https://www.wsj.com/economy/central-banking/the-silver-lining-in-soaring-interest-rates-the-economy-can-handle-them-842e29ff?siteid=yhoof2&yptr=yahoo",
+      "publishedAt": "2026-09-20T15:18:00Z"
+    },
+    {
+      "index": 87,
+      "headline": "Dollar General CEO raises major red flag about consumers",
+      "url": "https://finance.yahoo.com/economy/articles/dollar-general-ceo-raises-major-151700186.html",
+      "publishedAt": "2026-09-20T15:17:00Z"
+    },
+    {
+      "index": 88,
+      "headline": "UBS Sees Phillips 66 (PSX) Blazing Past its Record High",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ubs-sees-phillips-66-psx-151252128.html",
+      "publishedAt": "2026-09-20T15:12:52Z"
+    },
+    {
+      "index": 89,
+      "headline": "Baker Hughes (BKR) Raises 2026 Guidance. But Investors Aren’t Impressed",
+      "url": "https://finance.yahoo.com/energy/articles/baker-hughes-bkr-raises-2026-150954006.html",
+      "publishedAt": "2026-09-20T15:09:54Z"
+    },
+    {
+      "index": 90,
+      "headline": "Marathon Petroleum (MPC) Could Smash its All-Time High, UBS Says",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/marathon-petroleum-mpc-could-smash-150634017.html",
+      "publishedAt": "2026-09-20T15:06:34Z"
+    },
+    {
+      "index": 91,
+      "headline": "Poll: Most voters say Trump has hurt the economy as competitive midterm election looms",
+      "url": "https://www.nbcnews.com/politics/2026-election/poll-voters-say-trump-hurt-economy-competitive-midterm-election-looms-rcna597868",
+      "publishedAt": "2026-09-20T13:00:42+00:00"
+    }
+  ]
+}
