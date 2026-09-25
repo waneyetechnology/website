@@ -14,7 +14,6 @@
 IMAGE_NAME   := waneye-deploy
 IMAGE_TAG    := latest
 FULL_IMAGE   := $(IMAGE_NAME):$(IMAGE_TAG)
-CONTAINER_NAME ?= waneye-deploy
 
 # Environment file for API keys and secrets
 ENV_FILE     := .env.local
@@ -24,12 +23,13 @@ CORE_PATH    ?= $(shell cd .. && pwd)/website-core
 
 # ── Docker run options ───────────────────────────────────────────────────────
 # --add-host: Ensure the container can reach the host (for Ollama)
+# --name: Reject overlapping deploys; --init: Forward signals and reap children
 # --rm: Auto-remove the container when it exits
 # --env-file: Load API keys from .env.local
 DOCKER_RUN_OPTS := \
 	--rm \
 	--init \
-	--name "$(CONTAINER_NAME)" \
+	--name waneye-deploy \
 	--add-host=host.docker.internal:host-gateway \
 	--env-file $(ENV_FILE)
 
@@ -100,7 +100,6 @@ help:
 	@echo "Configuration:"
 	@echo "  ENV_FILE    = $(ENV_FILE)"
 	@echo "  CORE_PATH   = $(CORE_PATH)"
-	@echo "  CONTAINER_NAME = $(CONTAINER_NAME) (prevents overlapping runs)"
 	@echo "  IMAGE       = $(FULL_IMAGE)"
 	@echo ""
 	@echo "Environment variables (set in $(ENV_FILE)):"
@@ -108,7 +107,6 @@ help:
 	@echo "  SKIP_AU=true       Skip Australian site generation"
 	@echo "  SKIP_DEPLOY=true   Skip pushing to gh-pages"
 	@echo "  TEST_MODE=true     Use --test-mode for faster builds"
-	@echo "  DEPLOY_TIMEOUT_SECONDS=3000  Maximum workflow duration (50 minutes)"
 	@echo ""
 
 # ── Internal checks ─────────────────────────────────────────────────────────
