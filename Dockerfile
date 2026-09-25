@@ -106,4 +106,5 @@ RUN git config --global user.name "docker-deploy[bot]" && \
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+# Stop stuck deployments before the next hourly cron run; force exit after 10s.
+ENTRYPOINT ["timeout", "--verbose", "--kill-after=10s", "50m", "/usr/local/bin/docker-entrypoint.sh"]

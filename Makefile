@@ -23,10 +23,13 @@ CORE_PATH    ?= $(shell cd .. && pwd)/website-core
 
 # ── Docker run options ───────────────────────────────────────────────────────
 # --add-host: Ensure the container can reach the host (for Ollama)
+# --name: Reject overlapping deploys; --init: Forward signals and reap children
 # --rm: Auto-remove the container when it exits
 # --env-file: Load API keys from .env.local
 DOCKER_RUN_OPTS := \
 	--rm \
+	--init \
+	--name waneye-deploy \
 	--add-host=host.docker.internal:host-gateway \
 	--env-file $(ENV_FILE)
 
