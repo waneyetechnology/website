@@ -82,7 +82,7 @@ jobs:
             libxss1
       - name: Install agy CLI
         run: |
-          curl -fsSL https://antigravity.google/cli/install.sh | bash
+          curl --compressed -fsSL https://antigravity.google/cli/install.sh | bash
           echo "$HOME/.local/bin" >> $GITHUB_PATH
       - name: Verify agy CLI installation
         run: agy --version

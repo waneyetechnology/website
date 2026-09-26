@@ -89,7 +89,7 @@ RUN pip install --no-cache-dir --upgrade pip setuptools wheel && \
 RUN playwright install chromium
 
 # ── Install agy CLI ──────────────────────────────────────────────────────────
-RUN curl -fsSL https://antigravity.google/cli/install.sh | bash
+RUN curl --compressed -fsSL https://antigravity.google/cli/install.sh | bash
 ENV PATH="/root/.local/bin:$PATH"
 RUN agy --version
 
