@@ -18,7 +18,7 @@ FULL_IMAGE   := $(IMAGE_NAME):$(IMAGE_TAG)
 # Environment file for API keys and secrets
 ENV_FILE     := .env.local
 
-# Path to website-core repo (mounted read-only into the container)
+# Local website-core for deploy-test/deploy-dry (mounted read-only)
 CORE_PATH    ?= $(shell cd .. && pwd)/website-core
 
 # ── Docker run options ───────────────────────────────────────────────────────
@@ -44,14 +44,12 @@ build:
 	@echo ""
 	docker build -t $(FULL_IMAGE) .
 
-## Run the full deploy workflow (generates + deploys to gh-pages)
-deploy: _check-env _check-core
+## Clone the latest website-core and deploy to gh-pages
+deploy: _check-env
 	@echo ""
 	@echo "🚀 Running deploy workflow in Docker..."
 	@echo ""
-	docker run $(DOCKER_RUN_OPTS) \
-		-v "$(CORE_PATH):/workspace/website-core:ro" \
-		$(FULL_IMAGE)
+	docker run $(DOCKER_RUN_OPTS) $(FULL_IMAGE)
 
 ## Run deploy in test mode (faster, limited data)
 deploy-test: _check-env _check-core
@@ -90,7 +88,7 @@ help:
 	@echo "════════════════════════════════════════════════"
 	@echo ""
 	@echo "  make build         Build the Docker image"
-	@echo "  make deploy        Run the full deploy workflow"
+	@echo "  make deploy        Deploy using the latest website-core from GitHub"
 	@echo "  make deploy-test   Run in test mode (faster)"
 	@echo "  make deploy-dry    Build only, skip gh-pages push"
 	@echo "  make setup-cron    Set up an hourly cron job for deploy"
