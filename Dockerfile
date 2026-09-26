@@ -93,6 +93,18 @@ RUN curl -fsSL https://antigravity.google/cli/install.sh | bash
 ENV PATH="/root/.local/bin:$PATH"
 RUN agy --version
 
+# Install the native Codex binary for the image architecture (no Node required).
+ARG CODEX_VERSION=0.157.1
+RUN set -eu; \
+    case "$(uname -m)" in aarch64|x86_64) arch="$(uname -m)" ;; *) exit 1 ;; esac; \
+    archive="codex-${arch}-unknown-linux-musl"; \
+    curl -fsSL "https://github.com/openai/codex/releases/download/rust-v${CODEX_VERSION}/${archive}.tar.gz" \
+        -o /tmp/codex.tar.gz; \
+    tar -xzf /tmp/codex.tar.gz -C /usr/local/bin; \
+    mv "/usr/local/bin/${archive}" /usr/local/bin/codex; \
+    rm /tmp/codex.tar.gz; \
+    codex --version
+
 # ── Working directory ────────────────────────────────────────────────────────
 WORKDIR /workspace
 

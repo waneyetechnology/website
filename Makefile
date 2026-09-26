@@ -49,14 +49,14 @@ deploy: _check-env
 	@echo ""
 	@echo "🚀 Running deploy workflow in Docker..."
 	@echo ""
-	docker run $(DOCKER_RUN_OPTS) $(FULL_IMAGE)
+	python3 docker-run.py $(DOCKER_RUN_OPTS) $(FULL_IMAGE)
 
 ## Run deploy in test mode (faster, limited data)
 deploy-test: _check-env _check-core
 	@echo ""
 	@echo "🧪 Running deploy workflow in test mode..."
 	@echo ""
-	docker run $(DOCKER_RUN_OPTS) \
+	python3 docker-run.py $(DOCKER_RUN_OPTS) \
 		-e TEST_MODE=true \
 		-v "$(CORE_PATH):/workspace/website-core:ro" \
 		$(FULL_IMAGE)
@@ -66,7 +66,7 @@ deploy-dry: _check-env _check-core
 	@echo ""
 	@echo "🔨 Running build-only (no deploy)..."
 	@echo ""
-	docker run $(DOCKER_RUN_OPTS) \
+	python3 docker-run.py $(DOCKER_RUN_OPTS) \
 		-e SKIP_DEPLOY=true \
 		-v "$(CORE_PATH):/workspace/website-core:ro" \
 		$(FULL_IMAGE)
