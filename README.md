@@ -22,6 +22,8 @@ refreshed credentials are saved back, and temporary files are removed on exit.
 Only the credential files are mounted; they are writable to allow token refresh.
 
 Run cron as the same user who logged into the CLIs; macOS Keychain must be
-unlocked. Linux hosts using a desktop keyring must use file-backed CLI credentials
+unlocked. The launcher explicitly reads and updates `~/Library/Keychains/login.keychain-db`
+on macOS because cron's default Keychain search list can omit it.
+Linux hosts using a desktop keyring must use file-backed CLI credentials
 for this launcher. No new login is needed when these saved credentials are valid.
 Authentication does not change the models available to the account.

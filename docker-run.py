@@ -14,7 +14,9 @@ import tempfile
 
 def keychain_read(service, account):
     result = subprocess.run(
-        ["security", "find-generic-password", "-s", service, "-wa", account],
+        # cron's default Keychain search list can omit the user's login Keychain.
+        ["security", "find-generic-password", "-s", service, "-wa", account,
+         str(Path.home() / "Library/Keychains/login.keychain-db")],
         capture_output=True, text=True, timeout=15,
     )
     if result.returncode == 44:  # Item not found; a file login may exist instead.
@@ -36,6 +38,7 @@ def keychain_write(service, account, value):
         value = "go-keyring-base64:" + base64.b64encode(value.encode()).decode()
     command = shlex.join([
         "add-generic-password", "-U", "-s", service, "-a", account, "-w", value,
+        str(Path.home() / "Library/Keychains/login.keychain-db"),
     ])
     result = subprocess.run(
         ["security", "-i"], input=command + "\n", capture_output=True,

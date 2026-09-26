@@ -85,11 +85,22 @@ class AuthenticationTests(unittest.TestCase):
             with self.assertRaises(RuntimeError):
                 launcher.keychain_read("gemini", "antigravity")
 
+    def test_keychain_lookup_explicitly_uses_host_login_keychain(self):
+        with patch.object(launcher.Path, "home", return_value=Path("/Users/cron user")), \
+             patch.object(launcher.subprocess, "run", return_value=subprocess.CompletedProcess([], 0, '{}')) as run:
+            self.assertEqual(launcher.keychain_read("gemini", "antigravity"), '{}')
+            self.assertEqual(run.call_args.args[0], [
+                "security", "find-generic-password", "-s", "gemini", "-wa", "antigravity",
+                "/Users/cron user/Library/Keychains/login.keychain-db",
+            ])
+
     def test_keychain_write_does_not_put_secret_in_arguments(self):
         with patch.object(launcher.subprocess, "run", return_value=subprocess.CompletedProcess([], 0)) as run:
             launcher.keychain_write("gemini", "antigravity", '{"token":"secret"}')
             self.assertEqual(run.call_args.args[0], ["security", "-i"])
             self.assertIn("go-keyring-base64:", run.call_args.kwargs["input"])
+            self.assertEqual(launcher.shlex.split(run.call_args.kwargs["input"])[-1],
+                             str(Path.home() / "Library/Keychains/login.keychain-db"))
 
 
 if __name__ == "__main__":
