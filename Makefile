@@ -17,6 +17,7 @@ FULL_IMAGE   := $(IMAGE_NAME):$(IMAGE_TAG)
 
 # Environment file for API keys and secrets
 ENV_FILE     := .env.local
+CODEX_HOME   ?= $(HOME)/.codex
 
 # Local website-core for deploy-test/deploy-dry (mounted read-only)
 CORE_PATH    ?= $(shell cd .. && pwd)/website-core
@@ -31,7 +32,9 @@ DOCKER_RUN_OPTS := \
 	--init \
 	--name waneye-deploy \
 	--add-host=host.docker.internal:host-gateway \
-	--env-file $(ENV_FILE)
+	--env-file $(ENV_FILE) \
+	--mount "type=bind,src=$(CODEX_HOME)/auth.json,dst=/root/.codex/auth.json" \
+	--mount "type=bind,src=$(HOME)/.gemini/antigravity-cli/antigravity-oauth-token,dst=/root/.gemini/antigravity-cli/antigravity-oauth-token"
 
 # ── Targets ──────────────────────────────────────────────────────────────────
 
@@ -49,14 +52,14 @@ deploy: _check-env
 	@echo ""
 	@echo "🚀 Running deploy workflow in Docker..."
 	@echo ""
-	python3 docker-run.py $(DOCKER_RUN_OPTS) $(FULL_IMAGE)
+	docker run $(DOCKER_RUN_OPTS) $(FULL_IMAGE)
 
 ## Run deploy in test mode (faster, limited data)
 deploy-test: _check-env _check-core
 	@echo ""
 	@echo "🧪 Running deploy workflow in test mode..."
 	@echo ""
-	python3 docker-run.py $(DOCKER_RUN_OPTS) \
+	docker run $(DOCKER_RUN_OPTS) \
 		-e TEST_MODE=true \
 		-v "$(CORE_PATH):/workspace/website-core:ro" \
 		$(FULL_IMAGE)
@@ -66,7 +69,7 @@ deploy-dry: _check-env _check-core
 	@echo ""
 	@echo "🔨 Running build-only (no deploy)..."
 	@echo ""
-	python3 docker-run.py $(DOCKER_RUN_OPTS) \
+	docker run $(DOCKER_RUN_OPTS) \
 		-e SKIP_DEPLOY=true \
 		-v "$(CORE_PATH):/workspace/website-core:ro" \
 		$(FULL_IMAGE)
