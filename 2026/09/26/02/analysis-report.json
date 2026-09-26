@@ -1,0 +1,942 @@
+{
+  "analysis": {
+    "analysis_date": "September 26, 2026",
+    "analysis_time": "02:20",
+    "executive_summary": {
+      "key_highlights": [
+        "Bond yields surge to 20-year highs with oil above $103/bbl, pressuring equities and signaling inflation reacceleration risk",
+        "US-China trade truce extended 2 months; Trump state dinner for Xi signals diplomatic thaw but tech titans on guest list hint at ongoing tech tensions",
+        "Oracle faces 'force majeure' on data center deal, dragging stock; Ellison pledges $9.2B more in shares for loans—signals stress in AI infrastructure financing",
+        "AI sector bifurcating: Palantir's sovereignty strategy gains Wall Street credibility while OpenAI flags 5 rogue-agent threats; AMD/Nvidia networking battle intensifies with Gelsinger's $100M challenge",
+        "Dollar's best run since March forces Wall Street to rethink positioning; emerging markets under pressure",
+        "Mortgage rates hit 2-year highs, compounding housing affordability crisis",
+        "Nike at 25-year Wall Street low as BofA cuts to Sell; consumer discretionary under pressure",
+        "Iran war aftermath: Qatar Airways retires A330s, US economy shows structural shifts in 5 charts",
+        "India lowers FY27 borrowing to 7.86T rupees; Brazil plans $28B debt buyout ahead of vote—EM fiscal divergence",
+        "Volkswagen/Audi recall 3M cars; food safety recalls (170K lbs meat) signal regulatory scrutiny"
+      ],
+      "market_sentiment_score": 52,
+      "overall_sentiment": "neutral",
+      "headline_sources": [
+        37,
+        43,
+        62,
+        72,
+        4,
+        27,
+        39,
+        21,
+        34,
+        44,
+        3,
+        23,
+        48,
+        50,
+        57,
+        18,
+        47,
+        51,
+        35,
+        17,
+        12,
+        67
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology/AI",
+          "trend": "Bifurcation between AI infrastructure (Oracle stress, data center debt) and AI application/security (Palantir, Zscaler, Salesforce). AMD challenges Nvidia networking moat. AI optics trade splitting (Lumentum +10% vs Corning flat).",
+          "implications": "AI capex cycle showing cracks in financing layer while application layer strengthens. Selectivity critical—avoid overlevered infra, favor sovereign AI and security plays.",
+          "headline_sources": [
+            3,
+            15,
+            23,
+            38,
+            48,
+            53,
+            64,
+            65,
+            69,
+            21,
+            34,
+            44,
+            16
+          ]
+        },
+        {
+          "sector": "Energy/Commodities",
+          "trend": "Oil above $103 on Iran headlines; BP exploring Devon Eagle Ford; Energy Dept $2B grid upgrade; India coal blending mandate. Oil volatility buffeted by Iran deal hopes.",
+          "implications": "Energy remains inflationary anchor. Grid modernization and coal-to-gas transition create infrastructure spending tailwinds. Oil price direction hinges on Hormuz/Iran resolution.",
+          "headline_sources": [
+            43,
+            62,
+            61,
+            41,
+            13,
+            47,
+            74,
+            51
+          ]
+        },
+        {
+          "sector": "Financials/Fixed Income",
+          "trend": "Bond yields at 20-year highs; Goldman leads $37B Palmer Square CLO bid; Blackstone shifts from dealmaking; Wedbush launches analog economy ETF; mortgage rates at 2-year peak.",
+          "implications": "Rising rate environment pressures CLOs, real estate, and rate-sensitive sectors. Shift toward analog/defensive positioning gaining traction. Housing sector under structural stress.",
+          "headline_sources": [
+            37,
+            8,
+            56,
+            63,
+            57,
+            58,
+            72,
+            66
+          ]
+        },
+        {
+          "sector": "Consumer/Discretionary",
+          "trend": "Nike at 25-year analyst low; Costco beats but stock flat; holiday shopping early deals; Frugal Fannie closing sale signals consumer frugality; McDonald's leans on AI/menu innovation.",
+          "implications": "Consumer bifurcation: premium brands (Nike) struggling while value plays (Costco) deliver earnings but lack upside. Holiday season may show muted discretionary spending.",
+          "headline_sources": [
+            18,
+            67,
+            26,
+            24,
+            33,
+            52,
+            7
+          ]
+        },
+        {
+          "sector": "Defense/Industrial",
+          "trend": "Lockheed Martin spending ahead on JATM awaiting multiyear contract; Iran war legacy (Qatar Airways A330 retirement); geopolitical tension persists.",
+          "implications": "Defense spending cycle continues. JATM contract could be multi-year catalyst for LMT. Geopolitical risk premium remains embedded in defense equities.",
+          "headline_sources": [
+            1,
+            47,
+            51
+          ]
+        },
+        {
+          "sector": "Emerging Markets",
+          "trend": "India lowers borrowing; Brazil $28B debt buyout; Chinese beauty exporters resilient despite trade dispute; dollar strength pressures EM currencies.",
+          "implications": "EM fiscal divergence: India tightening, Brazil stimulus. China trade truce provides near-term relief but structural tech decoupling risk persists.",
+          "headline_sources": [
+            35,
+            17,
+            46,
+            50,
+            4,
+            39
+          ]
+        }
+      ],
+      "key_themes": [
+        "Bond market stress as primary macro driver—5% yield world 'until something breaks'",
+        "AI infrastructure financing stress vs. application-layer strength",
+        "US-China diplomatic thaw with tech tension undercurrent",
+        "Inflation reacceleration risk from oil and rising yields",
+        "Consumer bifurcation: value vs. premium",
+        "Geopolitical risk premium (Iran, Hormuz) embedded in energy and defense",
+        "Dollar strength reshaping global capital flows",
+        "Housing affordability crisis deepening with 2-year high mortgage rates",
+        "AI governance and security emerging as investment theme",
+        "Sports betting seeking fund integration"
+      ],
+      "headline_sources": [
+        37,
+        43,
+        62,
+        72,
+        21,
+        44,
+        23,
+        48,
+        4,
+        27,
+        39,
+        18,
+        26,
+        57,
+        50,
+        47,
+        51,
+        35,
+        17,
+        46,
+        3,
+        25,
+        63,
+        55
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Bond yield spike / inflation reacceleration",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Shorten duration, add TIPS, overweight short-duration credit. Monitor 10Y yield vs. 5% threshold.",
+        "headline_sources": [
+          37,
+          43,
+          62,
+          72,
+          57
+        ]
+      },
+      {
+        "risk_factor": "Oil price volatility / Iran-Hormuz escalation",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Hedge with energy long or oil call options. Monitor Hormuz deal progress. Diversify away from oil-sensitive sectors.",
+        "headline_sources": [
+          43,
+          62,
+          47,
+          74,
+          51
+        ]
+      },
+      {
+        "risk_factor": "AI infrastructure financing stress (Oracle force majeure)",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Avoid overlevered data center REITs. Favor AI application/security names with recurring revenue. Monitor Oracle debt structure.",
+        "headline_sources": [
+          21,
+          34,
+          44
+        ]
+      },
+      {
+        "risk_factor": "US-China trade truce expiration (2-month window)",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Reduce China-exposed supply chain concentration. Monitor Nov truce expiration. Favor domestic-manufacturing plays.",
+        "headline_sources": [
+          4,
+          27,
+          39,
+          46
+        ]
+      },
+      {
+        "risk_factor": "Consumer demand deterioration (Nike, discretionary)",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Shift from premium discretionary to value/essential consumer. Monitor Q4 holiday spending data.",
+        "headline_sources": [
+          18,
+          67,
+          26,
+          24
+        ]
+      },
+      {
+        "risk_factor": "Housing market freeze from rising mortgage rates",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Underweight homebuilders and mortgage REITs. Favor rental/affordable housing plays.",
+        "headline_sources": [
+          57,
+          58
+        ]
+      },
+      {
+        "risk_factor": "Dollar strength / EM capital outflows",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Hedge EM exposure with USD. Favor EM sovereign debt over equities. Monitor DXY above 105.",
+        "headline_sources": [
+          50,
+          35,
+          17
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Overweight AI security and sovereignty plays (Palantir, Zscaler, Salesforce)",
+          "rationale": "Palantir's AI sovereignty strategy gaining Wall Street credibility; Zscaler 46% upside; Salesforce's Clippy launch challenges Microsoft. Security layer benefits from rogue-agent threats.",
+          "tickers": [
+            "PLTR",
+            "ZS",
+            "CRM"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            23,
+            16,
+            69,
+            3
+          ]
+        },
+        {
+          "recommendation": "Position for AMD-Nvidia networking battle; favor AMD on Gelsinger's $100M challenge",
+          "rationale": "Gelsinger's challenge to Nvidia's networking moat could shift AI infrastructure spend. AMD benefits from diversification of AI networking suppliers.",
+          "tickers": [
+            "AMD",
+            "NVDA"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            48,
+            64,
+            15
+          ]
+        },
+        {
+          "recommendation": "Add energy/infrastructure exposure on grid modernization and coal transition",
+          "rationale": "$2B Energy Dept grid spend, India coal blending mandate, BP-Devon Eagle Ford deal signal sustained energy infrastructure capex.",
+          "tickers": [
+            "XLE",
+            "BP",
+            "GEV"
+          ],
+          "timeframe": "long",
+          "headline_sources": [
+            41,
+            13,
+            61,
+            42
+          ]
+        },
+        {
+          "recommendation": "Tactical long LMT on JATM multiyear contract expectation",
+          "rationale": "Lockheed spending ahead on JATM signals imminent multiyear contract award. Defense spending cycle intact post-Iran war.",
+          "tickers": [
+            "LMT"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            1,
+            47
+          ]
+        },
+        {
+          "recommendation": "Consider Wedbush analog economy ETF as inflation hedge",
+          "rationale": "In 5% yield world, analog/physical-economy assets (commodities, real assets, labor-intensive services) outperform digital. Wedbush's ETF captures this rotation.",
+          "tickers": [
+            "WDBH"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            63,
+            37
+          ]
+        },
+        {
+          "recommendation": "Buy the dip in ONON on $1B buyback and ambitious goals",
+          "rationale": "7.6% jump on $1B buyback signals management confidence. Ambitious goals suggest operational improvement trajectory.",
+          "tickers": [
+            "ONON"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            7
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Shorten bond duration; add TIPS and short-duration credit",
+          "rationale": "20-year high yields and 5% world create rollover risk. TIPS protect against inflation reacceleration from oil.",
+          "tickers": [
+            "TIP",
+            "SHY",
+            "IEF"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            37,
+            62,
+            72,
+            43
+          ]
+        },
+        {
+          "recommendation": "Reduce Nike and premium discretionary exposure ahead of Q1 results",
+          "rationale": "25-year analyst low, BofA Sell rating, weak demand. Turnaround unproven. High downside risk into earnings.",
+          "tickers": [
+            "NKE"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            18,
+            67
+          ]
+        },
+        {
+          "recommendation": "Underweight Oracle and data center REITs pending force majeure resolution",
+          "rationale": "Force majeure on data center deal signals execution risk in AI infrastructure buildout. Stock sinking on uncertainty.",
+          "tickers": [
+            "ORCL"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            21,
+            34,
+            44
+          ]
+        },
+        {
+          "recommendation": "Hedge housing exposure; favor rental/affordable housing over homebuilders",
+          "rationale": "Mortgage rates at 2-year highs freeze transaction volume. Homebuilders face demand destruction; rental demand remains structural.",
+          "tickers": [
+            "AMT",
+            "RE"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            57,
+            58
+          ]
+        },
+        {
+          "recommendation": "Maintain USD hedge on EM equity positions",
+          "rationale": "Dollar's best run since March pressures EM currencies and valuations. India tightening and Brazil stimulus create divergence but dollar headwind dominates.",
+          "tickers": [
+            "EEM",
+            "INDA"
+          ],
+          "timeframe": "short",
+          "headline_sources": [
+            50,
+            35,
+            17
+          ]
+        },
+        {
+          "recommendation": "Reduce China supply chain concentration ahead of Nov truce expiration",
+          "rationale": "2-month truce is temporary. Tech titans at Xi dinner signal ongoing tech decoupling. Rebalance to domestic/nearshore manufacturing.",
+          "tickers": [
+            "AAPL",
+            "MSFT"
+          ],
+          "timeframe": "medium",
+          "headline_sources": [
+            4,
+            27,
+            39
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Volatile. Bond yield spike and oil above $103 create headwinds, but Iran deal hopes and US-China truce provide floor. Expect range-bound equities with sector rotation from growth to value/energy. Oracle and Nike are near-term drags. Holiday shopping data in October will be key consumer signal.",
+      "long_term": "Cautiously constructive. 5% yield world is new normal until a catalyst breaks it. AI application/security layer outperforms infrastructure. Energy transition spending (grid, coal blending) provides multi-year capex cycle. US-China relationship stabilizes but tech decoupling is structural. Housing remains challenged. Defense spending elevated post-Iran war.",
+      "key_catalysts": [
+        "US-China trade truce expiration (~November 2026)",
+        "Iran-Hormuz deal finalization status",
+        "Oracle data center force majeure resolution",
+        "Nike Q1 earnings (turnaround validation)",
+        "Holiday shopping season data (October)",
+        "India FY27 debt auction execution (Oct-Mar)",
+        "Brazil $28B debt buyout implementation pre-vote",
+        "Lockheed JATM multiyear contract award",
+        "SK Hynix/Solidigm US IPO timing (2027)",
+        "FOMC reaction to 5% yield environment",
+        "Trump-Xi state dinner outcomes on tech policy"
+      ],
+      "watch_list": [
+        "10Y Treasury yield vs. 5% threshold",
+        "WTI crude vs. $103/bbl and Hormuz headlines",
+        "DXY index (dollar strength trajectory)",
+        "30Y mortgage rate vs. 7.5% level",
+        "Oracle stock and data center debt metrics",
+        "Nike same-store sales and Q1 guidance",
+        "US-China tariff/trade volume data monthly",
+        "Oil inventory (EIA) and OPEC+ compliance",
+        "AI capex spending by hyperscalers (Q4 guidance)",
+        "India 10Y yield and rupee/USD",
+        "VW/Audi recall cost impact on margins",
+        "Sports betting fund AUM growth",
+        "Costco membership renewal rates post-earnings"
+      ],
+      "headline_sources": [
+        37,
+        43,
+        62,
+        72,
+        4,
+        27,
+        39,
+        21,
+        44,
+        18,
+        67,
+        24,
+        35,
+        17,
+        1,
+        40,
+        50,
+        12,
+        25,
+        26,
+        51,
+        74
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Lockheed Martin (LMT) Is Spending Ahead on JATM. Will a Multiyear Contract Follow?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/lockheed-martin-lmt-spending-ahead-052004669.html",
+      "publishedAt": "2026-09-23T05:20:04Z"
+    },
+    {
+      "index": 2,
+      "headline": "The Tiny Magnet Maker That Attracted $1.6 Billion From Lutnick",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-25/the-tiny-magnet-maker-that-attracted-1-6b-from-lutnick-video",
+      "publishedAt": "2026-09-25T20:43:21+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "OpenAI said there are 5 main ways rogue AI agents are messing with the internet",
+      "url": "https://www.businessinsider.com/openai-rogue-ai-agents-sec-census-2026-9",
+      "publishedAt": "2026-09-26T01:43:47.000000Z"
+    },
+    {
+      "index": 4,
+      "headline": "U.S. says China trade truce extended by 2 months",
+      "url": "https://www.nbcnews.com/business/economy/us-china-extend-trade-truce-trump-rcna599525",
+      "publishedAt": "2026-09-23T22:20:11+00:00"
+    },
+    {
+      "index": 5,
+      "headline": "Toronto Pearson airport drug smuggling: RCMP arrest 4",
+      "url": "https://www.cp24.com/news/canada/2026/09/25/rcmp-arrest-four-in-alleged-pearson-drug-smuggling-bust/",
+      "publishedAt": "2026-09-25T14:00:00Z"
+    },
+    {
+      "index": 6,
+      "headline": "Creotech Quantum Prepares QKD System for Commercialization",
+      "url": "https://thequantuminsider.com/2026/09/25/creotech-quantum-qkd-system-commercialization/",
+      "publishedAt": "2026-09-25T13:52:30Z"
+    },
+    {
+      "index": 7,
+      "headline": "On Holding (ONON) Outlines Ambitious Goals and $1B Buyback, Jumps 7.6%",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/holding-onon-outlines-ambitious-goals-025141918.html",
+      "publishedAt": "2026-09-23T02:51:41Z"
+    },
+    {
+      "index": 8,
+      "headline": "Goldman Leads Bidding for $37 Billion Palmer Square, a CLO Powerhouse",
+      "url": "https://finance.yahoo.com/markets/options/articles/goldman-leads-bidding-37-billion-040100673.html",
+      "publishedAt": "2026-09-23T04:01:00Z"
+    },
+    {
+      "index": 9,
+      "headline": "Americans Misunderstand Where Wealth Comes From: Ritholtz",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-25/americans-misjudge-where-wealth-comes-from-ritholtz-video",
+      "publishedAt": "2026-09-25T20:16:43+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "White House access restored for media outlets, but some reporters were denied hours later",
+      "url": "https://www.nbcnews.com/politics/trump-administration/judge-ruling-white-house-restore-access-media-ban-cnn-politico-ms-now-rcna599391",
+      "publishedAt": "2026-09-24T05:31:01+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "Manchester City Found Guilty of Nearly All 115 Premier League Charges",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-25/manchester-city-found-guilty-of-premier-league-charges-video",
+      "publishedAt": "2026-09-25T20:11:06+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Volkswagen and Audi recall nearly 3 million cars over steering defect",
+      "url": "https://autos.yahoo.com/safety-and-recalls/articles/volkswagen-audi-recall-nearly-3-140339466.html",
+      "publishedAt": "2026-09-25T14:03:39Z"
+    },
+    {
+      "index": 13,
+      "headline": "Govt weighs mandatory blending of imported coal at power plants, sources say",
+      "url": "https://www.thehindu.com/business/Economy/govt-weighs-mandatory-blending-of-imported-coal-at-power-plants-sources-say/article71511447.ece",
+      "publishedAt": "2026-09-26T01:41:06.000000Z"
+    },
+    {
+      "index": 14,
+      "headline": "Nearly 170,000 pounds of raw meat recalled for false inspection labels - washingtonpost.com",
+      "url": "https://www.washingtonpost.com/nation/2026/09/24/nearly-170000-pounds-raw-meat-recalled-false-inspection-labels/",
+      "publishedAt": "2026-09-25T00:01:29Z"
+    },
+    {
+      "index": 15,
+      "headline": "This Little-Known AI Chip Stock Doubled. Its New Chips Now Double Optical Speed",
+      "url": "https://finance.yahoo.com/technology/ai/articles/little-known-ai-chip-stock-042916921.html",
+      "publishedAt": "2026-09-23T04:29:16Z"
+    },
+    {
+      "index": 16,
+      "headline": "Why Bernstein Still Sees 46% Upside in Zscaler (ZS) but Downgraded Palo Alto (PANW)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-bernstein-still-sees-46-041316215.html",
+      "publishedAt": "2026-09-23T04:13:16Z"
+    },
+    {
+      "index": 17,
+      "headline": "Lula Plans $28 Billion Debt Buyout to Aid Consumers Before Vote",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-25/lula-plans-28-billion-debt-buyout-to-aid-consumers-before-vote",
+      "publishedAt": "2026-09-25T22:43:22+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "Wall Street’s Nike (NKE) Fandom at 25-Year Low as Bank of America Cuts to Sell",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-25/wall-street-s-nike-nke-fandom-at-25-year-low-as-bank-of-america-cuts-to-sell",
+      "publishedAt": "2026-09-25T18:04:44+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "SK Hynix Is Eyeing Intel’s (INTC) Ohio Site. Why Micron (MU) Should Pay Attention",
+      "url": "https://finance.yahoo.com/technology/articles/sk-hynix-eyeing-intel-intc-043316388.html",
+      "publishedAt": "2026-09-23T04:33:16Z"
+    },
+    {
+      "index": 20,
+      "headline": "Judge set to rule on Trump administration’s rationale for White House media ban ",
+      "url": "https://www.nbcnews.com/politics/trump-administration/cnn-politico-ms-now-trump-court-white-house-media-ban-rcna599269",
+      "publishedAt": "2026-09-23T12:26:03+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "Oracle Notice to Weigh on Data Center Debt, Morgan Stanley Says",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-25/oracle-notice-to-weigh-on-data-center-debt-morgan-stanley-says",
+      "publishedAt": "2026-09-25T20:12:16+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "David Booth on Investing, Dimensional and Staying Calm | The David Rubenstein Show ",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-24/the-david-rubenstein-show-david-booth-video",
+      "publishedAt": "2026-09-24T15:33:13+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "Palantir Reveals Its AI Sovereignty Strategy And Wall Street Is Starting to Believe It",
+      "url": "https://finance.yahoo.com/technology/ai/articles/palantir-reveals-ai-sovereignty-strategy-054053859.html",
+      "publishedAt": "2026-09-23T05:40:53Z"
+    },
+    {
+      "index": 24,
+      "headline": "Early Deals on Holiday Shopping: What to Buy, Trends to Look For",
+      "url": "https://www.today.com/video/early-deals-on-holiday-shopping-what-to-buy-trends-to-look-for-270437445969",
+      "publishedAt": "2026-09-24T12:25:43+00:00"
+    },
+    {
+      "index": 25,
+      "headline": "Sports Betting Looks for a Parlay Into Funds",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/sports-betting-looks-parlay-funds-040100974.html",
+      "publishedAt": "2026-09-23T04:01:00Z"
+    },
+    {
+      "index": 26,
+      "headline": "Costco Wholesale Beats Estimates. Its Stock Is Flat. - Barron's",
+      "url": "https://www.barrons.com/articles/costco-quarterly-revenue-earnings-4ebe1a7a",
+      "publishedAt": "2026-09-24T22:05:00Z"
+    },
+    {
+      "index": 27,
+      "headline": "Trump’s state dinner for Xi to feature sea bass and a long list of tech titans - apnews.com",
+      "url": "https://apnews.com/article/trump-xi-state-dinner-menu-fashion-d005bcd1ce76fdcd9d94c6b3d18a457e",
+      "publishedAt": "2026-09-24T23:45:00Z"
+    },
+    {
+      "index": 28,
+      "headline": "Stock market today: Dow, S&P 500, Nasdaq trims losses as hopes of Hormuz deal offset rising bond yields - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-september-24-dow-sp-500-nasdaq-080352893.html",
+      "publishedAt": "2026-09-24T20:37:25Z"
+    },
+    {
+      "index": 29,
+      "headline": "Fired ‘We Buy Ugly Houses' franchisee sentenced to federal prison for fraud scheme, DOJ says - NBC 5 Dallas-Fort Worth",
+      "url": "https://www.nbcdfw.com/news/local/we-buy-ugly-houses-president-sentenced-to-federal-prison-for-fraud-scheme-doj-says/4082079/",
+      "publishedAt": "2026-09-24T21:24:31Z"
+    },
+    {
+      "index": 30,
+      "headline": "Investing For The Great Wealth Transfer: Masters In Business",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-25/investing-the-great-wealth-transfer-masters-in-business-video",
+      "publishedAt": "2026-09-25T21:00:26+00:00"
+    },
+    {
+      "index": 31,
+      "headline": "Jetour Traveler 7 priced in China as possible first hint of facelift T2",
+      "url": "https://www.citizen.co.za/motoring/facelift-jetour-t2-priced-in-china/",
+      "publishedAt": "2026-09-25T14:05:10Z"
+    },
+    {
+      "index": 32,
+      "headline": "Keeneland CEO on Annual Yearling Sale",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-25/keeneland-ceo-on-annual-yearling-sale-video",
+      "publishedAt": "2026-09-25T21:33:04+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "Bargain-seekers flood store, Route 1 as Frugal Fannie’s closing sale begins - WCVB",
+      "url": "https://www.wcvb.com/article/frugal-fannies-closing-sale-draws-crowds-in-westwood/73870430",
+      "publishedAt": "2026-09-24T21:39:16Z"
+    },
+    {
+      "index": 34,
+      "headline": "Ellison Pledges $9.2 Billion More in Oracle Shares for Loans",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-25/ellison-pledges-9-2-billion-more-in-oracle-shares-as-collateral",
+      "publishedAt": "2026-09-25T21:53:52+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "India lowers FY27 gross borrowing, to sell debt worth 7.86 trillion rupees in Oct-Mar",
+      "url": "https://www.reuters.com/business/india-lowers-fy27-gross-borrowing-sell-debt-worth-786-trillion-rupees-oct-mar-2026-09-25/",
+      "publishedAt": "2026-09-25T14:07:44Z"
+    },
+    {
+      "index": 36,
+      "headline": "Taylor Swift To Debut 'Patient Zero' at VMAs",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-25/taylor-swift-to-debut-patient-zero-at-vmas-video",
+      "publishedAt": "2026-09-25T20:20:24+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "Great Bond Shakeout Locks In a 5% World ‘Until Something Breaks’",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-25/great-bond-shakeout-locks-in-a-5-world-video",
+      "publishedAt": "2026-09-25T20:39:53+00:00"
+    },
+    {
+      "index": 38,
+      "headline": "Jev, an AI Model That Can’t Chat, Takes On Bigger Rivals",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-25/jev-an-ai-model-that-can-t-chat-takes-on-bigger-rivals-video",
+      "publishedAt": "2026-09-25T21:27:56+00:00"
+    },
+    {
+      "index": 39,
+      "headline": "Trump rolls out red carpets for Xi, though he has portrayed China as a global menace",
+      "url": "https://www.nbcnews.com/politics/donald-trump/trump-rolls-red-carpets-xi-jinping-though-portrayed-china-global-menac-rcna599250",
+      "publishedAt": "2026-09-25T01:03:48+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "SK Hynix’s Solidigm Is Said to Weigh US IPO as Soon as 2027",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-25/sk-hynix-s-solidigm-is-said-to-weigh-us-ipo-as-soon-as-2027",
+      "publishedAt": "2026-09-25T17:05:51+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Energy Department will spend $2 billion to squeeze more electricity from the aging power grid - apnews.com",
+      "url": "https://apnews.com/article/energy-electricity-wright-power-grid-trump-447c7d80c93928712750710769a8ca43",
+      "publishedAt": "2026-09-24T22:44:00Z"
+    },
+    {
+      "index": 42,
+      "headline": "Grazeley solar farm approved for development on farmland",
+      "url": "https://www.bbc.co.uk/news/articles/c68jdnz4z09po",
+      "publishedAt": "2026-09-25T13:48:42Z"
+    },
+    {
+      "index": 43,
+      "headline": "Bond yields surge to fresh two-decade highs, but oil prices are buffeted by Iran headlines",
+      "url": "https://www.nbcnews.com/business/markets/bond-yields-oil-treasury-buyback-bessent-rcna599604",
+      "publishedAt": "2026-09-24T13:59:33+00:00"
+    },
+    {
+      "index": 44,
+      "headline": "Oracle Seeks ‘Force Majeure’ on Data Center. Why It’s Sinking the Stock. - Barron's",
+      "url": "https://www.barrons.com/articles/oracle-stock-bloom-energy-data-center-delay-ai-372fe7aa",
+      "publishedAt": "2026-09-24T21:12:00Z"
+    },
+    {
+      "index": 45,
+      "headline": "Delayed Enjoyment Syndrome (The Trap of Delayed Gratification)",
+      "url": "https://strongmoneyaustralia.com/delayed-enjoyment-syndrome-the-trap-of-delayed-gratification/",
+      "publishedAt": "2026-09-26T01:43:12.000000Z"
+    },
+    {
+      "index": 46,
+      "headline": "Chinese beauty product exporters are sitting pretty despite US trade dispute",
+      "url": "https://finance.yahoo.com/economy/policy/articles/chinese-beauty-product-exporters-sitting-033541899.html",
+      "publishedAt": "2026-09-23T03:35:41Z"
+    },
+    {
+      "index": 47,
+      "headline": "Qatar Airways permanently retires Airbus A330s grounded since start of Iran war",
+      "url": "https://www.airdatanews.com/qatar-airways-permanently-retires-airbus-a330s-grounded-since-start-of-iran-war/",
+      "publishedAt": "2026-09-25T13:59:31Z"
+    },
+    {
+      "index": 48,
+      "headline": "Pat Gelsinger Just Backed a $100 Million Challenge to Nvidia’s AI Networking Moat. AMD Could Benefit",
+      "url": "https://finance.yahoo.com/technology/ai/articles/pat-gelsinger-just-backed-100-042433352.html",
+      "publishedAt": "2026-09-23T04:24:33Z"
+    },
+    {
+      "index": 49,
+      "headline": "Over 5,600 Muslim households get $2.2m cost-of-living support",
+      "url": "https://www.straitstimes.com/singapore/over-5600-muslim-households-receive-2-2-million-in-cost-of-living-support",
+      "publishedAt": "2026-09-25T13:55:00Z"
+    },
+    {
+      "index": 50,
+      "headline": "Dollar’s Best Run Since March Has Wall Street Rethink View",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-25/dollar-s-best-rally-since-march-is-set-to-last-as-fortunes-shift",
+      "publishedAt": "2026-09-25T07:26:10+00:00"
+    },
+    {
+      "index": 51,
+      "headline": "The U.S. economy before and after the Iran war, in five charts",
+      "url": "https://www.nbcnews.com/business/economy/us-economy-iran-war-five-charts-rcna598412",
+      "publishedAt": "2026-09-23T12:00:40+00:00"
+    },
+    {
+      "index": 52,
+      "headline": "McDonald’s leans into AI and new menu items to attract customers",
+      "url": "https://www.nbcnews.com/video/mcdonald-s-leans-into-ai-and-new-menu-items-to-attract-customers-270449733950",
+      "publishedAt": "2026-09-24T15:41:10+00:00"
+    },
+    {
+      "index": 53,
+      "headline": "Can Accenture (ACN) Profit From AI Safety While AI Pressures Its Own Business Model?",
+      "url": "https://finance.yahoo.com/technology/ai/articles/accenture-acn-profit-ai-safety-051220155.html",
+      "publishedAt": "2026-09-23T05:12:20Z"
+    },
+    {
+      "index": 54,
+      "headline": "Meet this year’s Endpoints 11",
+      "url": "https://endpoints.news/biotechs-best-startups-of-2026-meet-this-years-endpoints-11/",
+      "publishedAt": "2026-09-25T14:00:00Z"
+    },
+    {
+      "index": 55,
+      "headline": "Wall Street’s ‘80/20’ Shift Finds Fresh Fuel in Stock Bounceback",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-25/wall-street-s-80-20-shift-finds-fresh-fuel-in-stock-bounceback",
+      "publishedAt": "2026-09-25T20:48:29+00:00"
+    },
+    {
+      "index": 56,
+      "headline": "Blackstone Cements Shift From Star Dealmakers With Baratta Exit",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-26/blackstone-cements-shift-from-star-dealmakers-with-baratta-exit",
+      "publishedAt": "2026-09-26T01:43:05+00:00"
+    },
+    {
+      "index": 57,
+      "headline": "Mortgage Rates Hit Highest Level in More Than 2 Years",
+      "url": "https://www.today.com/video/mortgage-rates-hit-highest-level-in-more-than-2-years-270514757989",
+      "publishedAt": "2026-09-25T11:25:45+00:00"
+    },
+    {
+      "index": 58,
+      "headline": "How to Navigate the Housing Market Amid Rising Interest Rates",
+      "url": "https://www.today.com/video/real-estate-strategy-and-outlook-for-buyers-and-sellers-270360645791",
+      "publishedAt": "2026-09-23T13:21:16+00:00"
+    },
+    {
+      "index": 59,
+      "headline": "Chewy (CHWY) vs. Petco (WOOF): Proven Growth Story or Turnaround Bet?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/chewy-chwy-vs-petco-woof-045607515.html",
+      "publishedAt": "2026-09-23T04:56:07Z"
+    },
+    {
+      "index": 60,
+      "headline": "How Is Incyte’s Stock Performance Compared to Other Biotech Stocks?",
+      "url": "https://finance.yahoo.com/healthcare/articles/incyte-stock-performance-compared-other-045305372.html",
+      "publishedAt": "2026-09-23T04:53:05Z"
+    },
+    {
+      "index": 61,
+      "headline": "Exclusive-BP explored deal for Devon’s Eagle Ford asset, sources say",
+      "url": "https://live.euronext.com/en/financial-news/exclusive-bp-explored-deal-devons-eagle-ford-asset-sources-say",
+      "publishedAt": "2026-09-25T14:08:28Z"
+    },
+    {
+      "index": 62,
+      "headline": "Treasury yields surge to near 20-year high as oil jumps back above $103 per barrel",
+      "url": "https://www.nbcnews.com/business/energy/treasury-yields-oil-stocks-rcna599398",
+      "publishedAt": "2026-09-23T16:04:29+00:00"
+    },
+    {
+      "index": 63,
+      "headline": "Wedbush Goes Old School with Analog Economy ETF",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wedbush-goes-old-school-analog-040300728.html",
+      "publishedAt": "2026-09-23T04:03:00Z"
+    },
+    {
+      "index": 64,
+      "headline": "Intel (INTC) Could Get a Fresh Valuation for Altera. AMD (AMD) Is the Rival to Watch",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/intel-intc-could-fresh-valuation-041710849.html",
+      "publishedAt": "2026-09-23T04:17:10Z"
+    },
+    {
+      "index": 65,
+      "headline": "Lumentum Jumped Nearly 10% While Corning Barely Moved. Is the AI Optics Trade Splitting Apart?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/lumentum-jumped-nearly-10-while-041957023.html",
+      "publishedAt": "2026-09-23T04:19:57Z"
+    },
+    {
+      "index": 66,
+      "headline": "Cantor Fitzgerald Sees Big Upside in Securitize (SECZ): Is It Time to Buy?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/cantor-fitzgerald-sees-big-upside-052416150.html",
+      "publishedAt": "2026-09-23T05:24:16Z"
+    },
+    {
+      "index": 67,
+      "headline": "Nike (NKE): Wall Street Tests Whether the Turnaround Can Outrun Weak Demand Ahead of Q1 Results",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nike-nke-wall-street-tests-040747520.html",
+      "publishedAt": "2026-09-23T04:07:47Z"
+    },
+    {
+      "index": 68,
+      "headline": "Wall Street Week | China’s Trade Reckoning, Syracuse’s Second Chance, Humanoids in Healthcare",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-25/wall-street-week-china-s-trade-reckoning-syracuse-s-second-chance-humanoids-in-healthcare",
+      "publishedAt": "2026-09-25T23:43:13+00:00"
+    },
+    {
+      "index": 69,
+      "headline": "“The New Clippy”: Benioff Uses Salesforce’s Biggest Product Launch in Years to Challenge Microsoft",
+      "url": "https://finance.yahoo.com/technology/ai/articles/clippy-benioff-uses-salesforce-biggest-044653952.html",
+      "publishedAt": "2026-09-23T04:46:53Z"
+    },
+    {
+      "index": 70,
+      "headline": "Should you bring iced coffee to a job interview? Question brews generational debate",
+      "url": "https://www.nbcnews.com/business/business-news/iced-coffee-job-interview-online-generational-debate-rcna599764",
+      "publishedAt": "2026-09-25T17:16:35+00:00"
+    },
+    {
+      "index": 71,
+      "headline": "Search for the Next Leader of the UN",
+      "url": "https://www.bloomberg.com/news/videos/2026-09-25/search-for-the-next-leader-of-the-un-video",
+      "publishedAt": "2026-09-25T21:33:51+00:00"
+    },
+    {
+      "index": 72,
+      "headline": "Pressure from the bond market hits a new level, and US stocks slide on worries about inflation",
+      "url": "https://finance.yahoo.com/markets/world-indices/articles/asian-shares-mixed-oil-prices-060041660.html",
+      "publishedAt": "2026-09-23T06:00:41Z"
+    },
+    {
+      "index": 73,
+      "headline": "Defending Trump media ban, DOJ cites national security and says White House access is a ‘privilege’",
+      "url": "https://www.nbcnews.com/politics/politics-news/trump-media-ban-white-house-access-privilege-national-security-doj-rcna599347",
+      "publishedAt": "2026-09-23T09:08:16+00:00"
+    },
+    {
+      "index": 74,
+      "headline": "Stocks Climb as Oil Retreats on US-Iran Deal Hopes: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-24/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-09-24T22:13:37+00:00"
+    },
+    {
+      "index": 75,
+      "headline": "For Sale: What Asset Managers Want in Indie ETF Shops",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/sale-asset-managers-want-indie-040200939.html",
+      "publishedAt": "2026-09-23T04:02:00Z"
+    },
+    {
+      "index": 76,
+      "headline": "Exclusive | MGM Resorts Eyeing Bid for Barry Diller’s People Incorporated - WSJ",
+      "url": "https://www.wsj.com/business/hospitality/mgm-resorts-eyeing-bid-for-barry-dillers-people-incorporated-b506c037",
+      "publishedAt": "2026-09-24T21:38:00Z"
+    }
+  ]
+}
