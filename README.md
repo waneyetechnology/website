@@ -24,9 +24,3 @@ from the logged-in session. Keep credential files private (`chmod 600`). Cron
 then reads the files directly and does not need Keychain access or host Python.
 Run cron as the user who owns these credentials. Only the credential files are
 mounted so Codex's Linux installation inside the image remains available.
-
-GitHub Actions deployment restores `AGY_AUTH_JSON` and `CODEX_AUTH_JSON` repository
-secrets into these same files on the runner. The deploy workflow saves changed,
-valid credentials back using `GH_PAT`, which needs repository Secrets write
-permission. Write-back runs even if site generation fails. Deployment runs are
-serialized; refreshed GitHub credentials do not update copies on your Mac.
