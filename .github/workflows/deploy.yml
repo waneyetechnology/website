@@ -2,15 +2,24 @@ name: Build and Deploy Waneye Financial Overview
 
 on:
   schedule:
-    - cron: '0 * * * *'  # every 6 hours
+    - cron: '0 * * * *'  # every hour
   workflow_dispatch:
   push:
     branches:
       - master
 
+# Serialize runs that share and refresh the same CLI credentials.
+concurrency:
+  group: deploy-cli-auth
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
 jobs:
   build-deploy:
     runs-on: ubuntu-24.04
+    timeout-minutes: 50
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -83,9 +92,28 @@ jobs:
       - name: Install agy CLI
         run: |
           curl --compressed -fsSL https://antigravity.google/cli/install.sh | bash
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Verify agy CLI installation
         run: agy --version
+      - name: Install Codex CLI
+        run: |
+          curl --compressed -fsSL https://chatgpt.com/codex/install.sh -o "$RUNNER_TEMP/install-codex.sh"
+          CODEX_NON_INTERACTIVE=1 sh "$RUNNER_TEMP/install-codex.sh"
+          codex --version
+      - name: Restore CLI authentication
+        id: cli_auth
+        env:
+          AGY_AUTH_JSON: ${{ secrets.AGY_AUTH_JSON }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
+        run: |
+          umask 077
+          mkdir -p "$HOME/.codex" "$HOME/.gemini/antigravity-cli"
+          printf '%s' "$CODEX_AUTH_JSON" > "$HOME/.codex/auth.json"
+          printf '%s' "$AGY_AUTH_JSON" > "$HOME/.gemini/antigravity-cli/antigravity-oauth-token"
+          jq -e '.tokens | (.access_token | strings | length > 0) and (.refresh_token | strings | length > 0)' "$HOME/.codex/auth.json" > /dev/null
+          jq -e '.token | (.access_token | strings | length > 0) and (.refresh_token | strings | length > 0)' "$HOME/.gemini/antigravity-cli/antigravity-oauth-token" > /dev/null
+          cp "$HOME/.codex/auth.json" "$RUNNER_TEMP/codex-auth-before.json"
+          cp "$HOME/.gemini/antigravity-cli/antigravity-oauth-token" "$RUNNER_TEMP/agy-auth-before.json"
       - name: Generate static site
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -118,6 +146,30 @@ jobs:
         run: |
           cd website-core
           python generate_site_au.py
+      - name: Save refreshed CLI authentication
+        if: ${{ always() && steps.cli_auth.outcome == 'success' }}
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          failed=0
+          save_auth() {
+            local secret="$1" file="$2" original="$3" token_field="$4"
+            if cmp -s "$file" "$original"; then
+              return 0
+            fi
+            if ! jq -e --arg field "$token_field" '.[$field] | (.access_token | strings | length > 0) and (.refresh_token | strings | length > 0)' "$file" > /dev/null; then
+              echo "::error::Refusing to save invalid $secret credentials"
+              failed=1
+              return 0
+            fi
+            if ! gh secret set "$secret" --repo "$GITHUB_REPOSITORY" < "$file"; then
+              echo "::error::Could not save $secret; GH_PAT needs repository Secrets write access"
+              failed=1
+            fi
+          }
+          save_auth CODEX_AUTH_JSON "$HOME/.codex/auth.json" "$RUNNER_TEMP/codex-auth-before.json" tokens
+          save_auth AGY_AUTH_JSON "$HOME/.gemini/antigravity-cli/antigravity-oauth-token" "$RUNNER_TEMP/agy-auth-before.json" token
+          exit "$failed"
       - name: Move generated artifacts
         run: |
           mv website-core/history ./history 2>/dev/null || true
