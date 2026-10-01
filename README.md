@@ -30,10 +30,9 @@ GitHub Actions. Rerunning replaces its own entry and preserves other cron jobs.
 Inspect with `crontab -l`; remove the `WANEYE_WORKFLOW_DEPLOY_CRON` line using
 `crontab -e` to uninstall.
 
-The workflow already has a GitHub-hosted hourly schedule. Enabling host cron as
-well can create additional deployments; remove the workflow's `schedule` trigger
-if host cron should be the sole hourly scheduler. The existing `setup-cron.sh`
-instead runs `make deploy` locally through Docker.
+Host cron provides the hourly schedule; the workflow also supports manual
+dispatch and runs on pushes to `master`. The existing `setup-cron.sh` instead
+runs `make deploy` locally through Docker.
 
 `make deploy` clones the latest default branch of `website-core` from GitHub on
 each run, using `GH_PAT` from `.env.local`. `make deploy-test` and `make deploy-dry`

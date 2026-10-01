@@ -34,4 +34,3 @@ crontab "$TMP_DIR/new"
 
 printf 'Installed hourly dispatch of .github/workflows/deploy.yml on master.\nLog: %s\n' "$LOG_FILE"
 printf 'Inspect with crontab -l; remove the %s line with crontab -e.\n' "$MARKER"
-printf 'Note: deploy.yml also has a GitHub hourly schedule; both schedules can trigger deployments.\n'
