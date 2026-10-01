@@ -1,8 +1,6 @@
 name: Build and Deploy Waneye Financial Overview
 
 on:
-  schedule:
-    - cron: '0 * * * *'  # every hour
   workflow_dispatch:
   push:
     branches:
