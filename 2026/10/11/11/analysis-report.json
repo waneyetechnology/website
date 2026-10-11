@@ -1,0 +1,736 @@
+{
+  "analysis": {
+    "analysis_date": "October 11, 2026",
+    "analysis_time": "11:01",
+    "executive_summary": {
+      "key_highlights": [
+        "Equities demonstrate resilient near-term momentum bolstered by robust corporate earnings and receding AI bubble fears (Headlines 31, 41), yet underlying market conditions reveal severe structural bifurcations between capital owners and increasingly strained consumers (Headlines 19, 43).",
+        "SpaceX's disruptive $2.9 billion acquisition of 800 MHz spectrum previously discarded by T-Mobile has triggered an aggressive selloff across legacy telecom incumbents AT&T, Verizon, and T-Mobile (Headlines 32, 42), with Starlink actively expanding direct-to-device satellite communications globally (Headline 36).",
+        "Compounding energy supply shocks are intensifying as Hurricane Isaias knocks over 50% of Gulf of Mexico oil production offline (Headline 47), global Strategic Petroleum Reserves (SPR) approach critical depletion (Headline 27), and White House sanction waivers on Russian diesel are dismissed as ineffective at mitigating domestic fuel inflation (Headlines 2, 13, 16).",
+        "Institutional governance and monetary credibility face unprecedented headwinds following the administration's formation of a panel to investigate and fire Federal Reserve Governor Lisa Cook (Headline 24), elevating term premia and sovereign debt scrutiny (Headline 14).",
+        "Consumer discretionary weakness is escalating under persistent inflation, high winter heating costs, and federal safety-net reductions, evidenced by Crumbl closing dozens of stores (Headline 11), food pantries facing overwhelming demand (Headline 3), and Starbucks abandoning Chipotle merger rumors to focus on internal turnaround (Headline 8).",
+        "Credit market vulnerabilities and digital asset retrenchment surface as Jefferies reveals $900 million of fraud in Radiant deals (Headline 5), while spot Ethereum ETFs record nine consecutive days of net outflows totaling $2 billion (Headline 15).",
+        "AI capital markets reflect rationalization: Wall Street scrutinizes OpenAI's non-standard growth metrics (Headline 1) and Korean AI equities lose momentum (Headline 39), even as top-tier tech names (Broadcom, SpaceX) tap high-yield debt markets for infrastructure expansion (Headline 29) and early-stage non-text AI firms command multi-billion valuations (Headline 21)."
+      ],
+      "market_sentiment_score": 58,
+      "overall_sentiment": "neutral",
+      "headline_sources": [
+        1,
+        2,
+        3,
+        5,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        21,
+        24,
+        27,
+        29,
+        31,
+        32,
+        36,
+        39,
+        41,
+        42,
+        47
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology & Artificial Intelligence",
+          "trend": "The AI trade is undergoing rigorous institutional differentiation. Investors are transitioning away from unvetted top-line metrics toward scrutinized recurring revenue models (OpenAI metrics in FT) and disciplined balance sheets. Concurrently, high-grade debt issuance remains strong with Broadcom and SpaceX issuing debt despite high yields, while speculative froth in early-stage non-text AI (Jev at $7.5B) coexists with waning enthusiasm in Asian equity markets like South Korea.",
+          "implications": "Expect valuation bifurcation: resilient hyperscaler enablers with verified cash generation will maintain access to capital, while secondary hardware plays and unmonetized models face multiple compression. Cybersecurity and governance preparedness against catastrophic AI incidents are becoming core risk mandates.",
+          "headline_sources": [
+            1,
+            20,
+            21,
+            29,
+            31,
+            39,
+            45
+          ]
+        },
+        {
+          "sector": "Telecommunications & Space Infrastructure",
+          "trend": "SpaceX is driving severe structural disruption across wireless telecommunications after acquiring 800 MHz spectrum shed by T-Mobile for $2.9 billion, sending shares of AT&T, Verizon, and T-Mobile tumbling while Elon Musk intensifies global satellite connectivity competition against domestic incumbents like Reliance in India.",
+          "implications": "Legacy wireless carriers face margin erosion, elevated churn risks, and the threat of satellite direct-to-cell bypass. Significant capital will need to be reallocated toward defensive network upgrades or satellite partnerships, impairing telecom dividend safety profiles.",
+          "headline_sources": [
+            32,
+            36,
+            42
+          ]
+        },
+        {
+          "sector": "Energy, Refining & Utilities",
+          "trend": "A multi-faceted supply crisis is gripping energy markets. Hurricane Isaias has taken over 50% of Gulf of Mexico oil production offline, global emergency reserves are nearing exhaustion, and geopolitical diplomatic maneuvers—including easing Russian diesel sanctions—are viewed by analysts as structurally incapable of reducing US fuel costs.",
+          "implications": "Refining margins and diesel crack spreads will stay elevated into winter, compounding consumer utility and heating expense burdens. Net oil-importing emerging markets face escalating foreign exchange stress, forcing central banks like India to draw down dollar reserves for oil procurement.",
+          "headline_sources": [
+            2,
+            13,
+            16,
+            17,
+            27,
+            37,
+            47
+          ]
+        },
+        {
+          "sector": "Financial Institutions & Alternative Credit",
+          "trend": "Private credit opacity and due diligence deficiencies are highlighted by Jefferies discovering $900 million in fraudulent Radiant transactions. Simultaneously, sovereign debt sustainability questions intensify, with economic analysis indicating that US debt stabilization through organic growth alone is unrealistic without unattainable 5%-6% GDP expansion.",
+          "implications": "Underwriting criteria across non-bank lending and private syndicated credit will tighten, increasing the cost of capital for mid-market corporate borrowers. Long-dated sovereign yield curves remain exposed to upward repricing and fiscal term premia expansion.",
+          "headline_sources": [
+            5,
+            14,
+            18,
+            28,
+            29,
+            34
+          ]
+        },
+        {
+          "sector": "Consumer Discretionary, Food & Retail",
+          "trend": "The macroeconomic divide between asset owners and consumers is widening. Lower- and middle-income consumers are curtailing discretionary spending due to cumulative inflation, heating costs, and safety-net reductions, prompting fast-casual retrenchment (Crumbl closures) and leading Starbucks to abandon rumored Chipotle merger plans to focus strictly on an internal turnaround.",
+          "implications": "Discretionary retail and premium fast-casual operators face margin contraction and foot-traffic degradation. Consumer spending will concentrate heavily in value-oriented discount retailers and essential staples.",
+          "headline_sources": [
+            3,
+            7,
+            8,
+            11,
+            19,
+            22,
+            37,
+            43
+          ]
+        },
+        {
+          "sector": "Insurance & Catastrophe Risk",
+          "trend": "Hurricane Isaias is projected to inflict billions of dollars in insured property, commercial, and offshore infrastructure losses across the Eastern seaboard and Gulf coastlines.",
+          "implications": "Primary property and casualty (P&C) insurers face Q4 underwriting earnings hits, which will accelerate reinsurance rate hardening and prompt further underwriting capacity reductions in vulnerable coastal zones.",
+          "headline_sources": [
+            12,
+            47
+          ]
+        },
+        {
+          "sector": "Digital Assets & Web3",
+          "trend": "Institutional demand for Ethereum has cooled sharply, with spot Ethereum ETFs recording nine consecutive days of net outflows and losing $2 billion in cumulative assets under management.",
+          "implications": "Institutional capital is consolidating back into spot Bitcoin or yielding Treasury instruments, draining liquidity from decentralized smart contract platforms and stalling near-term crypto market beta.",
+          "headline_sources": [
+            15
+          ]
+        },
+        {
+          "sector": "Automotive & Industrial Manufacturing",
+          "trend": "North American automotive policy divergence is widening: Canada has opened its market to 49,000 low-tariff Chinese EVs (Geely) at a 6.1% tariff rate, contrasting with strict US import barriers, while China formalizes standards for remanufactured auto parts and the UAW reaffirms aggressive labor leadership.",
+          "implications": "US domestic automakers remain sheltered behind tariff walls but face structural cost disadvantages and rising domestic labor expenses, while Canadian markets become a proving ground for low-cost foreign EV architectures.",
+          "headline_sources": [
+            9,
+            25,
+            30
+          ]
+        }
+      ],
+      "key_themes": [
+        "Macroeconomic & Wealth Bifurcation: Strong corporate earnings and equity valuations benefit asset owners while everyday consumers suffer real-income erosion from inflation, utility bills, and social welfare cuts.",
+        "Technological Disruption in Telecom Moats: SpaceX's satellite spectrum acquisition challenges terrestrial telecom infrastructure, sparking an immediate industry-wide valuation re-rating.",
+        "Compounding Energy Supply & Refining Shock: Severe weather offshore shut-ins combined with depleted strategic reserves and ineffective geopolitical diesel relief sustain high energy crack spreads.",
+        "Monetary Governance & Institutional Independence Risk: Executive efforts to unseat Fed Governor Lisa Cook undermine long-standing central bank autonomy and threaten bond market stability.",
+        "Private Market Scrutiny & Fraud Contagion: The Jefferies Radiant fraud disclosure exposes structural vulnerabilities and underwriting lapses in the rapidly expanding private credit universe.",
+        "AI Maturation & Capital Re-Allocation: Capital is shifting from narrative-driven growth metrics toward proven balance sheet quality, debt-funded infrastructure buildouts, and operational resilience."
+      ],
+      "headline_sources": [
+        1,
+        2,
+        3,
+        5,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        21,
+        24,
+        25,
+        27,
+        29,
+        31,
+        32,
+        36,
+        39,
+        41,
+        42,
+        47
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Federal Reserve Governance & Monetary Policy Politicization",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Hedge duration exposure against yield volatility spikes; allocate to gold (GLD), short-duration Treasury bills, and currency diversification away from unhedged domestic dollar assets.",
+        "headline_sources": [
+          24
+        ]
+      },
+      {
+        "risk_factor": "Upstream & Refined Product Energy Supply Disruption",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Maintain an overweight allocation to upstream energy producers and independent refiners benefiting from elevated crack spreads; utilize energy sector ETFs (XLE) to hedge inflation.",
+        "headline_sources": [
+          2,
+          13,
+          16,
+          27,
+          47
+        ]
+      },
+      {
+        "risk_factor": "Disruption of Legacy Wireless Carriers by Satellite Constellations",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Underweight or hedge legacy telecommunication operators (T, VZ, TMUS); pivot communication allocations toward neutral-host digital towers and aerospace/satellite supply chains.",
+        "headline_sources": [
+          32,
+          36,
+          42
+        ]
+      },
+      {
+        "risk_factor": "Private Credit Governance & Underwriting Fraud",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Require comprehensive independent forensic audits on private debt fund covenants; restrict allocations to opaque direct lending vehicles and syndicated commercial debt.",
+        "headline_sources": [
+          5
+        ]
+      },
+      {
+        "risk_factor": "Severe Weather Catastrophe Loss Accumulation in P&C Insurance",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Underweight primary coastal property and casualty insurers exposed to Gulf and Atlantic losses; allocate toward global reinsurers with robust balance sheets and hardening premium terms.",
+        "headline_sources": [
+          12,
+          47
+        ]
+      },
+      {
+        "risk_factor": "Consumer Discretionary Spending Contraction & Margin Squeeze",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Divest from mid-tier fast-casual dining and specialty consumer goods; overweight discount retail leaders (WMT, COST) and recession-resilient consumer staples (XLP).",
+        "headline_sources": [
+          3,
+          8,
+          11,
+          19,
+          22,
+          37
+        ]
+      },
+      {
+        "risk_factor": "Institutional Outflows & Liquidity Drain in Digital Assets",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Limit unhedged exposure to Ethereum and altcoin ecosystems; redirect crypto holdings to spot Bitcoin or risk-free Treasury yield vehicles until ETF redemptions stabilize.",
+        "headline_sources": [
+          15
+        ]
+      },
+      {
+        "risk_factor": "Sovereign Debt Sustainability & Long-Term Yield Curve Steepening",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Adopt a barbell fixed-income strategy, avoiding long-dated sovereign bonds (TLT) in favor of cash equivalents (BIL, SGOV) and inflation-linked debt (TIPS).",
+        "headline_sources": [
+          14,
+          28
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Overweight Upstream Oil & Refining Infrastructure",
+          "rationale": "With over 50% of Gulf of Mexico oil production shut down by Hurricane Isaias and global emergency reserves depleted, diesel crack spreads and energy cash flows will remain elevated despite geopolitical sanction relief attempts.",
+          "tickers": [
+            "XLE",
+            "VLO",
+            "MPC",
+            "XOM"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            2,
+            13,
+            16,
+            27,
+            47
+          ]
+        },
+        {
+          "recommendation": "Allocate to High-Quality AI Infrastructure & Debt-Financed Tech Leaders",
+          "rationale": "High-grade tech mega-caps such as Broadcom continue to successfully access debt capital to expand AI infrastructure despite higher interest rates, supported by resilient balance sheets and secular enterprise demand.",
+          "tickers": [
+            "AVGO",
+            "MSFT",
+            "NVDA",
+            "QQQ"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            1,
+            21,
+            29,
+            31,
+            41
+          ]
+        },
+        {
+          "recommendation": "Overweight Discount Retail and Value Staples Over Discretionary Dining",
+          "rationale": "Macro bifurcation favors businesses catering to value-conscious consumers seeking affordable essentials as winter heating costs rise and fast-casual concepts face store closures and foot-traffic drops.",
+          "tickers": [
+            "WMT",
+            "COST",
+            "XLP",
+            "DG"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            3,
+            11,
+            19,
+            22,
+            37
+          ]
+        },
+        {
+          "recommendation": "Capitalize on Global EV Supply Chain Efficiencies",
+          "rationale": "Canada's opening to affordable Chinese EVs (Geely) demonstrates the persistent cost advantage of international EV architectures, creating long-term opportunities in low-cost EV manufacturing and supply chain integration.",
+          "tickers": [
+            "GELYF",
+            "TSLA",
+            "RIVN"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            9,
+            25,
+            30
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Underweight / Short Legacy US Wireless Telecommunications",
+          "rationale": "SpaceX's aggressive entry into terrestrial spectrum via its $2.9 billion 800 MHz purchase directly challenges the business models, pricing power, and debt sustainability of AT&T, Verizon, and T-Mobile.",
+          "tickers": [
+            "T",
+            "VZ",
+            "TMUS"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            32,
+            36,
+            42
+          ]
+        },
+        {
+          "recommendation": "Rotate from Long-Duration Treasuries into Ultra-Short Cash Equivalents",
+          "rationale": "Mounting sovereign debt math skepticism paired with executive probes into Federal Reserve Governor Lisa Cook exposes long-duration bonds to heightened term premia and yield curve steepening.",
+          "tickers": [
+            "SGOV",
+            "BIL",
+            "SHY"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            14,
+            24
+          ]
+        },
+        {
+          "recommendation": "Reduce Exposure to Coastal Property & Casualty Insurers",
+          "rationale": "Multi-billion-dollar insured catastrophe claims resulting from Hurricane Isaias will erode primary underwriter statutory capital and impair Q4 earnings.",
+          "tickers": [
+            "KIE",
+            "TRV",
+            "ALL"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            12,
+            47
+          ]
+        },
+        {
+          "recommendation": "Hedge Spot Ethereum Holdings and Secondary Altcoins",
+          "rationale": "Sustained net outflows from Ethereum ETFs ($2 billion over nine consecutive sessions) reflect institutional liquidation, requiring defensive cash rotation or short-delta hedges.",
+          "tickers": [
+            "ETHE",
+            "ETH",
+            "BITO"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            15
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Over the next 1-3 months, US equities are set for a tactical relief rally supported by solid quarterly earnings and temporary abatement of AI bubble anxieties. However, upside will be capped by acute energy headwinds following Hurricane Isaias production shut-ins, persistent diesel refining bottlenecks, and headline risk regarding executive challenges to Federal Reserve leadership. Telecommunications will endure severe volatility as legacy carriers grapple with SpaceX's spectrum disruption, while consumer-facing sectors experience heightened margin compression heading into the holiday season.",
+      "long_term": "Over the next 6-12 months, macroeconomic bifurcation will dictate asset class performance. Capital owners and high-cash-flow enterprises with strong pricing power and balance sheets will outperform, while debt-heavy consumer discretionary and legacy infrastructure businesses suffer from sustained real-income compression and technological disruption. Sovereign debt sustainability concerns will prevent meaningful long-term interest rate declines, cementing a higher-for-longer regime. Furthermore, trade policy fragmentation—highlighted by diverging US-Canada EV regulations—will compel multinational supply chain realignments.",
+      "key_catalysts": [
+        "Restoration timeline and damage assessments for Gulf of Mexico offshore oil production post-Hurricane Isaias (Headline 47)",
+        "Legal, political, and institutional fallout from the administration's panel probing Federal Reserve Governor Lisa Cook (Headline 24)",
+        "Regulatory approvals and testing for SpaceX's commercial direct-to-cell service on the 800 MHz spectrum (Headlines 32, 42)",
+        "Third-quarter corporate earnings reports evaluating enterprise AI software monetization versus infrastructure debt leverage (Headlines 1, 29, 41)",
+        "Holiday retail sales data, consumer credit trends, and winter utility heating price impacts (Headlines 11, 22, 37)",
+        "Forensic investigation findings and private debt contagion effects from Jefferies' $900M Radiant fraud disclosure (Headline 5)",
+        "Flow stabilization or continued liquidation across institutional spot Ethereum ETFs (Headline 15)"
+      ],
+      "watch_list": [
+        "Percentage of Gulf of Mexico crude oil and natural gas production shut in (Headline 47)",
+        "US diesel crack spreads and regional distillate inventory cushions (Headlines 2, 13)",
+        "10-year and 30-year US Treasury yield curves and term premia indicators (Headlines 14, 24)",
+        "Legacy wireless churn rates, pricing actions, and capital expenditure guidance revisions for AT&T, Verizon, and T-Mobile (Headlines 32, 42)",
+        "Spot Ethereum ETF daily net flow metrics (Headline 15)",
+        "Reserve Bank of India FX reserves and USD/INR intervention levels (Headlines 17, 23)",
+        "Fast-casual and restaurant same-store sales (SSS) metrics and franchise closure rates (Headlines 8, 11)"
+      ],
+      "headline_sources": [
+        1,
+        2,
+        5,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        22,
+        23,
+        24,
+        29,
+        31,
+        32,
+        37,
+        41,
+        42,
+        47
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "The hazy OpenAI growth metric driving Wall Street - Financial Times",
+      "url": "https://www.ft.com/content/62653892-2333-4953-a8d5-cfd760ae3257?syn-25a6b1a6\\\\u003d1",
+      "publishedAt": "2026-10-09T20:57:10Z"
+    },
+    {
+      "index": 2,
+      "headline": "Trump eases Russia sanctions, says Putin will release diesel as prices spike",
+      "url": "https://www.nbcnews.com/business/energy/trump-putin-diesel-prices-rcna602566",
+      "publishedAt": "2026-10-09T18:56:21+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "Food pantries overwhelmed by Trump cuts",
+      "url": "https://www.nbcnews.com/news/us-news/west-virginia-hunger-trump-cuts-food-stamps-gas-prices-iran-rcna601637",
+      "publishedAt": "2026-10-09T09:00:43+00:00"
+    },
+    {
+      "index": 4,
+      "headline": "Butter Brickle and rum raisin among old nostalgic ice cream flavors",
+      "url": "https://www.foxnews.com/food-drink/5-forgotten-ice-cream-flavors-70s-fans-begging-brought-back",
+      "publishedAt": "2026-10-10T22:56:58Z"
+    },
+    {
+      "index": 5,
+      "headline": "Jefferies Says Found Fraud in $900 Million of Radiant Deals",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-10/jefferies-says-it-found-fraud-in-900-million-of-radiant-deals",
+      "publishedAt": "2026-10-10T15:03:27+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "World Bank: African languages are underrepresented in Artificial Intelligence",
+      "url": "https://peopledaily.digital/news/world-bank-african-languages-are-underrepresented-in-artificial-intelligence",
+      "publishedAt": "2026-10-10T22:34:32Z"
+    },
+    {
+      "index": 7,
+      "headline": "Viral Handbags Turn Small Designer Into Fashion Star ",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-10/viral-handbags-turn-small-designer-into-fashion-star-video",
+      "publishedAt": "2026-10-10T17:15:26+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "Starbucks says it’s focused on turnaround after report it explored Chipotle merger",
+      "url": "https://www.nbcnews.com/business/consumer/starbucks-responds-chipotle-merger-report-rcna602388",
+      "publishedAt": "2026-10-08T21:22:38+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "China Issues Draft Standards for Remanufactured Automotive Parts",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-11/china-issues-draft-standards-for-remanufactured-automotive-parts",
+      "publishedAt": "2026-10-11T03:21:56+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "Russia Plague Scare Raises Public Health Questions",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-10/russia-plague-scare-raises-public-health-questions-video",
+      "publishedAt": "2026-10-10T16:11:03+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "Utah-based Crumbl closes dozens of locations as inflationary pressure takes a bite out of sales - KSL News",
+      "url": "https://www.ksl.com/article/51634583/utah-based-crumbl-closes-dozens-of-locations-as-inflationary-pressure-takes-a-bite-out-of-sales",
+      "publishedAt": "2026-10-10T00:04:54Z"
+    },
+    {
+      "index": 12,
+      "headline": "Hurricane Isaias May Cost Insurers Billions",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-10/hurricane-isaias-may-cost-insurers-billions-video",
+      "publishedAt": "2026-10-10T16:19:51+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "Russian Diesel Deal Unlikely to Lower US Prices",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-10/russian-diesel-deal-unlikely-to-lower-us-prices-video",
+      "publishedAt": "2026-10-10T16:03:23+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "It's 'probably not plausible' that a strong economy can steady U.S. debt as 5%-6% growth is needed",
+      "url": "https://fortune.com/2026/10/10/us-debt-gdp-growth-cbo-scott-bessent-deficit-bond-yields-interest-rates/",
+      "publishedAt": "2026-10-10T22:54:00Z"
+    },
+    {
+      "index": 15,
+      "headline": "Ethereum ETFs Have Had Nine Straight Days of Outflows and Lost $2 Billion in Assets. Is Wall Street Giving Up on ETH?",
+      "url": "https://247wallst.com/investing/cryptocurrency/2026/10/10/ethereum-etfs-have-had-nine-straight-days-of-outflows-and-lost-2-billion-in-assets-is-wall-street-giving-up-on-eth/",
+      "publishedAt": "2026-10-10T22:35:00Z"
+    },
+    {
+      "index": 16,
+      "headline": "Trump’s pledge not to strike Iran before midterms fails to soothe oil markets",
+      "url": "https://www.nbcnews.com/business/energy/oil-prices-stocks-trump-iran-rcna602248",
+      "publishedAt": "2026-10-08T12:15:31+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "India to provide oil companies with dollars from reserves",
+      "url": "https://ua.news/en/world/indiia-nadast-naftokompaniiam-dolari-z-rezerviv-the-express-tribune",
+      "publishedAt": "2026-10-10T22:56:10Z"
+    },
+    {
+      "index": 18,
+      "headline": "Banque du Caire Offers 30% Stake in Egypt’s Second IPO in Month",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-11/banque-du-caire-offers-30-stake-in-egypt-s-second-ipo-in-month",
+      "publishedAt": "2026-10-11T08:47:33+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "Phenomenal Time To Be Investor, Not Consumer: Amoroso",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-09/phenomenal-time-to-be-investor-not-consumer-amoroso-video",
+      "publishedAt": "2026-10-09T19:27:37+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "AI companies plot how to respond if catastrophic hacking incident causes ‘revolt’: report - New York Post",
+      "url": "https://nypost.com/2026/10/09/business/ai-companies-plot-how-to-respond-if-catastrophic-hacking-incident-causes-revolt-report/",
+      "publishedAt": "2026-10-09T22:39:00Z"
+    },
+    {
+      "index": 21,
+      "headline": "The maker of non-text AI model Jev valued at $7.5B just weeks after launch - TechCrunch",
+      "url": "https://techcrunch.com/2026/10/09/the-maker-of-non-text-ai-model-jev-valued-at-7-5b-just-weeks-after-launch/",
+      "publishedAt": "2026-10-09T21:41:29Z"
+    },
+    {
+      "index": 22,
+      "headline": "Holiday Budget Tips to Make Sure You Don't Overspend",
+      "url": "https://www.today.com/video/holiday-budget-tips-to-make-sure-you-don-t-overspend-271331909648",
+      "publishedAt": "2026-10-09T13:55:08+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "India’s Rupee Defense Raises Question of How Far RBI Will Go",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-11/india-s-rupee-defense-raises-question-of-how-far-rbi-will-go",
+      "publishedAt": "2026-10-11T03:00:03+00:00"
+    },
+    {
+      "index": 24,
+      "headline": "Trump establishes panel to probe Fed governor Lisa Cook in latest attempt to fire her",
+      "url": "https://www.nbcnews.com/business/economy/trump-probe-fed-gov-lisa-cook-rcna602500",
+      "publishedAt": "2026-10-09T14:25:29+00:00"
+    },
+    {
+      "index": 25,
+      "headline": "Canada Opened Its Border to 49,000 Cheap EVs at a 6.1% Tariff. Now Geely Is Coming Next Year, and Americans Can't Buy a Single One",
+      "url": "https://www.autonocion.com/us/geely-ev-canada/",
+      "publishedAt": "2026-10-10T22:30:23Z"
+    },
+    {
+      "index": 26,
+      "headline": "Singapore F1 Race Draws Near-Record Turnout Despite Choking Haze",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-11/singapore-f1-race-draws-near-record-turnout-despite-choking-haze",
+      "publishedAt": "2026-10-11T10:28:12+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "Emergency Oil Releases Risk Draining the World’s Last Supply Cushion",
+      "url": "https://oilprice.com/Energy/Crude-Oil/Emergency-Oil-Releases-Risk-Draining-the-Worlds-Last-Supply-Cushion.html",
+      "publishedAt": "2026-10-10T23:00:00Z"
+    },
+    {
+      "index": 28,
+      "headline": "Healey Plans Short-Term UK Budget Giveaways to Limit Fiscal Pain",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-11/healey-plans-short-term-uk-budget-giveaways-to-limit-fiscal-pain",
+      "publishedAt": "2026-10-11T06:00:00+00:00"
+    },
+    {
+      "index": 29,
+      "headline": "AI Debt Issuance Defies Rising Yields as SpaceX, Broadcom Plan Major Deals  ",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-10/ai-issuers-are-upending-longstanding-safety-valve-credit-weekly",
+      "publishedAt": "2026-10-10T19:00:00+00:00"
+    },
+    {
+      "index": 30,
+      "headline": "UAW leader reviled by Trump declares victory in reelection - The Washington Post",
+      "url": "https://www.washingtonpost.com/business/2026/10/09/union-leader-reviled-by-trump-wins-reelection-uaw/",
+      "publishedAt": "2026-10-10T02:27:08Z"
+    },
+    {
+      "index": 31,
+      "headline": "US Stocks Set to Rebound as Oil Slips, AI Bubble Fears Recede - Bloomberg.com",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-09/us-stocks-set-to-rebound-as-oil-slips-ai-bubble-fears-recede",
+      "publishedAt": "2026-10-09T20:26:06Z"
+    },
+    {
+      "index": 32,
+      "headline": "SpaceX snaps up the 800 MHz spectrum T-Mobile dumped for $2.9 billion — and T-Mobile, Verizon, AT&T stocks are sliding - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/spacex-snaps-800-mhz-spectrum-210000632.html",
+      "publishedAt": "2026-10-09T21:00:00Z"
+    },
+    {
+      "index": 33,
+      "headline": "By The Way: Headlines You May Have Missed",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-10/by-the-way-headlines-you-may-have-missed-video",
+      "publishedAt": "2026-10-10T17:02:42+00:00"
+    },
+    {
+      "index": 34,
+      "headline": " Balancing Conviction and Risk: Masters in Business  with Maria Vassalou",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-09/masters-in-business-with-barry-ritholtz-video",
+      "publishedAt": "2026-10-09T21:00:50+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "India Protests Set to Continue Despite Heavy Delhi Security",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-11/indian-cockroaches-plan-new-protest-amid-heavy-delhi-security",
+      "publishedAt": "2026-10-11T05:24:47+00:00"
+    },
+    {
+      "index": 36,
+      "headline": "Elon Musk intensifies attack on Ambani over Starlink India launch delay - TechCrunch",
+      "url": "https://techcrunch.com/2026/10/09/elon-musk-intensifies-attack-on-ambani-over-starlink-india-launch-delay/",
+      "publishedAt": "2026-10-10T03:10:06Z"
+    },
+    {
+      "index": 37,
+      "headline": "How to Save as Temperatures Drop and Heating Costs Rise",
+      "url": "https://www.today.com/video/how-to-save-as-temperatures-drop-and-heating-costs-rise-271245381989",
+      "publishedAt": "2026-10-08T11:51:14+00:00"
+    },
+    {
+      "index": 38,
+      "headline": "WestJet captain raises concerns over long Seattle taxi time after burning 800 pounds of fuel on the ground",
+      "url": "https://airlive.net/news/2026/10/10/westjet-captain-raises-concerns-over-long-seattle-taxi-time-after-burning-800-pounds-of-fuel-on-the-ground/",
+      "publishedAt": "2026-10-10T22:24:27Z"
+    },
+    {
+      "index": 39,
+      "headline": "Once-Hot AI Trade Leaves Korean Stocks Struggling for Buyers",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-11/once-hot-ai-trade-leaves-korean-stocks-struggling-for-buyers",
+      "publishedAt": "2026-10-11T00:00:00+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "Banana Ball Takes Its Baseball Show Nationwide",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-10/banana-ball-takes-its-baseball-show-nationwide-video",
+      "publishedAt": "2026-10-10T15:33:50+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Strong Earnings Keep US Stocks in Favor",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-10/strong-earnings-keep-us-stocks-in-favor-video",
+      "publishedAt": "2026-10-10T17:37:41+00:00"
+    },
+    {
+      "index": 42,
+      "headline": "Elon Musk’s growing SpaceX empire sends AT&T, Verizon and T-Mobile shares plunging",
+      "url": "https://www.nbcnews.com/business/corporations/elon-musk-spacex-verizon-tmobile-att-rcna602525",
+      "publishedAt": "2026-10-09T17:55:48+00:00"
+    },
+    {
+      "index": 43,
+      "headline": "The surprising post-pandemic drop in income inequality - Axios",
+      "url": "https://www.axios.com/2026/10/09/income-biden-pandemic-inflation",
+      "publishedAt": "2026-10-10T01:59:42Z"
+    },
+    {
+      "index": 44,
+      "headline": "Taiwan’s Lai Urges Democracies to Unite After Trump-Xi Talks",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-10/taiwan-s-lai-urges-democracies-to-unite-after-trump-xi-summit",
+      "publishedAt": "2026-10-10T03:35:41+00:00"
+    },
+    {
+      "index": 45,
+      "headline": "AI and the Danish Labour Market: Hiring Slows Before Jobs Go",
+      "url": "https://economy.ac/review/2026/10/202610295821",
+      "publishedAt": "2026-10-10T22:58:49Z"
+    },
+    {
+      "index": 46,
+      "headline": "Seismic performance and hybrid retrofit strategies for a historical four-legged masonry minaret",
+      "url": "https://www.nature.com/articles/s41598-026-74380-z?error=cookies_not_supported&code=9513893f-7963-49d9-bc88-ae80826f7e91",
+      "publishedAt": "2026-10-10T22:34:38Z"
+    },
+    {
+      "index": 47,
+      "headline": "Gas prices under threat as Isaias forces more than half of Gulf oil production offline",
+      "url": "https://www.nbcnews.com/business/energy/gas-prices-hurricane-isaias-gulf-mexico-rcna602258",
+      "publishedAt": "2026-10-08T14:57:38+00:00"
+    },
+    {
+      "index": 48,
+      "headline": "Pointed! Bloomberg's Weekly News Quiz For Risk-Takers",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-10/pointed-bloomberg-s-weekly-news-quiz-for-risk-takers-video",
+      "publishedAt": "2026-10-10T17:18:11+00:00"
+    },
+    {
+      "index": 49,
+      "headline": "‘It’s amazing’: Gatorade Man getting car, LLC from local church - WREG.com",
+      "url": "https://wreg.com/news/local/gatorade-man-getting-car-llc-from-local-church/",
+      "publishedAt": "2026-10-09T21:18:51Z"
+    }
+  ]
+}
