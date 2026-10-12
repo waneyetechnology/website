@@ -1,0 +1,627 @@
+{
+  "analysis": {
+    "analysis_date": "October 12, 2026",
+    "analysis_time": "19:02",
+    "executive_summary": {
+      "key_highlights": [
+        "Benchmark 10-Year US Treasury yields are testing the critical 6.0% psychological resistance level, triggering a broad sovereign debt selloff, sending bank stocks into a technical correction, and igniting Wall Street debate over duration value and treasury debt architecture.",
+        "Crude oil prices surged on compounded supply threats spanning Russia and the Middle East, exacerbated by Iranian maritime drone and missile attacks forcing supertankers to abandon key Persian Gulf transfer hubs while the US strategic petroleum reserve readiness faces watchdog scrutiny.",
+        "The S&P 500 is wavering ahead of marquee Q3 earnings kickoff, dragged down by semiconductor weakness and market wariness over asset quality across money-center banks.",
+        "A sharp bifurcation is emerging in artificial intelligence: cash-rich hyperscalers continue multi-billion-dollar direct acquisitions (Amazon's $7B bid for Decart), whereas tier-1 investment banks (JPMorgan, Goldman Sachs) are actively de-risking and capping syndicate exposure to mega-scale leveraged AI debt packages ($5B Volta AI loan sale).",
+        "Consumer and corporate margin pressures are intensifying globally: bellwether luxury sales at LVMH collapsed on anemic demand in mainland China, retail consumers face sticky seasonal inflation (+8.1% on Halloween treats), and UK mortgage resets are imposing sharp real-income shocks."
+      ],
+      "market_sentiment_score": 38,
+      "overall_sentiment": "negative",
+      "headline_sources": [
+        2,
+        7,
+        12,
+        13,
+        14,
+        19,
+        27,
+        35,
+        42
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Energy & Utilities",
+          "trend": "Crude benchmarks advancing rapidly due to acute supply disruption risks in the Persian Gulf and Eastern Europe, paired with structural bottlenecks in strategic petroleum reserves.",
+          "implications": "Elevated refining margins and upstream cash flows benefit exploration and production majors, but rising transport costs and tanker rerouting threaten to reignite broader headline inflation.",
+          "headline_sources": [
+            2,
+            9,
+            12,
+            22,
+            23,
+            28,
+            34,
+            35
+          ]
+        },
+        {
+          "sector": "Financial Services & Banking",
+          "trend": "Bank equities entered a technical correction as benchmark yields test 6.0%, heightening unrealized securities losses, credit risk provisioning, and underwriting retrenchment.",
+          "implications": "Net interest margin expansion is capped by deposit competition and curve volatility; syndication desks are pulling back on large-cap speculative tech and leveraged loans.",
+          "headline_sources": [
+            7,
+            10,
+            12,
+            17,
+            19,
+            27,
+            31,
+            38
+          ]
+        },
+        {
+          "sector": "Technology & Artificial Intelligence",
+          "trend": "Semiconductor equities are pulling back ahead of earnings, while mega-cap hyperscalers continue aggressive proprietary AI investments despite tightening syndicated credit.",
+          "implications": "AI software demand and specialized hiring remain resilient, but debt-financed AI infrastructure faces heightened cost-of-capital hurdles and institutional syndication ceilings.",
+          "headline_sources": [
+            8,
+            14,
+            19,
+            20,
+            29,
+            32,
+            39,
+            42
+          ]
+        },
+        {
+          "sector": "Consumer Discretionary & Retail",
+          "trend": "Severe luxury demand contraction in Greater China alongside persistent retail price inflation and escalating household mortgage debt service costs.",
+          "implications": "Earnings estimates for high-end luxury conglomerates face sharp downward revisions; consumer wallet share is concentrating in discount retail events and defensive staples.",
+          "headline_sources": [
+            6,
+            13,
+            15,
+            21,
+            24,
+            26,
+            40,
+            41
+          ]
+        },
+        {
+          "sector": "Fixed Income & Global Macro",
+          "trend": "Global bond rout pushing yields to multi-cycle highs, forcing central bankers toward incremental rate adjustments and destabilizing frontier debt markets.",
+          "implications": "Long-duration Treasuries are reaching deeply discounted valuations attracting contrarian capital, while frontier currencies face severe depreciation pressures and liquidity flight.",
+          "headline_sources": [
+            7,
+            10,
+            17,
+            18,
+            21,
+            31,
+            37,
+            38
+          ]
+        }
+      ],
+      "key_themes": [
+        "Sovereign Yield Repricing & the 6.0% Benchmark Test",
+        "Geopolitical Energy Escalation and Maritime Chokepoint Vulnerability",
+        "Prudential De-risking in Leveraged AI Infrastructure Credit",
+        "Global Luxury Deterioration Driven by China Slowdown",
+        "Central Bank Calibrated Gradualism Amid Sticky Persistent Inflation",
+        "Pre-Earnings Equity Vulnerability Across Semiconductors and Commercial Banking"
+      ],
+      "headline_sources": [
+        2,
+        7,
+        10,
+        11,
+        13,
+        14,
+        17,
+        18,
+        19,
+        21,
+        27,
+        29,
+        30,
+        35,
+        37,
+        42
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Sovereign Yield Spike Past 6% Psychological Threshold",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Deploy laddered intermediate-duration Treasury hedges, reduce exposure to highly leveraged corporate balance sheets, and utilize interest rate swaptions to insulate against further yield expansion.",
+        "headline_sources": [
+          7,
+          17,
+          27,
+          31
+        ]
+      },
+      {
+        "risk_factor": "Persian Gulf Maritime Chokepoint Disruption and Energy Supply Shock",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Maintain tactical overweights in upstream oil majors and energy shipping equities; implement long call options on Brent crude futures to hedge unexpected geopolitical spikes.",
+        "headline_sources": [
+          2,
+          9,
+          12,
+          35
+        ]
+      },
+      {
+        "risk_factor": "Private Credit & Syndicated Debt Liquidity Freeze in AI Infrastructure",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Avoid sub-investment-grade leveraged loans and speculative private debt vehicles; focus technology equity exposure on cash-flow generative hyperscalers with self-funding capacity.",
+        "headline_sources": [
+          14,
+          19,
+          29
+        ]
+      },
+      {
+        "risk_factor": "Chinese Domestic Demand Slump and Luxury Earnings Downgrades",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Underweight European luxury apparel, premium autos, and cyclical consumer discretionary names heavily dependent on Chinese consumer footfall and tourism spending.",
+        "headline_sources": [
+          13
+        ]
+      },
+      {
+        "risk_factor": "Frontier & Emerging Market Debt Flight and FX Depreciation",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Limit unhedged exposures to local-currency frontier sovereign debt; favor hard-currency supranational notes and markets instituting transparent OTC market structures.",
+        "headline_sources": [
+          10,
+          38
+        ]
+      },
+      {
+        "risk_factor": "Corporate Ransomware Liability and Legal/Enforcement Exposure",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Re-evaluate corporate cybersecurity governance frameworks, mandate strict regulatory compliance for incident negotiation, and increase allocation to enterprise zero-trust security providers.",
+        "headline_sources": [
+          1
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Initiate Contrarian Long-Duration Fixed Income Allocations",
+          "rationale": "With the US 10-Year Treasury yield approaching the 6.0% psychological threshold, real yields offer generational risk-adjusted value and asymmetric upside during any subsequent economic slowdown.",
+          "tickers": [
+            "TLT",
+            "IEF",
+            "AGG",
+            "BND"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            7,
+            17,
+            31
+          ]
+        },
+        {
+          "recommendation": "Overweight Global Upstream Energy and Maritime Tanker Operators",
+          "rationale": "Compounding geopolitical risks across the Middle East and Russia, coupled with tanker diversions from Gulf hubs and inadequate strategic reserves, support elevated crude and charter rates.",
+          "tickers": [
+            "XOM",
+            "CVX",
+            "TTE",
+            "FRO",
+            "XLE"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            2,
+            12,
+            23,
+            28,
+            35
+          ]
+        },
+        {
+          "recommendation": "Consolidate AI Exposure into Fortress-Balance-Sheet Hyperscalers",
+          "rationale": "As syndicating banks pull back from speculative AI debt financing, mega-cap balance sheets possess the liquidity necessary to acquire cutting-edge AI software and startups at depressed multiples.",
+          "tickers": [
+            "AMZN",
+            "MSFT",
+            "GOOGL"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            14,
+            19,
+            29,
+            39
+          ]
+        },
+        {
+          "recommendation": "Allocate to Utility-Scale Renewable Energy Infrastructure Partnerships",
+          "rationale": "Joint ventures between leading alternative asset managers and energy supermajors (such as KKR and TotalEnergies) offer resilient long-term contracted power yields isolated from commodity fluctuations.",
+          "tickers": [
+            "KKR",
+            "TTE",
+            "NEP"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            23,
+            28
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Underweight or Hedge Money-Center and Regional Bank Equities",
+          "rationale": "Surging benchmark yields, unhedged securities portfolio markdowns, and syndicated loan risk retrenchment create severe headwinds for bank earnings and multiple expansion.",
+          "tickers": [
+            "XLF",
+            "KRE",
+            "JPM",
+            "GS"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            7,
+            12,
+            19,
+            27,
+            30
+          ]
+        },
+        {
+          "recommendation": "Reduce Exposure to European Luxury Discretionary Conglomerates",
+          "rationale": "LVMH's sales collapse confirms structural demand deterioration in Greater China, precluding near-term multiple recovery for cyclical luxury goods.",
+          "tickers": [
+            "LVMUY",
+            "KER.PA",
+            "RMS.PA"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            13
+          ]
+        },
+        {
+          "recommendation": "Rotate into Essential Consumer Staples and Value Retailers",
+          "rationale": "Household budgets face a squeeze from rising mortgage payment shocks and sticky nondiscretionary inflation, directing traffic to large-scale value promotional leaders like Walmart.",
+          "tickers": [
+            "WMT",
+            "COST",
+            "XLP"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            6,
+            21,
+            26,
+            41
+          ]
+        },
+        {
+          "recommendation": "Avoid Contested or Highly Leveraged M&A Arbitrage Strategies",
+          "rationale": "Massive post-termination litigation damages ($9B+ Albertsons claim) and distressed take-private restructurings highlight elevated regulatory and financial execution risks.",
+          "tickers": [
+            "ACI",
+            "KR"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            15,
+            36,
+            40
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "1-3 Month Outlook: Caution and elevated volatility will dominate global markets as investors navigate the 10-Year Treasury yield testing 6.0% and the opening salvo of Q3 earnings. Persistent oil supply risks and cautious bank loan syndication will keep equity multiples compressed, with chip stock weakness dampening broad index momentum.",
+      "long_term": "6-12 Month Outlook: Structural stabilization is expected as peak sovereign bond yields anchor capital into fixed income duration. Disinflation will gradually reassert itself as enterprise pricing power moderates, though persistent geopolitical frictions and elevated baseline energy costs will sustain a higher-for-longer cost-of-capital environment.",
+      "key_catalysts": [
+        "Q3 2026 Financial Sector Earnings Reports (JPMorgan Chase, Citigroup, Goldman Sachs)",
+        "Social Security Administration Official COLA Benefits Announcement on October 14",
+        "Federal Reserve Monetary Policy Committee commentary regarding rate adjustment frequency and cadence",
+        "Persian Gulf security developments and tanker traffic normalization in the Strait of Hormuz",
+        "IEA and US Department of Energy assessments of Strategic Petroleum Reserve release readiness",
+        "Legal proceedings and settlement discussions in the Albertsons-Kroger $9B+ antitrust litigation",
+        "US Treasury Department Quarterly Refunding Announcement and 20-Year bond structure review"
+      ],
+      "watch_list": [
+        "US 10-Year Treasury Yield (psychological 6.00% benchmark)",
+        "Brent Crude and WTI front-month futures curve backwardation",
+        "Philadelphia Semiconductor Index (SOX) relative strength",
+        "High-Yield and Private Credit spreads on leveraged tech/AI infrastructure loans",
+        "Mainland China retail footfall and high-end discretionary sales metrics",
+        "UK and European mortgage refinancing resets and delinquency rates",
+        "Frontier FX liquidity indicators (notably USD:UGX and USD:KES)"
+      ],
+      "headline_sources": [
+        2,
+        3,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        17,
+        18,
+        19,
+        21,
+        27,
+        30,
+        31,
+        35,
+        37,
+        42
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Canadian ransomware negotiator arrested on federal charges amid FBI hacking probe - Fox Business",
+      "url": "https://www.foxbusiness.com/fox-news-tech/canadian-ransomware-negotiator-arrested-federal-charges-amid-fbi-hacking-probe",
+      "publishedAt": "2026-10-11T15:57:00Z"
+    },
+    {
+      "index": 2,
+      "headline": "Oil Advances on Threats to Supply From Russia to Middle East",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-12/oil-advances-on-threats-to-global-supply-video",
+      "publishedAt": "2026-10-12T17:00:22+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "Social Security announcing benefits change on Oct. 14 - AL.com",
+      "url": "https://www.al.com/news/2026/10/social-security-announcing-benefits-change-on-oct-14.html",
+      "publishedAt": "2026-10-11T15:02:00Z"
+    },
+    {
+      "index": 4,
+      "headline": "What will €315,000 buy by the water in Clontarf and Co Kerry?",
+      "url": "https://www.irishtimes.com/property/residential/2026/10/12/what-will-315000-buy-by-the-water-in-clontarf-and-co-kerry/",
+      "publishedAt": "2026-10-12T07:00:39Z"
+    },
+    {
+      "index": 5,
+      "headline": "Thinking of retiring at 65? Here’s what it could cost you. - The Washington Post",
+      "url": "https://www.washingtonpost.com/business/2026/10/11/thinking-retiring-65-here-what-it-could-cost-you/",
+      "publishedAt": "2026-10-11T13:32:36Z"
+    },
+    {
+      "index": 6,
+      "headline": "To counteract a spooky economy, America prepares to spend on Halloween candy",
+      "url": "https://www.nbcnews.com/business/consumer/halloween-candy-prices-jump-81-americans-stock-rcna601827",
+      "publishedAt": "2026-10-11T12:00:40+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "10-Year Yield at 6% A Major Psychological Level for Investors: Singaravelu",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-12/singaravelu-sees-6-treasury-yield-risk-video",
+      "publishedAt": "2026-10-12T14:49:40+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "Tech company Tines to create 100 jobs in Ireland over two years and open new facility",
+      "url": "https://www.irishtimes.com/business/2026/10/12/tech-company-tines-to-create-100-jobs-in-ireland-over-two-years-and-open-new-facility/",
+      "publishedAt": "2026-10-12T07:00:39Z"
+    },
+    {
+      "index": 9,
+      "headline": "The IEA wants to empty its oil reserves faster. A federal watchdog says the US isn’t ready",
+      "url": "https://fortune.com/2026/10/12/global-emergency-oil-stocks-iea-strategic-petroleum-reserve-gao/",
+      "publishedAt": "2026-10-12T06:55:00Z"
+    },
+    {
+      "index": 10,
+      "headline": "(USD:UGX) Uganda Shilling Turns Worst Currency as Investors Sour on Local Debt",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-12/-usd-ugx-uganda-shilling-turns-worst-currency-as-investors-sour-on-local-debt",
+      "publishedAt": "2026-10-12T14:02:10+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "When Companies Stop Driving a Hard Bargain, This Fed Official Starts Worrying - WSJ",
+      "url": "https://www.wsj.com/finance/investing/beth-hammack-cleveland-fed-inflation-7751c731",
+      "publishedAt": "2026-10-11T14:00:00Z"
+    },
+    {
+      "index": 12,
+      "headline": "Oil Risks Rise as Bank Earnings Begin",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-12/open-interest-10-12-2026-video",
+      "publishedAt": "2026-10-12T16:39:05+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "LVMH Sales at Key Unit Tumble on Weaker Demand in China",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-12/lvmh-sales-at-key-unit-fall-as-china-woes-hurt-louis-vuitton",
+      "publishedAt": "2026-10-12T15:49:25+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "Amazon nears $7 billion deal for Israeli AI start-up Decart",
+      "url": "https://www.jpost.com/business-and-innovation/tech-and-start-ups/article-911395",
+      "publishedAt": "2026-10-12T06:56:38Z"
+    },
+    {
+      "index": 15,
+      "headline": "Albertsons Seeks More Than $9 Billion Over Busted Kroger Deal",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-12/albertsons-seeks-more-than-9-billion-over-busted-kroger-deal",
+      "publishedAt": "2026-10-12T17:00:19+00:00"
+    },
+    {
+      "index": 16,
+      "headline": "How Much It Costs To Replace A Honda CR-V Hybrid Battery - SlashGear",
+      "url": "https://www.slashgear.com/2278783/honda-cr-v-hybrid-battery-replacement-cost/",
+      "publishedAt": "2026-10-11T15:45:00Z"
+    },
+    {
+      "index": 17,
+      "headline": "Wall Street Strategists See Value in Duration After Bond Rout",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-12/wall-street-strategists-see-value-in-duration-after-bond-rout",
+      "publishedAt": "2026-10-12T17:52:19+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "Fed’s Hammack Says Smaller, Frequent Rate Adjustments Preferable",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-12/fed-s-hammack-says-smaller-frequent-rate-adjustments-preferable",
+      "publishedAt": "2026-10-12T16:50:00+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "JPMorgan, Goldman Curb Exposure on $5 Billion Volta AI Loan Sale",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-12/jpmorgan-goldman-curb-exposure-on-5-billion-volta-ai-loan-sale",
+      "publishedAt": "2026-10-12T18:30:06+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "AI being used by employers to more closely monitor their staff, Dublin conference hears",
+      "url": "https://www.irishtimes.com/business/work/2026/10/12/employers-use-ai-to-monitor-staff-who-also-dont-benefit-from-the-tech-conference-hears/",
+      "publishedAt": "2026-10-12T07:00:39Z"
+    },
+    {
+      "index": 21,
+      "headline": "‘Our mortgage is going up £400 a month’: the rate shock facing millions",
+      "url": "https://www.telegraph.co.uk/money/property/mortgages/mortgage-going-up-400-month-rate-shock-facing-millions/",
+      "publishedAt": "2026-10-12T07:00:00Z"
+    },
+    {
+      "index": 22,
+      "headline": "Ukraine Should Be Free to Strike Russia, Says Trump's Ex-Envoy",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-12/ukraine-should-be-free-to-strike-russia-video",
+      "publishedAt": "2026-10-12T16:17:23+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "TotalEnergies expands US venture with KKR with 700 MW portfolio",
+      "url": "https://live.euronext.com/en/financial-news/totalenergies-expands-us-venture-kkr-700-mw-portfolio",
+      "publishedAt": "2026-10-12T06:56:33Z"
+    },
+    {
+      "index": 24,
+      "headline": "Most Popular Halloween Candy, Ranked - Newser",
+      "url": "https://www.newser.com/story/397860/most-popular-halloween-candy-ranked.html",
+      "publishedAt": "2026-10-11T13:45:00Z"
+    },
+    {
+      "index": 25,
+      "headline": "M&E firm Integral slashes losses after workforce cut by a fifth",
+      "url": "https://www.constructionenquirer.com/2026/10/12/me-firm-integral-slashes-losses-after-workforce-cut-by-a-fifth/",
+      "publishedAt": "2026-10-12T06:59:14Z"
+    },
+    {
+      "index": 26,
+      "headline": "The Walmart Deals event ends today — 40+ major last-chance discounts to shop now - Yahoo",
+      "url": "https://shopping.yahoo.com/deals/breaking-news/article/the-walmart-deals-event-ends-today--40-major-last-chance-discounts-to-shop-now-153407568.html",
+      "publishedAt": "2026-10-11T15:34:07Z"
+    },
+    {
+      "index": 27,
+      "headline": "Bank Stocks Mired in Correction as Yields Surge Before Earnings",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-12/bank-stocks-mired-in-correction-as-yields-surge-before-earnings",
+      "publishedAt": "2026-10-12T15:48:33+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "TotalEnergies expands US venture with KKR with 700 MW portfolio",
+      "url": "https://www.reuters.com/legal/transactional/totalenergies-expands-us-venture-with-kkr-with-700-mw-portfolio-2026-10-12/",
+      "publishedAt": "2026-10-12T06:56:00Z"
+    },
+    {
+      "index": 29,
+      "headline": "AI Supply Chain Strains May Be the Least of Our Worries",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-10-12/ai-supply-chain-strains-may-be-the-least-of-our-worries",
+      "publishedAt": "2026-10-12T15:41:32+00:00"
+    },
+    {
+      "index": 30,
+      "headline": "Welcome back to earnings season: What to watch this week - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/article/welcome-back-to-earnings-season-what-to-watch-this-week-100000102.html",
+      "publishedAt": "2026-10-11T14:38:28Z"
+    },
+    {
+      "index": 31,
+      "headline": "Wall Street Revives the Case for Scrapping the US 20-Year Bond",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-12/wall-street-revives-the-case-for-scrapping-the-us-20-year-bond",
+      "publishedAt": "2026-10-12T15:35:31+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "Irish AI company Tines announces 100 new jobs",
+      "url": "https://www.rte.ie/news/business/2026/1012/1594967-tines-to-create-100-irish-jobs/",
+      "publishedAt": "2026-10-12T07:00:02Z"
+    },
+    {
+      "index": 33,
+      "headline": "Luxury NYC Co-Op Sued Over ‘Commandeered’ Central Park Terrace",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-12/luxury-nyc-co-op-sued-over-commandeered-central-park-terrace",
+      "publishedAt": "2026-10-12T17:59:11+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "US Should Not Do Diesel Deal With Russia, Says Republican Mike Lawler",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-12/us-should-not-do-diesel-deal-with-russia-says-lawler-video",
+      "publishedAt": "2026-10-12T18:27:50+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "Supertankers Turn From Gulf Oil Transfer Hub Amid Iran’s Attacks",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-12/supertankers-turn-from-gulf-oil-transfer-hub-amid-iran-s-attacks",
+      "publishedAt": "2026-10-12T16:55:11+00:00"
+    },
+    {
+      "index": 36,
+      "headline": "Koch, Getty Families Team Up to Take Getty Images Private in Bankruptcy Deal",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-12/koch-getty-families-team-up-to-take-getty-images-private-in-bankruptcy-deal",
+      "publishedAt": "2026-10-12T18:01:49+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "Fed’s Hammack Prefers Smaller, Frequent Rate Adjustments",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-12/fed-s-hammack-prefers-smaller-frequent-rate-adjustments-video",
+      "publishedAt": "2026-10-12T17:23:20+00:00"
+    },
+    {
+      "index": 38,
+      "headline": "Kenya Plans Over-the-Counter Market for Government Securities",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-12/kenya-plans-over-the-counter-market-for-government-securities",
+      "publishedAt": "2026-10-12T16:46:49+00:00"
+    },
+    {
+      "index": 39,
+      "headline": "AI is automating coding. So why are software developer job postings on the rise? - CNBC",
+      "url": "https://www.cnbc.com/2026/10/11/ai-software-developer-jobs.html",
+      "publishedAt": "2026-10-11T13:30:01Z"
+    },
+    {
+      "index": 40,
+      "headline": "Starbucks is ‘not buying Chipotle’ after report it had explored a deal",
+      "url": "https://www.nbcnews.com/business/consumer/starbucks-not-buying-chipotle-rcna602968",
+      "publishedAt": "2026-10-12T13:24:23+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Halloween candy prices jump 8.1% as Americans prepare to spend billions on treats - Fox Business",
+      "url": "https://www.foxbusiness.com/lifestyle/halloween-candy-prices-jump-8-1-americans-prepare-spend-billions-treats",
+      "publishedAt": "2026-10-11T15:20:00Z"
+    },
+    {
+      "index": 42,
+      "headline": "S&P 500 Wavers Before Earnings as Chip Stocks Fall: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-11/oil-rises-on-mideast-attacks-dollar-edges-higher-markets-wrap",
+      "publishedAt": "2026-10-11T22:09:49+00:00"
+    }
+  ]
+}
