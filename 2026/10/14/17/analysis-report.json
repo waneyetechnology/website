@@ -1,0 +1,630 @@
+{
+  "analysis": {
+    "analysis_date": "October 14, 2026",
+    "analysis_time": "17:02",
+    "executive_summary": {
+      "key_highlights": [
+        "Hotter-than-expected CPI inflation (jumping to 3.7%) driven by soaring diesel and energy prices has reignited Federal Reserve rate-hike expectations, triggering a synchronized selloff across equities and Treasuries.",
+        "The technology sector faces a deepening correction as semiconductor memory trades crumble in Asia and debt-backed AI infrastructure provider CoreWeave sees its bonds turn distressed, raising urgent questions over AI capital expenditure returns.",
+        "Hidden distress is accumulating in credit markets; Moody's reports growing reliance on Payment-in-Kind (PIK) structures to mask private debt stress, while major telecom and cloud operators enter debt restructuring.",
+        "Major bank Q3 earnings showed sharp divergence: Goldman Sachs outperformed on dealmaking, while JPMorgan missed consensus as Jamie Dimon cautioned that economic forces are shifting beneath the surface.",
+        "Housing market activity has frozen further as 30-year mortgage rates surged to 7.5%, with economists forecasting elevated borrowing costs to persist through 2027."
+      ],
+      "market_sentiment_score": 32,
+      "overall_sentiment": "negative",
+      "headline_sources": [
+        4,
+        15,
+        21,
+        23,
+        32,
+        33,
+        40,
+        51,
+        54
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology & AI Infrastructure",
+          "trend": "Severe valuation compression across semiconductors and AI hardware, compounded by distressed bond pricing for debt-heavy compute providers and memory stock declines.",
+          "implications": "Capital efficiency and verifiable software revenue generation are replacing speculative capex narratives as Anthropic prepares revenue disclosures and enterprise buyers scrutinize ROI.",
+          "headline_sources": [
+            2,
+            3,
+            4,
+            11,
+            26,
+            32,
+            37,
+            42
+          ]
+        },
+        {
+          "sector": "Energy & Commodities",
+          "trend": "Persistent upward pressure on crude and diesel futures following failed diplomatic energy ceasefires, despite record crude output from the UAE.",
+          "implications": "High diesel prices directly inflate logistics, transportation, and industrial costs, generating sticky second-round inflation that constrains central bank easing.",
+          "headline_sources": [
+            12,
+            17,
+            23,
+            27,
+            36,
+            39,
+            51
+          ]
+        },
+        {
+          "sector": "Financials & Banking",
+          "trend": "Uneven earnings prints across tier-1 investment banks, escalating regulatory penalties, and preparation for an extended high-rate environment.",
+          "implications": "Trading and advisory gains at Goldman Sachs contrast with credit headwinds and margin compression at JPMorgan; Bank of America's historic $1.2B fine underscores heightened regulatory scrutiny.",
+          "headline_sources": [
+            4,
+            20,
+            38,
+            40,
+            53
+          ]
+        },
+        {
+          "sector": "Fixed Income & Credit",
+          "trend": "Treasury yield spikes alongside emerging vulnerability in leveraged finance and private credit obscured by payment-in-kind (PIK) debt modifications.",
+          "implications": "Refinancing friction is intensifying for sub-investment-grade issuers, widening credit spreads but presenting attractive entry yields for distressed debt specialists.",
+          "headline_sources": [
+            1,
+            2,
+            18,
+            21,
+            33,
+            54
+          ]
+        },
+        {
+          "sector": "Consumer & Real Estate",
+          "trend": "Mortgage rates hitting 7.5% and 3.7% CPI inflation are depressing consumer discretionary spending and extending a six-week residential sales slump.",
+          "implications": "Households are adopting defensive budgeting strategies, while corporations like Kroger and Netflix streamline headcounts and accelerate automation to protect operating margins.",
+          "headline_sources": [
+            6,
+            14,
+            19,
+            25,
+            35,
+            44,
+            47,
+            50
+          ]
+        }
+      ],
+      "key_themes": [
+        "Stagflationary pressures resurfacing as energy-led inflation collides with softening real economic momentum.",
+        "The AI infrastructure trade entering a disciplined payback phase, punishing overleveraged compute operators.",
+        "Private credit opacity and refinancing cliffs surfacing under prolonged monetary tightness.",
+        "Synchronized asset selloff as bond yields spike, undermining equity valuation multiples."
+      ],
+      "headline_sources": [
+        1,
+        2,
+        4,
+        15,
+        17,
+        19,
+        21,
+        23,
+        32,
+        33,
+        40,
+        51,
+        54
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Renewed Central Bank Monetary Tightening",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Shorten portfolio duration, underweight high-multiple growth equities, and allocate to Treasury Inflation-Protected Securities (TIPS) and short-dated paper.",
+        "headline_sources": [
+          15,
+          33,
+          51,
+          54
+        ]
+      },
+      {
+        "risk_factor": "Private Credit & AI Debt Contagion",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Perform forensic balance sheet analysis for PIK interest deferrals, avoid unrated AI cloud debt, and restrict high-yield exposure to senior secured structures.",
+        "headline_sources": [
+          1,
+          2,
+          21
+        ]
+      },
+      {
+        "risk_factor": "Semiconductor & Hardware Multiple Derating",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Hedge semiconductor equity beta via index put options and rotate into high free-cash-flow enterprise software with proven monetization.",
+        "headline_sources": [
+          4,
+          32,
+          42
+        ]
+      },
+      {
+        "risk_factor": "Energy Supply Shock & Logistics Inflation",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Maintain tactical overweights in upstream oil producers, refiners with high distillate yields, and commodity infrastructure assets.",
+        "headline_sources": [
+          17,
+          23,
+          36,
+          39
+        ]
+      },
+      {
+        "risk_factor": "Prolonged Real Estate Liquidity Freeze",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Underweight homebuilders and commercial/residential mortgage REITs sensitive to sustained 7.5% mortgage rates through 2027.",
+        "headline_sources": [
+          14,
+          19,
+          47
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Allocate to senior secured distressed debt and opportunistic private credit secondaries.",
+          "rationale": "Credit market dislocation in fiber and overleveraged tech infrastructure offers double-digit yields with substantial asset backing.",
+          "tickers": [
+            "HYG",
+            "JNK",
+            "BX",
+            "OAK"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            1,
+            2,
+            18,
+            21
+          ]
+        },
+        {
+          "recommendation": "Overweight integrated energy producers and downstream refiners benefiting from wide diesel crack spreads.",
+          "rationale": "Persistent diesel deficits and failed geopolitical ceasefires sustain cash flows and capital returns for top-tier refiners and producers.",
+          "tickers": [
+            "XOM",
+            "CVX",
+            "VLO",
+            "MPC"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            17,
+            23,
+            27,
+            36,
+            39
+          ]
+        },
+        {
+          "recommendation": "Selectively accumulate foundational semiconductor equipment suppliers and resilient conglomerate holdings on market dips.",
+          "rationale": "Long-term capex plans from critical lithography suppliers and disciplined conglomerate capital allocation offer defensive upside.",
+          "tickers": [
+            "ASML",
+            "BRK.B",
+            "GOOGL"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            11,
+            26,
+            31,
+            37
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Reduce exposure to rate-sensitive housing, mortgage finance, and speculative retail equities.",
+          "rationale": "Mortgage rates anchored near 7.5% and persistent inflation pressure household budgets, extending demand contraction.",
+          "tickers": [
+            "ITB",
+            "XHB",
+            "TLT",
+            "XRT"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            14,
+            19,
+            47,
+            51,
+            54
+          ]
+        },
+        {
+          "recommendation": "Underweight regional financial institutions and lenders heavily exposed to leveraged loans and compliance vulnerabilities.",
+          "rationale": "Rising PIK usage conceals underlying asset quality degradation, while multi-billion dollar regulatory fines present asymmetric downside.",
+          "tickers": [
+            "KRE",
+            "BAC",
+            "JPM"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            20,
+            21,
+            38,
+            40,
+            53
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Heightened volatility and downside pressure over the next 1-3 months as equity and fixed-income markets adjust to sticky 3.7% inflation, rising rate-hike odds, and semiconductor valuation resets.",
+      "long_term": "A bifurcated 6-12 month market environment favoring self-funding, low-leverage corporations with strong pricing power, while capital-dependent tech firms and interest-rate-sensitive sectors undergo structural rationalization.",
+      "key_catalysts": [
+        "Federal Reserve post-CPI policy statements and interest rate dot-plot revisions",
+        "Anthropic revenue and unit economics disclosures clarifying AI software monetization",
+        "Developments in Middle East and Eastern European energy supply corridors impacting diesel crack spreads",
+        "Q3 corporate earnings commentary regarding wage pressures, enterprise IT budgets, and PIK loan utilization"
+      ],
+      "watch_list": [
+        "US 10-Year and 2-Year Treasury yields and yield curve slope",
+        "Ultra-low sulfur diesel (ULSD) crack spreads and Brent crude futures",
+        "Private credit default rates and PIK capitalization volumes reported by rating agencies",
+        "US 30-year fixed mortgage rates and national housing inventory absorption rates",
+        "High-yield tech credit default swap (CDS) spreads and Asian semiconductor export indices"
+      ],
+      "headline_sources": [
+        2,
+        3,
+        15,
+        17,
+        19,
+        21,
+        23,
+        33,
+        40,
+        42,
+        51,
+        54
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "UGG Lenders Pick Lazard for Talks Over Fiber Operator’s Debt",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/ugg-lenders-pick-lazard-for-talks-over-fiber-operator-s-debt",
+      "publishedAt": "2026-10-14T14:18:15+00:00"
+    },
+    {
+      "index": 2,
+      "headline": "CoreWeave’s Bonds Turn Distressed, Drawing ‘Yikes’ From Musk",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/coreweave-bonds-tumble-into-distress-drawing-yikes-from-musk",
+      "publishedAt": "2026-10-14T15:29:51+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "Anthropic to disclose new revenue numbers as AI lab financials become central to tech trade - CNBC",
+      "url": "https://www.cnbc.com/2026/10/13/anthropic-q3-financials-ipo.html",
+      "publishedAt": "2026-10-13T14:50:50Z"
+    },
+    {
+      "index": 4,
+      "headline": "Stock Market Today: Dow falls 170 points despite strong Goldman Sachs earnings; chip selloff deepens - MarketWatch",
+      "url": "https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-wall-street-bank-earnings-south-korea-kospi-index",
+      "publishedAt": "2026-10-13T16:38:00Z"
+    },
+    {
+      "index": 5,
+      "headline": "Tweedvale Dairies milk recalled over E. coli warning in SA",
+      "url": "https://www.news.com.au/lifestyle/food/food-warnings/urgent-south-australia-milk-recall-for-tweedvale-dairies-reduced-fat-milk-with-october-21-useby-date/news-story/c0da8ff985e325afe4e99d1a9a75db8f",
+      "publishedAt": "2026-10-14T04:58:55Z"
+    },
+    {
+      "index": 6,
+      "headline": "Chick-fil-A CEO Talks Portion Sizes, Prices, Staying Family-Owned",
+      "url": "https://www.today.com/video/chick-fil-a-ceo-talks-portion-sizes-prices-staying-family-owned-271555653619",
+      "publishedAt": "2026-10-14T12:32:26+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "UK will not put tariffs on Chinese vehicles, says Jonathan Reynolds",
+      "url": "https://www.theguardian.com/politics/2026/oct/14/uk-will-not-put-tariffs-on-chinese-vehicles-says-jonathan-reynolds",
+      "publishedAt": "2026-10-14T05:00:00Z"
+    },
+    {
+      "index": 8,
+      "headline": "Washington Lifts Sanctions on Venezuela’s Top Lawmaker",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/us-lifts-sanctions-on-venezuela-s-top-lawmaker-as-relations-thaw",
+      "publishedAt": "2026-10-14T14:20:42+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "Fast-Money Quants Are at Odds With Fundamental Stock Investors",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/fast-money-quants-are-at-odds-with-fundamental-stock-investors",
+      "publishedAt": "2026-10-14T12:05:41+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "Global financial system is failing developing countries, says Ed Miliband",
+      "url": "https://www.theguardian.com/politics/2026/oct/14/global-financial-system-is-failing-developing-countries-says-ed-miliband-world-bank",
+      "publishedAt": "2026-10-14T05:00:00Z"
+    },
+    {
+      "index": 11,
+      "headline": "Google finally releases Gemini 4 Argon - The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1009862/google-releases-gemini-4-argon",
+      "publishedAt": "2026-10-13T16:00:00Z"
+    },
+    {
+      "index": 12,
+      "headline": "Phosphate Giant Seeks Foreign Investors as War Hits Finances",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/phosphate-giant-seeks-foreign-investors-as-war-squeezes-finances",
+      "publishedAt": "2026-10-14T13:38:11+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "Romance scammers are getting harder to catch. The consequences are costly. - NBC News",
+      "url": "https://www.nbcnews.com/tech/tech-news/romance-scammers-congressional-investigation-match-group-tinder-rcna602411",
+      "publishedAt": "2026-10-13T14:27:17Z"
+    },
+    {
+      "index": 14,
+      "headline": "Why is the property market cooling down?",
+      "url": "https://www.rte.ie/news/analysis-and-comment/2026/1014/1595284-housing-market-analysis/",
+      "publishedAt": "2026-10-14T05:00:00Z"
+    },
+    {
+      "index": 15,
+      "headline": "Hot Inflation Lifts Fed Rate-Hike Bets",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-14/hot-inflation-lifts-fed-rate-hike-bets-video",
+      "publishedAt": "2026-10-14T15:00:45+00:00"
+    },
+    {
+      "index": 16,
+      "headline": "NOC Maintains Rating by Bernstein -- Price Target Lowered to $556",
+      "url": "https://www.gurufocus.com/news/9123666/noc-maintains-rating-by-bernstein-price-target-lowered-to-556",
+      "publishedAt": "2026-10-14T17:00:59.000000Z"
+    },
+    {
+      "index": 17,
+      "headline": "Energy prices rise after Trump’s ‘energy ceasefire’ fails to move Russia or Ukraine",
+      "url": "https://www.nbcnews.com/business/energy/oil-prices-trump-energy-ceasefire-fails-rcna603031",
+      "publishedAt": "2026-10-12T19:15:00+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "In Credit, Volatility Is An Opportunity: McKnight",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-14/in-credit-volatility-is-an-opportunity-mcknight-video",
+      "publishedAt": "2026-10-14T16:00:20+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "US Mortgage Rates Reach 7.5%; Home-Buying Slump Hits Sixth Week",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-14/us-mortgage-rates-reach-7-5-video",
+      "publishedAt": "2026-10-14T16:31:39+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "Bank of America ordered to pay historic $1.2 billion over alleged sanctions law violations",
+      "url": "https://www.nbcnews.com/business/corporations/bank-america-sanctions-violations-penalty-rcna603251",
+      "publishedAt": "2026-10-13T20:15:10+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "US Private Credit Stress Masked by Growing PIK Use, Moody’s Says",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/us-private-credit-stress-masked-by-growing-pik-use-moody-s-says",
+      "publishedAt": "2026-10-14T16:45:56+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "Chick-fil-A bet on chicken 60 years ago. Now it’s America’s third largest restaurant chain.",
+      "url": "https://www.nbcnews.com/business/ceo-interviews/chick-fil-a-ceo-andrew-cathy-restaurant-rcna603203",
+      "publishedAt": "2026-10-14T12:09:06+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "Soaring diesel prices fueling inflation, driving up cost of ‘just about everything,’ experts say",
+      "url": "https://www.nbcnews.com/business/economy/s-fueling-inflation-fuel-rcna603184",
+      "publishedAt": "2026-10-13T20:57:55+00:00"
+    },
+    {
+      "index": 24,
+      "headline": "Healey plans £1bn Budget crackdown on online retailers",
+      "url": "https://www.telegraph.co.uk/politics/2026/10/14/healey-plots-1bn-budget-crackdown-online-retailers/",
+      "publishedAt": "2026-10-14T05:00:00Z"
+    },
+    {
+      "index": 25,
+      "headline": "Kroger to lay off 3,000 corporate employees over 3 years as it leans into artificial intelligence - ABC News - Breaking News, Latest News and Videos",
+      "url": "https://abcnews.com/Business/wireStory/kroger-lay-off-3000-corporate-employees-3-years-137228598",
+      "publishedAt": "2026-10-13T15:32:36Z"
+    },
+    {
+      "index": 26,
+      "headline": "ASML Up on Supply Plans; BlackRock Reports Earnings | Stock Movers",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-14/asml-up-on-supply-plans-blackrock-reports-earnings-video",
+      "publishedAt": "2026-10-14T14:47:03+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "UAE Oil Production Surged to Records in September, IEA Says",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/uae-oil-production-surged-to-records-in-september-iea-says",
+      "publishedAt": "2026-10-14T15:27:22+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "SEC Approves Cboe’s KPI Prediction-Market Bets With Robinhood",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/sec-approves-cboe-s-kpi-prediction-market-bets-with-robinhood",
+      "publishedAt": "2026-10-14T16:44:57+00:00"
+    },
+    {
+      "index": 29,
+      "headline": "Not building third runway would be 'missed opportunity', says Heathrow boss",
+      "url": "https://www.bbc.com/news/articles/ckdd8egder5ro",
+      "publishedAt": "2026-10-14T04:59:06Z"
+    },
+    {
+      "index": 30,
+      "headline": "HR giant ordered to pay $400,000 to job applicant who wanted to bring a service dog to work - Business Insider",
+      "url": "https://www.businessinsider.com/shrm-found-liable-disability-accommodation-lawsuit-2026-10#article",
+      "publishedAt": "2026-10-13T14:55:00Z"
+    },
+    {
+      "index": 31,
+      "headline": "Bending Spoons Stock Soars on Berkshire’s Increased Stake",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-14/bending-spoons-soars-on-berkshire-s-increased-stake-video",
+      "publishedAt": "2026-10-14T16:26:39+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "Stocks Fall on Inflation Woes as Chip Rout Deepens: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-13/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-10-13T22:03:38+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "Treasuries Slump as Hot Inflation Lifts Fed Rate-Hike Bets",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/us-treasuries-slump-as-hot-inflation-lifts-fed-rate-hike-bets",
+      "publishedAt": "2026-10-14T12:44:25+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "Northsand (TSE:446A) -- Strong Growth in IT Consultancy | Forager Funds Q3 2026",
+      "url": "https://www.gurufocus.com/news/9123662/northsand-tse446a-strong-growth-in-it-consultancy-forager-funds-q3-2026",
+      "publishedAt": "2026-10-14T17:00:49.000000Z"
+    },
+    {
+      "index": 35,
+      "headline": "Netflix to cut about 6% of worldwide staff",
+      "url": "https://www.nbcnews.com/business/media/netflix-layoffs-rcna603454",
+      "publishedAt": "2026-10-14T14:15:15+00:00"
+    },
+    {
+      "index": 36,
+      "headline": "Diesel futures jump, signaling higher prices to come despite Trump’s Russia deal",
+      "url": "https://www.nbcnews.com/business/energy/diesel-futures-higher-prices-trump-moves-rcna603218",
+      "publishedAt": "2026-10-13T17:49:19+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "Intel Stock Has Nearly Tripled in 2026. A $10,000 Stake From 2016 Still Trails the S&P 500.",
+      "url": "https://www.fool.com/investing/2026/10/14/intel-stock-has-nearly-tripled-in-2026-a-usd10-000-stake-from-2016-still-trails-the-s-and-p-500/",
+      "publishedAt": "2026-10-14T04:57:40Z"
+    },
+    {
+      "index": 38,
+      "headline": "Bank Stocks Brace for Higher Rates",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-14/bank-stocks-brace-for-higher-rates",
+      "publishedAt": "2026-10-14T14:23:10+00:00"
+    },
+    {
+      "index": 39,
+      "headline": "Latest Oil Market News and Analysis for Oct. 14",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-13/latest-oil-market-news-and-analysis-for-oct-14",
+      "publishedAt": "2026-10-13T22:02:59+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "JPMorgan profit misses analyst estimates as Jamie Dimon warns economic forces 'shift under the surface' - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/article/jpmorgan-profit-misses-analyst-estimates-as-jamie-dimon-warns-economic-forces-shift-under-the-surface-112446859.html",
+      "publishedAt": "2026-10-13T15:42:56Z"
+    },
+    {
+      "index": 41,
+      "headline": "Mauritius Extends Curfew for Second Night After Unrest",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/mauritius-extends-curfew-for-second-night-after-unrest",
+      "publishedAt": "2026-10-14T14:49:31+00:00"
+    },
+    {
+      "index": 42,
+      "headline": "SpaceX stock slammed as AI memory trade crumbles in South Korea - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/stocks/article/spacex-stock-slammed-as-ai-memory-trade-crumbles-in-south-korea-155356794.html",
+      "publishedAt": "2026-10-13T15:53:56Z"
+    },
+    {
+      "index": 43,
+      "headline": "A elite empresarial busca aproximação com Flávio Bolsonaro",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-14/elite-empresarial-busca-aproximacao-com-flavio-bolsonaro-video",
+      "publishedAt": "2026-10-14T16:47:05+00:00"
+    },
+    {
+      "index": 44,
+      "headline": "Social Security recipients will receive a 3.6% cost-of-living increase in 2027 ",
+      "url": "https://www.nbcnews.com/business/personal-finance/social-security-cola-2027-increase-rcna603284",
+      "publishedAt": "2026-10-14T13:35:52+00:00"
+    },
+    {
+      "index": 45,
+      "headline": "Watercare apologises after $6 million taken early from almost 44,000 customer accounts",
+      "url": "https://www.rnz.co.nz/news/business/1900101/watercare-apologises-after-6-million-taken-early-from-almost-44-000-customer-accounts",
+      "publishedAt": "2026-10-14T04:58:56Z"
+    },
+    {
+      "index": 46,
+      "headline": "Disney Imagination Unveiled as Name for Japan’s Inaugural Disney Cruise Ship",
+      "url": "https://www.malaymail.com/news/money/mediaoutreach/2026/10/14/disney-imagination-unveiled-as-name-for-japans-inaugural-disney-cruise-ship/492613",
+      "publishedAt": "2026-10-14T05:00:43Z"
+    },
+    {
+      "index": 47,
+      "headline": "Mortgage Rates Expected to Stay High Through 2027, Impacting Housing Market",
+      "url": "https://www.gurufocus.com/news/9123661/mortgage-rates-expected-to-stay-high-through-2027-impacting-housing-market",
+      "publishedAt": "2026-10-14T17:00:49.000000Z"
+    },
+    {
+      "index": 48,
+      "headline": "LinkedIn Reveals Its List of 2026's Top Startups",
+      "url": "https://www.today.com/video/linkedin-s-list-of-top-startups-for-2026-see-which-made-the-list-271557701679",
+      "publishedAt": "2026-10-14T13:20:46+00:00"
+    },
+    {
+      "index": 49,
+      "headline": "Starbucks is ‘not buying Chipotle’ after report it had explored a deal",
+      "url": "https://www.nbcnews.com/business/consumer/starbucks-not-buying-chipotle-rcna602968",
+      "publishedAt": "2026-10-12T13:24:23+00:00"
+    },
+    {
+      "index": 50,
+      "headline": "More Women Are Tapping Into Inner ‘Golden Girl’ to Save Money",
+      "url": "https://www.today.com/video/more-women-are-tapping-into-inner-golden-girl-to-save-money-271555653818",
+      "publishedAt": "2026-10-14T12:57:56+00:00"
+    },
+    {
+      "index": 51,
+      "headline": "Inflation jumps to 3.7% as gas and diesel prices squeeze consumers ahead of the midterms",
+      "url": "https://www.nbcnews.com/business/economy/inflation-jumped-september-gas-diesel-prices-squeezed-consumers-ahead-rcna603202",
+      "publishedAt": "2026-10-14T12:34:25+00:00"
+    },
+    {
+      "index": 52,
+      "headline": "Cape Town family ordered to leave luxury home after withholding R1.4 million rent over maintenance issues",
+      "url": "https://iol.co.za/news/crime-and-courts/2026-10-14-cape-town-family-ordered-to-leave-luxury-home-after-withholding-r14-million-rent-over-maintenance-issues/",
+      "publishedAt": "2026-10-14T05:00:00Z"
+    },
+    {
+      "index": 53,
+      "headline": "Bank earnings takeaways: Here's how JPMorgan, Goldman, Wells Fargo and Citi performed in Q3 - CNBC",
+      "url": "https://www.cnbc.com/2026/10/13/bank-earnings-live-updates.html",
+      "publishedAt": "2026-10-13T16:32:08Z"
+    },
+    {
+      "index": 54,
+      "headline": "Stocks, Bonds Fall as CPI Data Fuel Fed-Hike Bets",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-14/stocks-bonds-fall-as-cpi-data-fuel-fed-hike-bets-video",
+      "publishedAt": "2026-10-14T16:22:55+00:00"
+    }
+  ]
+}
