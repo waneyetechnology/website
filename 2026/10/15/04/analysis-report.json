@@ -1,0 +1,686 @@
+{
+  "analysis": {
+    "analysis_date": "October 15, 2026",
+    "analysis_time": "04:02",
+    "executive_summary": {
+      "key_highlights": [
+        "US headline inflation jumped to 3.7% driven by soaring gas and diesel prices, complicating monetary easing expectations ahead of midterms.",
+        "Global semiconductor stocks experienced a severe rout, marked by South Korea's Kospi plunging 8% on AI monetization and interest rate concerns.",
+        "Apple crossed a historic $5 trillion market valuation, highlighting bifurcation between mega-cap balance sheets and distressed early-stage AI firms.",
+        "Safe-haven assets rebounded strongly, with US Treasuries and Gold rising as global equity losses deepened and geopolitical risks escalated.",
+        "Asian emerging markets face acute currency and rate pressures, evidenced by the Philippine Peso crossing 63/USD and rising RBI rate hike bets."
+      ],
+      "market_sentiment_score": 38,
+      "overall_sentiment": "negative",
+      "headline_sources": [
+        1,
+        3,
+        5,
+        7,
+        12,
+        15,
+        19,
+        20,
+        24,
+        48,
+        49
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology & Semiconductors",
+          "trend": "Severe semiconductor valuation compression alongside mega-cap divergence and AI distress.",
+          "implications": "Memory makers (Samsung, SK Hynix) face multiple contraction while early-stage AI firms (Character.AI) face bankruptcy; however, established mega-caps (Apple at $5T) demonstrate defensive dominance even as firms trim headcount (Netflix -6%).",
+          "headline_sources": [
+            2,
+            3,
+            8,
+            9,
+            11,
+            21,
+            24,
+            28,
+            44,
+            48,
+            49,
+            55
+          ]
+        },
+        {
+          "sector": "Energy & Logistics",
+          "trend": "Spiking refined product and energy futures following breakdown in geopolitical ceasefire agreements.",
+          "implications": "Diesel surges increase baseline supply-chain and transport costs across all industries, passing cost-push inflation onto retail consumers and compressing transport margins.",
+          "headline_sources": [
+            7,
+            15,
+            20,
+            26,
+            30,
+            51
+          ]
+        },
+        {
+          "sector": "Fixed Income & Foreign Exchange",
+          "trend": "Haven bid into US sovereign debt contrasted with EM currency selloffs and debt supply risks.",
+          "implications": "Treasuries rally on flight-to-safety, but sovereign debt expansion concerns (Dimon warning) and currency defense costs in India and Southeast Asia elevate regional bond yields.",
+          "headline_sources": [
+            4,
+            5,
+            12,
+            14,
+            19,
+            24,
+            25,
+            27,
+            34,
+            49,
+            52,
+            54
+          ]
+        },
+        {
+          "sector": "Commodities & Basic Materials",
+          "trend": "Sharp divergence between safe-haven precious metals/energy and weakening industrial materials.",
+          "implications": "Gold strengthens on flight to quality and lower yields, while Iron Ore breaking below $90/ton and sliding Lithium point to decelerating heavy manufacturing and EV battery buildouts.",
+          "headline_sources": [
+            1,
+            12,
+            13,
+            15,
+            20,
+            56
+          ]
+        },
+        {
+          "sector": "Banking & Financial Services",
+          "trend": "Elevated regulatory enforcement and sovereign yield curve volatility.",
+          "implications": "Historic $1.2B sanctions fine against Bank of America signals stringent compliance mandates; banks also navigate rate volatility and debt duration risks.",
+          "headline_sources": [
+            4,
+            6,
+            25,
+            27,
+            34,
+            38,
+            53
+          ]
+        }
+      ],
+      "key_themes": [
+        "Re-accelerating energy-led inflation squeezing consumers and restraining central bank dovishness",
+        "Broad-based semiconductor derating and reality check for generative AI monetisation",
+        "Capital rotation into safe havens including US Treasuries, Gold, and premium mega-caps",
+        "Currency and bond market stress across emerging Asian economies",
+        "Weakening industrial commodity demand contrasted with resilient upstream supply-side cost pressures"
+      ],
+      "headline_sources": [
+        1,
+        3,
+        5,
+        7,
+        12,
+        13,
+        15,
+        19,
+        20,
+        24,
+        25,
+        27,
+        28,
+        30,
+        34,
+        48,
+        49,
+        54,
+        56
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Resurgent Energy-Driven Stagflation",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Increase exposure to upstream energy producers, commodity trading advisers (CTAs), and short-duration inflation-linked debt.",
+        "headline_sources": [
+          7,
+          15,
+          20,
+          26,
+          30
+        ]
+      },
+      {
+        "risk_factor": "Semiconductor Multiple De-rating & Hardware Overcapacity",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Hedge semiconductor equity beta via index put options; shift capital from cyclical memory suppliers to established platforms with proven free cash flow.",
+        "headline_sources": [
+          24,
+          28,
+          48,
+          49,
+          55
+        ]
+      },
+      {
+        "risk_factor": "Emerging Market FX and Sovereign Bond Contagion",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Hedge exposure to vulnerable Asian currencies (KRW, TWD, PHP, INR) and underweight local-currency emerging market sovereign debt.",
+        "headline_sources": [
+          5,
+          25,
+          27,
+          49,
+          54
+        ]
+      },
+      {
+        "risk_factor": "Sovereign Debt Issuance and Long-End Yield Spikes",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Underweight long-duration US sovereign debt; favor 2- to 5-year maturities to capture yield without bearing excessive fiscal term premium risk.",
+        "headline_sources": [
+          19,
+          34
+        ]
+      },
+      {
+        "risk_factor": "Heightened Regulatory and Sanctions Enforcement",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Conduct rigorous compliance due diligence on multinational banking counterparties and cross-border tech asset transfers.",
+        "headline_sources": [
+          6,
+          8,
+          44,
+          50
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Capitalize on safe-haven inflows via Gold and short-to-intermediate US Treasuries",
+          "rationale": "Treasury safe-haven trade has renewed traction as equity markets slide, and Gold offers an effective hedge against energy-induced stagflation.",
+          "tickers": [
+            "GLD",
+            "IEF",
+            "SHY"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            12,
+            19,
+            24
+          ]
+        },
+        {
+          "recommendation": "Overweight upstream energy and refiners benefiting from diesel cracks",
+          "rationale": "Persistent diesel and fuel price pressures following geopolitical failures create attractive cash margins for independent refiners and exploration majors.",
+          "tickers": [
+            "XLE",
+            "VLO",
+            "MPC",
+            "XOM"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            15,
+            20,
+            26,
+            30
+          ]
+        },
+        {
+          "recommendation": "Selectively accumulate mega-cap tech cash generators on market pullbacks",
+          "rationale": "Apple crossing $5 trillion underlines structural market flight toward cash-rich balance sheets that can self-fund growth amid tight credit conditions.",
+          "tickers": [
+            "AAPL",
+            "MSFT",
+            "GOOGL"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            3,
+            9,
+            21
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Trim high-beta semiconductor and hardware equity exposure",
+          "rationale": "The 8% plunge in the Kospi driven by Samsung and SK Hynix signals mounting cyclical and valuation headwinds for memory and chip suppliers.",
+          "tickers": [
+            "SOXX",
+            "SMH",
+            "005930.KS",
+            "000660.KS"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            24,
+            28,
+            48,
+            49,
+            55
+          ]
+        },
+        {
+          "recommendation": "Reduce positions in industrial metals and battery materials",
+          "rationale": "Iron ore sinking below $90 and ongoing lithium weakness reflect muted global infrastructure demand and slowing electric vehicle battery absorption.",
+          "tickers": [
+            "VALE",
+            "RIO",
+            "ALB",
+            "LIT"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            13,
+            56
+          ]
+        },
+        {
+          "recommendation": "Implement currency hedges on emerging Asian portfolios",
+          "rationale": "Persistent dollar strength and regional rate pressures are driving Asian FX depreciation, threatening unhedged equity and fixed-income returns.",
+          "tickers": [
+            "EEM",
+            "CEW",
+            "INDA"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            5,
+            25,
+            27,
+            49,
+            54
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Defensive posture recommended for 1-3 months. Surging diesel prices and headline inflation at 3.7% will constrain central bank policy flexibility, while the semiconductor rout increases broader equity downside risks.",
+      "long_term": "Cautiously constructive over 6-12 months for high-quality balance sheets. Ongoing cost discipline (tech layoffs) and capital concentration in top-tier platforms will establish a durable market floor once energy and rate volatilities stabilize.",
+      "key_catalysts": [
+        "Official US CPI release and pass-through confirmation of recent diesel and gas spikes",
+        "US Midterm election outcomes and subsequent fiscal policy directions",
+        "Federal Reserve and Reserve Bank of India interest rate decisions amidst rising inflation expectations",
+        "Q3 tech corporate earnings reports assessing semiconductor demand and AI monetization timelines",
+        "Geopolitical developments regarding Russia-Ukraine energy corridors and Gulf route stability"
+      ],
+      "watch_list": [
+        "US Headline CPI (3.7% baseline) and Core CPI trajectory",
+        "Diesel futures (ULSD) and Brent Crude price movements",
+        "South Korea Kospi and Philadelphia Semiconductor Index (SOX)",
+        "US 10-Year Treasury Yield and 2s10s yield curve slope",
+        "USD/PHP, USD/KRW, and USD/INR currency exchange rates",
+        "Iron Ore (at $90 benchmark) and Lithium carbonate spot prices"
+      ],
+      "headline_sources": [
+        1,
+        4,
+        5,
+        7,
+        12,
+        13,
+        14,
+        15,
+        19,
+        20,
+        24,
+        25,
+        27,
+        30,
+        34,
+        45,
+        48,
+        49,
+        51,
+        54,
+        56
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Producer prices in China rise at fastest pace since June 2022, beating expectations - CNBC",
+      "url": "https://www.cnbc.com/2026/10/14/producer-prices-in-china-rise-fastest-since-june-2022-on-fuel-costs.html",
+      "publishedAt": "2026-10-14T01:43:00Z"
+    },
+    {
+      "index": 2,
+      "headline": "Netflix to shed 1,000 jobs in steepest cuts since 2022",
+      "url": "https://www.bbc.co.uk/news/articles/c6zxj0gzk4x4o",
+      "publishedAt": "2026-10-14T15:51:01Z"
+    },
+    {
+      "index": 3,
+      "headline": "Apple Just Passed $5 Trillion. Here’s What Comes Next.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/apple-just-passed-5-trillion-160039183.html",
+      "publishedAt": "2026-10-14T16:00:39Z"
+    },
+    {
+      "index": 4,
+      "headline": "Stock Market News, Oct. 13, 2026: Stocks Slip Despite Solid Wall Street Results - WSJ",
+      "url": "https://www.wsj.com/livecoverage/stock-market-today-bank-earnings-10-13-2026",
+      "publishedAt": "2026-10-13T23:46:00Z"
+    },
+    {
+      "index": 5,
+      "headline": "IMF APAC Chief Warns of Rising Market Risks",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-15/imf-apac-chief-warns-of-rising-market-risks-video",
+      "publishedAt": "2026-10-15T02:15:46+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "Bank of America ordered to pay historic $1.2 billion over alleged sanctions law violations",
+      "url": "https://www.nbcnews.com/business/corporations/bank-america-sanctions-violations-penalty-rcna603251",
+      "publishedAt": "2026-10-13T20:15:10+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "Inflation jumps to 3.7% as gas and diesel prices squeeze consumers ahead of the midterms",
+      "url": "https://www.nbcnews.com/business/economy/inflation-jumped-september-gas-diesel-prices-squeezed-consumers-ahead-rcna603202",
+      "publishedAt": "2026-10-14T12:34:25+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "Toilet paper and secret recorders: What we know about the arrest of the Saudi OpenAI engineer",
+      "url": "https://www.bbc.co.uk/news/articles/cm04054ykqqqo",
+      "publishedAt": "2026-10-14T15:54:04Z"
+    },
+    {
+      "index": 9,
+      "headline": "China’s exports surge 36% as AI-related shipments boom - Financial Times",
+      "url": "https://www.ft.com/content/4eab6c20-60d6-46b6-accd-2e04edfa541d?syn-25a6b1a6\\\\u003d1",
+      "publishedAt": "2026-10-14T02:51:40Z"
+    },
+    {
+      "index": 10,
+      "headline": "Chick-fil-A bet on chicken 60 years ago. Now it’s America’s third largest restaurant chain.",
+      "url": "https://www.nbcnews.com/business/ceo-interviews/chick-fil-a-ceo-andrew-cathy-restaurant-rcna603203",
+      "publishedAt": "2026-10-14T12:09:06+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "Netflix to cut about 6% of worldwide staff",
+      "url": "https://www.nbcnews.com/business/media/netflix-layoffs-rcna603454",
+      "publishedAt": "2026-10-14T14:15:15+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Gold Rises as Treasury Yields Erase Gain After Inflation Data",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/gold-holds-loss-as-hot-inflation-lifts-october-rate-hike-bets",
+      "publishedAt": "2026-10-14T23:33:01+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "Iron Ore Trades Below $90 a Ton for First Time Since 2024",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/iron-ore-trades-below-90-a-ton-for-first-time-since-2024",
+      "publishedAt": "2026-10-15T03:22:28+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "Asia Stocks to Gain on Signal for Fewer Fed Hikes: Markets Wrap - Bloomberg.com",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-13/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-10-13T22:03:38Z"
+    },
+    {
+      "index": 15,
+      "headline": "Diesel futures jump, signaling higher prices to come despite Trump’s Russia deal",
+      "url": "https://www.nbcnews.com/business/energy/diesel-futures-higher-prices-trump-moves-rcna603218",
+      "publishedAt": "2026-10-13T17:49:19+00:00"
+    },
+    {
+      "index": 16,
+      "headline": "No more free passes: 93% of Indian firms now vet freelancers as identity scams spill into gig work",
+      "url": "https://www.livemint.com/companies/news/no-more-free-passes-93-of-indian-firms-now-vet-freelancers-as-identity-scams-spill-into-gig-work-11792030780429.html",
+      "publishedAt": "2026-10-15T03:35:39.000000Z"
+    },
+    {
+      "index": 17,
+      "headline": "Introducing: Disclosure Season 2",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-15/introducing-disclosure-season-2-video",
+      "publishedAt": "2026-10-15T03:49:14+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "Social Security recipients to get 3.6% COLA raise in 2027",
+      "url": "https://www.usatoday.com/story/money/personal-finance/retirement/social-security/2026/10/14/2027-social-security-cola-announcement/92233610007/",
+      "publishedAt": "2026-10-14T15:55:00Z"
+    },
+    {
+      "index": 19,
+      "headline": "Treasury Haven Trade Bounces Back as Stocks Sink, Yields Entice",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/treasuries-extend-gains-as-equities-selloff-dents-risk-sentiment",
+      "publishedAt": "2026-10-15T00:27:03+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "Energy prices rise after Trump’s ‘energy ceasefire’ fails to move Russia or Ukraine",
+      "url": "https://www.nbcnews.com/business/energy/oil-prices-trump-energy-ceasefire-fails-rcna603031",
+      "publishedAt": "2026-10-12T19:15:00+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "Apple Just Passed $5 Trillion. Here's What Comes Next.",
+      "url": "https://247wallst.com/investing/2026/10/14/apple-just-passed-5-trillion-heres-what-comes-next/",
+      "publishedAt": "2026-10-14T16:00:00Z"
+    },
+    {
+      "index": 22,
+      "headline": "HDFC Small Cap Fund is the only scheme with negative YTD returns in 2026: What sets it apart?",
+      "url": "https://www.livemint.com/money/personal-finance/hdfc-small-cap-fund-is-the-only-scheme-with-negative-ytd-returns-in-2026-what-sets-it-apart-11792030311670.html",
+      "publishedAt": "2026-10-15T03:33:18.000000Z"
+    },
+    {
+      "index": 23,
+      "headline": "Social Security recipients will receive a 3.6% cost-of-living increase in 2027 ",
+      "url": "https://www.nbcnews.com/business/personal-finance/social-security-cola-2027-increase-rcna603284",
+      "publishedAt": "2026-10-14T13:35:52+00:00"
+    },
+    {
+      "index": 24,
+      "headline": "Stock Losses Deepen on Chip Rout, Treasuries Rise: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-10-14T22:04:59+00:00"
+    },
+    {
+      "index": 25,
+      "headline": "Bonds Pay the Price for India’s Rupee Defense as Rate Bets Build",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/bonds-pay-the-price-for-india-s-rupee-defense-as-rate-bets-build",
+      "publishedAt": "2026-10-15T03:14:33+00:00"
+    },
+    {
+      "index": 26,
+      "headline": "Latest Oil Market News and Analysis for Oct. 15",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/latest-oil-market-news-and-analysis-for-oct-15",
+      "publishedAt": "2026-10-14T22:02:40+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "India’s Bond Market Shows Bets Building for More RBI Rate Hikes",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-10-15/india-s-bond-market-shows-bets-building-for-more-rbi-rate-hikes",
+      "publishedAt": "2026-10-15T02:31:04+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "Anthropic Results May Aid IPO but Not AI Trade, Analysts Say",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/anthropic-results-may-aid-ipo-but-not-ai-trade-analysts-say",
+      "publishedAt": "2026-10-15T03:21:25+00:00"
+    },
+    {
+      "index": 29,
+      "headline": "Singapore DPM: Must Work Faster to Vie With Wealth Hubs",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-15/singapore-dpm-must-work-faster-to-vie-with-wealth-hubs-video",
+      "publishedAt": "2026-10-15T02:10:20+00:00"
+    },
+    {
+      "index": 30,
+      "headline": "Soaring diesel prices fueling inflation, driving up cost of ‘just about everything,’ experts say",
+      "url": "https://www.nbcnews.com/business/economy/s-fueling-inflation-fuel-rcna603184",
+      "publishedAt": "2026-10-13T20:57:55+00:00"
+    },
+    {
+      "index": 31,
+      "headline": "Trump Accounts expand to millions of children, but new rules raise questions - PBS",
+      "url": "https://www.pbs.org/newshour/show/trump-accounts-expand-to-millions-of-children-but-new-rules-raise-questions",
+      "publishedAt": "2026-10-13T22:30:36Z"
+    },
+    {
+      "index": 32,
+      "headline": "More Women Are Tapping Into Inner ‘Golden Girl’ to Save Money",
+      "url": "https://www.today.com/video/more-women-are-tapping-into-inner-golden-girl-to-save-money-271555653818",
+      "publishedAt": "2026-10-14T12:57:56+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "Inflation Raises Stakes for Warsh’s Final Word in Bangkok",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/fed-s-warsh-to-get-final-word-in-bangkok-as-inflation-roars-back",
+      "publishedAt": "2026-10-14T17:43:06+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "JPMorgan's Dimon Says Federal Debt May Lead to Bond Volatility, Higher Rates",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-15/dimon-says-federal-debt-may-lead-to-bond-volatility-video",
+      "publishedAt": "2026-10-15T01:52:10+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "United ditches flight segments, raises bar for 1K in Premier status shakeup - The Points Guy",
+      "url": "https://thepointsguy.com/news/united-airlines-premier-elite-status-shakeup/",
+      "publishedAt": "2026-10-13T22:34:42Z"
+    },
+    {
+      "index": 36,
+      "headline": "Cork fitness gym co-owned by Munster rugby legend Peter Stringer closes",
+      "url": "https://www.echolive.ie/corknews/arid-41923933.html",
+      "publishedAt": "2026-10-14T16:00:00Z"
+    },
+    {
+      "index": 37,
+      "headline": "Is it OK for jobseekers or employers to use AI? - BBC",
+      "url": "https://www.bbc.com/news/articles/c623dnkn8pkyo",
+      "publishedAt": "2026-10-13T23:04:39Z"
+    },
+    {
+      "index": 38,
+      "headline": "Fairfax buys controlling stake in India’s IDBI Bank for $5.6-billion",
+      "url": "https://www.theglobeandmail.com/business/article-fairfax-financial-holdings-india-idbi-bank-controlling-stake-56/",
+      "publishedAt": "2026-10-14T15:54:24Z"
+    },
+    {
+      "index": 39,
+      "headline": "Trump says government officials who leak to the media ‘should be shot’",
+      "url": "https://www.nbcnews.com/politics/donald-trump/president-says-government-officials-who-leak-to-media-should-be-shot-rcna603613",
+      "publishedAt": "2026-10-15T00:22:08+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "Chick-fil-A CEO Talks Portion Sizes, Prices, Staying Family-Owned",
+      "url": "https://www.today.com/video/chick-fil-a-ceo-talks-portion-sizes-prices-staying-family-owned-271555653619",
+      "publishedAt": "2026-10-14T12:32:26+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Starbucks is ‘not buying Chipotle’ after report it had explored a deal",
+      "url": "https://www.nbcnews.com/business/consumer/starbucks-not-buying-chipotle-rcna602968",
+      "publishedAt": "2026-10-12T13:24:23+00:00"
+    },
+    {
+      "index": 42,
+      "headline": "Indonesia Swaps Out Electricity Chief After Huge Batam Blackout",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/indonesia-swaps-out-electricity-chief-after-huge-batam-blackout",
+      "publishedAt": "2026-10-15T03:18:19+00:00"
+    },
+    {
+      "index": 43,
+      "headline": "777 Partners’ Co-Founder Josh Wander Set to Change Plea",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/777-partners-co-founder-wander-signals-guilty-plea-in-filing",
+      "publishedAt": "2026-10-14T22:36:28+00:00"
+    },
+    {
+      "index": 44,
+      "headline": "Toilet paper and secret recorders: What we know about the arrest of the Saudi OpenAI engineer",
+      "url": "https://www.bbc.com/news/articles/cm04054ykqqqo",
+      "publishedAt": "2026-10-14T15:54:04Z"
+    },
+    {
+      "index": 45,
+      "headline": "Stock futures are little changed as traders await consumer inflation report: Live updates - CNBC",
+      "url": "https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html",
+      "publishedAt": "2026-10-14T01:54:00Z"
+    },
+    {
+      "index": 46,
+      "headline": "Treasury Wine Estates Limited (TSRYY) Shareholder/Analyst Call Transcript",
+      "url": "https://seekingalpha.com/article/4954269-treasury-wine-estates-limited-tsryy-shareholder-analyst-call-transcript",
+      "publishedAt": "2026-10-15T03:34:40.000000Z"
+    },
+    {
+      "index": 47,
+      "headline": "LinkedIn Reveals Its List of 2026's Top Startups",
+      "url": "https://www.today.com/video/linkedin-s-list-of-top-startups-for-2026-see-which-made-the-list-271557701679",
+      "publishedAt": "2026-10-14T13:20:46+00:00"
+    },
+    {
+      "index": 48,
+      "headline": "Kospi Drops 8% as Samsung, SK Hynix Shares Plunge on AI and Rate Fears  ",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/chip-stocks-deepen-losses-as-concerns-mount-over-rates-ai-debt",
+      "publishedAt": "2026-10-15T00:08:40+00:00"
+    },
+    {
+      "index": 49,
+      "headline": "Taiwan Dollar, Won Slump as Chip Stock Selloff Hurts Sentiment",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/taiwan-dollar-won-slump-as-chip-stock-selloff-hurts-sentiment",
+      "publishedAt": "2026-10-15T02:57:56+00:00"
+    },
+    {
+      "index": 50,
+      "headline": "Martin Shkreli livestreamed himself violating lifetime pharma ban, FTC says - Ars Technica",
+      "url": "https://arstechnica.com/health/2026/10/martin-shkreli-livestreamed-himself-violating-lifetime-pharma-ban-ftc-says/",
+      "publishedAt": "2026-10-13T22:48:12Z"
+    },
+    {
+      "index": 51,
+      "headline": "American Airlines cancels routes to Qatar, Mexico over geopolitical tensions",
+      "url": "https://nypost.com/2026/10/14/lifestyle/american-airlines-cancels-routes-to-qatar-mexico-over-geopolitical-tensions/",
+      "publishedAt": "2026-10-14T15:59:00Z"
+    },
+    {
+      "index": 52,
+      "headline": "MUFG Wades Back Into Japanese Bonds With Eye on Policy Risks",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/mufg-wades-back-into-japanese-bonds-with-eye-on-policy-risks",
+      "publishedAt": "2026-10-14T21:00:00+00:00"
+    },
+    {
+      "index": 53,
+      "headline": "Digital banking up as cash use fades",
+      "url": "https://businessdesk.co.nz/article/finance/digital-banking-up-as-cash-use-fades",
+      "publishedAt": "2026-10-14T16:00:00Z"
+    },
+    {
+      "index": 54,
+      "headline": "Philippine Peso Declines Past 63 Per Dollar for First Time",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/philippine-peso-declines-past-63-per-dollar-for-first-time",
+      "publishedAt": "2026-10-15T02:18:06+00:00"
+    },
+    {
+      "index": 55,
+      "headline": "Character.AI Bankruptcy: Disney Bids $20M For AI Assets - Cartoon Brew",
+      "url": "https://www.cartoonbrew.com/animators/karandeep-anand-walt-disney-company-character-ai-267830.html",
+      "publishedAt": "2026-10-13T23:34:57Z"
+    },
+    {
+      "index": 56,
+      "headline": "Lithium Extends Deep Slump as Battery Demand Concerns Mount",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/lithium-extends-deep-slump-as-battery-demand-concerns-mount",
+      "publishedAt": "2026-10-15T02:56:18+00:00"
+    }
+  ]
+}
