@@ -1,0 +1,670 @@
+{
+  "analysis": {
+    "analysis_date": "October 15, 2026",
+    "analysis_time": "11:03",
+    "executive_summary": {
+      "key_highlights": [
+        "US inflation jumped to 3.7% fueled by soaring diesel and retail fuel prices, squeezing consumers and driving up logistics costs across the broader economy.",
+        "The failure of Trump's Russia-Ukraine energy ceasefire and Ukraine's resumption of refinery strikes triggered sharp energy market tightening and tanker disruptions.",
+        "Market calm shattered as AI valuation concerns and renewed interest rate anxieties collided, triggering a tech rout and driving capital into safe-haven Treasuries and gold.",
+        "Regulatory and governance strains mounted across tech and banking, highlighted by Character.AI's bankruptcy, OpenAI executive surveillance concerns, and a historic $1.2B fine against Bank of America.",
+        "Global de-dollarization advanced as Zambia announced bilateral copper sales to China settled in Yuan, while European leaders struggle with war-driven energy vulnerabilities."
+      ],
+      "market_sentiment_score": 32,
+      "overall_sentiment": "negative",
+      "headline_sources": [
+        5,
+        10,
+        12,
+        16,
+        17,
+        18,
+        22,
+        23,
+        26,
+        28,
+        33,
+        36,
+        38,
+        43,
+        49
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Energy & Refined Products",
+          "trend": "Bullish price breakout driven by failed diplomatic ceasefires, Ukrainian strikes on Russian refineries, and tanker route disruptions.",
+          "implications": "Surging diesel costs elevate freight and input expenses across supply chains, reigniting headline inflation pressures and dampening real consumer spending.",
+          "headline_sources": [
+            5,
+            11,
+            12,
+            16,
+            26,
+            28,
+            33,
+            43,
+            50
+          ]
+        },
+        {
+          "sector": "Technology & Artificial Intelligence",
+          "trend": "Sharp equity de-rating and tech rout fueled by colliding interest rate anxieties, Character.AI bankruptcy, and corporate governance controversies.",
+          "implications": "High-beta software multiples face significant compression, while mission-critical semiconductor equipment providers (e.g., ASML) retain strong backlogs.",
+          "headline_sources": [
+            1,
+            8,
+            10,
+            13,
+            17,
+            18,
+            22,
+            49
+          ]
+        },
+        {
+          "sector": "Fixed Income & Safe Havens",
+          "trend": "Aggressive flight-to-safety bid channeling capital out of risk assets into US Treasuries and bullion, despite higher CPI numbers.",
+          "implications": "Treasury yield curves reflect tension between short-term flight-to-quality demand and medium-term fiscal deficit and inflation pass-through risks.",
+          "headline_sources": [
+            2,
+            15,
+            18,
+            36,
+            49
+          ]
+        },
+        {
+          "sector": "Financials & Credit Markets",
+          "trend": "Escalating regulatory enforcement penalties and emerging distress in leveraged corporate debt deals.",
+          "implications": "Historic penalties ($1.2B against Bank of America) and distressed sponsor disputes (BlackRock/Pimco on Virgin Media) pressure bank earnings and private credit liquidity.",
+          "headline_sources": [
+            2,
+            4,
+            23,
+            31,
+            38,
+            40
+          ]
+        },
+        {
+          "sector": "Consumer & Retail",
+          "trend": "Severe margin squeeze from diesel logistics inflation alongside consumer belt-tightening and cost-of-living adjustments.",
+          "implications": "Retailers and transport operators face rising operating costs, spurring consumer trade-down behavior, discount hunting, and cost-sharing models.",
+          "headline_sources": [
+            27,
+            33,
+            34,
+            41,
+            43,
+            44,
+            47,
+            52
+          ]
+        },
+        {
+          "sector": "Commodities & Critical Minerals",
+          "trend": "Divergence between fossil fuels and battery metals, with lithium mired in a slump while bilateral Yuan settlement expands in copper.",
+          "implications": "EV battery supply chain margin compression persists, while bilateral resource settlement in Yuan accelerates international currency diversification.",
+          "headline_sources": [
+            6,
+            7,
+            20,
+            30
+          ]
+        }
+      ],
+      "key_themes": [
+        "Stagflationary Energy Shock: Diesel and crude price spikes reigniting headline CPI to 3.7% and elevating freight costs across industries.",
+        "AI Valuation and Governance Reset: Shift from uncritical hype to scrutiny of cash burn, regulatory oversight, and corporate governance.",
+        "Sovereign Fiscal and Debt Strain: IMF warnings on US deficit expansion intersecting with European bond market volatility.",
+        "Global Trade De-Dollarization: Non-dollar settlement gaining momentum in strategic commodities like Zambian copper.",
+        "Flight to Quality: Concurrently rising safe-haven demand in US Treasuries and physical gold amidst equity market turbulence."
+      ],
+      "headline_sources": [
+        2,
+        5,
+        7,
+        8,
+        10,
+        12,
+        15,
+        17,
+        18,
+        20,
+        23,
+        26,
+        28,
+        33,
+        36,
+        40,
+        43,
+        49
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Resurgent Energy-Driven Inflation and Secondary Pass-Through",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Overweight upstream energy producers and implement fuel-surcharge protections; hedge transport and logistics cost exposures.",
+        "headline_sources": [
+          5,
+          12,
+          16,
+          26,
+          28,
+          33,
+          43,
+          51
+        ]
+      },
+      {
+        "risk_factor": "AI Multiple De-Rating and Tech Sector Contagion",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Rotate equity exposure from speculative software and venture-stage AI toward profitable cash-generative semiconductor toolmakers with strong moats.",
+        "headline_sources": [
+          8,
+          10,
+          13,
+          17,
+          18,
+          22,
+          49
+        ]
+      },
+      {
+        "risk_factor": "US Fiscal Deficit Expansion and Debt Burden",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Diversify sovereign debt exposure into gold, real assets, and short-duration inflation-protected securities (TIPS).",
+        "headline_sources": [
+          15,
+          36
+        ]
+      },
+      {
+        "risk_factor": "European Sovereign Bond Turmoil and Energy Vulnerability",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Underweight European cyclical equities and maintain hedges on sovereign credit spreads while monitoring repo market liquidity.",
+        "headline_sources": [
+          2,
+          28
+        ]
+      },
+      {
+        "risk_factor": "Regulatory Sanctions Enforcement and Leveraged Credit Distress",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Reduce allocation to banks facing AML/sanctions scrutiny and avoid covenant-lite private credit tranches vulnerable to restructuring disputes.",
+        "headline_sources": [
+          23,
+          38,
+          40
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Overweight Upstream Oil & Refining Infrastructure",
+          "rationale": "Refinery disruptions, failed ceasefires, and tight diesel inventories create structural tailwinds for refining margins and crack spreads.",
+          "tickers": [
+            "VLO",
+            "MPC",
+            "XOM",
+            "CVX"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            5,
+            12,
+            16,
+            26,
+            33,
+            50
+          ]
+        },
+        {
+          "recommendation": "Accumulate Physical Gold and Bullion Hedges",
+          "rationale": "Gold provides dual asymmetric protection against escalating equity market volatility and persistent inflation driven by sovereign debt expansion.",
+          "tickers": [
+            "GLD",
+            "IAU",
+            "NEM"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            15,
+            18,
+            36,
+            49
+          ]
+        },
+        {
+          "recommendation": "Selective Accumulation of Mission-Critical Semiconductor Equipment",
+          "rationale": "ASML's boosted outlook confirms that foundational lithography and semiconductor tooling demand outpaces supply despite broader AI software volatility.",
+          "tickers": [
+            "ASML",
+            "AMAT",
+            "LRCX"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            8,
+            17,
+            18
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Trim Unprofitable AI, Speculative Growth, and High-Beta Tech",
+          "rationale": "Insolvencies (Character.AI), corporate controversies (OpenAI), and staff cuts (Netflix) signal ongoing valuation re-pricing against high interest rates.",
+          "tickers": [
+            "ARKK",
+            "QQQ",
+            "NFLX"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            10,
+            13,
+            17,
+            18,
+            22
+          ]
+        },
+        {
+          "recommendation": "Underweight Large Banks with Sanctions and Compliance Vulnerabilities",
+          "rationale": "Record-setting penalties ($1.2B BofA fine) and heightened AML scrutiny create acute overhang on large-cap banking earnings and capital return plans.",
+          "tickers": [
+            "BAC",
+            "XLF"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            23,
+            31,
+            38
+          ]
+        },
+        {
+          "recommendation": "Increase Allocation to Short-Duration TIPS and Cash Equivalents",
+          "rationale": "Inflation resurgence to 3.7% combined with high interest rate volatility makes short-term inflation-protected instruments superior to unhedged long duration.",
+          "tickers": [
+            "TIP",
+            "BIL",
+            "SHV"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            4,
+            18,
+            36,
+            43,
+            49,
+            51
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Elevated market volatility and risk-off rotation over the next 1-3 months as investors absorb 3.7% CPI inflation, higher diesel costs, and valuation adjustments in tech.",
+      "long_term": "A bifurcated 6-12 month investment landscape where persistent energy frictions and fiscal deficit constraints keep interest rates elevated, favoring tangible assets, defense, energy, and cash-flow-generative compounders over speculative growth.",
+      "key_catalysts": [
+        "Follow-up US CPI and PPI reports detailing diesel and food pass-through to core inflation",
+        "Geopolitical developments regarding Ukrainian strikes on Russian energy infrastructure and Middle East tanker security",
+        "Upcoming FOMC interest rate decision and updated Dot Plot projections",
+        "Q3 corporate earnings announcements and FY2027 capex guidance from mega-cap tech and major banks",
+        "European energy policy summit responses and UK budget announcement"
+      ],
+      "watch_list": [
+        "ULSD diesel futures and Brent crude crack spreads",
+        "US 2-Year and 10-Year Treasury yields and 2s10s yield curve slope",
+        "Gold spot price ($/oz) and safe-haven ETF net inflows",
+        "Bank legal liability reserve disclosures and leveraged loan restructuring proceedings",
+        "Semiconductor capital equipment order backlog and book-to-bill ratios"
+      ],
+      "headline_sources": [
+        2,
+        4,
+        5,
+        8,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        23,
+        24,
+        26,
+        33,
+        36,
+        40,
+        43,
+        49,
+        51
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "LinkedIn Reveals Its List of 2026's Top Startups",
+      "url": "https://www.today.com/video/linkedin-s-list-of-top-startups-for-2026-see-which-made-the-list-271557701679",
+      "publishedAt": "2026-10-14T13:20:46+00:00"
+    },
+    {
+      "index": 2,
+      "headline": "France’s Bond Turmoil Leaves Repo Funding Unscathed for Now",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/france-s-bond-turmoil-leaves-repo-funding-unscathed-for-now",
+      "publishedAt": "2026-10-15T09:42:43+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "Social Security’s 2027 COLA: What to know ahead of the announcement - NewsNation",
+      "url": "https://www.newsnationnow.com/business/your-money/social-security-2027-cola-announcement/",
+      "publishedAt": "2026-10-14T04:03:01Z"
+    },
+    {
+      "index": 4,
+      "headline": "Vontobel Co-CEO: Higher Rates Not a Problem per Se, Pace Can Be",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-15/vontobel-co-ceo-higher-rates-not-a-problem-pace-can-be-video",
+      "publishedAt": "2026-10-15T08:39:30+00:00"
+    },
+    {
+      "index": 5,
+      "headline": "Diesel futures jump, signaling higher prices to come despite Trump’s Russia deal",
+      "url": "https://www.nbcnews.com/business/energy/diesel-futures-higher-prices-trump-moves-rcna603218",
+      "publishedAt": "2026-10-13T17:49:19+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "Evidence for multi-Li+ clustering in lithium-ion battery electrolytes",
+      "url": "https://www.nature.com/articles/s41586-026-11138-7?error=cookies_not_supported&code=a57397e5-2d40-4693-9ea5-02cc1dc61379",
+      "publishedAt": "2026-10-14T22:55:28Z"
+    },
+    {
+      "index": 7,
+      "headline": "Zambia Says Some Copper Sales to China to Be Settled in Yuan",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/zambia-says-some-copper-sales-to-china-to-be-settled-in-renminbi",
+      "publishedAt": "2026-10-14T13:58:50+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "ASML Boosts Outlook as Demand for Chip Tools Outpaces Supply - Bloomberg.com",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/asml-raises-full-year-sales-outlook-as-ai-boom-drives-demand",
+      "publishedAt": "2026-10-14T05:12:00Z"
+    },
+    {
+      "index": 9,
+      "headline": "Lufthansa Says ‘Couldn’t Miss’ TAP Deal Has €450 Million Upside",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/lufthansa-says-couldn-t-miss-tap-deal-has-450-million-upside",
+      "publishedAt": "2026-10-15T10:25:23+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "US states seek children's data protections in Character.AI bankruptcy",
+      "url": "https://www.reuters.com/business/us-states-seek-childrens-data-protections-characterai-bankruptcy-2026-10-14/",
+      "publishedAt": "2026-10-14T22:45:08Z"
+    },
+    {
+      "index": 11,
+      "headline": "Angola Seeks to Keep Oil Output Above 1 Million Barrels a Day",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/angola-seeks-to-keep-oil-output-above-1-million-barrels-a-day",
+      "publishedAt": "2026-10-15T10:51:58+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Ukraine to Resume Russia Refinery Strikes, Defying Trump",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-15/ukraine-to-resume-russia-refinery-strikes-defying-trump-video",
+      "publishedAt": "2026-10-15T09:38:41+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "Netflix to cut about 6% of worldwide staff",
+      "url": "https://www.nbcnews.com/business/media/netflix-layoffs-rcna603454",
+      "publishedAt": "2026-10-14T14:15:15+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "What’s likely to move the market",
+      "url": "https://www.cnbc.com/2026/10/14/thursdays-big-stock-stories-whats-likely-to-move-the-market.html",
+      "publishedAt": "2026-10-14T22:52:30Z"
+    },
+    {
+      "index": 15,
+      "headline": "Scott Bessent's growth plans aren't enough to tame surging deficit and debt pile, IMF chief says - CNBC",
+      "url": "https://www.cnbc.com/2026/10/14/bond-yields-debt-deficit-treasury.html",
+      "publishedAt": "2026-10-14T08:53:35Z"
+    },
+    {
+      "index": 16,
+      "headline": "Oil Market Tightens as Tanker Attacks and Inventory Draws Mount",
+      "url": "https://oilprice.com/Energy/Crude-Oil/Oil-Market-Tightens-as-Tanker-Attacks-and-Inventory-Draws-Mount.html",
+      "publishedAt": "2026-10-14T23:00:00Z"
+    },
+    {
+      "index": 17,
+      "headline": "Market Calm Shatters as AI, Rate Fears Collide",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-10-15/market-calm-shatters-as-ai-rate-fears-collide",
+      "publishedAt": "2026-10-15T10:43:43+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "Stocks Slide as AI Rout Drives Investors to Bonds: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-10-14T22:04:59+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "Healey Says Budget Will Protect UK Economic 'Resilience'",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-15/healey-says-budget-will-protect-uk-economic-resilience-video",
+      "publishedAt": "2026-10-15T08:45:47+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "Lithium Extends Deep Slump as Battery Demand Concerns Mount",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/lithium-extends-deep-slump-as-battery-demand-concerns-mount",
+      "publishedAt": "2026-10-15T02:56:18+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "Trump says government officials who leak to the media ‘should be shot’",
+      "url": "https://www.nbcnews.com/politics/donald-trump/president-says-government-officials-who-leak-to-media-should-be-shot-rcna603613",
+      "publishedAt": "2026-10-15T00:22:08+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "OpenAI Employee Arrested for Allegedly Planting Hidden Recorder in Executive Conference Room - The Hacker News",
+      "url": "https://thehackernews.com/2026/10/openai-employee-arrested-for-allegedly.html",
+      "publishedAt": "2026-10-14T01:59:00Z"
+    },
+    {
+      "index": 23,
+      "headline": "Bank of America ordered to pay historic $1.2 billion over alleged sanctions law violations",
+      "url": "https://www.nbcnews.com/business/corporations/bank-america-sanctions-violations-penalty-rcna603251",
+      "publishedAt": "2026-10-13T20:15:10+00:00"
+    },
+    {
+      "index": 24,
+      "headline": "Stock market today: Dow, S&P 500, Nasdaq futures edge higher ahead of CPI inflation data, earnings - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-14-dow-sp-500-nasdaq-081136597.html",
+      "publishedAt": "2026-10-14T08:11:36Z"
+    },
+    {
+      "index": 25,
+      "headline": "Jeff Yan's Plan to Bring the Entire Financial Industry Onto Hyperliquid",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/jeff-yan-s-plan-to-bring-the-entire-financial-industry-onto-hyperliquid",
+      "publishedAt": "2026-10-15T09:00:52+00:00"
+    },
+    {
+      "index": 26,
+      "headline": "Energy prices rise after Trump’s ‘energy ceasefire’ fails to move Russia or Ukraine",
+      "url": "https://www.nbcnews.com/business/energy/oil-prices-trump-energy-ceasefire-fails-rcna603031",
+      "publishedAt": "2026-10-12T19:15:00+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "Chick-fil-A bet on chicken 60 years ago. Now it’s America’s third largest restaurant chain.",
+      "url": "https://www.nbcnews.com/business/ceo-interviews/chick-fil-a-ceo-andrew-cathy-restaurant-rcna603203",
+      "publishedAt": "2026-10-14T12:09:06+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "Europe’s Leaders Lack Tools to Ease War-Driven Energy Shock",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/europe-s-leaders-have-few-tools-to-ease-war-driven-energy-shock",
+      "publishedAt": "2026-10-15T05:00:00+00:00"
+    },
+    {
+      "index": 29,
+      "headline": "Indian Stocks Beat Asian Peers by Most In Over a Year on AI Rout",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/india-stocks-set-to-beat-asia-by-most-in-over-a-year-on-ai-rout",
+      "publishedAt": "2026-10-15T08:57:00+00:00"
+    },
+    {
+      "index": 30,
+      "headline": "Chile, Bolivia Seek Diplomatic Reset in New Right-Wing Alignment",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/chile-bolivia-seek-diplomatic-reset-in-new-right-wing-alignment",
+      "publishedAt": "2026-10-15T09:30:00+00:00"
+    },
+    {
+      "index": 31,
+      "headline": "Jim Cramer on big bank earnings and bank stock moves",
+      "url": "https://www.cnbc.com/2026/10/14/cramer-big-bank-earnings-stock-reaction.html",
+      "publishedAt": "2026-10-14T22:48:06Z"
+    },
+    {
+      "index": 32,
+      "headline": "Dangote Pushes African Market Access for IPO With Egypt Visit",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/dangote-pushes-african-market-access-for-ipo-with-egypt-visit",
+      "publishedAt": "2026-10-15T09:45:10+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "Soaring diesel prices fueling inflation, driving up cost of ‘just about everything,’ experts say",
+      "url": "https://www.nbcnews.com/business/economy/s-fueling-inflation-fuel-rcna603184",
+      "publishedAt": "2026-10-13T20:57:55+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "More Women Are Tapping Into Inner ‘Golden Girl’ to Save Money",
+      "url": "https://www.today.com/video/more-women-are-tapping-into-inner-golden-girl-to-save-money-271555653818",
+      "publishedAt": "2026-10-14T12:57:56+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "BREAKING: Name & More Revealed for Japan's First Disney Cruise Line Ship - WDW News Today",
+      "url": "https://wdwnt.com/2026/10/breaking-name-more-revealed-for-japans-first-disney-cruise-line-ship/",
+      "publishedAt": "2026-10-14T01:57:09Z"
+    },
+    {
+      "index": 36,
+      "headline": "Gold Rallies With Treasuries as AI Selloff Boosts Haven Assets",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/gold-holds-loss-as-hot-inflation-lifts-october-rate-hike-bets",
+      "publishedAt": "2026-10-14T23:33:01+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "CVS Pharmacy reaches $315M settlement with Justice Department over controlled substance prescriptions - Fox Business",
+      "url": "https://www.foxbusiness.com/politics/cvs-pharmacy-reaches-315m-settlement-justice-department-over-controlled-substance-prescriptions",
+      "publishedAt": "2026-10-14T03:45:00Z"
+    },
+    {
+      "index": 38,
+      "headline": "Bank of America fined $1.2bn over failing to stop money laundering - BBC",
+      "url": "https://www.bbc.com/news/articles/cm3wvxy6n3z8o",
+      "publishedAt": "2026-10-14T02:05:32Z"
+    },
+    {
+      "index": 39,
+      "headline": "Malaysian Central Bank Governor on Economic Growth",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-15/malaysian-central-bank-governor-on-economic-growth-video",
+      "publishedAt": "2026-10-15T08:52:28+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "BlackRock, Pimco Hire Lawyers Over Faltering Virgin Media Deal",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/blackrock-pimco-sona-tap-counsel-over-virgin-media-tied-deal",
+      "publishedAt": "2026-10-14T19:27:38+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Amazon Extra Strength Acetaminophen recalled: More than 112,000 bottles affected by discoloration complaints - Fox Business",
+      "url": "https://www.foxbusiness.com/lifestyle/amazon-extra-strength-acetaminophen-recalled-more-than-112000-bottles-affected-discoloration-complaints",
+      "publishedAt": "2026-10-14T05:27:00Z"
+    },
+    {
+      "index": 42,
+      "headline": "Association and diagnostic value of maternal plasma and placental ghrelin levels in predicting early preterm birth: a case-control study",
+      "url": "https://www.nature.com/articles/s41598-026-50155-4?error=cookies_not_supported&code=cd6550cd-5fdf-4db0-911c-c090b699daf3",
+      "publishedAt": "2026-10-14T22:58:54Z"
+    },
+    {
+      "index": 43,
+      "headline": "Inflation jumps to 3.7% as gas and diesel prices squeeze consumers ahead of midterms",
+      "url": "https://www.nbcnews.com/business/economy/inflation-jumped-september-gas-diesel-prices-squeezed-consumers-ahead-rcna603202",
+      "publishedAt": "2026-10-14T12:34:25+00:00"
+    },
+    {
+      "index": 44,
+      "headline": "Starbucks is ‘not buying Chipotle’ after report it had explored a deal",
+      "url": "https://www.nbcnews.com/business/consumer/starbucks-not-buying-chipotle-rcna602968",
+      "publishedAt": "2026-10-12T13:24:23+00:00"
+    },
+    {
+      "index": 45,
+      "headline": "Social Security recipients will receive a 3.6% cost-of-living increase in 2027 ",
+      "url": "https://www.nbcnews.com/business/personal-finance/social-security-cola-2027-increase-rcna603284",
+      "publishedAt": "2026-10-14T13:35:52+00:00"
+    },
+    {
+      "index": 46,
+      "headline": "Tesla's Elon Musk Might Have Gone Back on His Word, but It's Working in China",
+      "url": "https://www.fool.com/investing/2026/10/14/teslas-elon-musk-might-have-gone-back-on-his-word/",
+      "publishedAt": "2026-10-14T22:51:11Z"
+    },
+    {
+      "index": 47,
+      "headline": "Chick-fil-A CEO Talks Portion Sizes, Prices, Staying Family-Owned",
+      "url": "https://www.today.com/video/chick-fil-a-ceo-talks-portion-sizes-prices-staying-family-owned-271555653619",
+      "publishedAt": "2026-10-14T12:32:26+00:00"
+    },
+    {
+      "index": 48,
+      "headline": "Is it really ‘madness’ to account for emissions from fossil fuels burned overseas? The Coalition sure thinks so",
+      "url": "https://www.theguardian.com/environment/2026/oct/14/is-it-really-madness-to-account-for-emissions-from-fossil-fuels-burned-overseas-the-coalition-sure-thinks-so",
+      "publishedAt": "2026-10-14T23:00:00Z"
+    },
+    {
+      "index": 49,
+      "headline": "Treasury Haven Trade Bounces Back as Technology Stocks Slump",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/treasuries-extend-gains-as-equities-selloff-dents-risk-sentiment",
+      "publishedAt": "2026-10-15T00:27:03+00:00"
+    },
+    {
+      "index": 50,
+      "headline": "Latest Oil Market News and Analysis for Oct. 15",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-14/latest-oil-market-news-and-analysis-for-oct-15",
+      "publishedAt": "2026-10-14T22:02:40+00:00"
+    },
+    {
+      "index": 51,
+      "headline": "Economist breaks down new inflation report and what's driving prices higher",
+      "url": "https://www.pbs.org/newshour/show/economist-breaks-down-new-inflation-report-and-whats-driving-prices-higher",
+      "publishedAt": "2026-10-14T22:55:14Z"
+    },
+    {
+      "index": 52,
+      "headline": "Long lines, traffic jams as some N.L. drivers line up for retailers' one-time gas discount",
+      "url": "https://www.cbc.ca/news/canada/newfoundland-labrador/discount-gas-savings-9.7380063",
+      "publishedAt": "2026-10-14T22:50:40Z"
+    }
+  ]
+}
