@@ -1,0 +1,676 @@
+{
+  "analysis": {
+    "analysis_date": "October 17, 2026",
+    "analysis_time": "02:01",
+    "executive_summary": {
+      "key_highlights": [
+        "Stagflationary Energy Shock: Brent crude tapped $110/bbl for the first time since May, fueled by escalating Iran war risks and driving US CPI inflation up to 3.7%.",
+        "Tech and AI Valuation Wipeout: Doubts regarding generative AI return on investment erased $1 trillion in market capitalization; chip stocks suffered their longest losing streak since 2008.",
+        "Dual Financial Stress: Major US bank stocks logged their worst weekly losing streak since 2008 alongside growing credit strains in AI infrastructure (CoreWeave -25%) and private debt.",
+        "Federal Reserve Policy Ambiguity: Fed Chair Kevin Warsh signaled an uncompromising focus on price stability, dampening rate-cut hopes, pushing Treasury yields higher, and pressuring US bonds.",
+        "Corporate Margin Squeeze: Wholesale and input prices impacted businesses more severely than consumers, triggering workforce rationalization (Netflix cutting 6%) and defensive consumer thrift."
+      ],
+      "market_sentiment_score": 24,
+      "overall_sentiment": "negative",
+      "headline_sources": [
+        1,
+        2,
+        5,
+        6,
+        8,
+        11,
+        16,
+        19,
+        28,
+        29,
+        34,
+        47,
+        50
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology & Semiconductors",
+          "trend": "Severe multi-week drawdown erasing $1 trillion in wealth; chipmakers post longest losing streak since 2008 as AI credit and capex doubts intensify, despite oversold indications.",
+          "implications": "Multiples contracting for high-capex AI firms, private cloud debt spreads widening (CoreWeave down 25%), and dip-buying demand drying up across major hardware names.",
+          "headline_sources": [
+            2,
+            6,
+            11,
+            16,
+            24,
+            28,
+            37,
+            39,
+            47,
+            51
+          ]
+        },
+        {
+          "sector": "Energy & Commodities",
+          "trend": "Brent crude surging to $110/bbl on Middle East war escalation, driving pump prices higher and lifting broad commodity cost pressures.",
+          "implications": "Accelerates headline inflation to 3.7%, widens trade imbalances, inflates corporate input costs, and boosts upstream oil and gas operator cash flows.",
+          "headline_sources": [
+            1,
+            5,
+            8,
+            11,
+            28,
+            34,
+            36
+          ]
+        },
+        {
+          "sector": "Financials & Credit Markets",
+          "trend": "Big US banks endure worst losing streak since 2008; syndicated leveraged loan market stalls, forcing borrowers into high-cost private debt deals.",
+          "implications": "Heightened credit risk, higher bank loan-loss provisioning, constrained corporate liquidity, and selective re-pricing across private credit and syndicated debt.",
+          "headline_sources": [
+            6,
+            7,
+            20,
+            45,
+            50
+          ]
+        },
+        {
+          "sector": "Fixed Income & Currencies",
+          "trend": "Treasury yields rise and bond prices fall on $110 oil and long-end Treasury supply silence; US Dollar registers weekly drop while Euro rebounds on Fed Chair Warsh commentary.",
+          "implications": "Higher long-term cost of capital, increased hurdle rates for equities, and persistent volatility across sovereign yield curves as rate-hike risks linger.",
+          "headline_sources": [
+            12,
+            19,
+            26,
+            34,
+            35,
+            46
+          ]
+        },
+        {
+          "sector": "Consumer & Retail",
+          "trend": "Gas and diesel price spikes squeeze real household income with inflation at 3.7%; input costs hit enterprises harder than retail pricing can absorb.",
+          "implications": "Discretionary spending pivots toward budget-conscious behavior ('Golden Girl' thrift, fast-food staples), while retail margins compress and headcount cuts accelerate.",
+          "headline_sources": [
+            5,
+            9,
+            13,
+            14,
+            15,
+            29,
+            36,
+            41,
+            52
+          ]
+        },
+        {
+          "sector": "Automotive & Industrial",
+          "trend": "Sharp geographic divergence in clean transit: European EV sales surge while North American sales plummet 44%; OEMs showcase halo concepts amid cost pressures.",
+          "implications": "North American EV adoption faces high-interest and affordability headwinds, delaying mass-market electrification and shifting capital to hybrid architectures.",
+          "headline_sources": [
+            18,
+            25,
+            30,
+            42,
+            48
+          ]
+        }
+      ],
+      "key_themes": [
+        "Stagflationary Impasse: Convergence of $110 Brent crude oil shock and 3.7% inflation complicates central bank policy paths.",
+        "The Great AI Capital Discipline Shift: Skepticism over monetization and AI compute credit structures replaces uncritical capital expenditure.",
+        "Private Debt and Banking Contagion: Weakness in bank equities and private debt replacements indicate tighter lending liquidity.",
+        "Corporate Margin Compression: Input cost inflation outpacing consumer pass-through, forcing headcount cuts and restructuring.",
+        "Macro Policy Uncertainty: Market anxiety surrounding Fed Chair Kevin Warsh's interest rate stance and fiscal headwinds."
+      ],
+      "headline_sources": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        11,
+        13,
+        16,
+        18,
+        19,
+        28,
+        29,
+        34,
+        35,
+        47,
+        50
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Geopolitical Energy Shock and Secondary Inflation",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Maintain overweight exposure to upstream energy producers, commodity indexing, and energy infrastructure equities.",
+        "headline_sources": [
+          1,
+          5,
+          8,
+          11,
+          28,
+          34,
+          36
+        ]
+      },
+      {
+        "risk_factor": "AI Hardware Capex Retrenchment and Tech De-rating",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Underweight high-multiple speculative tech and leveraged AI infrastructure providers; focus on cash-flow generative tech leaders.",
+        "headline_sources": [
+          2,
+          6,
+          11,
+          16,
+          24,
+          28,
+          37,
+          39,
+          47
+        ]
+      },
+      {
+        "risk_factor": "Banking Sector Contagion and Credit Spread Widening",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Avoid regional banks and speculative private credit funds; concentrate in systemically important money-center banks with top-tier capital reserves.",
+        "headline_sources": [
+          6,
+          7,
+          45,
+          50
+        ]
+      },
+      {
+        "risk_factor": "Renewed Central Bank Tightening Cycle",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Shorten portfolio fixed-income duration, hold Treasury floating-rate notes, and preserve opportunistic dry powder in short-term T-bills.",
+        "headline_sources": [
+          12,
+          19,
+          26,
+          34,
+          35,
+          46
+        ]
+      },
+      {
+        "risk_factor": "Cyberattack Disruption of Critical Supply Infrastructure",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Allocate to mission-critical cybersecurity platform providers and supply-chain logistics operators with enterprise-grade defenses.",
+        "headline_sources": [
+          22,
+          23,
+          27
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Overweight Global Integrated Energy and Upstream E&P",
+          "rationale": "Sustained $110 Brent oil prices driven by geopolitical supply disruption generate expanding free cash flows, capital returns, and dividend resilience.",
+          "tickers": [
+            "XOM",
+            "CVX",
+            "COP",
+            "XLE",
+            "OIH"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            1,
+            8,
+            11,
+            28
+          ]
+        },
+        {
+          "recommendation": "Opportunistic Accumulation of High-Quality Semiconductor Leaders",
+          "rationale": "Historical multi-week losing streak and market cap capitulation have pushed leading tier-1 semiconductor franchises into deeply oversold territory.",
+          "tickers": [
+            "NVDA",
+            "TSM",
+            "ASML",
+            "MU"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            16,
+            28,
+            37,
+            47,
+            51
+          ]
+        },
+        {
+          "recommendation": "Allocation to Inflation-Protected Securities and Short-Duration Paper",
+          "rationale": "With headline CPI rising to 3.7% and fuel costs climbing, short-duration TIPS and Treasury bills provide inflation-hedged carry with minimal duration risk.",
+          "tickers": [
+            "TIP",
+            "STIP",
+            "SHY",
+            "BIL"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            5,
+            12,
+            34,
+            36,
+            52
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Divest High-Yield Credit and Leveraged AI Compute Debt",
+          "rationale": "CoreWeave's 25% drop and Sound Inpatient's loan retreat highlight acute refinancing stress and widening spreads across non-investment-grade private credit.",
+          "tickers": [
+            "HYG",
+            "JNK",
+            "BIZD"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            2,
+            6,
+            7,
+            11
+          ]
+        },
+        {
+          "recommendation": "Deploy Physical Gold and Tail-Risk Hedging Overlays",
+          "rationale": "Gold demonstrates resilience against rising yields, offering proven downside capital protection against stagflationary shocks and Middle East conflict escalation.",
+          "tickers": [
+            "GLD",
+            "IAU",
+            "VIX"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            8,
+            11,
+            12,
+            16,
+            28
+          ]
+        },
+        {
+          "recommendation": "Underweight Consumer Discretionary and High-Debt Retail",
+          "rationale": "Elevated gas prices, high interest rates, and wholesale cost pressures squeeze household budgets and erode margins for discretionary consumer retailers.",
+          "tickers": [
+            "XLY",
+            "RTH",
+            "KSS",
+            "F"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            5,
+            9,
+            13,
+            14,
+            15,
+            29,
+            36
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Cautious and risk-off over 1-3 months as markets absorb the $110 oil shock, reprice potential Fed rate actions under Chair Warsh, and test technical support across tech and financial benchmarks.",
+      "long_term": "Constructive on a 6-12 month horizon as energy supply shocks stabilize, AI infrastructure spending pivots from speculative hype to verified productivity gains, and quality balance sheets outperform.",
+      "key_catalysts": [
+        "Federal Reserve monetary policy address by Chair Kevin Warsh clarifying rate path intentions",
+        "Geopolitical developments and potential supply disruptions surrounding the Iran conflict",
+        "Upcoming Q3 earnings calls focusing on enterprise AI capital expenditure return on investment",
+        "US Treasury quarterly refunding guidance on long-end debt issuance volume",
+        "Next monthly CPI and PPI inflation reports reflecting cumulative fuel price pass-through"
+      ],
+      "watch_list": [
+        "Brent Crude and WTI spot prices ($110/bbl threshold)",
+        "US 10-Year and 30-Year Treasury yields and yield curve slope",
+        "Philadelphia Semiconductor Index (SOX) and AI bellwether volume stabilization",
+        "High-yield credit default swap spreads (CDX HY) and private debt loan terms",
+        "US Dollar Index (DXY) and cross-currency FX volatility"
+      ],
+      "headline_sources": [
+        1,
+        2,
+        6,
+        8,
+        11,
+        16,
+        19,
+        28,
+        34,
+        35,
+        47,
+        50
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Alaska Senate candidates clash over the Iran war, high prices and their times in office",
+      "url": "https://www.nbcnews.com/politics/2026-election/alaska-senate-candidates-clash-iran-war-high-prices-trump-rcna603839",
+      "publishedAt": "2026-10-16T11:16:58+00:00"
+    },
+    {
+      "index": 2,
+      "headline": "Cracks are beginning to show in the stock market as doubts about AI investments grow",
+      "url": "https://www.nbcnews.com/business/markets/stock-market-ai-data-centers-doubts-rcna603710",
+      "publishedAt": "2026-10-15T15:38:19+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "LinkedIn Reveals Its List of 2026's Top Startups",
+      "url": "https://www.today.com/video/linkedin-s-list-of-top-startups-for-2026-see-which-made-the-list-271557701679",
+      "publishedAt": "2026-10-14T13:20:46+00:00"
+    },
+    {
+      "index": 4,
+      "headline": "\"Farrow and Ball\": The Colours of Money's Must-Read Books",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-16/farrow-and-ball-the-colours-of-money-s-must-read-books-video",
+      "publishedAt": "2026-10-16T19:50:07+00:00"
+    },
+    {
+      "index": 5,
+      "headline": "Gas and diesel prices squeeze consumers as inflation jumps to 3.7%",
+      "url": "https://www.nbcnews.com/business/economy/inflation-jumped-september-gas-diesel-prices-squeezed-consumers-ahead-rcna603202",
+      "publishedAt": "2026-10-14T12:34:25+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "Coreweave Slides 25% for the Week as AI Credit Concerns Grow | Closing Bell",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-16/coreweave-slides-on-ai-fears-closing-bell-video",
+      "publishedAt": "2026-10-16T20:27:01+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "Sound Inpatient Nears $1 Billion Private Debt After Pulling Loan",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-16/sound-inpatient-nears-1-billion-private-debt-after-pulling-loan",
+      "publishedAt": "2026-10-16T19:47:31+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "Brent Oil Taps $110 for First Time Since May as Risks Swirl",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-16/oil-tops-110-for-first-time-since-may-as-supply-risk-grows",
+      "publishedAt": "2026-10-16T18:33:43+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "More Women Are Tapping Into Inner ‘Golden Girl’ to Save Money",
+      "url": "https://www.today.com/video/more-women-are-tapping-into-inner-golden-girl-to-save-money-271555653818",
+      "publishedAt": "2026-10-14T12:57:56+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "US Gives Green Light for New Routes from Mexico City Airports",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-16/mexico-says-airlines-can-add-us-routes-from-mexico-city-airports",
+      "publishedAt": "2026-10-16T22:11:45+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "Wall Street Anxiety Spreads as AI Rout Meets $110 Oil Shock",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-16/wall-street-anxiety-spreads-as-ai-rout-meets-110-oil-shock",
+      "publishedAt": "2026-10-16T20:31:45+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Gold Steady as Rate-Hike Bets Ease, Oil Pushes Yields Higher",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/gold-holds-gains-with-haven-demand-and-lower-yields-in-focus",
+      "publishedAt": "2026-10-15T23:51:46+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "Netflix to cut about 6% of worldwide staff",
+      "url": "https://www.nbcnews.com/business/media/netflix-layoffs-rcna603454",
+      "publishedAt": "2026-10-14T14:15:15+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "US Consumer Is 'Roughed Up,' But Spending, Porcelli Says",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-16/consumer-is-roughed-up-but-spending-porcelli-says-video",
+      "publishedAt": "2026-10-16T19:37:06+00:00"
+    },
+    {
+      "index": 15,
+      "headline": "American Dream Running Past Us: Freedman",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-16/american-dream-running-past-us-freedman-video",
+      "publishedAt": "2026-10-16T19:41:01+00:00"
+    },
+    {
+      "index": 16,
+      "headline": "S&P 500 Suffers Worst Week Since June as AI Fears Hit Chipmakers",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-16/s-p-500-steady-as-warsh-boosts-expectations-of-rate-hold",
+      "publishedAt": "2026-10-16T14:01:24+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "Government names Sir John Kingman as Great British Railways chair",
+      "url": "https://www.bbc.co.uk/news/articles/c5j9kv1py77zo",
+      "publishedAt": "2026-10-16T13:54:17Z"
+    },
+    {
+      "index": 18,
+      "headline": "Europe’s EV sales soar as North America drops 44% – here’s the catch - Electrek",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQNXE0WDZfOHFLaWVfTE90VTNSVTZ2bXd0SmNjbFdhMF9WdWlhdkFaWFFUemsxb3dTU3dkd25rZ0lKaER1TE42bTNJc2Q3M0RNU3JpMTVXQkktWVlfNDZ3LU9yMDRiZTJ3NmtoTktTbTlzTFNyX052NmRzYWIteEpnZDNObnZjVWZCSm9jd2F4RW0tY2I0dWF5UkJtTQ?oc=5",
+      "publishedAt": "2026-10-15T23:01:00Z"
+    },
+    {
+      "index": 19,
+      "headline": "What's next for interest rates? Fed Chair Warsh wants price stability",
+      "url": "https://www.usatoday.com/story/money/economy/2026/10/16/federal-reserve-kevin-warsh-imf-price-stability-rates/92279509007/",
+      "publishedAt": "2026-10-16T13:51:00Z"
+    },
+    {
+      "index": 20,
+      "headline": "IMF: Healey should cut welfare spending instead of taxing banks",
+      "url": "https://www.telegraph.co.uk/business/2026/10/16/imf-healey-should-cut-welfare-spending/",
+      "publishedAt": "2026-10-16T13:57:00Z"
+    },
+    {
+      "index": 21,
+      "headline": "Trump says government officials who leak to the media ‘should be shot’",
+      "url": "https://www.nbcnews.com/politics/donald-trump/president-says-government-officials-who-leak-to-media-should-be-shot-rcna603613",
+      "publishedAt": "2026-10-15T00:22:08+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "'Wake-up call for retailers': How cyberattacks threaten supermarket food supplies",
+      "url": "https://www.aa.com.tr/en/world/wake-up-call-for-retailers-how-cyberattacks-threaten-supermarket-food-supplies/4091114",
+      "publishedAt": "2026-10-16T13:53:45Z"
+    },
+    {
+      "index": 23,
+      "headline": "Targeted ads delivered 0-click exploits to install mercenary malware - Ars Technica",
+      "url": "https://arstechnica.com/security/2026/10/targeted-ads-delivered-0-click-exploits-to-install-mercenary-malware/",
+      "publishedAt": "2026-10-15T20:32:41Z"
+    },
+    {
+      "index": 24,
+      "headline": "CNBC Daily Open: Is the AI sector losing its rose-colored glow? - CNBC",
+      "url": "https://www.cnbc.com/2026/10/16/cnbc-daily-open-ai-inflation-coreweave-.html",
+      "publishedAt": "2026-10-16T01:06:00Z"
+    },
+    {
+      "index": 25,
+      "headline": "EVs are holding value better than expected - and it has a lot to do with Australia’s cost of living",
+      "url": "https://www.theguardian.com/environment/2026/oct/17/second-hand-electric-vehicles-ev-value-australia-petrol-prices",
+      "publishedAt": "2026-10-16T14:01:00Z"
+    },
+    {
+      "index": 26,
+      "headline": "Euro Snaps Five-Week Losing Streak With Warsh Remarks",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-16/euro-set-to-end-five-week-losing-run-as-warsh-remarks-hit-dollar",
+      "publishedAt": "2026-10-16T09:37:30+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "3 goals of cybersecurity help you achieve a fourth",
+      "url": "https://www.reuters.com/legal/legalindustry/3-goals-cybersecurity-help-you-achieve-fourth--pracin-2026-10-16/",
+      "publishedAt": "2026-10-16T13:49:39Z"
+    },
+    {
+      "index": 28,
+      "headline": "Tech stocks erase $1 trillion of wealth as oil surges to $110 for the first time since May",
+      "url": "https://www.nbcnews.com/business/energy/oil-prices-hormuz-iran-ukraine-rcna603919",
+      "publishedAt": "2026-10-16T17:55:43+00:00"
+    },
+    {
+      "index": 29,
+      "headline": "Inflation hit businesses even harder than consumers last month",
+      "url": "https://www.nbcnews.com/business/economy/ppi-business-inflation-trump-consumers-rcna603666",
+      "publishedAt": "2026-10-15T13:35:04+00:00"
+    },
+    {
+      "index": 30,
+      "headline": "Elon Musk shows off ‘flying’ Tesla Roadster after years of delays",
+      "url": "https://www.nbcnews.com/tech/tech-news/elon-musk-shows-flying-tesla-roadster-years-delays-rcna603905",
+      "publishedAt": "2026-10-16T15:58:45+00:00"
+    },
+    {
+      "index": 31,
+      "headline": "Compass Sues California Home Listing Service Over Rules",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-16/compass-files-suit-over-california-home-listing-service-rules",
+      "publishedAt": "2026-10-16T19:05:17+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "Get an Exclusive First Look at Google's New 'When to Buy' Guide",
+      "url": "https://www.today.com/video/get-an-exclusive-first-look-at-google-s-new-when-to-buy-guide-271618629550",
+      "publishedAt": "2026-10-15T12:36:57+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "Graza CEO on Market Expansion, Consumer Outlook",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-16/graza-ceo-on-market-expansion-consumer-outlook-video",
+      "publishedAt": "2026-10-16T22:02:25+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "US Bonds Fall as Treasury Is Silent on Long End, Oil Climbs",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-16/long-term-treasuries-fall-as-dealer-survey-offers-little-signal",
+      "publishedAt": "2026-10-16T16:31:16+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "Will the Fed raise interest rates this month? A Kevin Warsh speech could offer clues - NBC News",
+      "url": "https://www.nbcnews.com/business/economy/will-fed-raise-interest-rates-kevin-warsh-offer-clues-rcna603661",
+      "publishedAt": "2026-10-15T20:28:24Z"
+    },
+    {
+      "index": 36,
+      "headline": "Inflation Jumps Amid Rising Fuel Prices: How it Impacts Americans",
+      "url": "https://www.today.com/video/inflation-jumps-amid-rising-fuel-prices-how-it-impacts-americans-271614533760",
+      "publishedAt": "2026-10-15T11:19:49+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "Micron Stock Drop Triggers ‘Buy the Dip’ Calls. No One’s Listening.",
+      "url": "https://www.barrons.com/articles/micron-stock-price-drop-buy-ad2ff6d2",
+      "publishedAt": "2026-10-16T13:53:00Z"
+    },
+    {
+      "index": 38,
+      "headline": "The best retinol and retinal serums for smoother, firmer skin - tested",
+      "url": "https://www.theguardian.com/thefilter/2026/oct/16/best-retinol-retinal-serum-cream-tested-uk",
+      "publishedAt": "2026-10-16T14:00:14Z"
+    },
+    {
+      "index": 39,
+      "headline": "Chinese Stocks Turn Biggest Losers as Global AI Trade Stumbles",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-17/chinese-stocks-turn-biggest-losers-as-global-ai-trade-stumbles",
+      "publishedAt": "2026-10-17T00:00:00+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "Netflix’s Chief Content Officer Bela Bajaria Exiting - Deadline",
+      "url": "http://deadline.com/2026/10/netflixs-chief-content-officer-bela-bajaria-leaving-1237158727/",
+      "publishedAt": "2026-10-15T21:42:00Z"
+    },
+    {
+      "index": 41,
+      "headline": "Chick-fil-A bet on chicken 60 years ago. Now it’s America’s third largest restaurant chain.",
+      "url": "https://www.nbcnews.com/business/ceo-interviews/chick-fil-a-ceo-andrew-cathy-restaurant-rcna603203",
+      "publishedAt": "2026-10-14T12:09:06+00:00"
+    },
+    {
+      "index": 42,
+      "headline": "The Tesla Roadster flew, drove upside down, and hit 60mph in under a second - The Verge",
+      "url": "https://www.theverge.com/transportation/1012552/tesla-roadster-next-gen-reveal-elon-musk",
+      "publishedAt": "2026-10-16T01:28:00Z"
+    },
+    {
+      "index": 43,
+      "headline": "Peru Indigenous Group Bids for Part of China-Owned Mine",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-16/peru-indigenous-group-bids-for-part-of-china-owned-copper-mine",
+      "publishedAt": "2026-10-16T15:03:59+00:00"
+    },
+    {
+      "index": 44,
+      "headline": "AkzoNobel, Axalta offer remedies in bid for EU approval for $25 billion deal",
+      "url": "https://live.euronext.com/en/financial-news/akzonobel-axalta-offer-remedies-bid-eu-approval-25-billion-deal",
+      "publishedAt": "2026-10-16T13:57:23Z"
+    },
+    {
+      "index": 45,
+      "headline": "Bank Negara keeps Maybank, CIMB and Public Bank on systemically important banks list, with capital buffers unchanged",
+      "url": "https://theedgemalaysia.com/node/822183",
+      "publishedAt": "2026-10-16T13:52:25Z"
+    },
+    {
+      "index": 46,
+      "headline": "Dollar Has Worst Week in Month With Warsh Quiet on Rate Path",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-16/dollar-heads-for-worst-week-in-over-a-month-as-warsh-stays-quiet",
+      "publishedAt": "2026-10-16T16:24:13+00:00"
+    },
+    {
+      "index": 47,
+      "headline": "Chip Stocks Post Longest Losing Streak Since 2008: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-15/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-10-15T22:04:06+00:00"
+    },
+    {
+      "index": 48,
+      "headline": "Mission… accepted: meet the stunning new mid-engined Porsche Mission S - Top Gear",
+      "url": "https://www.topgear.com/car-news/supercars/mission-accepted-meet-stunning-new-mid-engined-porsche-mission-s",
+      "publishedAt": "2026-10-15T20:30:00Z"
+    },
+    {
+      "index": 49,
+      "headline": "TGI Fridays CEO on Company Turnaround, Expansion Plans",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-16/tgi-fridays-ceo-on-company-turnaround-expansion-plans-video",
+      "publishedAt": "2026-10-16T21:56:54+00:00"
+    },
+    {
+      "index": 50,
+      "headline": "Big US Bank Stocks Log Worst Weekly Losing Streak Since 2008",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-16/big-us-bank-shares-set-for-worst-weekly-losing-streak-since-2008",
+      "publishedAt": "2026-10-16T17:13:29+00:00"
+    },
+    {
+      "index": 51,
+      "headline": "Global tech rout loses steam - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/global-tech-rout-loses-steam-210438608.html",
+      "publishedAt": "2026-10-15T21:04:38Z"
+    },
+    {
+      "index": 52,
+      "headline": "Social Security recipients will receive a 3.6% cost-of-living increase in 2027 ",
+      "url": "https://www.nbcnews.com/business/personal-finance/social-security-cola-2027-increase-rcna603284",
+      "publishedAt": "2026-10-14T13:35:52+00:00"
+    }
+  ]
+}
