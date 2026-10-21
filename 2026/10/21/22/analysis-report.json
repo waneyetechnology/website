@@ -1,0 +1,634 @@
+{
+  "analysis": {
+    "analysis_date": "October 21, 2026",
+    "analysis_time": "22:02",
+    "executive_summary": {
+      "key_highlights": [
+        "Late-session equity rally driven by Meta's aggressive AI investment posture and strong SpaceX operating results, countering broader tech valuation caution.",
+        "Middle East conflict escalates as the US orders diplomatic evacuations from Saudi Arabia following Houthi strikes, triggering crude volatility and a Treasury selloff.",
+        "Hyperscalers Google and Amazon intensify efforts to counter Nvidia's dominance among AI developers, while AMD gains 3.4%.",
+        "Boeing reaches critical milestone with FAA progress certifying its largest 737 Max variant after prolonged regulatory delays.",
+        "Aviation sector faces cost headwind: United Airlines slashes 2026 profit guidance due to fuel price spikes despite resilient passenger demand.",
+        "Elon Musk announces Tesla and SpaceX have formed special committees to evaluate potential merger options.",
+        "Healthcare M&A surges with EQT securing a €9.6 billion buyout agreement for molecular diagnostics firm Qiagen."
+      ],
+      "market_sentiment_score": 58,
+      "overall_sentiment": "neutral",
+      "headline_sources": [
+        4,
+        5,
+        15,
+        16,
+        17,
+        21,
+        24,
+        27,
+        33,
+        37,
+        44,
+        46,
+        47,
+        49
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Information Technology & AI",
+          "trend": "Hyperscalers are actively developing custom silicon and software ecosystems to erode Nvidia's moat, while foundational AI M&A expands into biotechnology.",
+          "implications": "Accelerating capex cycles favor alternative chip architectures (AMD, custom ASICs) and specialized vertical AI integrations, though data center execution risks persist.",
+          "headline_sources": [
+            1,
+            5,
+            16,
+            25,
+            27,
+            30,
+            36,
+            46,
+            48
+          ]
+        },
+        {
+          "sector": "Energy & Commodities",
+          "trend": "Geopolitical risk premia returned sharply to energy markets following escalated Houthi attacks in Saudi Arabia and subsequent US diplomatic drawdown.",
+          "implications": "Crude oil whipsawing pushes fuel costs higher, reigniting inflation fears and pressuring consumer travel and energy-dependent operating margins.",
+          "headline_sources": [
+            11,
+            20,
+            21,
+            22,
+            23,
+            24,
+            47
+          ]
+        },
+        {
+          "sector": "Aerospace, Defense & Space",
+          "trend": "Commercial aerospace certification breakthrough for Boeing coincides with private space commercialization and potential structural combination between SpaceX and Tesla.",
+          "implications": "Clears regulatory bottleneck on Boeing's narrowbody backlog, while SpaceX's strong results establish valuation benchmarks for commercial orbital launch and satellite telecom.",
+          "headline_sources": [
+            15,
+            17,
+            37,
+            44
+          ]
+        },
+        {
+          "sector": "Healthcare & Life Sciences",
+          "trend": "High-value private equity buyouts and AI-driven cross-disciplinary acquisitions highlight ongoing consolidation in diagnostics and biotechnology.",
+          "implications": "Underscores resilient private capital deployment in European life sciences (EQT/Qiagen) and growing strategic intersection between generative AI and biotech (OpenAI/Orchestra Bio).",
+          "headline_sources": [
+            1,
+            3,
+            4
+          ]
+        },
+        {
+          "sector": "Airlines & Transportation",
+          "trend": "Bifurcation between robust consumer booking volumes and margin degradation caused by elevated jet fuel inputs.",
+          "implications": "United Airlines' guidance cut indicates operating margin compression across carriers lacking extensive fuel hedging, despite solid pricing power.",
+          "headline_sources": [
+            33
+          ]
+        },
+        {
+          "sector": "Fixed Income & Sovereign Debt",
+          "trend": "Treasury yields advance as rising oil prices complicate the Federal Reserve's rate-easing trajectory, while emerging market bonds face political volatility.",
+          "implications": "Duration assets face near-term headwinds; Argentina sovereign debt suffers acute selloffs ahead of elections, amplifying credit risk premia.",
+          "headline_sources": [
+            11,
+            24,
+            28,
+            39
+          ]
+        }
+      ],
+      "key_themes": [
+        "AI infrastructure diversification as cloud giants seek alternatives to Nvidia GPU dependency.",
+        "Geopolitical energy shock reviving stagflation concerns and lifting benchmark sovereign yields.",
+        "Large-scale corporate restructuring and M&A in aerospace, space, and life sciences.",
+        "Input cost inflation dampening corporate forward guidance despite steady consumer demand.",
+        "Sovereign debt divergence amid Latin American election cycles and global monetary policy recalibration."
+      ],
+      "headline_sources": [
+        1,
+        4,
+        5,
+        11,
+        15,
+        16,
+        17,
+        21,
+        24,
+        27,
+        28,
+        30,
+        33,
+        37,
+        39,
+        44,
+        46,
+        47
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Middle East Geopolitical Escalation & Supply Interruption",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Increase tactical allocation to upstream energy producers, commodity trading strategies, and defense contractors.",
+        "headline_sources": [
+          20,
+          21,
+          24,
+          47
+        ]
+      },
+      {
+        "risk_factor": "Interest Rate Path Re-pricing & Duration Volatility",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Shorten portfolio duration, allocate to floating-rate credit instruments, and maintain core gold hedge positions.",
+        "headline_sources": [
+          11,
+          24
+        ]
+      },
+      {
+        "risk_factor": "Data Center & Semiconductor Supply Bottlenecks",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Diversify semiconductor exposure across fabless designers, alternative foundries, and enterprise AI software beneficiaries.",
+        "headline_sources": [
+          5,
+          25,
+          30
+        ]
+      },
+      {
+        "risk_factor": "Fuel-Driven Margin Compression in Transportation",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Underweight unhedged airline carriers and transport firms; prioritize operators demonstrating flexible cost-pass-through mechanics.",
+        "headline_sources": [
+          33
+        ]
+      },
+      {
+        "risk_factor": "Emerging Market Sovereign Debt Contagion",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Reduce exposure to high-beta, politically volatile Latin American sovereign credits; concentrate EM debt in investment-grade sovereigns.",
+        "headline_sources": [
+          28,
+          39
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Overweight AI Silicon Alternates & Hyperscaler Cloud Platforms",
+          "rationale": "Cloud giants (Google, Amazon) developing proprietary AI accelerators and AMD gaining developer traction provide diversified upside with attractive risk-reward relative to peak Nvidia concentration.",
+          "tickers": [
+            "GOOGL",
+            "AMZN",
+            "AMD",
+            "META"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            5,
+            16,
+            27,
+            46
+          ]
+        },
+        {
+          "recommendation": "Capitalize on Aerospace Re-Rating Post-737 Max Certification",
+          "rationale": "US certification of the largest 737 Max variant removes multi-year overhang, paving way for normalized delivery cadences and cash-flow recovery.",
+          "tickers": [
+            "BA"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            15
+          ]
+        },
+        {
+          "recommendation": "Position for Healthcare Diagnostic & Molecular Testing M&A",
+          "rationale": "EQT's €9.6B takeover of Qiagen establishes strong valuation multiples for specialized diagnostics assets, signaling renewed private equity deployment.",
+          "tickers": [
+            "QGEN"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            1,
+            4
+          ]
+        },
+        {
+          "recommendation": "Establish Exposure to Commercial Space & Satellite Launch Expansion",
+          "rationale": "SpaceX's robust operational earnings and prospective corporate alignment with Tesla create positive momentum for space exploration and satellite communications.",
+          "tickers": [
+            "TSLA"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            17,
+            37,
+            44
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Hedge Geopolitical Spikes with Upstream Oil & Energy Equities",
+          "rationale": "US diplomatic withdrawal from Saudi Arabia and Houthi threats heighten Persian Gulf supply disruption risks, directly supporting crude prices and energy free-cash-flow yields.",
+          "tickers": [
+            "XOM",
+            "CVX",
+            "BNO"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            20,
+            21,
+            24,
+            47
+          ]
+        },
+        {
+          "recommendation": "Trim Exposure to Jet Fuel-Sensitive Airlines",
+          "rationale": "United Airlines' lowered 2026 profit outlook confirms that escalating fuel costs are outrunning passenger fare pricing power in the near term.",
+          "tickers": [
+            "UAL",
+            "AAL"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            24,
+            33
+          ]
+        },
+        {
+          "recommendation": "Maintain Allocations to Precious Metals Amid Fed Rate Repricing",
+          "rationale": "Gold serves as an effective ballast against simultaneous bond market selloffs and escalating Middle East geopolitical risks.",
+          "tickers": [
+            "GLD"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            11,
+            24
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Rangebound and volatile over the next 1-3 months as equity gains from mega-cap tech earnings clash with rising bond yields and Middle East risk premia.",
+      "long_term": "Cautiously bullish over a 6-12 month horizon, underpinned by structural AI productivity gains, commercial aerospace execution, and corporate M&A resurgence, assuming geopolitical containment.",
+      "key_catalysts": [
+        "Official earnings releases and guidance from Meta, SpaceX, and Netflix.",
+        "Geopolitical developments regarding Saudi Arabia, Houthi strikes, and Red Sea transit security.",
+        "Federal Reserve monetary policy stance and reaction to energy-driven inflation pressure.",
+        "Progress and structural details from Tesla and SpaceX special merger committees.",
+        "Formal regulatory sign-off and delivery timeline for Boeing's 737 Max 10."
+      ],
+      "watch_list": [
+        "Brent and WTI crude oil prompt spreads and Middle East tanker transit volumes.",
+        "US 10-Year Treasury yields and Fed funds futures rate cut expectations.",
+        "Hyperscaler AI infrastructure capex commentary vs near-term revenue realization.",
+        "Airline crack spreads and corporate booking trends.",
+        "Latin American sovereign credit default swaps and bond auction bid-to-covers."
+      ],
+      "headline_sources": [
+        6,
+        11,
+        13,
+        15,
+        16,
+        17,
+        21,
+        24,
+        28,
+        33,
+        37,
+        39,
+        44,
+        46,
+        47,
+        49
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Exclusive: OpenAI has acquired Orchestra Bio - Axios",
+      "url": "https://www.axios.com/2026/10/20/exclusive-openai-biotech-startup-drug-development",
+      "publishedAt": "2026-10-20T17:55:21Z"
+    },
+    {
+      "index": 2,
+      "headline": "Waste Connections (WCN) Q3 Revenue Beats Estimates Despite Volume Decline",
+      "url": "https://www.gurufocus.com/news/9135124/waste-connections-wcn-q3-revenue-beats-estimates-despite-volume-decline",
+      "publishedAt": "2026-10-21T22:01:56.000000Z"
+    },
+    {
+      "index": 3,
+      "headline": "Korean Beauty Shots Made From Dead Americans' Skin Are Aiming for US",
+      "url": "https://www.businessinsider.com/korean-k-beauty-skin-booster-injection-re2o-american-donor-2026-10",
+      "publishedAt": "2026-10-21T10:00:00Z"
+    },
+    {
+      "index": 4,
+      "headline": "EQT Reaches €9.6 Billion Deal for Molecular Testing Firm Qiagen",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-21/eqt-nears-9-6-billion-deal-for-molecular-testing-firm-qiagen",
+      "publishedAt": "2026-10-21T19:38:02+00:00"
+    },
+    {
+      "index": 5,
+      "headline": "Google has joined Amazon in attacking Nvidia’s stronghold with AI app developers - TechCrunch",
+      "url": "https://techcrunch.com/2026/10/20/google-has-joined-amazon-in-attacking-nvidias-stronghold-with-ai-app-developers/",
+      "publishedAt": "2026-10-20T18:38:24Z"
+    },
+    {
+      "index": 6,
+      "headline": "Netflix doesn’t want investors to worry, despite recent shake-ups, layoffs  ",
+      "url": "https://www.nbcnews.com/business/media/netflix-reports-third-quarter-earnings-rcna604472",
+      "publishedAt": "2026-10-20T23:07:33+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "EEUU se encamina a sus elecciones legislativas más caras",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-21/eeuu-se-encamina-a-sus-elecciones-legislativas-mas-caras-video",
+      "publishedAt": "2026-10-21T21:53:32+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "Online Returns Get Tougher: What You Can Do About It",
+      "url": "https://www.today.com/video/online-returns-get-tougher-strategies-to-make-it-easier-271877189967",
+      "publishedAt": "2026-10-20T12:21:12+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "Moody’s Earnings Fall Short of Estimates, Shares Little Changed",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-21/moody-s-earnings-fall-short-of-estimates-shares-decline",
+      "publishedAt": "2026-10-21T14:29:33+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "Food bank use in Canada more than doubles since 2019, report shows",
+      "url": "https://www.theglobeandmail.com/canada/article-food-bank-use-in-canada-more-than-doubles-since-2019-report-shows/",
+      "publishedAt": "2026-10-21T10:00:00Z"
+    },
+    {
+      "index": 11,
+      "headline": "Gold Swings as Traders Assess Fed Rate Path Amid Mideast Worries",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-21/gold-steadies-as-conflicting-iran-signals-cloud-path-for-rates",
+      "publishedAt": "2026-10-21T00:13:21+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "The East Coast’s audacious new plan to court Europe",
+      "url": "https://www.begiant.ca/stories/places/atlantic-canada-gateway-europe-regional-free-trade",
+      "publishedAt": "2026-10-21T10:00:05Z"
+    },
+    {
+      "index": 13,
+      "headline": "Netflix Revenue Growth Slows as It Overhauls Programming Units - WSJ",
+      "url": "https://www.wsj.com/business/earnings/netflix-revenue-growth-slows-as-it-overhauls-programming-units-d6eac0b5",
+      "publishedAt": "2026-10-20T20:01:00Z"
+    },
+    {
+      "index": 14,
+      "headline": "Zero-Dollar Splurge: How Fake Stores Deliver Real Retail Therapy",
+      "url": "https://www.today.com/video/new-simulated-shopping-sites-offer-thrill-without-the-bill-271959109646",
+      "publishedAt": "2026-10-21T12:31:55+00:00"
+    },
+    {
+      "index": 15,
+      "headline": "US certifying Boeing’s largest 737 Max after years of delays, AP source says - AP News",
+      "url": "https://apnews.com/article/boeing-737-max-10-certification-faa-duffy-a18eb4a039f37a6f67d40edceb28f52c",
+      "publishedAt": "2026-10-20T16:13:00Z"
+    },
+    {
+      "index": 16,
+      "headline": "Stocks Climb in Late Hours on Meta’s Big AI Wagers: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-20/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-10-20T22:05:51+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "Elon Musk says SpaceX and Tesla have formed special committees to discuss merger idea",
+      "url": "https://www.nbcnews.com/business/business-news/elon-musk-spacex-tesla-merger-rcna604685",
+      "publishedAt": "2026-10-20T22:57:53+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "India's Eternal quarterly profit nearly doubles but misses estimates as costs rise",
+      "url": "https://www.reuters.com/world/india/indias-eternal-quarterly-profit-misses-estimates-blinkit-expansion-costs-weigh-2026-10-21/",
+      "publishedAt": "2026-10-21T09:59:26Z"
+    },
+    {
+      "index": 19,
+      "headline": "Small Business Owners Remain Optimistic, Says Chase for Business CEO ",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-21/small-business-owners-are-optimistic-baron-video",
+      "publishedAt": "2026-10-21T19:51:04+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "Latest Oil Market News and Analysis for Oct. 21",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-20/latest-oil-market-news-and-analysis-for-oct-21",
+      "publishedAt": "2026-10-20T22:04:52+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "US Orders Some Diplomats Out of Saudi Arabia Amid Houthi Attacks",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-21/us-orders-some-diplomats-out-of-saudi-arabia-amid-houthi-attacks",
+      "publishedAt": "2026-10-21T20:08:04+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "Chevron Ends Support for Guyana Port Studies After Hess Acquisition  ",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-21/chevron-dropped-funding-for-proposed-guyana-port-studies-inherited-from-hess",
+      "publishedAt": "2026-10-21T19:30:17+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "Bolsonaro Adviser Backs Freer Petrobras, Rules Out Privatization",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-21/bolsonaro-adviser-backs-freer-petrobras-rules-out-privatization",
+      "publishedAt": "2026-10-21T21:17:00+00:00"
+    },
+    {
+      "index": 24,
+      "headline": "Treasuries Slide After Middle East Strife Report Spurs Oil Gains",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-21/treasuries-slide-after-middle-east-strife-report-spurs-oil-gains",
+      "publishedAt": "2026-10-21T19:46:49+00:00"
+    },
+    {
+      "index": 25,
+      "headline": "Four workers killed after fall at TSMC’s 2nm fab construction site",
+      "url": "https://www.yahoo.com/news/world/articles/three-workers-killed-one-intensive-100000730.html",
+      "publishedAt": "2026-10-21T10:00:00Z"
+    },
+    {
+      "index": 26,
+      "headline": "iPhone Duo review: Is Apple's first foldable smartphone too expensive?",
+      "url": "https://www.nbcnews.com/video/iphone-duo-review-apple-s-first-foldable-smartphone-271968837843",
+      "publishedAt": "2026-10-21T15:30:40+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "Advanced Micro Devices Inc (AMD) Shares Surge 3.4% -- What GF Score of 81 Tells Investors",
+      "url": "https://www.gurufocus.com/news/9135122/advanced-micro-devices-inc-amd-shares-surge-34-what-gf-score-of-81-tells-investors",
+      "publishedAt": "2026-10-21T22:01:33.000000Z"
+    },
+    {
+      "index": 28,
+      "headline": "Argentina enfrenta una ola de ventas de bonos antes de las elecciones de 2027",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-21/argentina-enfrenta-una-ola-de-ventas-de-bonos-antes-de-las-elecciones-de-2027",
+      "publishedAt": "2026-10-21T19:34:32+00:00"
+    },
+    {
+      "index": 29,
+      "headline": "Ex-Brevan Howard Trader Sued by Quant Who Joined New Fund",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-21/ex-brevan-howard-trader-sued-by-quant-who-joined-his-new-fund",
+      "publishedAt": "2026-10-21T18:30:09+00:00"
+    },
+    {
+      "index": 30,
+      "headline": "NextDC shares tank 40pc after return to trade, ASX gains ground - as it happened",
+      "url": "https://www.abc.net.au/news/2026-10-21/asx-markets-business-live-news-oct-21-2026/107290728",
+      "publishedAt": "2026-10-21T09:55:58Z"
+    },
+    {
+      "index": 31,
+      "headline": "Fall Job Search Strategies to Add Some Extra Cash to Your Wallet",
+      "url": "https://www.today.com/video/fall-job-search-strategies-to-add-some-extra-cash-to-your-wallet-271961157715",
+      "publishedAt": "2026-10-21T13:22:17+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "Vietnam's Vingroup investing $500M to put up EV manufacturing facility in PH - DTI",
+      "url": "https://www.gmanetwork.com/news/money/companies/1006694/vietnam-s-vingroup-investing-500m-to-put-up-ev-manufacturing-facility-in-ph-dti/story/",
+      "publishedAt": "2026-10-21T09:57:29Z"
+    },
+    {
+      "index": 33,
+      "headline": "United Airlines slashes 2026 profit outlook on fuel prices, but travelers keep booking despite higher fares - CNBC",
+      "url": "https://www.cnbc.com/2026/10/20/united-airlines-ual-3q-2026-earnings.html",
+      "publishedAt": "2026-10-20T20:03:05Z"
+    },
+    {
+      "index": 34,
+      "headline": "'Less Bluster' In Private Talks: Sidley's Liekefett",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-21/-less-bluster-in-private-talks-sidley-s-liekefett-video",
+      "publishedAt": "2026-10-21T20:17:37+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "BlackRock Director on Investment Shifts, Wealth Transfer",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-21/blackrock-director-on-investment-shifts-wealth-transfer-video",
+      "publishedAt": "2026-10-21T21:26:36+00:00"
+    },
+    {
+      "index": 36,
+      "headline": "Target Rolls Out AI Shopping Assistant As Part of Holiday Push",
+      "url": "https://www.businessinsider.com/target-rolls-out-ai-shopping-assistant-for-holiday-push-2026-10",
+      "publishedAt": "2026-10-21T10:00:00Z"
+    },
+    {
+      "index": 37,
+      "headline": "US Futures Climb With SpaceX Results Helping Boost AI Sentiment",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-21/us-futures-climb-with-spacex-results-helping-boost-ai-sentiment",
+      "publishedAt": "2026-10-21T12:18:53+00:00"
+    },
+    {
+      "index": 38,
+      "headline": "FCA closes the book on Home REIT investigation",
+      "url": "https://portfolio-adviser.com/fca-closes-the-book-on-home-reit-investigation/",
+      "publishedAt": "2026-10-21T09:54:26Z"
+    },
+    {
+      "index": 39,
+      "headline": "Argentina’s Bond Selloff Blindsides Bulls as Vote Fears Grow",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-21/argentina-s-bond-selloff-blindsides-bulls-as-election-fears-grow",
+      "publishedAt": "2026-10-21T17:28:46+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "The Two Cities Fighting for Asia’s Cash Crown",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-21/the-battle-for-asia-s-money-video",
+      "publishedAt": "2026-10-21T21:01:00+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Let’s Talk About the PMH (the Politics Matter Hypothesis)",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-10-21/let-s-talk-about-the-pmh-the-politics-matter-hypothesis",
+      "publishedAt": "2026-10-21T20:23:04+00:00"
+    },
+    {
+      "index": 42,
+      "headline": "Carrefour shares plunge after profit warning on French protests",
+      "url": "https://www.lemonde.fr/en/france/article/2026/10/21/carrefour-shares-plunge-after-profit-warning-on-french-protests_6760922_7.html",
+      "publishedAt": "2026-10-21T09:58:56Z"
+    },
+    {
+      "index": 43,
+      "headline": "Las Vegas Sands (LVS) Shares Slip After Q3 Earnings Amid Dividend and Valuation Focus",
+      "url": "https://www.gurufocus.com/news/9135123/las-vegas-sands-lvs-shares-slip-after-q3-earnings-amid-dividend-and-valuation-focus",
+      "publishedAt": "2026-10-21T22:01:38.000000Z"
+    },
+    {
+      "index": 44,
+      "headline": "SpaceX earnings live updates: Here's why analysts are bullish ahead of the report - CNBC",
+      "url": "https://www.cnbc.com/2026/10/20/spacex-spcx-earnings-live-updates-q3-2026html.html",
+      "publishedAt": "2026-10-20T16:10:00Z"
+    },
+    {
+      "index": 45,
+      "headline": "CNN’s Christiane Amanpour to leave network after 43 years",
+      "url": "https://www.nbcnews.com/business/media/cnns-christiane-amanpour-depart-network-43-years-rcna604365",
+      "publishedAt": "2026-10-19T15:25:52+00:00"
+    },
+    {
+      "index": 46,
+      "headline": "Meta Q3 earnings to test Wall Street's stomach for AI spending - Yahoo Finance",
+      "url": "https://finance.yahoo.com/technology/article/meta-q3-earnings-to-test-wall-streets-stomach-for-ai-spending-184105375.html",
+      "publishedAt": "2026-10-20T18:41:05Z"
+    },
+    {
+      "index": 47,
+      "headline": "Oil prices whipsaw as markets weigh Middle East turmoil against uncertain demand",
+      "url": "https://www.nbcnews.com/business/energy/oil-prices-new-normal-gas-midterms-rcna604542",
+      "publishedAt": "2026-10-20T13:48:59+00:00"
+    },
+    {
+      "index": 48,
+      "headline": "Spotify says it removed 50 million ‘slop’ and spam AI tracks this year",
+      "url": "https://www.nbcnews.com/business/media/spotify-slop-spam-ai-tracks-rcna604571",
+      "publishedAt": "2026-10-20T18:28:41+00:00"
+    },
+    {
+      "index": 49,
+      "headline": "Stock market today: Dow, S&P 500 rise, Nasdaq slips as investors await SpaceX, Netflix earnings - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-dow-rises-sp-500-nasdaq-climb-as-dip-buying-resumes-165236471.html",
+      "publishedAt": "2026-10-20T20:22:20Z"
+    },
+    {
+      "index": 50,
+      "headline": "Starboard Value CEO Jeff Smith Lays Out Case for New Bets",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-21/starboard-value-ceo-lays-out-case-for-new-bets-video",
+      "publishedAt": "2026-10-21T20:01:51+00:00"
+    },
+    {
+      "index": 51,
+      "headline": "At least $963,000 in trading cards stolen from FedEx truck in California - ESPN",
+      "url": "https://www.espn.com/espn/story/_/id/50229905/at-least-963000-trading-cards-stolen-fedex-truck",
+      "publishedAt": "2026-10-20T18:03:00Z"
+    }
+  ]
+}
