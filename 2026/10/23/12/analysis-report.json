@@ -1,0 +1,706 @@
+{
+  "analysis": {
+    "analysis_date": "October 23, 2026",
+    "analysis_time": "12:01",
+    "executive_summary": {
+      "key_highlights": [
+        "Severe global risk-off environment driven by twin shocks: escalating Iran war conflict and mounting skepticism over hyper-scale AI capital expenditure ROI.",
+        "Tech rout deepens with Nasdaq futures down 1.8% following Meta's historic $25 billion regulatory fine and earnings indigestion across Meta and Tesla.",
+        "Hedge funds register their widest single-day drawdown since the Covid-19 pandemic, initiating broad-based forced deleveraging across global equities.",
+        "European sovereign risk widens sharply as French OAT bond spreads experience near-record weekly widening alongside civil unrest and Carrefour's €2B plunge.",
+        "Major corporate developments: Elon Musk confirms Tesla and SpaceX special committees are exploring a historic merger, while Tesla Cybercab launch nears.",
+        "China's CSI 300 drops into bear territory following a 10-week rout, even as domestic AI lab DeepSeek raises $15 billion to challenge US frontier labs.",
+        "Safe haven rotation accelerates into US Treasuries and Gold, which hovers near an unprecedented $4,000 per ounce."
+      ],
+      "market_sentiment_score": 25,
+      "overall_sentiment": "negative",
+      "headline_sources": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        12,
+        15,
+        16,
+        17,
+        18,
+        33,
+        34,
+        36,
+        41,
+        50,
+        51
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology & Artificial Intelligence",
+          "trend": "Public market multiple compression driven by AI capex skepticism and aggressive regulatory penalties, contrasted with robust private AI funding.",
+          "implications": "Meta's $25B fine and Amazon's $2.5B settlement heighten regulatory headwinds; public AI IPOs remain stalled while private mega-rounds (DeepSeek $15B) intensify competition.",
+          "headline_sources": [
+            2,
+            8,
+            9,
+            12,
+            17,
+            19,
+            21,
+            22,
+            25,
+            26,
+            31,
+            33,
+            34,
+            35,
+            40,
+            51
+          ]
+        },
+        {
+          "sector": "Financials & Global Credit",
+          "trend": "Subordinated bank debt and AT1 paper sell off as institutional liquidity contracts and quantitative hedge funds face severe margin compression.",
+          "implications": "Banks face rising wholesale funding costs; major institutions like Barclays (5,000 job cuts) are accelerating AI-driven operational streamlining to defend net margins.",
+          "headline_sources": [
+            1,
+            10,
+            15,
+            16,
+            22,
+            34,
+            37,
+            39,
+            43,
+            44
+          ]
+        },
+        {
+          "sector": "Energy & Commodities",
+          "trend": "Crude oil whipsaws under the threat of Middle East war escalation, offsetting macroeconomic demand softness from Asia.",
+          "implications": "Elevated energy costs create stagflationary headwinds that limit central bank easing capacity; gold hovers near record $4,000/oz as systemic hedge demand surges.",
+          "headline_sources": [
+            11,
+            18,
+            33,
+            38,
+            47,
+            50
+          ]
+        },
+        {
+          "sector": "Sovereign Debt & Global Macro",
+          "trend": "Flight to quality favoring US Treasuries, while European sovereign spreads widen sharply on political instability.",
+          "implications": "French OAT-Bund spreads widen rapidly amid domestic unrest; US Treasuries reassert negative correlation with tech equities as haven trades return.",
+          "headline_sources": [
+            3,
+            4,
+            8,
+            15,
+            24,
+            34,
+            36
+          ]
+        },
+        {
+          "sector": "Consumer Discretionary & Retail",
+          "trend": "Consumer demand retrenchment evident in luxury valuation collapses, restaurant sales softness, and rising labor friction.",
+          "implications": "European luxury multiples drop to 10-year lows on China weakness; operators like Chipotle face softening traffic while retail strikes disrupt operations.",
+          "headline_sources": [
+            7,
+            14,
+            20,
+            25,
+            26,
+            29,
+            36,
+            42,
+            45,
+            49
+          ]
+        },
+        {
+          "sector": "Healthcare & Biotechnology",
+          "trend": "Clinical validation in mRNA oncology creates macro-independent growth opportunities.",
+          "implications": "A 42% reduction in melanoma recurrence confirms strong commercial viability for personalized mRNA cancer vaccines, attracting defensive capital.",
+          "headline_sources": [
+            23,
+            46
+          ]
+        },
+        {
+          "sector": "Industrials & Materials",
+          "trend": "Divergence between resilient domestic emerging-market industrial demand and cyclical capital expenditure commitments.",
+          "implications": "JSW Steel profits triple on strong domestic pricing power, while diversified miners like Rio Tinto commit $1.9B to long-term bauxite infrastructure.",
+          "headline_sources": [
+            13,
+            27,
+            32,
+            52
+          ]
+        }
+      ],
+      "key_themes": [
+        "AI ROI Reckoning & Public-Private Divergence: Investors demand immediate revenue realization from corporate AI investments, penalizing public tech while private capital pours into frontier labs.",
+        "Geopolitical Stagflation Pressures: Escalating Iran war risks elevate oil prices, complicating disinflation and capping equity market relief rallies.",
+        "Hedge Fund Deleveraging & Credit Liquidation: Widest hedge fund drawdown since Covid spurs liquidation in high-beta tech, risky bank paper (AT1s), and emerging market retail equities.",
+        "Regulatory Crackdown on Big Tech: Multi-billion-dollar penalties against Meta ($25B) and Amazon ($2.5B) signal heightened global antitrust and consumer enforcement.",
+        "Sovereign Divergence and Haven Ascendancy: French political instability widens European debt spreads, pushing safe-haven capital into US Treasuries and gold ($4,000/oz)."
+      ],
+      "headline_sources": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        12,
+        15,
+        16,
+        17,
+        18,
+        22,
+        25,
+        29,
+        33,
+        34,
+        36,
+        37,
+        41,
+        50,
+        51
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Middle East War Escalation (Iran Conflict)",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Maintain long crude energy hedges (XLE/USO) and defensive gold positions (GLD) to buffer oil supply shocks.",
+        "headline_sources": [
+          18,
+          33,
+          38,
+          47,
+          50
+        ]
+      },
+      {
+        "risk_factor": "Systemic Hedge Fund Deleveraging & Tech Selloff",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Reduce gross portfolio beta, trim leveraged tech exposure, and accumulate cash and short-duration sovereign paper.",
+        "headline_sources": [
+          12,
+          15,
+          16,
+          44
+        ]
+      },
+      {
+        "risk_factor": "European Sovereign Spread Blowout & Political Turmoil",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Underweight European sovereign debt (French OATs) and domestically exposed European equities; rotate into German Bunds and US Treasuries.",
+        "headline_sources": [
+          3,
+          24,
+          36
+        ]
+      },
+      {
+        "risk_factor": "Heightened Big Tech Regulatory Enforcement",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Trim exposure to consumer tech platforms facing direct regulatory and antitrust liabilities; favor enterprise IT with lower consumer exposure.",
+        "headline_sources": [
+          9,
+          25
+        ]
+      },
+      {
+        "risk_factor": "China Equity Bear Market & Prolonged Deflation",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Avoid global consumer and luxury names heavily exposed to Chinese discretionary spending; focus on decoupled domestic growth markets like India.",
+        "headline_sources": [
+          14,
+          29,
+          41
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Allocate to mRNA oncology and commercial biotechnology pioneers.",
+          "rationale": "Breakthrough clinical data showing a 42% cut in melanoma recurrence offers compelling, market-uncorrelated secular growth.",
+          "tickers": [
+            "MRNA",
+            "MRK",
+            "XBI"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            23,
+            46
+          ]
+        },
+        {
+          "recommendation": "Execute tactical long positions in energy commodities and precious metals.",
+          "rationale": "Middle East geopolitical escalation and gold at $4,000/oz provide essential stagflation hedging and wealth preservation.",
+          "tickers": [
+            "GLD",
+            "USO",
+            "XLE"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            18,
+            33,
+            47,
+            50
+          ]
+        },
+        {
+          "recommendation": "Take tactical positions in Tesla around Cybercab and SpaceX synergy milestones.",
+          "rationale": "Demand outpacing vehicle production and the formation of special committees for a SpaceX merger offer powerful idiosyncratic upside catalysts.",
+          "tickers": [
+            "TSLA"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            2,
+            40,
+            51
+          ]
+        },
+        {
+          "recommendation": "Overweight Indian heavy industrial and infrastructure leaders over East Asian peers.",
+          "rationale": "JSW Steel's tripled quarterly profit confirms strong domestic infrastructure pricing power unaffected by China's equity bear market.",
+          "tickers": [
+            "INDY",
+            "EPI"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            32,
+            44
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Rebalance into intermediate US Treasuries as haven trade solidifies.",
+          "rationale": "US Treasuries have decoupled from tech selloffs and offer strong downside protection against macro volatility through mid-November.",
+          "tickers": [
+            "IEF",
+            "TLT",
+            "SHY"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            15,
+            33,
+            34
+          ]
+        },
+        {
+          "recommendation": "Underweight European luxury, retail, and automotive sectors.",
+          "rationale": "Severe valuation drawdowns across European luxury giants, Carrefour's €2B plunge, and Volvo job cuts signal persistent consumer margin compression.",
+          "tickers": [
+            "LVMUY",
+            "KERX",
+            "CAJPY"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            14,
+            29,
+            36
+          ]
+        },
+        {
+          "recommendation": "Reduce exposure to subordinated bank debt, AT1 securities, and high-yield credit.",
+          "rationale": "Investor flight from riskiest bank debt and hedge fund margin liquidations will widen credit spreads through mid-November.",
+          "tickers": [
+            "HYG",
+            "BKLN"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            1,
+            15,
+            16
+          ]
+        },
+        {
+          "recommendation": "Hedge mega-cap technology exposure using index put options or inverse ETFs.",
+          "rationale": "Meta's $25B penalty, Nasdaq futures dropping 1.8%, and pre-election tech angst justify hedging crowded mega-cap allocations.",
+          "tickers": [
+            "QQQ",
+            "SQQQ",
+            "META"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            8,
+            9,
+            12,
+            25,
+            33
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "A defensive, capital-preservation stance is imperative through mid-November. The confluence of US election anxiety, Iran war risks, tech capex reassessments, and hedge fund liquidity unwinding will sustain elevated volatility.",
+      "long_term": "Cautiously constructive for H1 2027. Once US political uncertainty clears and post-election fiscal priorities establish clarity, enterprise AI investments and secular corporate productivity enhancements will resume driving sustainable earnings growth.",
+      "key_catalysts": [
+        "US Presidential and Congressional election results in early November and subsequent fiscal policy signals.",
+        "Military developments in the Iran war and potential disruptions to global oil tanker routes.",
+        "Progress and structural terms emerging from the Tesla-SpaceX merger special committee discussions.",
+        "French fiscal budget votes and sovereign bond yield spread stabilization efforts.",
+        "Regulatory appeals and judicial developments surrounding Meta's $25B fine and FTC antitrust actions."
+      ],
+      "watch_list": [
+        "French OAT vs. German Bund 10-year yield spread.",
+        "Crude oil volatility index (OVX) and spot Brent crude support/resistance levels.",
+        "Gold price consolidation patterns around the historic $4,000/oz benchmark.",
+        "US 10-Year Treasury yields and term premium shifts during equity selloffs.",
+        "CSI 300 index stabilization signals and Chinese fiscal stimulus announcements.",
+        "High-yield credit default swap (CDX HY) and bank AT1 capital debt spreads."
+      ],
+      "headline_sources": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        12,
+        15,
+        16,
+        18,
+        33,
+        34,
+        36,
+        41,
+        50,
+        51
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Riskiest Bank Securities Lose Luster as Investors Get Picky",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-23/at1s-easy-money-run-fades-as-banks-pay-up-for-riskiest-debt",
+      "publishedAt": "2026-10-23T10:02:44+00:00"
+    },
+    {
+      "index": 2,
+      "headline": "Elon Musk says Tesla vehicle demand exceeding production ahead of Dallas Cybercab launch - Fox Business",
+      "url": "https://www.foxbusiness.com/technology/elon-musk-says-tesla-vehicle-demand-exceeding-production-ahead-dallas-cybercab-launch",
+      "publishedAt": "2026-10-22T04:38:00Z"
+    },
+    {
+      "index": 3,
+      "headline": "French Bond Risk Nears Biggest Weekly Rise as Crisis Deepens",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-23/french-bond-risk-nears-biggest-weekly-rise-as-crisis-deepens",
+      "publishedAt": "2026-10-23T09:41:05+00:00"
+    },
+    {
+      "index": 4,
+      "headline": "De olho nas eleições ",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-23/de-olho-nas-eleicoes-video",
+      "publishedAt": "2026-10-23T10:08:56+00:00"
+    },
+    {
+      "index": 5,
+      "headline": "Netflix doesn’t want investors to worry, despite recent shake-ups, layoffs  ",
+      "url": "https://www.nbcnews.com/business/media/netflix-reports-third-quarter-earnings-rcna604472",
+      "publishedAt": "2026-10-20T23:07:33+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "Money Conversations at Every Age: What to Discuss by Generation",
+      "url": "https://www.today.com/video/money-conversations-you-should-be-having-at-every-age-272034373579",
+      "publishedAt": "2026-10-22T13:22:20+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "Hundreds of Ikea workers in Auckland to strike for first time at Labour weekend, ‘disruption’ expected for shoppers",
+      "url": "https://www.nzherald.co.nz/nz/auckland/hundreds-of-ikea-workers-in-auckland-to-strike-for-first-time-at-labour-weekend/JHTF2CFICJGY7PK2BKHWDXSQ74/",
+      "publishedAt": "2026-10-22T22:41:15Z"
+    },
+    {
+      "index": 8,
+      "headline": "US Election Angst Looms for Stocks and the AI Boom",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-10-23/us-election-angst-looms-for-stocks-and-the-ai-boom",
+      "publishedAt": "2026-10-23T10:02:43+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "Meta hit with $25 billion penalty for misleading Facebook users - Axios",
+      "url": "https://www.axios.com/2026/10/21/meta-25-billion-cambridge-analytica-scandal-ruling",
+      "publishedAt": "2026-10-22T05:08:58Z"
+    },
+    {
+      "index": 10,
+      "headline": "Bitcoin Billionaires Are Racing to Ride a 3,000% Crypto Boom",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-23/bitcoin-billionaires-are-racing-to-ride-a-3-000-crypto-boom",
+      "publishedAt": "2026-10-23T10:15:00+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "Ship With Russian Diesel Signals US Port After Trump-Putin Deal",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-23/ship-with-russian-diesel-signals-us-port-after-trump-putin-deal",
+      "publishedAt": "2026-10-23T09:40:44+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Nasdaq futures down 1.8% as investors digest earnings from Meta and Tesla: Live updates - CNBC",
+      "url": "https://www.cnbc.com/2026/10/21/stock-market-today-live-updates.html",
+      "publishedAt": "2026-10-22T08:30:54Z"
+    },
+    {
+      "index": 13,
+      "headline": "All trucks under one roof at Philippine International Truck Show (PITS)",
+      "url": "https://mb.com.ph/2026/10/23/all-trucks-under-one-roof-at-philippine-international-truck-show-pits",
+      "publishedAt": "2026-10-22T22:53:40Z"
+    },
+    {
+      "index": 14,
+      "headline": "Volvo Car CEO on Earnings, China Market, Job Cuts",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-23/volvo-car-ceo-on-earnings-china-cost-cutting",
+      "publishedAt": "2026-10-23T09:00:37+00:00"
+    },
+    {
+      "index": 15,
+      "headline": "BofA’s Hartnett Sees Risk-Off Mood Lasting Until Mid-November",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-23/bofa-s-hartnett-sees-risk-off-mood-lasting-until-mid-november",
+      "publishedAt": "2026-10-23T09:48:54+00:00"
+    },
+    {
+      "index": 16,
+      "headline": "Hedge Funds Log Widest Daily Drawdown Since Covid in Rout",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-23/hedge-funds-log-widest-daily-drawdown-since-covid-in-stock-rout",
+      "publishedAt": "2026-10-23T06:17:21+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "China’s DeepSeek Raises $15 Billion to Challenge Top US AI Labs - Bloomberg.com",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-22/deepseek-raises-15-billion-in-challenge-to-leading-us-labs",
+      "publishedAt": "2026-10-22T02:17:00Z"
+    },
+    {
+      "index": 18,
+      "headline": "Oil prices whipsaw as markets weigh Middle East turmoil against uncertain demand",
+      "url": "https://www.nbcnews.com/business/energy/oil-prices-new-normal-gas-midterms-rcna604542",
+      "publishedAt": "2026-10-20T13:48:59+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "AI IPOs Stall While Private Markets Heat Up",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-23/ai-ipos-stall-while-private-markets-heat-up-video",
+      "publishedAt": "2026-10-23T09:24:27+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "Ikea staff in Auckland to strike for first time over lack of weekend rates",
+      "url": "https://www.rnz.co.nz/news/business/2096702/ikea-staff-in-auckland-to-strike-for-first-time-over-lack-of-weekend-rates",
+      "publishedAt": "2026-10-22T22:28:27Z"
+    },
+    {
+      "index": 21,
+      "headline": "Hackers appear to be struggling to exploit PHP flaws after global cybersecurity crisis",
+      "url": "https://www.nbcnews.com/tech/security/hackers-php-flaws-cybersecurity-crisis-rcna605112",
+      "publishedAt": "2026-10-22T22:07:15+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "Jane Street, HRT Are Spending Billions to Win in AI Era",
+      "url": "https://www.bloomberg.com/news/features/2026-10-22/jane-street-hrt-are-spending-billions-to-win-in-ai-era",
+      "publishedAt": "2026-10-22T21:00:13+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "Melanoma mRNA treatment set to cut recurrence by 42 per cent in world-first",
+      "url": "https://www.smh.com.au/national/landmark-moment-sydney-scientists-world-first-cancer-breakthrough-revealed-20261023-p6164q.html",
+      "publishedAt": "2026-10-22T22:59:22Z"
+    },
+    {
+      "index": 24,
+      "headline": "FDI screening reaches EU-wide coverage as cooperation activity hits record high",
+      "url": "https://www.aoshearman.com/en/insights/fdi-screening-reaches-eu-wide-coverage-as-cooperation-activity-hits-record-high",
+      "publishedAt": "2026-10-22T22:31:16Z"
+    },
+    {
+      "index": 25,
+      "headline": "Amazon Prime customers could get $200 refund following $2.5 billion settlement with Federal Trade Commission: Who qualifies? - ABC7 Los Angeles",
+      "url": "https://abc7.com/post/amazon-prime-customers-could-get-200-refund-following-250-billion-settlement-federal-trade-commission-qualifies/19939736/",
+      "publishedAt": "2026-10-22T06:51:31Z"
+    },
+    {
+      "index": 26,
+      "headline": "iPhone Duo review: Is Apple's first foldable smartphone too expensive?",
+      "url": "https://www.nbcnews.com/video/iphone-duo-review-apple-s-first-foldable-smartphone-271968837843",
+      "publishedAt": "2026-10-21T15:30:40+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "Late rains bring bumper soybean crops for some southeastern Manitoba farmers",
+      "url": "https://www.cbc.ca/news/canada/manitoba/late-rains-soybean-bumper-crop-9.7390472",
+      "publishedAt": "2026-10-22T22:36:17Z"
+    },
+    {
+      "index": 28,
+      "headline": "Girls at risk of being left behind in AI careers - report",
+      "url": "https://www.rte.ie/news/business/2026/1023/1596515-ai-careers-survey/",
+      "publishedAt": "2026-10-22T23:01:00Z"
+    },
+    {
+      "index": 29,
+      "headline": "Europe’s Luxury Giants Hit Lowest Valuations in a Decade",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-23/europe-luxury-lvmh-hermes-trade-at-lowest-valuations-decade",
+      "publishedAt": "2026-10-23T05:30:00+00:00"
+    },
+    {
+      "index": 30,
+      "headline": "Powerball numbers are in for $635 million jackpot. Did you win? - USA Today",
+      "url": "https://www.usatoday.com/story/money/lottery/2026/10/21/powerball-winning-numbers-oct-21-2026/92369920007/",
+      "publishedAt": "2026-10-22T03:17:00Z"
+    },
+    {
+      "index": 31,
+      "headline": "Hackers Exploited the PHP Vulnerabilities Days Before They Were Patched - WIRED",
+      "url": "https://www.wired.com/story/hackers-exploited-the-php-vulnerabilities-days-before-they-were-patched/",
+      "publishedAt": "2026-10-22T02:24:00Z"
+    },
+    {
+      "index": 32,
+      "headline": "JSW Steel’s Profit More Than Triples on Higher Prices",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-23/jsw-steel-s-profit-more-than-triples-on-higher-prices",
+      "publishedAt": "2026-10-23T10:00:34+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "Markets tumble as concerns about Iran war and high AI spending collide",
+      "url": "https://www.nbcnews.com/business/markets/iran-war-ai-spending-oil-prices-selloff-rcna604994",
+      "publishedAt": "2026-10-22T15:09:46+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "Treasuries’ AI Link Shows Sharp Shift as Haven Trade Returns",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-23/treasuries-link-to-ai-shows-sharp-shift-as-haven-trade-returns",
+      "publishedAt": "2026-10-23T03:19:02+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "Spotify says it removed 50 million ‘slop’ and spam AI tracks this year",
+      "url": "https://www.nbcnews.com/business/media/spotify-slop-spam-ai-tracks-rcna604571",
+      "publishedAt": "2026-10-20T18:28:41+00:00"
+    },
+    {
+      "index": 36,
+      "headline": "Carrefour’s €2 Billion Stock Plunge Shows Cost of French Unrest",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-23/carrefour-s-2-billion-stock-plunge-shows-cost-of-french-unrest",
+      "publishedAt": "2026-10-23T09:52:15+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "Barclays to Cut 5,000 Jobs in AI-Fueled Push to Lower Costs - Bloomberg.com",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-22/barclays-to-cut-5-000-jobs-as-ai-starts-creating-efficiency",
+      "publishedAt": "2026-10-22T10:07:46Z"
+    },
+    {
+      "index": 38,
+      "headline": "Tech Rout Eases With Oil Strength Capping Relief: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-22/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-10-22T22:05:06+00:00"
+    },
+    {
+      "index": 39,
+      "headline": "On Main Street, Goldman Sachs makes a big bet on AI",
+      "url": "https://www.nbcnews.com/business/ceo-interviews/goldman-sachs-small-business-ai-institute-rcna604621",
+      "publishedAt": "2026-10-22T08:00:40+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "Tesla, Meta and IBM: 3 earnings call shout outs that left us thinking - Yahoo Finance",
+      "url": "https://finance.yahoo.com/technology/ai/article/tesla-meta-and-ibm-3-earnings-call-shout-outs-that-left-us-thinking-091924234.html",
+      "publishedAt": "2026-10-22T09:19:24Z"
+    },
+    {
+      "index": 41,
+      "headline": "China's stock market sinks into bear territory as CSI 300 extends 10-week rout - CNBC",
+      "url": "https://www.cnbc.com/2026/10/22/chinas-stock-market-csi-300-bear-market.html",
+      "publishedAt": "2026-10-22T03:30:00Z"
+    },
+    {
+      "index": 42,
+      "headline": "'I trusted him all those years': Luxury car dealer disappears amid abrupt business closure",
+      "url": "https://www.rnz.co.nz/news/business/2098051/i-trusted-him-all-those-years-luxury-car-dealer-disappears-amid-abrupt-business-closure",
+      "publishedAt": "2026-10-22T22:55:52Z"
+    },
+    {
+      "index": 43,
+      "headline": "Goldman Sachs spends big to give small businesses an AI boost",
+      "url": "https://www.nbcnews.com/video/goldman-sachs-spends-big-to-give-small-businesses-an-ai-boost-272042053796",
+      "publishedAt": "2026-10-22T16:00:01+00:00"
+    },
+    {
+      "index": 44,
+      "headline": "Retail Deleveraging Sinks India Small Caps Most Since March",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-23/margin-trade-liquidation-speeds-indian-small-cap-stock-decline",
+      "publishedAt": "2026-10-23T07:04:57+00:00"
+    },
+    {
+      "index": 45,
+      "headline": "Airbnb hosts can no longer ask guests to clean dishes or make beds ",
+      "url": "https://www.nbcnews.com/news/us-news/airbnb-hosts-can-no-longer-ask-guests-clean-dishes-make-beds-rcna604996",
+      "publishedAt": "2026-10-22T17:18:34+00:00"
+    },
+    {
+      "index": 46,
+      "headline": "Melanoma mRNA treatment set to cut recurrence by 42 per cent in world-first",
+      "url": "https://www.theage.com.au/national/landmark-moment-sydney-scientists-world-first-cancer-breakthrough-revealed-20261023-p6164q.html",
+      "publishedAt": "2026-10-22T22:59:22Z"
+    },
+    {
+      "index": 47,
+      "headline": "Latest Oil Market News and Analysis for Oct. 23",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-22/latest-oil-market-news-and-analysis-for-oct-23",
+      "publishedAt": "2026-10-22T22:08:52+00:00"
+    },
+    {
+      "index": 48,
+      "headline": "Fall Job Search Strategies to Add Some Extra Cash to Your Wallet",
+      "url": "https://www.today.com/video/fall-job-search-strategies-to-add-some-extra-cash-to-your-wallet-271961157715",
+      "publishedAt": "2026-10-21T13:22:17+00:00"
+    },
+    {
+      "index": 49,
+      "headline": "Chipotle’s Softening Sales Force Analyst to Throw in the Towel",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-23/chipotle-s-softening-sales-force-analyst-to-throw-in-the-towel",
+      "publishedAt": "2026-10-23T10:30:00+00:00"
+    },
+    {
+      "index": 50,
+      "headline": "Gold Hovers Near $4,000 an Ounce After Steep Loss in Rocky Week",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-23/gold-holds-near-three-month-low-as-ai-jitters-fuel-volatility",
+      "publishedAt": "2026-10-23T00:15:37+00:00"
+    },
+    {
+      "index": 51,
+      "headline": "Elon Musk says SpaceX and Tesla have formed special committees to discuss merger idea",
+      "url": "https://www.nbcnews.com/business/business-news/elon-musk-spacex-tesla-merger-rcna604685",
+      "publishedAt": "2026-10-20T22:57:53+00:00"
+    },
+    {
+      "index": 52,
+      "headline": "Australia's Rio Tinto to invest $1.9 billion in Queensland bauxite project",
+      "url": "https://www.reuters.com/world/asia-pacific/australias-rio-tinto-invest-19-billion-queensland-bauxite-project-2026-10-22/",
+      "publishedAt": "2026-10-22T22:30:56Z"
+    }
+  ]
+}
