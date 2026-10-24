@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Waneye sector intelligence" />
+    <title>Sector intelligence — Waneye</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../page.css" />
+  </head>
+  <body>
+    <div id="siteHeader"></div>
+    <main id="main" class="page-shell">
+      <section class="detail-hero">
+        <div class="breadcrumbs">
+          <a href="../index.html">Intelligence</a><i>/</i
+          ><a href="index.html">Markets</a><i>/</i
+          ><span id="crumbTitle">Sector</span>
+        </div>
+        <p class="kicker" id="edition"></p>
+        <h1 id="sectorTitle"></h1>
+        <p class="detail-dek" id="sectorTrend"></p>
+        <div class="detail-meta">
+          <div><span>REPORT DATE</span><strong id="date"></strong></div>
+          <div>
+            <span>MARKET SENTIMENT</span><strong id="sentiment"></strong>
+          </div>
+          <div>
+            <span>SUPPORTING REPORTING</span><strong id="sourceCount"></strong>
+          </div>
+        </div>
+      </section>
+      <section class="page-section sector-decision">
+        <div class="container sector-decision-grid">
+          <article class="sector-implication-card">
+            <p class="kicker">INVESTMENT IMPLICATION</p>
+            <h2 id="implicationTitle">What it means for investors</h2>
+            <p id="implication"></p>
+          </article>
+          <aside class="sector-evidence-summary">
+            <p class="kicker" id="evidenceSummaryLabel">
+              REPORTING AT A GLANCE
+            </p>
+            <h2 id="evidenceSummaryTitle">Evidence for this view</h2>
+            <p id="evidenceSummaryCopy"></p>
+            <dl class="sector-evidence-stats">
+              <div>
+                <dt id="reportDateLabel">Report date</dt>
+                <dd id="summaryDate"></dd>
+              </div>
+              <div>
+                <dt id="reportingLabel">Supporting reporting</dt>
+                <dd id="summarySources"></dd>
+              </div>
+            </dl>
+            <a
+              class="source-button"
+              id="reportLink"
+              href="../archive/report.html"
+              >Read the full market report <span>↗</span></a
+            >
+          </aside>
+        </div>
+      </section>
+      <section class="page-section alt">
+        <div class="container">
+          <div class="page-intro">
+            <div>
+              <p class="kicker">SUPPORTING REPORTING</p>
+              <h2>Evidence behind the signal</h2>
+            </div>
+            <p>
+              Reporting cited by this sector view. Open any story at its
+              original publisher.
+            </p>
+          </div>
+          <div class="visual-news-grid" id="evidenceGrid"></div>
+        </div>
+      </section>
+    </main>
+    <div id="siteFooter"></div>
+    <script src="../content.js"></script>
+    <script src="../data.js"></script>
+    <script src="../pages.js"></script>
+    <script>
+      const P = WaneyePage;
+      const region = P.safeRegion(P.query("region", "global"));
+      const zh = region === "cn";
+      P.mountChrome("markets", "../", zh ? "zh" : "en");
+      const r = P.REPORTS[region];
+      const requested = Number(P.query("sector", "0"));
+      const idx =
+        Number.isInteger(requested) &&
+        requested >= 0 &&
+        requested < r.sectors.length
+          ? requested
+          : 0;
+      const s = r.sectors[idx];
+      const evidence = s.sourceIndexes
+        .map((n) => r.news[n - 1])
+        .filter(Boolean)
+        .slice(0, 6);
+      const sourceLabel = (n) =>
+        zh
+          ? `在新窗口阅读${n.source}报道：${n.title}`
+          : `Read ${n.source}: ${n.title} (opens in a new tab)`;
+      document.title = zh
+        ? `板块情报：${s.name} — Waneye`
+        : `${s.name} — Waneye`;
+      document.querySelector("#crumbTitle").textContent = s.name;
+      document.querySelector("#edition").textContent = zh
+        ? `${P.REGION_NAMES[region]}板块情报`
+        : `${P.REGION_NAMES[region].toUpperCase()} SECTOR INTELLIGENCE`;
+      document.querySelector("#sectorTitle").textContent = s.name;
+      document.querySelector("#sectorTrend").textContent = s.trend;
+      document.querySelector("#date").textContent = r.date;
+      document.querySelector("#sentiment").textContent = r.sentiment;
+      document.querySelector("#sourceCount").textContent = String(
+        s.sourceIndexes.length,
+      );
+      document.querySelector("#implication").textContent = s.implication;
+      document.querySelector("#summaryDate").textContent = r.date;
+      document.querySelector("#summarySources").textContent = String(
+        s.sourceIndexes.length,
+      );
+      document.querySelector("#evidenceSummaryCopy").textContent = zh
+        ? `本板块观点基于当前版本中的 ${s.sourceIndexes.length} 条相关报道。`
+        : `This sector view is supported by ${s.sourceIndexes.length} related reports in the current edition.`;
+      document.querySelector("#reportLink").href =
+        `../archive/report.html?region=${region}`;
+      document.querySelector("#evidenceGrid").innerHTML = evidence
+        .map(
+          (n) =>
+            `<a class="visual-news-card" href="${n.url}" target="_blank" rel="noreferrer" aria-label="${sourceLabel(n)}"><img src="${n.imageUrl}" alt="" loading="lazy"><div><span>${n.meta}</span><h3>${n.title}</h3><b>${zh ? "阅读原文" : "READ SOURCE"} ↗</b></div></a>`,
+        )
+        .join("");
+      if (zh) {
+        const crumbs = document.querySelectorAll(".breadcrumbs a");
+        crumbs[0].textContent = "市场情报";
+        crumbs[1].textContent = "市场";
+        document
+          .querySelectorAll(".detail-meta span")
+          .forEach(
+            (x, i) => (x.textContent = ["报告日期", "市场情绪", "相关报道"][i]),
+          );
+        document.querySelector(".sector-implication-card .kicker").textContent =
+          "投资含义";
+        document.querySelector("#implicationTitle").textContent =
+          "对投资者意味着什么";
+        document.querySelector("#evidenceSummaryLabel").textContent =
+          "报道概览";
+        document.querySelector("#evidenceSummaryTitle").textContent =
+          "支撑本观点的报道";
+        document.querySelector("#reportDateLabel").textContent = "报告日期";
+        document.querySelector("#reportingLabel").textContent = "相关报道";
+        document.querySelector("#reportLink").innerHTML =
+          "阅读完整市场报告 <span>↗</span>";
+        const intro = document.querySelector(".page-intro");
+        intro.querySelector(".kicker").textContent = "相关报道";
+        intro.querySelector("h2").textContent = "信号背后的依据";
+        intro.querySelector(":scope > p").textContent =
+          "本板块观点引用的报道，可直接前往原始发布机构阅读。";
+      }
+    </script>
+  </body>
+</html>
