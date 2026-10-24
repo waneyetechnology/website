@@ -93,10 +93,13 @@ jobs:
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Verify agy CLI installation
         run: agy --version
+      - name: Set up Node.js for Codex CLI
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Install Codex CLI
         run: |
-          curl --compressed -fsSL https://chatgpt.com/codex/install.sh -o "$RUNNER_TEMP/install-codex.sh"
-          CODEX_NON_INTERACTIVE=1 sh "$RUNNER_TEMP/install-codex.sh"
+          npm install --global @openai/codex@latest
           codex --version
       - name: Restore CLI authentication
         id: cli_auth
