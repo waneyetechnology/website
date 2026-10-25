@@ -1,0 +1,615 @@
+{
+  "analysis": {
+    "analysis_date": "October 25, 2026",
+    "analysis_time": "21:03",
+    "executive_summary": {
+      "key_highlights": [
+        "AI Trade Sentiment Reset: Goldman Sachs cut its 12-month Kospi target by 25% due to an unraveling AI trade, compounded by mounting cybersecurity vulnerabilities and copyright lawsuits against AI developers.",
+        "Sovereign Debt Realignment: Emerging market debt is outperforming developed market bonds as fiscal deterioration in France and US debt anxieties drive capital to disciplined developing nations.",
+        "Central Bank & Macro Landscape: The Federal Reserve signals an interest rate pause following its September hike, easing monetary headwinds as rich-world fiscal deficits come under scrutiny.",
+        "Volatility Suppression via 0DTE Options: Aggressive zero-day options selling is dampening S&P 500 volatility, creating an asymmetric tail risk ahead of US midterm elections and mega-cap tech earnings in 9 days.",
+        "Input Cost Pressures in Consumer Staples: Record cocoa inflation continues to suppress seasonal confectionery sales, highlighting persistent consumer price sensitivity despite broader disinflation."
+      ],
+      "market_sentiment_score": 52,
+      "overall_sentiment": "neutral",
+      "headline_sources": [
+        4,
+        8,
+        17,
+        21,
+        32,
+        34,
+        39,
+        40,
+        46,
+        47,
+        49
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Information Technology & Cybersecurity",
+          "trend": "AI euphoria is cooling under multiple pressures: target cuts on key hardware indices (Kospi -25%), intellectual property litigation, and escalating AI-assisted cyber exploits.",
+          "implications": "Expect valuation compression among peripheral AI beneficiaries, while enterprise spend prioritizes zero-trust cybersecurity and mission-critical software defense.",
+          "headline_sources": [
+            1,
+            5,
+            11,
+            28,
+            31,
+            33,
+            34,
+            36
+          ]
+        },
+        {
+          "sector": "Fixed Income & Global Sovereign Debt",
+          "trend": "Widening divergence between rich-world fiscal distress (French OAT selloff, US debt loads) and robust investor demand for emerging market debt.",
+          "implications": "Yield curve steepening in developed markets and outperformance in high-quality EM sovereign and corporate credit as the Fed pauses.",
+          "headline_sources": [
+            32,
+            39,
+            40,
+            46
+          ]
+        },
+        {
+          "sector": "Energy & Critical Commodities",
+          "trend": "Bilateral trade realignments (Russian diesel imports into the US) and regional pipeline curtailments (Indonesia gas to Singapore) are reshaping regional supply lines.",
+          "implications": "Localized energy security risks in Southeast Asia contrast with tactical product availability in North America, while wind turbine recycling emerges as a secondary rare-earth metal source.",
+          "headline_sources": [
+            8,
+            9,
+            15,
+            18
+          ]
+        },
+        {
+          "sector": "Consumer Staples & Retail",
+          "trend": "Elevated cocoa input costs are driving up retail candy prices, triggering unit sales declines and consumer affordability resistance during peak Halloween demand.",
+          "implications": "Operating margin compression for confectionery and packaged food manufacturers unable to pass through sustained raw commodity price hikes.",
+          "headline_sources": [
+            4,
+            49
+          ]
+        },
+        {
+          "sector": "Commercial Real Estate & Capital Markets",
+          "trend": "Physical obsolescence of legacy office assets (Atlanta office implosion) aligns with credit studies warning of elevated secondary default rates in revived 'phoenix' restructuring deals.",
+          "implications": "Lenders and private debt funds face accelerated write-downs on non-prime commercial assets and distressed corporate turnarounds.",
+          "headline_sources": [
+            23,
+            27
+          ]
+        }
+      ],
+      "key_themes": [
+        "AI Reality Check: Transition from speculative hardware capex to execution, safety, and litigation scrutiny",
+        "Fiscal Divergence: Developed market deficit strains versus emerging market yield advantages",
+        "Volatility Compression vs Event Risk: 0DTE option selling muting indices days before US midterms and Big Tech earnings",
+        "Supply Chain Re-routing: Strategic realignments across refined fuels, pipeline gas, and critical minerals",
+        "Targeted Trade Protectionism: Selective tariff waivers alongside contested macroeconomic impacts"
+      ],
+      "headline_sources": [
+        1,
+        4,
+        8,
+        9,
+        15,
+        17,
+        21,
+        23,
+        27,
+        28,
+        32,
+        34,
+        36,
+        39,
+        40,
+        45,
+        46,
+        47,
+        49
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "0DTE Options Gamma Unwind Ahead of Dual Catalysts",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Hedge equity long books using index put spreads; reduce short volatility exposure ahead of Big Tech earnings and midterm voting.",
+        "headline_sources": [
+          17,
+          47
+        ]
+      },
+      {
+        "risk_factor": "European Sovereign Bond Contagion & ECB Governance Friction",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Underweight French government bonds (OATs) and exposed Eurozone banking credit; tilt sovereign fixed income toward core Bunds or select EM sovereign debt.",
+        "headline_sources": [
+          39,
+          46
+        ]
+      },
+      {
+        "risk_factor": "AI-Augmented Vulnerabilities & Systemic Enterprise Cyber Breaches",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Overweight resilient cybersecurity software vendors; mandate rigorous automated code reviews across Go and PHP infrastructure.",
+        "headline_sources": [
+          1,
+          28,
+          31,
+          33
+        ]
+      },
+      {
+        "risk_factor": "Trade Policy Volatility and Post-Midterm Tariff Escalation",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Maintain supply chain redundancy; favor domestic-focused services over tariff-sensitive multinational manufacturers.",
+        "headline_sources": [
+          21,
+          45,
+          47
+        ]
+      },
+      {
+        "risk_factor": "Persistent Agricultural Commodity Inflation (Cocoa/Softs)",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Underweight confectioners with high cocoa exposure; rotate into diversified consumer staples with broad pricing power.",
+        "headline_sources": [
+          4,
+          49
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Overweight Emerging Market Local and Sovereign Debt",
+          "rationale": "EM bonds are outpacing US Treasuries and European paper due to superior fiscal discipline and easing monetary policy headwinds following the Fed rate pause.",
+          "tickers": [
+            "EMB",
+            "EMLC",
+            "VWOB"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            32,
+            39,
+            40
+          ]
+        },
+        {
+          "recommendation": "Capitalize on Tech Hardware Valuation Disconnects",
+          "rationale": "While index-level downgrades (e.g., Kospi -25%) create sector drag, established memory and compute leaders with dominant high-bandwidth memory share present attractive long-term entry points.",
+          "tickers": [
+            "MU",
+            "NVDA",
+            "TSM"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            34,
+            36
+          ]
+        },
+        {
+          "recommendation": "Allocate to Critical Mineral Salvage and Domestic Recycling",
+          "rationale": "Harvesting rare-earth elements from decommissioned wind turbines provides a lower-risk domestic source of critical magnet materials as green infrastructure matures.",
+          "tickers": [
+            "MP",
+            "REMX"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            9
+          ]
+        },
+        {
+          "recommendation": "Invest in Mission-Critical Cybersecurity Providers",
+          "rationale": "Heightened threat of AI-accelerated exploits across core web frameworks (PHP, Go) will spur non-discretionary enterprise software spending on security.",
+          "tickers": [
+            "CRWD",
+            "PANW",
+            "FTNT",
+            "CIBR"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            1,
+            28,
+            31,
+            33
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Implement Tail-Risk Volatility Hedges",
+          "rationale": "Zero-day option selling is artificially compressing implied volatility, leaving portfolios exposed to severe gap-down risk if Big Tech earnings or midterms disappoint.",
+          "tickers": [
+            "VIX",
+            "SPY Puts"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            17,
+            47
+          ]
+        },
+        {
+          "recommendation": "Reduce Exposure to French Sovereign Debt and Exposed Financials",
+          "rationale": "The French bond selloff reflects structural budget deficits and political succession disputes at the ECB, elevating sovereign spread risks across Europe.",
+          "tickers": [
+            "BNDX",
+            "EUFN"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            46
+          ]
+        },
+        {
+          "recommendation": "Trim High-Cocoa Confectionery and Packaged Food Stakes",
+          "rationale": "Extreme cocoa price surges and consumer resistance to Halloween candy price hikes threaten volume growth and gross margin compression.",
+          "tickers": [
+            "HSY",
+            "MDLZ"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            4,
+            49
+          ]
+        },
+        {
+          "recommendation": "Divest Subordinated Office Commercial Real Estate and Distressed Restructurings",
+          "rationale": "Accelerating obsolescence of legacy office towers and poor survival rates of restructured 'phoenix' companies signal elevated defaults in private credit and CRE.",
+          "tickers": [
+            "VNQ",
+            "BBDC"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            23,
+            27
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Cautious and range-bound with high volatility risk over 1-3 months. S&P 500 volatility suppression via 0DTE options contrasts with imminent binary catalysts, including US midterms in 9 days and pivotal Big Tech earnings reports.",
+      "long_term": "Selective and fundamentally driven over 6-12 months. Easing developed-world policy rates and sovereign debt differentiation will favor disciplined emerging markets, while AI capital expenditures pivot toward verifiable productivity and enterprise security.",
+      "key_catalysts": [
+        "Outcome of the US Midterm Elections in 9 days and subsequent trade/tariff policies",
+        "Big Tech Q3 earnings reports and revisions to AI capital expenditure guidance",
+        "Federal Reserve post-pause policy trajectory and inflation data confirmation",
+        "French fiscal consolidation path and ECB leadership succession resolution",
+        "India Q2 corporate earnings wave featuring 450+ major enterprises"
+      ],
+      "watch_list": [
+        "CBOE Volatility Index (VIX) and dealer 0DTE gamma positioning",
+        "French 10-year OAT vs. German Bund yield spreads",
+        "ICE Cocoa futures prices and seasonal consumer packaged goods elasticity",
+        "South Korea Kospi index recovery and high-bandwidth memory (HBM) pricing",
+        "US Treasury 10-year yields relative to Emerging Market Sovereign Bond Index spreads"
+      ],
+      "headline_sources": [
+        1,
+        4,
+        17,
+        21,
+        22,
+        32,
+        34,
+        39,
+        40,
+        46,
+        47,
+        49
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "The PHP Meltdown Shows How AI Makes Bugs More Exploitable - WIRED",
+      "url": "https://www.wired.com/story/kernel-panic-the-php-meltdown-shows-how-ai-makes-bugs-more-exploitable/",
+      "publishedAt": "2026-10-24T12:00:00Z"
+    },
+    {
+      "index": 2,
+      "headline": "Brookfield to Open Doha Office to Deepen Middle East Reach",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-25/brookfield-to-open-doha-office-to-deepen-its-middle-east-reach",
+      "publishedAt": "2026-10-25T08:47:01+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "Singapore Expands Haze Inquiries to 10 Locally Based Firms",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-24/singapore-expands-haze-investigation-to-10-locally-based-firms",
+      "publishedAt": "2026-10-24T03:20:42+00:00"
+    },
+    {
+      "index": 4,
+      "headline": "Halloween candy sales are off to a slow start amid high chocolate prices and affordability concerns - AP News",
+      "url": "https://apnews.com/article/halloween-candy-sales-chocolate-prices-treats-0b1126f30969a21710ba995416c5b905",
+      "publishedAt": "2026-10-24T13:42:00Z"
+    },
+    {
+      "index": 5,
+      "headline": "Elvis Presley’s rights holders sue Anthropic saying it trained AI on his music",
+      "url": "https://www.nbcnews.com/tech/tech-news/elvis-presleys-rights-holders-sue-anthropic-saying-trained-ai-music-rcna605551",
+      "publishedAt": "2026-10-25T19:11:32+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "Royal Carribean cruise to the Bahamas went to Canada instead - New York Post",
+      "url": "https://nypost.com/2026/10/24/lifestyle/royal-carribean-cruise-to-the-bahamas-went-to-canada-instead/",
+      "publishedAt": "2026-10-24T15:53:00Z"
+    },
+    {
+      "index": 7,
+      "headline": "How employee theft is hurting small businesses in Africa",
+      "url": "https://www.bbc.com/news/articles/cmz98plpjzplo",
+      "publishedAt": "2026-10-25T08:36:47Z"
+    },
+    {
+      "index": 8,
+      "headline": "Russian diesel tanker heads to the U.S., the first since Trump’s deal with Putin",
+      "url": "https://www.nbcnews.com/business/energy/russian-diesel-tanker-heads-us-trump-deal-putin-ukraine-war-rcna605187",
+      "publishedAt": "2026-10-23T12:22:15+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "The Rare-Earth Vultures Harvesting Metals From America’s Old Wind Turbines - WSJ",
+      "url": "https://www.wsj.com/business/energy-oil/the-rare-earth-vultures-harvesting-metals-from-americas-old-wind-turbines-a22b78db",
+      "publishedAt": "2026-10-24T16:00:00Z"
+    },
+    {
+      "index": 10,
+      "headline": "Brazil Election: Lula Rallies Supporters for One Last Comeback",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-25/brazil-election-lula-rallies-supporters-for-one-last-comeback",
+      "publishedAt": "2026-10-25T02:02:19+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "Etsy to restrict AI-generated content in effort to combat seller slop",
+      "url": "https://www.nbcnews.com/business/consumer/etsy-restricts-ai-generated-seller-slop-rcna605216",
+      "publishedAt": "2026-10-23T14:39:40+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "The little-known code on your boarding pass that could get you free hotel stays and airport transfers",
+      "url": "https://www.thesun.co.uk/travel/40685998/hidden-boarding-pass-symbol/",
+      "publishedAt": "2026-10-25T09:01:00Z"
+    },
+    {
+      "index": 13,
+      "headline": "Rare disease linked to gene in people with Black Loyalist lineage",
+      "url": "https://www.cbc.ca/news/canada/nova-scotia/amyloidosis-gene-black-loyalist-variant-disease-9.7394134",
+      "publishedAt": "2026-10-25T09:00:00Z"
+    },
+    {
+      "index": 14,
+      "headline": "Six Flags adding seat belts to some rollercoasters following death - BBC",
+      "url": "https://www.bbc.com/news/articles/c60rl9r59g0do",
+      "publishedAt": "2026-10-24T16:29:31Z"
+    },
+    {
+      "index": 15,
+      "headline": "Indonesia Begins Trimming Pipeline Gas Exports to Singapore",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-24/indonesia-begins-trimming-pipeline-gas-exports-to-singapore",
+      "publishedAt": "2026-10-24T07:48:56+00:00"
+    },
+    {
+      "index": 16,
+      "headline": "Ways to Narrow Social Security’s Shortfall - WSJ",
+      "url": "https://www.wsj.com/articles/ways-to-narrow-social-securitys-shortfall-e9afdcd8",
+      "publishedAt": "2026-10-24T11:52:00Z"
+    },
+    {
+      "index": 17,
+      "headline": "Zero-Day Option Traders Are Betting Against Big S&P 500 Swings",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-25/zero-day-option-traders-are-betting-against-big-s-p-500-swings",
+      "publishedAt": "2026-10-25T14:00:00+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "Singapore’s Wong Vows More Support for Workers, Energy Security",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-25/singapore-s-wong-vows-more-support-for-workers-energy-security",
+      "publishedAt": "2026-10-25T05:40:56+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "The Dallas Cowboys cheerleaders are unionizing",
+      "url": "https://www.nbcnews.com/sports/football/dallas-cowboys-cheerleaders-are-unionizing-rcna605285",
+      "publishedAt": "2026-10-23T20:50:52+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "'The transit world is where innovation goes to die' — The U.S. lags far behind on using driverless trains, but new projects could open the floodgates - Fortune",
+      "url": "https://fortune.com/2026/10/24/transit-innovation-driverless-trains-subways-monorail-people-movers/",
+      "publishedAt": "2026-10-24T14:30:00Z"
+    },
+    {
+      "index": 21,
+      "headline": "Trump administration cancels some Canada tariffs amid close midterm races",
+      "url": "https://www.nbcnews.com/business/economy/trump-cancels-canada-tariffs-susan-collins-rcna605270",
+      "publishedAt": "2026-10-23T18:48:44+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "Q2 results this week: Over 450 companies to announce earnings; Coal India, NTPC, L&T, Maruti Suzuki, Vedanta in focus - Full list",
+      "url": "https://www.etnownews.com/markets/q2-results-this-week-over-450-companies-to-announce-earnings-coal-india-ntpc-lt-maruti-suzuki-vedanta-in-focus-full-list-article-156401324",
+      "publishedAt": "2026-10-25T08:46:49Z"
+    },
+    {
+      "index": 23,
+      "headline": "WATCH: 200-foot office tower imploded in seconds in metro Atlanta - WSB-TV",
+      "url": "https://www.wsbtv.com/news/local/dekalb-county/watch-200-foot-office-tower-imploded-seconds-metro-atlanta/ABROBFKEXVDHZFK2ROHMFRZBE4/",
+      "publishedAt": "2026-10-24T12:50:35Z"
+    },
+    {
+      "index": 24,
+      "headline": "Crypto News: Remittix Prepares Weekly Earn Payouts as Bitwise Models a Bitcoin Price Prediction of $197,000 on Global Liquidity Growth",
+      "url": "https://www.manilatimes.net/2026/10/26/tmt-newswire/globenewswire/crypto-news-remittix-prepares-weekly-earn-payouts-as-bitwise-models-a-bitcoin-price-prediction-of-197000-on-global-liquidity-growth/2453526",
+      "publishedAt": "2026-10-25T20:14:56.000000Z"
+    },
+    {
+      "index": 25,
+      "headline": "Rubio Plans Trilateral Negotiations Over Ukraine, Johnson Says",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-25/rubio-plans-trilateral-negotiations-over-ukraine-johnson-says",
+      "publishedAt": "2026-10-25T13:43:34+00:00"
+    },
+    {
+      "index": 26,
+      "headline": "De olho nas eleições",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-25/de-olho-nas-eleicoes-video-mvo4e3rz",
+      "publishedAt": "2026-10-25T17:47:06+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "Bust companies revived in ‘phoenix’ deals more likely to fail again, study finds",
+      "url": "https://www.theguardian.com/business/2026/oct/25/bust-companies-revived-in-phoenix-deals-more-likely-to-fail-again-study-finds",
+      "publishedAt": "2026-10-25T09:00:00Z"
+    },
+    {
+      "index": 28,
+      "headline": "Banks Preparing for Aftermath of Unprecedented Catastrophe Caused by AI - Futurism",
+      "url": "https://futurism.com/artificial-intelligence/banks-preparing-ai-financial-catastrophe",
+      "publishedAt": "2026-10-24T13:55:00Z"
+    },
+    {
+      "index": 29,
+      "headline": "Will skipping service that the dealer recommends void my warranty?",
+      "url": "https://www.theglobeandmail.com/drive/culture/article-will-skipping-service-that-the-dealer-recommends-void-my-warranty/",
+      "publishedAt": "2026-10-25T09:00:00Z"
+    },
+    {
+      "index": 30,
+      "headline": "Inside The Two Argentinas Under Javier Milei ",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-25/inside-the-two-argentinas-under-javier-milei-video",
+      "publishedAt": "2026-10-25T14:04:15+00:00"
+    },
+    {
+      "index": 31,
+      "headline": "Hackers appear to be struggling to exploit PHP flaws after global cybersecurity crisis",
+      "url": "https://www.nbcnews.com/tech/security/hackers-php-flaws-cybersecurity-crisis-rcna605112",
+      "publishedAt": "2026-10-22T22:07:15+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "What’s Happening in EM: Bond Investors Turn to Developing World",
+      "url": "https://www.bloomberg.com/news/audio/2026-10-25/what-s-happening-in-em-bond-investors-turn-to-developing-world",
+      "publishedAt": "2026-10-25T12:30:00+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "Sweet Security Research Identifies Go Implementation of Node2Shell Vulnerability, Expanding Attack Surface to Major HTTP Frameworks",
+      "url": "https://www.manilatimes.net/2026/10/26/tmt-newswire/globenewswire/sweet-security-research-identifies-go-implementation-of-node2shell-vulnerability-expanding-attack-surface-to-major-http-frameworks/2453527",
+      "publishedAt": "2026-10-25T20:15:13.000000Z"
+    },
+    {
+      "index": 34,
+      "headline": "Goldman Cuts Kospi 12-Month Target by 25% as AI Trade Unravels",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-25/goldman-cuts-kospi-12-month-target-by-25-as-ai-trade-unravels",
+      "publishedAt": "2026-10-25T07:44:43+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "By The Way: Headlines You May Have Missed",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-25/by-the-way-headlines-you-may-have-missed-video",
+      "publishedAt": "2026-10-25T12:26:39+00:00"
+    },
+    {
+      "index": 36,
+      "headline": "Nvidia vs. Micron: The AI Revolution Is Big Enough for Both. Here's the Better Buy.",
+      "url": "https://www.fool.com/investing/2026/10/25/nvidia-vs-micron-the-ai-revolution-is-big-enough-f/",
+      "publishedAt": "2026-10-25T08:55:35Z"
+    },
+    {
+      "index": 37,
+      "headline": "'It's not something that gets done overnight': SpaceX's telecom ambitions will be hard-won, CEOs and analysts say - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/stocks/article/its-not-something-that-gets-done-overnight-spacexs-telecom-ambitions-will-be-hard-won-ceos-and-analysts-say-120348084.html",
+      "publishedAt": "2026-10-24T12:03:48Z"
+    },
+    {
+      "index": 38,
+      "headline": "That Girl Boina: How employee theft is hurting small businesses in Africa",
+      "url": "https://www.bbc.co.uk/news/articles/cmz98plpjzplo",
+      "publishedAt": "2026-10-25T08:36:47Z"
+    },
+    {
+      "index": 39,
+      "headline": "Emerging Debt Outruns Treasuries as Rich-World Fiscal Fears Grow",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-25/emerging-debt-outruns-treasuries-as-rich-world-fiscal-fears-grow",
+      "publishedAt": "2026-10-25T12:30:00+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "Fed Looks Set to Pause After September Rate Hike",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-25/fed-looks-set-to-pause-after-september-rate-hike-video",
+      "publishedAt": "2026-10-25T13:48:02+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Official Website of Reserve Bank of India",
+      "url": "https://www.rbi.org.in/scripts/BS_SpeechesView.aspx?id=1585",
+      "publishedAt": "2026-10-25T20:25:00.000000Z"
+    },
+    {
+      "index": 42,
+      "headline": "IndiGo, Air India to Shift Some Flights to New Mumbai Airport",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-25/indigo-air-india-to-shift-some-flights-to-new-mumbai-airport",
+      "publishedAt": "2026-10-25T11:20:11+00:00"
+    },
+    {
+      "index": 43,
+      "headline": "BC Left-Wing Leader Loses to Conservatives in Vote He Called",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-25/bc-s-left-wing-leader-loses-to-conservatives-in-vote-he-called",
+      "publishedAt": "2026-10-25T04:08:12+00:00"
+    },
+    {
+      "index": 44,
+      "headline": "Saudi Arabia Suggests Riyadh Airport May Reopen on Sunday",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-24/saudi-arabia-suggests-riyadh-airport-may-reopen-on-sunday",
+      "publishedAt": "2026-10-24T21:27:28+00:00"
+    },
+    {
+      "index": 45,
+      "headline": "President Donald Trump Just Proclaimed, \"Tariffs Don't Cause Inflation, They Cause Wealth,\" but Data From Federal Reserve Economists Show Otherwise",
+      "url": "https://www.fool.com/investing/2026/10/25/donald-trump-proclaimed-tariffs-dont-cause-inflation-they-cause-wealth-federal-reserve-economists/",
+      "publishedAt": "2026-10-25T08:37:58Z"
+    },
+    {
+      "index": 46,
+      "headline": "French Bond Rout Puts Crisis at Heart of ECB Succession Endgame",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-25/french-bond-rout-puts-crisis-at-heart-of-ecb-succession-endgame",
+      "publishedAt": "2026-10-25T10:00:00+00:00"
+    },
+    {
+      "index": 47,
+      "headline": "9 Days to Midterm Elections, Big Tech Earnings",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-25/bloomberg-this-weekend-10-25-2026-video",
+      "publishedAt": "2026-10-25T15:42:35+00:00"
+    },
+    {
+      "index": 48,
+      "headline": "World's second most visited country sees nearly half its tourism activity outside peak season",
+      "url": "https://e.vnexpress.net/news/travel/places/world-s-second-most-visited-country-sees-nearly-half-its-tourism-activity-outside-peak-season-5136654.html",
+      "publishedAt": "2026-10-25T08:59:46Z"
+    },
+    {
+      "index": 49,
+      "headline": "Halloween Candy Prices Reflect Cocoa’s Wild Ride",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-25/halloween-candy-prices-reflect-cocoa-s-wild-ride-video",
+      "publishedAt": "2026-10-25T13:55:22+00:00"
+    }
+  ]
+}
