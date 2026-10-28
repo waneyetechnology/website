@@ -1,0 +1,656 @@
+{
+  "analysis": {
+    "analysis_date": "October 28, 2026",
+    "analysis_time": "19:03",
+    "executive_summary": {
+      "key_highlights": [
+        "Federal Reserve held rates steady under Chair Warsh, but internal dissents from Cook and Hammack alongside Goldman Sachs and Clarida forecasts point to a December rate hike as inflation persists ahead of midterms.",
+        "AI capital sustainability concerns surfaced as Anthropic revealed an $80 billion loss ahead of its IPO, while Nvidia and AMD took a defensive $4 billion equity position in Meta to protect GPU dominance against custom ASIC chips.",
+        "Crude oil rose over 1% following a Saudi refinery attack, compounding diesel price spikes that are straining transportation sectors and public school transit budgets.",
+        "Credit and real estate stress widened, marked by troubles at hedge fund Arini roiling European high-yield debt and a prime Boston office tower trading at a 68% post-default discount.",
+        "Earnings delivered bifurcated economic signals: UPS beat expectations providing positive US macro momentum and Oracle rallied, while Boeing rout continued and Baker Hughes missed elevated expectations."
+      ],
+      "market_sentiment_score": 48,
+      "overall_sentiment": "neutral",
+      "headline_sources": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        10,
+        12,
+        13,
+        15,
+        16,
+        20,
+        22,
+        32,
+        37,
+        40,
+        42,
+        44
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Information Technology & Artificial Intelligence",
+          "trend": "Record AI infrastructure capital expenditures face financing strains amid massive startup operating losses, prompting strategic defensive tie-ups between chipmakers and hyperscalers.",
+          "implications": "Anthropic's $80B loss and UK retail offering highlight aggressive pre-IPO cash burn; Nvidia and AMD's $4B Meta equity investment underscores fierce competitive defense against proprietary custom silicon.",
+          "headline_sources": [
+            6,
+            15,
+            20,
+            26,
+            41,
+            42
+          ]
+        },
+        {
+          "sector": "Energy & Commodities",
+          "trend": "Middle East geopolitical disruptions and structural diesel tightness drive price volatility, while regulatory rollbacks loom in US policy.",
+          "implications": "Refinery drone/missile strikes elevate geopolitical risk premiums in crude; high refined product costs stress commercial logistics and consumer budgets, while gold weakens under hawkish rate expectations.",
+          "headline_sources": [
+            1,
+            10,
+            14,
+            18,
+            21,
+            24,
+            27,
+            28,
+            43
+          ]
+        },
+        {
+          "sector": "Banking & Fixed Income",
+          "trend": "Central bank policy division precedes expected December rate tightening, while high-yield credit and distressed commercial real estate show escalating liquidation stress.",
+          "implications": "FOMC dissents signal impending liquidity tightening; hedge fund distress roils European junk bonds; severe CRE equity write-downs (68% discount) solidify distressed debt opportunities.",
+          "headline_sources": [
+            2,
+            3,
+            4,
+            8,
+            12,
+            13,
+            16,
+            17,
+            22,
+            32,
+            34,
+            36,
+            40,
+            44
+          ]
+        },
+        {
+          "sector": "Industrials, Trade & Transportation",
+          "trend": "Divergence between resilient package logistics and manufacturing vulnerabilities exacerbated by proposed cross-border automotive tariffs.",
+          "implications": "UPS earnings affirm resilient domestic commerce, whereas Boeing's ongoing sell-off and Honda's warning on 50% Canadian tariffs highlight acute operational and supply-chain vulnerabilities.",
+          "headline_sources": [
+            7,
+            9,
+            25,
+            30,
+            31,
+            33,
+            37,
+            39
+          ]
+        },
+        {
+          "sector": "Consumer Discretionary & Retail",
+          "trend": "Household budgets face compounding pressure from fuel and travel costs, driving retailers toward dynamic pricing and consumer-saving tools.",
+          "implications": "Modest consumer sentiment rebound remains fragile as fuel spikes halt consumer cruise operations and airlines raise rewards card fees, accelerating consumer focus on affordability.",
+          "headline_sources": [
+            1,
+            18,
+            19,
+            23,
+            33,
+            35,
+            45
+          ]
+        }
+      ],
+      "key_themes": [
+        "Hawkish Fed Pause: Rate freeze accompanied by dissents and Wall Street consensus forecasting a December hike to combat persistent inflation.",
+        "AI Capex Sustainability Reckoning: Trillion-dollar AI infrastructure buildout confronts extreme cash-burn realities and funding bottlenecks.",
+        "Energy Geopolitics & Distillate Squeeze: Refinery strikes and 300% fuel price surges strain municipal services, travel operators, and global logistics.",
+        "Credit Contagion & Asset Repricing: European junk bond jitters and 68% commercial property haircut mark broader balance-sheet adjustments.",
+        "Cross-Border Trade Protectionism: Automotive supply chains threatened by proposed North American tariff escalation."
+      ],
+      "headline_sources": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        10,
+        12,
+        13,
+        15,
+        16,
+        20,
+        22,
+        23,
+        31,
+        32,
+        35,
+        37,
+        40,
+        42
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Monetary Policy Tightening Shock (December Hike)",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Shorten portfolio duration, hedge fixed-income portfolios via interest rate swaps, and overweight cash equivalents and short-term Treasuries.",
+        "headline_sources": [
+          2,
+          4,
+          12,
+          13,
+          32,
+          40
+        ]
+      },
+      {
+        "risk_factor": "AI Capital Bubble & Liquidity Contagion",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Trim exposure to unprofitable, high-burn AI model developers; focus allocations on cash-generative enterprise software and hyperscalers with diversified revenues.",
+        "headline_sources": [
+          6,
+          15,
+          26,
+          42
+        ]
+      },
+      {
+        "risk_factor": "Refining Supply Disruption & Distillate Price Shocks",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Hedge fuel input costs via heating oil/diesel crack spread futures and maintain long positions in integrated oil and refining equities.",
+        "headline_sources": [
+          1,
+          10,
+          18,
+          21,
+          24
+        ]
+      },
+      {
+        "risk_factor": "High-Yield Credit & Distressed Property Contagion",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Avoid leveraged subordinated European high-yield debt; stress-test CMBS exposures and focus on tier-one investment-grade credit.",
+        "headline_sources": [
+          16,
+          17,
+          22
+        ]
+      },
+      {
+        "risk_factor": "North American Trade Friction & Tariff Escalation",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Underweight automotive original equipment manufacturers dependent on US-Canada integrated supply lines; monitor bilateral tariff negotiations.",
+        "headline_sources": [
+          31,
+          39
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Overweight Cash-Generative Enterprise Software & Cloud Infrastructure",
+          "rationale": "Companies with demonstrated commercialization, recurring SaaS cash flows, and operating leverage outperform unprofitable speculative AI startups.",
+          "tickers": [
+            "ORCL",
+            "MSFT",
+            "GOOGL"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            20,
+            41
+          ]
+        },
+        {
+          "recommendation": "Capitalize on Resilient Domestic Transport and Logistics Leaders",
+          "rationale": "Solid parcel earnings and network efficiency insulate diversified carriers from industrial drag while capturing stabilizing domestic commerce.",
+          "tickers": [
+            "UPS",
+            "FDX"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            35,
+            37
+          ]
+        },
+        {
+          "recommendation": "Long Refining and Upstream Energy Producers",
+          "rationale": "Geopolitical vulnerability in Middle East refining and tight distillate supplies support elevated refining margins and strong free cash flow.",
+          "tickers": [
+            "VLO",
+            "XOM",
+            "MPC"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            1,
+            10,
+            21,
+            24,
+            28
+          ]
+        },
+        {
+          "recommendation": "Target Distressed Commercial Real Estate Opportunities",
+          "rationale": "High post-default discounts (up to 68%) offer attractive entry multiples for patient private credit and opportunistic real estate capital.",
+          "tickers": [
+            "BX",
+            "BAM"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            16
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Trim High-Beta Semiconductor and Hardware Holdings Exposed to Custom Chip Cannibalization",
+          "rationale": "Substantial capital outlays by merchant silicon providers into hyperscalers highlight growing risks to pricing power from in-house ASICs.",
+          "tickers": [
+            "NVDA",
+            "AMD",
+            "META"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            6,
+            42
+          ]
+        },
+        {
+          "recommendation": "Underweight Troubled Commercial Aerospace and Leveraged Industrials",
+          "rationale": "Persistent manufacturing delays and operational missteps leave overleveraged aerospace names vulnerable in a higher-rate environment.",
+          "tickers": [
+            "BA"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            7
+          ]
+        },
+        {
+          "recommendation": "Reduce Allocation to Sub-Investment Grade European Credit and Niche Debt Funds",
+          "rationale": "Liquidity strains at prominent European credit hedge funds threaten spread widening and contagion across European high-yield benchmarks.",
+          "tickers": [
+            "HYG",
+            "JNK"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            22
+          ]
+        },
+        {
+          "recommendation": "Hedge Exposure to Cross-Border Auto Manufacturers Against Tariff Shocks",
+          "rationale": "A proposed 50% tariff on Canadian auto imports poses acute downside risk to integrated automotive assembly and component supply chains.",
+          "tickers": [
+            "HMC",
+            "GM",
+            "F"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            31,
+            39
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "1-3 months: Range-bound consolidation across major equity indexes with heightened volatility. Markets will progressively price in an impending December Fed rate hike while digesting midterm election outcomes and diesel-driven inflation pressures.",
+      "long_term": "6-12 months: Capital expenditure discipline will enforce bifurcation across the technology sector, separating profitable cloud platforms from capital-starved AI labs. Elevated borrowing costs will accelerate commercial debt restructurings and consolidation.",
+      "key_catalysts": [
+        "Federal Reserve December FOMC policy decision, dot plot revisions, and potential adjustments to the rate-setting meeting schedule",
+        "Outcome and policy ramifications of the US midterm elections, particularly regarding energy deregulation and trade tariffs",
+        "Developments in Middle East crude infrastructure security and OPEC+ export volumes",
+        "Anthropic IPO filing disclosures and investor appetite for pre-profit generative AI offerings",
+        "US-Canada bilateral trade negotiations concerning automotive tariff proposals"
+      ],
+      "watch_list": [
+        "US Core CPI and PCE inflation releases leading into the December FOMC meeting",
+        "Brent crude, WTI crude, and Gulf Coast diesel crack spreads",
+        "European high-yield Option-Adjusted Spreads (OAS) and credit fund redemption flows",
+        "US 2-year and 10-year Treasury yields and SOFR futures implied rate hike probabilities",
+        "Commercial real estate foreclosure rates and bank CRE reserve provisioning"
+      ],
+      "headline_sources": [
+        1,
+        2,
+        4,
+        6,
+        10,
+        12,
+        13,
+        15,
+        16,
+        20,
+        22,
+        28,
+        31,
+        32,
+        37,
+        40,
+        42,
+        44
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Rising Diesel Prices Hit School Districts Hard as Midterms Loom",
+      "url": "https://www.today.com/video/how-soaring-diesel-prices-are-impacting-school-districts-272312389918",
+      "publishedAt": "2026-10-27T12:16:07+00:00"
+    },
+    {
+      "index": 2,
+      "headline": "Fed plans to eliminate some rate-setting meetings, Chairman Warsh says",
+      "url": "https://www.nbcnews.com/business/economy/fed-reduces-interest-rate-meetings-warsh-rcna606190",
+      "publishedAt": "2026-10-28T18:50:26+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "Metrobank extends Strongest Bank distinction to six years",
+      "url": "https://mb.com.ph/2026/10/28/metrobank-extends-strongest-bank-distinction-to-six-years",
+      "publishedAt": "2026-10-28T06:56:15Z"
+    },
+    {
+      "index": 4,
+      "headline": "Goldman’s Mericle Says December Hike Looms",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-28/goldman-s-mericle-says-december-hike-looms-video",
+      "publishedAt": "2026-10-28T17:41:35+00:00"
+    },
+    {
+      "index": 5,
+      "headline": "Hasan Piker files $72.5 million defamation suit against Scott Jennings",
+      "url": "https://www.nbcnews.com/pop-culture/pop-culture-news/hasan-piker-files-725-million-defamation-suit-scott-jennings-rcna606118",
+      "publishedAt": "2026-10-28T17:41:08+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "Nvidia and AMD Take $4B Chunk of Meta’s Equity. They Are Fighting Custom Chips. - Barron's",
+      "url": "https://www.barrons.com/articles/nvidia-stock-equity-meta-broadcom-804a8f5a",
+      "publishedAt": "2026-10-27T14:05:00Z"
+    },
+    {
+      "index": 7,
+      "headline": "Boeing Rout a Win For Skeptics Who Rejected Wall Street Optimism",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-28/boeing-rout-a-win-for-skeptics-who-rejected-wall-street-optimism",
+      "publishedAt": "2026-10-28T17:00:55+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "Lionsgate in Investor Talks for Rare Film Library-Backed Bonds",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-28/lionsgate-in-investor-talks-for-rare-film-library-backed-bonds",
+      "publishedAt": "2026-10-28T17:10:14+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "United ‘hijack’ text scare forces plane to turn back - NewsNation",
+      "url": "https://www.newsnationnow.com/crime/united-flight-turn-back-hijacking-text/",
+      "publishedAt": "2026-10-27T14:16:08Z"
+    },
+    {
+      "index": 10,
+      "headline": "Oil rises over 1% after Saudi Arabian refinery attack reignites supply risk",
+      "url": "https://www.thehindu.com/news/international/oil-rises-after-saudi-arabian-refinery-attack-reignites-supply-risk/article71634583.ece",
+      "publishedAt": "2026-10-28T06:38:14Z"
+    },
+    {
+      "index": 11,
+      "headline": "Coalition MP ejected from question time after swearing at PM - as it happened",
+      "url": "https://www.theguardian.com/australia-news/live/2026/oct/28/inflation-abs-labor-anthony-albanese-parliament-greens-david-shoebridge-one-nation-ntwnfb?page=with:block-6ae114018f086d92d1fa0f9b",
+      "publishedAt": "2026-10-28T06:35:00Z"
+    },
+    {
+      "index": 12,
+      "headline": "Federal Reserve leaves interest rates unchanged despite rising inflation",
+      "url": "https://www.nbcnews.com/business/economy/fed-rates-inflation-warsh-midterms-rcna606154",
+      "publishedAt": "2026-10-28T18:01:36+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "Fed Leaves Rates Unchanged, Cook and Hammack Dissent",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-28/fed-leaves-rates-unchanged-cook-and-hammack-dissent-video",
+      "publishedAt": "2026-10-28T18:19:35+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "Gold Price Dips Ahead Of Diwali: Can It Go Lower On Dhanteras? What To Expect",
+      "url": "https://www.ndtvprofit.com/personal-finance/gold-price-dips-ahead-of-diwali-can-it-go-lower-on-dhanteras-what-to-expect-12247014",
+      "publishedAt": "2026-10-28T06:49:22Z"
+    },
+    {
+      "index": 15,
+      "headline": "Anthropic reveals $80 billion loss, huge spending spree ahead of IPO",
+      "url": "https://www.nbcnews.com/business/markets/anthropic-releases-ipo-filing-ahead-highly-anticipated-stock-debut-rcna605676",
+      "publishedAt": "2026-10-26T13:12:04+00:00"
+    },
+    {
+      "index": 16,
+      "headline": "Boston Tower Owner Buys It Again at 68% Discount After Default",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-28/boston-office-tower-sells-for-546-million-discount-at-auction",
+      "publishedAt": "2026-10-28T16:45:48+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "Weil Junior Lawyers Urged to Find Work With Firm in Jeopardy",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-28/weil-practice-head-tells-lawyers-to-find-jobs-as-firm-struggles",
+      "publishedAt": "2026-10-28T17:07:08+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "A 'never-ending' cruise has halted operations and told residents to disembark in Cambodia after fuel costs rose over 300% - Business Insider",
+      "url": "https://www.businessinsider.com/villa-vie-cruise-never-ending-halt-fuel-prices-surge-2026-10#article",
+      "publishedAt": "2026-10-27T15:23:00Z"
+    },
+    {
+      "index": 19,
+      "headline": "Tools and Hacks to Find the Best Prices on Groceries, Gas, More",
+      "url": "https://www.today.com/video/tools-and-hacks-to-find-the-best-prices-on-groceries-gas-more-272395845924",
+      "publishedAt": "2026-10-28T13:33:23+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "Stocks Drift After Fed Decision as Oracle Surges: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-27/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-10-27T22:09:07+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "Chris Wright Says Diesel Exports From Arabian Gulf Likely to Increase",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-28/diesel-from-arabian-gulf-likely-to-increase-wright-video",
+      "publishedAt": "2026-10-28T18:38:08+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "Star Hedge Fund Trader Lemssouguer’s Woes at Arini Roil European Junk Bonds",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-28/star-hedge-fund-trader-lemssouguer-s-woes-at-arini-roil-european-junk-bonds",
+      "publishedAt": "2026-10-28T17:38:32+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "Walmart US CEO on Affordability, Whether It Will Use Dynamic Pricing",
+      "url": "https://www.today.com/video/walmart-us-ceo-on-affordability-whether-it-will-use-dynamic-pricing-272392773540",
+      "publishedAt": "2026-10-28T11:46:25+00:00"
+    },
+    {
+      "index": 24,
+      "headline": "Latest Oil Market News and Analysis for Oct. 28",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-27/latest-oil-market-news-and-analysis-for-oct-28",
+      "publishedAt": "2026-10-27T22:04:57+00:00"
+    },
+    {
+      "index": 25,
+      "headline": "DFW’s $12 Billion Transformation",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-28/dfw-s-12-billion-transformation-video",
+      "publishedAt": "2026-10-28T17:26:02+00:00"
+    },
+    {
+      "index": 26,
+      "headline": "Anthropic Is Said to Plan UK Share Offering Via RetailBook",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-28/anthropic-is-said-to-plan-uk-share-offering-via-retailbook",
+      "publishedAt": "2026-10-28T17:24:05+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "Gold Holds Losses After Fed Keeps Rates Steady With Two Dissents",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-27/gold-holds-above-4-000-as-traders-look-to-fed-rate-decision",
+      "publishedAt": "2026-10-27T23:36:58+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "Trump says he’ll roll back Biden-era methane rules for oil and gas companies",
+      "url": "https://www.nbcnews.com/science/climate-change/trump-methane-rules-leaks-emissions-oil-gas-rcna605983",
+      "publishedAt": "2026-10-28T01:37:47+00:00"
+    },
+    {
+      "index": 29,
+      "headline": "Charge against ex-enforcement officer accused of seeking bribes from vape dealer withdrawn",
+      "url": "https://www.straitstimes.com/singapore/courts-crime/charge-against-ex-enforcement-officer-accused-of-seeking-bribes-from-vape-dealer-withdrawn",
+      "publishedAt": "2026-10-28T06:40:00Z"
+    },
+    {
+      "index": 30,
+      "headline": "Spanish Train Crash Kills at Least 68 People South of Madrid",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-28/spanish-train-crash-kills-at-least-64-people-south-of-madrid",
+      "publishedAt": "2026-10-28T17:05:53+00:00"
+    },
+    {
+      "index": 31,
+      "headline": "Honda warns 50% Canada auto tariffs would be catastrophic for auto industry - CNBC",
+      "url": "https://www.cnbc.com/2026/10/27/honda-warns-50percent-canada-auto-tariffs-would-be-catastrophic.html",
+      "publishedAt": "2026-10-27T15:45:57Z"
+    },
+    {
+      "index": 32,
+      "headline": "Fed Will Raise Rates in December, Clarida Predicts",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-28/fed-will-raise-rates-in-december-clarida-predicts-video",
+      "publishedAt": "2026-10-28T18:41:05+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "American Airlines hikes annual fees on rewards cards for first time since 2018 - CNBC",
+      "url": "https://www.cnbc.com/2026/10/27/american-airlines-citi-aadvantage-card-fee.html",
+      "publishedAt": "2026-10-27T15:39:51Z"
+    },
+    {
+      "index": 34,
+      "headline": "Metrobank extends Strongest Bank distinction to six years",
+      "url": "https://mb.com.ph/2026/10/28/metrobank-extends-strongest-bank-distinction-to-six-years?shem=dsdf,sharefoc,agadiscoversdl,,sh/x/discover/m1/4",
+      "publishedAt": "2026-10-28T06:56:58Z"
+    },
+    {
+      "index": 35,
+      "headline": "US consumer confidence recovers in October as gas prices eased a bit - AP News",
+      "url": "https://apnews.com/article/consumer-confidence-inflation-gasoline-tariffs-10aae13e93501c1c7f8803d44316eb28",
+      "publishedAt": "2026-10-27T14:25:36Z"
+    },
+    {
+      "index": 36,
+      "headline": "Santander's Q3 profit jump overshadowed by Brazil weakness",
+      "url": "https://www.reuters.com/business/finance/santanders-q3-underlying-net-profit-up-19-backed-by-acquisitions-2026-10-28/",
+      "publishedAt": "2026-10-28T06:38:00Z"
+    },
+    {
+      "index": 37,
+      "headline": "UPS Earnings Deliver Good News for the U.S. Economy - Barron's",
+      "url": "https://www.barrons.com/articles/ups-earnings-stock-price-4afc92ba",
+      "publishedAt": "2026-10-27T14:49:00Z"
+    },
+    {
+      "index": 38,
+      "headline": "ASX ends flat as inflation boosts rate rise bets; tech stocks rally",
+      "url": "https://www.theage.com.au/business/markets/asx-set-to-edge-up-tech-stocks-drive-wall-street-higher-20261028-p6195g.html",
+      "publishedAt": "2026-10-28T06:43:59Z"
+    },
+    {
+      "index": 39,
+      "headline": "White House tempers its tough talk on Canada trade as inflation tops voter concerns",
+      "url": "https://www.nbcnews.com/business/economy/canada-trade-tariffs-trump-maine-midterms-rcna605906",
+      "publishedAt": "2026-10-27T18:00:38+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "Fed expected to hold interest rates steady as inflation tops midterm voters’ concerns",
+      "url": "https://www.nbcnews.com/business/economy/fed-interest-rates-inflation-midterms-trump-rcna605905",
+      "publishedAt": "2026-10-27T22:36:11+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Stock Market Today: Dow flat, Nasdaq and S&P 500 edge higher as oil prices fall and chip stocks bounce - MarketWatch",
+      "url": "https://www.marketwatch.com/livecoverage/stock-market-today-s-p-500-nasdaq-dow-mixed-tech-stocks-fall-after-rebound",
+      "publishedAt": "2026-10-27T16:39:55Z"
+    },
+    {
+      "index": 42,
+      "headline": "There’s not enough money in the world to pay for the AI boom - The Washington Post",
+      "url": "https://www.washingtonpost.com/technology/2026/10/27/ai-companies-are-desperate-cash-dont-know-where-it-will-come/",
+      "publishedAt": "2026-10-27T16:00:00Z"
+    },
+    {
+      "index": 43,
+      "headline": "Baker Hughes 3Q EPS Beat Falls Short of High Bar",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-28/baker-hughes-3q-eps-beat-falls-short-of-high-bar-video",
+      "publishedAt": "2026-10-28T17:07:47+00:00"
+    },
+    {
+      "index": 44,
+      "headline": "Fed's Warsh Says Monetary 'Medicine' Starting to Work",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-28/fed-s-warsh-says-monetary-medicine-starting-to-work-video",
+      "publishedAt": "2026-10-28T18:57:02+00:00"
+    },
+    {
+      "index": 45,
+      "headline": "When to Grab the Best Deals on Everything From Food to Flights",
+      "url": "https://www.today.com/video/here-are-the-best-times-to-buy-food-flights-electronics-more-272318533660",
+      "publishedAt": "2026-10-27T13:19:40+00:00"
+    },
+    {
+      "index": 46,
+      "headline": "Did the Reserve Bank help the coalition’s re-election chances?",
+      "url": "https://www.nzherald.co.nz/nz/politics/did-the-reserve-bank-help-the-coalitions-re-election-chances/premium/HMDVA7CXPRD2XBBB7UZ4Z2NSDE/",
+      "publishedAt": "2026-10-28T06:54:55Z"
+    },
+    {
+      "index": 47,
+      "headline": "Bolsonaro huye a Miami y desata ola de memes en Brasil",
+      "url": "https://www.bloomberg.com/news/videos/2026-10-28/bolsonaro-huye-a-miami-y-desata-ola-de-memes-en-brasil-video",
+      "publishedAt": "2026-10-28T17:58:58+00:00"
+    },
+    {
+      "index": 48,
+      "headline": "SkillsFuture mid-career support to cover 140 more training programmes, including tech job placements",
+      "url": "https://www.channelnewsasia.com/singapore/skillsfuture-training-credits-mid-career-jasmin-lau-6498901",
+      "publishedAt": "2026-10-28T07:00:00Z"
+    },
+    {
+      "index": 49,
+      "headline": "Sandoz Warns EU May Scrap Antibiotic Protection, Harm Plant",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-28/sandoz-warns-eu-may-scrap-antibiotic-protection-risking-plant",
+      "publishedAt": "2026-10-28T09:34:29+00:00"
+    }
+  ]
+}
