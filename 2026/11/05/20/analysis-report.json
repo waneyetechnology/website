@@ -1,0 +1,697 @@
+{
+  "analysis": {
+    "analysis_date": "November 05, 2026",
+    "analysis_time": "20:02",
+    "executive_summary": {
+      "key_highlights": [
+        "Sharp AI and tech selloff triggered the S&P 500's largest decline since April 2025, cooling an initial post-election relief rally.",
+        "Crude oil plummeted below $100/barrel in its largest slide since July on optimism surrounding post-midterm Iran peace talks.",
+        "Data center debt liquidation ($500M Stargate/CyrusOne loans) and valuation scrutiny ahead of Anthropic's IPO intensified concerns over AI capital expenditure returns.",
+        "Democrats secured control of Congress in a 'blue wave', redirecting legislative focus toward cost-of-living affordability and challenging prior critical mineral initiatives.",
+        "Safe-haven demand triggered a major surge in US Treasuries, while gold pared gains amid market-wide de-risking and margin pressure.",
+        "Macro indicators showed resilience with ADP private payrolls adding 86,000 jobs, though consumer fatigue persists with McDonald's traffic dropping and factory closures at John Deere."
+      ],
+      "market_sentiment_score": 38,
+      "overall_sentiment": "negative",
+      "headline_sources": [
+        2,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        20,
+        26,
+        28,
+        30,
+        35,
+        40,
+        41,
+        44,
+        45,
+        48
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology & AI Infrastructure",
+          "trend": "Severe pullback driven by mounting skepticism over AI monetization timelines, highlighted by Anthropic valuation questions and $500M in distressed data center loan sales.",
+          "implications": "Valuation compression for high-multiple semiconductor and cloud names; derivative markets seeing dip-buying call surges as investors look for technical support.",
+          "headline_sources": [
+            9,
+            12,
+            15,
+            31,
+            35,
+            37,
+            40,
+            41,
+            45,
+            47
+          ]
+        },
+        {
+          "sector": "Energy & Utilities",
+          "trend": "Crude prices dropped below $100/bbl on diplomatic prospects with Iran; utilities position for long-term load expansion driven by data centers; Qatar eyes US LNG supply agreements.",
+          "implications": "Upstream margins will compress in the near term; disinflationary pressure eases consumer costs; regulated utilities gain long-term capital investment visibility.",
+          "headline_sources": [
+            2,
+            10,
+            17,
+            20,
+            21,
+            22,
+            33
+          ]
+        },
+        {
+          "sector": "Fixed Income & Credit",
+          "trend": "Flight-to-safety sparked a sharp rally in US Treasuries; CCC high-yield credit stress remains contained, but debt burdens mount in European real estate and construction.",
+          "implications": "Benchmark yields fall, lowering borrowing costs for high-grade corporates; highly leveraged European homebuilders face severe restructuring pressure.",
+          "headline_sources": [
+            3,
+            43,
+            44
+          ]
+        },
+        {
+          "sector": "Consumer Discretionary & Retail",
+          "trend": "Inflationary strain on gas and groceries drives consumer trade-down; McDonald's launches value bundles after Q3 traffic declines; traditional department stores face disruption from ultra-low-cost e-commerce.",
+          "implications": "Margin compression for mid-tier consumer operators; market share shifts toward aggressive discounters; targeted athletic partnerships (e.g., Caitlin Clark) offer selective growth.",
+          "headline_sources": [
+            1,
+            4,
+            5,
+            13,
+            23,
+            25,
+            28,
+            49
+          ]
+        },
+        {
+          "sector": "Aerospace & Defense",
+          "trend": "European defense equities slumped as Rheinmetall cut its full-year guidance for the second time amid delayed military contracts, compounded by airline security disruptions.",
+          "implications": "Pacing of European defense spending faces near-term administrative bottlenecks; defense multiples de-rate following multi-year outperformance.",
+          "headline_sources": [
+            8,
+            9,
+            36
+          ]
+        },
+        {
+          "sector": "Financial Services & Digital Assets",
+          "trend": "Asset managers face fee revenue compression (Carlyle); FINRA steps up enforcement actions against retail brokers; multi-billion crypto platform breaches spur White House regulatory reviews.",
+          "implications": "Stricter broker-dealer compliance costs; tighter SEC digital asset broker frameworks; institutional rotation toward regulated custodians.",
+          "headline_sources": [
+            7,
+            27,
+            46,
+            50
+          ]
+        }
+      ],
+      "key_themes": [
+        "AI infrastructure capex sustainability and valuation re-rating",
+        "Energy market de-escalation driving disinflationary momentum",
+        "Post-midterm political realignment and regulatory pivot toward affordability",
+        "Cross-asset safe-haven rotation favoring sovereign bonds over risk assets",
+        "Consumer polarization and retail margin compression"
+      ],
+      "headline_sources": [
+        2,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        20,
+        25,
+        26,
+        27,
+        28,
+        30,
+        31,
+        33,
+        35,
+        40,
+        41,
+        44,
+        45,
+        48,
+        50
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "AI Capex Bubble and Infrastructure Financing Stress",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Reduce exposure to speculative AI multiples, audit counterparty exposure to private data center debt, and prioritize cash-flow-positive enterprise software.",
+        "headline_sources": [
+          12,
+          15,
+          35,
+          40,
+          41,
+          45
+        ]
+      },
+      {
+        "risk_factor": "Cybersecurity Vulnerabilities in Critical Infrastructure & Crypto Custody",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Deploy robust AI agent governance frameworks, mandate cold-storage institutional custody, and increase portfolio allocation to enterprise cyber defense.",
+        "headline_sources": [
+          18,
+          36,
+          37,
+          50
+        ]
+      },
+      {
+        "risk_factor": "Legislative and Regulatory Realignment Post-Midterms",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Diversify away from policy-sensitive critical mineral deals facing congressional scrutiny; anticipate renewed antitrust and pricing pressure on Big Tech and food retail.",
+        "headline_sources": [
+          26,
+          28,
+          40,
+          46
+        ]
+      },
+      {
+        "risk_factor": "Consumer Purchasing Power Erosion and Down-Trading",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Underweight mid-tier consumer discretionary; tilt toward non-cyclical consumer staples and dominant low-cost retail channels.",
+        "headline_sources": [
+          1,
+          5,
+          13,
+          23,
+          25,
+          28,
+          49
+        ]
+      },
+      {
+        "risk_factor": "Industrial & Defense Contract Deferrals",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Hedge exposure to cyclical capital goods and European defense suppliers experiencing contract delays or plant restructuring.",
+        "headline_sources": [
+          8,
+          43,
+          48
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Accumulate Long-Duration US Treasuries",
+          "rationale": "Safe-haven demand sparked by tech de-risking and falling oil prices provide strong downward pressure on benchmark bond yields.",
+          "tickers": [
+            "TLT",
+            "IEF",
+            "GOVT"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            2,
+            10,
+            44
+          ]
+        },
+        {
+          "recommendation": "Overweight Regulated Utilities Supporting Data Center Electrification",
+          "rationale": "Regulated utilities benefit from guaranteed rate-base expansion and long-term power purchase commitments from hyperscalers with lower multiple volatility.",
+          "tickers": [
+            "DUK",
+            "NEE",
+            "XLU"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            12,
+            33
+          ]
+        },
+        {
+          "recommendation": "Invest in AI Agent Security and Infrastructure Defense",
+          "rationale": "Heightened security threats against autonomous agents and critical infrastructure create inelastic enterprise demand for next-generation security platforms.",
+          "tickers": [
+            "CRWD",
+            "PANW",
+            "CIBR"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            18,
+            37,
+            50
+          ]
+        },
+        {
+          "recommendation": "Selective Longs in Athletic Footwear and Apparel Retail Leaders",
+          "rationale": "Exclusive flagship athlete endorsements (Caitlin Clark) provide differentiated market share expansion despite broader retail headwinds.",
+          "tickers": [
+            "DKS",
+            "FL"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            4
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Trim High-Multiple AI Hardware and Pre-Profit Tech Exposure",
+          "rationale": "Secondary loan sales in data center debt and valuation pushback ahead of Anthropic IPO point to further valuation multiple de-rating.",
+          "tickers": [
+            "SMH",
+            "QQQ",
+            "ARKK"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            12,
+            15,
+            35,
+            40,
+            41,
+            45,
+            47
+          ]
+        },
+        {
+          "recommendation": "Reduce Upstream Oil & Gas Holdings",
+          "rationale": "Crude tumbling below $100/bbl on emerging Iran diplomatic talks reduces short-term earnings momentum and cash return yields for exploration and production firms.",
+          "tickers": [
+            "XLE",
+            "USO",
+            "OIH"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            2,
+            10,
+            20,
+            21
+          ]
+        },
+        {
+          "recommendation": "Underweight European Defense and Cyclical UK Homebuilding",
+          "rationale": "Rheinmetall's second guidance downgrade and severe debt overhang in UK construction signal operational delays and deteriorating margins.",
+          "tickers": [
+            "RHM.DE",
+            "VTY.L"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            8,
+            9,
+            43
+          ]
+        },
+        {
+          "recommendation": "Mitigate Unregulated Crypto Exchange & Broker Counterparty Risk",
+          "rationale": "Sophisticated multi-billion dollar platform cyber-heists and impending White House broker compliance rules create heightened liquidity and regulatory risks.",
+          "tickers": [
+            "COIN",
+            "BITO"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            7,
+            46,
+            50
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "1-3 month outlook: Persistent equity volatility and valuation consolidation as markets absorb the Democratic congressional agenda, assess AI infrastructure capital efficiency, and monitor diplomatic shifts in the Middle East. Tech multiple contraction likely continues while capital rotates to Treasuries and defensive value.",
+      "long_term": "6-12 month outlook: Disinflationary momentum accelerated by lower energy prices should enable central bank policy easing, supporting high-grade fixed income. Corporate fundamentals will bifurcate between profitable cash-generative technology adopters and debt-laden speculative enterprises.",
+      "key_catalysts": [
+        "Diplomatic negotiations regarding Iran and ongoing peace talks impacting crude oil equilibrium",
+        "Policy agenda announcements from the newly elected Democratic congressional leadership regarding affordability and Big Tech regulation",
+        "Anthropic IPO filing, valuation reception, and initial trading performance",
+        "Further liquidity events, haircuts, or refinancing stress in private data center loan packages",
+        "Upcoming US Non-Farm Payrolls and Consumer Price Index (CPI) releases",
+        "Finalization of SEC crypto broker compliance rules by the White House"
+      ],
+      "watch_list": [
+        "WTI and Brent crude futures support levels below $100/barrel",
+        "US 10-Year Treasury Yield and duration inflows",
+        "CBOE Volatility Index (VIX) and tech call/put option skew",
+        "Private credit spreads and secondary market loan discounts in AI infrastructure",
+        "Q4 retail holiday foot traffic and consumer trade-down metrics",
+        "Critical infrastructure cyber incident disclosures"
+      ],
+      "headline_sources": [
+        2,
+        3,
+        5,
+        8,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        20,
+        26,
+        28,
+        30,
+        31,
+        33,
+        35,
+        40,
+        41,
+        44,
+        45,
+        46,
+        47,
+        50
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Tips for Hosting a Festive Budget-Friendly Feast This Thanksgiving",
+      "url": "https://www.today.com/video/how-prep-the-best-budget-friendly-and-festive-thanksgiving-meal-272909893856",
+      "publishedAt": "2026-11-05T12:47:38+00:00"
+    },
+    {
+      "index": 2,
+      "headline": "Oil prices drop below $100 as midterms fuel hope for an end to the Iran war",
+      "url": "https://www.nbcnews.com/business/energy/oil-prices-iran-war-midterms-rcna607448",
+      "publishedAt": "2026-11-04T17:05:01+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "CCC's Stress Relatively Well-Contained: Gomez-Bravo",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-05/ccc-s-stress-relatively-well-contained-gomez-bravo-video",
+      "publishedAt": "2026-11-05T19:41:56+00:00"
+    },
+    {
+      "index": 4,
+      "headline": "Caitlin Clark becomes first-ever brand partner for Dick's Sporting Goods and Foot Locker - Fox Business",
+      "url": "https://www.foxbusiness.com/sports/caitlin-clark-becomes-first-ever-brand-partner-dicks-sporting-goods-foot-locker",
+      "publishedAt": "2026-11-04T15:11:00Z"
+    },
+    {
+      "index": 5,
+      "headline": "In top Senate race states, gas and grocery costs are rising faster than the national average",
+      "url": "https://www.nbcnews.com/business/economy/senate-gas-grocery-housing-costs-trump-rcna607097",
+      "publishedAt": "2026-11-03T12:44:07+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "How Rising Rates and Policy Changes May Impact Your Insurance",
+      "url": "https://www.today.com/video/open-enrollment-2026-what-you-should-know-before-renewing-272919109809",
+      "publishedAt": "2026-11-05T14:32:54+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "Webull to Pay $4.2 Million Finra Fine Over Compliance Issues",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-05/webull-to-pay-4-2-million-finra-fine-over-compliance-issues",
+      "publishedAt": "2026-11-05T17:16:05+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "Rheinmetall cuts outlook for second time in months as military contracts stall",
+      "url": "https://www.cnbc.com/2026/11/05/rheinmetall-stock-outlook-sales-germany.html",
+      "publishedAt": "2026-11-05T07:43:03Z"
+    },
+    {
+      "index": 9,
+      "headline": "European Stocks Reverse Gains as Tech Rout Builds, Defense Drops",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-05/european-stocks-hit-fresh-record-as-ai-unwind-boosts-region",
+      "publishedAt": "2026-11-05T08:09:35+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "Oil tumbles below $100 on post-election peace hopes - Financial Times",
+      "url": "https://www.ft.com/content/b526f876-810a-4e74-8b8d-4ffca04b29c7?syn-25a6b1a6\\\\u003d1",
+      "publishedAt": "2026-11-04T17:15:23Z"
+    },
+    {
+      "index": 11,
+      "headline": "Gold Pares Gains as Tech Rout Prompts Investors to Cut Risk",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-04/gold-holds-above-4-000-as-dollar-yields-fall-on-midterm-result",
+      "publishedAt": "2026-11-04T23:58:33+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Mystery Seller Puts Up $500 Million Data Center Loans Backing Stargate, CyrusOne",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-05/mystery-seller-puts-up-500-million-data-center-loans-backing-stargate-cyrusone",
+      "publishedAt": "2026-11-05T18:52:30+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "McDonald’s plans new value bundles next year after US traffic falls in third quarter - AP News",
+      "url": "https://apnews.com/article/mcdonalds-inflation-fast-food-earnings-7fee4f873c6230e20f9e366e35094444",
+      "publishedAt": "2026-11-04T15:55:00Z"
+    },
+    {
+      "index": 14,
+      "headline": "Private sector added 86,000 jobs in October, above expectations, ADP says - Fox Business",
+      "url": "https://www.foxbusiness.com/economy/private-sector-added-86000-jobs-october-above-expectations-adp-says",
+      "publishedAt": "2026-11-04T15:20:00Z"
+    },
+    {
+      "index": 15,
+      "headline": "S&P 500 Tumbles Most Since April 2025 on AI Fears: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-04/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-11-04T22:15:04+00:00"
+    },
+    {
+      "index": 16,
+      "headline": "Stocks surge as ‘blue tsunami’ puts political uncertainty to rest",
+      "url": "https://www.nbcnews.com/business/markets/stock-futures-blue-tsunami-ai-boom-rcna607351",
+      "publishedAt": "2026-11-04T06:11:31+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "H.H. Sheikh Khaled stresses need to strengthen supply chain resilience at ADNOC meeting",
+      "url": "https://www.arnnewscentre.ae/news/uae/h-h-sheikh-khaled-reviews-adnocs-performance-in-2026/",
+      "publishedAt": "2026-11-05T07:44:49Z"
+    },
+    {
+      "index": 18,
+      "headline": "Russian hacktivists say they were behind freezer hacks, but speculation remains - BBC",
+      "url": "https://www.bbc.com/news/articles/c8vgxyvz6y9ro",
+      "publishedAt": "2026-11-04T15:19:46Z"
+    },
+    {
+      "index": 19,
+      "headline": "Maharlika eyes up to 3 more investments worth P4B before year-end",
+      "url": "https://www.gmanetwork.com/news/money/companies/1008399/maharlika-eyes-up-to-3-more-investments-worth-p4b-before-year-end/story/",
+      "publishedAt": "2026-11-05T07:45:43Z"
+    },
+    {
+      "index": 20,
+      "headline": "Oil prices slide in biggest drop since July on hope for more Iran talks",
+      "url": "https://www.nbcnews.com/business/energy/oil-prices-slide-trump-hope-iran-talks-rcna607107",
+      "publishedAt": "2026-11-02T21:32:02+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "Latest Oil Market News and Analysis for Nov. 5",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-04/latest-oil-market-news-and-analysis-for-nov-5",
+      "publishedAt": "2026-11-04T23:08:01+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "Qatar in Talks to Buy More US LNG, Diversify Supply Outside Persian Gulf",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-05/qatar-in-talks-to-buy-more-us-lng-diversify-supply-outside-persian-gulf",
+      "publishedAt": "2026-11-05T16:56:23+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "Goulburn Pub Group: Locals blindsided after three historic pubs suddenly shut down",
+      "url": "https://www.nine.com.au/australia-news/nsw/goulburn-pub-group-three-venues-shut-without-warning-20261105-p61blg.html",
+      "publishedAt": "2026-11-05T07:52:59Z"
+    },
+    {
+      "index": 24,
+      "headline": "SM Prime turns marathoners into mall customers",
+      "url": "https://mb.com.ph/2026/11/05/sm-prime-turns-marathoners-into-mall-customers",
+      "publishedAt": "2026-11-05T07:54:35Z"
+    },
+    {
+      "index": 25,
+      "headline": "David Jones’ collapse was always coming with the advent of Shein, Temu",
+      "url": "https://www.theage.com.au/lifestyle/fashion/want-to-know-why-djs-went-bust-walk-through-one-of-its-stores-at-midday-20261105-p61bk1.html",
+      "publishedAt": "2026-11-05T08:00:00Z"
+    },
+    {
+      "index": 26,
+      "headline": "Trump-Backed Critical Minerals Deals Face Growing Pressure After Blue Wave",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-05/trump-backed-critical-minerals-deals-face-growing-pressure-after-blue-wave",
+      "publishedAt": "2026-11-05T18:33:17+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "Carlyle Shares Slump On Bigger-Than-Expected Drop in Fees",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-05/carlyle-beats-as-deal-exits-mitigate-dip-in-fee-related-earnings",
+      "publishedAt": "2026-11-05T11:01:00+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "Democrats won on affordability. Whether they can deliver it is a different story.",
+      "url": "https://www.nbcnews.com/politics/2026-election/democrats-affordability-promise-midterms-trump-rcna607409",
+      "publishedAt": "2026-11-04T20:39:30+00:00"
+    },
+    {
+      "index": 29,
+      "headline": "What Midterm Election Results Could Mean for Consumer Prices",
+      "url": "https://www.today.com/video/what-midterm-election-results-could-mean-for-consumer-prices-272833093884",
+      "publishedAt": "2026-11-04T12:50:55+00:00"
+    },
+    {
+      "index": 30,
+      "headline": "Stock market today: Dow jumps over 1,000 points, S&P 500 and Nasdaq gain after Democrats win control of Congress - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-dow-sp-500-nasdaq-midterm-elections-earnings-140752043.html",
+      "publishedAt": "2026-11-04T15:46:28Z"
+    },
+    {
+      "index": 31,
+      "headline": "Goldman Sachs Traders See Surge in Calls as AI Stock Selloff Deepens",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-05/goldman-traders-say-phones-are-exploding-as-ai-selloff-worsens",
+      "publishedAt": "2026-11-05T18:40:06+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "Hedge Fund Adviser LB Macro Sees US Midterms Boosting Dollar",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-05/hedge-fund-adviser-lb-macro-sees-us-midterms-boosting-the-dollar",
+      "publishedAt": "2026-11-05T13:27:17+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "Duke Energy's Data Center Bet",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-05/duke-energy-s-data-center-bet-video",
+      "publishedAt": "2026-11-05T16:41:14+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "Amadeus FiRe AG (AFGZF) Q3 2026 Earnings Call Transcript",
+      "url": "https://seekingalpha.com/article/4961877-amadeus-fire-ag-afgzf-q3-2026-earnings-call-transcript",
+      "publishedAt": "2026-11-05T07:44:34Z"
+    },
+    {
+      "index": 35,
+      "headline": "Stocks plunge as AI worries crush tech shares",
+      "url": "https://www.nbcnews.com/business/markets/tech-stocks-plunge-ai-midterms-rcna607650",
+      "publishedAt": "2026-11-05T15:32:58+00:00"
+    },
+    {
+      "index": 36,
+      "headline": "Wave of bomb threats against European airliners triggers diversions and tarmac searches ",
+      "url": "https://www.nbcnews.com/world/europe/bomb-threat-plane-dublin-rome-diverted-aer-lingus-france-rcna607594",
+      "publishedAt": "2026-11-05T09:26:23+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "The Security Companies Trying to Get AI Agents Under Control - The Information",
+      "url": "https://www.theinformation.com/newsletters/ai-agenda/security-companies-trying-get-ai-agents-control",
+      "publishedAt": "2026-11-04T15:02:00Z"
+    },
+    {
+      "index": 38,
+      "headline": "Sohn Hearts and Minds Queenstown 2026: Live Updates and News",
+      "url": "https://www.bloomberg.com/news/live-blog/2026-11-05/sohn-investment-conference-in-queenstown",
+      "publishedAt": "2026-11-05T19:47:43+00:00"
+    },
+    {
+      "index": 39,
+      "headline": "Argentina Bonds Drop as Market Flags Intervention in Peso Debt",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-05/argentina-bonds-drop-as-market-flags-intervention-in-peso-debt",
+      "publishedAt": "2026-11-05T18:17:34+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "US Selloff Deepens as Democrat Sweep Sparks AI Exposure Worries",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-05/us-stock-futures-diverge-as-chip-selloff-extends-into-second-day",
+      "publishedAt": "2026-11-05T12:54:02+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Post-Election Rally Cools on Growing Pressure for AI Buildout",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-05/bloomberg-surveillance-11-5-2026-video",
+      "publishedAt": "2026-11-05T16:43:00+00:00"
+    },
+    {
+      "index": 42,
+      "headline": "LIV Golf plans to shut down",
+      "url": "https://www.nbcnews.com/business/business-news/liv-golf-headed-bankruptcy-last-minute-rescue-rcna607677",
+      "publishedAt": "2026-11-05T17:25:23+00:00"
+    },
+    {
+      "index": 43,
+      "headline": "Vistry jobs cull begins as daily debt heads for £800m",
+      "url": "https://www.constructionenquirer.com/2026/11/05/vistry-jobs-cull-begins-as-as-daily-debt-heads-for-800m/",
+      "publishedAt": "2026-11-05T07:47:08Z"
+    },
+    {
+      "index": 44,
+      "headline": "Treasuries Soar as Tech-Stock Selloff Stokes Haven Demand",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-05/treasuries-extend-advance-as-technology-shares-resume-slide",
+      "publishedAt": "2026-11-05T15:54:44+00:00"
+    },
+    {
+      "index": 45,
+      "headline": "Can Anthropic make enough money to justify its value?",
+      "url": "https://www.npr.org/2026/11/05/nx-s1-6029778/can-anthropic-make-enough-money-to-justify-its-value",
+      "publishedAt": "2026-11-05T08:00:00Z"
+    },
+    {
+      "index": 46,
+      "headline": "White House Reviewing SEC’s Proposed Crypto Broker Rule Changes",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-05/white-house-reviewing-sec-s-proposed-crypto-broker-rule-changes",
+      "publishedAt": "2026-11-05T18:35:08+00:00"
+    },
+    {
+      "index": 47,
+      "headline": "How to Get Exposure to Anthropic Through ETFs Before and After the IPO",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-11-05/how-to-get-exposure-to-anthropic-through-etfs-before-and-after-the-ipo",
+      "publishedAt": "2026-11-05T19:28:34+00:00"
+    },
+    {
+      "index": 48,
+      "headline": "John Deere to close Iowa factories, shift production - KIMT",
+      "url": "https://www.kimt.com/news/john-deere-to-close-iowa-factories-shift-production/article_6f0d04a6-75a6-463f-9d82-1051e3f71869.html",
+      "publishedAt": "2026-11-04T16:21:00Z"
+    },
+    {
+      "index": 49,
+      "headline": "Holiday Grocery Baskets: Which Are Worth the Money?",
+      "url": "https://www.today.com/video/thanksgiving-grocery-baskets-which-are-worth-the-money-272756805783",
+      "publishedAt": "2026-11-03T14:14:57+00:00"
+    },
+    {
+      "index": 50,
+      "headline": "Binance says hackers who stole billions in crypto spent months planning heist - Ars Technica",
+      "url": "https://arstechnica.com/information-technology/2026/11/binance-says-hackers-who-stole-billions-in-crypto-spent-months-planning-heist/",
+      "publishedAt": "2026-11-04T16:06:03Z"
+    },
+    {
+      "index": 51,
+      "headline": "M&M Q2 Results: Profit rises 25% YoY to Rs 4,588 crore, revenue grows 25%",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/mm-q2-results-profit-rises-25-yoy-to-rs-4588-crore-revenue-grows-25/articleshow/135564269.cms?from=mdr",
+      "publishedAt": "2026-11-05T07:49:45Z"
+    }
+  ]
+}
