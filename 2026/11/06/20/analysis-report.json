@@ -1,0 +1,664 @@
+{
+  "analysis": {
+    "analysis_date": "November 06, 2026",
+    "analysis_time": "20:02",
+    "executive_summary": {
+      "key_highlights": [
+        "Wall Street experienced extreme volatility as an initial post-election selloff and AI valuation rout (Nasdaq -4%, NVDA down ~$1.4T from peak) gave way to an aggressive relief rebound after political uncertainty cleared.",
+        "The US labor market showed unexpected strength with October nonfarm payrolls adding 165,000 jobs and unemployment dropping to 4.1%, halting the bond rally and sending Treasury yields higher.",
+        "Regulatory pushback against AI infrastructure intensified with 16 US states weighing limits on data center power and water usage, threatening potential offshore capital flight.",
+        "Crude oil fell below $100/bbl on midterms-driven optimism regarding de-escalation in the Iran conflict, mitigating immediate stagflation pressures.",
+        "Corporate restructuring deepened in speculative tech and EV sectors, highlighted by Tesla winding down Cybertruck production and private space valuation write-downs impacting Elon Musk's net worth."
+      ],
+      "market_sentiment_score": 48,
+      "overall_sentiment": "neutral",
+      "headline_sources": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        8,
+        14,
+        15,
+        16,
+        26,
+        30,
+        33,
+        35,
+        38,
+        41,
+        47,
+        50
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology & Semiconductors",
+          "trend": "Severe intraday whipsaw following historic routs in mega-cap AI leaders before dip-buyers stepped into chipmakers.",
+          "implications": "Multiples face ongoing compression from rising bond yields, while state-level data center curbs threaten long-term domestic capex expansion.",
+          "headline_sources": [
+            1,
+            4,
+            6,
+            7,
+            8,
+            14,
+            16,
+            17,
+            24,
+            30,
+            35,
+            43
+          ]
+        },
+        {
+          "sector": "Fixed Income & Sovereign Debt",
+          "trend": "Bonds reversed sharply downward as robust US job creation (165k added, 4.1% unemployment) erased rate cut expectations.",
+          "implications": "Higher benchmark yields weigh on rate-sensitive assets, while emerging sovereign credits like Argentina slide deeper into distressed territory.",
+          "headline_sources": [
+            2,
+            3,
+            14,
+            15,
+            26,
+            28,
+            47,
+            50
+          ]
+        },
+        {
+          "sector": "Energy & Commodities",
+          "trend": "Crude oil broke below $100/bbl on diplomatic hopes post-election, while gold sold off alongside sinking bonds.",
+          "implications": "Lower oil prices alleviate consumer cost pressures, though commodity volatility remains tied to fragile Middle Eastern geopolitical headlines.",
+          "headline_sources": [
+            3,
+            38,
+            49
+          ]
+        },
+        {
+          "sector": "Automotive & Industrial Manufacturing",
+          "trend": "Production rationalization in consumer EV lines as Tesla winds down Austin Cybertruck manufacturing.",
+          "implications": "Automakers are reprioritizing capital discipline and mainstream architectures over niche, high-cost experimental vehicle programs.",
+          "headline_sources": [
+            5,
+            27,
+            41
+          ]
+        },
+        {
+          "sector": "Financials & Asset Management",
+          "trend": "Record derivatives trading volumes contrasted with hedge fund risk resets (Walleye returning $2B, Millennium cutting credit pods).",
+          "implications": "Brokerages and exchanges profit from heightened retail and institutional turnover, while multi-strategy pod managers face strict risk limits.",
+          "headline_sources": [
+            18,
+            20,
+            22,
+            42,
+            51
+          ]
+        },
+        {
+          "sector": "Aerospace, Defense & Commercial Aviation",
+          "trend": "Operational headwinds from airline earnings slumps and security threats, alongside commercial space launch schedule pushbacks.",
+          "implications": "Near-term airline margins are constrained by security and fuel costs, while space ventures face commercialization delays.",
+          "headline_sources": [
+            23,
+            27,
+            29,
+            31,
+            48
+          ]
+        }
+      ],
+      "key_themes": [
+        "AI Capex Re-evaluation: Souring sentiment around hyperscale capex efficiency and emerging state data center regulations.",
+        "Macro Decoupling & Rate Realism: Strong labor data challenging the pace and depth of central bank monetary easing.",
+        "Post-Election Political Resolution: 'Blue tsunami' removing electoral uncertainty while introducing affordability policy scrutiny.",
+        "Geopolitical De-escalation Hopes: Sub-$100 oil reflecting reduced immediate supply disruption premia.",
+        "Hedge Fund Risk Re-benchmarking: Discretionary trading pods pruning exposures and returning excess capital amid whipsawing markets."
+      ],
+      "headline_sources": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        14,
+        15,
+        16,
+        22,
+        24,
+        26,
+        33,
+        35,
+        38,
+        42,
+        43,
+        47,
+        50,
+        51,
+        52
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "AI Data Center Regulatory & Power Caps",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Rotate into hyperscale infrastructure operators with international geographic footprint and behind-the-meter captive power generation.",
+        "headline_sources": [
+          4,
+          32,
+          44
+        ]
+      },
+      {
+        "risk_factor": "Persistent Higher-For-Longer Interest Rates",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Shorten fixed income portfolio duration; favor short-term Treasury bills and cash-generative value equities over leveraged tech.",
+        "headline_sources": [
+          3,
+          10,
+          14,
+          26,
+          47,
+          50
+        ]
+      },
+      {
+        "risk_factor": "High-Beta Tech Valuation Unwind & Crowded Reversals",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Implement equity collar hedges, rebalance into dividend aristocrats, and trim concentrated single-stock semiconductor allocations.",
+        "headline_sources": [
+          1,
+          6,
+          7,
+          16,
+          24,
+          35,
+          42
+        ]
+      },
+      {
+        "risk_factor": "Emerging Market & High-Yield Debt Default Contagion",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Underweight distressed Latin American credits (Argentina, Braskem) and focus on well-capitalized domestic corporate debt.",
+        "headline_sources": [
+          2,
+          28,
+          34
+        ]
+      },
+      {
+        "risk_factor": "Geopolitical Volatility & Airline Operational Disruptions",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Maintain tactical energy hedges and underweight vulnerable European passenger carriers subject to route diversions.",
+        "headline_sources": [
+          23,
+          31,
+          38,
+          49
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Opportunistically accumulate Tier-1 AI semiconductor leaders on technical panic selloffs",
+          "rationale": "Massive pullbacks in Nvidia and Micron have reset valuations to attractive entry multiples, while institutional infrastructure commitments ($25B Brookfield fund) confirm secular demand.",
+          "tickers": [
+            "NVDA",
+            "MU",
+            "BAM",
+            "SMH"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            6,
+            8,
+            14,
+            17,
+            24,
+            43
+          ]
+        },
+        {
+          "recommendation": "Rotate into consumer discretionary and transport beneficiaries of sub-$100 crude",
+          "rationale": "Crude oil retreating below $100/bbl on Middle East peace hopes provides immediate operational cost relief to logistics operators and consumers.",
+          "tickers": [
+            "XLY",
+            "FDX",
+            "UNP"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            38,
+            49,
+            52
+          ]
+        },
+        {
+          "recommendation": "Expand exposure to high-growth emerging market retail financial platforms",
+          "rationale": "Structural retail trading boom in developing economies (such as India's Angel One and Groww) demonstrates secular client acquisition resilient to global rate volatility.",
+          "tickers": [
+            "ANGELONE.NS",
+            "INDA"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            11,
+            18
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Reduce duration across fixed income and hold ultra-short liquidity buffers",
+          "rationale": "October nonfarm payrolls (165k) and falling unemployment (4.1%) confirm robust US economic momentum, triggering renewed upward pressure on bond yields.",
+          "tickers": [
+            "SHY",
+            "BIL",
+            "TBT"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            3,
+            14,
+            15,
+            26,
+            47,
+            50
+          ]
+        },
+        {
+          "recommendation": "Hedge exposure to capital-intensive speculative hardware and EV manufacturing",
+          "rationale": "Tesla winding down Cybertruck production and broader private tech valuation cuts underscore weakening pricing power and margin contraction in speculative lines.",
+          "tickers": [
+            "TSLA",
+            "QQQ"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            1,
+            5,
+            27,
+            41
+          ]
+        },
+        {
+          "recommendation": "Divest vulnerable Latin American sovereign bonds and distressed corporate credit",
+          "rationale": "Argentina's bond plunge toward distress and political realignment in Brazil heighten refinancing and restructuring risks in regional fixed income.",
+          "tickers": [
+            "EMB",
+            "PCY"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            2,
+            28,
+            34
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Rangebound and volatile. Relief from the resolution of election uncertainty will battle headwinds from higher Treasury yields and ongoing AI hardware valuation debates over the next 1-3 months.",
+      "long_term": "Cautiously constructive. Secular technological transformation remains backed by private infrastructure capital, but returns will increasingly reward tangible enterprise ROI, power efficiency, and balance sheet resilience over speculative capex.",
+      "key_catalysts": [
+        "Follow-on US CPI and core PCE inflation data prints to confirm the Fed's rate path after the robust October jobs beat",
+        "State legislative enactments on AI data center grid allocations and moratoriums across the 16 scrutinizing states",
+        "Implementation details of the incoming congressional affordability agenda post-midterms",
+        "Progress of diplomatic negotiations concerning the Iran conflict and subsequent impacts on global oil benchmark floors",
+        "Fourth-quarter corporate earnings guidance focusing on AI monetization and enterprise software adoption"
+      ],
+      "watch_list": [
+        "US 10-Year Treasury Yield and fed funds rate futures expectations",
+        "WTI Crude Oil psychological support level at $95-$100/barrel",
+        "CBOE Volatility Index (VIX) and options put/call skew across mega-cap tech",
+        "Argentina sovereign credit default swap (CDS) spreads and EM debt capital flows",
+        "State-level regulatory filings regarding hyperscale data center energy and zoning limits"
+      ],
+      "headline_sources": [
+        1,
+        3,
+        4,
+        8,
+        14,
+        15,
+        26,
+        30,
+        33,
+        35,
+        38,
+        42,
+        43,
+        47,
+        50,
+        52
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Stocks plunge as election outcome and AI worries crush tech shares",
+      "url": "https://www.nbcnews.com/business/markets/tech-stocks-plunge-ai-midterms-rcna607650",
+      "publishedAt": "2026-11-05T15:32:58+00:00"
+    },
+    {
+      "index": 2,
+      "headline": "Argentina Bonds Slide Toward Distress as Vote Fears Come Early",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/argentina-bonds-slide-toward-distress-as-vote-fears-come-early",
+      "publishedAt": "2026-11-06T17:27:02+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "Gold Extends Drop on Stronger-Than-Expected US Employment Data",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/gold-set-for-biggest-weekly-gain-since-august-after-us-midterms",
+      "publishedAt": "2026-11-06T00:09:55+00:00"
+    },
+    {
+      "index": 4,
+      "headline": "16 US States Weigh Limits on AI Data Centers, Capital May Shift Overseas",
+      "url": "https://finance.biggo.com/news/8402c423-2078-4e18-9b11-6f7cb59b742a",
+      "publishedAt": "2026-11-06T07:56:00Z"
+    },
+    {
+      "index": 5,
+      "headline": "Tesla to wind down Cybertruck production in Texas",
+      "url": "https://www.rte.ie/news/business/2026/1106/1598226-teslas-cybertruck/",
+      "publishedAt": "2026-11-06T07:57:47Z"
+    },
+    {
+      "index": 6,
+      "headline": "Nvidia has lost nearly $1.4 trillion since its October record - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/article/nvidia-has-lost-nearly-14-trillion-since-its-october-record-165912910.html",
+      "publishedAt": "2026-11-05T16:59:12Z"
+    },
+    {
+      "index": 7,
+      "headline": "Investors try to regain their footing after tech stocks tank",
+      "url": "https://www.nbcnews.com/business/markets/global-markets-tech-stocks-ai-midterms-democrats-asia-europe-rcna607794",
+      "publishedAt": "2026-11-06T08:33:52+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "AI Trade Rebounds After Historic Rout for Tech Stocks",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-06/bloomberg-surveillance-11-6-2026-video",
+      "publishedAt": "2026-11-06T18:46:38+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "LIV Golf plans to shut down",
+      "url": "https://www.nbcnews.com/business/business-news/liv-golf-headed-bankruptcy-last-minute-rescue-rcna607677",
+      "publishedAt": "2026-11-05T17:25:23+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "How Rising Rates and Policy Changes May Impact Your Insurance",
+      "url": "https://www.today.com/video/open-enrollment-2026-what-you-should-know-before-renewing-272919109809",
+      "publishedAt": "2026-11-05T14:32:54+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "Quick Mart IPO Draws Strong Demand as Kenyan Listings Pick Up",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/quick-mart-ipo-draws-strong-demand-as-kenyan-listings-pick-up",
+      "publishedAt": "2026-11-06T19:08:36+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Stock Market Selloff: What Correction, Crash and Other Trading Terms Mean",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/stock-market-selloff-what-correction-crash-and-other-trading-terms-mean",
+      "publishedAt": "2026-11-06T03:15:32+00:00"
+    },
+    {
+      "index": 13,
+      "headline": "Holiday hiring and AI in focus with October jobs report on deck",
+      "url": "https://www.nbcnews.com/business/economy/october-jobs-report-ai-holiday-hiring-rcna607614",
+      "publishedAt": "2026-11-05T23:00:41+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "Chip Stocks Roar Back as Strong Data Sink Bonds",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-06/chip-stocks-roar-back-as-strong-data-sink-bonds-video",
+      "publishedAt": "2026-11-06T16:34:18+00:00"
+    },
+    {
+      "index": 15,
+      "headline": "The U.S. added 165,000 jobs in October, a bright spot for the economy",
+      "url": "https://www.nbcnews.com/business/economy/us-added-jobs-october-risks-stagnation-rcna607812",
+      "publishedAt": "2026-11-06T13:33:54+00:00"
+    },
+    {
+      "index": 16,
+      "headline": "Anatomy of a Selloff: Sudden Chain Reaction Rattles Wall Street",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/anatomy-of-a-selloff-sudden-chain-reaction-rattles-wall-street",
+      "publishedAt": "2026-11-06T16:10:57+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "Chip Stocks Climb After Rout, But AI Doubts Linger: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-05/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-11-05T22:17:59+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "Angel One overtakes Zerodha to become second-largest broker; Groww adds over 3 lakh clients in October",
+      "url": "https://entrackr.com/news/angel-one-overtakes-zerodha-to-become-second-largest-broker-groww-adds-over-3-lakh-clients-in-october-12788879",
+      "publishedAt": "2026-11-06T07:54:39Z"
+    },
+    {
+      "index": 19,
+      "headline": "Canadian Dollar Set for Worst Week Since September on Weak Jobs",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/canadian-dollar-set-for-worst-week-since-september-on-weak-jobs",
+      "publishedAt": "2026-11-06T18:48:22+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "Supreme Court to Hear Goldman Sachs’ Bankruptcy Arbitration Bid",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/supreme-court-to-hear-goldman-sachs-bankruptcy-arbitration-bid",
+      "publishedAt": "2026-11-06T19:11:02+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "Medical devices firm still chasing HSE for part of multimillion-euro sum following court ruling",
+      "url": "https://www.irishtimes.com/business/2026/11/06/medical-firm-says-it-is-still-chasing-hse-for-part-of-multimillion-sum-over-covid-era-deal/",
+      "publishedAt": "2026-11-06T07:59:28Z"
+    },
+    {
+      "index": 22,
+      "headline": "Walleye to Return $2 Billion to Clients in Stocks Trading Reset",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/walleye-to-return-2-billion-to-clients-in-stocks-trading-reset",
+      "publishedAt": "2026-11-06T18:16:48+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "Aer Lingus nine month operating profits drop by 57%",
+      "url": "https://www.rte.ie/news/business/2026/1106/1598224-aer-lingus-quarterly-results/",
+      "publishedAt": "2026-11-06T07:44:11Z"
+    },
+    {
+      "index": 24,
+      "headline": "Micron stock declines 12% as chip sell-off deepens - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/article/micron-declines-12-as-chip-sell-off-deepens-163137019.html",
+      "publishedAt": "2026-11-05T16:31:37Z"
+    },
+    {
+      "index": 25,
+      "headline": "Airbnb Is Threatening To Launch An AI Travel Agent Next Year",
+      "url": "https://www.engadget.com/2308832/airbnb-ai-travel-agent-2027-launch/",
+      "publishedAt": "2026-11-06T07:51:42Z"
+    },
+    {
+      "index": 26,
+      "headline": "Treasuries Fall as Strong Jobs Data Fortifies Tech Rebound",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-06/treasuries-fall-as-jobs-data-fortifies-tech-rebound-video",
+      "publishedAt": "2026-11-06T17:49:28+00:00"
+    },
+    {
+      "index": 27,
+      "headline": "Shares in Musk's SpaceX plunge as tech and AI stocks fall - BBC",
+      "url": "https://www.bbc.com/news/articles/cmn04705rd8jo",
+      "publishedAt": "2026-11-05T16:44:38Z"
+    },
+    {
+      "index": 28,
+      "headline": "Braskem Shareholders Pull Funding Offer as Debt Talks Hit Snags",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/braskem-shareholders-pull-funding-offer-as-debt-talks-hit-snags",
+      "publishedAt": "2026-11-06T19:38:53+00:00"
+    },
+    {
+      "index": 29,
+      "headline": "Blue Origin delays launches until 2027 - Financial Times",
+      "url": "https://www.ft.com/content/39efbb7e-44a3-4a75-883b-e76ed6f9f5fd?syn-25a6b1a6\\\\u003d1",
+      "publishedAt": "2026-11-05T16:35:33Z"
+    },
+    {
+      "index": 30,
+      "headline": "Stocks Plunge Amid AI Fears and Political Uncertainty",
+      "url": "https://www.today.com/video/stocks-fall-after-post-election-rally-over-fears-of-ai-restrictions-272990277899",
+      "publishedAt": "2026-11-06T12:11:06+00:00"
+    },
+    {
+      "index": 31,
+      "headline": "Wave of bomb threats against European airliners triggers diversions and tarmac searches ",
+      "url": "https://www.nbcnews.com/world/europe/bomb-threat-plane-dublin-rome-diverted-aer-lingus-france-rcna607594",
+      "publishedAt": "2026-11-05T09:26:23+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "Data centre behemoth NextDC facing two class actions",
+      "url": "https://www.theage.com.au/politics/federal/we-asked-about-suburban-power-poles-now-a-data-centre-behemoth-is-facing-two-class-actions-and-a-potential-takeover-20261106-p61c1t.html",
+      "publishedAt": "2026-11-06T08:00:00Z"
+    },
+    {
+      "index": 33,
+      "headline": "Stocks surge as ‘blue tsunami’ puts political uncertainty to rest",
+      "url": "https://www.nbcnews.com/business/markets/stock-futures-blue-tsunami-ai-boom-rcna607351",
+      "publishedAt": "2026-11-04T06:11:31+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "Lula prioriza aliados ao mercado na escolha para Fazenda",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-06/lula-prioriza-aliados-ao-mercado-na-escolha-para-fazenda-video",
+      "publishedAt": "2026-11-06T16:41:21+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "Stock Market Today: Nasdaq Sinks 4% as Investors Ditch Chip, Data-Center Stocks — Live Updates - WSJ",
+      "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-11-05-2026",
+      "publishedAt": "2026-11-05T18:25:00Z"
+    },
+    {
+      "index": 36,
+      "headline": "Wendy's rejects buyout bid from activist investor and adopts 'poison pill' plan - ABC News - Breaking News, Latest News and Videos",
+      "url": "https://abcnews.com/Business/wireStory/wendys-rejects-buyout-bid-activist-investor-adopts-poison-137876779",
+      "publishedAt": "2026-11-05T17:18:42Z"
+    },
+    {
+      "index": 37,
+      "headline": "Mozambique online casino rules due to take effect on 20 November",
+      "url": "https://igamingbusiness.com/legal-compliance/mozambique-online-casino-rules-20-november/",
+      "publishedAt": "2026-11-06T07:42:10Z"
+    },
+    {
+      "index": 38,
+      "headline": "Oil prices drop below $100 as midterms fuel hope for an end to the Iran war",
+      "url": "https://www.nbcnews.com/business/energy/oil-prices-iran-war-midterms-rcna607448",
+      "publishedAt": "2026-11-04T17:05:01+00:00"
+    },
+    {
+      "index": 39,
+      "headline": "European Stocks Trim Weekly Gain With Milder Swings Than the US",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/european-stocks-join-global-selloff-as-ai-concerns-spread",
+      "publishedAt": "2026-11-06T08:23:06+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "So, about that Anthropic IPO . . . - Financial Times",
+      "url": "https://www.ft.com/content/2fbd60ee-060a-4957-b9c5-3b5a0ce88e1a?syn-25a6b1a6=1",
+      "publishedAt": "2026-11-05T17:01:56Z"
+    },
+    {
+      "index": 41,
+      "headline": "Elon Musk’s net worth falls $79.7B from Tesla and SpaceX drops while other Big Tech stocks rallied",
+      "url": "https://fortune.com/2026/11/06/elon-musk-midterms-spacex-tesla-stock-drop/",
+      "publishedAt": "2026-11-06T08:00:00Z"
+    },
+    {
+      "index": 42,
+      "headline": "Options Volumes Soar to Record Levels on Post-Election Sell Off",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/options-volumes-soar-to-record-levels-on-post-election-sell-off",
+      "publishedAt": "2026-11-06T18:15:59+00:00"
+    },
+    {
+      "index": 43,
+      "headline": "Brookfield Raises $25 Billion Amid AI Push as Profits Rise",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/brookfield-raises-123-billion-amid-ai-build-out-as-profits-rise",
+      "publishedAt": "2026-11-06T12:09:41+00:00"
+    },
+    {
+      "index": 44,
+      "headline": "Edtech experts scratch their heads as Google Search becomes unavailable to classrooms banning AI",
+      "url": "https://fortune.com/2026/11/06/google-search-schools-banning-ai-edtech-backfire/",
+      "publishedAt": "2026-11-06T07:55:00Z"
+    },
+    {
+      "index": 45,
+      "headline": "Pipefitter's pipes will provide new 'Voice of Logan' - WCVB",
+      "url": "https://www.wcvb.com/article/voice-of-logan-winner-announcement-boston/74343292",
+      "publishedAt": "2026-11-05T17:29:27Z"
+    },
+    {
+      "index": 46,
+      "headline": "Holiday Shopping Scams: How AI is Changing the Game",
+      "url": "https://www.today.com/video/holiday-shopping-scams-how-ai-is-changing-the-game-272998469865",
+      "publishedAt": "2026-11-06T14:15:55+00:00"
+    },
+    {
+      "index": 47,
+      "headline": "U.S. adds 165,000 jobs in October, unemployment rate drops to 4.1%",
+      "url": "https://www.nbcnews.com/now/video/u-s-adds-165-000-jobs-in-october-unemployment-rate-drops-to-4-1-272996933928",
+      "publishedAt": "2026-11-06T13:59:25+00:00"
+    },
+    {
+      "index": 48,
+      "headline": "SpaceX Lessors Look To Sell $40 Bil AI Deal. ARK Buys The Dip On SPCX Stock. - Investor's Business Daily",
+      "url": "https://www.investors.com/news/spacex-goldman-sachs-apollo-40bil-nvidia-ai-gpu-deal-sale-cathie-wood-ark-invest-spcx-stock/",
+      "publishedAt": "2026-11-05T16:05:00Z"
+    },
+    {
+      "index": 49,
+      "headline": "Oil Swings as Traders Assess Iran War De-Escalation Prospects",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/oil-declines-on-signs-of-moves-toward-gulf-war-de-escalation",
+      "publishedAt": "2026-11-06T08:38:49+00:00"
+    },
+    {
+      "index": 50,
+      "headline": "Bonds’ Election-Driven Rally Halted by Strong October Jobs Data",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/us-treasuries-stumble-as-strong-labor-market-lifts-fed-hike-bets",
+      "publishedAt": "2026-11-06T13:47:33+00:00"
+    },
+    {
+      "index": 51,
+      "headline": "Millennium Parting Ways With Two More Credit Trading Pods",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/millennium-parting-ways-with-two-more-credit-trading-pods",
+      "publishedAt": "2026-11-06T15:48:00+00:00"
+    },
+    {
+      "index": 52,
+      "headline": "Democrats won on affordability. Whether they can deliver it is a different story.",
+      "url": "https://www.nbcnews.com/politics/2026-election/democrats-affordability-promise-midterms-trump-rcna607409",
+      "publishedAt": "2026-11-04T20:39:30+00:00"
+    }
+  ]
+}
