@@ -1,622 +1,662 @@
 {
   "analysis": {
     "analysis_date": "November 18, 2026",
-    "analysis_time": "23:04",
+    "analysis_time": "23:41",
     "executive_summary": {
       "key_highlights": [
-        "Broad market selloff deepens with the Dow dropping 700 points and the S&P 500 falling to its lowest level since July, pressured by tech weakness and systemic infrastructure disruptions.",
-        "Nvidia faces intense scrutiny in its first post-Jensen Huang earnings cycle under interim CEO Colette Kress amid governance turmoil and board refusal to reinstate Huang.",
-        "Anthropic prepares for a landmark $1T valuation IPO, sparking divergent market expectations amid warnings from former SEC Chair Gensler over AI cash flow sustainability.",
-        "Cascading IT network outages hit major infrastructure including Microsoft Outlook, Apple services, airlines (United), and commercial banking networks (Chase).",
-        "Macro strains intensify as foreign holdings of US Treasuries suffer their largest drop since March alongside Fed governance conflict involving Governor Lisa Cook."
+        "Severe governance crisis and SEC probe at Nvidia following Jensen Huang's ouster, board refusal to reinstate, and planned exit from China, triggering broad tech weakness.",
+        "Historic AI market divergence as Anthropic prepares for a landmark $1T+ IPO while former SEC Chair Gary Gensler warns of systemic cash-flow risks across the AI economy.",
+        "Federal Reserve rate hike signals and the largest monthly decline in foreign US Treasury holdings since March suppress gold to a 14-month low and spark market selloffs.",
+        "Nationwide digital infrastructure outages disrupt banking (Chase), commercial aviation (United), and tech ecosystems (Apple), heightening operational vulnerability concerns.",
+        "Consumer spending shows marked bifurcation with value-oriented retail (Target) outperforming earnings expectations, whereas holiday travel softens under high cost pressures."
       ],
-      "market_sentiment_score": 28,
+      "market_sentiment_score": 38,
       "overall_sentiment": "negative",
       "headline_sources": [
-        8,
-        12,
-        14,
-        21,
-        23,
+        2,
+        6,
+        7,
+        13,
+        17,
+        24,
+        26,
+        27,
         28,
-        38,
-        48,
-        51
+        29,
+        37,
+        43,
+        46,
+        51,
+        53,
+        54
       ]
     },
     "market_insights": {
       "sectors": [
         {
-          "sector": "Information Technology & Semiconductors",
-          "trend": "Severe volatility driven by Nvidia's leadership crisis and high-stakes positioning ahead of Anthropic's $1 trillion IPO.",
-          "implications": "AI valuation multiples face compression if earnings guidance falters or if mega-cap cash flow deficits raise structural solvency concerns across the AI ecosystem.",
+          "sector": "Technology & Semiconductors",
+          "trend": "Executive turmoil and SEC probe at Nvidia contrast sharply with record capital mobilization around Anthropic's mega-IPO.",
+          "implications": "Severe multiple compression for legacy hardware with China exposure; capital rotation toward domestic frontier foundation model providers.",
           "headline_sources": [
-            3,
-            12,
-            14,
+            10,
+            13,
             16,
-            24,
+            17,
+            19,
+            23,
+            25,
+            26,
+            27,
             28,
+            35,
+            36,
+            43,
+            44,
+            46,
+            51,
+            53,
+            54,
+            57
+          ]
+        },
+        {
+          "sector": "Fixed Income & Global Macro",
+          "trend": "Foreign sovereign liquidation of US Treasuries accelerates alongside hawkish Fed guidance and leverage unwinds in crypto assets.",
+          "implications": "Upward pressure on long-duration Treasury yields and elevated borrowing costs across corporate credit markets.",
+          "headline_sources": [
+            2,
+            6,
+            41,
+            46,
+            55
+          ]
+        },
+        {
+          "sector": "Consumer Discretionary & Retail",
+          "trend": "Inflation-weary consumers migrate toward deep-discount retail channels while curbing non-essential holiday travel.",
+          "implications": "Margin and traffic resilience for big-box value retailers; softening demand and pricing power for airlines and travel operators.",
+          "headline_sources": [
+            5,
+            11,
+            24,
+            50
+          ]
+        },
+        {
+          "sector": "Utilities & Energy Infrastructure",
+          "trend": "Surging AI data center electricity demand prompts utility rate hikes, while geopolitical conflict extends global LNG tightness toward 2030.",
+          "implications": "Regulated utilities gain capital investment pass-throughs; multi-billion FLNG infrastructure projects experience sustained secular demand.",
+          "headline_sources": [
+            12,
+            30,
+            31,
+            32,
+            40
+          ]
+        },
+        {
+          "sector": "Aviation & Critical IT Infrastructure",
+          "trend": "Cascading software updates and systemic outages paralyze commercial flights and core banking platforms.",
+          "implications": "Accelerated capital spending on IT resilience and fault-tolerant architecture amid mounting congressional and regulatory scrutiny.",
+          "headline_sources": [
+            7,
+            9,
+            14,
+            15,
+            22,
             29,
             33,
             37,
-            41,
-            42,
-            49,
-            51
-          ]
-        },
-        {
-          "sector": "Cloud Infrastructure & Cybersecurity",
-          "trend": "Simultaneous widespread operational outages across major cloud, email, mobile, and government networks.",
-          "implications": "Heightened regulatory scrutiny on digital single points of failure, driving emergency corporate capex toward redundancy, zero-trust architectures, and vendor diversification.",
-          "headline_sources": [
-            4,
-            13,
-            15,
-            17,
-            23,
-            36,
-            48,
-            54
-          ]
-        },
-        {
-          "sector": "Airlines & Transportation",
-          "trend": "Operational paralysis from flight ground stops returning to normalized baselines, accompanied by political pushback over FAA upgrade funding.",
-          "implications": "Significant near-term margin erosion from compensation costs and Uber alternatives; long-term federal appropriations battle over $50B air traffic modernization.",
-          "headline_sources": [
-            5,
-            9,
-            13,
-            22,
-            32,
-            47
-          ]
-        },
-        {
-          "sector": "Banking & Financial Services",
-          "trend": "Core transactional outages resolved at Chase amidst regulatory friction and institutional threats to Fed independence.",
-          "implications": "Heightened operational risk reserves required by regulators; elevated policy uncertainty as the White House challenges Federal Reserve personnel autonomy.",
-          "headline_sources": [
-            8,
-            18,
-            48,
-            54
-          ]
-        },
-        {
-          "sector": "Digital Assets",
-          "trend": "Sharp liquidity contraction erasing post-election rallies as leveraged positions unwind and speculative politically branded tokens proliferate.",
-          "implications": "Shift toward regulatory crackdowns on predatory meme tokens and flight to higher-quality cash-equivalent assets.",
-          "headline_sources": [
-            7,
-            19
-          ]
-        },
-        {
-          "sector": "Commodities & Energy",
-          "trend": "Downside pressure on Canadian resource equities alongside domestic consumer focus on winter heating cost containment.",
-          "implications": "Cyclical resource underperformance limits broad market recovery; consumer spending faces headwinds from persistent energy utility burdens.",
-          "headline_sources": [
-            1,
-            35
+            56
           ]
         }
       ],
       "key_themes": [
-        "AI Ecosystem Inflection Point: Transition from speculative hardware multiple expansion to fundamental cash-flow accountability and governance rigor.",
-        "Critical Digital Infrastructure Fragility: Systemic vulnerability across multi-tenant enterprise software and national transaction rails.",
-        "Institutional and Monetary Governance Headwinds: Executive branch tension with the Federal Reserve compounding foreign central bank reductions in US Treasuries."
+        "Nvidia Leadership Turmoil, Regulatory Inquiries, and China Abandonment",
+        "Anthropic Trillion-Dollar Valuation vs. AI Cash-Flow Sustainability",
+        "Sovereign Debt Selloff and Hawkish Fed Policy Expectations",
+        "Critical Digital Infrastructure Fragility Across Banking and Aviation",
+        "Consumer Budget Realignment Toward Discount Retail Channels"
       ],
       "headline_sources": [
-        3,
-        4,
-        8,
+        2,
+        6,
+        10,
+        11,
         12,
-        13,
-        14,
-        19,
-        21,
-        23,
-        28,
-        35,
-        38,
-        48,
-        49,
+        17,
+        24,
+        26,
+        27,
+        29,
+        31,
+        43,
+        44,
+        46,
         51,
-        54
+        53,
+        54,
+        56
       ]
     },
     "risk_assessment": [
       {
-        "risk_factor": "AI Bubble Deflation & Hardware Governance Shock",
+        "risk_factor": "Semiconductor Governance & Geopolitical Decoupling",
         "impact": "High",
         "likelihood": "High",
-        "mitigation": "Hedge mega-cap semiconductor exposure, trim speculative AI names with negative free cash flow, and rotate into infrastructure software with recurring enterprise revenues.",
+        "mitigation": "Trim direct exposure to Nvidia and firms vulnerable to US-China chip curbs; reallocate to domestic software infrastructure.",
         "headline_sources": [
-          12,
-          14,
-          16,
+          13,
+          17,
+          19,
+          27,
           28,
-          33,
-          49,
-          51
+          35,
+          43,
+          51,
+          57
         ]
       },
       {
-        "risk_factor": "Cascading Cloud & Telecommunication Outages",
+        "risk_factor": "Sovereign Debt Divestment & Rate Shock",
         "impact": "High",
         "likelihood": "Medium",
-        "mitigation": "Audit vendor concentration risk, enforce multi-cloud redundancy, and allocate capital to enterprise resilience and disaster-recovery providers.",
+        "mitigation": "Reduce duration across bond holdings; hold higher cash equivalents and short-term floating-rate notes.",
         "headline_sources": [
-          4,
-          13,
-          17,
-          23,
-          48,
+          2,
+          6,
+          46
+        ]
+      },
+      {
+        "risk_factor": "AI Economy Cash Flow and Valuation Bubble",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Prioritize AI software companies with proven unit economics and self-funding capacity; limit exposure to extreme cash-burn developers.",
+        "headline_sources": [
+          25,
+          26,
+          53,
           54
         ]
       },
       {
-        "risk_factor": "Federal Reserve Institutional Destabilization",
-        "impact": "High",
-        "likelihood": "Medium",
-        "mitigation": "Increase allocations to short-duration sovereign debt, precious metals, and inflation-protected securities to counter potential policy credibility discounts.",
-        "headline_sources": [
-          8,
-          38
-        ]
-      },
-      {
-        "risk_factor": "Foreign Treasury Capital Flight & Sovereign Liquidity Drain",
+        "risk_factor": "Critical IT & Cloud Infrastructure Failure",
         "impact": "Medium",
         "likelihood": "High",
-        "mitigation": "Maintain higher cash buffers and overweight short-end Treasury bills (1-3 months) over long-duration paper to mitigate yield curve steepening.",
-        "headline_sources": [
-          21,
-          38
-        ]
-      },
-      {
-        "risk_factor": "Crypto Liquidity & Leverage Evaporation",
-        "impact": "Medium",
-        "likelihood": "High",
-        "mitigation": "De-lever digital asset portfolios, avoid politically-themed altcoins, and restrict holdings to cold-storage tier-one assets.",
+        "mitigation": "Overweight cybersecurity and business continuity vendors; review operational redundancy of mission-critical portfolio holdings.",
         "headline_sources": [
           7,
-          19
+          29,
+          33,
+          37,
+          56
+        ]
+      },
+      {
+        "risk_factor": "US Mandates on Foreign AI Technology Disclosures",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Audit supply chains and software stacks for Chinese AI dependencies to ensure regulatory compliance and avoid sanctions.",
+        "headline_sources": [
+          10,
+          44
         ]
       }
     ],
     "strategic_recommendations": {
       "opportunities": [
         {
-          "recommendation": "Acquire Mission-Critical Enterprise Resiliency and Cybersecurity Leaders",
-          "rationale": "Widespread enterprise and government system outages will accelerate corporate budget commitments toward redundant disaster recovery, cybersecurity, and zero-trust verification.",
+          "recommendation": "Overweight discount and value-focused retail leaders",
+          "rationale": "Target's strong Q3 beat confirms price-conscious consumer traffic driving market share gains for low-cost big-box retailers.",
           "tickers": [
-            "CRWD",
-            "PANW",
-            "FTNT",
-            "NET"
+            "TGT",
+            "WMT",
+            "COST"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            24,
+            50
+          ]
+        },
+        {
+          "recommendation": "Accumulate regulated utilities powering AI data centers",
+          "rationale": "State rate approvals (e.g. Duke Energy in NC) secure guaranteed returns on capital deployed for data center energy infrastructure.",
+          "tickers": [
+            "DUK",
+            "CEG",
+            "VST"
           ],
           "timeframe": "medium-term",
           "headline_sources": [
-            4,
-            17,
-            23,
-            48
+            12
           ]
         },
         {
-          "recommendation": "Selective Re-entry into Post-Scandal Semiconductor Leaders on Earnings De-risking",
-          "rationale": "Long-term secular demand for compute remains intact; interim CEO stability and post-earnings valuation normalization offer attractive risk-adjusted entry points.",
+          "recommendation": "Capitalize on delayed LNG glut and global liquefaction expansion",
+          "rationale": "Bain's revised 2030 LNG deficit outlook and large-scale Canadian FLNG commitments support long-term offshore energy infrastructure margins.",
           "tickers": [
-            "NVDA",
-            "TSM",
-            "AMD"
+            "LNG",
+            "GLNG"
           ],
           "timeframe": "long-term",
           "headline_sources": [
-            12,
-            14,
-            29,
-            37,
-            51
+            31,
+            32
           ]
         },
         {
-          "recommendation": "Capitalize on Grid and Critical Transmission Infrastructure Expansion",
-          "rationale": "High-capacity subsea and utility transmission projects receive defensive municipal and private equity backing as grid reliability becomes a national security priority.",
+          "recommendation": "Selective exposure to premier foundation AI market leaders",
+          "rationale": "Anthropic's IPO is drawing liquidity into pure-play AI foundation models despite broader hardware sector headwinds.",
           "tickers": [
-            "PWR",
-            "ETN",
-            "EME"
+            "QQQ",
+            "MSFT",
+            "GOOGL"
           ],
-          "timeframe": "long-term",
+          "timeframe": "medium-term",
           "headline_sources": [
-            47,
+            25,
+            26,
             53
           ]
         }
       ],
       "defensive_moves": [
         {
-          "recommendation": "Implement S&P 500 Index Downside Hedges",
-          "rationale": "The S&P 500 has breached key technical support to reach multi-month lows since July; purchasing index put spreads protects against further cascading institutional selloffs.",
+          "recommendation": "De-risk semiconductor exposure amid Nvidia management crisis",
+          "rationale": "The SEC investigation, ongoing CEO search, board divisions, and total exit from China present severe near-term multiple compression risks.",
           "tickers": [
-            "SPY",
-            "QQQ",
-            "VIX"
+            "NVDA",
+            "SMH"
           ],
           "timeframe": "short-term",
           "headline_sources": [
-            21,
-            23,
-            51
-          ]
-        },
-        {
-          "recommendation": "Reduce Exposure to Pre-IPO AI Multiples and Unprofitable Foundation Model Plays",
-          "rationale": "Cash flow sustainability warnings from former regulators and high burn rates ahead of the Anthropic IPO indicate near-term multiple compression across speculative AI peers.",
-          "tickers": [
-            "AI",
-            "SMCI"
-          ],
-          "timeframe": "short-term",
-          "headline_sources": [
-            28,
-            46,
-            49
-          ]
-        },
-        {
-          "recommendation": "Reallocate from High-Beta Cyclicals to Short-Duration Cash Equivalents",
-          "rationale": "Declines in foreign Treasury holdings, energy commodity weakness, and airline disruptions warrant risk-off positioning in cash preservation vehicles.",
-          "tickers": [
-            "BIL",
-            "SHV",
-            "SGOV"
-          ],
-          "timeframe": "short-term",
-          "headline_sources": [
+            17,
             19,
-            35,
-            38
+            27,
+            28,
+            43,
+            51,
+            57
+          ]
+        },
+        {
+          "recommendation": "Hedge against rising rates and sovereign Treasury outflows",
+          "rationale": "Declining foreign Treasury demand and Fed rate hike warnings will sustain yield volatility and pressure rate-sensitive assets.",
+          "tickers": [
+            "TLT",
+            "GLD"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            2,
+            6
+          ]
+        },
+        {
+          "recommendation": "Underweight commercial passenger airlines and travel operators",
+          "rationale": "Airlines face compounding pressures from soft Thanksgiving travel forecasts, system outage ground stops, and escalating infrastructure demands.",
+          "tickers": [
+            "UAL",
+            "AAL",
+            "LUV"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            11,
+            14,
+            22,
+            29,
+            33,
+            56
           ]
         }
       ]
     },
     "market_outlook": {
-      "short_term": "1-3 month outlook remains defensive and highly volatile as equity markets test summer lows, navigate semiconductor leadership transitions, and price in AI cash burn sustainability.",
-      "long_term": "6-12 month outlook hinges on capital expenditure rationalization in AI, modernization of vulnerable public/private cloud infrastructure, and the stabilization of Federal Reserve governance.",
+      "short_term": "Elevated volatility and defensive positioning over the next 1-3 months as markets digest Nvidia's executive vacuum, SEC scrutiny, and Fed rate headwinds, partially offset by Anthropic IPO excitement.",
+      "long_term": "A bifurcated 6-12 month regime favoring cash-flow generative software, regulated utilities servicing AI compute demand, and defensive retailers, while hardware manufacturers face persistent geopolitical headwinds.",
       "key_catalysts": [
-        "Anthropic public market debut and day-one valuation test.",
-        "Congressional testimony by former Nvidia CEO Jensen Huang in December.",
-        "Resolution of the White House vs. Fed Governor Lisa Cook hearing conflict.",
-        "Congressional action on the $50 billion FAA and critical transportation infrastructure funding package.",
-        "Follow-up Treasury International Capital (TIC) reports on foreign sovereign debt holdings."
+        "Resolution of Nvidia's CEO search and findings from the SEC investigation",
+        "Jensen Huang's scheduled House committee interview in December 2026",
+        "Anthropic's public market debut and trading valuation multiples",
+        "Upcoming Federal Open Market Committee (FOMC) interest rate decision and policy guidance",
+        "Promulgation of US regulations requiring corporate disclosure of Chinese AI model usage",
+        "Congressional action on the $50 billion federal aviation infrastructure funding package"
       ],
       "watch_list": [
-        "S&P 500 support levels following the breach of July lows.",
-        "US 10-Year and 2-Year Treasury yield spreads following foreign liquidation spikes.",
-        "Enterprise software incident reports and status dashboards across major cloud hyperscalers.",
-        "Bitcoin open interest and liquidation levels following the collapse of post-election leverage."
+        "Foreign central bank US Treasury liquidation pace and 10-Year yield reaction",
+        "Gold price support levels following the decline to 14-month lows",
+        "Nvidia (NVDA) institutional order flow, key technical levels, and board governance updates",
+        "Banking and airline critical IT redundancy disclosures following nationwide outages",
+        "Holiday retail traffic conversion data and promotional discount intensity",
+        "European and Asian LNG spot and futures pricing benchmarks"
       ],
       "headline_sources": [
-        3,
-        8,
-        16,
-        21,
-        23,
-        28,
-        38,
-        47,
-        49,
-        51
+        2,
+        6,
+        10,
+        11,
+        12,
+        17,
+        19,
+        24,
+        26,
+        27,
+        31,
+        35,
+        43,
+        44,
+        46,
+        51,
+        53,
+        54,
+        56,
+        57
       ]
     }
   },
   "headlines": [
     {
       "index": 1,
-      "headline": "Home Heating Tips to Keep Costs Low This Winter",
-      "url": "https://www.today.com/video/how-to-save-on-heating-costs-during-the-holidays-273640517753",
-      "publishedAt": "2026-11-17T14:20:42+00:00"
+      "headline": "IDEX Corporation (IEX) Presents at RBC Global Industrials Conference 2026 - Slideshow",
+      "url": "https://seekingalpha.com/article/4969855-idex-corporation-iex-presents-at-rbc-global-industrials-conference-2026-slideshow",
+      "publishedAt": "2026-11-18T23:22:56.000000Z"
     },
     {
       "index": 2,
-      "headline": "A zero-shot spillover denoiser for highly multiplexed images",
-      "url": "https://www.nature.com/articles/s41592-026-03263-y?error=cookies_not_supported&code=4a083bc3-eb9b-4eff-b685-0903eb29b8fc",
-      "publishedAt": "2026-11-18T10:56:30Z"
-    },
-    {
-      "index": 3,
-      "headline": "Tech Stocks Advance as Investors Look to Anthropic IPO Test",
-      "url": "https://www.bloomberg.com/news/articles/2026-11-18/us-stock-futures-rally-as-nvidia-results-ease-ai-trade-worries",
-      "publishedAt": "2026-11-18T12:34:46+00:00"
-    },
-    {
-      "index": 4,
-      "headline": "Inside Microsoft’s giant Outlook outage - The Verge",
-      "url": "https://www.theverge.com/tech/1035364/microsoft-outlook-outage-notepad",
-      "publishedAt": "2026-11-17T17:00:00Z"
-    },
-    {
-      "index": 5,
-      "headline": "Flight delays and cancellations return to normal levels after weekend of travel chaos",
-      "url": "https://www.nbcnews.com/news/us-news/flights-air-traffic-delays-groundstop-faa-duffy-rcna609545",
-      "publishedAt": "2026-11-16T09:51:10+00:00"
-    },
-    {
-      "index": 6,
-      "headline": "US Rivals Seek Its Tech Through M&A, VC: Mullin",
-      "url": "https://www.bloomberg.com/news/videos/2026-11-18/us-rivals-seek-its-tech-through-m-a-vc-mullin-video",
-      "publishedAt": "2026-11-18T21:14:44+00:00"
-    },
-    {
-      "index": 7,
-      "headline": "Mystery firm spending millions to attend Trump crypto gala, seeks to build \"Chinese $TRUMP coin community\"",
-      "url": "https://www.cbsnews.com/news/trump-crypto-gala-fastx-meme-coin/",
-      "publishedAt": "2026-11-18T11:00:10Z"
-    },
-    {
-      "index": 8,
-      "headline": "Fed official Lisa Cook refuses to attend White House firing hearing, citing bias - The Washington Post",
-      "url": "https://www.washingtonpost.com/business/2026/11/17/fed-official-lisa-cook-refuses-attend-white-house-firing-hearing-citing-bias/",
-      "publishedAt": "2026-11-17T19:51:36Z"
-    },
-    {
-      "index": 9,
-      "headline": "Sean Duffy’s attacks on past FAA ground stop resurface - CNN",
-      "url": "https://www.cnn.com/2026/11/17/politics/kfile-duffy-past-faa-comments",
-      "publishedAt": "2026-11-17T19:00:16Z"
-    },
-    {
-      "index": 10,
-      "headline": "Brookfield-Backed Lotto Firm Logs Earnings Hit, Buys Back Bonds",
-      "url": "https://www.bloomberg.com/news/articles/2026-11-18/brookfield-backed-lotto-firm-logs-earnings-hit-buys-back-bonds",
-      "publishedAt": "2026-11-18T22:22:20+00:00"
-    },
-    {
-      "index": 11,
-      "headline": "Challenger Rejects New $4.4 Billion Daiichi Life Takeover Bid",
-      "url": "https://www.bloomberg.com/news/articles/2026-11-18/challenger-rejects-new-4-4-billion-daiichi-life-takeover-bid",
-      "publishedAt": "2026-11-18T22:08:57+00:00"
-    },
-    {
-      "index": 12,
-      "headline": "Nvidia enters the post-Jensen Huang era with a bang ",
-      "url": "https://www.nbcnews.com/business/corporations/nvidia-post-jensen-huang-kress-earnings-rcna609782",
-      "publishedAt": "2026-11-18T02:41:49+00:00"
-    },
-    {
-      "index": 13,
-      "headline": "United Airlines says it has resolved a ‘widespread system outage’ ",
-      "url": "https://www.nbcnews.com/news/us-news/united-airlines-system-outage-rcna609712",
-      "publishedAt": "2026-11-16T22:18:45+00:00"
-    },
-    {
-      "index": 14,
-      "headline": "Four takeaways from Nvidia’s first earnings report after Jensen Huang scandal",
-      "url": "https://www.cnn.com/2026/11/18/tech/nvidias-earnings-report-jensen-huang-scandal-takeaways",
-      "publishedAt": "2026-11-18T11:00:15Z"
-    },
-    {
-      "index": 15,
-      "headline": "Trump brushes aside outage concerns",
-      "url": "https://www.nbcnews.com/politics/donald-trump/trump-downplays-bank-email-travel-outages-faa-ground-stop-microsoft-rcna609796",
-      "publishedAt": "2026-11-17T15:27:42+00:00"
-    },
-    {
-      "index": 16,
-      "headline": "Jensen Huang agrees to appear for House interview on Nvidia in December",
-      "url": "https://www.nbcnews.com/video/jensen-huang-agrees-to-appear-for-house-interview-on-nvidia-in-december-273650245602",
-      "publishedAt": "2026-11-17T15:48:09+00:00"
-    },
-    {
-      "index": 17,
-      "headline": "Apple outages appear to be resolved after an internal update took popular services offline",
-      "url": "https://www.nbcnews.com/business/corporations/apple-outages-working-get-systems-back-online-rcna609861",
-      "publishedAt": "2026-11-17T19:27:12+00:00"
-    },
-    {
-      "index": 18,
-      "headline": "Citi CEO Looks Forward to Working With Sen. Warren",
-      "url": "https://www.bloomberg.com/news/videos/2026-11-18/citi-ceo-looks-forward-to-working-with-sen-warren-video",
-      "publishedAt": "2026-11-18T22:15:28+00:00"
-    },
-    {
-      "index": 19,
-      "headline": "Bitcoin Erases Bessent Rally as Leverage and Liquidity Fade",
-      "url": "https://www.bloomberg.com/news/articles/2026-11-18/bitcoin-erases-bessent-rally-as-leverage-and-liquidity-fade",
-      "publishedAt": "2026-11-18T09:45:09+00:00"
-    },
-    {
-      "index": 20,
-      "headline": "Carney mum on whether Ottawa would allow telecom sector to lose a national player",
-      "url": "https://www.theglobeandmail.com/politics/article-mark-carney-apec-summit-quebecor-bid-for-telus-competition/",
-      "publishedAt": "2026-11-18T10:56:46Z"
-    },
-    {
-      "index": 21,
-      "headline": "S&P Falls to Lowest Since July | Closing Bell",
-      "url": "https://www.bloomberg.com/news/videos/2026-11-18/s-p-falls-to-lowest-since-july-closing-bell-video",
-      "publishedAt": "2026-11-18T21:25:53+00:00"
-    },
-    {
-      "index": 22,
-      "headline": "The ground stop stranded a woman and her team. Her husband suggested she buy a ‘fun’ car.",
-      "url": "https://www.nbcnews.com/news/us-news/women-stranded-faa-ground-stop-buy-ford-bronco-27-hour-road-trip-rcna609629",
-      "publishedAt": "2026-11-16T22:03:18+00:00"
-    },
-    {
-      "index": 23,
-      "headline": "Dow falls 700 points as tech shares decline, traders eye reported NSA network outage: Live updates - CNBC",
-      "url": "https://www.cnbc.com/2026/11/16/stock-market-today-live-updates.html",
-      "publishedAt": "2026-11-17T18:24:59Z"
-    },
-    {
-      "index": 24,
-      "headline": "Eddie Best on Expectations for Anthropic’s IPO",
-      "url": "https://www.bloomberg.com/news/videos/2026-11-18/eddie-best-on-expectations-for-anthropic-s-ipo-video",
-      "publishedAt": "2026-11-18T22:47:54+00:00"
-    },
-    {
-      "index": 25,
-      "headline": "Bloomberg New Economy Forum Day Three Opening Address",
-      "url": "https://www.bloomberg.com/news/videos/2026-11-18/bloomberg-new-economy-forum-day-three-opening-address-video",
-      "publishedAt": "2026-11-18T21:33:59+00:00"
-    },
-    {
-      "index": 26,
-      "headline": "Chicago’s Third CFO This Year Saw Red Flags Before Exit",
-      "url": "https://www.bloomberg.com/news/articles/2026-11-18/chicago-s-third-cfo-this-year-saw-budget-red-flags-before-exit",
-      "publishedAt": "2026-11-18T16:27:42+00:00"
-    },
-    {
-      "index": 27,
-      "headline": "The data is very preliminary, but Vulcan failure may not be due to BE-4 engines - Ars Technica",
-      "url": "https://arstechnica.com/features/2026/11/sources-vulcan-launch-anomaly-investigation-is-complex/",
-      "publishedAt": "2026-11-17T18:00:51Z"
-    },
-    {
-      "index": 28,
-      "headline": "Anthropic is about to be worth more than $1 trillion. What that means for the rest of us.",
-      "url": "https://www.nbcnews.com/business/markets/anthropic-ipo-valuation-ai-boom-rcna610069",
-      "publishedAt": "2026-11-18T21:13:31+00:00"
-    },
-    {
-      "index": 29,
-      "headline": "Nvidia earnings live: Nvidia to report Q3 results after the bell with Colette Kress to host first call as interim CEO - Yahoo Finance",
-      "url": "https://finance.yahoo.com/technology/live/nvidia-earnings-live-nvidia-to-report-q3-results-after-the-bell-with-colette-kress-to-host-first-call-as-interim-ceo-202616349.html",
-      "publishedAt": "2026-11-17T20:26:16Z"
-    },
-    {
-      "index": 30,
-      "headline": "Transforming molecular evolutionary analyses with protein foundation models",
-      "url": "https://www.nature.com/articles/s41592-026-03304-6?error=cookies_not_supported&code=2f1b1d10-b017-4912-8a39-46d5e4ab6d1d",
-      "publishedAt": "2026-11-18T10:56:31Z"
-    },
-    {
-      "index": 31,
-      "headline": "New ‘toxic hall of shame’ includes Publix, McDonald’s and more",
-      "url": "https://www.cnn.com/2026/11/18/health/2026-toxic-hall-of-shame-wellness",
-      "publishedAt": "2026-11-18T11:00:15Z"
-    },
-    {
-      "index": 32,
-      "headline": "Outage math at the airport: When a four-hour Uber beats waiting out a ground stop - AP News",
-      "url": "https://apnews.com/article/ground-stop-flights-delays-frustration-2f56c7e73199635c32f744941fff3792",
-      "publishedAt": "2026-11-17T17:38:00Z"
-    },
-    {
-      "index": 33,
-      "headline": "Nvidia board does not intend to reinstate Jensen Huang, chairman says",
-      "url": "https://www.nbcnews.com/video/nvidia-board-does-not-intend-to-reinstate-jensen-huang-chairman-says-273677381600",
-      "publishedAt": "2026-11-17T22:27:39+00:00"
-    },
-    {
-      "index": 34,
-      "headline": "Medicine Hat seeks to become 'drone city' as defence dollars roll in",
-      "url": "https://www.cbc.ca/news/canada/calgary/medicine-hat-seeks-to-become-drone-city-as-defence-dollars-roll-in-9.7425670",
-      "publishedAt": "2026-11-18T11:00:00Z"
-    },
-    {
-      "index": 35,
-      "headline": "Canadian Stocks Sink to June Low as Metals, Oil Losses Mount",
-      "url": "https://www.bloomberg.com/news/articles/2026-11-18/canadian-stocks-sink-to-june-low-as-metals-oil-losses-mount",
-      "publishedAt": "2026-11-18T20:00:34+00:00"
-    },
-    {
-      "index": 36,
-      "headline": "Social media algorithms are encouraging Americans to freak out about the tech outages - CNN",
-      "url": "https://www.cnn.com/2026/11/17/media/tech-outages-microsoft-faa-united-blackout-social-media",
-      "publishedAt": "2026-11-17T17:10:09Z"
-    },
-    {
-      "index": 37,
-      "headline": "Patching the AI Trade",
-      "url": "https://www.bloomberg.com/news/newsletters/2026-11-18/patching-the-ai-trade",
-      "publishedAt": "2026-11-18T21:26:22+00:00"
-    },
-    {
-      "index": 38,
       "headline": "Foreign Holdings of US Treasuries Decline by Most Since March",
       "url": "https://www.bloomberg.com/news/articles/2026-11-18/foreign-holdings-of-us-treasuries-decline-by-most-since-march",
       "publishedAt": "2026-11-18T21:41:20+00:00"
     },
     {
-      "index": 39,
-      "headline": "Exclusive | General Motors Seeks Outside CEO Contenders to Succeed Mary Barra - WSJ",
-      "url": "https://www.wsj.com/business/autos/general-motors-seeks-outside-ceo-contenders-to-succeed-mary-barra-e8177c4a",
-      "publishedAt": "2026-11-17T17:57:05Z"
+      "index": 3,
+      "headline": "Brookfield-Backed Lotto Firm Logs Earnings Hit, Buys Back Bonds",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-18/brookfield-backed-lotto-firm-logs-earnings-hit-buys-back-bonds",
+      "publishedAt": "2026-11-18T22:22:20+00:00"
     },
     {
-      "index": 40,
+      "index": 4,
+      "headline": "Bloomberg New Economy Forum Day One Opening Address",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-18/bloomberg-new-economy-forum-day-one-opening-address-video",
+      "publishedAt": "2026-11-18T21:38:09+00:00"
+    },
+    {
+      "index": 5,
+      "headline": "KFC Australia Is Holding a Fake Funeral for Ann Alibi So You Can Take the Day Off for GTA 6",
+      "url": "https://www.ign.com/articles/kfc-australia-fake-funeral-gta-6",
+      "publishedAt": "2026-11-18T11:25:45Z"
+    },
+    {
+      "index": 6,
+      "headline": "Gold Steadies Near 14-Month Low as Fed Signals More Rate Hikes",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-18/gold-steadies-near-14-month-low-as-fed-signals-more-rate-hikes",
+      "publishedAt": "2026-11-18T23:24:06+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "Apple outages appear to be resolved after an internal update took popular services offline",
+      "url": "https://www.nbcnews.com/business/corporations/apple-outages-working-get-systems-back-online-rcna609861",
+      "publishedAt": "2026-11-17T19:27:12+00:00"
+    },
+    {
+      "index": 8,
       "headline": "Bloomberg New Economy Forum Opening Welcome Remarks",
       "url": "https://www.bloomberg.com/news/videos/2026-11-18/bloomberg-new-economy-forum-opening-welcome-remarks-video",
       "publishedAt": "2026-11-18T21:42:44+00:00"
     },
     {
-      "index": 41,
+      "index": 9,
+      "headline": "Trump brushes aside outage concerns",
+      "url": "https://www.nbcnews.com/politics/donald-trump/trump-downplays-bank-email-travel-outages-faa-ground-stop-microsoft-rcna609796",
+      "publishedAt": "2026-11-17T15:27:42+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "Trump Administration Weighs Mandating Disclosure of Chinese AI Use by US Companies",
+      "url": "https://finance.biggo.com/news/46622b49-98ea-471a-bee3-9143cb21f78b",
+      "publishedAt": "2026-11-18T11:35:00Z"
+    },
+    {
+      "index": 11,
+      "headline": "AAA forecasts slight drop in Thanksgiving travel, in part due to higher costs - The Washington Post",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNakloc1hteXBIelJLam9idXpvcWY2SmNFN0hWS3kwMzBmSVZiUmktYUVvNkVnOEdISVdGdDNNbktnWXNHUmpOSlJ4S2ZORVpBaTVQLTVpT2dndlJKVFJzUlAwNVVpTFpiTWYtbVFZMlNXQ0YxWVlvd0lkZGQ5NWJhM2w0WGwzc0VSLWRWVGdKSzFKTllPSTRlM0ZLTVBtWUE?oc=5",
+      "publishedAt": "2026-11-18T00:38:44Z"
+    },
+    {
+      "index": 12,
+      "headline": "NC approves Duke Energy rate hikes, new rules for data centers - WRAL",
+      "url": "https://www.wral.com/news/state/nc-approves-duke-energy-rate-hikes-new-rules-for-data-centers-november-2026/",
+      "publishedAt": "2026-11-17T20:05:18Z"
+    },
+    {
+      "index": 13,
+      "headline": "New Nvidia boss says 'ambition has never been greater' after Jensen Huang's exit - BBC",
+      "url": "https://www.bbc.com/news/articles/cm2kl50vkwkdo",
+      "publishedAt": "2026-11-17T21:45:13Z"
+    },
+    {
+      "index": 14,
+      "headline": "The ground stop stranded a woman and her team. Her husband suggested she buy a ‘fun’ car.",
+      "url": "https://www.nbcnews.com/news/us-news/women-stranded-faa-ground-stop-buy-ford-bronco-27-hour-road-trip-rcna609629",
+      "publishedAt": "2026-11-16T22:03:18+00:00"
+    },
+    {
+      "index": 15,
+      "headline": "Bomb threat sparks urgent evacuation on packed Ryanair flight in Tenerife weeks after Jet2 scare on London-bound plane",
+      "url": "https://www.thesun.ie/news/17934457/bomb-threat-ryanair-plane-tenerife/",
+      "publishedAt": "2026-11-18T11:36:11Z"
+    },
+    {
+      "index": 16,
+      "headline": "Nvidia enters the post-Jensen Huang era with a bang ",
+      "url": "https://www.nbcnews.com/business/corporations/nvidia-post-jensen-huang-kress-earnings-rcna609782",
+      "publishedAt": "2026-11-18T02:41:49+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "Exclusive | SEC Is Probing Nvidia Amid Departure of CEO Jensen Huang - WSJ",
+      "url": "https://www.wsj.com/business/sec-is-probing-nvidia-amid-departure-of-ceo-jensen-huang-ee7643f8",
+      "publishedAt": "2026-11-17T20:56:00Z"
+    },
+    {
+      "index": 18,
+      "headline": "Veritone, Inc. 2026 Q3 - Results - Earnings Call Presentation",
+      "url": "https://seekingalpha.com/article/4969853-veritone-inc-2026-q3-results-earnings-call-presentation",
+      "publishedAt": "2026-11-18T23:20:53.000000Z"
+    },
+    {
+      "index": 19,
+      "headline": "Nvidia Hires Heidrick & Struggles in Hunt for New CEO - WSJ",
+      "url": "https://www.wsj.com/livecoverage/nvidia-earnings-stock-market-news-11-17-2026/card/nvidia-hires-heidrick-struggles-in-hunt-for-new-ceo-DyCIifG4g47gwwcEh2ny",
+      "publishedAt": "2026-11-18T00:05:00Z"
+    },
+    {
+      "index": 20,
+      "headline": "Probe of Mark Walter’s Insurers Spotlights Gaps in Regulatory Patchwork",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-18/probe-of-mark-walter-s-insurers-spotlights-gaps-in-regulatory-patchwork",
+      "publishedAt": "2026-11-18T18:04:19+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "Challenger Rejects New $4.4 Billion Daiichi Life Takeover Bid",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-18/challenger-rejects-new-4-4-billion-daiichi-life-takeover-bid",
+      "publishedAt": "2026-11-18T22:08:57+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "Flight delays and cancellations return to normal levels after weekend of travel chaos",
+      "url": "https://www.nbcnews.com/news/us-news/flights-air-traffic-delays-groundstop-faa-duffy-rcna609545",
+      "publishedAt": "2026-11-16T09:51:10+00:00"
+    },
+    {
+      "index": 23,
       "headline": "Trump says he ‘would not mind’ if Jensen Huang returned as Nvidia CEO",
       "url": "https://www.nbcnews.com/politics/trump-administration/trump-support-jensen-huang-nvidia-ceo-rcna609597",
       "publishedAt": "2026-11-16T14:50:02+00:00"
     },
     {
-      "index": 42,
-      "headline": "Jensen Huang says he would be ‘honored’ if asked to return as Nvidia CEO ",
-      "url": "https://www.nbcnews.com/business/corporations/jensen-huang-agrees-house-interview-nvidias-chip-smuggling-rcna609803",
-      "publishedAt": "2026-11-17T15:29:55+00:00"
+      "index": 24,
+      "headline": "Target earnings squash estimates as inflation-weary shoppers see great deals",
+      "url": "https://finance.yahoo.com/markets/stocks/article/target-earnings-squash-estimates-as-inflation-weary-shoppers-see-great-deals-113326641.html",
+      "publishedAt": "2026-11-18T11:33:26Z"
     },
     {
-      "index": 43,
-      "headline": "Farm Group Says Ex-CEO Misused Funds for Vacation Home and Plane",
-      "url": "https://www.bloomberg.com/news/articles/2026-11-18/farm-group-says-ex-ceo-misused-funds-for-vacation-home-and-plane",
-      "publishedAt": "2026-11-18T21:48:16+00:00"
+      "index": 25,
+      "headline": "Eddie Best on Expectations for Anthropic’s IPO",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-18/eddie-best-on-expectations-for-anthropic-s-ipo-video",
+      "publishedAt": "2026-11-18T22:47:54+00:00"
     },
     {
-      "index": 44,
-      "headline": "Turkish yard hands over new ferry for CalMac's Islay services",
-      "url": "https://www.bbc.com/news/articles/cmewv5y5zqxvo",
-      "publishedAt": "2026-11-18T10:52:59Z"
-    },
-    {
-      "index": 45,
-      "headline": "US Carrier Sails From Persian Gulf, Leaving Two in Region",
-      "url": "https://www.bloomberg.com/news/articles/2026-11-18/us-carrier-leaves-persian-gulf-for-japan-leaving-two-in-region",
-      "publishedAt": "2026-11-18T18:56:08+00:00"
-    },
-    {
-      "index": 46,
-      "headline": "Asian Stocks Set to Fall Ahead of Anthropic Debut: Markets Wrap",
+      "index": 26,
+      "headline": "Nasdaq Futures Rise After Anthropic IPO Pricing: Markets Wrap",
       "url": "https://www.bloomberg.com/news/articles/2026-11-18/stock-market-today-dow-s-p-live-updates",
       "publishedAt": "2026-11-18T22:07:41+00:00"
     },
     {
-      "index": 47,
-      "headline": "Sean Duffy’s $50B demand for air travel fixes is met with yelling and skepticism in Congress",
-      "url": "https://www.nbcnews.com/politics/congress/sean-duffys-50-billion-demand-groundstop-fixes-congress-skepitcal-rcna609844",
-      "publishedAt": "2026-11-17T22:51:33+00:00"
+      "index": 27,
+      "headline": "Nvidia is abandoning China after Jensen Huang’s ouster - TechCrunch",
+      "url": "https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/",
+      "publishedAt": "2026-11-17T23:37:48Z"
     },
     {
-      "index": 48,
+      "index": 28,
+      "headline": "Nvidia board does not intend to reinstate Jensen Huang, chairman says",
+      "url": "https://www.nbcnews.com/video/nvidia-board-does-not-intend-to-reinstate-jensen-huang-chairman-says-273677381600",
+      "publishedAt": "2026-11-17T22:27:39+00:00"
+    },
+    {
+      "index": 29,
       "headline": "Nationwide System Outages Impact Banks and Airlines",
       "url": "https://www.today.com/video/nationwide-system-outages-impact-banks-and-airlines-273634373877",
       "publishedAt": "2026-11-17T12:16:28+00:00"
     },
     {
+      "index": 30,
+      "headline": "Latest Oil Market News and Analysis for Nov. 19",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-18/latest-oil-market-news-and-analysis-for-nov-19",
+      "publishedAt": "2026-11-18T23:03:35+00:00"
+    },
+    {
+      "index": 31,
+      "headline": "Bain Pushes Back LNG Glut Outlook to 2030 as War Tightens Market",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-18/bain-pushes-back-lng-glut-outlook-to-2030-as-war-tightens-market",
+      "publishedAt": "2026-11-18T23:02:30+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "Hanwha Ocean Nears Main Contract for approximately $15.8 Billion FLNG Project in Canada, Seeking Reversal After Submarine Setback",
+      "url": "https://finance.biggo.com/news/4b7d955a-0606-48a8-8e4a-a3945743766b",
+      "publishedAt": "2026-11-18T11:35:00Z"
+    },
+    {
+      "index": 33,
+      "headline": "United Airlines says it has resolved a ‘widespread system outage’ ",
+      "url": "https://www.nbcnews.com/news/us-news/united-airlines-system-outage-rcna609712",
+      "publishedAt": "2026-11-16T22:18:45+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "Firy Inc. 2026 Q3 - Results - Earnings Call Presentation",
+      "url": "https://seekingalpha.com/article/4969854-firy-inc-2026-q3-results-earnings-call-presentation",
+      "publishedAt": "2026-11-18T23:21:09.000000Z"
+    },
+    {
+      "index": 35,
+      "headline": "Jensen Huang agrees to appear for House interview on Nvidia in December",
+      "url": "https://www.nbcnews.com/video/jensen-huang-agrees-to-appear-for-house-interview-on-nvidia-in-december-273650245602",
+      "publishedAt": "2026-11-17T15:48:09+00:00"
+    },
+    {
+      "index": 36,
+      "headline": "Jensen Huang says he would be ‘honored’ if asked to return as Nvidia CEO ",
+      "url": "https://www.nbcnews.com/business/corporations/jensen-huang-agrees-house-interview-nvidias-chip-smuggling-rcna609803",
+      "publishedAt": "2026-11-17T15:29:55+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "Chase says transactions back to normal after outage online and at some branches",
+      "url": "https://www.nbcnews.com/business/consumer/outages-chase-banking-online-branches-rcna609673",
+      "publishedAt": "2026-11-16T19:32:39+00:00"
+    },
+    {
+      "index": 38,
+      "headline": "Home Heating Tips to Keep Costs Low This Winter",
+      "url": "https://www.today.com/video/how-to-save-on-heating-costs-during-the-holidays-273640517753",
+      "publishedAt": "2026-11-17T14:20:42+00:00"
+    },
+    {
+      "index": 39,
+      "headline": "Canada’s emergency alert system to be tested across the country on Wednesday",
+      "url": "https://www.theglobeandmail.com/canada/article-alert-ready-system-to-be-tested-wednesday/",
+      "publishedAt": "2026-11-18T11:30:34Z"
+    },
+    {
+      "index": 40,
+      "headline": "Unsubsidised fuel prices drop across the board for 2nd week in a row",
+      "url": "https://www.freemalaysiatoday.com/category/nation/2026/11/18/unsubsidised-fuel-prices-drop-across-the-board-for-2nd-week-in-a-row",
+      "publishedAt": "2026-11-18T11:33:00Z"
+    },
+    {
+      "index": 41,
+      "headline": "Bitcoin Erases Bessent Rally as Leverage and Liquidity Fade",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-18/bitcoin-erases-bessent-rally-as-leverage-and-liquidity-fade",
+      "publishedAt": "2026-11-18T09:45:09+00:00"
+    },
+    {
+      "index": 42,
+      "headline": "India to charge bulk Scotch imports 162.5% duty and tax amid UK pact standoff",
+      "url": "https://www.reuters.com/world/india/india-charge-bulk-scotch-imports-1625-duty-tax-amid-uk-pact-standoff-2026-11-18/",
+      "publishedAt": "2026-11-18T11:30:46Z"
+    },
+    {
+      "index": 43,
+      "headline": "Nvidia earnings live: Nvidia posts Q3 beat, board says it will not reinstate Jensen Huang as CEO - Yahoo Finance",
+      "url": "https://finance.yahoo.com/technology/live/nvidia-earnings-live-nvidia-posts-q3-beat-board-says-it-will-not-reinstate-jensen-huang-as-ceo-221428433.html",
+      "publishedAt": "2026-11-17T22:17:33Z"
+    },
+    {
+      "index": 44,
+      "headline": "Trump administration weighs forcing US firms to disclose Chinese AI use",
+      "url": "https://www.reuters.com/world/china/trump-administration-weighs-forcing-us-firms-disclose-chinese-ai-use-2026-11-18/",
+      "publishedAt": "2026-11-18T11:34:46Z"
+    },
+    {
+      "index": 45,
+      "headline": "Citi CEO Looks Forward to Working With Sen. Warren",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-18/citi-ceo-looks-forward-to-working-with-sen-warren-video",
+      "publishedAt": "2026-11-18T22:15:28+00:00"
+    },
+    {
+      "index": 46,
+      "headline": "Stock Market News, Nov. 17, 2026: Dow ends down 850 points, S&P 500 and Nasdaq also plunge as tech names come under further pressure ahead of Nvidia’s earnings - MarketWatch",
+      "url": "https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-nvidia-q3-financial-results-retail-sales-import-prices",
+      "publishedAt": "2026-11-17T23:00:00Z"
+    },
+    {
+      "index": 47,
+      "headline": "Chicago’s Third CFO This Year Saw Red Flags Before Exit",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-18/chicago-s-third-cfo-this-year-saw-budget-red-flags-before-exit",
+      "publishedAt": "2026-11-18T16:27:42+00:00"
+    },
+    {
+      "index": 48,
+      "headline": "Bloomberg New Economy Forum Day Three Opening Address",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-18/bloomberg-new-economy-forum-day-three-opening-address-video",
+      "publishedAt": "2026-11-18T21:33:59+00:00"
+    },
+    {
       "index": 49,
-      "headline": "Former SEC Chair Gary Gensler Warns Anthropic’s Cash Flow Poses Big Risk To AI Economy",
-      "url": "https://www.bloomberg.com/news/videos/2026-11-18/fmr-sec-chair-gary-gensler-nvidia-misled-the-public-video",
-      "publishedAt": "2026-11-18T22:53:04+00:00"
+      "headline": "Skydance Skips FIFA World Cup Bid as Netflix, Fox Eye $4 Billion Deal",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-18/skydance-skips-fifa-world-cup-bid-as-netflix-fox-eye-4-billion-deal",
+      "publishedAt": "2026-11-18T22:52:49+00:00"
     },
     {
       "index": 50,
-      "headline": "Taiwan Stocks Swing More Than 1,600 Points to Close Up 102 Points; 00406A Draws 1.14 Million Lots to Top Turnover",
-      "url": "https://finance.biggo.com/news/9f3518f6-3e88-416a-b5f4-e8ca8eb18c16",
-      "publishedAt": "2026-11-18T10:55:00Z"
+      "headline": "Target Q3 2026 Earnings Highlights",
+      "url": "https://corporate.target.com/news-features/article/2026/11/q3-2026-earnings",
+      "publishedAt": "2026-11-18T11:33:47Z"
     },
     {
       "index": 51,
@@ -626,21 +666,39 @@
     },
     {
       "index": 52,
-      "headline": "Bloomberg New Economy Forum Day One Opening Address",
-      "url": "https://www.bloomberg.com/news/videos/2026-11-18/bloomberg-new-economy-forum-day-one-opening-address-video",
-      "publishedAt": "2026-11-18T21:38:09+00:00"
+      "headline": "Farm Group Says Ex-CEO Misused Funds for Vacation Home and Plane",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-18/farm-group-says-ex-ceo-misused-funds-for-vacation-home-and-plane",
+      "publishedAt": "2026-11-18T21:48:16+00:00"
     },
     {
       "index": 53,
-      "headline": "OMERS teams up to bid on Toronto project to build underwater electricity transmission line",
-      "url": "https://www.theglobeandmail.com/business/article-omers-teams-up-to-bid-on-toronto-project-to-build-underwater/",
-      "publishedAt": "2026-11-18T11:00:00Z"
+      "headline": "Anthropic is about to be worth more than $1 trillion. What that means for the rest of us.",
+      "url": "https://www.nbcnews.com/business/markets/anthropic-ipo-valuation-ai-boom-rcna610069",
+      "publishedAt": "2026-11-18T21:13:31+00:00"
     },
     {
       "index": 54,
-      "headline": "Chase says transactions back to normal after outage online and at some branches",
-      "url": "https://www.nbcnews.com/business/consumer/outages-chase-banking-online-branches-rcna609673",
-      "publishedAt": "2026-11-16T19:32:39+00:00"
+      "headline": "Former SEC Chair Gary Gensler Warns Anthropic’s Cash Flow Poses Big Risk To AI Economy",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-18/fmr-sec-chair-gary-gensler-nvidia-misled-the-public-video",
+      "publishedAt": "2026-11-18T22:53:04+00:00"
+    },
+    {
+      "index": 55,
+      "headline": "Jane Fraser on IPO Pipeline, AI, & Interest Rate Outlook",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-18/jane-fraser-on-ipo-pipeline-ai-interest-rate-outlook-video",
+      "publishedAt": "2026-11-18T23:31:48+00:00"
+    },
+    {
+      "index": 56,
+      "headline": "Sean Duffy’s $50 billion demand for air travel fixes is met with yelling and skepticism in Congress - NBC News",
+      "url": "https://www.nbcnews.com/politics/congress/sean-duffys-50-billion-demand-groundstop-fixes-congress-skepitcal-rcna609844",
+      "publishedAt": "2026-11-17T23:06:19Z"
+    },
+    {
+      "index": 57,
+      "headline": "Nvidia rejects Jensen Huang’s offer to return as CEO despite pressure from Silicon Valley - AP News",
+      "url": "https://apnews.com/article/nvidia-jensen-huang-china-national-security-chips-3026bcbe04ab57b844884382e583422a",
+      "publishedAt": "2026-11-18T00:07:00Z"
     }
   ]
 }
