@@ -1,0 +1,26 @@
+# =============================================================================
+# .dockerignore — Files excluded from the Docker build context
+# =============================================================================
+.git
+.github
+.gitignore
+.actrc
+.env
+.env.local
+.secrets
+.venv-deploy/
+.venv/
+website-core
+__pycache__
+*.pyc
+node_modules
+history/
+cn/
+au/
+static/
+api/
+*.log
+.DS_Store
+LICENSE
+README.md
+CNAME
