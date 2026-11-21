@@ -1,0 +1,659 @@
+{
+  "analysis": {
+    "analysis_date": "November 21, 2026",
+    "analysis_time": "02:04",
+    "executive_summary": {
+      "key_highlights": [
+        "Global equity markets face a severe risk-off correction led by sharp tech selloffs; S&P 500, Dow Jones, and TSX enter official correction territory as Nasdaq 100 posts its worst week since 2020.",
+        "Anthropic's landmark IPO marked a watershed moment, debuting at a massive $1.27T-$2T valuation before quickly tumbling 8.5% on day two, triggering broader unwinding of the AI trade.",
+        "Nvidia is ensnared in a compounding corporate crisis: CEO Jensen Huang's exit amid behavioral scandal, an intensifying SEC probe, and a California AG subpoena over China chip diversion.",
+        "Flight to safety accelerates into traditional haven currencies (JPY, CHF) and liquid cash assets, while gold logs its worst week since March due to hawkish Fed expectations and margin liquidations.",
+        "Credit markets show early stress signals with delayed ABS issuances, while enterprise consolidation surges as CrowdStrike pursues Zscaler and TPG/Corpay acquire BILL."
+      ],
+      "market_sentiment_score": 18,
+      "overall_sentiment": "negative",
+      "headline_sources": [
+        3,
+        5,
+        12,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        30,
+        32,
+        35,
+        38,
+        39,
+        43,
+        44
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Technology & Semiconductors",
+          "trend": "Violent valuation contraction across AI hardware and mega-cap tech following Anthropic's post-IPO reversal and mounting regulatory probes into Nvidia.",
+          "implications": "Multiples for AI infrastructure hardware face substantial re-rating, ending speculative momentum and shifting focus to regulatory risk and sustainable monetization.",
+          "headline_sources": [
+            3,
+            5,
+            6,
+            12,
+            17,
+            18,
+            21,
+            22,
+            30,
+            32,
+            35,
+            37,
+            38,
+            39
+          ]
+        },
+        {
+          "sector": "Cybersecurity & Enterprise Software",
+          "trend": "Defensive M&A consolidation accelerates with CrowdStrike in acquisition talks with Zscaler, alongside take-private deals like BILL's acquisition by TPG and Corpay.",
+          "implications": "Platform consolidation strengthens enterprise stickiness and pricing power, providing a resilient buffer against broad tech volatility.",
+          "headline_sources": [
+            11,
+            27,
+            42
+          ]
+        },
+        {
+          "sector": "Energy, Utilities & Microgrids",
+          "trend": "Surging domestic power demands for data centers prompt massive localized infrastructure investments (SpaceX $24B Texas project, EDF nuclear reactors, HiTHIUM microgrids).",
+          "implications": "Baseload and microgrid energy solutions are the primary structural bottleneck for AI scaling, creating durable long-term capex tailwinds despite commodity volatility.",
+          "headline_sources": [
+            7,
+            15,
+            31,
+            46,
+            47
+          ]
+        },
+        {
+          "sector": "Consumer Discretionary & Retail",
+          "trend": "Consumer bifurcation deepens as inflation-weary households prioritize value and holiday discount deals, forcing mid-tier retailers to trim annual forecasts.",
+          "implications": "Discount leaders like Walmart gain market share, while discretionary apparel brands like Gap face margin compression and inventory headwinds.",
+          "headline_sources": [
+            10,
+            13,
+            25,
+            36,
+            41,
+            48
+          ]
+        },
+        {
+          "sector": "Fixed Income, Credit & Currencies",
+          "trend": "Flight to liquid safe havens (Yen, Swiss Franc) as credit spreads widen and structured debt deals (Zayo ABS) face postponement into 2027.",
+          "implications": "Institutional investors are adopting cash-heavy defensive postures, prioritizing liquidity preservation amid hawkish monetary signals and equity market contagion.",
+          "headline_sources": [
+            19,
+            20,
+            33,
+            40,
+            43
+          ]
+        },
+        {
+          "sector": "Automotive & Autonomous Mobility",
+          "trend": "Rapid international commercialization of autonomous fleets contrasts with strict U.S. protectionist legislation aimed at banning Chinese vehicles.",
+          "implications": "Autonomous technology deployment accelerates abroad, while U.S. protectionism creates regional market segmentation and elevates domestic supply chain costs.",
+          "headline_sources": [
+            14,
+            24,
+            26
+          ]
+        }
+      ],
+      "key_themes": [
+        "AI Trade Unraveling & Post-IPO De-risking",
+        "Semiconductor Governance, Scrutiny & Regulatory Headwinds",
+        "Broad Equity Market Correction & Contagion",
+        "Defensive Tech M&A and Enterprise Software Consolidation",
+        "Flight to Safety, Liquidity Preservation & Haven Currencies",
+        "Energy Infrastructure as the Critical AI Growth Bottleneck",
+        "Inflationary Consumer Strain & Discount Retail Dominance"
+      ],
+      "headline_sources": [
+        3,
+        5,
+        7,
+        11,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24,
+        26,
+        27,
+        30,
+        31,
+        32,
+        33,
+        35,
+        36,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        46,
+        47
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Regulatory & Legal Scrutiny on AI Hardware Supply Chains",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Underweight hardware vendors exposed to export control violations and cross-border regulatory subpoenas; demand transparent compliance audits.",
+        "headline_sources": [
+          31,
+          35,
+          38
+        ]
+      },
+      {
+        "risk_factor": "Executive Turmoil & Governance Instability at Nvidia",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Hedge existing semiconductor equity exposure using collar strategies or put options; reallocate capital toward diversified fabless or foundry alternatives.",
+        "headline_sources": [
+          2,
+          21,
+          37
+        ]
+      },
+      {
+        "risk_factor": "Systemic Equity Market Correction Led by Tech Multiples Compression",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Rebalance portfolio betas downward, raise cash allocations, and rotate into non-correlated defensive sectors.",
+        "headline_sources": [
+          5,
+          17,
+          18,
+          22,
+          23,
+          29,
+          32,
+          44
+        ]
+      },
+      {
+        "risk_factor": "Credit Spread Widening & Structured Debt Market Freezes",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Limit exposure to illiquid asset-backed securities and high-yield commercial paper; maintain short-duration sovereign bond holdings.",
+        "headline_sources": [
+          20,
+          33,
+          40
+        ]
+      },
+      {
+        "risk_factor": "Geopolitical Protectionism & Critical Resource Disruption",
+        "impact": "Medium",
+        "likelihood": "Medium",
+        "mitigation": "Diversify global supply chain holdings and reduce exposure to disputed offshore extraction sites or tariff-vulnerable imports.",
+        "headline_sources": [
+          7,
+          26,
+          31,
+          45
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Consolidate into Enterprise Cybersecurity Leaders",
+          "rationale": "M&A talks between CrowdStrike and Zscaler highlight industry convergence toward comprehensive SASE and zero-trust suites with resilient subscription revenue.",
+          "tickers": [
+            "CRWD",
+            "ZS"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            11,
+            27
+          ]
+        },
+        {
+          "recommendation": "Invest in Critical Data Center Power & Microgrid Infrastructure",
+          "rationale": "Surging domestic data center construction and onshoring mandates create structural, non-cyclical demand for nuclear power and commercial microgrids.",
+          "tickers": [
+            "EDF",
+            "CEG",
+            "VST"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            15,
+            31,
+            46,
+            47
+          ]
+        },
+        {
+          "recommendation": "Overweight Discount Retailers Positioned for Consumer Trade-Down",
+          "rationale": "Inflation-weary consumers are concentrating holiday spending at scale discount retailers, driving superior volume and traffic for dominant grocers.",
+          "tickers": [
+            "WMT"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            10,
+            36,
+            41
+          ]
+        },
+        {
+          "recommendation": "Selectively Allocate to International Autonomous Commercialization",
+          "rationale": "Strong revenue expansion in overseas autonomous mobility demonstrates operational scalability outside restrictive domestic regulatory borders.",
+          "tickers": [
+            "WRD"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            24,
+            26
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Maximize Cash and Short-Duration Sovereign Liquidity",
+          "rationale": "Extreme market volatility, credit deferrals, and hawkish monetary pressure make liquidity preservation paramount until valuations find a floor.",
+          "tickers": [
+            "BIL",
+            "SGOV"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            18,
+            20,
+            23,
+            33,
+            40
+          ]
+        },
+        {
+          "recommendation": "Hedge Portfolios via Foreign Exchange Safe Havens",
+          "rationale": "Tech selloffs and carry trade liquidations are driving sustained capital flight into the Japanese Yen and Swiss Franc against the US Dollar.",
+          "tickers": [
+            "FXY",
+            "FXF"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            19,
+            29
+          ]
+        },
+        {
+          "recommendation": "De-risk Exposure to High-Multiple Semiconductors and Compute Hardware",
+          "rationale": "Mounting legal probes, leadership crises, and post-IPO AI profit-taking signal continued multiple contraction across major chipmakers.",
+          "tickers": [
+            "NVDA",
+            "AVGO",
+            "MU"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            2,
+            17,
+            21,
+            30,
+            35,
+            38,
+            39
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Markets will remain highly volatile and defensive over the next 1-3 months as investors navigate tech multiple compression, ongoing Nvidia investigations, and tight liquidity conditions.",
+      "long_term": "Over the next 6-12 months, the market will complete a healthy bifurcation: speculative AI hype will wash out, rewarding companies with tangible free cash flows, mission-critical cybersecurity platforms, and power infrastructure.",
+      "key_catalysts": [
+        "Developments in SEC and California AG investigations into Nvidia China chip diversions",
+        "Formal regulatory filings and deal announcements regarding CrowdStrike and Zscaler",
+        "U.S. Congressional passage and enactment of the Chinese automotive ban legislation",
+        "Federal Reserve interest rate decisions and forward commentary on financial conditions",
+        "Post-IPO quarterly financial reports and guidance from Anthropic"
+      ],
+      "watch_list": [
+        "Anthropic post-IPO secondary market price discovery and volatility",
+        "Nvidia leadership succession milestones and legal disclosure updates",
+        "USD/JPY and USD/CHF safe-haven currency exchange rates",
+        "Corporate credit spreads and secondary liquidity in asset-backed securities (ABS)",
+        "High-frequency consumer spending and holiday retail sales data"
+      ],
+      "headline_sources": [
+        2,
+        3,
+        5,
+        11,
+        15,
+        17,
+        18,
+        19,
+        21,
+        23,
+        26,
+        30,
+        31,
+        32,
+        35,
+        36,
+        38,
+        39,
+        40,
+        43
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "The view from the tower: Watch Starship come in for chopsticks catch in epic slo-mo video - Space",
+      "url": "https://www.space.com/space-exploration/launches-spacecraft/the-view-from-the-tower-watch-starship-come-in-for-chopsticks-catch-in-epic-slo-mo-video",
+      "publishedAt": "2026-11-19T22:00:00Z"
+    },
+    {
+      "index": 2,
+      "headline": "Trump Says Huang Should Return to Nvidia After ‘Big Apology’",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-20/trump-huang-should-return-to-nvidia-after-big-apology-video",
+      "publishedAt": "2026-11-20T22:31:45+00:00"
+    },
+    {
+      "index": 3,
+      "headline": "Anthropic goes public on the Nasdaq with a historic $2 trillion debut",
+      "url": "https://www.nbcnews.com/now/video/anthropic-goes-public-on-the-nasdaq-with-a-historic-2-trillion-debut-273822277525",
+      "publishedAt": "2026-11-19T17:27:21+00:00"
+    },
+    {
+      "index": 4,
+      "headline": "MP demands answers over $100M federal aid given to company curtailing Quesnel pulp mill",
+      "url": "https://www.cbc.ca/news/canada/british-columbia/quensel-pulp-mill-federal-aid-questions-9.7428821",
+      "publishedAt": "2026-11-20T14:00:00Z"
+    },
+    {
+      "index": 5,
+      "headline": "AI Euphoria Gives Way to Fear And ‘Face-Ripping Volatility’",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-20/wall-street-nears-breaking-point-as-fear-grips-global-markets",
+      "publishedAt": "2026-11-20T21:52:00+00:00"
+    },
+    {
+      "index": 6,
+      "headline": "Anthropic is about to be worth more than $1 trillion. What that means for the rest of us.",
+      "url": "https://www.nbcnews.com/business/markets/anthropic-ipo-valuation-ai-boom-rcna610069",
+      "publishedAt": "2026-11-18T21:13:31+00:00"
+    },
+    {
+      "index": 7,
+      "headline": "Falklands oil contractors down tools after threats from Argentina",
+      "url": "https://www.telegraph.co.uk/business/2026/11/20/falklands-oil-contractors-down-tools-threats-argentina/",
+      "publishedAt": "2026-11-20T13:49:00Z"
+    },
+    {
+      "index": 8,
+      "headline": "Bayer’s $7.25 Billion Roundup Settlement Approved by Judge",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-20/bayer-s-7-25-billion-roundup-settlement-approved-by-us-judge",
+      "publishedAt": "2026-11-20T20:48:14+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "Fear and ‘Hot Sauce’: Young Investors Want To Catch Up",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-20/fear-and-hot-sauce-young-investors-want-to-catch-up-video",
+      "publishedAt": "2026-11-20T22:06:43+00:00"
+    },
+    {
+      "index": 10,
+      "headline": "J&J Snack Foods CEO on 4Q Results and Consumer Sentiment",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-20/j-j-snack-foods-ceo-on-4q-results-and-consumer-sentiment-video",
+      "publishedAt": "2026-11-20T23:22:36+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "CrowdStrike Is in Talks to Buy Cybersecurity Firm Zscaler",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-20/crowdstrike-is-in-talks-to-buy-cybersecurity-firm-zscaler",
+      "publishedAt": "2026-11-20T21:05:11+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Anthropic IPO live: Anthropic stock closes up 17% from initial price for $1.27T valuation in first day of trading - Yahoo Finance",
+      "url": "https://finance.yahoo.com/technology/live/anthropic-ipo-live-anthropic-stock-begins-trading-in-record-81b-raise-with-15t-valuation-192410598.html",
+      "publishedAt": "2026-11-19T22:30:29Z"
+    },
+    {
+      "index": 13,
+      "headline": "Amazon fights the Delivery Protection Act with homepage banner, in-app pop-up - Ars Technica",
+      "url": "https://arstechnica.com/tech-policy/2026/11/amazon-takes-its-fight-against-nyc-delivery-bill-to-shoppers-with-in-app-pop-up/",
+      "publishedAt": "2026-11-19T22:16:37Z"
+    },
+    {
+      "index": 14,
+      "headline": "Yamaha Sales Breakup Oct 2026 - RayZR, FZ, MT15, R15, Fascino, XSR, Aerox, EC06",
+      "url": "https://www.rushlane.com/yamaha-sales-breakup-oct-2026-rayzr-fz-mt15-r15-fascino-12561741.html",
+      "publishedAt": "2026-11-20T13:55:56Z"
+    },
+    {
+      "index": 15,
+      "headline": "SpaceX Wins Permit For $24 Bil Texas Data Center Project, Tax Break Rejected - Investor's Business Daily",
+      "url": "https://www.investors.com/news/spacex-texas-data-center-project-24-billion-approval-tax-break-rejected-elon-musk-abbott-spcx-stock/",
+      "publishedAt": "2026-11-19T22:28:00Z"
+    },
+    {
+      "index": 16,
+      "headline": "Babies come with a lot of stuff. How much is essential - and what is destined to become clutter?",
+      "url": "https://www.theguardian.com/australia-news/2026/nov/21/babies-come-with-a-lot-of-stuff-how-much-is-essential-and-what-is-destined-to-become-clutter",
+      "publishedAt": "2026-11-20T14:02:00Z"
+    },
+    {
+      "index": 17,
+      "headline": "Anthropic Slides 8.5% to Shrink IPO Gain as AI Trade Unravels",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-20/anthropic-share-slump-nearly-erases-ipo-pop-as-ai-trade-unravels",
+      "publishedAt": "2026-11-20T14:36:49+00:00"
+    },
+    {
+      "index": 18,
+      "headline": "Wall Street meltdown: Tech stocks drop sharply as AI hype cools",
+      "url": "https://www.nbcnews.com/business/markets/anthropic-shares-markets-selloff-nasdaq-rcna610394",
+      "publishedAt": "2026-11-20T14:20:57+00:00"
+    },
+    {
+      "index": 19,
+      "headline": "AI Selloff Spurs Haven Demand for Yen, Franc as Dollar Slips",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-20/ai-selloff-boosts-haven-demand-for-yen-franc-as-dollar-slips",
+      "publishedAt": "2026-11-20T17:00:06+00:00"
+    },
+    {
+      "index": 20,
+      "headline": "‘Always Remain Liquid’: Richards",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-20/-always-remain-liquid-richards-video",
+      "publishedAt": "2026-11-20T22:30:37+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "Nvidia enters the post-Jensen Huang era with a bang ",
+      "url": "https://www.nbcnews.com/business/corporations/nvidia-post-jensen-huang-kress-earnings-rcna609782",
+      "publishedAt": "2026-11-18T02:41:49+00:00"
+    },
+    {
+      "index": 22,
+      "headline": "Anthropic stock is down during its second day of trading after a historic Wall Street debut ",
+      "url": "https://www.nbcnews.com/video/anthropic-stock-is-down-during-its-second-day-of-trading-after-a-historic-wall-street-debut-273897541540",
+      "publishedAt": "2026-11-20T15:33:23+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "S&P, Dow Slide Into Correction as Investors Dump Tech",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-20/s-p-dow-slide-into-correction-as-investors-dump-tech-video",
+      "publishedAt": "2026-11-20T22:25:52+00:00"
+    },
+    {
+      "index": 24,
+      "headline": "WeRide revenue up 88% as overseas robotaxi business grows",
+      "url": "https://www.automotiveworld.com/news/weride-revenue-up-88-as-overseas-robotaxi-business-grows/",
+      "publishedAt": "2026-11-20T14:02:08Z"
+    },
+    {
+      "index": 25,
+      "headline": "How to Get the Most Out of Early Black Friday Deals",
+      "url": "https://www.today.com/video/how-to-navigate-the-black-friday-shopping-frenzy-273886789717",
+      "publishedAt": "2026-11-20T13:29:49+00:00"
+    },
+    {
+      "index": 26,
+      "headline": "Congress Finalizing Bill To Officially Ban Chinese Cars In U.S.",
+      "url": "https://www.investors.com/news/byd-congress-chinese-ev-ban-tesla-li-auto-xpeng-geely/",
+      "publishedAt": "2026-11-20T13:48:00Z"
+    },
+    {
+      "index": 27,
+      "headline": "CrowdStrike Said in Talks to Buy Cybersecurity Firm Zscaler",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-20/crowdstrike-said-in-talks-to-buy-zscaler-video",
+      "publishedAt": "2026-11-20T21:53:30+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "Trump’s Personal Lawyer to Step Down as Sullivan & Cromwell Co-Chair - WSJ",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQR3Y5a1NvdXBmYjhnRUtTRVFXVnRUYm4zRDhGM08ySGlQVXJ2VHo3WjJNQUJLZEZGRG5Ic3Y3Vkl0VXUyWGVUQm92ZC10MWhKRGZNSGp3UHFEd2F0U3JqWDBwUEphanZTUDUxRC1Uam5WNmRUOUZzOExVZ0VQRVkyRjM5UkdFMmFoeHZKa01wcVc2M2pDSUdrVHFMeE9NVG5MdnFKLU05ZlJ5Zw?oc=5",
+      "publishedAt": "2026-11-19T21:39:00Z"
+    },
+    {
+      "index": 29,
+      "headline": "Stocks plunge as investors take cover amid growing uncertainty - CBS News",
+      "url": "https://www.cbsnews.com/news/dow-tumbles-wall-street-ai-fears/",
+      "publishedAt": "2026-11-19T21:25:11Z"
+    },
+    {
+      "index": 30,
+      "headline": "Nvidia, Broadcom, and Micron stocks decline as Anthropic goes public - Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/article/nvidia-broadcom-micron-stocks-decline-as-anthropic-goes-public-170845481.html",
+      "publishedAt": "2026-11-19T21:21:28Z"
+    },
+    {
+      "index": 31,
+      "headline": "Trump threatens ‘tremendous’ penalties on companies that build data centers overseas",
+      "url": "https://www.nbcnews.com/business/corporations/trump-data-centers-overseas-penalties-rcna610445",
+      "publishedAt": "2026-11-20T18:37:30+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "Nasdaq 100 Has Worst Week Since 2020 on AI Drama: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-19/stock-market-today-dow-s-p-live-updates",
+      "publishedAt": "2026-11-19T22:03:40+00:00"
+    },
+    {
+      "index": 33,
+      "headline": "Adjusting for Credit Risk: Masters In Business with David Eichhorn",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-20/masters-in-business-with-david-eichhorn-video",
+      "publishedAt": "2026-11-20T22:14:53+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "BREAKING: Feds, province kick in $250 million for Port of Sault Ste. Marie",
+      "url": "https://www.sootoday.com/local-news/terry-sheehan-helps-land-125-million-for-port-of-sault-ste-marie-13036682",
+      "publishedAt": "2026-11-20T13:57:00Z"
+    },
+    {
+      "index": 35,
+      "headline": "Nvidia Plunges as SEC Probe Deepens AI Market Selloff | Closing Bell",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-20/nvidia-plunges-on-sec-probe-closing-bell-video",
+      "publishedAt": "2026-11-20T22:08:59+00:00"
+    },
+    {
+      "index": 36,
+      "headline": "Walmart stocks up on inflation-weary shoppers ahead of the holidays",
+      "url": "https://www.nbcnews.com/business/consumer/walmart-holiday-shopping-sales-outlook-rcna610193",
+      "publishedAt": "2026-11-20T00:31:36+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "Jensen Huang told employee he will pee on his brain and rip off top of their head",
+      "url": "https://www.indiatoday.in/technology/news/story/jensen-huang-told-employee-he-will-pee-on-his-brain-and-rip-off-top-of-their-head-3043387-2026-11-20",
+      "publishedAt": "2026-11-20T13:47:50Z"
+    },
+    {
+      "index": 38,
+      "headline": "California attorney general issues Nvidia subpoena in probe of China chip diversion - CNBC",
+      "url": "https://www.cnbc.com/2026/11/19/nvidia-california-bonta-subpoena-china-chips.html",
+      "publishedAt": "2026-11-19T22:49:04Z"
+    },
+    {
+      "index": 39,
+      "headline": " Anthropic IPO Could  Mark End of the AI Trade",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-20/anthropic-ipo-could-mark-end-of-the-ai-trade-video",
+      "publishedAt": "2026-11-20T21:35:36+00:00"
+    },
+    {
+      "index": 40,
+      "headline": "Fiber Network Operator Zayo Delays Public ABS Sale Until 2027",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-20/fiber-network-operator-zayo-delays-public-abs-sale-until-2027",
+      "publishedAt": "2026-11-20T21:55:50+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Gap names new Athleta CEO, lowers full-year guidance - CNBC",
+      "url": "https://www.cnbc.com/2026/11/19/gap-gap-q3-2026-earnings.html",
+      "publishedAt": "2026-11-19T21:15:38Z"
+    },
+    {
+      "index": 42,
+      "headline": "BILL Agrees to be Acquired by TPG in Partnership with Corpay - Business Wire",
+      "url": "https://www.businesswire.com/news/home/20261119835477/en/BILL-Agrees-to-be-Acquired-by-TPG-in-Partnership-with-Corpay",
+      "publishedAt": "2026-11-19T22:46:00Z"
+    },
+    {
+      "index": 43,
+      "headline": "Gold Logs Worst Week Since March on Hawkish Fed, AI Selloff",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-19/gold-set-for-worst-week-since-march-on-hawkish-fed-ai-selloff",
+      "publishedAt": "2026-11-19T23:56:03+00:00"
+    },
+    {
+      "index": 44,
+      "headline": "Canadian Stocks Enter a Correction as Metals, Tech Slip",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-20/canadian-stocks-head-for-correction-as-metals-tech-push-lower",
+      "publishedAt": "2026-11-20T20:47:53+00:00"
+    },
+    {
+      "index": 45,
+      "headline": "El Salvador Troops Killed in Haiti Blast After Rescue Deployment",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-20/el-salvador-troops-killed-in-haiti-blast-after-rescue-deployment",
+      "publishedAt": "2026-11-20T23:08:54+00:00"
+    },
+    {
+      "index": 46,
+      "headline": "France's EDF nears investment decision on new nuclear reactors, say sources",
+      "url": "https://www.reuters.com/business/energy/frances-edf-nears-investment-decision-new-nuclear-reactors-say-sources-2026-11-20/",
+      "publishedAt": "2026-11-20T13:51:51Z"
+    },
+    {
+      "index": 47,
+      "headline": "HiTHIUM Debuts Integrated C&I Microgrid Solution to Enhance Energy Management and Power Reliability",
+      "url": "https://www.manilatimes.net/2026/11/20/tmt-newswire/pr-newswire/hithium-debuts-integrated-ci-microgrid-solution-to-enhance-energy-management-and-power-reliability/2475081",
+      "publishedAt": "2026-11-20T13:55:58Z"
+    },
+    {
+      "index": 48,
+      "headline": "Save on Your Thanksgiving Feast With These Deals",
+      "url": "https://www.today.com/video/shop-these-thanksgiving-deals-at-walmart-aldi-costco-more-273800261900",
+      "publishedAt": "2026-11-19T12:54:37+00:00"
+    }
+  ]
+}
