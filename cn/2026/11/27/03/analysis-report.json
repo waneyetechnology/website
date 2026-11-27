@@ -1,0 +1,967 @@
+{
+  "analysis": {
+    "analysis_date": "2026年11月27日",
+    "analysis_time": "11:06",
+    "executive_summary": {
+      "key_highlights": [
+        "A股三大指数集体高开，创业板指涨超2%，科技与AI产业链全面爆发",
+        "半导体及先进封装板块领涨，多只半导体设备ETF涨超6%，自主可控与国产替代逻辑强化",
+        "鸿蒙市场份额超越iOS跃居中国第二，驱动国产软件与AI应用概念股集体走强",
+        "创新药迎重磅新药催化，乙肝功能性治愈疗法获批上市，港A两地医药股拉升",
+        "高股息与红利资产逆势下挫，地产债展期压力仍存，市场呈现明显的成长占优风格切换"
+      ],
+      "market_sentiment_score": 76,
+      "overall_sentiment": "positive",
+      "headline_sources": [
+        2,
+        3,
+        20,
+        23,
+        43,
+        44,
+        47,
+        48,
+        50,
+        51,
+        83,
+        90,
+        100
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "半导体",
+          "trend": "早盘强势大涨，先进封装、芯片设计及算力芯片ETF涨幅居前，多股触及20cm涨停",
+          "implications": "海内外AI算力需求共振，叠加国产替代政策支持与技术突破，估值与业绩修复弹性显著",
+          "headline_sources": [
+            3,
+            26,
+            40,
+            47,
+            72,
+            90,
+            92,
+            100,
+            105
+          ]
+        },
+        {
+          "sector": "新能源",
+          "trend": "板块分化，碳酸锂现货小幅下跌，整车智驾加速推进但面临同质化竞争与事故安全边界考量",
+          "implications": "整车端盈利压力与洗牌预期加剧，建议优选海外拓展能力强及智驾供应链核心龙头",
+          "headline_sources": [
+            4,
+            13,
+            15,
+            16,
+            70,
+            98
+          ]
+        },
+        {
+          "sector": "医药生物",
+          "trend": "创新药板块大举上攻，同类首创乙肝新药获批上市，政策力挺'全球新'研发",
+          "implications": "重磅商业化突破提升创新药出海与医保准入估值溢价，生物科技股流动性与风险偏好回暖",
+          "headline_sources": [
+            10,
+            23,
+            41,
+            46,
+            55,
+            63,
+            97
+          ]
+        },
+        {
+          "sector": "地产",
+          "trend": "走势承压，头部民营及混合所有制房企境内债谋求二次展期，险资减持地产股",
+          "implications": "行业债务风险仍在出清中，基本面筑底期未过，短期投资以规避高杠杆标的为主",
+          "headline_sources": [
+            50,
+            79,
+            108
+          ]
+        },
+        {
+          "sector": "银行",
+          "trend": "高股息红利标的逆势回调，跨境离岸融资创新落地，估值中枢相对平稳",
+          "implications": "成长风格占优压制红利溢价，但银行作为低估值防御与政策中枢工具仍具长期配置底仓价值",
+          "headline_sources": [
+            18,
+            51,
+            57
+          ]
+        },
+        {
+          "sector": "消费",
+          "trend": "盘面震荡分化，本地生活平台治理与骑手保护强化，咖啡与美妆国货龙头稳步扩张",
+          "implications": "消费分层明显，注重性价比与供应链壁垒的专精细分龙头更具防御与抗周期能力",
+          "headline_sources": [
+            22,
+            37,
+            68,
+            81,
+            104
+          ]
+        }
+      ],
+      "key_themes": [
+        "AI软硬件共振与国产算力自主化",
+        "成长风格强势主导与高股息红利轮动回调",
+        "创新药重磅品种突破与政策研发支持",
+        "房企债务展期博弈与高海外无风险利率扰动"
+      ],
+      "headline_sources": [
+        2,
+        3,
+        12,
+        17,
+        23,
+        31,
+        43,
+        44,
+        47,
+        50,
+        51,
+        83
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "海外流动性收紧与美债收益率高位攀升",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "严控成长股估值风险，增配具全球竞争力且现金流充裕的龙头资产",
+        "headline_sources": [
+          17,
+          109
+        ]
+      },
+      {
+        "risk_factor": "头部房企境内债务二次展期及信用溢出",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "规避高负债民营房企及其重资产上下游链条，精选稳健国企与城中村改造受益标的",
+        "headline_sources": [
+          50,
+          79,
+          108
+        ]
+      },
+      {
+        "risk_factor": "新能源车市价格战延续及智驾监管安全边际收紧",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "聚焦L3/L4合规测试通过能力强及供应链核心器件壁垒企业，回避二线尾部车企",
+        "headline_sources": [
+          4,
+          13,
+          15,
+          16
+        ]
+      },
+      {
+        "risk_factor": "全球经贸摩擦与地缘关税风险加剧",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "紧扣内循环与国产替代主题，布局供应链自主可控与非美新兴市场出海主线",
+        "headline_sources": [
+          5,
+          39,
+          87
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "超配AI算力产业链与半导体设备/先进封装标的",
+          "rationale": "戴尔等服务器巨头在手订单爆发，叠加自研HBM及先进封装突破，国产替代进入深水区",
+          "tickers": [
+            "688981.SH",
+            "300308.SZ",
+            "688535.SH"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            26,
+            31,
+            47,
+            72,
+            92,
+            100,
+            112
+          ]
+        },
+        {
+          "recommendation": "逢低布局创新药及首创商业化突破管线公司",
+          "rationale": "乙肝功能性治愈等新药获批，港A创新药估值低位回升，政策持续支持新药出海与准入",
+          "tickers": [
+            "1177.HK",
+            "688506.SH"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            10,
+            23,
+            46,
+            55,
+            63
+          ]
+        },
+        {
+          "recommendation": "把握鸿蒙生态与国产软件及AI应用端落地行情",
+          "rationale": "鸿蒙份额超iOS确立移动操作系统第二位，软硬件协同与数据要素政策赋能商业化加速",
+          "tickers": [
+            "0700.HK",
+            "002230.SZ"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            2,
+            43,
+            44,
+            48,
+            59,
+            76
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "减持弱资质高杠杆房企及关联建材建筑头寸",
+          "rationale": "万科等房企债券二次展期反映流动性压力未除，大股东高比例质押及减持风险凸显",
+          "tickers": [
+            "000002.SZ",
+            "000031.SZ"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            28,
+            50,
+            79,
+            108
+          ]
+        },
+        {
+          "recommendation": "利用宽基ETF或低波高股息标的平衡组合波动",
+          "rationale": "应对美债利率攀升与外围不确定性，借助资金持续流入的宽基ETF对冲成长股结构性震荡",
+          "tickers": [
+            "510300.SH",
+            "601088.SH"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            12,
+            17,
+            51
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "A股与港股在科技与AI成长板块带动下有望延续反弹，宽基ETF托底支撑显著，但风格剧烈分化将加剧盘面震荡",
+      "long_term": "宏观逆周期调节与产业自主可控共振，高水平对外开放持续推进，核心高科技企业与优质出海资产步入中长期重估通道",
+      "key_catalysts": [
+        "高交会及国家级科技创新展会产业合作落地",
+        "新版医保目录发布与创新药商保协同机制深化",
+        "国家数据局数据要素与AI赋能配套细则出台",
+        "房企境内外债务重组处置进展及地产销售边际变化"
+      ],
+      "watch_list": [
+        "美国10年期国债收益率变动及美联储政策转向节奏",
+        "主流车企年终交付及L3/L4智能驾驶合规牌照申报结果",
+        "上游核心资源品价格走势（碳酸锂、铜、原油）",
+        "沪深港通北向与南向资金净流入强度"
+      ],
+      "headline_sources": [
+        3,
+        4,
+        12,
+        17,
+        39,
+        50,
+        55,
+        59,
+        70,
+        82,
+        108
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "T早报｜戴尔等服务器厂商营收齐增；MiniMax聊天应用因“色情内容”遭苹果下架；香港接连发生大规模资料外泄",
+      "url": "https://www.caixin.com/2026-11-27/102509092.html",
+      "publishedAt": null
+    },
+    {
+      "index": 2,
+      "headline": "鸿蒙中国市场份额超苹果iOS，软件概念股走强鸿蒙生态在中国智能手机操作系统市场份额已超过苹果 iOS 位居第二。2分钟前",
+      "url": "https://www.yicai.com/news/103456697.html",
+      "publishedAt": null
+    },
+    {
+      "index": 3,
+      "headline": "A股四大指数集体高开，半导体、传媒等板块走强盘面上，半导体、传媒、油气板块走强。农业、煤炭板块调整。1小时前",
+      "url": "https://www.yicai.com/news/103456382.html",
+      "publishedAt": null
+    },
+    {
+      "index": 4,
+      "headline": "长安汽车：天枢领航正申报第二批L3级专用正式号牌、L4级测试牌照",
+      "url": "https://finance.eastmoney.com/a/202611273941529663.html",
+      "publishedAt": "2026-11-27 10:45:14"
+    },
+    {
+      "index": 5,
+      "headline": "油价有望录得周线上涨 中东袭击事件令市场保持警惕",
+      "url": "https://finance.sina.com.cn/world/2026-11-27/doc-inkacvhq5583074.shtml",
+      "publishedAt": "1795746350"
+    },
+    {
+      "index": 6,
+      "headline": "大西洋观察｜“战后”秩序的韧性",
+      "url": "https://international.caixin.com/2026-11-27/102509133.html",
+      "publishedAt": null
+    },
+    {
+      "index": 7,
+      "headline": "巴西观感：节奏慢点也挺好",
+      "url": "https://opinion.caixin.com/2026-11-27/102509155.html",
+      "publishedAt": null
+    },
+    {
+      "index": 8,
+      "headline": "“中国经济圆桌会”共话高水平对外开放",
+      "url": "https://www.cs.com.cn/xwzx/01/2026/11/26/detail_2026112610054861.html",
+      "publishedAt": null
+    },
+    {
+      "index": 9,
+      "headline": "赵密升：热泵应用领域中国最广，未来10-20年工业热泵将成该领域最大增长点11-22 16:420评",
+      "url": "https://v.ifeng.com/c/8yGK1JTetwm",
+      "publishedAt": null
+    },
+    {
+      "index": 10,
+      "headline": "百利天恒入选2026福布斯中国创新力企业50强榜单",
+      "url": "https://www.cs.com.cn/ssgs/01/2026/11/27/detail_2026112710055124.html",
+      "publishedAt": null
+    },
+    {
+      "index": 11,
+      "headline": "凤凰新媒体发布2026年三季度财报",
+      "url": "https://tech.ifeng.com/c/8xxInuzhfxW",
+      "publishedAt": null
+    },
+    {
+      "index": 12,
+      "headline": "盘前资讯｜7月以来ETF净流入近1.4 万亿元 宽基受资金青睐",
+      "url": "https://www.cs.com.cn/tzjj/etf/2026/11/27/detail_2026112710055061.html",
+      "publishedAt": null
+    },
+    {
+      "index": 13,
+      "headline": "蔚来秦力洪：2027年车市或延续低迷 车企需调整经营预期",
+      "url": "https://www.caixin.com/2026-11-26/102508994.html",
+      "publishedAt": null
+    },
+    {
+      "index": 14,
+      "headline": "今年已跌11%，欧元对人民币创二十年来最大年度跌幅",
+      "url": "https://finance.ifeng.com/c/8yO6Nzpqd9t",
+      "publishedAt": null
+    },
+    {
+      "index": 15,
+      "headline": "华为乾崑为什么还需要一个新品牌抢占L2份额，迈进L3。38分钟前",
+      "url": "https://www.yicai.com/news/103456621.html",
+      "publishedAt": null
+    },
+    {
+      "index": 16,
+      "headline": "智驾事故反复出现，暴露了什么同类事故反复出现，指向的不是个别产品偶发失灵，而是这一代智驾方案已经触碰到清晰的能力边界。26分钟前",
+      "url": "https://www.yicai.com/news/103456623.html",
+      "publishedAt": null
+    },
+    {
+      "index": 17,
+      "headline": "美国10年期国债收益率升至4.904%",
+      "url": "https://finance.eastmoney.com/a/202611273941533222.html",
+      "publishedAt": "2026-11-27 10:52:00"
+    },
+    {
+      "index": 18,
+      "headline": "浙商证券董事长钱文海：助力浙企出海、引导全球资本入浙，共筑AI时代跨境资管“浙商连接器”",
+      "url": "https://www.cs.com.cn/qs/2026/11/26/detail_2026112610054962.html",
+      "publishedAt": null
+    },
+    {
+      "index": 19,
+      "headline": "2026网易经济学家年会",
+      "url": "https://money.163.com/special/2026naecwinter/",
+      "publishedAt": null
+    },
+    {
+      "index": 20,
+      "headline": "三大指数集体高开，创业板指高开0.59%",
+      "url": "https://finance.ifeng.com/c/special/7w3fQMcHQAK",
+      "publishedAt": null
+    },
+    {
+      "index": 21,
+      "headline": "包钢集团等在呼和浩特成立新股权投资合伙企业，出资额6.01亿",
+      "url": "https://finance.eastmoney.com/a/202611273941527461.html",
+      "publishedAt": "2026-11-27 10:40:15"
+    },
+    {
+      "index": 22,
+      "headline": "壹快评｜为平台取消超时罚款叫好除了规模和效率，在管理、服务和企业ESG上也要争做世界一流。2小时前",
+      "url": "https://www.yicai.com/news/103456247.html",
+      "publishedAt": null
+    },
+    {
+      "index": 23,
+      "headline": "获批上市！首个乙肝功能性治愈新药来了！港股通创新药板块大举上攻，520880标的指数涨超3.5%",
+      "url": "https://finance.eastmoney.com/a/202611273941532918.html",
+      "publishedAt": "2026-11-27 10:42:37"
+    },
+    {
+      "index": 24,
+      "headline": "西门子说没丢份额，中国对手已在敲门",
+      "url": "https://original.ifeng.com/c/8yODJej8WUM",
+      "publishedAt": null
+    },
+    {
+      "index": 25,
+      "headline": "机构：韩国股市稳定基金扩容或改变债券需求格局",
+      "url": "https://finance.sina.com.cn/world/2026-11-27/doc-inkacvhk7850120.shtml",
+      "publishedAt": "1795746533"
+    },
+    {
+      "index": 26,
+      "headline": "芯片股早盘全线走高 壁仞科技涨超10%天数智芯涨超8%",
+      "url": "https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-11-27/doc-inkacvhq5608977.shtml",
+      "publishedAt": "1795748100"
+    },
+    {
+      "index": 27,
+      "headline": "夜读精选｜瑞银：内地严管跨境投资 香港楼价升势2027年料止步",
+      "url": "https://www.caixin.com/2026-11-26/102508991.html",
+      "publishedAt": null
+    },
+    {
+      "index": 28,
+      "headline": "大股东陷质押泥潭 百傲化学急宣回购拉股价",
+      "url": "https://finance.caixin.com/2026-11-26/102509033.html",
+      "publishedAt": null
+    },
+    {
+      "index": 29,
+      "headline": "特朗普称尚未发现伊朗镐山有实质性活动",
+      "url": "https://finance.eastmoney.com/a/202611273941535755.html",
+      "publishedAt": "2026-11-27 10:57:04"
+    },
+    {
+      "index": 30,
+      "headline": "股市内参：总比别人领先一步",
+      "url": "http://money.163.com/",
+      "publishedAt": null
+    },
+    {
+      "index": 31,
+      "headline": "四家服务器厂商营收齐增 戴尔AI服务器在手订单超1300亿美元",
+      "url": "https://www.caixin.com/2026-11-27/102509088.html",
+      "publishedAt": null
+    },
+    {
+      "index": 32,
+      "headline": "日本JERA商谈为Anthropic、Meta等在东京建设数据中心",
+      "url": "https://finance.sina.com.cn/stock/usstock/c/2026-11-27/doc-inkacvhk7844566.shtml",
+      "publishedAt": "1795746200"
+    },
+    {
+      "index": 33,
+      "headline": "国元证券助力中超控股9.92亿元再融资落地",
+      "url": "https://www.cs.com.cn/qs/2026/11/27/detail_2026112710055091.html",
+      "publishedAt": null
+    },
+    {
+      "index": 34,
+      "headline": "预告：财富代际更迭 香港家办新机遇 | 资管大时代17分钟前",
+      "url": "https://www.yicai.com/news/103456694.html",
+      "publishedAt": null
+    },
+    {
+      "index": 35,
+      "headline": "证券板块持续走强 国盛证券触及涨停",
+      "url": "https://finance.eastmoney.com/a/202611273941528634.html",
+      "publishedAt": "2026-11-27 10:42:14"
+    },
+    {
+      "index": 36,
+      "headline": "人事观察｜七个月两度履新 59岁吕武钦任公安部副部长",
+      "url": "https://china.caixin.com/2026-11-27/102509174.html",
+      "publishedAt": null
+    },
+    {
+      "index": 37,
+      "headline": "从2000亩到70万亩：雀巢与云南普洱的38年咖啡长跑1小时前",
+      "url": "https://www.yicai.com/news/103456495.html",
+      "publishedAt": null
+    },
+    {
+      "index": 38,
+      "headline": "今日开盘：两市双双高开 沪指涨幅0.16%",
+      "url": "https://finance.caixin.com/2026-11-27/102509138.html",
+      "publishedAt": null
+    },
+    {
+      "index": 39,
+      "headline": "商务部：坚决反对美对中国等经济体加征301关税",
+      "url": "https://companies.caixin.com/2026-11-26/102508999.html",
+      "publishedAt": null
+    },
+    {
+      "index": 40,
+      "headline": "创业故事｜铜冠铜箔：在微米之间 凿开AI算力“通路”",
+      "url": "https://www.cs.com.cn/ssgs/01/2026/11/16/detail_2026111610052288.html",
+      "publishedAt": null
+    },
+    {
+      "index": 41,
+      "headline": "申万菱信基金李金泽：AI制药的“商业化验证”仍处早期 关注产业链上游机遇",
+      "url": "https://www.cs.com.cn/sylm/jsbd/2026/11/24/detail_2026112410054446.html",
+      "publishedAt": null
+    },
+    {
+      "index": 42,
+      "headline": "广州市委金融办组织召开政策宣讲会 协同发力推动上市公司高质量发展",
+      "url": "https://www.cs.com.cn/xwzx/01/2026/11/26/detail_2026112610055005.html",
+      "publishedAt": null
+    },
+    {
+      "index": 43,
+      "headline": "政策产业利好共振，国产化替代加速，云计算ETF鹏华、软件ETF鹏华均涨超3%",
+      "url": "https://finance.eastmoney.com/a/202611273941531981.html",
+      "publishedAt": "2026-11-27 10:42:02"
+    },
+    {
+      "index": 44,
+      "headline": "AI应用概念股全线走高 中科闻歌涨超42%明略科技-W涨超18%",
+      "url": "https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-11-27/doc-inkacvhk7876715.shtml",
+      "publishedAt": "1795747856"
+    },
+    {
+      "index": 45,
+      "headline": "300047、301178直线拉升，4分钟，“20cm”涨停",
+      "url": "https://finance.ifeng.com/c/8yODJej8WL8",
+      "publishedAt": null
+    },
+    {
+      "index": 46,
+      "headline": "中国生物制药现涨逾4% CHB同类首创功能性治愈疗法贝普若韦生钠注射液获NMPA批准上市",
+      "url": "https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-11-27/doc-inkacvhi1046817.shtml",
+      "publishedAt": "1795744888"
+    },
+    {
+      "index": 47,
+      "headline": "多只半导体设备ETF涨幅扩大至6%",
+      "url": "https://finance.eastmoney.com/a/202611273941526753.html",
+      "publishedAt": "2026-11-27 10:40:20"
+    },
+    {
+      "index": 48,
+      "headline": "恒生科技指数涨幅扩大至3% 智谱涨超8%",
+      "url": "https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-11-27/doc-inkacvhp3269675.shtml",
+      "publishedAt": "1795747258"
+    },
+    {
+      "index": 49,
+      "headline": "何小鹏：通用大模型难以解决物理AI所有难题",
+      "url": "https://www.caixin.com/2026-11-26/102509048.html",
+      "publishedAt": null
+    },
+    {
+      "index": 50,
+      "headline": "境内债谋求二次展期 万科能否再度顺利“闯关”？",
+      "url": "https://www.caixin.com/2026-11-26/102508966.html",
+      "publishedAt": null
+    },
+    {
+      "index": 51,
+      "headline": "高股息红利股逆势下挫 中国神华跌超5%",
+      "url": "https://finance.eastmoney.com/a/202611273941534231.html",
+      "publishedAt": "2026-11-27 10:55:50"
+    },
+    {
+      "index": 52,
+      "headline": "2025网易经济学家年会夏季论坛",
+      "url": "https://money.163.com/special/2025naecsummer/",
+      "publishedAt": null
+    },
+    {
+      "index": 53,
+      "headline": "银价、铜价大跌，原因找到了11-26 22:210评",
+      "url": "https://finance.ifeng.com/c/8yNO2zWuWbo",
+      "publishedAt": null
+    },
+    {
+      "index": 54,
+      "headline": "欧洲央行迎来首位西班牙行长，新班子整体略偏鸽派？若任命程序顺利，德科斯将在3月18日首次主持议息会议，他也将成为首位执掌欧洲央行的西班牙人。2小时前",
+      "url": "https://www.yicai.com/news/103456269.html",
+      "publishedAt": null
+    },
+    {
+      "index": 55,
+      "headline": "北京：支持更多“全球新”药械研发上市",
+      "url": "https://www.cs.com.cn/xwzx/01/2026/11/27/detail_2026112710055078.html",
+      "publishedAt": null
+    },
+    {
+      "index": 56,
+      "headline": "信息留簿案，权利护己身在个人信息保护中，投资者享有知情权、决定权等五项权利1小时前",
+      "url": "https://www.yicai.com/news/103456376.html",
+      "publishedAt": null
+    },
+    {
+      "index": 57,
+      "headline": "合计规模60亿元 民生银行完成两笔玉兰模式离岸融资业务",
+      "url": "https://www.cs.com.cn/yh/04/2026/11/26/detail_2026112610054971.html",
+      "publishedAt": null
+    },
+    {
+      "index": 58,
+      "headline": "奇富科技第三季度净利润同比下降超七成",
+      "url": "https://www.cs.com.cn/ssgs/01/2026/11/27/detail_2026112710055060.html",
+      "publishedAt": null
+    },
+    {
+      "index": 59,
+      "headline": "国家数据局拟进一步完善数据规则赋能人工智能创新发展",
+      "url": "https://www.cs.com.cn/xwzx/01/2026/11/27/detail_2026112710055089.html",
+      "publishedAt": null
+    },
+    {
+      "index": 60,
+      "headline": "《为什么是纳真》光通信生意里，还藏着一个全栈稀缺标的11-23 08:510评",
+      "url": "https://finance.ifeng.com/c/8yHQpDVgLKT",
+      "publishedAt": null
+    },
+    {
+      "index": 61,
+      "headline": "海阔链深，从容向新——探寻厦门产业集群的深耕密码",
+      "url": "https://www.cs.com.cn/xwzx/01/2026/09/05/detail_2026090510037016.html",
+      "publishedAt": null
+    },
+    {
+      "index": 62,
+      "headline": "凤凰鉴保官 | “好医保”评测04-29 22:060评",
+      "url": "https://biz.ifeng.com/c/special/8sj9KUhlrXs",
+      "publishedAt": null
+    },
+    {
+      "index": 63,
+      "headline": "申万菱信基金姚宏福：看好创新药产业趋势 关注新版医保目录落地情况",
+      "url": "https://www.cs.com.cn/sylm/jsbd/2026/11/24/detail_2026112410054406.html",
+      "publishedAt": null
+    },
+    {
+      "index": 64,
+      "headline": "4000亿级“弱首府”，等来了一座4F级国际机场11-26 21:100评",
+      "url": "https://finance.ifeng.com/c/8yNGNmwaDiA",
+      "publishedAt": null
+    },
+    {
+      "index": 65,
+      "headline": "2026年国内增材制造产业规模预计达860亿元 行业从“卖设备”转向“用设备”",
+      "url": "https://www.cs.com.cn/xwzx/01/2026/11/27/detail_2026112710055101.html",
+      "publishedAt": null
+    },
+    {
+      "index": 66,
+      "headline": "华泰期货：市场情绪边际修复，印尼供应收紧预期支撑镍不锈钢反弹",
+      "url": "https://finance.sina.com.cn/money/future/fmnews/2026-11-27/doc-inkacvhi1043671.shtml",
+      "publishedAt": "1795744707"
+    },
+    {
+      "index": 67,
+      "headline": "汇丰重组印度后台支持岗位 数百个职位受影响",
+      "url": "https://finance.sina.com.cn/stock/usstock/c/2026-11-27/doc-inkacvhq5586522.shtml",
+      "publishedAt": "1795746600"
+    },
+    {
+      "index": 68,
+      "headline": "巨子生物盘中涨超4% 获三位董事拟增持最多1500万港元股份",
+      "url": "https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-11-27/doc-inkacvhk7831564.shtml",
+      "publishedAt": "1795745365"
+    },
+    {
+      "index": 69,
+      "headline": "特稿｜打假获利6万元一审判刑8年 网红“铁头”何以被指恶势力头目",
+      "url": "https://china.caixin.com/2026-11-27/102509055.html",
+      "publishedAt": null
+    },
+    {
+      "index": 70,
+      "headline": "今日MMLC电池级碳酸锂（早盘）价格较昨日下跌400元/吨",
+      "url": "https://finance.eastmoney.com/a/202611273941530095.html",
+      "publishedAt": "2026-11-27 10:48:02"
+    },
+    {
+      "index": 71,
+      "headline": "“都江堰·江河战略论坛”在成都举行",
+      "url": "https://www.cs.com.cn/xwzx/01/2026/11/26/detail_2026112610055012.html",
+      "publishedAt": null
+    },
+    {
+      "index": 72,
+      "headline": "壁仞科技盘中涨超7% 广东鼓励算力中心优先使用国产算力芯片",
+      "url": "https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-11-27/doc-inkacvhp3236198.shtml",
+      "publishedAt": "1795745056"
+    },
+    {
+      "index": 73,
+      "headline": "美股AI风向变了：软件>硬件？",
+      "url": "https://finance.eastmoney.com/a/202611273941533080.html",
+      "publishedAt": "2026-11-27 10:59:11"
+    },
+    {
+      "index": 74,
+      "headline": "新三板“万里行”｜一财走进鼎材科技：构建材料专利优势，AI赋能研发生产一家主营OLED有机发光材料及光刻胶材料的科技企业，如何专精特新“小巨人”？敬请跟随第一财经“1科创”调研团走进鼎材科技，对话董事长任雪艳，听她讲讲背后的故事。38分钟前",
+      "url": "https://www.yicai.com/news/103456622.html",
+      "publishedAt": null
+    },
+    {
+      "index": 75,
+      "headline": "AI能为BOSS直聘带来多少新生意？AI正在让招聘平台从匹配候选人，进一步走向提供招聘全流程服务。1小时前",
+      "url": "https://www.yicai.com/news/103456309.html",
+      "publishedAt": null
+    },
+    {
+      "index": 76,
+      "headline": "卓越睿新早盘飙升100% 旗下智慧树与腾讯云达成战略合作",
+      "url": "https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-11-27/doc-inkacvhp3230998.shtml",
+      "publishedAt": "1795744692"
+    },
+    {
+      "index": 77,
+      "headline": "德邦证券举行2027年度投资策略会",
+      "url": "https://www.cs.com.cn/qs/2026/11/27/detail_2026112710055098.html",
+      "publishedAt": null
+    },
+    {
+      "index": 78,
+      "headline": "谈崩了！\"距离解决方案还差着光年\"，欧盟峰会开一天就散了",
+      "url": "https://original.ifeng.com/c/8yO8kTFf0P2",
+      "publishedAt": null
+    },
+    {
+      "index": 79,
+      "headline": "和谐健康年内密集减持金融街 持股比例下降逾7个百分点",
+      "url": "https://finance.caixin.com/2026-11-26/102509027.html",
+      "publishedAt": null
+    },
+    {
+      "index": 80,
+      "headline": "公告臻选｜捕捉每日公告中的“黄金机会”告别信息过载，把握市场先机，捕捉每天公告中的“黄金机会”。2025-11-03 14:49",
+      "url": "https://www.yicai.com/topic/102892546/",
+      "publishedAt": null
+    },
+    {
+      "index": 81,
+      "headline": "2025网易新能量 乳制品行业评选",
+      "url": "http://money.163.com/special/2025new_power/",
+      "publishedAt": null
+    },
+    {
+      "index": 82,
+      "headline": "11-27 08:20“中国科技第一展”在深圳开幕“中国科技第一展”在深圳开幕作为经国务院批准创办的国家级、国际性科技盛会，高交会被誉为“中国科技第一展”，持续肩负推动科技成果商品化、产业化，促进国际科技交流合作的重要使命。",
+      "url": "https://www.cs.com.cn/xwzx/01/2026/11/27/detail_2026112710055059.html",
+      "publishedAt": null
+    },
+    {
+      "index": 83,
+      "headline": "创业板指涨逾2% 昇腾概念领涨",
+      "url": "https://finance.eastmoney.com/a/202611273941529019.html",
+      "publishedAt": "2026-11-27 10:44:07"
+    },
+    {
+      "index": 84,
+      "headline": "新西兰选举结果显示将现罕见悬浮议会 中右翼执政联盟连任之路存挑战",
+      "url": "https://finance.sina.com.cn/stock/usstock/c/2026-11-27/doc-inkacvhi1100437.shtml",
+      "publishedAt": "1795747864"
+    },
+    {
+      "index": 85,
+      "headline": "越南提出到2030年股市市值占国内生产总值比重达到120%的目标",
+      "url": "https://finance.eastmoney.com/a/202611273941535479.html",
+      "publishedAt": "2026-11-27 10:55:55"
+    },
+    {
+      "index": 86,
+      "headline": "增长16%，国家统计局发布最新数据",
+      "url": "https://original.ifeng.com/c/8yOCaKujvzj",
+      "publishedAt": null
+    },
+    {
+      "index": 87,
+      "headline": "义乌海关出台促进跨境贸易便利化16条举措",
+      "url": "https://finance.eastmoney.com/a/202611273941536282.html",
+      "publishedAt": "2026-11-27 10:58:00"
+    },
+    {
+      "index": 88,
+      "headline": "黑芝麻智能现涨超10% 华山A2000芯片已通过BIS相关审查 获准在全球范围内销售与应用",
+      "url": "https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-11-27/doc-inkacvhq5603308.shtml",
+      "publishedAt": "1795747607"
+    },
+    {
+      "index": 89,
+      "headline": "中科闻歌早盘一度飙升66% 建议寻求不超过1亿港元H股购回授权",
+      "url": "https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-11-27/doc-inkacvhq5602510.shtml",
+      "publishedAt": "1795747553"
+    },
+    {
+      "index": 90,
+      "headline": "恒生科技指数涨幅扩大至2% 中芯国际、美团领涨成份股",
+      "url": "https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-11-27/doc-inkacvhp3236067.shtml",
+      "publishedAt": "1795744820"
+    },
+    {
+      "index": 91,
+      "headline": "黄金股早盘涨幅居前 中国黄金国际及灵宝黄金均涨逾7%",
+      "url": "https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-11-27/doc-inkacvhq5612350.shtml",
+      "publishedAt": "1795748428"
+    },
+    {
+      "index": 92,
+      "headline": "华为自研HBM方案入选ISSCC2027！科创芯片设计ETF永赢盘中涨超3%",
+      "url": "https://finance.eastmoney.com/a/202611273941534412.html",
+      "publishedAt": "2026-11-27 10:55:47"
+    },
+    {
+      "index": 93,
+      "headline": "魏建军找于东来“诉苦”，长城能靠超跑缓解“焦虑”么？11-26 21:200评",
+      "url": "https://finance.ifeng.com/c/8yNISFPyAZ9",
+      "publishedAt": null
+    },
+    {
+      "index": 94,
+      "headline": "莫斯科河上：彼得大帝的哥伦布传说｜奇行怪记",
+      "url": "https://opinion.caixin.com/2026-11-27/102509178.html",
+      "publishedAt": null
+    },
+    {
+      "index": 95,
+      "headline": "航展新型装备将亮相，航空军贸预期升温，通用航空ETF永赢盘中涨超2%！",
+      "url": "https://finance.eastmoney.com/a/202611273941535942.html",
+      "publishedAt": "2026-11-27 11:00:14"
+    },
+    {
+      "index": 96,
+      "headline": "蛋白质的世界，比宇宙更大新一期第一财经《商业就是这样》来到深圳光明新城，与粒影科技创始人、董事长、首席科学家张影同行，共乘全新梅赛德斯-奔驰长轴距GLE SUV，聊聊他的蛋白质结构研究。21分钟前",
+      "url": "https://www.yicai.com/news/103456680.html",
+      "publishedAt": null
+    },
+    {
+      "index": 97,
+      "headline": "解药｜白血病疫苗用于晚期治疗获突破，国内已布局",
+      "url": "https://www.caixin.com/2026-11-27/102509085.html",
+      "publishedAt": null
+    },
+    {
+      "index": 98,
+      "headline": "关厂过冬的Stellantis，把解药押在了中国伙伴身上",
+      "url": "https://original.ifeng.com/c/8yO7ca8usyW",
+      "publishedAt": null
+    },
+    {
+      "index": 99,
+      "headline": "换角度来看AI热潮？全球最大航空货运服务商：数据中心设备空运需求强劲",
+      "url": "https://finance.eastmoney.com/a/202611273941534684.html",
+      "publishedAt": "2026-11-27 10:57:21"
+    },
+    {
+      "index": 100,
+      "headline": "先进封装概念反复走强 华海诚科20cm涨停",
+      "url": "https://finance.eastmoney.com/a/202611273941529480.html",
+      "publishedAt": "2026-11-27 10:46:48"
+    },
+    {
+      "index": 101,
+      "headline": "日本GPIF调整汇报机制 每次资产配置评估情况都将通报董事会",
+      "url": "https://finance.sina.com.cn/world/2026-11-27/doc-inkacvhp3255604.shtml",
+      "publishedAt": "1795746441"
+    },
+    {
+      "index": 102,
+      "headline": "欧洲央行新行长人选确定 国际清算银行总经理德科斯将接棒拉加德",
+      "url": "https://international.caixin.com/2026-11-27/102509079.html",
+      "publishedAt": null
+    },
+    {
+      "index": 103,
+      "headline": "守己缄密令，风险莫近身当敏感个人信息泄露时，投资者可能会面临多重风险1小时前",
+      "url": "https://www.yicai.com/news/103456317.html",
+      "publishedAt": null
+    },
+    {
+      "index": 104,
+      "headline": "美邦服饰：控股孙公司签订10.6亿元供应链采购框架合同",
+      "url": "https://www.cs.com.cn/ssgs/01/2026/11/26/detail_2026112610054963.html",
+      "publishedAt": null
+    },
+    {
+      "index": 105,
+      "headline": "日媒：为量产400层闪存，三星海力士排队向长江存储要授权",
+      "url": "https://finance.ifeng.com/c/8yO9zWL1mra",
+      "publishedAt": null
+    },
+    {
+      "index": 106,
+      "headline": "盘前点金｜研判主题机会 挖掘潜力个股每日盘前，为您抢先捕捉关键讯息（①最新券商观点；②高关注题材；③财经要闻重点；④潜力标的挖掘），助您从容开启交易日！01-07 10:02",
+      "url": "https://www.yicai.com/topic/102990833/",
+      "publishedAt": null
+    },
+    {
+      "index": 107,
+      "headline": "图集｜帝王潮叠加极端天气 美加州全境遭巨浪冲击海水倒灌",
+      "url": "https://photos.caixin.com/2026-11-27/102509100.html",
+      "publishedAt": null
+    },
+    {
+      "index": 108,
+      "headline": "财经早知道｜境内债谋求二次展期，万科再闯关",
+      "url": "https://finance.caixin.com/2026-11-27/102509077.html",
+      "publishedAt": null
+    },
+    {
+      "index": 109,
+      "headline": "AI板块风险推动美元有望录得2024年以来最长连涨周期",
+      "url": "https://finance.sina.com.cn/world/2026-11-27/doc-inkacvhq5583849.shtml",
+      "publishedAt": "1795746396"
+    },
+    {
+      "index": 110,
+      "headline": "迅策盘中涨超8% 公司获纳入恒生科技指数成份股",
+      "url": "https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-11-27/doc-inkacvhq5610068.shtml",
+      "publishedAt": "1795748198"
+    },
+    {
+      "index": 111,
+      "headline": "彤程新材增资至6.84亿，增幅约11%",
+      "url": "https://finance.eastmoney.com/a/202611273941527170.html",
+      "publishedAt": "2026-11-27 10:40:14"
+    },
+    {
+      "index": 112,
+      "headline": "主力资金监控：中际旭创净买入超10亿",
+      "url": "https://finance.eastmoney.com/a/202611273941534927.html",
+      "publishedAt": "2026-11-27 10:56:19"
+    }
+  ]
+}
