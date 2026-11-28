@@ -1,0 +1,660 @@
+{
+  "analysis": {
+    "analysis_date": "November 28, 2026",
+    "analysis_time": "05:05",
+    "executive_summary": {
+      "key_highlights": [
+        "Wall Street wrapped up a turbulent Thanksgiving week with a vigorous tech-led rally, lifting the S&P 500 to its strongest weekly gain since April 2025 as dip-buyers returned to AI and semiconductor leaders.",
+        "Global equity optimism broadened as China posted its largest single-day rally since 2024 following official market support vows, propelling emerging-market equities to their best week since June.",
+        "Macro headwinds remain active: while energy prices softened, sticky core inflation and proposed broad US tariffs on China, the EU, and other trade partners rekindle stagflationary worries.",
+        "Currency and rates markets witnessed a powerful 'Dollar Storm', driving the greenback to its longest winning streak since 2024 via hedge rebalancing, while Treasuries retreated amid risk-on bond selling.",
+        "Corporate and systemic vulnerabilities emerged with Norse Atlantic filing for bankruptcy and sophisticated cyberattacks breaching US Air Force cloud systems, demanding immediate investor vigilance."
+      ],
+      "market_sentiment_score": 68,
+      "overall_sentiment": "positive",
+      "headline_sources": [
+        1,
+        4,
+        9,
+        10,
+        13,
+        16,
+        22,
+        26,
+        38,
+        43,
+        44,
+        45,
+        51
+      ]
+    },
+    "market_insights": {
+      "sectors": [
+        {
+          "sector": "Information Technology & Semiconductors",
+          "trend": "Aggressive short-covering and dip-buying into oversold semiconductor and enterprise AI software shares following recent valuation compression.",
+          "implications": "Accelerating hardware monetization at AMD and Nvidia underpins secular capex, though political rhetoric around tariffs and policy gambits sustains intraday volatility.",
+          "headline_sources": [
+            4,
+            16,
+            38,
+            39,
+            43,
+            46,
+            50
+          ]
+        },
+        {
+          "sector": "Consumer Discretionary & Retail",
+          "trend": "Foot-traffic resilience at physical storefronts for Black Friday, accompanied by heavy promotional freebies and consumer focus on budget-friendly 'little treats'.",
+          "implications": "Retailer margins are pressured by discounting wars (Target, Kohl's), while consumer electronics (Best Buy) face mixed demand from price-sensitive shoppers.",
+          "headline_sources": [
+            5,
+            25,
+            28,
+            29,
+            34,
+            40,
+            41,
+            42
+          ]
+        },
+        {
+          "sector": "Commodities & Basic Materials",
+          "trend": "Sharp risk-on expansion evidenced by copper posting its largest surge in seven months, supported by gold gains and stabilized crude prices.",
+          "implications": "Industrial metals reflect cyclical growth resilience and energy transition demand, serving as an early indicator of renewed manufacturing and infrastructure momentum.",
+          "headline_sources": [
+            37,
+            45,
+            47,
+            49
+          ]
+        },
+        {
+          "sector": "Fixed Income & Currencies",
+          "trend": "Dollar strength dominating global FX via systematic hedge rebalancing; sovereign bond yields ticking up as haven demand declines.",
+          "implications": "LatAm currencies face divergent pressures—Brazil's real surged on leadership sentiment while Colombia's peso stumbled; emerging market debt issuance faces selective demand.",
+          "headline_sources": [
+            8,
+            13,
+            21,
+            32,
+            48,
+            51
+          ]
+        },
+        {
+          "sector": "Aviation & Transportation Infrastructure",
+          "trend": "Severe insolvency in low-cost long-haul air travel contrasted with heavy capital raising for airport infrastructure and public transit storm disruptions.",
+          "implications": "Norse Atlantic's bankruptcy eliminates excess transatlantic capacity, reinforcing pricing power for legacy carriers, while Mexican airport trusts expand long-term facility funding.",
+          "headline_sources": [
+            1,
+            3,
+            20,
+            30
+          ]
+        },
+        {
+          "sector": "Cybersecurity & Defense",
+          "trend": "High-severity intrusions into Air Force cloud environments coinciding with global government cyber exercises and military-espionage disputes.",
+          "implications": "Heightened federal and enterprise scrutiny will accelerate emergency procurement and compliance spending across zero-trust cloud architecture providers.",
+          "headline_sources": [
+            18,
+            23,
+            26,
+            27,
+            33
+          ]
+        }
+      ],
+      "key_themes": [
+        "Secular AI Hardware Rebound vs. Policy and Valuation Skepticism",
+        "Persistent Core Inflation Constraining Global Central Bank Easing",
+        "Resurgent US Dollar Dominance and Cross-Border FX Volatility",
+        "Heightened Geopolitical and Cyber Vulnerabilities Across Critical Infrastructure",
+        "Bifurcated Consumer Behavior: High-End Luxury Resilience vs. Mass-Market Margin Squeeze",
+        "Supply-Chain Protectionism Resurfacing Through Aggressive Tariff Threats"
+      ],
+      "headline_sources": [
+        1,
+        4,
+        8,
+        9,
+        10,
+        13,
+        16,
+        22,
+        25,
+        26,
+        32,
+        38,
+        39,
+        42,
+        44,
+        45,
+        51
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk_factor": "Renewed Global Tariff Waves and Trade War Retaliation",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Underweight export-dependent multinationals; overweight domestic US infrastructure, industrial automation, and local services.",
+        "headline_sources": [
+          43,
+          44
+        ]
+      },
+      {
+        "risk_factor": "Sticky Core Inflation Triggering Rate Repricing and Bond Sell-Offs",
+        "impact": "High",
+        "likelihood": "Medium",
+        "mitigation": "Limit portfolio duration in sovereign debt; maintain allocations to short-duration Treasury bills, floating-rate notes, and commodities.",
+        "headline_sources": [
+          9,
+          51
+        ]
+      },
+      {
+        "risk_factor": "Critical Defense and Enterprise Cloud Security Breaches",
+        "impact": "High",
+        "likelihood": "High",
+        "mitigation": "Increase tactical exposure to top-tier cybersecurity vendors and enterprise zero-trust software specialists.",
+        "headline_sources": [
+          18,
+          26,
+          33
+        ]
+      },
+      {
+        "risk_factor": "US Dollar Super-Cycle Pressuring Emerging Market Liquidity",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Deploy dynamic FX hedging on non-USD assets and focus EM allocations strictly on high-yield surplus economies like Brazil.",
+        "headline_sources": [
+          8,
+          13,
+          32,
+          48
+        ]
+      },
+      {
+        "risk_factor": "Margin Contraction in Retail and Low-Cost Travel",
+        "impact": "Medium",
+        "likelihood": "High",
+        "mitigation": "Avoid margin-dilutive mass merchants and unhedged budget airlines; rotate into market-share winners with robust balance sheets.",
+        "headline_sources": [
+          1,
+          25,
+          42
+        ]
+      }
+    ],
+    "strategic_recommendations": {
+      "opportunities": [
+        {
+          "recommendation": "Capitalize on Secular Semiconductor and AI Hardware Momentum",
+          "rationale": "Strong product roadmaps, dual revenue accelerators at AMD, and institutional dip-buying confirm resilient enterprise compute capex.",
+          "tickers": [
+            "AMD",
+            "NVDA",
+            "AVGO",
+            "TSM"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            4,
+            16,
+            22,
+            38,
+            39
+          ]
+        },
+        {
+          "recommendation": "Long Industrial Metals and Cyclical Copper Proxies",
+          "rationale": "Copper's sharpest rally in seven months indicates resurgent industrial demand, physical tightness, and infrastructure expansion tailwinds.",
+          "tickers": [
+            "FCX",
+            "COPX",
+            "SCCO",
+            "CPER"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            37,
+            45
+          ]
+        },
+        {
+          "recommendation": "Selective Emerging Market Allocation to Policy Beneficiaries",
+          "rationale": "Decisive policy vows in China and strong FX momentum in Brazil offer attractive risk-adjusted entry points after extended underperformance.",
+          "tickers": [
+            "FXI",
+            "KWEB",
+            "EWZ",
+            "PAC"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            3,
+            10,
+            22,
+            48
+          ]
+        },
+        {
+          "recommendation": "Overweight Defense Infrastructure and Enterprise Cybersecurity Leaders",
+          "rationale": "High-profile cloud penetrations into defense systems will trigger accelerated budgetary allocations toward defense-grade zero-trust solutions.",
+          "tickers": [
+            "PANW",
+            "CRWD",
+            "FTNT",
+            "RTX"
+          ],
+          "timeframe": "long-term",
+          "headline_sources": [
+            26,
+            33
+          ]
+        }
+      ],
+      "defensive_moves": [
+        {
+          "recommendation": "Reduce Duration Risk in Sovereign Fixed Income",
+          "rationale": "Bond yields face upward pressure from hot core inflation and risk-on asset reallocation, undermining long-term debt valuations.",
+          "tickers": [
+            "SHY",
+            "BIL",
+            "FLOT",
+            "TBT"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            9,
+            21,
+            51
+          ]
+        },
+        {
+          "recommendation": "Hedge Foreign Currency Exposure via US Dollar Overlays",
+          "rationale": "The dollar's longest winning streak since 2024 and institutional hedge rebalancing heighten downside risk for foreign unhedged positions.",
+          "tickers": [
+            "UUP",
+            "USDU"
+          ],
+          "timeframe": "medium-term",
+          "headline_sources": [
+            8,
+            13,
+            32
+          ]
+        },
+        {
+          "recommendation": "Divest from Leveraged Budget Carriers and Margin-Squeezed Retailers",
+          "rationale": "Norse Atlantic's insolvency and retail margin degradation from aggressive holiday discounting signal acute earnings risks.",
+          "tickers": [
+            "JETS",
+            "KSS",
+            "BBY"
+          ],
+          "timeframe": "short-term",
+          "headline_sources": [
+            1,
+            25,
+            42
+          ]
+        }
+      ]
+    },
+    "market_outlook": {
+      "short_term": "Cautiously constructive over 1-3 months. Year-end seasonal liquidity, tech short-covering, and Black Friday retail volume provide near-term momentum, though gains will encounter friction from tariff posturing and firm core inflation prints.",
+      "long_term": "Bifurcated and volatile over 6-12 months. Macro divergence will widen as proposed tariffs restructure supply chains and persistent core inflation restricts aggressive central bank rate cuts. Premium AI infrastructure, industrial automation, and balance-sheet leaders will outperform high-debt and margin-squeezed cyclicals.",
+      "key_catalysts": [
+        "Official publication and implementation schedule of proposed US tariffs on China, the EU, and allied trading partners",
+        "Upcoming US Core PCE and CPI prints to assess the persistence of non-energy inflation",
+        "Full holiday retail sales receipts and promotional margin disclosures from Cyber Week",
+        "Congressional and DoD inquiries into military cloud infrastructure breaches driving cybersecurity defense mandates",
+        "Follow-through monetary and fiscal stimulus deployment from Chinese authorities",
+        "OPEC+ production quota policy and global crude export discipline heading into 2027"
+      ],
+      "watch_list": [
+        "US Dollar Index (DXY) technical resistance and hedge rebalancing momentum",
+        "US 10-Year Treasury Yield (US10Y) reaction to incoming inflation and supply data",
+        "COMEX Copper and Gold spot prices as cross-asset risk appetite benchmarks",
+        "Semiconductor capital expenditure guidance and enterprise AI adoption metrics",
+        "Consumer discretionary margin compression and delinquency rates post-holiday season",
+        "Commercial transatlantic airline capacity rationalization and passenger yield metrics"
+      ],
+      "headline_sources": [
+        1,
+        4,
+        9,
+        10,
+        13,
+        16,
+        22,
+        26,
+        38,
+        43,
+        44,
+        45,
+        51
+      ]
+    }
+  },
+  "headlines": [
+    {
+      "index": 1,
+      "headline": "Norse Atlantic files for bankruptcy, halts flights and ticket sales",
+      "url": "https://www.aljazeera.com/economy/2026/11/27/norse-atlantic-files-for-bankruptcy-halts-flights-and-ticket-sales",
+      "publishedAt": "2026-11-27T16:51:01Z"
+    },
+    {
+      "index": 2,
+      "headline": "'A golden age for builders': Here's what business leaders are thankful for this year - Business Insider",
+      "url": "https://www.businessinsider.com/thanksgiving-sam-altman-bill-ackman-ray-dalio-fei-fei-li-2026-11#article",
+      "publishedAt": "2026-11-26T21:01:00Z"
+    },
+    {
+      "index": 3,
+      "headline": "Mexican Airport Operator GAP Raises $398 Million for Fibra Trust",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-27/mexican-airport-operator-gap-raises-398-million-for-fibra-trust",
+      "publishedAt": "2026-11-27T21:05:05+00:00"
+    },
+    {
+      "index": 4,
+      "headline": "US Stocks Rebound as Traders Pile Into Battered Tech Shares",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-27/us-stocks-set-to-bounce-as-risk-appetite-returns-after-holiday",
+      "publishedAt": "2026-11-27T07:56:20+00:00"
+    },
+    {
+      "index": 5,
+      "headline": "Black Friday shoppers head to brick-and-mortar stores across the U.S.",
+      "url": "https://www.nbcnews.com/news/us-news/black-friday-shoppers-head-brick-mortar-stores-us-rcna611564",
+      "publishedAt": "2026-11-27T16:58:32Z"
+    },
+    {
+      "index": 6,
+      "headline": "Stock futures tick higher as Wall Street gets set to wrap up a volatile holiday week: Live updates - CNBC",
+      "url": "https://www.cnbc.com/2026/11/26/stock-market-today-live-updates.html",
+      "publishedAt": "2026-11-26T23:10:09Z"
+    },
+    {
+      "index": 7,
+      "headline": "Judge blocks FCC review of ABC station licenses for now",
+      "url": "https://www.nbcnews.com/business/media/judge-blocks-fcc-review-abc-station-licenses-now-rcna601892",
+      "publishedAt": "2026-11-26T00:45:11+00:00"
+    },
+    {
+      "index": 8,
+      "headline": "Colombia Peso Stumbles as Mounting Risks Test Rally",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-27/colombia-peso-stumbles-as-mounting-risks-test-carry-fueled-rally",
+      "publishedAt": "2026-11-27T16:37:27+00:00"
+    },
+    {
+      "index": 9,
+      "headline": "Energy Prices Cooled But Core Inflation Stayed Hot",
+      "url": "https://seekingalpha.com/article/4972689-energy-prices-cooled-core-inflation-stayed-hot",
+      "publishedAt": "2026-11-28T04:25:00.000000Z"
+    },
+    {
+      "index": 10,
+      "headline": "China Spurs Biggest Stock Gain Since 2024 on Rare Midday Vow",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-27/china-s-cabinet-stresses-market-support-in-midday-release",
+      "publishedAt": "2026-11-27T05:00:23+00:00"
+    },
+    {
+      "index": 11,
+      "headline": "Hundreds of thousands still without power after severe Thanksgiving weather",
+      "url": "https://www.nbcnews.com/news/us-news/much-country-thanksgiving-featured-nasty-weather-rcna611521",
+      "publishedAt": "2026-11-27T05:30:15+00:00"
+    },
+    {
+      "index": 12,
+      "headline": "Elon Musk has approval to launch 1 million satellites. An astronomer explains how this would impact the sky - The Conversation",
+      "url": "https://theconversation.com/elon-musk-has-approval-to-launch-1-million-satellites-an-astronomer-explains-how-this-would-impact-the-sky-297646",
+      "publishedAt": "2026-11-26T23:39:50Z"
+    },
+    {
+      "index": 13,
+      "headline": "‘Dollar Storm:’ Greenback on Track for Longest Winning Run Since 2024",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-26/-dollar-storm-greenback-on-track-for-longest-winning-run-since-2024",
+      "publishedAt": "2026-11-26T23:44:27+00:00"
+    },
+    {
+      "index": 14,
+      "headline": "Managing $300B for Ultra Wealthy Families: Masters in Business with Holly MacDonald",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-27/masters-in-business-with-holly-macdonald-video",
+      "publishedAt": "2026-11-27T22:14:41+00:00"
+    },
+    {
+      "index": 15,
+      "headline": "New Book Alleges Disney's Bob Iger Impregnated Employee - Deadline",
+      "url": "http://deadline.com/2026/11/bob-iger-house-of-mouse-book-robbie-whelan-1237234125/",
+      "publishedAt": "2026-11-26T19:43:00Z"
+    },
+    {
+      "index": 16,
+      "headline": "Trump’s AI Gambit Fuels Wild Thanksgiving Week on Wall Street",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-27/trump-s-ai-gambit-fuels-wild-thanksgiving-week-on-wall-street",
+      "publishedAt": "2026-11-27T18:43:36+00:00"
+    },
+    {
+      "index": 17,
+      "headline": "Jays tickets, drums and Tinder: Hundreds of purchases made with city credit cards raise questions about misuse",
+      "url": "https://www.cbc.ca/news/canada/toronto/toronto-city-hall-credit-cards-expenses-9.7437567",
+      "publishedAt": "2026-11-27T16:48:40Z"
+    },
+    {
+      "index": 18,
+      "headline": "Leo Varadkar plays British prime minister in ‘fun and interesting’ cyberattack simulation",
+      "url": "https://www.irishtimes.com/politics/2026/11/27/leo-varadkar-plays-british-prime-minister-in-fun-and-interesting-cyberattack-simulation/",
+      "publishedAt": "2026-11-27T16:44:07Z"
+    },
+    {
+      "index": 19,
+      "headline": "CRTC orders Bell, Rogers, Telus to stop charging prohibited wireless fees by Dec. 27",
+      "url": "https://www.cbc.ca/news/business/bell-rogers-telus-fees-9.7438448",
+      "publishedAt": "2026-11-27T16:44:27Z"
+    },
+    {
+      "index": 20,
+      "headline": "China Import Logistics Fell 0.6% in January-October, Xinhua Says",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-28/china-import-logistics-fell-0-6-in-january-october-xinhua-says",
+      "publishedAt": "2026-11-28T03:01:44+00:00"
+    },
+    {
+      "index": 21,
+      "headline": "RBI accepts just over half of 2029 GSec bids",
+      "url": "https://economictimes.indiatimes.com/markets/bonds/rbi-accepts-just-over-half-of-2029-gsec-bids/articleshow/136238306.cms",
+      "publishedAt": "2026-11-28T04:24:06.000000Z"
+    },
+    {
+      "index": 22,
+      "headline": "Emerging-Market Stocks Snag Best Week Since June on Tech Rebound",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-27/em-asia-stocks-set-for-weekly-gain-as-markets-regain-footing",
+      "publishedAt": "2026-11-27T03:33:48+00:00"
+    },
+    {
+      "index": 23,
+      "headline": "Is Alice Huang a spy or not? - TechCrunch",
+      "url": "https://techcrunch.com/2026/11/26/is-alice-huang-a-spy-or-not/",
+      "publishedAt": "2026-11-26T20:00:00Z"
+    },
+    {
+      "index": 24,
+      "headline": "Rotorua isite operations lose over $400k despite retail growth",
+      "url": "https://www.nzherald.co.nz/rotorua-daily-post/news/rotorua-isite-operations-lose-over-400k-despite-retail-growth/P2TTNSIZRRHJLIJDBNGMK3MCE4/",
+      "publishedAt": "2026-11-27T17:01:05Z"
+    },
+    {
+      "index": 25,
+      "headline": "Target, Kohl’s and JCPenney tempt shoppers with Black Friday freebies - TheStreet",
+      "url": "https://www.thestreet.com/retail/black-friday-deals-freebies-2026",
+      "publishedAt": "2026-11-26T23:07:25Z"
+    },
+    {
+      "index": 26,
+      "headline": "Hackers Reportedly Infiltrated The Air Force's Cloud Systems",
+      "url": "https://www.engadget.com/2329586/hackers-reportedly-infiltrated-the-air-force-cloud-systems/",
+      "publishedAt": "2026-11-27T16:55:43Z"
+    },
+    {
+      "index": 27,
+      "headline": "Jailed Brazil Beach Soccer Star Drawn Into Russia-US Spy Dispute",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-27/jailed-brazil-beach-soccer-star-drawn-into-russia-us-spy-dispute",
+      "publishedAt": "2026-11-27T22:29:56+00:00"
+    },
+    {
+      "index": 28,
+      "headline": "Shop til You Drop: How to Get More Out of Black Friday Deals",
+      "url": "https://www.today.com/video/smart-shopping-strategies-to-get-the-best-black-friday-deals-274261061888",
+      "publishedAt": "2026-11-27T13:22:12+00:00"
+    },
+    {
+      "index": 29,
+      "headline": "Black Friday Shopping Strategy: Where and When to Shop",
+      "url": "https://www.today.com/video/black-friday-2026-how-to-get-the-lowest-possible-prices-274156101639",
+      "publishedAt": "2026-11-25T12:53:27+00:00"
+    },
+    {
+      "index": 30,
+      "headline": "Amtrak Pacific Surfliner train service suspended in parts of LA County, OC and San Diego due to high tides, powerful waves - ABC7 Los Angeles",
+      "url": "https://abc7.com/post/amtrak-pacific-surfliner-train-service-suspended-parts-la-county-oc-san-diego-due-high-tides-powerful-waves/20086249/",
+      "publishedAt": "2026-11-26T20:13:07Z"
+    },
+    {
+      "index": 31,
+      "headline": "Sánchez Seeks Unlikely Win With Plea for Spaniards to Go Vote",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-27/sanchez-seeks-unlikely-win-with-plea-for-spaniards-to-go-vote",
+      "publishedAt": "2026-11-27T20:24:01+00:00"
+    },
+    {
+      "index": 32,
+      "headline": "Dollar Surges Day After US Stock Rout: Citi Explains the \"Hedge Rebalancing\" Mechanism",
+      "url": "https://finance.biggo.com/news/ddfd1d67-9aee-4952-82b4-f7f9fe8de94a",
+      "publishedAt": "2026-11-27T16:55:00Z"
+    },
+    {
+      "index": 33,
+      "headline": "Hackers attack and penetrate Air Force’s computing platform",
+      "url": "https://www.nbcnews.com/news/us-news/hackers-attack-penetrate-air-forces-computing-platform-rcna611559",
+      "publishedAt": "2026-11-27T15:28:41+00:00"
+    },
+    {
+      "index": 34,
+      "headline": "Why Advent calendars are thriving in the ‘little treat’ economy",
+      "url": "https://www.nbcnews.com/pop-culture/pop-culture-news/advent-calendars-popularity-little-treat-economy-social-media-unboxing-rcna609923",
+      "publishedAt": "2026-11-27T11:47:41+00:00"
+    },
+    {
+      "index": 35,
+      "headline": "Power Outages, Flood Risks Linger as Storm Leaves East Coast",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-27/dangerous-nor-easter-storm-triggers-widespread-power-outages",
+      "publishedAt": "2026-11-27T14:20:06+00:00"
+    },
+    {
+      "index": 36,
+      "headline": "Hungary Credit Outlook Lifted by S&P on Budget and Euro Ambition",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-27/hungary-credit-outlook-lifted-by-s-p-on-budget-and-euro-ambition",
+      "publishedAt": "2026-11-27T21:19:31+00:00"
+    },
+    {
+      "index": 37,
+      "headline": "Gold Rises as Rebound in Tech Stocks Helps Revive Risk Appetite",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-26/gold-steadies-as-fed-rate-path-and-ai-stocks-frame-volatile-week",
+      "publishedAt": "2026-11-26T23:53:35+00:00"
+    },
+    {
+      "index": 38,
+      "headline": "S&P 500 Has Best Week Since April 2025 on AI Rally: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-26/asian-stock-futures-signal-gains-oil-climbs-again-markets-wrap",
+      "publishedAt": "2026-11-26T21:59:57+00:00"
+    },
+    {
+      "index": 39,
+      "headline": "Dual AI Growth Catalysts Position Advanced Micro Devices (AMD) for Revenue Acceleration",
+      "url": "https://finance.yahoo.com/technology/ai/articles/dual-ai-growth-catalysts-position-164930131.html",
+      "publishedAt": "2026-11-27T16:49:30Z"
+    },
+    {
+      "index": 40,
+      "headline": "How Saks Is Reclaiming Luxury as Exemplar Luxury Group",
+      "url": "https://www.bloomberg.com/news/videos/2026-11-25/how-saks-is-reclaiming-luxury-as-exemplar-luxury-group-video",
+      "publishedAt": "2026-11-25T23:18:01+00:00"
+    },
+    {
+      "index": 41,
+      "headline": "Black Friday Shopping Weekend Kicks Off: What to Know",
+      "url": "https://www.today.com/video/black-friday-shopping-weekend-kicks-off-see-preview-of-sales-274256965970",
+      "publishedAt": "2026-11-27T12:21:51+00:00"
+    },
+    {
+      "index": 42,
+      "headline": "Best Buy CEO on Black Friday Sales, Inflation, Hottest Items, More",
+      "url": "https://www.today.com/video/best-buy-ceo-on-2026-black-friday-sales-inflation-popular-gifts-274259525545",
+      "publishedAt": "2026-11-27T12:29:54+00:00"
+    },
+    {
+      "index": 43,
+      "headline": "Markets sell-off eases up, but AI doubts, tariffs and inflation still weigh down stocks",
+      "url": "https://www.nbcnews.com/business/markets/market-sell-underway-gains-huangs-nvidia-move-stall-rcna611268",
+      "publishedAt": "2026-11-25T15:24:30+00:00"
+    },
+    {
+      "index": 44,
+      "headline": "Trump proposes a new wave of tariffs on China, E.U. and other trade partners",
+      "url": "https://www.nbcnews.com/business/economy/trump-country-specific-tariffs-excess-capacity-rcna611087",
+      "publishedAt": "2026-11-25T13:48:59+00:00"
+    },
+    {
+      "index": 45,
+      "headline": "Copper Surges Most in Seven Months as Risk Appetite Returns",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-27/copper-rebounds-from-11-month-low-on-return-of-risk-appetite",
+      "publishedAt": "2026-11-27T03:33:07+00:00"
+    },
+    {
+      "index": 46,
+      "headline": "Denny's faces backlash over heartfelt tribute to reinstated Nvidia CEO Jensen Huang - Fox Business",
+      "url": "https://www.foxbusiness.com/lifestyle/dennys-faces-backlash-over-heartfelt-tribute-reinstated-nvidia-ceo-jensen-huang",
+      "publishedAt": "2026-11-27T01:57:00Z"
+    },
+    {
+      "index": 47,
+      "headline": "Indonesia discusses raising subsidized fuel prices - OilPrice",
+      "url": "https://ua.news/en/dovkolo-svitu/indoneziia-obgovoriuie-pidvishchennia-tsin-na-subsidovane-palne-oilprice",
+      "publishedAt": "2026-11-27T16:45:51Z"
+    },
+    {
+      "index": 48,
+      "headline": "Brazil’s Real Caps Best Week Since 2020 as Trabuco Lifts Mood",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-27/brazil-assets-rally-after-lula-names-banker-luiz-carlos-trabuco-cappi-finance-minister",
+      "publishedAt": "2026-11-27T01:08:00+00:00"
+    },
+    {
+      "index": 49,
+      "headline": "Latest Oil Market News and Analysis for Nov. 27",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-26/latest-oil-market-news-and-analysis-for-nov-27",
+      "publishedAt": "2026-11-26T23:05:38+00:00"
+    },
+    {
+      "index": 50,
+      "headline": "BCV: Good For Diversification, But Still Impacted By Tech Worries",
+      "url": "https://seekingalpha.com/article/4972686-bcv-good-for-diversification-but-still-impacted-by-tech-worries",
+      "publishedAt": "2026-11-28T04:25:39.000000Z"
+    },
+    {
+      "index": 51,
+      "headline": "Treasuries Drop as Stock Rise Saps Demand for Haven Bonds",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-27/treasuries-retreat-as-gains-in-equities-sap-demand-for-havens",
+      "publishedAt": "2026-11-27T02:43:08+00:00"
+    },
+    {
+      "index": 52,
+      "headline": "Musk pledges 2 SpaceX shares per American child - The Hill",
+      "url": "https://thehill.com/policy/technology/6244857-elon-musk-pledges-spacex-shares-to-american-children/",
+      "publishedAt": "2026-11-26T20:01:00Z"
+    }
+  ]
+}
