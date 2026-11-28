@@ -1,138 +1,210 @@
-const reports = window.WANEYE_REPORTS;
-const requestedRegion = new URLSearchParams(location.search).get("region");
-let region = reports[requestedRegion] ? requestedRegion : "global";
-let strategy = "opportunities";
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => [...document.querySelectorAll(selector)];
-
-const ui = {
-  en: {nav:["Intelligence","Markets","Newsroom","Research"],status:"Updated hourly",board:"SIGNAL BOARD",research:"WANEYE RESEARCH",issue:"MARKET BRIEF",hero:"See the market<br><em>before it moves</em>",dek:"Independent signal extraction from global reporting, structured for investors who value context over noise.",pulse:"MARKET PULSE",pulseCopy:"Composite sentiment across today’s source set.",stats:["Sources analysed","Sector signals","Risk flags"],brief:"THE BRIEF",briefTitle:"What matters now",briefEvidence:"SUPPORTING REPORTING",briefEvidenceCopy:"Cited reporting in this brief",remainingSignals:"Remaining executive highlights",sector:"CROSS-SECTOR PULSE",sectorTitle:"A compact cross-sector scan",risk:"RISK REGISTER",riskTitle:"Know the downside",position:"POSITIONING",positionTitle:"Act on the signal",opportunity:"Opportunities",defensive:"Defensive",forward:"FORWARD VIEW",forwardTitle:"The road ahead",short:"1—3 MONTHS",long:"6—12 MONTHS",catalyst:"CATALYST MONITOR",source:"SOURCE INTELLIGENCE",sourceTitle:"Reporting behind the view",archive:"CURRENT RESEARCH",archiveTitle:"Three regions. Three connected views",archiveCopy:"Move from the executive brief through sector signals, risks, positioning and supporting reporting.",archiveButton:"Explore the research",sectorSignal:"SECTOR SIGNAL",openAnalysis:"Open analysis",leadSignal:"LEAD SIGNAL",citedSources:"cited sources",viewReporting:"View reporting",opportunityCard:"OPPORTUNITY",defensiveCard:"DEFENSIVE MOVE"},
-  zh: {nav:["市场情报","市场板块","新闻中心","研究"],status:"每小时更新",board:"信号看板",research:"WANEYE 研究",issue:"市场简报",hero:"洞察市场<br><em>先于变化</em>",dek:"从全球财经报道中提炼独立信号，为重视背景与逻辑的投资者提供结构化市场情报。",pulse:"市场温度",pulseCopy:"基于本期全部信息源的综合情绪判断。",stats:["分析信息源","板块信号","风险提示"],brief:"市场简报",briefTitle:"当前要点",briefEvidence:"支撑报道",briefEvidenceCopy:"本简报引用的市场报道",remainingSignals:"其余核心摘要",sector:"跨板块脉搏",sectorTitle:"一览板块脉搏",risk:"风险评估",riskTitle:"识别下行风险",position:"策略配置",positionTitle:"将信号转化为行动",opportunity:"投资机会",defensive:"防御策略",forward:"前瞻展望",forwardTitle:"后市研判",short:"未来1—3个月",long:"未来6—12个月",catalyst:"催化剂观察",source:"信息源情报",sourceTitle:"支撑研判的市场报道",archive:"当前研究",archiveTitle:"三个区域，三个连贯视角",archiveCopy:"从核心摘要延伸至板块信号、风险、策略配置与相关报道。",archiveButton:"浏览市场研究",sectorSignal:"板块信号",openAnalysis:"查看分析",leadSignal:"核心信号",citedSources:"条引用信息源",viewReporting:"查看报道",opportunityCard:"投资机会",defensiveCard:"防御策略"}
-};
-
-function applyLocale() {
-  const t = ui[region === "cn" ? "zh" : "en"];
-  $("#briefList").setAttribute("aria-label", t.remainingSignals);
-  const zh = region === "cn";
-  if (zh) {
-    document.title = "市场情报 — Waneye";
-    document.querySelector('meta[name="description"]').content =
-      "Waneye 全球市场情报与投资研究。";
-    document.querySelector(".skip-link").textContent = "跳至报告";
+/* Shared presentation and interaction primitives. All source copy stays in content.js. */
+const W = (() => {
+  const params = new URLSearchParams(location.search),
+    reports = window.WANEYE_REPORTS;
+  const region = reports[params.get("region")] ? params.get("region") : "global",
+    r = reports[region];
+  const zh = region === "cn",
+    page = document.body.dataset.page,
+    root = page === "home" ? "" : "../";
+  const $ = (s, el = document) => el.querySelector(s),
+    $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const t = (en, cn) => (zh ? cn : en),
+    esc = (s) =>
+      String(s ?? "").replace(
+        /[&<>"']/g,
+        (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c],
+      );
+  const reportTime = (report) =>
+    /[A-Z]/.test(report.time) ? report.time : `${report.time} ${report.region === "cn" ? t("CST", "北京时间") : "UTC"}`;
+  const colors = ["#38bdf8", "#a855f7", "#f59e0b", "#ec4899", "#10b981", "#6366f1", "#fb923c"];
+  const href = (path, extra = "") => `${root}${path}?region=${region}${extra}`;
+  const heading = (title, extra = "") => `<div class="section-head"><h2>${title}</h2>${extra}</div>`;
+  const btn = (text, attr = "", active = false) =>
+    `<button ${attr} ${active ? 'class="active" aria-pressed="true"' : 'aria-pressed="false"'}>${text}</button>`;
+  const delta = (i) =>
+    `<span class="delta ${i.direction === "up" ? "up" : "down"}">${i.direction === "up" ? "▲" : "▼"} ${esc(i.change_pct)}</span>`;
+  const spark = (i) => {
+    const a = i.series["1D"],
+      lo = Math.min(...a),
+      span = Math.max(...a) - lo || 1;
+    return `<svg class="spark ${i.direction}" viewBox="0 0 70 24" aria-hidden="true"><polyline points="${a.map((v, n) => `${(n * 70) / 95},${22 - ((v - lo) / span) * 20}`).join(" ")}"/></svg>`;
+  };
+  const dateText = (value) => {
+    if (!/^\d{4}-\d{2}-\d{2}T/.test(value || "")) return value || "";
+    const d = new Date(value);
+    if (Number.isNaN(+d)) return value;
+    const clock = d.toISOString().slice(11, 16);
+    return zh ? `${d.getUTCMonth() + 1}月${d.getUTCDate()}日 ${clock}` : `${d.getUTCDate()} ${["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getUTCMonth()]} · ${clock} UTC`;
+  };
+  const story = (n, index = 0) =>
+    `<a class="story" href="${href("newsroom/article.html", `&id=${n.index}`)}"><img src="${esc(n.imageUrl)}" ${page === "newsroom" && index >= 9 ? 'loading="lazy"' : 'loading="eager"'} alt=""><div><small><span class="publisher">${esc(n.source)}</span><time>${esc(dateText(n.publishedAt))}</time></small><h3>${esc(n.title)}</h3></div></a>`;
+  const evidence = (ids) =>
+    `<details class="evidence"><summary>${ids.length} ${t("cited sources", "条引用来源")}</summary>${ids
+      .map((i) => r.news.find((n) => n.index === i))
+      .filter(Boolean)
+      .map(story)
+      .join("")}</details>`;
+  const sectorCards = () =>
+    `<div class="sector-grid">${r.sectors.map((s, i) => `<a id="sector-${i}" class="sector-card panel ${r.sectors.length % 2 && i === r.sectors.findIndex(x => x.sourceIndexes.length === Math.max(...r.sectors.map(v => v.sourceIndexes.length))) ? "featured" : ""}" style="--series:${colors[i % 7]}" href="${href("markets/sector.html", `&sector=${i}`)}"><div class="section-head"><h3>${esc(s.name)}</h3><span class="badge">${s.sourceIndexes.length} ${t("sources", "来源")}</span></div><p>${esc(s.trend)}</p><div class="implication">${esc(s.implication)}</div></a>`).join("")}</div>`;
+  const pulse = () =>
+    `<div class="section-head"><h2>${t("Market pulse", "市场温度")}</h2><span class="badge">${t("Snapshot", "快照")}</span></div><div class="pulse-score"><b>${r.score}<small>/100</small></b><span>${esc(zh ? { neutral: "中性", positive: "积极", negative: "消极", bullish: "看涨", bearish: "看跌" }[r.sentiment] || r.sentiment : r.sentiment)}</span></div><div class="gauge"><i style="left:${r.score}%"></i></div><div class="coverage"><span><b>${r.sources}</b> ${t("Sources", "来源")}</span><span><b>${r.sectors.length}</b> ${t("Sectors", "板块")}</span><span><b>${r.risks.length}</b> ${t("Risks", "风险")}</span></div>`;
+  const chart = () =>
+    `<section class="panel chart-card" id="benchmark"><div class="section-head"><h2>${t("Benchmark monitor", "基准指数监测")}</h2><span class="badge">${t("30 AUG 2026", "2026年8月30日")}</span></div><div class="index-tabs">${r.indices.map((i, n) => btn(`${esc(i.name)} ${delta(i)}`, `data-index="${n}"`, n === 0)).join("")}</div><div class="chart-toolbar"><div id="chartQuote"></div><div class="controls">${["1D", "5D", "1M", "3M"].map((f, i) => btn(zh ? { "1D": "1日", "5D": "5日", "1M": "1月", "3M": "3月" }[f] : f, `data-frame="${f}"`, !i)).join("")}${btn(t("Compare", "对比"), 'id="compare"')}</div></div><div id="chartLegend" class="chips"></div><div id="chartHud" class="mono chart-hud" aria-live="off"></div><canvas id="indexCanvas" aria-label="${t("Illustrative benchmark price chart", "示意基准价格走势图")}" tabindex="0"></canvas><div id="sessionStats" class="session-stats"></div><p class="chart-note">${t("Illustrative path & activity · anchored to benchmark snapshot", "示意走势与活跃度 · 基于基准快照")} · ${region === "global" ? t("Global benchmark values are illustrative, not reported quotes.", "全球基准数值为示意数据。") : t("Reported snapshot · synthetic paths", "报告原始快照 · 模拟走势")}</p></section>`;
+  document.documentElement.lang = zh ? "zh-CN" : "en";
+  const nav = [
+    ["Intelligence", "市场情报", "index.html", "home"],
+    ["Markets", "市场", "markets/index.html", "markets"],
+    ["Newsroom", "新闻中心", "newsroom/index.html", "newsroom"],
+    ["Research", "研究", "archive/index.html", "archive"],
+  ];
+  $("#shell").innerHTML =
+    `<a class="skip" href="#main">${t("Skip to content", "跳至正文")}</a><header class="topbar"><a class="brand" href="${href("index.html")}"><img src="${root}favicon.svg" alt="">WANEYE</a><nav id="nav">${nav.map(([en, cn, url, key]) => `<a class="${page === key || { sector: "markets", article: "newsroom", report: "archive" }[page] === key ? "active" : ""}" href="${href(url)}">${t(en, cn)}</a>`).join("")}</nav><button id="searchButton" class="search-trigger">⌕ <span>${t("Search tickers, sectors, news…", "搜索股票、板块、新闻…")}</span><kbd>⌘K</kbd></button><div class="editions">${[
+      "global",
+      "au",
+      "cn",
+    ]
+      .map((v, i) => {
+        const q = new URLSearchParams(location.search);
+        q.set("region", v);
+        q.delete("id");
+        q.delete("sector");
+        return `<a class="${v === region ? "active" : ""}" href="?${q}">${(zh ? ["全球", "澳洲", "中文"] : ["Global", "Australia", "中文"])[i]}</a>`;
+      })
+      .join(
+        "",
+      )}</div><button id="theme" aria-label="${t("Toggle color theme", "切换明暗主题")}">☀</button><time class="timestamp">${t("30 Aug", "8月30日")} · ${reportTime(r)}</time><button id="menu" aria-label="${t("Toggle navigation", "切换导航")}" aria-expanded="false">☰</button></header>${["home", "markets"].includes(page) ? `<div class="tape">${r.indices.map((i, n) => `<button data-focus-index="${n}"><b>${esc(i.symbol)}</b><span class="mono">${i.price}</span>${delta(i)}${spark(i)}</button>`).join("")}</div>` : ""}<dialog id="searchDialog" aria-labelledby="searchLabel"><form method="dialog"><button aria-label="${t("Close", "关闭")}">×</button></form><h2 id="searchLabel">${t("Search intelligence", "搜索市场情报")}</h2><input id="searchInput" type="search" placeholder="${t("Ticker, sector or headline", "股票代码、板块或标题")}" autocomplete="off"><div id="searchResults" aria-live="polite"></div></dialog>`;
+  const theme = () => {
+    $("#theme").textContent = document.documentElement.dataset.theme === "light" ? "☾" : "☀";
+  };
+  theme();
+  $("#theme").onclick = () => {
+    const value = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    document.documentElement.dataset.theme = value;
+    try {
+      localStorage.setItem("waneye-theme", value);
+    } catch {}
+    theme();
+    window.dispatchEvent(new Event("themechange"));
+  };
+  $("#menu").onclick = () => {
+    const open = $("#nav").classList.toggle("open");
+    $("#menu").setAttribute("aria-expanded", open);
+  };
+  const searchItems = Object.values(reports).flatMap((report) => [
+    ...report.news.map((n) => ({
+      title: n.title, queryText: n.title, category: t("Headline", "新闻"),
+      label: n.source,
+      url: `${root}newsroom/article.html?region=${report.region}&id=${n.index}`,
+    })),
+    ...report.sectors.map((s, i) => ({
+      title: s.name, snippet: s.trend, queryText: `${s.name} ${s.trend} ${s.implication}`, category: t("Sector", "板块"),
+      label: report.edition,
+      url: `${root}markets/sector.html?region=${report.region}&sector=${i}`,
+    })),
+    ...report.highlights.map((text) => ({
+      title: text, queryText: text, category: t("Brief", "摘要"),
+      label: report.edition,
+      url: `${root}archive/report.html?region=${report.region}#executive`,
+    })),
+    ...[...report.opportunities, ...report.defensive].map((x) => ({
+      title: x.title, snippet: x.rationale, tickers: x.tickers, queryText: `${x.tickers.join(" ")} ${x.title} ${x.rationale}`, category: t("Positioning", "配置"),
+      label: report.edition,
+      url: `${root}archive/report.html?region=${report.region}#positioning`,
+    })),
+  ]);
+  function search() {
+    const q = $("#searchInput").value.trim().toLowerCase();
+    const found = searchItems.filter((x) => q && x.queryText.toLowerCase().includes(q));
+    $("#searchResults").innerHTML = `<small class="search-count">${found.length} ${t("results", "条结果")} · <kbd>Esc</kbd> ${t("to close", "关闭")}</small>` + (found.length
+      ? found.map((x) => `<a href="${x.url}"><small><span class="badge">${x.category}</span> ${esc(x.label)}</small><h3>${esc(x.title)}</h3>${(x.tickers || []).map(ticker => `<span class="ticker-pill">${esc(ticker)}</span>`).join("")}${x.snippet ? `<p class="search-snippet">${esc(x.snippet)}</p>` : ""}</a>`).join("")
+      : `<p class="muted">${q ? t("No matching results.", "未找到匹配结果。") : t("Search across all three editions.", "搜索全部三个区域版本。")}</p>`);
   }
-  $$(".primary-nav a").forEach((a,i)=>a.textContent=t.nav[i]);
-  $(".status").lastChild.textContent=` ${t.status}`;
-  $(".ticker-label").textContent=t.board;
-  $(".ticker time").textContent=reports[region].date;
-  $(".eyebrow span:first-child").textContent=t.research;
-  $("#issueLabel").textContent=`${t.issue} / ${reports[region].time}`;
-  $(".masthead h1").innerHTML=t.hero;
-  $(".masthead .dek").textContent=t.dek;
-  $(".score-wrap .kicker").textContent=t.pulse;
-  $(".score-wrap p").textContent=t.pulseCopy;
-  $$(".report-meta span").forEach((x,i)=>x.textContent=t.stats[i]);
-  $("#brief-title").previousElementSibling.textContent=t.brief; $("#brief-title").textContent=t.briefTitle;
-  $("#signals-title").previousElementSibling.textContent=t.sector; $("#signals-title").textContent=t.sectorTitle;
-  $("#signals-title").closest(".section-heading").querySelector(":scope > p").textContent=zh?"从当前信息周期中提炼方向性市场情报。":"Directional intelligence, distilled from the current reporting cycle.";
-  $("#risk-title").previousElementSibling.textContent=t.risk; $("#risk-title").textContent=t.riskTitle;
-  $("#risk-title").closest(".section-heading").querySelector(":scope > p").textContent=zh?"风险的可能性与影响独立于市场情绪进行评估。":"Likelihood and impact are assessed independently from market sentiment.";
-  $("#strategy-title").previousElementSibling.textContent=t.position; $("#strategy-title").textContent=t.positionTitle;
-  $$('[data-strategy]')[0].textContent=t.opportunity; $$('[data-strategy]')[1].textContent=t.defensive;
-  $("#outlook-title").previousElementSibling.textContent=t.forward; $("#outlook-title").textContent=t.forwardTitle;
-  $$(".horizon > span")[0].textContent=t.short; $$(".horizon > span")[1].textContent=t.long;
-  $(".catalyst-card > .kicker").textContent=t.catalyst;
-  $("#news-title").previousElementSibling.textContent=t.source; $("#news-title").textContent=t.sourceTitle;
-  $("#news-title").closest(".section-heading").querySelector(":scope > p").textContent=zh?"分析所引用的重点市场报道。":"Selected source headlines referenced by the analysis.";
-  $("#archive-title").previousElementSibling.textContent=t.archive; $("#archive-title").textContent=t.archiveTitle;
-  $(".archive > p:not(.kicker)").textContent=t.archiveCopy; $("#archiveButton").innerHTML=`${t.archiveButton} <span>↗</span>`;
-  $$('[data-edition]').forEach(a=>{
-    if(a.dataset.edition===region)a.setAttribute('aria-current','page');
-    else a.removeAttribute('aria-current');
+  function openSearch(value = "") {
+    const d = $("#searchDialog");
+    if (!d.open) d.showModal();
+    $("#searchInput").value = value;
+    search();
+    $("#searchInput").focus();
+  }
+  $("#searchButton").onclick = () => openSearch();
+  $("#searchInput").oninput = search;
+  document.addEventListener("keydown", (e) => {
+    if (
+      ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") ||
+      (e.key === "/" && !/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))
+    ) {
+      e.preventDefault();
+      openSearch();
+    }
   });
-  const nav=$$(".primary-nav a");nav[0].href=`index.html?region=${region}`;nav[1].href=`markets/index.html?region=${region}`;nav[2].href=`newsroom/index.html?region=${region}`;nav[3].href=`archive/index.html?region=${region}`;
-  nav.forEach((a,i)=>{if(i===0)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
-  const archiveLabels=$$(".archive-stats span");(zh?["当前区域报告","市场版本","分析频率"]:["Current regional reports","Market editions","Analysis cadence"]).forEach((x,i)=>archiveLabels[i].textContent=x);
-  $(".archive-stats div:last-child strong").textContent=zh?'每小时':'Hourly';
-  const footerPs=$$("body > footer p");if(footerPs.length){footerPs[0].textContent=zh?'全球视野，智慧金融。':'Global vision for smarter finance.';footerPs[1].textContent=zh?'本网站分析仅供参考，不构成投资建议。':'Analysis is informational and does not constitute investment advice.';}
-  $("#searchDialog .kicker").textContent=zh?'搜索情报':'SEARCH INTELLIGENCE';$("#searchDialog label").textContent=zh?'搜索所有市场版本的报道、板块与摘要':'Search reporting, sectors and briefs across all editions';$("#searchInput").placeholder=zh?'例如“人工智能”或“利率”':'Try “AI”, “rates” or a company name';
-  $("#searchButton").setAttribute('aria-label',zh?'搜索市场情报':'Search intelligence');$("#menuButton").setAttribute('aria-label',zh?'打开菜单':'Open menu');$("#searchDialog form button").setAttribute('aria-label',zh?'关闭搜索':'Close search');
-}
-
-function render() {
-  const r = reports[region];
-  document.documentElement.lang = region === "cn" ? "zh" : "en";
-  applyLocale();
-  $("#editionLabel").textContent = r.edition.toUpperCase();
-  $("#briefDate").innerHTML = `${r.date.toUpperCase()}<br>${r.time}`;
-  $("#scoreValue").textContent = r.score;
-  $("#scoreRing").style.setProperty("--score", r.score);
-  $("#sentimentLabel").textContent = r.sentiment;
-  $("#sourceCount").textContent = r.sources;
-  $("#sectorCount").textContent = String(r.sectors.length).padStart(2,"0");
-  $("#riskCount").textContent = String(r.risks.length).padStart(2,"0");
-  $("#tickerTrack").innerHTML = r.themes.map(x => `<span class="ticker-item">${x}</span>`).join("");
-
-  const t = ui[region === "cn" ? "zh" : "en"];
-  const newsByIndex = new Map(r.news.map(n => [n.index, n]));
-  const leadEvidence = r.sourceIndexes.map(index => newsByIndex.get(index)).filter(Boolean).slice(0, 3);
-  $("#leadStory").innerHTML = `<article class="lead-thesis"><span class="story-index">01 / ${t.leadSignal}</span><h3>${r.highlights[0]}</h3><div class="story-meta"><span class="signal-pill">${r.sentiment}</span><span>${r.time}</span></div></article><aside class="brief-evidence" aria-label="${t.briefEvidenceCopy}"><div class="brief-evidence-heading"><p class="kicker">${t.briefEvidence}</p><p>${t.briefEvidenceCopy}</p></div><div class="brief-evidence-list">${leadEvidence.map(n => `<a class="brief-evidence-story" href="newsroom/article.html?region=${region}&id=${n.index}" aria-label="${t.viewReporting}: ${n.title}"><img src="${n.imageUrl}" alt="" loading="lazy"><span><small>${n.meta}</small><strong>${n.title}</strong></span></a>`).join("")}</div></aside>`;
-  $("#briefList").innerHTML = r.highlights.slice(1).map((x,i) => `<article class="brief-item"><span>${String(i+2).padStart(2,"0")}</span><h3>${x}</h3></article>`).join("");
-  $("#sectorGrid").innerHTML = r.sectors.map((s,i) => `<a class="pulse-card" href="markets/sector.html?region=${region}&sector=${i}"><span class="pulse-index">${String(i + 1).padStart(2,"0")}</span><h3>${s.name}</h3><p>${s.trend}</p><div class="pulse-foot"><span>${s.sourceIndexes.length} ${t.citedSources}</span><b>${t.openAnalysis} <i aria-hidden="true">↗</i></b></div></a>`).join("");
-  $("#riskList").innerHTML = r.risks.map((risk,i) => `<article class="risk-row"><span class="risk-number">${String(i+1).padStart(2,"0")}</span><div class="risk-copy"><h3>${risk.name}</h3><p>${risk.mitigation}</p></div><dl class="risk-assessment"><div><dt>${region==='cn'?'影响':'Impact'}</dt><dd>${risk.impact}</dd></div><div><dt>${region==='cn'?'可能性':'Likelihood'}</dt><dd>${risk.likelihood}</dd></div><div><dt>${region==='cn'?'依据':'Evidence'}</dt><dd>${risk.sourceIndexes.length} ${region==='cn'?'条报道':'sources'}</dd></div></dl></article>`).join("");
-  renderStrategy();
-  $("#shortOutlook").textContent = r.short;
-  $("#longOutlook").textContent = r.long;
-  $("#catalystList").innerHTML = r.catalysts.map((x,i) => `<div class="catalyst-row"><span>0${i+1}</span><div>${x}</div></div>`).join("");
-  const leadEvidenceIndexes = new Set(leadEvidence.map(n => n.index));
-  $("#newsList").innerHTML = r.news.filter(n => !leadEvidenceIndexes.has(n.index)).slice(0,6).map(n => `<a class="visual-news-card" href="newsroom/article.html?region=${region}&id=${n.index}"><img src="${n.imageUrl}" alt="" loading="lazy"><div><span>${n.meta}</span><h3>${n.title}</h3><b>${region==='cn'?'查看报道':'VIEW STORY'} ↗</b></div></a>`).join("");
-}
-
-function renderStrategy() {
-  const items = reports[region][strategy];
-  const t = ui[region === "cn" ? "zh" : "en"];
-  $("#strategyGrid").innerHTML = items.map((item,i) => `<article class="strategy-card"><span class="card-number">0${i+1}</span><h3>${item.title}</h3><p>${item.rationale}</p><div class="ticker-pills">${item.tickers.map(t=>`<span>${t}</span>`).join("")}</div><div class="card-foot"><span>${strategy === "opportunities" ? t.opportunityCard : t.defensiveCard}</span><span>${item.horizon}</span></div></article>`).join("");
-}
-
-$$('[data-strategy]').forEach(button => button.addEventListener("click", () => {
-  strategy = button.dataset.strategy;
-  $$('[data-strategy]').forEach(b => b.classList.toggle("active", b === button));
-  $$('[data-strategy]').forEach(b => b.setAttribute("aria-pressed", String(b === button)));
-  renderStrategy();
-}));
-
-const menuButton = $("#menuButton");
-const closeMenu = () => {
-  $(".topbar").classList.remove("menu-open");
-  menuButton.setAttribute("aria-expanded", "false");
-  menuButton.setAttribute("aria-label", region === "cn" ? "打开菜单" : "Open menu");
-};
-menuButton.addEventListener("click", () => {
-  const open = $(".topbar").classList.toggle("menu-open");
-  menuButton.setAttribute("aria-expanded", String(open));
-  menuButton.setAttribute("aria-label", open ? (region === "cn" ? "关闭菜单" : "Close menu") : (region === "cn" ? "打开菜单" : "Open menu"));
-});
-$$(".primary-nav a").forEach(link => link.addEventListener("click", closeMenu));
-document.addEventListener("click", event => {
-  if ($(".topbar").classList.contains("menu-open") && !$(".topbar").contains(event.target)) closeMenu();
-});
-document.addEventListener("keydown", event => { if(event.key === "Escape") { closeMenu(); if(dialog.open) dialog.close(); } });
-
-const dialog = $("#searchDialog");
-let searchTrigger = null;
-$("#searchButton").addEventListener("click", event => { searchTrigger = event.currentTarget; dialog.showModal(); setTimeout(() => $("#searchInput").focus(), 50); });
-dialog.addEventListener("close", () => { searchTrigger?.focus(); searchTrigger = null; });
-$("#searchInput").addEventListener("input", event => {
-  const query = event.target.value.trim().toLowerCase();
-  if (!query) { $("#searchResults").innerHTML = ""; return; }
-  const result = [];
-  Object.entries(reports).forEach(([key,r]) => {
-    r.highlights.forEach(text => result.push({edition:r.edition,label:region==='cn'?'核心摘要':'Executive brief',text,href:`archive/report.html?region=${key}#executive`}));
-    r.sectors.forEach((s,index) => result.push({edition:r.edition,label:s.name,text:s.trend,href:`markets/sector.html?region=${key}&sector=${index}`}));
-    r.news.forEach(n => result.push({edition:r.edition,label:n.source,text:n.title,href:`newsroom/article.html?region=${key}&id=${n.index}`}));
+  document.addEventListener("click", (e) => {
+    const pill = e.target.closest("[data-ticker]");
+    if (pill) openSearch(pill.dataset.ticker);
   });
-  $("#searchResults").innerHTML = result.filter(x=>`${x.label} ${x.text}`.toLowerCase().includes(query)).slice(0,8).map(x=>`<a class="search-result" href="${x.href}"><span>${x.edition.toUpperCase()} · ${x.label}</span>${x.text}<b>↗</b></a>`).join("") || `<div class="search-result">${region==='cn'?'未找到匹配的市场情报。':'No matching intelligence found.'}</div>`;
-});
-
-$("#archiveButton").addEventListener("click", () => { window.location.href = `archive/index.html?region=${region}`; });
-
-render();
+  function wire(host, items = r.news, limit = Infinity) {
+    let publisher = "",
+      q = "",
+      view = page === "home" ? "wire" : "cards";
+    const publishers = [...new Set(items.map((n) => n.source))];
+    host.innerHTML = `<div class="wire-tools"><input type="search" aria-label="${t("Filter headlines", "筛选标题")}" placeholder="${t("Filter headlines…", "筛选标题…")}"><div class="controls">${btn(t("Cards", "卡片"), 'data-view="cards"', view === 'cards')}${btn(t("Wire", "快讯"), 'data-view="wire"', view === 'wire')}</div><span class="wire-count mono"></span></div><div class="chips publishers">${btn(t("All publishers", "全部来源"), 'data-publisher=""', true)}${publishers.map((p) => btn(esc(p), `data-publisher="${esc(p)}"`)).join("")}</div><div class="news-grid"></div>`;
+    const render = () => {
+      const filtered = items.filter(
+        (n) => (!publisher || n.source === publisher) && (!q || n.title.toLowerCase().includes(q)),
+      );
+      $(".news-grid", host).className = `news-grid ${view}`;
+      $(".news-grid", host).innerHTML =
+        filtered.slice(0, limit).map(story).join("") || `<p>${t("No matching stories.", "未找到匹配报道。")}</p>`;
+      $(".wire-count", host).textContent = `${filtered.length} ${t("stories", "条报道")}`;
+    };
+    $("input", host).oninput = (e) => {
+      q = e.target.value.toLowerCase();
+      render();
+    };
+    host.onclick = (e) => {
+      const p = e.target.closest("[data-publisher]"),
+        v = e.target.closest("[data-view]");
+      if (p) {
+        publisher = p.dataset.publisher;
+        $$("[data-publisher]", host).forEach(
+          (b) => (b.classList.toggle("active", b === p), b.setAttribute("aria-pressed", b === p)),
+        );
+      }
+      if (v) {
+        view = v.dataset.view;
+        $$("[data-view]", host).forEach(
+          (b) => (b.classList.toggle("active", b === v), b.setAttribute("aria-pressed", b === v)),
+        );
+      }
+      if (p || v) render();
+    };
+    render();
+  }
+  return {
+    dateText,
+    reportTime,
+    params,
+    reports,
+    region,
+    r,
+    zh,
+    page,
+    root,
+    $,
+    $$,
+    t,
+    esc,
+    colors,
+    href,
+    heading,
+    btn,
+    delta,
+    spark,
+    story,
+    evidence,
+    sectorCards,
+    pulse,
+    chart,
+    wire,
+  };
+})();
